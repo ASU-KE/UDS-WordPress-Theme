@@ -1,4 +1,6 @@
 @import "../node_modules/@asu-ke-web-services/bootstrap4-theme/dist/css/bootstrap-asu";
+
+@import "theme/theme_variables";  // <-------- Temporary variables overrides for SASS variables missing in ASU Bootstrap (and required in understrap styles)
 @import "understrap/understrap";  // <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
 // @import "understrap/woocommerce"; // <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
 
