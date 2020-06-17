@@ -127,7 +127,7 @@ gulp.task( 'styles', function( callback ) {
 /**
  * Watches .scss, .js and image files for changes.
  * On change re-runs corresponding build task.
- * 
+ *
  * Run: gulp watch
  */
 gulp.task( 'watch', function() {
@@ -171,7 +171,7 @@ gulp.task(
 /**
  * Starts watcher with browser-sync.
  * Browser-sync reloads page automatically on your browser.
- * 
+ *
  * Run: gulp watch-bs
  */
 gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
@@ -221,24 +221,24 @@ gulp.task( 'copy-assets', function( done ) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
 	var stream = gulp
-		.src( paths.node + '/bootstrap/dist/js/**/*.js' )
+		.src( paths.node + '/@asu-ke-web-services/bootstrap4-theme/dist/js/**/*.js' )
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
 
-	// Copy all Bootstrap SCSS files
+	// Copy all Bootstrap image files
 	gulp
-		.src( paths.node + '/bootstrap/scss/**/*.scss' )
-		.pipe( gulp.dest( paths.dev + '/sass/bootstrap4' ) );
+		.src( paths.node + '/@asu-ke-web-services/bootstrap4-theme/dist/img/**/*' )
+		.pipe( gulp.dest( paths.dev + '/img/bootstrap4' ) );
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
 	// Copy all Font Awesome Fonts
 	gulp
-		.src( paths.node + '/font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}' )
+		.src( paths.node + '/@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}' )
 		.pipe( gulp.dest( paths.fonts ) );
 
 	// Copy all Font Awesome SCSS files
 	gulp
-		.src( paths.node + '/font-awesome/scss/*.scss' )
+		.src( paths.node + '/@fortawesome/fontawesome-free/scss/*.scss' )
 		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
 
 	done();
