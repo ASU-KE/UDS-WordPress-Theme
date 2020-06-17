@@ -2,5 +2,37 @@
 // To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
 // Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
 
+$enable-gradients:                            false;
 
-$primary: #5533ff; // Thats a sample how you could change a BootStrap variable.
+$grid-gutter-width:           24px;
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$component-active-color:      $white;
+$component-active-bg:         #8c1d40;
+
+$dropdown-item-padding-y:           .25rem;
+$dropdown-item-padding-x:           1.5rem;
+
+$font-weight-normal:          400;
+$dropdown-link-color:               $gray-900;
+$dropdown-link-hover-color:         darken($gray-900, 5%);
+$dropdown-link-hover-bg:            $gray-100;
+
+$dropdown-link-active-color:        $component-active-color;
+$dropdown-link-active-bg:           $component-active-bg;
+
+$dropdown-link-disabled-color:      $gray-600;
+
+$navbar-light-active-color:         rgba($black, .9);
+$navbar-dark-active-color:          $white;
