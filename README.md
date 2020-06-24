@@ -80,22 +80,23 @@ Once you have been able to install and run a local version of WordPress, clone t
 
 > TODO
 
+### A Note on Installing Dependencies from the ASU Unity Design System Package Repository ###
+The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
 
-### A Note on Installing Dependencies from the KE Github Package Repository ###
-Certain dependencies in this theme are loaded from the Knowledge Enterprise Github package repository, and require that you can authenticate yourself with a Personal Access Token in order to install them via the traditional `npm install` command. If you have not created a Github Personal Access Token for this purpose, follow the steps below. If you do have a Personal Access Token with the correct settings, you can proceed the final two steps.
+#### Creating a User Account and Saving your NPM Access Token
+1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com/
+2. Configure npm to use this private registry. Add the following line to the .npmrc file in my home directory (existing lines can be left in-place):
+	```
+	@asu-design-system:registry=http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+	```
 
-#### Creating and Using a Personal Access Token
-1. Sign in to the Github website
-1. Click on your profile image in the upper, right-hand corner and select 'Settings' from the menu
-1. From the settings page, select 'Developer settings'
-1. In Developer settings, click on 'Personal Access Tokens'
-Click on the 'Generate New Token' button
-1. In the note field, type a descriptive note so you'll remember what this token is for.
-1. From the list of checkboxes, make sure you check `read: packages`. That's the specific one you need for installing the packages. You can, of course, check others if you want a more general-purpose access token, but `read: packages` is required for this purpose
-1. Click the 'Generate Token' box at the bottom of the page. You should be taken to a page with your new token visible.
-1. **Copy the token**, or leave this page open for copying it later. Github will not display the token again, so this is the only screen where you will ever see it.
-1. Create a new file in your home directory named `.npmrc` if you do not have one already
-1. Edit your `.npmrc` file to include the line `//npm.pkg.github.com/:_authToken=your_token_here`, pasting in your new token to replace `your_token_here`, and save the file
+This config tells npm that all packages from ‘@asu-design-system’ should be grabbed from the ASU private registry. If it says you are not authorized, try to login using:
+
+	```
+	npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+	```
+
+Once you have successfully signed-in, npm will automatically save new line to your .npmrc, saving your login token for the future.
 
 ### Installing Dependencies
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
