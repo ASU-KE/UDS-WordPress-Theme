@@ -68,7 +68,17 @@ This is a WordPress theme, and you will need to have access, and administrative 
 * [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up
 * [VVV](https://varyingvagrantvagrants.org/)
 
+NOTE: As of 23 June 2020, the KE WordPress Theme Development Task Force (WP Power Rangers) are instructed to use [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up. This framework has been pre-installed with [WP Snapshots](https://github.com/10up/wpsnapshots) a utility that allows us to capture file and database snapshots that will be pushed to an AWS S3 bucket, and allow us to restore our local development sites quickly and efficiently.
+
+#### Install and Configure wp-local-docker
+
+> TODO
+
 Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
+
+#### Using WP Snapshots to Push/Pull website snapshots
+
+> TODO
 
 
 ### A Note on Installing Dependencies from the KE Github Package Repository ###
