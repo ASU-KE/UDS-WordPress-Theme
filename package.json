@@ -26,8 +26,8 @@
   "homepage": "https://understrap.com",
   "dependencies": {},
   "devDependencies": {
-    "@asu-ke-web-services/bootstrap4-theme": "^0.0.4",
-    "@asu-ke-web-services/design-tokens": "^0.0.2",
+    "@asu-design-system/bootstrap4-theme": "dev",
+    "@asu-design-system/design-tokens": "dev",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@fortawesome/fontawesome-free": "^5.9.0",
