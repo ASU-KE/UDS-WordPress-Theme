@@ -86,15 +86,16 @@ The ASU-produced packages in this theme are loaded from the ASU Unity Private NP
 #### Creating a User Account and Saving your NPM Access Token
 1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com/
 2. Configure npm to use this private registry. Add the following line to the .npmrc file in my home directory (existing lines can be left in-place):
-	```
-	@asu-design-system:registry=http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
-	```
+
+```
+@asu-design-system:registry=http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+```
 
 This config tells npm that all packages from ‘@asu-design-system’ should be grabbed from the ASU private registry. If it says you are not authorized, try to login using:
 
-	```
-	npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
-	```
+```
+npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+```
 
 Once you have successfully signed-in, npm will automatically save new line to your .npmrc, saving your login token for the future.
 
