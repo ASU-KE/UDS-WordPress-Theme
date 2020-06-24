@@ -101,6 +101,7 @@ Once you have successfully signed-in, npm will automatically save new line to yo
 ### Installing Dependencies
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
 - Then open your terminal and browse to the location of the theme
+- Run: `$ composer install`
 - Run: `$ npm install`
 
 ### Running
