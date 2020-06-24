@@ -221,24 +221,24 @@ gulp.task( 'copy-assets', function( done ) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
 	var stream = gulp
-		.src( paths.node + '/@asu-ke-web-services/bootstrap4-theme/dist/js/**/*.js' )
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/js/**/*.js' )
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
 
 	// Copy all Bootstrap image files
 	gulp
-		.src( paths.node + '/@asu-ke-web-services/bootstrap4-theme/dist/img/**/*' )
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*' )
 		.pipe( gulp.dest( paths.dev + '/img/bootstrap4' ) );
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
-	// Copy all Font Awesome Fonts
+	// Copy all Font Awesome webfonts
 	gulp
-		.src( paths.node + '/@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}' )
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/webfonts/*' )
 		.pipe( gulp.dest( paths.fonts ) );
 
 	// Copy all Font Awesome SCSS files
 	gulp
-		.src( paths.node + '/@fortawesome/fontawesome-free/scss/*.scss' )
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/scss/*.scss' )
 		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
 
 	done();
