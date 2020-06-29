@@ -75,10 +75,10 @@ $container = get_theme_mod('understrap_container_type');
 									</div>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Services</a>
+									<a class="nav-link" href="#">Students</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Contact</a>
+									<a class="nav-link" href="#">People</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">Contact</a>
