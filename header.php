@@ -32,7 +32,7 @@ $container = get_theme_mod('understrap_container_type');
 
 			<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'understrap'); ?></a>
 
-			<nav id="main-nav" class="navbar navbar-expand-lg static-top" aria-labelledby="main-nav-label">
+			<nav id="main-nav" class="navbar navbar-expand-lg navbar-light static-top" aria-labelledby="main-nav-label">
 
 				<h2 id="main-nav-label" class="sr-only">
 					<?php esc_html_e('Main Navigation', 'understrap'); ?>
@@ -75,10 +75,10 @@ $container = get_theme_mod('understrap_container_type');
 									</div>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Students</a>
+									<a class="nav-link" href="#">Services</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">People</a>
+									<a class="nav-link" href="#">Contact</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">Contact</a>
