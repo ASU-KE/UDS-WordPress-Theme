@@ -53,8 +53,313 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 			// If the input is a valid key, return it; otherwise, return the default.
 			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 
-		}
 
+		// ==============================================================
+		// ==============================================================
+		// = Remove Default Wordpress Customizer Controls and Sections  =
+		// ==============================================================
+		// ==============================================================
+		$wp_customize->remove_section('background_image');
+		$wp_customize->remove_section('colors');
+		$wp_customize->remove_section('header_image');
+
+		$wp_customize->remove_control('site_icon');
+		$wp_customize->remove_control('custom_logo');
+
+
+		//  =============================
+		//  =============================
+		//  = School Info Section       =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'understrap_theme_section',
+			array(
+				'title'      => __('School Information', 'asu_wordpress'),
+				'priority'   => 30,
+			)
+		);
+
+		//  =============================
+		//  = School Logo               =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[logo]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_logo_text',
+			array(
+				'label'      => __('School Logo Full URL', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[logo]',
+				'priority'   => 0,
+			)
+		);
+
+		//  =============================
+		//  = Parent Organization Text  =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[org]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_org_text',
+			array(
+				'label'      => __('Parent Organization', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[org]',
+				'priority'   => 1,
+			)
+		);
+
+		//  =============================
+		//  = Parent Organization Link  =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[org_link]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_org_link',
+			array(
+				'label'      => __('Parent Organization URL', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[org_link]',
+				'priority'   => 10,
+			)
+		);
+
+		//  =============================
+		//  = Contact Us Email or URL   =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[contact]',
+			array(
+				'default'        => '',
+				'capability'     => 'edit_theme_options',
+				'type'           => 'option',
+				'sanitize_callback' => 'understrap_sanitize_email_or_url',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_contact',
+			array(
+				'label'      => __('Contact Us Email or URL', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[contact]',
+				'priority'   => 50,
+			)
+		);
+
+		//  =============================
+		//  = Contact Us Email Subject  =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[contact_subject]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_contact_subject',
+			array(
+				'label'      => __('Contact Us Email Subject (Optional)', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[contact_subject]',
+				'priority'   => 60,
+			)
+		);
+
+		//  =============================
+		//  = Contact Us Email Body     =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[contact_body]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_contact_body',
+			array(
+				'label'    => __('Contact Us Email Body (Optional)', 'asu_wordpress'),
+				'section'  => 'understrap_theme_section',
+				'settings' => 'understrap_theme_options[contact_body]',
+				'type'     => 'textarea',
+				'priority' => 70,
+			)
+		);
+
+		//  =============================
+		//  = Contribute URL            =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[contribute]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_url',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_contribute',
+			array(
+				'label'      => __('Contribute URL (Optional)', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section',
+				'settings'   => 'understrap_theme_options[contribute]',
+				'priority'   => 80,
+			)
+		);
+
+		//  =============================
+		//  =============================
+		//  = 404 Image Section         =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'understrap_theme_section_404',
+			array(
+				'title'      => __('404 Image', 'asu_wordpress'),
+				'priority'   => 71,
+			)
+		);
+
+		//  =============================
+		//  = 404 Image                 =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[image_404]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'understrap_404',
+				array(
+					'label'      => __('404 Image', 'asu_wordpress'),
+					'section'    => 'understrap_theme_section_404',
+					'settings'   => 'understrap_theme_options[image_404]',
+				)
+			)
+		);
+
+		//  =============================
+		//  =============================
+		//  = ASU Search Section        =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'understrap_theme_section_asu_search',
+			array(
+				'title'      => __('ASU Search', 'asu_wordpress'),
+				'priority'   => 70,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'understrap_theme_options[asu_search]',
+			array(
+				'default'           => 'enable',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_asu_search',
+			array(
+				'label'      => __('ASU Search', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section_asu_search',
+				'settings'   => 'understrap_theme_options[asu_search]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'enable'  => 'enabled',
+					'disable' => 'disabled',
+				),
+			)
+		);
+
+		//  =============================
+		//  =============================
+		//  =Google Tag Manager Section =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'understrap_theme_section_asu_analytics',
+			array(
+				'title'      => __('ASU Analytics', 'asu_wordpress'),
+				'priority'   => 70,
+			)
+		);
+
+		//  =============================
+		//  = Tag Manager               =
+		//  =============================
+		$wp_customize->add_setting(
+			'understrap_theme_options[asu_analytics]',
+			array(
+				'default'           => 'enable',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'understrap_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'understrap_asu_analytics',
+			array(
+				'label'      => __('ASU Tag Manager', 'asu_wordpress'),
+				'section'    => 'understrap_theme_section_asu_analytics',
+				'settings'   => 'understrap_theme_options[asu_analytics]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'enable'  => 'enabled',
+					'disable' => 'disabled',
+				),
+			)
+		);
 	}
 } // End of if function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );
