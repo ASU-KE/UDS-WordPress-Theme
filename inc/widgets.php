@@ -122,53 +122,5 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			)
 		);
 
-		register_sidebar(
-			array(
-				'name'          => __( 'Hero Slider', 'asu-web-standards' ),
-				'id'            => 'hero',
-				'description'   => __( 'Hero slider area. Place two or more widgets here and they will slide!', 'asu-web-standards' ),
-				'before_widget' => '<div class="carousel-item">',
-				'after_widget'  => '</div>',
-				'before_title'  => '',
-				'after_title'   => '',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Hero Canvas', 'asu-web-standards' ),
-				'id'            => 'herocanvas',
-				'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'asu-web-standards' ),
-				'before_widget' => '',
-				'after_widget'  => '',
-				'before_title'  => '',
-				'after_title'   => '',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Top Full', 'asu-web-standards' ),
-				'id'            => 'statichero',
-				'description'   => __( 'Full top widget with dynamic grid', 'asu-web-standards' ),
-				'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s dynamic-classes">',
-				'after_widget'  => '</div><!-- .static-hero-widget -->',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Footer Full', 'asu-web-standards' ),
-				'id'            => 'footerfull',
-				'description'   => __( 'Full sized footer widget with dynamic grid', 'asu-web-standards' ),
-				'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
-				'after_widget'  => '</div><!-- .footer-widget -->',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
 	}
 } // End of function_exists( 'understrap_widgets_init' ).

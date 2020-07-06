@@ -11,10 +11,6 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-
-if ( is_front_page() ) {
-	get_template_part( 'global-templates/hero' );
-}
 ?>
 
 <div class="wrapper" id="full-width-page-wrapper">

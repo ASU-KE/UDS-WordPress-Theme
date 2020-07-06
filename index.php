@@ -19,10 +19,6 @@ get_header();
 // TODO: Custom Hero function
 ?>
 
-<?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
-<?php endif; ?>
-
 <div class="wrapper" id="index-wrapper">
 
 	<div class="container" id="content" tabindex="-1">
