@@ -22,10 +22,10 @@ get_header();
 			<?php
 			get_template_part( 'sidebar-templates/sidebar', 'left' );
 
-			if ( is_active_sidebar( 'left-sidebar' ) xor is_active_sidebar( 'right-sidebar' ) ) {
-				$class = 'col-md-8';
-			} elseif ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-				$class = 'col-md-4';
+			if ( is_active_sidebar( 'sidebar-left' ) xor is_active_sidebar( 'sidebar-right' ) ) {
+				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8
+			} elseif ( is_active_sidebar( 'sidebar-left' ) && is_active_sidebar( 'sidebar-right' ) ) {
+				$class = 'col-md-6';  // 2 Sidebars + Main: col-md-12 - col-md-3 - col-md-3 = col-md-6
 			} else {
 				$class = 'col-md-12';
 			}

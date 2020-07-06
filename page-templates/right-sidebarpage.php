@@ -19,7 +19,7 @@ get_header();
 
 		<div class="row">
 
-			<div class="<?php echo is_active_sidebar( 'right-sidebar' ) ? 'col-md-8' : 'col-md-12'; ?> content-area" id="primary">
+			<div class="<?php echo is_active_sidebar( 'sidebar-right' ) ? 'col-md-8' : 'col-md-12'; ?> content-area" id="primary">
 
 				<main class="site-main" id="main" role="main">
 

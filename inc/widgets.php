@@ -101,7 +101,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		register_sidebar(
 			array(
 				'name'          => __( 'Right Sidebar', 'asu-web-standards' ),
-				'id'            => 'right-sidebar',
+				'id'            => 'sidebar-right',
 				'description'   => __( 'Right sidebar widget area', 'asu-web-standards' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
@@ -113,7 +113,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		register_sidebar(
 			array(
 				'name'          => __( 'Left Sidebar', 'asu-web-standards' ),
-				'id'            => 'left-sidebar',
+				'id'            => 'sidebar-left',
 				'description'   => __( 'Left sidebar widget area', 'asu-web-standards' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',

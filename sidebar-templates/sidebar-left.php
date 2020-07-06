@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! is_active_sidebar( 'left-sidebar' ) ) {
+if ( ! is_active_sidebar( 'sidebar-left' ) ) {
 	return;
 }
 
@@ -21,6 +21,6 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 <?php else : ?>
 	<div class="col-md-4 widget-area" id="left-sidebar" role="complementary">
 <?php endif; ?>
-<?php dynamic_sidebar( 'left-sidebar' ); ?>
+<?php dynamic_sidebar( 'sidebar-left' ); ?>
 
 </div><!-- #left-sidebar -->
