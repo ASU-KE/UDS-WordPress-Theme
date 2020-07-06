@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package UnderStrap
+ * @package asu-web-standards-2020
  */
 
 // Exit if accessed directly.
