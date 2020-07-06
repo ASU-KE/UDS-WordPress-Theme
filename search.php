@@ -33,7 +33,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 								<?php
 								printf(
 									/* translators: %s: query term */
-									esc_html__( 'Search Results for: %s', 'understrap' ),
+									esc_html__( 'Search Results for: %s', 'asu-web-standards' ),
 									'<span>' . get_search_query() . '</span>'
 								);
 								?>

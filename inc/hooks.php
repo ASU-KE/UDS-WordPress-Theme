@@ -27,21 +27,21 @@ if ( ! function_exists( 'understrap_add_site_info' ) ) {
 
 		$site_info = sprintf(
 			'<a href="%1$s">%2$s</a><span class="sep"> | </span>%3$s(%4$s)',
-			esc_url( __( 'http://wordpress.org/', 'understrap' ) ),
+			esc_url( __( 'http://wordpress.org/', 'asu-web-standards' ) ),
 			sprintf(
 				/* translators: WordPress */
-				esc_html__( 'Proudly powered by %s', 'understrap' ),
+				esc_html__( 'Proudly powered by %s', 'asu-web-standards' ),
 				'WordPress'
 			),
 			sprintf( // WPCS: XSS ok.
 				/* translators: 1: Theme name, 2: Theme author */
-				esc_html__( 'Theme: %1$s by %2$s.', 'understrap' ),
+				esc_html__( 'Theme: %1$s by %2$s.', 'asu-web-standards' ),
 				$the_theme->get( 'Name' ),
-				'<a href="' . esc_url( __( 'http://understrap.com', 'understrap' ) ) . '">understrap.com</a>'
+				'<a href="' . esc_url( __( 'http://understrap.com', 'asu-web-standards' ) ) . '">understrap.com</a>'
 			),
 			sprintf( // WPCS: XSS ok.
 				/* translators: Theme version */
-				esc_html__( 'Version: %1$s', 'understrap' ),
+				esc_html__( 'Version: %1$s', 'asu-web-standards' ),
 				$the_theme->get( 'Version' )
 			)
 		);

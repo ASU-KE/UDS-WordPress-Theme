@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-			<span class="sr-only"><?php esc_html_e( 'Previous', 'understrap' ); ?></span>
+			<span class="sr-only"><?php esc_html_e( 'Previous', 'asu-web-standards' ); ?></span>
 
 		</a>
 
@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-			<span class="sr-only"><?php esc_html_e( 'Next', 'understrap' ); ?></span>
+			<span class="sr-only"><?php esc_html_e( 'Next', 'asu-web-standards' ); ?></span>
 
 		</a>
 

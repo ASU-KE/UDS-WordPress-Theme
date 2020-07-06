@@ -28,9 +28,9 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on understrap, use a find and replace
-		 * to change 'understrap' to the name of your theme in all the template files
+		 * to change 'asu-web-standards' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'understrap', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'asu-web-standards', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -46,7 +46,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'understrap' ),
+				'primary' => __( 'Primary Menu', 'asu-web-standards' ),
 			)
 		);
 
@@ -149,7 +149,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 		if ( ! is_admin() ) {
 			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
-				'understrap'
+				'asu-web-standards'
 			) . '</a></p>';
 		}
 		return $post_excerpt;

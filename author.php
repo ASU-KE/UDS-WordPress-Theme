@@ -35,7 +35,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					}
 					?>
 
-					<h1><?php echo esc_html__( 'About:', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
+					<h1><?php echo esc_html__( 'About:', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
 
 					<?php
 					if ( ! empty( $curauth->ID ) ) {
@@ -46,20 +46,20 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
 							<?php if ( ! empty( $curauth->user_url ) ) : ?>
-								<dt><?php esc_html_e( 'Website', 'understrap' ); ?></dt>
+								<dt><?php esc_html_e( 'Website', 'asu-web-standards' ); ?></dt>
 								<dd>
 									<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
 								</dd>
 							<?php endif; ?>
 
 							<?php if ( ! empty( $curauth->user_description ) ) : ?>
-								<dt><?php esc_html_e( 'Profile', 'understrap' ); ?></dt>
+								<dt><?php esc_html_e( 'Profile', 'asu-web-standards' ); ?></dt>
 								<dd><?php echo esc_html( $curauth->user_description ); ?></dd>
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html__( 'Posts by', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h2><?php echo esc_html__( 'Posts by', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
 
 				</header><!-- .page-header -->
 					<!-- The Loop -->
@@ -72,11 +72,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 								printf(
 									'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
 									esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-									esc_attr( __( 'Permanent Link:', 'understrap' ) ),
+									esc_attr( __( 'Permanent Link:', 'asu-web-standards' ) ),
 									get_the_title()
 								);
 								understrap_posted_on();
-								esc_html_e( 'in', 'understrap' );
+								esc_html_e( 'in', 'asu-web-standards' );
 								the_category( '&' );
 							echo '</li>';
 						}

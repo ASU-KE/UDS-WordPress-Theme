@@ -100,9 +100,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 	function understrap_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Right Sidebar', 'understrap' ),
+				'name'          => __( 'Right Sidebar', 'asu-web-standards' ),
 				'id'            => 'right-sidebar',
-				'description'   => __( 'Right sidebar widget area', 'understrap' ),
+				'description'   => __( 'Right sidebar widget area', 'asu-web-standards' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -112,9 +112,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Left Sidebar', 'understrap' ),
+				'name'          => __( 'Left Sidebar', 'asu-web-standards' ),
 				'id'            => 'left-sidebar',
-				'description'   => __( 'Left sidebar widget area', 'understrap' ),
+				'description'   => __( 'Left sidebar widget area', 'asu-web-standards' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -124,9 +124,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Hero Slider', 'understrap' ),
+				'name'          => __( 'Hero Slider', 'asu-web-standards' ),
 				'id'            => 'hero',
-				'description'   => __( 'Hero slider area. Place two or more widgets here and they will slide!', 'understrap' ),
+				'description'   => __( 'Hero slider area. Place two or more widgets here and they will slide!', 'asu-web-standards' ),
 				'before_widget' => '<div class="carousel-item">',
 				'after_widget'  => '</div>',
 				'before_title'  => '',
@@ -136,9 +136,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Hero Canvas', 'understrap' ),
+				'name'          => __( 'Hero Canvas', 'asu-web-standards' ),
 				'id'            => 'herocanvas',
-				'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'understrap' ),
+				'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'asu-web-standards' ),
 				'before_widget' => '',
 				'after_widget'  => '',
 				'before_title'  => '',
@@ -148,9 +148,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Top Full', 'understrap' ),
+				'name'          => __( 'Top Full', 'asu-web-standards' ),
 				'id'            => 'statichero',
-				'description'   => __( 'Full top widget with dynamic grid', 'understrap' ),
+				'description'   => __( 'Full top widget with dynamic grid', 'asu-web-standards' ),
 				'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s dynamic-classes">',
 				'after_widget'  => '</div><!-- .static-hero-widget -->',
 				'before_title'  => '<h3 class="widget-title">',
@@ -160,9 +160,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Footer Full', 'understrap' ),
+				'name'          => __( 'Footer Full', 'asu-web-standards' ),
 				'id'            => 'footerfull',
-				'description'   => __( 'Full sized footer widget with dynamic grid', 'understrap' ),
+				'description'   => __( 'Full sized footer widget with dynamic grid', 'asu-web-standards' ),
 				'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
 				'after_widget'  => '</div><!-- .footer-widget -->',
 				'before_title'  => '<h3 class="widget-title">',

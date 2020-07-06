@@ -50,11 +50,11 @@ if ( ! function_exists( 'understrap_pagination' ) ) {
 			array(
 				'mid_size'           => 2,
 				'prev_next'          => true,
-				'prev_text'          => __( '&laquo;', 'understrap' ),
-				'next_text'          => __( '&raquo;', 'understrap' ),
+				'prev_text'          => __( '&laquo;', 'asu-web-standards' ),
+				'next_text'          => __( '&raquo;', 'asu-web-standards' ),
 				'type'               => 'array',
 				'current'            => max( 1, get_query_var( 'paged' ) ),
-				'screen_reader_text' => __( 'Posts navigation', 'understrap' ),
+				'screen_reader_text' => __( 'Posts navigation', 'asu-web-standards' ),
 			)
 		);
 

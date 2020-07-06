@@ -26,8 +26,8 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 	$get_addresses = apply_filters(
 		'woocommerce_my_account_get_addresses',
 		array(
-			'billing'  => __( 'Billing address', 'understrap' ),
-			'shipping' => __( 'Shipping address', 'understrap' ),
+			'billing'  => __( 'Billing address', 'asu-web-standards' ),
+			'shipping' => __( 'Shipping address', 'asu-web-standards' ),
 		),
 		$customer_id
 	);
@@ -35,7 +35,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 	$get_addresses = apply_filters(
 		'woocommerce_my_account_get_addresses',
 		array(
-			'billing' => __( 'Billing address', 'understrap' ),
+			'billing' => __( 'Billing address', 'asu-web-standards' ),
 		),
 		$customer_id
 	);
@@ -46,7 +46,7 @@ $col    = 1;
 ?>
 
 <p>
-	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', esc_html__( 'The following addresses will be used on the checkout page by default.', 'understrap' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', esc_html__( 'The following addresses will be used on the checkout page by default.', 'asu-web-standards' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </p>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
@@ -58,12 +58,12 @@ $col    = 1;
 	<div class="u-column woocommerce-Address">
 		<header class="woocommerce-Address-title title">
 			<h3><?php echo esc_html( $address_title ); ?></h3>
-			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php esc_html_e( 'Edit', 'understrap' ); ?></a>
+			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php esc_html_e( 'Edit', 'asu-web-standards' ); ?></a>
 		</header>
 		<address>
 		<?php
 			$address = wc_get_account_formatted_address( $name );
-			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'understrap' );
+			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'asu-web-standards' );
 		?>
 		</address>
 	</div>

@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'asu-web-standards' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php edit_post_link( __( 'Edit', 'understrap' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'asu-web-standards' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer><!-- .entry-footer -->
 
