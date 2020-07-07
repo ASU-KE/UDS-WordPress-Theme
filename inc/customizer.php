@@ -29,6 +29,42 @@ if (!function_exists('asu_wp2020_customize_register')) {
 }
 add_action('customize_register', 'asu_wp2020_customize_register');
 
+
+/**
+ * Sanitizer that does nothing
+ */
+function asu_wp2020_sanitize_nothing($data)
+{
+	return $data;
+}
+
+/**
+ * Sanitizer that checks if the data is an url
+ */
+function asu_wp2020_sanitize_url($data)
+{
+	// TODO check that $data is an email or url
+	return $data;
+}
+
+/**
+ * Sanitizer that checks if the data is an email or url
+ */
+function asu_wp2020_sanitize_email_or_url($data)
+{
+	// TODO check that $data is an email or url
+	return $data;
+}
+
+/**
+ * Sanitizer that checks if the data is a phone number
+ */
+function asu_wp2020_sanitize_phone($data)
+{
+	// TODO check that $data is a phone number
+	return $data;
+}
+
 if (!function_exists('asu_wp2020_theme_customize_register')) {
 	/**
 	 * Register individual settings through customizer's API.
@@ -82,10 +118,10 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		$wp_customize->add_setting(
-			'asu_wp2020_sidebar_position',
+			'asu_wp2020_theme_options[sidebars]',
 			array(
-				'default'           => 'right',
-				'type'              => 'theme_mod',
+				'default'           => 'left',
+				'type'              => 'option',
 				'sanitize_callback' => 'sanitize_text_field',
 				'capability'        => 'edit_theme_options',
 			)
@@ -102,7 +138,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 						'asu-web-standards'
 					),
 					'section'           => 'asu_wp2020_theme_layout_options',
-					'settings'          => 'asu_wp2020_sidebar_position',
+					'settings'          => 'asu_wp2020_theme_options[sidebars]',
 					'type'              => 'select',
 					'sanitize_callback' => 'asu_wp2020_theme_slug_sanitize_select',
 					'choices'           => array(
