@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 			<div class="row">
 
 				<div class="col-md" id="endorsed-logo">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="ASU University Technology Office Arizona State University." />
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/endorsed-logo/asu_universitytechoffice_horiz_rgb_white_150ppi.png" alt="ASU University Technology Office Arizona State University." />
 				</div>
 
 				<div class="col-md" id="social-media">
