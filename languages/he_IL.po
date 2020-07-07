@@ -142,10 +142,6 @@ msgctxt "noun"
 msgid "Comment"
 msgstr "תגובה"
 
-#: inc/custom-header.php:38
-msgid "Default Header Image"
-msgstr "תמונת כותרת כללית"
-
 #: inc/customizer.php:37
 msgid "Theme Layout Settings"
 msgstr "הגדרות מערך"
