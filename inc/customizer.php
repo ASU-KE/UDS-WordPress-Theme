@@ -1,7 +1,7 @@
 <?php
 
 /**
- * UnderStrap Theme Customizer
+ * ASU Web Standards 2020 Theme Customizer
  *
  * @package asu-web-standards-2020
  */

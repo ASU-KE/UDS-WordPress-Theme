@@ -1,6 +1,6 @@
 <?php
 /**
- * UnderStrap enqueue scripts
+ * ASU Web Standards 2020 Theme enqueue scripts
  *
  * @package asu-web-standards-2020
  */

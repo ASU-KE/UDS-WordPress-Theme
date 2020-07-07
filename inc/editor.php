@@ -1,6 +1,6 @@
 <?php
 /**
- * UnderStrap modify editor
+ * ASU Web Standards 2020 Theme modify editor
  *
  * @package asu-web-standards-2020
  */

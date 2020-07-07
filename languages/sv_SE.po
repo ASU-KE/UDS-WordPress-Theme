@@ -285,8 +285,8 @@ msgid "Edit"
 msgstr "Ändra"
 
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
+msgstr "ASU Web Standards 2020 Theme"
 
 #. Theme URI of the theme
 msgid "http://understrap.com"

@@ -378,8 +378,8 @@ msgid "Choose how many columns to use"
 msgstr "Kies het aantal kolommen"
 
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
+msgstr "ASU Web Standards 2020 Theme"
 
 #. Description of the theme
 msgid ""

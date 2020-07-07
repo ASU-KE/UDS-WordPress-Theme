@@ -1,6 +1,6 @@
 <?php
 /**
- * UnderStrap functions and definitions
+ * ASU Web Standards 2020 Theme functions and definitions
  *
  * @package asu-web-standards-2020
  */

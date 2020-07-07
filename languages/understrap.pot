@@ -399,7 +399,7 @@ msgid "Choose how many columns to use"
 msgstr ""
 
 #. Name of the theme
-msgid "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
 msgstr ""
 
 #. Description of the theme
