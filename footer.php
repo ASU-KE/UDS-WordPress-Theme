@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 			<div class="row">
 
 				<div class="col-md" id="endorsed-logo">
-					<img src="wp-content/themes/asu-web-standards-2020-wordpress-theme/img/logo/asu_university_vert_maroongold.png" alt="ASU University Technology Office Arizona State University." />
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="ASU University Technology Office Arizona State University." />
 				</div>
 
 				<div class="col-md" id="social-media">
@@ -156,7 +156,7 @@ defined('ABSPATH') || exit;
 			<div class="row">
 				<div class="col">
 					<div class="d-flex footer-innovation-links">
-						<img src="wp-content/themes/asu-web-standards-2020-wordpress-theme/img/innovation-lockup/on-gold/200420-GlobalFooter-No1InnovationLockup.png" alt="Number one in the U.S. for innovation. #1 ASU, #2 Stanford, #3 MIT. - U.S. News and World Report, 5 years, 2016-2020">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/innovation-lockup/on-gold/200420-GlobalFooter-No1InnovationLockup.png" alt="Number one in the U.S. for innovation. #1 ASU, #2 Stanford, #3 MIT. - U.S. News and World Report, 5 years, 2016-2020">
 						<nav class="nav" aria-label="University Services">
 							<a class="nav-link" href="https://www.asu.edu/map/">Maps and Locations</a>
 							<a class="nav-link" href="https://www.asu.edu/asujobs">Jobs</a>

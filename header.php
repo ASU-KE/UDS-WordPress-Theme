@@ -38,7 +38,7 @@ defined('ABSPATH') || exit;
 				<div class="container">
 
 					<a class="navbar-brand" href="#">
-						<img src="wp-content/themes/asu-web-standards-2020-wordpress-theme/img/logo/asu_university_vert_maroongold.png" alt="ASU Logo Vertical" />
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="ASU Logo Vertical" />
 					</a>
 
 					<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
