@@ -231,15 +231,10 @@ gulp.task( 'copy-assets', function( done ) {
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
-	// Copy all Font Awesome webfonts
+	// Copy Font Awesome JS (Auto-replaces FA <i>/<span> tags with SVGs)
 	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/webfonts/*' )
-		.pipe( gulp.dest( paths.fonts ) );
-
-	// Copy all Font Awesome SCSS files
-	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/scss/*.scss' )
-		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/js/*' )
+		.pipe( gulp.dest( paths.js + '/fontawesome' ) );
 
 	done();
 } );
@@ -251,6 +246,7 @@ gulp.task( 'clean-vendor-assets', function() {
 		paths.dev + '/sass/bootstrap4',
 		paths.fonts + '/*wesome*.{ttf,woff,woff2,eot,svg}',
 		paths.dev + '/sass/fontawesome',
+		paths.js + '/fontawesome',
 		paths.js + paths.vendor,
 	] );
 } );
