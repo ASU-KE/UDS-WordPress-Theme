@@ -17,7 +17,7 @@ get_header();
 
 		<div class="row">
 
-			<!-- Do the left sidebar check -->
+			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
@@ -37,7 +37,7 @@ get_header();
 
 			</main><!-- #main -->
 
-			<!-- Do the right sidebar check -->
+			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
 		</div><!-- .row -->

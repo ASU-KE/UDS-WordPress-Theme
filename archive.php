@@ -19,7 +19,7 @@ get_header();
 
 		<div class="row">
 
-			<!-- Do the left sidebar check -->
+			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
@@ -55,7 +55,8 @@ get_header();
 			<?php
 			// Display the pagination component.
 			asu_wp2020_pagination();
-			// Do the right sidebar check.
+
+			// Check for the right sidebar.
 			get_template_part( 'templates-global/right-sidebar-check' );
 			?>
 
