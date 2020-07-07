@@ -9,6 +9,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// TODO: Custom Hero function
 ?>
 
 <div class="wrapper" id="search-wrapper">
