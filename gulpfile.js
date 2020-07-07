@@ -48,7 +48,7 @@ gulp.task( 'sass', function() {
  */
 gulp.task( 'imagemin', () =>
 	gulp
-		.src( paths.imgsrc + '/**' )
+		.src( [paths.imgsrc + '/bootstrap4/**/*'] )
 		.pipe(
 			imagemin(
 				[
@@ -321,7 +321,7 @@ gulp.task(
 // Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task
-gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'dist' ) );
+gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'imagemin', 'dist' ) );
 
 // Run:
 // gulp
