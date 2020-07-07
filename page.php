@@ -1,6 +1,9 @@
 <?php
 /**
- * The template for displaying all pages
+ * Default Layout - Fixed Width
+ *
+ * Template for displaying a fixed-width page with sidebars,
+ * if sidebars are enabled in the Customizer.
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -14,6 +17,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// TODO: Custom Hero function
 ?>
 
 <div class="wrapper" id="page-wrapper">
@@ -22,24 +27,37 @@ get_header();
 
 		<div class="row">
 
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+			<?php
+			get_template_part( 'templates-sidebar/sidebar', 'left' );
 
-			<main class="site-main" id="main">
+			if ( is_active_sidebar( 'sidebar-left' ) xor is_active_sidebar( 'sidebar-right' ) ) {
+				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8
+			} elseif ( is_active_sidebar( 'sidebar-left' ) && is_active_sidebar( 'sidebar-right' ) ) {
+				$class = 'col-md-6';  // 2 Sidebars + Main: col-md-12 - col-md-3 - col-md-3 = col-md-6
+			} else {
+				$class = 'col-md-12';
+			}
+			?>
 
-				<?php
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'templates-loop/content', 'page' );
+			<div class="<?php echo $class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> content-area" id="primary">
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
+				<main class="site-main" id="main">
+
+					<?php
+					while ( have_posts() ) {
+						the_post();
+						get_template_part( 'templates-loop/content', 'page' );
+
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						}
 					}
-				}
-				?>
+					?>
 
-			</main><!-- #main -->
+				</main><!-- #main -->
+
+			</div><!-- #primary -->
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>

@@ -2,7 +2,7 @@
 /**
  * Template Name: Full Width Page
  *
- * Template for displaying a page without sidebar even if a sidebar widget is published.
+ * Template for displaying a full-width page without sidebars, even if a sidebar widget is published.
  *
  * @package asu-web-standards-2020
  */
@@ -17,7 +17,7 @@ get_header();
 
 <div class="wrapper" id="full-width-page-wrapper">
 
-	<div class="container" id="content">
+	<div class="container-fluid" id="content">
 
 		<div class="row">
 
