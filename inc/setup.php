@@ -92,21 +92,6 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'understrap_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
-
-		// Set up the WordPress Theme logo feature.
-		add_theme_support( 'custom-logo' );
-
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
