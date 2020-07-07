@@ -181,12 +181,7 @@ gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
 // Uglifies and concat all JS files into one
 gulp.task( 'scripts', function() {
 	var scripts = [
-		// Start - All BS4 stuff
 		paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
-		paths.dev + '/js/themejs/*.js',
-
-		// End - All BS4 stuff
-
 		paths.dev + '/js/skip-link-focus-fix.js',
 
 		// Adding currently empty javascript file to add on for your own themes´ customizations
