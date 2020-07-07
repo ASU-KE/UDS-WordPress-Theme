@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UnderStrap Theme Customizer
  *
@@ -6,28 +7,29 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-if ( ! function_exists( 'understrap_customize_register' ) ) {
+if (!function_exists('understrap_customize_register')) {
 	/**
 	 * Register basic customizer support.
 	 *
 	 * @param object $wp_customize Customizer reference.
 	 */
-	function understrap_customize_register( $wp_customize ) {
-		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	function understrap_customize_register($wp_customize)
+	{
+		$wp_customize->get_setting('blogname')->transport         = 'postMessage';
+		$wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
+		$wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
 	}
 }
-add_action( 'customize_register', 'understrap_customize_register' );
+add_action('customize_register', 'understrap_customize_register');
 
-if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
+if (!function_exists('understrap_theme_customize_register')) {
 	/**
 	 * Register individual settings through customizer's API.
 	 *
@@ -42,17 +44,18 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 		 * @param WP_Customize_Setting $setting Setting instance.
 		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 		 */
-		function understrap_theme_slug_sanitize_select( $input, $setting ) {
+		function understrap_theme_slug_sanitize_select($input, $setting)
+		{
 
 			// Ensure input is a slug (lowercase alphanumeric characters, dashes and underscores are allowed only).
-			$input = sanitize_key( $input );
+			$input = sanitize_key($input);
 
 			// Get the list of possible select options.
-			$choices = $setting->manager->get_control( $setting->id )->choices;
+			$choices = $setting->manager->get_control($setting->id)->choices;
 
 			// If the input is a valid key, return it; otherwise, return the default.
-			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
-
+			return (array_key_exists($input, $choices) ? $input : $setting->default);
+		}
 
 		// ==============================================================
 		// ==============================================================
