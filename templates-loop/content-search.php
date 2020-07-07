@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php asu_wp2020_entry_footer(); ?>
+		<?php // asu_wp2020_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 

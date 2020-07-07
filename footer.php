@@ -11,8 +11,6 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<?php get_template_part( 'templates-sidebar/sidebar', 'footerfull' ); ?>
-
 <div class="wrapper" id="wrapper-footer">
 
 	<div class="container">
@@ -24,8 +22,6 @@ defined( 'ABSPATH' ) || exit;
 				<footer class="site-footer" id="colophon">
 
 					<div class="site-info">
-
-						<?php asu_wp2020_site_info(); ?>
 
 					</div><!-- .site-info -->
 
