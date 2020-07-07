@@ -1,18 +1,18 @@
 {
-  "name": "understrap",
-  "version": "0.9.4",
-  "description": "WordPress Theme framework",
+  "name": "asu-web-standards-2020-wordpress-theme",
+  "version": "0.0.1",
+  "description": "ASU Web Standards 2.0 WordPress Theme",
   "main": "index.js",
+  "repository": "git://github.com/asu-ke-web-services/asu-web-standards-2020-wordpress-theme.git",
+  "bugs": {
+    "url": "https://github.com/asu-ke-web-services/asu-web-standards-2020-wordpress-theme/issues"
+  },
   "scripts": {
     "postinstall": "gulp copy-assets"
   },
   "engines": {
     "node": ">=10",
     "npm": ">=2.1.8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/understrap/understrap.git"
   },
   "keywords": [
     "wordpress",
@@ -23,19 +23,17 @@
   ],
   "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
   "license": "GPL-2.0",
-  "bugs": {
-    "url": "https://github.com/understrap/understrap/issues"
-  },
   "homepage": "https://understrap.com",
   "dependencies": {},
   "devDependencies": {
+    "@asu-ke-web-services/bootstrap4-theme": "^0.0.4",
+    "@asu-ke-web-services/design-tokens": "^0.0.2",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "autoprefixer": "^9.8.0",
-    "bootstrap": "^4.5.0",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
-    "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -46,6 +44,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "popper.js": "^1.16.1"
   }
 }
