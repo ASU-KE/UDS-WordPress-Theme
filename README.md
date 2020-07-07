@@ -41,9 +41,9 @@ This theme is built on top of [Understrap](https://understrap.com), with minor a
 | ------------------------------- | -------------------------------------------------------------------------- |
 | **functions.php**               | A lean file that loads code from multiple files in the **/inc** directory  |
 | **/inc**                        | WordPress hooks and callbacks, organized by their purpose in the theme and loaded into **functions.php** at runtime     |
-| **/loop-templates**             | Partial templates for displaying content from posts and pages (the WordPress 'loop')                                     |
-| **/page-templates**  | Multiple full-page layout templates  |
-| **/sidebar-templates**          | Templates for the various widget areas in the theme (aka 'sidebars')    |
+| **/templates-loop**             | Partial templates for displaying content from posts and pages (the WordPress 'loop')                                     |
+| **/templates-page**  | Multiple full-page layout templates  |
+| **/templates-sidebar**          | Templates for the various widget areas in the theme (aka 'sidebars')    |
 | **/sass/theme/_theme**   | An SCSS file for styling rules that are not covered by the Bootstrap theme, or other SCSS files in the **/sass** directory. The first place to put your custom styles                                               |
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)

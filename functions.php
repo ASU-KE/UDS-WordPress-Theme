@@ -1,14 +1,14 @@
 <?php
 /**
- * UnderStrap functions and definitions
+ * ASU Web Standards 2020 Theme functions and definitions
  *
- * @package UnderStrap
+ * @package asu-web-standards-2020
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$understrap_includes = array(
+$asu_wp2020_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/widgets.php',                         // Register widget area.
@@ -21,11 +21,10 @@ $understrap_includes = array(
 	'/custom-comments.php',                 // Custom Comments file.
 	'/jetpack.php',                         // Load Jetpack compatibility file.
 	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker. Trying to get deeper navigation? Check out: https://github.com/understrap/understrap/issues/567.
-	'/woocommerce.php',                     // Load WooCommerce functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ( $understrap_includes as $file ) {
+foreach ( $asu_wp2020_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }

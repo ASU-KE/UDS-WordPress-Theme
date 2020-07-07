@@ -48,7 +48,7 @@ gulp.task( 'sass', function() {
  */
 gulp.task( 'imagemin', () =>
 	gulp
-		.src( paths.imgsrc + '/**' )
+		.src( [paths.imgsrc + '/bootstrap4/**/*'] )
 		.pipe(
 			imagemin(
 				[
@@ -181,12 +181,7 @@ gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
 // Uglifies and concat all JS files into one
 gulp.task( 'scripts', function() {
 	var scripts = [
-		// Start - All BS4 stuff
 		paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
-		paths.dev + '/js/themejs/*.js',
-
-		// End - All BS4 stuff
-
 		paths.dev + '/js/skip-link-focus-fix.js',
 
 		// Adding currently empty javascript file to add on for your own themes´ customizations
@@ -231,15 +226,10 @@ gulp.task( 'copy-assets', function( done ) {
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
-	// Copy all Font Awesome webfonts
+	// Copy Font Awesome JS (Auto-replaces FA <i>/<span> tags with SVGs)
 	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/webfonts/*' )
-		.pipe( gulp.dest( paths.fonts ) );
-
-	// Copy all Font Awesome SCSS files
-	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/scss/*.scss' )
-		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/js/*' )
+		.pipe( gulp.dest( paths.js + '/fontawesome' ) );
 
 	done();
 } );
@@ -251,6 +241,7 @@ gulp.task( 'clean-vendor-assets', function() {
 		paths.dev + '/sass/bootstrap4',
 		paths.fonts + '/*wesome*.{ttf,woff,woff2,eot,svg}',
 		paths.dev + '/sass/fontawesome',
+		paths.js + '/fontawesome',
 		paths.js + paths.vendor,
 	] );
 } );
@@ -330,7 +321,7 @@ gulp.task(
 // Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task
-gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'dist' ) );
+gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'imagemin', 'dist' ) );
 
 // Run:
 // gulp

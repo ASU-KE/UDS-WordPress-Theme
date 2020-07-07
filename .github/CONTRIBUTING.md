@@ -1,4 +1,4 @@
-# Contributing to the UnderStrap Project
+# Contributing to the ASU Web Standards 2020 Theme Project
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug

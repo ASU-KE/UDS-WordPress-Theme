@@ -2,9 +2,6 @@
 
 //@import "theme/theme_variables";  // <-------- Temporary variables overrides for SASS variables missing in ASU Bootstrap (and required in understrap styles)
 //@import "understrap/understrap";  // <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
-// @import "understrap/woocommerce"; // <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
-
-@import "assets/font-awesome";    // <-------- Font Awesome Icon font
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!

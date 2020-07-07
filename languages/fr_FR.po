@@ -41,7 +41,7 @@ msgstr ""
 "X-Poedit-SearchPath-17: hero.php\n"
 "X-Poedit-SearchPath-18: page.php\n"
 "X-Poedit-SearchPath-19: functions.php\n"
-"X-Poedit-SearchPath-20: page-templates\n"
+"X-Poedit-SearchPath-20: templates-page\n"
 "X-Poedit-SearchPath-21: inc\n"
 
 #: search.php:29
@@ -146,29 +146,29 @@ msgstr "Rechercher"
 msgid "Search &hellip;"
 msgstr "Recherche &hellip;"
 
-#: loop-templates/content-card.php:43 loop-templates/content-page.php:25
-#: loop-templates/content.php:37 loop-templates/content-single.php:31
-#: loop-templates/content-verticalpage.php:28
+#: templates-loop/content-card.php:43 templates-loop/content-page.php:25
+#: templates-loop/content.php:37 templates-loop/content-single.php:31
+#: templates-loop/content-verticalpage.php:28
 msgid "Pages:"
 msgstr "Pages: "
 
-#: loop-templates/content-page.php:34
-#: loop-templates/content-verticalpage.php:37
+#: templates-loop/content-page.php:34
+#: templates-loop/content-verticalpage.php:37
 msgid "Edit"
 msgstr "Editer"
 
-#: loop-templates/content-none.php:15
+#: templates-loop/content-none.php:15
 msgid "Nothing Found"
 msgstr "Non trouvé"
 
-#: loop-templates/content-none.php:23
+#: templates-loop/content-none.php:23
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 "Prêt à publier votre premier article ? <a href=\"%1$s\">Démarrer ici</a>."
 
-#: loop-templates/content-none.php:28
+#: templates-loop/content-none.php:28
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -176,7 +176,7 @@ msgstr ""
 "Désolé, rien ne correspond à votre recherche. Veuillez réessayer avec "
 "d'autres termes."
 
-#: loop-templates/content-none.php:34
+#: templates-loop/content-none.php:34
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -404,360 +404,9 @@ msgstr "Grille en colonne"
 msgid "Choose how many columns to use"
 msgstr "Combien de colonnes"
 
-#: woocommerce/cart/proceed-to-checkout-button.php:27
-msgid "Proceed to Checkout"
-msgstr "Finaliser la commande"
-
-#: woocommerce/cart/mini-cart.php:49 woocommerce/cart/cart.php:60
-msgid "Remove this item"
-msgstr "Enlever cet article"
-
-#: woocommerce/cart/mini-cart.php:72
-msgid "No products in the cart."
-msgstr "Le panier est vide"
-
-#: woocommerce/cart/mini-cart.php:80
-msgid "Subtotal"
-msgstr "Sous-total"
-
-#: woocommerce/cart/mini-cart.php:85
-msgid "View Cart"
-msgstr "Voir le panier"
-
-#: woocommerce/cart/mini-cart.php:86
-msgid "Checkout"
-msgstr "Commander"
-
-#: woocommerce/cart/cart-empty.php:28
-msgid "Your cart is currently empty."
-msgstr "Votre panier est vide."
-
-#: woocommerce/cart/cart-empty.php:36
-msgid "Return To Shop"
-msgstr "Poursuivre ses achats"
-
-#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:79
-#: woocommerce/checkout/form-pay.php:29
-msgid "Product"
-msgstr "Produit"
-
-#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:97
-msgid "Price"
-msgstr "Prix"
-
-#: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:103
-msgid "Quantity"
-msgstr "Quantité"
-
-#: woocommerce/cart/cart.php:39 woocommerce/cart/cart.php:120
-#: woocommerce/myaccount/my-orders.php:16
-msgid "Total"
-msgstr "Total"
-
-#: woocommerce/cart/cart.php:92
-msgid "Available on backorder"
-msgstr "Disponible sur commande"
-
-#: woocommerce/cart/cart.php:138
-msgid "Coupon:"
-msgstr "Promotion:"
-
-#: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:36
-msgid "Coupon code"
-msgstr "Code promotionnel"
-
-#: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:40
-msgid "Apply Coupon"
-msgstr "Appliquer la promotion"
-
-#: woocommerce/cart/cart.php:144
-msgid "Update Cart"
-msgstr "Rafraîchir le panier"
-
-#: woocommerce/checkout/payment.php:35
-msgid ""
-"Sorry, it seems that there are no available payment methods for your state. "
-"Please contact us if you require assistance or wish to make alternate "
-"arrangements."
-msgstr ""
-"Il semblerait qu'il n'y ait pas de moyen de paiement disponible pour votre "
-"pays. Contactez-nous si vous avez besoin d'aide ou si vous souhaitez un "
-"autre arrangement."
-
-#: woocommerce/checkout/payment.php:35
-msgid "Please fill in your details above to see available payment methods."
-msgstr ""
-"Veuillez entrer vos coordonnées ci-dessus pour voir les modes de paiement "
-"disponibles."
-
-#: woocommerce/checkout/payment.php:42
-msgid ""
-"Since your browser does not support JavaScript, or it is disabled, please "
-"ensure you click the <em>Update Totals</em> button before placing your "
-"order. You may be charged more than the amount stated above if you fail to "
-"do so."
-msgstr ""
-"Votre navigateur ne prend pas en charge JavaScript, veuillez cliquer sur le "
-"bouton <em>Rafraîchir les totaux</ em> avant de passer votre commande. Vous "
-"pourriez sinon être facturé plus que le montant indiqué ci-dessus."
-
-#: woocommerce/checkout/payment.php:43
-msgid "Update totals"
-msgstr "Rafraîchir le total"
-
-#: woocommerce/checkout/form-pay.php:30
-msgid "Qty"
-msgstr "Qté"
-
-#: woocommerce/checkout/form-pay.php:31
-msgid "Totals"
-msgstr "Totaux"
-
-#: woocommerce/checkout/form-pay.php:79
-msgid ""
-"Sorry, it seems that there are no available payment methods for your "
-"location. Please contact us if you require assistance or wish to make "
-"alternate arrangements."
-msgstr ""
-"Il semblerait qu'il n'existe pas de méthodes de paiement disponibles pour "
-"votre pays. Veuillez nous contacter si vous avez besoin d'aide ou si vous "
-"souhaitez prendre d'autres dispositions."
-
-#: woocommerce/checkout/form-coupon.php:28
-msgid "Have a coupon?"
-msgstr "Avez-vous un code promotionnel ?"
-
-#: woocommerce/checkout/form-coupon.php:28
-msgid "Click here to enter your code"
-msgstr "Entrez ici votre code de promotion"
-
-#: woocommerce/global/form-login.php:35
-#: woocommerce/myaccount/form-lost-password.php:30
-msgid "Username or email"
-msgstr "Nom d'utilisateur ou courriel"
-
-#: woocommerce/global/form-login.php:39 woocommerce/myaccount/form-login.php:48
-#: woocommerce/myaccount/form-login.php:98
-msgid "Password"
-msgstr "Mot de passe"
-
-#: woocommerce/global/form-login.php:48 woocommerce/myaccount/form-login.php:37
-#: woocommerce/myaccount/form-login.php:56
-msgid "Login"
-msgstr "Se connecter"
-
-#: woocommerce/global/form-login.php:51 woocommerce/myaccount/form-login.php:58
-msgid "Remember me"
-msgstr "Se souvenir de moi"
-
-#: woocommerce/global/form-login.php:55 woocommerce/myaccount/form-login.php:62
-msgid "Lost your password?"
-msgstr "Perdu votre mot de passe ?"
-
-#: woocommerce/global/quantity-input.php:24
-msgctxt "Product quantity input tooltip"
-msgid "Qty"
-msgstr "Qté"
-
-#: woocommerce/myaccount/form-lost-password.php:27
-msgid ""
-"Lost your password? Please enter your username or email address. You will "
-"receive a link to create a new password via email."
-msgstr ""
-"Vous avez perdu votre mot de passe ? Entrez ici votre nom d'utilisateur ou "
-"votre adresse de courriel. Vous allez recevoir par mail un lien pour "
-"renouveler votre mot de passe."
-
-#: woocommerce/myaccount/form-lost-password.php:40
-msgid "Reset Password"
-msgstr "Réinitialiser le mot de passe"
-
-#: woocommerce/myaccount/form-login.php:44
-msgid "Username or email address"
-msgstr "Nom d'utilisateur ou adresse courriel"
-
-#: woocommerce/myaccount/form-login.php:75
-#: woocommerce/myaccount/form-login.php:112
-msgid "Register"
-msgstr "S'enregistrer"
-
-#: woocommerce/myaccount/form-login.php:84
-msgid "Username"
-msgstr "Nom d'utilisateur"
-
-#: woocommerce/myaccount/form-login.php:91
-#: woocommerce/myaccount/form-edit-account.php:40
-msgid "Email address"
-msgstr "Adresse courriel"
-
-#: woocommerce/myaccount/form-login.php:105
-msgid "Anti-spam"
-msgstr "Anti-spam"
-
-#: woocommerce/myaccount/form-edit-account.php:30
-msgid "First name"
-msgstr "Prénom"
-
-#: woocommerce/myaccount/form-edit-account.php:34
-msgid "Last name"
-msgstr "Nom"
-
-#: woocommerce/myaccount/form-edit-account.php:45
-msgid "Password Change"
-msgstr "Changer de mot de passe"
-
-#: woocommerce/myaccount/form-edit-account.php:48
-msgid "Current Password (leave blank to leave unchanged)"
-msgstr "Mot de passe actuel (laisser vide pour ne rien changer)"
-
-#: woocommerce/myaccount/form-edit-account.php:52
-msgid "New Password (leave blank to leave unchanged)"
-msgstr "Nouveau mot de passe (laisser vide pour ne rien changer)"
-
-#: woocommerce/myaccount/form-edit-account.php:56
-msgid "Confirm New Password"
-msgstr "Confirmer le nouveau mot de passe"
-
-#: woocommerce/myaccount/form-edit-account.php:66
-msgid "Save changes"
-msgstr "Sauver les changements"
-
-#: woocommerce/myaccount/my-orders.php:13
-msgid "Order"
-msgstr "Commande"
-
-#: woocommerce/myaccount/my-orders.php:14
-msgid "Date"
-msgstr "Date"
-
-#: woocommerce/myaccount/my-orders.php:15
-msgid "Status"
-msgstr "Statut"
-
-#: woocommerce/myaccount/my-orders.php:30
-msgid "Recent Orders"
-msgstr "Dernières commandes"
-
-#: woocommerce/myaccount/my-orders.php:55 woocommerce/myaccount/orders.php:51
-msgctxt "hash before order number"
-msgid "#"
-msgstr "#"
-
-#: woocommerce/myaccount/my-orders.php:65 woocommerce/myaccount/orders.php:61
-#, php-format
-msgid "%s for %s item"
-msgid_plural "%s for %s items"
-msgstr[0] "%s pour %s article"
-msgstr[1] "%s pour %s articles"
-
-#: woocommerce/myaccount/my-orders.php:72 woocommerce/myaccount/orders.php:68
-msgid "Pay"
-msgstr "Payer"
-
-#: woocommerce/myaccount/my-orders.php:76 woocommerce/myaccount/orders.php:72
-msgid "View"
-msgstr "Voir"
-
-#: woocommerce/myaccount/my-orders.php:80 woocommerce/myaccount/orders.php:76
-msgid "Cancel"
-msgstr "Annuler"
-
-#: woocommerce/myaccount/orders.php:107
-msgid "Previous"
-msgstr "Précédent"
-
-#: woocommerce/myaccount/orders.php:111
-msgid "Next"
-msgstr "Prochain"
-
-#: woocommerce/myaccount/orders.php:119 woocommerce/myaccount/downloads.php:98
-msgid "Go Shop"
-msgstr "Poursuivre les achats"
-
-#: woocommerce/myaccount/orders.php:121
-msgid "No order has been made yet."
-msgstr "Il n'y a pas encore de commande."
-
-#: woocommerce/myaccount/form-edit-address.php:23
-msgid "Billing Address"
-msgstr "Adresse de facturation"
-
-#: woocommerce/myaccount/form-edit-address.php:23
-msgid "Shipping Address"
-msgstr "Adresse d'expédition"
-
-#: woocommerce/myaccount/form-edit-address.php:46
-msgid "Save Address"
-msgstr "Sauver l'adresse"
-
-#: woocommerce/myaccount/form-reset-password.php:27
-msgid "Enter a new password below."
-msgstr "Entrer un nouveau mot de passe ci-dessous."
-
-#: woocommerce/myaccount/form-reset-password.php:30
-msgid "New password"
-msgstr "Nouveau mot de passe"
-
-#: woocommerce/myaccount/form-reset-password.php:34
-msgid "Re-enter new password"
-msgstr "Saisir à nouveau le mot de passe "
-
-#: woocommerce/myaccount/form-reset-password.php:47
-msgid "Save"
-msgstr "Sauver"
-
-#: woocommerce/myaccount/downloads.php:59
-msgid "&infin;"
-msgstr "&infin;"
-
-#: woocommerce/myaccount/downloads.php:67
-msgid "Never"
-msgstr "Jamais"
-
-#: woocommerce/myaccount/downloads.php:75
-msgid "Download"
-msgstr "Télécharger"
-
-#: woocommerce/myaccount/downloads.php:100
-msgid "No downloads available yet."
-msgstr "Téléchargements encore indisponibles."
-
-#: woocommerce/single-product/review-rating.php:28
-#, php-format
-msgid "Rated %d out of 5"
-msgstr ""
-
-#: woocommerce/single-product/review-rating.php:29
-msgid "out of 5"
-msgstr ""
-
-#: woocommerce/single-product/rating.php:36
-#, php-format
-msgid "Rated %s out of 5"
-msgstr ""
-
-#: woocommerce/single-product/rating.php:38
-#, php-format
-msgid "out of %s5%s"
-msgstr ""
-
-#: woocommerce/single-product/rating.php:39
-#, php-format
-msgid "based on %s customer rating"
-msgid_plural "based on %s customer ratings"
-msgstr[0] ""
-msgstr[1] ""
-
-#: woocommerce/single-product/rating.php:42
-#, php-format
-msgid "%s customer review"
-msgid_plural "%s customer reviews"
-msgstr[0] ""
-msgstr[1] ""
-
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
+msgstr "ASU Web Standards 2020 Theme"
 
 #. Description of the theme
 msgid ""

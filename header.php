@@ -5,13 +5,11 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package UnderStrap
+ * @package asu-web-standards-2020
  */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
-
-$container = get_theme_mod('understrap_container_type');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -23,19 +21,19 @@ $container = get_theme_mod('understrap_container_type');
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+<body <?php body_class(); ?> <?php asu_wp2020_body_attributes(); ?>>
 	<?php do_action('wp_body_open'); ?>
 	<div class="site" id="page">
 
 		<!-- ******************* The Navbar Area ******************* -->
 		<div id="wrapper-navbar">
 
-			<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'understrap'); ?></a>
+			<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'asu-web-standards'); ?></a>
 
 			<nav id="main-nav" class="navbar navbar-expand-lg navbar-light static-top" aria-labelledby="main-nav-label">
 
 				<h2 id="main-nav-label" class="sr-only">
-					<?php esc_html_e('Main Navigation', 'understrap'); ?>
+					<?php esc_html_e('Main Navigation', 'asu-web-standards'); ?>
 				</h2>
 				<div class="container">
 
@@ -75,10 +73,10 @@ $container = get_theme_mod('understrap_container_type');
 									</div>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Services</a>
+									<a class="nav-link" href="#">Students</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Contact</a>
+									<a class="nav-link" href="#">People</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">Contact</a>

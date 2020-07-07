@@ -373,7 +373,7 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 				if ( $menu_class ) {
 					$fallback_output .= ' class="' . esc_attr( $menu_class ) . '"'; }
 				$fallback_output .= '>';
-				$fallback_output .= '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="' . esc_attr__( 'Add a menu', 'understrap' ) . '">' . esc_html__( 'Add a menu', 'understrap' ) . '</a></li>';
+				$fallback_output .= '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="' . esc_attr__( 'Add a menu', 'asu-web-standards' ) . '">' . esc_html__( 'Add a menu', 'asu-web-standards' ) . '</a></li>';
 				$fallback_output .= '</ul>';
 				if ( $container ) {
 					$fallback_output .= '</' . esc_attr( $container ) . '>';

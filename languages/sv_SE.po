@@ -42,7 +42,7 @@ msgstr ""
 "X-Poedit-SearchPath-17: hero.php\n"
 "X-Poedit-SearchPath-18: page.php\n"
 "X-Poedit-SearchPath-19: functions.php\n"
-"X-Poedit-SearchPath-20: page-templates\n"
+"X-Poedit-SearchPath-20: templates-page\n"
 "X-Poedit-SearchPath-21: inc\n"
 "X-Loco-Parser: loco_parse_po"
 
@@ -252,127 +252,41 @@ msgctxt "noun"
 msgid "Comment"
 msgstr "Kommentarer"
 
-#: ../loop-templates/content-single.php:29 ../loop-templates/content.php:33 ..
-#: loop-templates/content-page.php:25
+#: ../templates-loop/content-single.php:29 ../templates-loop/content.php:33 ..
+#: templates-loop/content-page.php:25
 msgid "Pages:"
 msgstr "Sidor:"
 
-#: ../loop-templates/content-none.php:16
+#: ../templates-loop/content-none.php:16
 msgid "Nothing Found"
 msgstr "Inget hittades"
 
-#: ../loop-templates/content-none.php:24
+#: ../templates-loop/content-none.php:24
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "Redo att skriv ditt första inlägg? <a href=\"%1$s\">Börja här</a>."
 
-#: ../loop-templates/content-none.php:28
+#: ../templates-loop/content-none.php:28
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 "Tyvärr fick din sökning inga träffar. Du kan prova igen med nya nyckelord."
 
-#: ../loop-templates/content-none.php:33
+#: ../templates-loop/content-none.php:33
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr "Vi verkar inte hitta det du söker, Det kanske hjälper att söka."
 
-#: ../loop-templates/content-page.php:34
+#: ../templates-loop/content-page.php:34
 msgid "Edit"
 msgstr "Ändra"
 
-#: ../woocommerce/myaccount/form-edit-address.php
-msgid "Save Address"
-msgstr "Spara adress"
-
-#: ../woocommerce/myaccount/my-orders.php
-msgid "%s for %s item"
-msgstr "%s för %s vara"
-
-#: ../woocommerce/myaccount/my-orders.php
-msgid "Pay"
-msgstr "Betala"
-
-#: ../woocommerce/myaccount/my-orders.php
-msgid "View"
-msgstr "Visa"
-
-#: ../woocommerce/myaccount/my-orders.php
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Login"
-msgstr "Login"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Password"
-msgstr "Lösenord"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Username or email address"
-msgstr "Användarnamn eller E-post adress"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Lost your password?"
-msgstr "Glömt ditt lösenord?"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Username"
-msgstr "Användarnamn"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Email address"
-msgstr "E-post adress"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Register"
-msgstr "Registrera"
-
-#: ../woocommerce/myaccount/form-login.php
-msgid "Remember me"
-msgstr "Kom ihåg mig"
-
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "First name"
-msgstr "Förnamn"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Last name"
-msgstr "Efternamn"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Email adress"
-msgstr "E-post adress"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Current Password (leave blank to leave unchanged)"
-msgstr "Nuvarande lösenord (lämna tomt för att inte ändra)"
-
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "New Password (leave blank to leave unchanged)"
-msgstr "Nytt lösenord (lämna tomt för att inte ändra)"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Confirm New Password"
-msgstr "Bekräfta nytt lösenord"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Password Change"
-msgstr "Byt lösenord"
-
-#: ../woocommerce/myaccount/form-edit-account.php
-msgid "Save changes"
-msgstr "Spara ändringar"
-
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
+msgstr "ASU Web Standards 2020 Theme"
 
 #. Theme URI of the theme
 msgid "http://understrap.com"
