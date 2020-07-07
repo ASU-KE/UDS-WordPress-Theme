@@ -10,15 +10,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'after_setup_theme', 'understrap_wpcom_setup' );
+add_action( 'after_setup_theme', 'asu_wp2020_wpcom_setup' );
 
-if ( ! function_exists( 'understrap_wpcom_setup' ) ) {
+if ( ! function_exists( 'asu_wp2020_wpcom_setup' ) ) {
 	/**
 	 * Adds support for wp.com-specific theme functions.
 	 *
 	 * @global array $themecolors
 	 */
-	function understrap_wpcom_setup() {
+	function asu_wp2020_wpcom_setup() {
 		global $themecolors;
 
 		// Set theme colors for third party services.
@@ -37,13 +37,13 @@ if ( ! function_exists( 'understrap_wpcom_setup' ) ) {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'understrap_wpcom_styles' );
+add_action( 'wp_enqueue_scripts', 'asu_wp2020_wpcom_styles' );
 
-if ( ! function_exists( 'understrap_wpcom_styles' ) ) {
+if ( ! function_exists( 'asu_wp2020_wpcom_styles' ) ) {
 	/**
 	 * WordPress.com-specific styles
 	 */
-	function understrap_wpcom_styles() {
+	function asu_wp2020_wpcom_styles() {
 		wp_enqueue_style( 'understrap-wpcom', get_template_directory_uri() . '/inc/style-wpcom.css', array(), '20160411' );
 	}
 }

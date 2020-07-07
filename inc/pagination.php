@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'understrap_pagination' ) ) {
+if ( ! function_exists( 'asu_wp2020_pagination' ) ) {
 	/**
 	 * Displays the navigation to next/previous set of posts.
 	 *
@@ -39,7 +39,7 @@ if ( ! function_exists( 'understrap_pagination' ) ) {
 	 * }
 	 * @param string       $class           (Optional) Classes to be added to the <ul> element. Default 'pagination'.
 	 */
-	function understrap_pagination( $args = array(), $class = 'pagination' ) {
+	function asu_wp2020_pagination( $args = array(), $class = 'pagination' ) {
 
 		if ( ! isset( $args['total'] ) && $GLOBALS['wp_query']->max_num_pages <= 1 ) {
 			return;

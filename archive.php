@@ -54,7 +54,7 @@ get_header();
 
 			<?php
 			// Display the pagination component.
-			understrap_pagination();
+			asu_wp2020_pagination();
 			// Do the right sidebar check.
 			get_template_part( 'templates-global/right-sidebar-check' );
 			?>

@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+<body <?php body_class(); ?> <?php asu_wp2020_body_attributes(); ?>>
 	<?php do_action('wp_body_open'); ?>
 	<div class="site" id="page">
 

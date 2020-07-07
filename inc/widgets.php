@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) || exit;
  *
  * @link https://developer.wordpress.org/reference/hooks/dynamic_sidebar_params/
  */
-add_filter( 'dynamic_sidebar_params', 'understrap_widget_classes' );
+add_filter( 'dynamic_sidebar_params', 'asu_wp2020_widget_classes' );
 
-if ( ! function_exists( 'understrap_widget_classes' ) ) {
+if ( ! function_exists( 'asu_wp2020_widget_classes' ) ) {
 
 	/**
 	 * Count number of visible widgets in a sidebar and add classes to widgets accordingly,
@@ -49,7 +49,7 @@ if ( ! function_exists( 'understrap_widget_classes' ) ) {
 	 * }
 	 * @return array $params
 	 */
-	function understrap_widget_classes( $params ) {
+	function asu_wp2020_widget_classes( $params ) {
 
 		global $sidebars_widgets;
 
@@ -89,15 +89,15 @@ if ( ! function_exists( 'understrap_widget_classes' ) ) {
 		return $params;
 
 	}
-} // End of if function_exists( 'understrap_widget_classes' ).
+} // End of if function_exists( 'asu_wp2020_widget_classes' ).
 
-add_action( 'widgets_init', 'understrap_widgets_init' );
+add_action( 'widgets_init', 'asu_wp2020_widgets_init' );
 
-if ( ! function_exists( 'understrap_widgets_init' ) ) {
+if ( ! function_exists( 'asu_wp2020_widgets_init' ) ) {
 	/**
 	 * Initializes themes widgets.
 	 */
-	function understrap_widgets_init() {
+	function asu_wp2020_widgets_init() {
 		register_sidebar(
 			array(
 				'name'          => __( 'Right Sidebar', 'asu-web-standards' ),
@@ -123,4 +123,4 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		);
 
 	}
-} // End of function_exists( 'understrap_widgets_init' ).
+} // End of function_exists( 'asu_wp2020_widgets_init' ).

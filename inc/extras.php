@@ -10,9 +10,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_filter( 'body_class', 'understrap_body_classes' );
+add_filter( 'body_class', 'asu_wp2020_body_classes' );
 
-if ( ! function_exists( 'understrap_body_classes' ) ) {
+if ( ! function_exists( 'asu_wp2020_body_classes' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
@@ -20,7 +20,7 @@ if ( ! function_exists( 'understrap_body_classes' ) ) {
 	 *
 	 * @return array
 	 */
-	function understrap_body_classes( $classes ) {
+	function asu_wp2020_body_classes( $classes ) {
 		// Adds a class of group-blog to blogs with more than 1 published author.
 		if ( is_multi_author() ) {
 			$classes[] = 'group-blog';
@@ -35,9 +35,9 @@ if ( ! function_exists( 'understrap_body_classes' ) ) {
 }
 
 // Removes tag class from the body_class array to avoid Bootstrap markup styling issues.
-add_filter( 'body_class', 'understrap_adjust_body_class' );
+add_filter( 'body_class', 'asu_wp2020_adjust_body_class' );
 
-if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
+if ( ! function_exists( 'asu_wp2020_adjust_body_class' ) ) {
 	/**
 	 * Setup body classes.
 	 *
@@ -45,7 +45,7 @@ if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
 	 *
 	 * @return mixed
 	 */
-	function understrap_adjust_body_class( $classes ) {
+	function asu_wp2020_adjust_body_class( $classes ) {
 
 		foreach ( $classes as $key => $value ) {
 			if ( 'tag' === $value ) {
@@ -59,9 +59,9 @@ if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
 }
 
 // Filter custom logo with correct classes.
-add_filter( 'get_custom_logo', 'understrap_change_logo_class' );
+add_filter( 'get_custom_logo', 'asu_wp2020_change_logo_class' );
 
-if ( ! function_exists( 'understrap_change_logo_class' ) ) {
+if ( ! function_exists( 'asu_wp2020_change_logo_class' ) ) {
 	/**
 	 * Replaces logo CSS class.
 	 *
@@ -69,7 +69,7 @@ if ( ! function_exists( 'understrap_change_logo_class' ) ) {
 	 *
 	 * @return string
 	 */
-	function understrap_change_logo_class( $html ) {
+	function asu_wp2020_change_logo_class( $html ) {
 
 		$html = str_replace( 'class="custom-logo"', 'class="img-fluid"', $html );
 		$html = str_replace( 'class="custom-logo-link"', 'class="navbar-brand custom-logo-link"', $html );
@@ -79,11 +79,11 @@ if ( ! function_exists( 'understrap_change_logo_class' ) ) {
 	}
 }
 
-if ( ! function_exists( 'understrap_post_nav' ) ) {
+if ( ! function_exists( 'asu_wp2020_post_nav' ) ) {
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 */
-	function understrap_post_nav() {
+	function asu_wp2020_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
@@ -109,56 +109,56 @@ if ( ! function_exists( 'understrap_post_nav' ) ) {
 	}
 }
 
-if ( ! function_exists( 'understrap_pingback' ) ) {
+if ( ! function_exists( 'asu_wp2020_pingback' ) ) {
 	/**
 	 * Add a pingback url auto-discovery header for single posts of any post type.
 	 */
-	function understrap_pingback() {
+	function asu_wp2020_pingback() {
 		if ( is_singular() && pings_open() ) {
 			echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
 		}
 	}
 }
-add_action( 'wp_head', 'understrap_pingback' );
+add_action( 'wp_head', 'asu_wp2020_pingback' );
 
-if ( ! function_exists( 'understrap_mobile_web_app_meta' ) ) {
+if ( ! function_exists( 'asu_wp2020_mobile_web_app_meta' ) ) {
 	/**
 	 * Add mobile-web-app meta.
 	 */
-	function understrap_mobile_web_app_meta() {
+	function asu_wp2020_mobile_web_app_meta() {
 		echo '<meta name="mobile-web-app-capable" content="yes">' . "\n";
 		echo '<meta name="apple-mobile-web-app-capable" content="yes">' . "\n";
 		echo '<meta name="apple-mobile-web-app-title" content="' . esc_attr( get_bloginfo( 'name' ) ) . ' - ' . esc_attr( get_bloginfo( 'description' ) ) . '">' . "\n";
 	}
 }
-add_action( 'wp_head', 'understrap_mobile_web_app_meta' );
+add_action( 'wp_head', 'asu_wp2020_mobile_web_app_meta' );
 
-if ( ! function_exists( 'understrap_default_body_attributes' ) ) {
+if ( ! function_exists( 'asu_wp2020_default_body_attributes' ) ) {
 	/**
 	 * Adds schema markup to the body element.
 	 *
 	 * @param array $atts An associative array of attributes.
 	 * @return array
 	 */
-	function understrap_default_body_attributes( $atts ) {
+	function asu_wp2020_default_body_attributes( $atts ) {
 		$atts['itemscope'] = '';
 		$atts['itemtype']  = 'http://schema.org/WebSite';
 		return $atts;
 	}
 }
-add_filter( 'understrap_body_attributes', 'understrap_default_body_attributes' );
+add_filter( 'asu_wp2020_body_attributes', 'asu_wp2020_default_body_attributes' );
 
 // Escapes all occurances of 'the_archive_description'.
-add_filter( 'get_the_archive_description', 'understrap_escape_the_archive_description' );
+add_filter( 'get_the_archive_description', 'asu_wp2020_escape_the_archive_description' );
 
-if ( ! function_exists( 'understrap_escape_the_archive_description' ) ) {
+if ( ! function_exists( 'asu_wp2020_escape_the_archive_description' ) ) {
 	/**
 	 * Escapes the description for an author or post type archive.
 	 *
 	 * @param string $description Archive description.
 	 * @return string Maybe escaped $description.
 	 */
-	function understrap_escape_the_archive_description( $description ) {
+	function asu_wp2020_escape_the_archive_description( $description ) {
 		if ( is_author() || is_post_type_archive() ) {
 			return wp_kses_post( $description );
 		} else {
@@ -169,22 +169,22 @@ if ( ! function_exists( 'understrap_escape_the_archive_description' ) ) {
 			return $description;
 		}
 	}
-} // End of if function_exists( 'understrap_escape_the_archive_description' ).
+} // End of if function_exists( 'asu_wp2020_escape_the_archive_description' ).
 
 // Escapes all occurances of 'the_title()' and 'get_the_title()'.
-add_filter( 'the_title', 'understrap_kses_title' );
+add_filter( 'the_title', 'asu_wp2020_kses_title' );
 
 // Escapes all occurances of 'the_archive_title' and 'get_the_archive_title()'.
-add_filter( 'get_the_archive_title', 'understrap_kses_title' );
+add_filter( 'get_the_archive_title', 'asu_wp2020_kses_title' );
 
-if ( ! function_exists( 'understrap_kses_title' ) ) {
+if ( ! function_exists( 'asu_wp2020_kses_title' ) ) {
 	/**
 	 * Sanitizes data for allowed HTML tags for post title.
 	 *
 	 * @param string $data Post title to filter.
 	 * @return string Filtered post title with allowed HTML tags and attributes intact.
 	 */
-	function understrap_kses_title( $data ) {
+	function asu_wp2020_kses_title( $data ) {
 		// Tags not supported in HTML5 are not allowed.
 		$allowed_tags = array(
 			'abbr'             => array(),
@@ -247,8 +247,8 @@ if ( ! function_exists( 'understrap_kses_title' ) ) {
 			'u'                => array(),
 			'var'              => array(),
 		);
-		$allowed_tags = apply_filters( 'understrap_kses_title', $allowed_tags );
+		$allowed_tags = apply_filters( 'asu_wp2020_kses_title', $allowed_tags );
 
 		return wp_kses( $data, $allowed_tags );
 	}
-} // End of if function_exists( 'understrap_kses_title' ).
+} // End of if function_exists( 'asu_wp2020_kses_title' ).

@@ -8,11 +8,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'understrap_scripts' ) ) {
+if ( ! function_exists( 'asu_wp2020_scripts' ) ) {
 	/**
 	 * Load theme's JavaScript and CSS sources.
 	 */
-	function understrap_scripts() {
+	function asu_wp2020_scripts() {
 		// Get the theme data.
 		$the_theme     = wp_get_theme();
 		$theme_version = $the_theme->get( 'Version' );
@@ -28,6 +28,6 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-} // End of if function_exists( 'understrap_scripts' ).
+} // End of if function_exists( 'asu_wp2020_scripts' ).
 
-add_action( 'wp_enqueue_scripts', 'understrap_scripts' );
+add_action( 'wp_enqueue_scripts', 'asu_wp2020_scripts' );

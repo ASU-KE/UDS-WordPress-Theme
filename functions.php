@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$understrap_includes = array(
+$asu_wp2020_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/widgets.php',                         // Register widget area.
@@ -25,6 +25,6 @@ $understrap_includes = array(
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ( $understrap_includes as $file ) {
+foreach ( $asu_wp2020_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }

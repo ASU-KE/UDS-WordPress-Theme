@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 
 					<div class="site-info">
 
-						<?php understrap_site_info(); ?>
+						<?php asu_wp2020_site_info(); ?>
 
 					</div><!-- .site-info -->
 

@@ -74,7 +74,7 @@ get_header();
 									esc_attr( __( 'Permanent Link:', 'asu-web-standards' ) ),
 									get_the_title()
 								);
-								understrap_posted_on();
+								asu_wp2020_posted_on();
 								esc_html_e( 'in', 'asu-web-standards' );
 								the_category( '&' );
 							echo '</li>';
@@ -89,7 +89,7 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php asu_wp2020_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>

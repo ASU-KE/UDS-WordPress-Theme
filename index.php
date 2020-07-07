@@ -51,7 +51,7 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php asu_wp2020_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
