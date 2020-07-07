@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Right Sidebar Layout
+ * Template Name: Left Sidebar Layout
  *
  * This template can be used to override the default template and sidebar setup
  *
@@ -11,6 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// TODO: Custom Hero function
 ?>
 
 <div class="wrapper" id="page-wrapper">
@@ -18,6 +20,8 @@ get_header();
 	<div class="container" id="content">
 
 		<div class="row">
+
+			<?php get_template_part( 'templates-sidebar/sidebar', 'left' ); ?>
 
 			<div class="<?php echo is_active_sidebar( 'sidebar-right' ) ? 'col-md-8' : 'col-md-12'; ?> content-area" id="primary">
 
@@ -27,7 +31,7 @@ get_header();
 					while ( have_posts() ) {
 						the_post();
 
-						get_template_part( 'loop-templates/content', 'page' );
+						get_template_part( 'templates-loop/content', 'page' );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) {
@@ -39,8 +43,6 @@ get_header();
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
-
-			<?php get_template_part( 'sidebar-templates/sidebar', 'right' ); ?>
 
 		</div><!-- .row -->
 

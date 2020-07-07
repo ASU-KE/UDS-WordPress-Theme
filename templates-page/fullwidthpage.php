@@ -11,6 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// TODO: Custom Hero function
 ?>
 
 <div class="wrapper" id="full-width-page-wrapper">
@@ -26,7 +28,7 @@ get_header();
 					<?php
 					while ( have_posts() ) {
 						the_post();
-						get_template_part( 'loop-templates/content', 'page' );
+						get_template_part( 'templates-loop/content', 'page' );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) {

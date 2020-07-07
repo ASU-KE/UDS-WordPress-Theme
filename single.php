@@ -18,14 +18,14 @@ get_header();
 		<div class="row">
 
 			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
 
 				<?php
 				while ( have_posts() ) {
 					the_post();
-					get_template_part( 'loop-templates/content', 'single' );
+					get_template_part( 'templates-loop/content', 'single' );
 					understrap_post_nav();
 
 					// If comments are open or we have at least one comment, load up the comment template.
@@ -38,7 +38,7 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
 		</div><!-- .row -->
 

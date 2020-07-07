@@ -11,6 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// TODO: Custom Hero function
 ?>
 
 <div class="wrapper" id="page-wrapper">
@@ -20,7 +22,7 @@ get_header();
 		<div class="row">
 
 			<?php
-			get_template_part( 'sidebar-templates/sidebar', 'left' );
+			get_template_part( 'templates-sidebar/sidebar', 'left' );
 
 			if ( is_active_sidebar( 'sidebar-left' ) xor is_active_sidebar( 'sidebar-right' ) ) {
 				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8
@@ -38,7 +40,7 @@ get_header();
 					while ( have_posts() ) {
 						the_post();
 
-						get_template_part( 'loop-templates/content', 'page' );
+						get_template_part( 'templates-loop/content', 'page' );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) {
@@ -51,7 +53,7 @@ get_header();
 
 			</div><!-- #primary -->
 
-			<?php get_template_part( 'sidebar-templates/sidebar', 'right' ); ?>
+			<?php get_template_part( 'templates-sidebar/sidebar', 'right' ); ?>
 
 		</div><!-- .row -->
 

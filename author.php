@@ -20,7 +20,7 @@ get_header();
 		<div class="row">
 
 			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
 
@@ -81,7 +81,7 @@ get_header();
 						}
 						echo '</ul>';
 					} else {
-						get_template_part( 'loop-templates/content', 'none' );
+						get_template_part( 'templates-loop/content', 'none' );
 					}
 					?>
 					<!-- End Loop -->
@@ -92,7 +92,7 @@ get_header();
 			<?php understrap_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
 		</div> <!-- .row -->
 

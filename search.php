@@ -18,7 +18,7 @@ get_header();
 		<div class="row">
 
 			<!-- Do the left sidebar check and opens the primary div -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
 
@@ -48,13 +48,13 @@ get_header();
 						 * If you want to overload this in a child theme then include a file
 						 * called content-search.php and that will be used instead.
 						 */
-						get_template_part( 'loop-templates/content', 'search' );
+						get_template_part( 'templates-loop/content', 'search' );
 					endwhile;
 					?>
 
 				<?php else : ?>
 
-					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+					<?php get_template_part( 'templates-loop/content', 'none' ); ?>
 
 				<?php endif; ?>
 
@@ -64,7 +64,7 @@ get_header();
 			<?php understrap_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
 		</div><!-- .row -->
 

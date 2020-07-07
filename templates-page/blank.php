@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'loop-templates/content', 'blank' );
+		get_template_part( 'templates-loop/content', 'blank' );
 	}
 	wp_footer();
 	?>
