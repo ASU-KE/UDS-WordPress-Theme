@@ -27,6 +27,26 @@ body {
   text-transform: capitalize !important;
 }
 
+u,
+ins {
+  -webkit-text-decoration-line: none;
+     -moz-text-decoration-line: none;
+          text-decoration-line: none;
+  font-style: italic;
+}
+
+abbr {
+  -webkit-text-decoration-line: none !important;
+     -moz-text-decoration-line: none !important;
+          text-decoration-line: none !important;
+  -webkit-text-decoration-style: none !important;
+     -moz-text-decoration-style: none !important;
+          text-decoration-style: none !important;
+  -webkit-text-decoration-color: initial !important;
+     -moz-text-decoration-color: initial !important;
+          text-decoration-color: initial !important;
+}
+
 :root {
   --white: #ffffff;
   --gray: #6c757d;
@@ -16513,6 +16533,7 @@ label {
   background-color: transparent;
   border: 0;
   text-decoration: none;
+  background-image: url("/sites/default/files/logo.png");
   width: 110px;
   height: 100px;
   display: block;
@@ -18184,19 +18205,19 @@ hr.copy-divider {
 }
 
 .bg.morse-code-white {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/MorseCodeWhite.png);
+  background-image: url(../src/img/background-patterns/MorseCodeWhite.png);
 }
 
 .bg.morse-code-black {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/MorseCodeBlack.png);
+  background-image: url(../src/img/background-patterns/MorseCodeBlack.png);
 }
 
 .bg.network-white {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/NetworkWhite.png);
+  background-image: url(../src/img/background-patterns/NetworkWhite.png);
 }
 
 .bg.network-black {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/NetworkBlack.png);
+  background-image: url(../src/img/background-patterns/NetworkBlack.png);
 }
 
 .bg.topo {
@@ -18204,11 +18225,11 @@ hr.copy-divider {
 }
 
 .bg.topo-white {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/TopoPatternBlack.png);
+  background-image: url(../src/img/background-patterns/TopoPatternBlack.png);
 }
 
 .bg.topo-black {
-  background-image: url(https://static.sustainability.asu.edu/asu-theme/asu-web-standards-20/img/background-patterns/TopoPatternWhite.png);
+  background-image: url(../src/img/background-patterns/TopoPatternWhite.png);
 }
 
 a.page-link,
