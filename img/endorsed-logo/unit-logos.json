@@ -1,0 +1,77 @@
+[
+	{
+		"slug": "biodesign-institute",
+		"name": "Biodesign Institute",
+		"filename": "asu_biodesign_white.png"
+	},
+	{
+		"slug": "college-global-futures",
+		"name": "College of Global Futures",
+		"filename": "asu_college_of_global_futures_white.png"
+	},
+	{
+		"slug": "dcdc",
+		"name": "DCDC",
+		"filename": "asu_decisionfordesertcity_white.png"
+	},
+	{
+		"slug": "fulton-engineering",
+		"name": "Fulton Engineering",
+		"filename": "asu_fultonengineering_white.png"
+	},
+	{
+		"slug": "global-drylands",
+		"name": "Global Drylands Center",
+		"filename": "asu_global_drylands_center_white.png"
+	},
+	{
+		"slug": "global-futures",
+		"name": "Global Futures Laboratory",
+		"filename": "asu_global_futures_laboratory_white.png"
+	},
+	{
+		"slug": "gios",
+		"name": "GIOS",
+		"filename": "asu_jaw_globalsustainability_white.png"
+	},
+	{
+		"slug": "knowledge-enterprise",
+		"name": "Knowledge Enterprise",
+		"filename": "asu_knowledge_enterprise_white.png"
+	},
+	{
+		"slug": "lightworks",
+		"name": "Lightworks",
+		"filename": "asu_lightworks_white.png"
+	},
+	{
+		"slug": "sustainability-solutions",
+		"name": "Sustainability Solutions",
+		"filename": "asu_rob_and_melani_walton_sustainability_solutions_service_white.png"
+	},
+	{
+		"slug": "scas",
+		"name": "SCAS",
+		"filename": "asu_school_of_complex_adaptive_systems_white.png"
+	},
+	{
+		"slug": "sos",
+		"name": "SOS",
+		"filename": "asu_school_of_sustainability_white.png"
+	},
+	{
+		"slug": "sustainable-cities",
+		"name": "Sustainable Cities",
+		"filename": "asu_sustainablecities_white.png"
+	},
+	{
+		"slug": "sustainability-connect",
+		"name": "Sustainability Connect",
+		"filename": "asu_sustainconnect_white.png"
+	},
+	{
+		"slug": "swette-food",
+		"name": "Swette Center - Food",
+		"filename": "asu_swette_center_for_sustainable_food_systems_white.png"
+	}
+]
