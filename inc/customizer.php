@@ -102,7 +102,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			// Nope!  We gotta make a call.
 		} else {
 			// Get the contents of the JSON file containing the array of endorsed unit logos
-			$strJsonFileContents = file_get_contents( get_stylesheet_directory_uri() . "/img/endorsed-logo/unit-logos.json" );
+			$strJsonFileContents = file_get_contents( get_template_directory() . "/img/endorsed-logo/unit-logos.json" );
 			// Convert to nested array
 			$endorsedLogos = json_decode($strJsonFileContents, true);
 
