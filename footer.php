@@ -23,17 +23,30 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 				<div class="col-md" id="endorsed-logo">
 					<?php
 					//  =============================
-					//  = Logo                      =
+					//  = Endorsed Logo                      =
 					//  =============================
 					// Do we have a Unit logo?
 					$logo = '<img src="%1$s" alt="%2$s" />';
 
-					if ( isset( $cOptions ) &&
-					array_key_exists( 'logo', $cOptions ) &&
-					$cOptions['logo'] !== '' ) {
-					echo wp_kses( sprintf( $logo, $cOptions['logo'], get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
-					} else {
-					echo '<h2>' .wp_kses( get_bloginfo( 'description' ), wp_kses_allowed_html( 'post' ) ) . '</h2>';
+					// First, check for Preset Logo Selection
+					if ( isset( $cOptions ) && array_key_exists( 'logo_select', $cOptions ) && $cOptions['logo_select'] !== 'none' ) {
+						// load array of endorsed units
+						$endorsedLogos = asu_wp2020_theme_get_endorsed_unit_logos();
+
+						// lookup logo filename
+						$filename = '';
+						foreach ($endorsedLogos as $unit) {
+							if ( $unit[ 'slug' ] ===  $cOptions['logo_select'] ) {
+								$filename = $unit[ 'filename' ];
+								break;
+							}
+						}
+						echo wp_kses( sprintf( $logo, get_stylesheet_directory_uri() . '/img/endorsed-logo/' . $filename, get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
+
+						// Else, check for Logo URL
+					} elseif ( isset( $cOptions ) && array_key_exists( 'logo_url', $cOptions ) && $cOptions['logo_url'] !== '' ) {
+						echo wp_kses( sprintf( $logo, $cOptions['logo_url'], get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
+
 					}
 					?>
 				</div>
