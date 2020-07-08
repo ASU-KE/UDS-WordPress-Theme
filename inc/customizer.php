@@ -93,6 +93,38 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			return (array_key_exists($input, $choices) ? $input : $setting->default);
 		}
 
+if (!function_exists('asu_wp2020_theme_customize_register')) {
+	/**
+	 * Load a list of endorsed-logos from JSON file and store in transient for quick retrieval.
+	 *
+	 * @return array The array of endorsed logo arrays.
+	 */
+	function asu_wp2020_theme_get_endorsed_unit_logos()
+	{
+		// Do we have this information in our transients already?
+		$transient = get_transient('asu_wp2020_endorsed_unit_logos');
+
+		// Yep!  Just return it and we're done.
+		if (!empty($transient)) {
+			// The function will return here every time after the first time it is run, until the transient expires.
+			return $transient;
+
+			// Nope!  We gotta make a call.
+		} else {
+			// Get the contents of the JSON file containing the array of endorsed unit logos
+			$strJsonFileContents = file_get_contents( get_stylesheet_directory_uri() . "/img/endorsed-logo/unit-logos.json" );
+			// Convert to nested array
+			$endorsedLogos = json_decode($strJsonFileContents, true);
+
+			// Save the file system response so we don't have to call again until tomorrow.
+			set_transient('asu_wp2020_endorsed_unit_logos', $endorsedLogos, DAY_IN_SECONDS);
+
+			// Return the array of endorsed logos.  The function will return here the first time it is run, and then once again, each time the transient expires.
+			return $endorsedLogos;
+		}
+	}
+}
+
 		// ==============================================================
 		// ==============================================================
 		// = Remove Default Wordpress Customizer Controls and Sections  =
