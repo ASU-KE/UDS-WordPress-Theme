@@ -29,7 +29,6 @@ if (!function_exists('asu_wp2020_customize_register')) {
 }
 add_action('customize_register', 'asu_wp2020_customize_register');
 
-
 /**
  * Sanitizer that does nothing
  */
@@ -65,33 +64,24 @@ function asu_wp2020_sanitize_phone($data)
 	return $data;
 }
 
-if (!function_exists('asu_wp2020_theme_customize_register')) {
-	/**
-	 * Register individual settings through customizer's API.
-	 *
-	 * @param WP_Customize_Manager $wp_customize Customizer reference.
-	 */
-	function asu_wp2020_theme_customize_register($wp_customize)
-	{
-		/**
-		 * Select sanitization function
-		 *
-		 * @param string               $input   Slug to sanitize.
-		 * @param WP_Customize_Setting $setting Setting instance.
-		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
-		 */
-		function asu_wp2020_theme_slug_sanitize_select($input, $setting)
-		{
+/**
+ * Sanitizer that checks Select fields
+ *
+ * @param string               $input   Slug to sanitize.
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
+ */
+function asu_wp2020_sanitize_select($input, $setting)
+{
+	// Ensure input is a slug (lowercase alphanumeric characters, dashes and underscores are allowed only).
+	$input = sanitize_key($input);
 
-			// Ensure input is a slug (lowercase alphanumeric characters, dashes and underscores are allowed only).
-			$input = sanitize_key($input);
+	// Get the list of possible select options.
+	$choices = $setting->manager->get_control($setting->id)->choices;
 
-			// Get the list of possible select options.
-			$choices = $setting->manager->get_control($setting->id)->choices;
-
-			// If the input is a valid key, return it; otherwise, return the default.
-			return (array_key_exists($input, $choices) ? $input : $setting->default);
-		}
+	// If the input is a valid key, return it; otherwise, return the default.
+	return (array_key_exists($input, $choices) ? $input : $setting->default);
+}
 
 if (!function_exists('asu_wp2020_theme_customize_register')) {
 	/**
@@ -125,6 +115,14 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 	}
 }
 
+if (!function_exists('asu_wp2020_theme_customize_register')) {
+	/**
+	 * Register individual settings through customizer's API.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer reference.
+	 */
+	function asu_wp2020_theme_customize_register($wp_customize)
+	{
 		// ==============================================================
 		// ==============================================================
 		// = Remove Default Wordpress Customizer Controls and Sections  =
@@ -137,72 +135,69 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		$wp_customize->remove_control('site_icon');
 		$wp_customize->remove_control('custom_logo');
 
+		//  ==============================
+		//  ==============================
+		//  = Unit Endorsed Logo Section =
+		//  ==============================
+		//  ==============================
 
-		// Theme layout settings.
 		$wp_customize->add_section(
-			'asu_wp2020_theme_layout_options',
+			'asu_wp2020_theme_section_unit_logo',
 			array(
-				'title'       => __('Theme Layout Settings', 'asu-web-standards'),
-				'capability'  => 'edit_theme_options',
-				'description' => __('Theme sidebar defaults', 'asu-web-standards'),
-				'priority'    => apply_filters('asu_wp2020_theme_layout_options_priority', 160),
+				'title'      => __('Unit Endorsed Logo', 'asu-web-standards'),
+				'priority'   => 30,
 			)
 		);
 
+		//  =============================
+		//  = School/Unit Logo Select   =
+		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[sidebars]',
+			'asu_wp2020_theme_options[logo_select]',
 			array(
-				'default'           => 'left',
+				'default'           => 'none',
 				'type'              => 'option',
 				'sanitize_callback' => 'sanitize_text_field',
 				'capability'        => 'edit_theme_options',
 			)
 		);
 
+		// load array of endorsed units and cache in transients
+		$endorsedLogos = asu_wp2020_theme_get_endorsed_unit_logos();
+
+		// Prepend options list with "Unselected" option
+		$logoOptions = array(
+			'none' => __('-Unselected-', 'asu-web-standards')
+		);
+		foreach ($endorsedLogos as $logo) {
+			$logoOptions[$logo['slug']] = __($logo['name'], 'asu-web-standards');
+		}
+
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'asu_wp2020_sidebar_position',
+				'asu_wp2020_logo_select',
 				array(
-					'label'             => __('Sidebar Positioning', 'asu-web-standards'),
+					'label'             => __('Endorsed Logos Presets', 'asu-web-standards'),
 					'description'       => __(
-						'Set sidebar\'s default position. Can either be: right, left, both or none.',
+						'Select the appropriate unit logo, if available.',
 						'asu-web-standards'
 					),
-					'section'           => 'asu_wp2020_theme_layout_options',
-					'settings'          => 'asu_wp2020_theme_options[sidebars]',
+					'section'           => 'asu_wp2020_theme_section_unit_logo',
+					'settings'          => 'asu_wp2020_theme_options[logo_select]',
 					'type'              => 'select',
-					'sanitize_callback' => 'asu_wp2020_theme_slug_sanitize_select',
-					'choices'           => array(
-						'right' => __('Right sidebar', 'asu-web-standards'),
-						'left'  => __('Left sidebar', 'asu-web-standards'),
-						'both'  => __('Left & Right sidebars', 'asu-web-standards'),
-						'none'  => __('No sidebar', 'asu-web-standards'),
-					),
-					'priority'          => apply_filters('asu_wp2020_sidebar_position_priority', 20),
+					'sanitize_callback' => 'asu_wp2020_sanitize_select',
+					'choices'           => $logoOptions,
+					'priority'          => apply_filters('asu_wp2020_sidebar_position_priority', 0),
 				)
 			)
 		);
 
 		//  =============================
-		//  =============================
-		//  = School Info Section       =
-		//  =============================
-		//  =============================
-
-		$wp_customize->add_section(
-			'asu_wp2020_theme_section',
-			array(
-				'title'      => __('School Information', 'asu-web-standards'),
-				'priority'   => 30,
-			)
-		);
-
-		//  =============================
-		//  = School Logo               =
+		//  = School/Unit Logo URL      =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[logo]',
+			'asu_wp2020_theme_options[logo_url]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -212,12 +207,31 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_logo_text',
+			'asu_wp2020_logo_url',
 			array(
-				'label'      => __('School Logo Full URL', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
-				'settings'   => 'asu_wp2020_theme_options[logo]',
-				'priority'   => 0,
+				'label'      => __('Unit Endorsed Logo URL', 'asu-web-standards'),
+				'description'       => __(
+					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
+					'asu-web-standards'
+				),
+				'section'    => 'asu_wp2020_theme_section_unit_logo',
+				'settings'   => 'asu_wp2020_theme_options[logo_url]',
+				'priority'   => 10,
+			)
+		);
+
+
+		//  =============================
+		//  =============================
+		//  = School/Unit Info Section  =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'asu_wp2020_theme_section_unit_info',
+			array(
+				'title'      => __('Unit Information', 'asu-web-standards'),
+				'priority'   => 30,
 			)
 		);
 
@@ -238,9 +252,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_org_text',
 			array(
 				'label'      => __('Parent Organization', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
+				'section'    => 'asu_wp2020_theme_section_unit_info',
 				'settings'   => 'asu_wp2020_theme_options[org]',
-				'priority'   => 1,
+				'priority'   => 10,
 			)
 		);
 
@@ -261,9 +275,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_org_link',
 			array(
 				'label'      => __('Parent Organization URL', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
+				'section'    => 'asu_wp2020_theme_section_unit_info',
 				'settings'   => 'asu_wp2020_theme_options[org_link]',
-				'priority'   => 10,
+				'priority'   => 20,
 			)
 		);
 
@@ -284,9 +298,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_contact',
 			array(
 				'label'      => __('Contact Us Email or URL', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
+				'section'    => 'asu_wp2020_theme_section_unit_info',
 				'settings'   => 'asu_wp2020_theme_options[contact]',
-				'priority'   => 50,
+				'priority'   => 30,
 			)
 		);
 
@@ -307,9 +321,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_contact_subject',
 			array(
 				'label'      => __('Contact Us Email Subject (Optional)', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
+				'section'    => 'asu_wp2020_theme_section_unit_info',
 				'settings'   => 'asu_wp2020_theme_options[contact_subject]',
-				'priority'   => 60,
+				'priority'   => 40,
 			)
 		);
 
@@ -330,10 +344,10 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_contact_body',
 			array(
 				'label'    => __('Contact Us Email Body (Optional)', 'asu-web-standards'),
-				'section'  => 'asu_wp2020_theme_section',
+				'section'  => 'asu_wp2020_theme_section_unit_info',
 				'settings' => 'asu_wp2020_theme_options[contact_body]',
 				'type'     => 'textarea',
-				'priority' => 70,
+				'priority' => 50,
 			)
 		);
 
@@ -354,9 +368,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_contribute',
 			array(
 				'label'      => __('Contribute URL (Optional)', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section',
+				'section'    => 'asu_wp2020_theme_section_unit_info',
 				'settings'   => 'asu_wp2020_theme_options[contribute]',
-				'priority'   => 80,
+				'priority'   => 60,
 			)
 		);
 
@@ -437,11 +451,11 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			)
 		);
 
-		//  =============================
-		//  =============================
-		//  =Google Tag Manager Section =
-		//  =============================
-		//  =============================
+		//  ==================================
+		//  ==================================
+		//  = ASU Analytics Manager Section =
+		//  ==================================
+		//  ==================================
 
 		$wp_customize->add_section(
 			'asu_wp2020_theme_section_asu_analytics',
@@ -452,7 +466,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		//  =============================
-		//  = Tag Manager               =
+		//  = ASU Google Tag Manager    =
 		//  =============================
 		$wp_customize->add_setting(
 			'asu_wp2020_theme_options[asu_analytics]',
@@ -467,7 +481,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		$wp_customize->add_control(
 			'asu_wp2020_asu_analytics',
 			array(
-				'label'      => __('ASU Tag Manager', 'asu-web-standards'),
+				'label'      => __('ASU Marketing Hub Analytics', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_asu_analytics',
 				'settings'   => 'asu_wp2020_theme_options[asu_analytics]',
 				'type'       => 'radio',
@@ -475,6 +489,58 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 					'enable'  => 'enabled',
 					'disable' => 'disabled',
 				),
+			)
+		);
+
+		//  ================================
+		//  ================================
+		//  = Theme Layout Manager Section =
+		//  ================================
+		//  ================================
+
+		// Theme layout settings.
+		$wp_customize->add_section(
+			'asu_wp2020_theme_layout_options',
+			array(
+				'title'       => __('Theme Layout Settings', 'asu-web-standards'),
+				'capability'  => 'edit_theme_options',
+				'description' => __('Theme sidebar defaults', 'asu-web-standards'),
+				'priority'    => apply_filters('asu_wp2020_theme_layout_options_priority', 160),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[sidebars]',
+			array(
+				'default'           => 'left',
+				'type'              => 'option',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'asu_wp2020_sidebar_position',
+				array(
+					'label'             => __('Sidebar Positioning', 'asu-web-standards'),
+					'description'       => __(
+						'Set sidebar\'s default position. Can either be: right, left, both or none.',
+						'asu-web-standards'
+					),
+					'section'           => 'asu_wp2020_theme_layout_options',
+					'settings'          => 'asu_wp2020_theme_options[sidebars]',
+					'type'              => 'select',
+					'sanitize_callback' => 'asu_wp2020_sanitize_select',
+					'choices'           => array(
+						'right' => __('Right sidebar', 'asu-web-standards'),
+						'left'  => __('Left sidebar', 'asu-web-standards'),
+						'both'  => __('Left & Right sidebars', 'asu-web-standards'),
+						'none'  => __('No sidebar', 'asu-web-standards'),
+					),
+					'priority'          => apply_filters('asu_wp2020_sidebar_position_priority', 20),
+				)
 			)
 		);
 	}
