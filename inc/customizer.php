@@ -239,7 +239,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		//  = Parent Organization Text  =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[org]',
+			'asu_wp2020_theme_options[parent_org_name]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -253,7 +253,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			array(
 				'label'      => __('Parent Organization', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[org]',
+				'settings'   => 'asu_wp2020_theme_options[parent_org_name]',
 				'priority'   => 10,
 			)
 		);
@@ -262,7 +262,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		//  = Parent Organization Link  =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[org_link]',
+			'asu_wp2020_theme_options[parent_org_link]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -276,7 +276,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			array(
 				'label'      => __('Parent Organization URL', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[org_link]',
+				'settings'   => 'asu_wp2020_theme_options[parent_org_link]',
 				'priority'   => 20,
 			)
 		);
