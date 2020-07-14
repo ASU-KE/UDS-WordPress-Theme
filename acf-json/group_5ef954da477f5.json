@@ -35,11 +35,9 @@
                 "id": ""
             },
             "choices": {
-                "small": "Small",
-                "medium": "Medium",
-                "large": "Large",
-                "story": "Story",
-                "video": "Video"
+                "uds-hero-sm": "Small",
+                "uds-hero-md": "Medium",
+                "uds-hero-lg": "Large"
             },
             "default_value": false,
             "allow_null": 0,
@@ -168,5 +166,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594151858
+    "modified": 1594687507
 }
