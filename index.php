@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-// TODO: Custom Hero function
+include get_template_directory() . 'hero.php';
 ?>
 
 <div class="wrapper" id="index-wrapper">
