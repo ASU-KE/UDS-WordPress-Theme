@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $asu_wp2020_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
+	'/asu-favicons.php',                    // Enable ASU Favicons.
 	'/wpautop.php',                         // Disable wpautop.
 	'/widgets.php',                         // Register widget area.
 	'/enqueue.php',                         // Enqueue scripts and styles.
