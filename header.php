@@ -95,11 +95,11 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 									<div class="title">
 										<?php
 										$parentOrg = '<span class="unit-name">%1$s</span>';
-										if (isset($cOptions) && array_key_exists('parent_org_name', $cOptions) && $cOptions['parent_org_name'] !== '') {
-											echo wp_kses(sprintf($parentOrg, $cOptions['parent_org_name']), wp_kses_allowed_html('post'));
+										if (isset($cOptions) && array_key_exists('parent_unit_name', $cOptions) && $cOptions['parent_unit_name'] !== '') {
+											echo wp_kses(sprintf($parentOrg, $cOptions['parent_unit_name']), wp_kses_allowed_html('strip'));
 										}
 										?>
-										<span class="subdomain-name"><?php echo wp_kses(get_bloginfo('name'), wp_kses_allowed_html('post')); ?></span>
+										<span class="subdomain-name"><?php echo wp_kses(get_bloginfo('name'), wp_kses_allowed_html('strip')); ?></span>
 										<!-- <span class="subdomain-name">Sub Domain Name</span> -->
 									</div>
 

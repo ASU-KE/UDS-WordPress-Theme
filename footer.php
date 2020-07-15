@@ -85,13 +85,13 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 
 						// Do we have a contact?
 						if ( isset( $cOptions ) &&
-							array_key_exists( 'contact', $cOptions ) &&
-							$cOptions['contact'] !== '' ) {
+							array_key_exists( 'contact_email', $cOptions ) &&
+							$cOptions['contact_email'] !== '' ) {
 						$type       = '';
-						$contact    = $cOptions['contact'];
+						$contactEmail    = $cOptions['contact_email'];
 						$additional = '';
 
-						if ( filter_var( $contact, FILTER_VALIDATE_EMAIL ) ) {
+						if ( filter_var( $contactEmail, FILTER_VALIDATE_EMAIL ) ) {
 							$type = 'mailto:';
 
 							//  =============================
@@ -120,20 +120,20 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 							}
 						}
 
-						echo wp_kses( sprintf( $contactURL, $type, $contact, $additional ), wp_kses_allowed_html( 'post' ) );
+						echo wp_kses( sprintf( $contactURL, $type, $contactEmail, $additional ), wp_kses_allowed_html( 'post' ) );
 						}
 						?>
 						<?php
 						//  =============================
 						//  = Contribute Button         =
 						//  =============================
-						$contribute = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
+						$contributeUrl = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
 
 						// Do we have a contribute?
 						if ( isset( $cOptions ) &&
-							array_key_exists( 'contribute', $cOptions ) &&
-							$cOptions['contribute'] !== '' ) {
-						echo wp_kses( sprintf( $contribute, $cOptions['contribute'] ), wp_kses_allowed_html( 'post' ) );
+							array_key_exists( 'contribute_url', $cOptions ) &&
+							$cOptions['contribute_url'] !== '' ) {
+						echo wp_kses( sprintf( $contributeUrl, $cOptions['contribute_url'] ), wp_kses_allowed_html( 'post' ) );
 						}
 						?>
 					</div>
