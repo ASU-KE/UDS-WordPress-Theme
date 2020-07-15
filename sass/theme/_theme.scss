@@ -225,8 +225,8 @@
 #header-main .dropdown-menu {
 	margin: 0;
 	padding: 1rem;
-	border: 0;
-	border-top: 1px solid #d0d0d0;
+	border: 1px solid #bfbfbf;
+    border-top: none;
 }
 
 #header-main .dropdown-menu .btn {
@@ -424,13 +424,16 @@
 	}
 	#header-main .dropdown-menu {
 		margin: -1px 0 0 0;
-		border-top: 1px solid #ffffff;
+		border: 1px solid #bfbfbf;
+		border-top: none;
 		padding: 2rem;
 	}
 	#header-main .dropdown-menu.dropdown-columns.show {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
+		border: 1px solid #bfbfbf;
+		border-top: none;
 	}
 	#header-main .dropdown-col {
 		width: 16rem;
