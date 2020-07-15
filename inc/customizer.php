@@ -463,6 +463,10 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_asu_search',
 			array(
 				'label'      => __('ASU Search', 'asu-web-standards'),
+				'description'       => __(
+					'Replace WP internal search service with ASU\'s search service',
+					'asu-web-standards'
+				),
 				'section'    => 'asu_wp2020_theme_section_asu_search',
 				'settings'   => 'asu_wp2020_theme_options[asu_search]',
 				'type'       => 'radio',
@@ -487,13 +491,13 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  = ASU Google Tag Manager    =
-		//  =============================
+		//  =======================================
+		//  = ASU Marketing Hub Analytics Manager =
+		//  =======================================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[asu_analytics]',
+			'asu_wp2020_theme_options[asu_hub_analytics]',
 			array(
-				'default'           => 'enable',
+				'default'           => 'disable',
 				'capability'        => 'edit_theme_options',
 				'type'              => 'option',
 				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
@@ -501,16 +505,74 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_asu_analytics',
+			'asu_wp2020_asu_hub_analytics',
 			array(
 				'label'      => __('ASU Marketing Hub Analytics', 'asu-web-standards'),
+				'description'       => __(
+					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
+					'asu-web-standards'
+				),
 				'section'    => 'asu_wp2020_theme_section_asu_analytics',
-				'settings'   => 'asu_wp2020_theme_options[asu_analytics]',
+				'settings'   => 'asu_wp2020_theme_options[asu_hub_analytics]',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enable'  => 'enabled',
 					'disable' => 'disabled',
 				),
+			)
+		);
+
+		//  ==============================
+		//  = Site Google Analytics ID   =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[site_ga_tracking_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_site_ga_tracking_id',
+			array(
+				'label'             => __('Google Analytics Tracking ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your unit\'s GA Tracking ID to enable analytics for this website.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[site_ga_tracking_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		//  ==============================
+		//  = Hotjar Analytics           =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[hotjar_site_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_hotjar_site_id',
+			array(
+				'label'             => __('Hotjar Site ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your Hotjar Site ID to enable Hotjar analytics for this website.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[hotjar_site_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
 			)
 		);
 

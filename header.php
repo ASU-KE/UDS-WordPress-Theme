@@ -11,23 +11,28 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$home_url         = esc_url(home_url('/'));
-$theme_color      = false;
-$subsite_menu     = false;
-$parent_blog_name = false;
-$site_title_attr  = '';
-$menu_item_attr   = '';
-$asu_analytics    = false;
+$cOptions            = [];
+$asu_hub_analytics   = 'disabled';
+$site_ga_tracking_id = '';
+$hotjar_site_id      = '';
 
 // Check if we have Customizer options set
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
 
-// Do we have an asu_analytics setting?
-// if (array_key_exists('asu_analytics', $c_options) && $c_options['asu_analytics'] !== '') {
-// 	$asu_analytics = $c_options['asu_analytics'];
-// }
+// Do we have an asu_hub_analytics setting?
+if (array_key_exists('asu_hub_analytics', $cOptions) && $cOptions['asu_hub_analytics'] !== '') {
+	$asu_hub_analytics = $cOptions['asu_hub_analytics'];
+}
+// Do we have an site_ga_tracking_id setting?
+if (array_key_exists('site_ga_tracking_id', $cOptions) && $cOptions['site_ga_tracking_id'] !== '') {
+	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
+}
+// Do we have an hotjar_site_id setting?
+if (array_key_exists('hotjar_site_id', $cOptions) && $cOptions['hotjar_site_id'] !== '') {
+	$hotjar_site_id = $cOptions['hotjar_site_id'];
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -37,24 +42,29 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<?php
+	// ASU Hub Analytics
+	if ( !empty( $asu_hub_analytics ) && $asu_hub_analytics === 'enable' ) {
+		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
+	}
+	?>
+	<?php
+	// Site Google Analytics
+	if ( !empty( $site_ga_tracking_id ) ) {
+		include get_template_directory() . '/inc/analytics/google-analytics-tracking-code.php';
+	}
+	?>
+	<?php
+	// Hotjar Analytics
+	if ( !empty( $hotjar_site_id ) ) {
+		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
+	}
+	?>
 </head>
 
 <body <?php body_class(); ?> <?php asu_wp2020_body_attributes(); ?>>
 	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'asu-web-standards'); ?></a>
 	<?php do_action('wp_body_open'); ?>
-
-	<?php
-	// Do we have asu_analytics?
-	if ($asu_analytics) {
-		if ($asu_analytics <> 'disable') {
-			// Include the 'analytics-body-tracking-codes.php' file to run script for running analytics. If not, the
-			// file containing the script isn't included and it does not run.
-			include_theme_file('analytics-body-tracking-codes.php');
-		} // else: ASU Analytics is disabled.
-	} else { // If customize option is not present, enable tracking by default.
-		// include_theme_file('analytics-body-tracking-codes.php');
-	}
-	?>
 
 	<div class="site" id="page">
 
