@@ -17,20 +17,20 @@ $site_ga_tracking_id = '';
 $hotjar_site_id      = '';
 
 // Check if we have Customizer options set
-if (is_array(get_option('asu_wp2020_theme_options'))) {
+if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
 
 // Do we have an asu_hub_analytics setting?
-if (array_key_exists('asu_hub_analytics', $cOptions) && $cOptions['asu_hub_analytics'] !== '') {
+if ( !empty( $cOptions['asu_hub_analytics'] ) ) {
 	$asu_hub_analytics = $cOptions['asu_hub_analytics'];
 }
 // Do we have an site_ga_tracking_id setting?
-if (array_key_exists('site_ga_tracking_id', $cOptions) && $cOptions['site_ga_tracking_id'] !== '') {
+if ( !empty( $cOptions['site_ga_tracking_id'] ) ) {
 	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
 // Do we have an hotjar_site_id setting?
-if (array_key_exists('hotjar_site_id', $cOptions) && $cOptions['hotjar_site_id'] !== '') {
+if ( !empty( $cOptions['hotjar_site_id'] ) ) {
 	$hotjar_site_id = $cOptions['hotjar_site_id'];
 }
 ?>
@@ -106,7 +106,7 @@ if (array_key_exists('hotjar_site_id', $cOptions) && $cOptions['hotjar_site_id']
 										<?php
 										$parentOrg = '<span class="unit-name">%1$s</span>';
 										if (isset($cOptions) && array_key_exists('parent_unit_name', $cOptions) && $cOptions['parent_unit_name'] !== '') {
-											echo wp_kses(sprintf($parentOrg, $cOptions['parent_unit_name']), wp_kses_allowed_html('strip'));
+											echo wp_kses(sprintf($parentOrg, $cOptions['parent_unit_name']), wp_kses_allowed_html('post'));
 										}
 										?>
 										<span class="subdomain-name"><?php echo wp_kses(get_bloginfo('name'), wp_kses_allowed_html('strip')); ?></span>
