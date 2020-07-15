@@ -3,7 +3,7 @@
 /*--------------------------------------------------------------
 # Global Header - TEMPORARY until integrated into Unity Bootstrap
 
-1. Wrapper Definitions, Global Mixins
+1. Wrapper Definitions, Global Mixins, Variables
 2. Top Menu
 3. Main Menu
 4. Mobile
@@ -38,7 +38,42 @@
 	color: #484848;
 	font-size: 0.75rem;
 	line-height: 0.75rem;
-	padding: 0.25rem 0 0.25rem 1.5rem;
+	padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+	margin-right: 0.5rem;
+}
+
+#header-top input[type="search"] {
+	background: url(/wp-content/themes/asu-web-standards-2020-wordpress-theme/img/font-awesome-svg/search-gray-6.svg) no-repeat 10px
+		50%;
+	background-size: 16px;
+	width: 32px;
+	cursor: pointer;
+	font-size: 0.75rem;
+	line-height: 0.75rem;
+	border: 0;
+	border-radius: 0;
+	padding: 0.25rem;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+#header-top input[type="search"]:focus {
+	background-image: url(/wp-content/themes/asu-web-standards-2020-wordpress-theme/img/font-awesome-svg/search-gray-5.svg);
+	width: 200px;
+	color: #747474;
+	background-color: #fff;
+	cursor: auto;
+	margin: 0.5rem 0;
+	padding-left: 32px;
+}
+
+#header-top input:-moz-placeholder {
+	color: transparent;
+}
+
+#header-top input::-webkit-input-placeholder {
+	color: transparent;
 }
 
 /*--------------------------------------------------------------
@@ -123,6 +158,58 @@
 	color: #191919;
 }
 
+#header-main .navbar-site-buttons {
+	padding: 1rem 2rem;
+	border-top: 1px solid #d0d0d0;
+}
+
+#header-main .navbar-site-buttons .btn + .btn {
+	margin-left: 0.5rem;
+}
+
+#header-main .navbar-mobile-footer {
+	background-color: #e8e8e8;
+}
+
+#header-main .navbar-mobile-footer .navbar-mobile-search {
+	padding: 1rem 2rem;
+	width: 100%;
+	border-top: 1px solid #d0d0d0;
+}
+
+#header-main .navbar-mobile-footer .navbar-mobile-search input {
+	width: 100%;
+	background: url(/wp-content/themes/asu-web-standards-2020-wordpress-theme/img/font-awesome-svg/search-gray-6.svg) no-repeat 10px
+		50%;
+	background-size: 16px;
+	background-color: #ffffff;
+	border: 0;
+	border-radius: 0;
+	padding-left: 32px;
+}
+
+#header-main .navbar-mobile-footer .nav-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-flow: row;
+	justify-items: start;
+	width: 100%;
+}
+
+#header-main .navbar-mobile-footer .nav-grid .nav-link {
+	margin-right: 0;
+	padding: 0.5rem 0;
+	text-align: center;
+	width: 100%;
+	font-size: 0.875rem;
+	padding: 1rem 2rem;
+	border-top: 1px solid #d0d0d0;
+}
+
+#header-main .navbar-mobile-footer .nav-grid .nav-link:nth-child(even) {
+	border-left: 1px solid #d0d0d0;
+}
+
 #header-main .dropdown {
 	border-top: 1px solid #d0d0d0;
 }
@@ -170,6 +257,10 @@
 	#wrapper-header-main .container-lg {
 		padding: 0;
 	}
+	.navbar-collapse {
+		max-height: 100vh;
+		overflow-y: scroll;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -180,6 +271,46 @@
 	#wrapper-header-top {
 		display: block;
 	}
+	#wrapper-header-top.scrolled {
+		-webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		-o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+	}
+	#wrapper-header-top.scrolled .wrapper-header-top {
+		opacity: 0;
+		visibility: hidden;
+		height: 0px;
+		-webkit-transition: translateY(-24px);
+		-o-transition: translateY(-24px);
+		transition: translateY(-24px);
+	}
+	#wrapper-header-top.scrolled .wrapper-header-main .hamburger i {
+		font-size: 1em;
+	}
+	#wrapper-header-top.scrolled .wrapper-header-main .logo img {
+		height: 64px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1264px) {
+	#wrapper-header-top.scrolled .wrapper-header-main .logo img {
+		height: 28px;
+	}
+}
+
+@media (min-width: 992px) {
+	#wrapper-header-top.scrolled .wrapper-header-main .subdomainTitle h1 {
+		font-size: 1.5em;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1264px) {
+	#wrapper-header-top.scrolled .wrapper-header-main .subdomainTitle h1 {
+		font-size: 1em;
+	}
+}
+
+@media (min-width: 992px) {
 	#header-main .navbar {
 		padding: 0;
 		-webkit-box-align: start;
@@ -296,16 +427,6 @@
 		border-top: 1px solid #ffffff;
 		padding: 2rem;
 	}
-	#header-main .dropdown-menu .dropdown-item {
-		padding: 0.5rem 0;
-	}
-	#header-main .dropdown-menu .dropdown-item:visited {
-		color: #191919;
-	}
-	#header-main .dropdown-menu .dropdown-item:hover {
-		color: #8c1d40;
-		text-decoration: underline;
-	}
 	#header-main .dropdown-menu.dropdown-columns.show {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -313,7 +434,7 @@
 	}
 	#header-main .dropdown-col {
 		width: 16rem;
-		padding-right: 1.5rem;
+		padding: 0 1.5rem 0 0;
 		border-right: 1px solid #bfbfbf;
 		margin-right: 1.5rem;
 	}
@@ -322,8 +443,22 @@
 		padding-right: 0;
 		border-right: 0;
 	}
-	#header-main .dropdown-col .dropdown-item {
+	#header-main .dropdown-col h3 {
+		margin-top: 0;
+	}
+	#header-main .dropdown-item {
+		padding: 0.5rem 0;
 		white-space: normal;
+	}
+	#header-main .dropdown-item:visited {
+		color: #191919;
+	}
+	#header-main .dropdown-item:hover {
+		color: #8c1d40;
+		text-decoration: underline;
+	}
+	#header-main .dropdown-item + .dropdown-item {
+		border-top: 0;
 	}
 	#header-main .megamenu {
 		position: static;
@@ -340,9 +475,18 @@
 		width: 100%;
 		padding: 2rem 0;
 	}
-	#header-main .megamenu .row + .row {
-		border-top: 1px solid #bfbfbf;
+	#header-main .megamenu .row.with-buttons {
 		padding: 1rem 0;
+	}
+	#header-main .megamenu .row.with-buttons:before {
+		content: "";
+		height: 1px;
+		width: 100vw;
+		margin-left: calc(-50vw + 50%);
+		margin-right: calc(-50vw + 50%);
+		background-color: #bfbfbf;
+		position: relative;
+		top: -1rem;
 	}
 	#header-main .megamenu div[class^="col-"] {
 		border-right: 1px solid #bfbfbf;
@@ -351,10 +495,19 @@
 	#header-main .megamenu div[class^="col-"]:last-of-type {
 		border-right: 0;
 	}
+	#header-main .megamenu div[class^="col-"] h3 {
+		margin-top: 0;
+	}
 	#header-main .megamenu div[class^="col-"] .dropdown-item {
 		white-space: normal;
 	}
+	#header-main .megamenu div[class^="col-"] .dropdown-item + .dropdown-item {
+		border-top: 0;
+	}
 	#header-main .megamenu div[class^="col-"] .btn + .btn {
 		margin-left: 1.5rem;
+	}
+	#header-main .navbar-mobile-footer {
+		display: none;
 	}
 }
