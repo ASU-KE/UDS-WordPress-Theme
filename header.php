@@ -80,7 +80,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 	<div class="site" id="page">
 
-		<header id="asu-header" class="fixed-top">
+		<header id="asu-header" class="">
 
 			<div id="wrapper-header-top">
 				<div class="container-lg">
