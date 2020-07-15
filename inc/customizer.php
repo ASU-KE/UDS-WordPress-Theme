@@ -429,6 +429,10 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 				'asu_wp2020_404',
 				array(
 					'label'      => __('404 Image', 'asu-web-standards'),
+					'description'       => __(
+						'Resize and crop your desired image to approximately 1200px x 500px',
+						'asu-web-standards'
+					),
 					'section'    => 'asu_wp2020_theme_section_404',
 					'settings'   => 'asu_wp2020_theme_options[image_404]',
 				)
