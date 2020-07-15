@@ -83,3 +83,28 @@ if ( ! function_exists( 'asu_wp2020_tiny_mce_before_init' ) ) {
 		return $settings;
 	}
 }
+
+/**
+ * Add inline css editor width
+ */
+
+function gutenberg_editor_full_width()
+{
+	echo '<style>
+    body.gutenberg-editor-page .editor-post-title__block,
+	body.gutenberg-editor-page .editor-default-block-appender,
+	body.gutenberg-editor-page .editor-block-list__block {
+		max-width: none !important;
+	}
+	.block-editor__container .wp-block {
+		max-width: none !important;
+	}
+	/*code editor*/
+	.edit-post-text-editor__body {
+		max-width: none !important;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+</style>';
+}
+add_action('admin_head', 'gutenberg_editor_full_width');
