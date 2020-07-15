@@ -10,26 +10,6 @@
 defined('ABSPATH') || exit;
 
 /**
- * Add postMessage support for site title and description for the Theme Customizer.
- *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
- */
-if (!function_exists('asu_wp2020_customize_register')) {
-	/**
-	 * Register basic customizer support.
-	 *
-	 * @param object $wp_customize Customizer reference.
-	 */
-	function asu_wp2020_customize_register($wp_customize)
-	{
-		$wp_customize->get_setting('blogname')->transport         = 'postMessage';
-		$wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
-		$wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
-	}
-}
-add_action('customize_register', 'asu_wp2020_customize_register');
-
-/**
  * Sanitizer that does nothing
  */
 function asu_wp2020_sanitize_nothing($data)
@@ -83,7 +63,49 @@ function asu_wp2020_sanitize_select($input, $setting)
 	return (array_key_exists($input, $choices) ? $input : $setting->default);
 }
 
-if (!function_exists('asu_wp2020_theme_customize_register')) {
+/**
+ * Add postMessage support for site title and description for the Theme Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+if (!function_exists('asu_wp2020_customize_register')) {
+	/**
+	 * Register basic customizer support.
+	 *
+	 * @param object $wp_customize Customizer reference.
+	 */
+	function asu_wp2020_customize_register($wp_customize)
+	{
+		$wp_customize->get_setting('blogname')->transport         = 'postMessage';
+		$wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
+		$wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
+
+
+	}
+}
+add_action('customize_register', 'asu_wp2020_customize_register');
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+if (!function_exists('asu_wp2020_customize_preview_js')) {
+	/**
+	 * Setup JS integration for live previewing.
+	 */
+	function asu_wp2020_customize_preview_js()
+	{
+		wp_enqueue_script(
+			'asu_wp2020_customizer',
+			get_template_directory_uri() . '/js/customizer.js',
+			array('customize-preview'),
+			'20130508',
+			true
+		);
+	}
+}
+add_action('customize_preview_init', 'asu_wp2020_customize_preview_js');
+
+if (!function_exists('asu_wp2020_theme_get_endorsed_unit_logos')) {
 	/**
 	 * Load a list of endorsed-logos from JSON file and store in transient for quick retrieval.
 	 *
@@ -115,13 +137,13 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 	}
 }
 
-if (!function_exists('asu_wp2020_theme_customize_register')) {
+if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 	/**
-	 * Register individual settings through customizer's API.
+	 * Register custom ASU Web Standards settings through customizer's API.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customizer reference.
 	 */
-	function asu_wp2020_theme_customize_register($wp_customize)
+	function asu_wp2020_register_theme_customizer_settings($wp_customize)
 	{
 		// ==============================================================
 		// ==============================================================
@@ -150,7 +172,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		//  =============================
-		//  = School/Unit Logo Select   =
+		//  = Unit Logo Select   =
 		//  =============================
 		$wp_customize->add_setting(
 			'asu_wp2020_theme_options[logo_select]',
@@ -194,7 +216,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		//  =============================
-		//  = School/Unit Logo URL      =
+		//  = Unit Logo URL      =
 		//  =============================
 		$wp_customize->add_setting(
 			'asu_wp2020_theme_options[logo_url]',
@@ -223,7 +245,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 
 		//  =============================
 		//  =============================
-		//  = School/Unit Info Section  =
+		//  = Unit Info Section  =
 		//  =============================
 		//  =============================
 
@@ -236,10 +258,10 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		//  =============================
-		//  = Parent Organization Text  =
+		//  = Parent Unit Text  =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[parent_org_name]',
+			'asu_wp2020_theme_options[parent_unit_name]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -251,9 +273,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		$wp_customize->add_control(
 			'asu_wp2020_org_text',
 			array(
-				'label'      => __('Parent Organization', 'asu-web-standards'),
+				'label'      => __('Parent Unit', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[parent_org_name]',
+				'settings'   => 'asu_wp2020_theme_options[parent_unit_name]',
 				'priority'   => 10,
 			)
 		);
@@ -262,7 +284,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		//  = Parent Organization Link  =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[parent_org_link]',
+			'asu_wp2020_theme_options[parent_unit_link]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -274,9 +296,9 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		$wp_customize->add_control(
 			'asu_wp2020_org_link',
 			array(
-				'label'      => __('Parent Organization URL', 'asu-web-standards'),
+				'label'      => __('Parent Unit URL', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[parent_org_link]',
+				'settings'   => 'asu_wp2020_theme_options[parent_unit_link]',
 				'priority'   => 20,
 			)
 		);
@@ -285,7 +307,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		//  = Contact Us Email or URL   =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[contact]',
+			'asu_wp2020_theme_options[contact_email]',
 			array(
 				'default'        => '',
 				'capability'     => 'edit_theme_options',
@@ -295,11 +317,11 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_contact',
+			'asu_wp2020_contact_email',
 			array(
 				'label'      => __('Contact Us Email or URL', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[contact]',
+				'settings'   => 'asu_wp2020_theme_options[contact_email]',
 				'priority'   => 30,
 			)
 		);
@@ -355,7 +377,7 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		//  = Contribute URL            =
 		//  =============================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[contribute]',
+			'asu_wp2020_theme_options[contribute_url]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -365,11 +387,11 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_contribute',
+			'asu_wp2020_contribute_url',
 			array(
 				'label'      => __('Contribute URL (Optional)', 'asu-web-standards'),
 				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[contribute]',
+				'settings'   => 'asu_wp2020_theme_options[contribute_url]',
 				'priority'   => 60,
 			)
 		);
@@ -407,6 +429,10 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 				'asu_wp2020_404',
 				array(
 					'label'      => __('404 Image', 'asu-web-standards'),
+					'description'       => __(
+						'Resize and crop your desired image to approximately 1200px x 500px',
+						'asu-web-standards'
+					),
 					'section'    => 'asu_wp2020_theme_section_404',
 					'settings'   => 'asu_wp2020_theme_options[image_404]',
 				)
@@ -441,6 +467,10 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			'asu_wp2020_asu_search',
 			array(
 				'label'      => __('ASU Search', 'asu-web-standards'),
+				'description'       => __(
+					'Replace WP internal search service with ASU\'s search service',
+					'asu-web-standards'
+				),
 				'section'    => 'asu_wp2020_theme_section_asu_search',
 				'settings'   => 'asu_wp2020_theme_options[asu_search]',
 				'type'       => 'radio',
@@ -465,13 +495,13 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			)
 		);
 
-		//  =============================
-		//  = ASU Google Tag Manager    =
-		//  =============================
+		//  =======================================
+		//  = ASU Marketing Hub Analytics Manager =
+		//  =======================================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[asu_analytics]',
+			'asu_wp2020_theme_options[asu_hub_analytics]',
 			array(
-				'default'           => 'enable',
+				'default'           => 'disable',
 				'capability'        => 'edit_theme_options',
 				'type'              => 'option',
 				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
@@ -479,16 +509,74 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_asu_analytics',
+			'asu_wp2020_asu_hub_analytics',
 			array(
 				'label'      => __('ASU Marketing Hub Analytics', 'asu-web-standards'),
+				'description'       => __(
+					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
+					'asu-web-standards'
+				),
 				'section'    => 'asu_wp2020_theme_section_asu_analytics',
-				'settings'   => 'asu_wp2020_theme_options[asu_analytics]',
+				'settings'   => 'asu_wp2020_theme_options[asu_hub_analytics]',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enable'  => 'enabled',
 					'disable' => 'disabled',
 				),
+			)
+		);
+
+		//  ==============================
+		//  = Site Google Analytics ID   =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[site_ga_tracking_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_site_ga_tracking_id',
+			array(
+				'label'             => __('Google Analytics Tracking ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your unit\'s GA Tracking ID to enable analytics for this website.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[site_ga_tracking_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		//  ==============================
+		//  = Hotjar Analytics           =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[hotjar_site_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_hotjar_site_id',
+			array(
+				'label'             => __('Hotjar Site ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your Hotjar Site ID to enable Hotjar analytics for this website.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[hotjar_site_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
 			)
 		);
 
@@ -544,25 +632,5 @@ if (!function_exists('asu_wp2020_theme_customize_register')) {
 			)
 		);
 	}
-} // End of if function_exists( 'asu_wp2020_theme_customize_register' ).
-add_action('customize_register', 'asu_wp2020_theme_customize_register');
-
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-if (!function_exists('asu_wp2020_customize_preview_js')) {
-	/**
-	 * Setup JS integration for live previewing.
-	 */
-	function asu_wp2020_customize_preview_js()
-	{
-		wp_enqueue_script(
-			'asu_wp2020_customizer',
-			get_template_directory_uri() . '/js/customizer.js',
-			array('customize-preview'),
-			'20130508',
-			true
-		);
-	}
-}
-add_action('customize_preview_init', 'asu_wp2020_customize_preview_js');
+} // End of if function_exists( 'asu_wp2020_register_theme_customizer_settings' ).
+add_action('customize_register', 'asu_wp2020_register_theme_customizer_settings');
