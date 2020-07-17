@@ -222,7 +222,7 @@ gulp.task( 'copy-assets', function( done ) {
 	// Copy all Bootstrap image files
 	gulp
 		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*' )
-		.pipe( gulp.dest( paths.dev + '/img/asu' ) );
+		.pipe( gulp.dest( paths.dev + '/img/asu-unity' ) );
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
