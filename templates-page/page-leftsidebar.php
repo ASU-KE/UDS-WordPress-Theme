@@ -11,11 +11,11 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-
-include get_template_directory() . '/hero.php';
 ?>
 
 <div class="wrapper" id="page-wrapper">
+
+	<?php include get_template_directory() . '/hero.php'; ?>
 
 	<div class="container" id="content">
 

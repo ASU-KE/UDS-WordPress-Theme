@@ -15,11 +15,11 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-
-include get_template_directory() . '/hero.php';
 ?>
 
-<div class="wrapper" id="index-wrapper">
+<div class="wrapper" id="page-wrapper">
+
+	<?php include get_template_directory() . '/hero.php'; ?>
 
 	<div class="container" id="content" tabindex="-1">
 
@@ -60,7 +60,7 @@ include get_template_directory() . '/hero.php';
 
 	</div><!-- #content -->
 
-</div><!-- #index-wrapper -->
+</div><!-- #page-wrapper -->
 
 <?php
 get_footer();
