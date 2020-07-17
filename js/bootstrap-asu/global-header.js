@@ -6,8 +6,10 @@ jQuery(document).ready(function ($) {
   $(window).scroll(function () {
     if ($(this).scrollTop() > 0) {
       $('#asu-header').addClass('scrolled');
+      $('#page-wrapper').addClass('scrolled');
     } else {
       $('#asu-header').removeClass('scrolled');
+      $('#page-wrapper').removeClass('scrolled');
     }
   });
 
