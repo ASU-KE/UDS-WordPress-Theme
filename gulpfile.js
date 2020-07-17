@@ -48,7 +48,7 @@ gulp.task( 'sass', function() {
  */
 gulp.task( 'imagemin', () =>
 	gulp
-		.src( [paths.imgsrc + '/bootstrap4/**/*'] )
+		.src( [paths.imgsrc + '/asu-unity/**/*'] )
 		.pipe(
 			imagemin(
 				[
@@ -222,7 +222,7 @@ gulp.task( 'copy-assets', function( done ) {
 	// Copy all Bootstrap image files
 	gulp
 		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*' )
-		.pipe( gulp.dest( paths.dev + '/img/bootstrap4' ) );
+		.pipe( gulp.dest( paths.dev + '/img/asu' ) );
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
@@ -238,7 +238,6 @@ gulp.task( 'copy-assets', function( done ) {
 gulp.task( 'clean-vendor-assets', function() {
 	return del( [
 		paths.dev + '/js/bootstrap4',
-		paths.dev + '/sass/bootstrap4',
 		paths.js + '/fontawesome',
 		paths.js + paths.vendor,
 	] );
