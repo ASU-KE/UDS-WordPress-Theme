@@ -150,7 +150,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<div class="navbar-nav">
 
-											<a class="nav-link nav-link-home active" href="#">
+											<a class="nav-link nav-link-home active" href="/">
 												<span class="d-lg-none">Home</span>
 												<span title="Home" class="fas fa-fw fa-home"></span>
 											</a>
