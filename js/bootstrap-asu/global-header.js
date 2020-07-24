@@ -6,10 +6,8 @@ jQuery(document).ready(function ($) {
   $(window).scroll(function () {
     if ($(this).scrollTop() > 0) {
       $('#asu-header').addClass('scrolled');
-      $('#page-wrapper').addClass('scrolled');
     } else {
       $('#asu-header').removeClass('scrolled');
-      $('#page-wrapper').removeClass('scrolled');
     }
   });
 
@@ -20,7 +18,6 @@ jQuery(document).ready(function ($) {
   });
 
   $('#header-top input[type="search"]').focusout(function () {
-    console.log('Event fired');
     $('#header-top').css({ height: '' });
     $('#wrapper-header-top').css({ height: '' });
   });
@@ -30,14 +27,13 @@ jQuery(document).ready(function ($) {
     $('#asu-header').addClass('scrolled');
   });
 
+  /*  Calculate height of the mobile header.
+   *
+   *  topPadding = 16px. Scrolled class added upon dropdown initiation.
+   *  navbarBrand = 48px. Height of ASU Logo in mobile view, including padding. Static value.
+   *  navbarTitle = Either 16px (one line) or 32px (two lines) + 16px bottom padding
+   */
   function mobileHeaderHeight() {
-    /*  Calculate height of the mobile header.
-     *
-     *  topPadding = 16px. Scrolled class added upon dropdown initiation.
-     *  navbarBrand = 48px. Height of ASU Logo in mobile view, including padding. Static value.
-     *  navbarTitle = Either 16px (one line) or 32px (two lines) + 16px bottom padding
-     */
-
     var topPadding = 16;
     var navbarBrand = $('.navbar-brand').height();
     var navbarTitle = $('nav.navbar .title').height() + 16;
