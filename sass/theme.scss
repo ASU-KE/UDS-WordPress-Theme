@@ -1,5 +1,7 @@
-// @import "../node_modules/@asu-design-system/bootstrap4-theme/dist/css/bootstrap-asu";
-@import "../src/css/bootstrap4-asu/bootstrap-asu";
+// Override image base path for theme css
+$image-assets-path: '/wp-content/themes/asu-web-standards-2020-wordpress-theme/img' !default;
+
+@import "../src/sass/bootstrap-asu";
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
