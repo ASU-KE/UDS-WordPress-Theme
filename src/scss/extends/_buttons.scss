@@ -1,0 +1,95 @@
+// Extra styles that don't have bootstrap variables to override
+.btn {
+  text-decoration: $uds-component-button-text-decoration;
+  font-weight: $uds-component-button-font-weight;
+  &.btn-md {
+    font-size: $uds-component-button-medium-font-size;
+    padding: $uds-component-button-padding-y-medium
+      $uds-component-button-padding-x-medium;
+  }
+  &.btn-sm {
+    font-size: $uds-component-button-small-font-size;
+    padding: $uds-component-button-padding-y-small
+      $uds-component-button-padding-x-small;
+  }
+  &.btn-tag {
+    font-size: $uds-component-button-small-font-size;
+    padding: $uds-component-button-padding-y-small
+      $uds-component-button-padding-x-small;
+      margin-top: 8px;
+      background: $gray-2;
+    &.btn-tag-alt-white {
+      background: $gray-2;
+      color: $body-color;
+    }
+    &.btn-tag-alt-gray {
+      background: $gray-3;
+      color: $body-color;
+    }
+    &.btn-tag-alt-black {
+      background: $gray-4;
+      color: $body-color;
+    }
+  }
+  &.btn-circle {
+    padding: $uds-size-spacing-half $uds-size-spacing-half;
+    width: $uds-size-spacing-4;
+    height: $uds-size-spacing-4;
+    border:solid 1px $gray-3;
+    &.btn-circle-alt-white {
+      background: $gray-2;
+      color: $body-color;
+    }
+    &.btn-circle-alt-gray {
+      background: $white;
+      color: $body-color;
+    }
+    &.btn-circle-alt-black {
+      background: $white;
+      color: $gray-7;
+    }
+    &.btn-circle-large {
+      width: $uds-size-spacing-8;
+      height: $uds-size-spacing-8;
+      font-size: 1.5rem;
+    }
+  }
+  &:hover {
+    transform: $uds-component-button-hover-state-transform;
+  }
+  &:active {
+    transform: scale(.95);
+  }
+}
+
+// Remove background changing hover effects from all buttons
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant(
+      $value,
+      $value,
+      $hover-background: $value,
+      $hover-border: $value,
+      $active-background: $value,
+      $active-border: $value
+    );
+  }
+}
+
+.accordion .btn {
+  &:hover {
+    transform: none;
+  }
+  &:active {
+    transform: none;
+  }
+}
+a.text-gold:hover, a.text-gold:focus {
+  color: #ffc627 !important;
+}
+a.text-gold:visited:not(.btn) {
+  color: #daa000 !important;
+}
+a:visited:not(.btn) {
+  color: $uds-color-base-darkmaroon;
+}
