@@ -49,15 +49,23 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 					?>
 				</div>
 
-				<div class="col-md" id="social-media">
-					<nav class="nav" aria-label="Social Media">
-						<a class="nav-link" href="#"><span title="Facebook Social Media Icon" class="fab fa-facebook-square"></span></a>
-						<a class="nav-link" href="#"><span title="Twitter Social Media Icon" class="fab fa-twitter-square"></span></a>
-						<a class="nav-link" href="#"><span title="LinkedIn Social Media Icon" class="fab fa-linkedin"></span></a>
-						<a class="nav-link" href="#"><span title="Instagram Social Media Icon" class="fab fa-instagram-square"></span></a>
-						<a class="nav-link" href="#"><span title="YouTube Social Media Icon" class="fab fa-youtube-square"></span></a>
-					</nav>
-				</div> <!-- social-media -->
+
+
+				<?php
+									if 	( has_nav_menu( 'social_media' ) )  {
+
+										wp_nav_menu(array(
+											'theme_location'  => 'social_media',
+											'container' => 'div',
+											'container_class' => 'col-md',
+											'container_id' => 'social-media',
+											'menu_class'  => '',
+											'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
+											'walker'          => new Social_Media_Walker
+										));
+
+									}
+								  	?>
 
 			</div> <!-- row -->
 		</div> <!-- endorsed-footer -->
@@ -67,6 +75,7 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 		<nav aria-label="Footer">
 			<div class="container" id="footer-columns">
 				<div class="row">
+
 
 					<div class="col-xl" id="info-column">
 						<?php
@@ -138,24 +147,30 @@ if ( is_array( get_option( 'asu_wp2020_theme_options' ) ) ) {
 						?>
 					</div>
 
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-two" class="collapsed" data-toggle="collapse" href="#footlink-two" role="button" aria-expanded="false" aria-controls="footlink-two">Second Column
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-two" class="collapse card-body" aria-labelledby="footlink-header-two">
-								<a class="nav-link" href="#" title="link">Biological and Health Systems Computing</a>
-								<a class="nav-link" href="#" title="link">Informatics and Decision Systems Electrical</a>
-								<a class="nav-link" href="#" title="link">Computer and Energy Matter</a>
-								<a class="nav-link" href="#" title="link">Transport and Energy Sustainability and the Built Environment</a>
-								<a class="nav-link" href="#" title="link">The Polytechnic School</a>
-							</div>
-						</div>
-					</div>
+
+<?php if ( is_active_sidebar( 'footeemenus' ) ) : ?>
+							<?php dynamic_sidebar( 'footeemenus' ); ?>
+							<?php //echo get_sidebar( 'footeemenus' ); ?>
+							<?php  //the_widget('WP_Nav_Menu_Widget'); ?>
+							<?php endif; ?>
+
+							<?php
+										/*		if 	( has_nav_menu( 'footer' ) )  {
+
+													wp_nav_menu(array(
+														'theme_location'  => 'footer',
+														'container' => '',
+														'container_class' => '',
+														'container_id' => '',
+														'menu_class'  => '',
+														'items_wrap' => '<div id="%1$s" class="collapse card-body" aria-labelledby="header-%1$s">%3$s</div>',
+														'walker'          => new Footer_Walker
+													));
+
+												}*/
+											  	?>
+
+
 
 					<div class="col-xl flex-footer">
 						<div class="card card-foldable desktop-disable-xl">

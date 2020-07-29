@@ -47,6 +47,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		register_nav_menus(
 			array(
 				'primary' => __( 'Primary Menu', 'asu-web-standards' ),
+				'social_media' => __( 'Social Media Menu', 'asu-web-standards' )
 			)
 		);
 
