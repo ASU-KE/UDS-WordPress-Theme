@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="wrapper" id="index-wrapper">
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 

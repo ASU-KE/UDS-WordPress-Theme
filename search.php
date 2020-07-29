@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="wrapper" id="search-wrapper">
 
 	<div class="container" id="content" tabindex="-1">
 
