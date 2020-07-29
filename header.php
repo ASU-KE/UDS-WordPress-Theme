@@ -382,4 +382,4 @@ if (!empty($cOptions['hotjar_site_id'])) {
 			</div>
 
 		</header>
-	</div>
+

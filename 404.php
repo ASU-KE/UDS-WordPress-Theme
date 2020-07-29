@@ -23,7 +23,7 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 get_header();
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="wrapper" id="404-wrapper">
 
 	<div class="uds-hero uds-hero-lg" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses($image_404, wp_kses_allowed_html('post')); ?>'); width: 100vw; margin-left: calc(50% - 50vw); max-width: 100vw !important;">
 

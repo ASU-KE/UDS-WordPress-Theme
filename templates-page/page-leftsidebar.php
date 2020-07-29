@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="wrapper" id="left-sidebar-page-wrapper">
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
