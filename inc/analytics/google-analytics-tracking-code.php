@@ -11,8 +11,8 @@ $site_ga_tracking_id = '';
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
-if (!empty( $c_options['site_ga_tracking_id'] ) ) {
-	$site_ga_tracking_id = $c_options['site_ga_tracking_id'];
+if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
+	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
 ?>
 <script type="text/javascript">
