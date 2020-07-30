@@ -527,6 +527,33 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		);
 
 		//  ==============================
+		//  = Site Google Tag Manager    =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[site_gtm_container_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_site_gtm_container_id',
+			array(
+				'label'             => __('Google Tag Manager container ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your unit\'s GTM container ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[site_gtm_container_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		//  ==============================
 		//  = Site Google Analytics ID   =
 		//  ==============================
 		$wp_customize->add_setting(
