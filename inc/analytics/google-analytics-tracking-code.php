@@ -1,18 +1,11 @@
 <?php
-/* Analytics Tracking Codes that go in the top of the <body> element
- *
- * Coding standards complains about inlineing a script tag, which we're choosing to ignore here to
- * keep these tracking codes together.
- */
-// @codingStandardsIgnoreStart
-
 $site_ga_tracking_id = '';
 
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
-if (!empty( $c_options['site_ga_tracking_id'] ) ) {
-	$site_ga_tracking_id = $c_options['site_ga_tracking_id'];
+if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
+	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
 ?>
 <script type="text/javascript">
@@ -33,21 +26,7 @@ if (!empty( $c_options['site_ga_tracking_id'] ) ) {
 	ga_site('send', 'pageview');
 	ga_site('set', 'forceSSL', true);
 
-	// GIOS Rollup
-	// ga_site('create', 'UA-46798989-1', 'auto', {
-	// 	'name': 'ga_rollup'
-	// });
-	// ga_site('ga_rollup.send', 'pageview');
-
 	ga = ga_site; // for allowing integration with other google analytics plugins
-
-	<?php if ($include_in_larger_asu_analytics) { ?>
-		// ASU main rollup
-		// ga_site('create', 'UA-2392647-1', 'asu.edu', {
-		// 	'name': 'ga_asu_rollup'
-		// });
-		// ga_site('ga_asu_rollup.send', 'pageview');
-	<?php } ?>
 
 	<?php
 	// Log analytics of Signed-in ASU CAS users
@@ -74,6 +53,7 @@ if (!empty( $c_options['site_ga_tracking_id'] ) ) {
 	// to have a callback. This is unfortantly very hacky, but there aren't any other better
 	// alternatives.
 	// TODO: Update logic for Web Standards 2.0 Global Header
+	/*
 	$(document).ready(function() {
 		$('#asu_search_module form').submit(function() {
 			if ($(this).attr('waitForAjax') == 'done') {
@@ -115,6 +95,7 @@ if (!empty( $c_options['site_ga_tracking_id'] ) ) {
 			}
 		});
 	});
+	*/
 
 	<?php // Track the users intent to print
 	?>
