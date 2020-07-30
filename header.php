@@ -106,7 +106,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 								<a class="nav-link" href="https://my.asu.edu">My ASU</a>
 								<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
 								<a class="nav-link" href="https://weblogin.asu.edu/cgi-bin/login">Sign in</a>
-								<form class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
+								<form id="asu-header-search" class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
 									<input class="form-control" type="search" name="q" aria-label="Search">
 									<input name="site" value="default_collection" type="hidden">
 									<input name="sort" value="date:D:L:d1" type="hidden">
