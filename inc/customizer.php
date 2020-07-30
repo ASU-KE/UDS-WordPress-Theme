@@ -79,8 +79,6 @@ if (!function_exists('asu_wp2020_customize_register')) {
 		$wp_customize->get_setting('blogname')->transport         = 'postMessage';
 		$wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
 		$wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
-
-
 	}
 }
 add_action('customize_register', 'asu_wp2020_customize_register');
@@ -124,7 +122,7 @@ if (!function_exists('asu_wp2020_theme_get_endorsed_unit_logos')) {
 			// Nope!  We gotta make a call.
 		} else {
 			// Get the contents of the JSON file containing the array of endorsed unit logos
-			$strJsonFileContents = file_get_contents( get_template_directory() . "/img/endorsed-logo/unit-logos.json" );
+			$strJsonFileContents = file_get_contents(get_template_directory() . "/img/endorsed-logo/unit-logos.json");
 			// Convert to nested array
 			$endorsedLogos = json_decode($strJsonFileContents, true);
 
