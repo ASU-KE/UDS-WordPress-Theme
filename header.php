@@ -163,12 +163,30 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<div class="navbar-nav">
+											<?php
+											// ======================
+											// Create Main Navigation
+											// ======================
 
-											<a class="nav-link nav-link-home active" href="/">
+											$current_url = add_query_arg($wp->query_string, '', home_url($wp->request));
+											$we_are_on_the_homepage = (home_url() === $current_url);
+
+											$home_icon_class = 'nav-link-home';
+											if ($we_are_on_the_homepage) {
+												$home_icon_class .= ' active';
+											}
+											?>
+
+											<a class="nav-link <?php echo $home_icon_class ?>" href="<?php echo esc_url(home_url()); ?>">
 												<span class="d-lg-none">Home</span>
 												<span title="Home" class="fas fa-fw fa-home"></span>
 											</a>
 
+											<?php
+											include get_template_directory() . '/asu-navigation-menu.php';
+											?>
+
+											<!--
 											<div class="nav-item dropdown">
 												<a class="nav-link" href="#" id="dropdown-one-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													Drop (1 Col)
@@ -364,6 +382,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 													</div>
 												</div>
 											</div>
+											-->
 
 										</div><!-- end .navbar-nav -->
 
