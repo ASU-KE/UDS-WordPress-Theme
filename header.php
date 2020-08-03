@@ -416,3 +416,14 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 		</header>
 
+
+		<?php
+		// Temp test code to render contents of the formatted menu array
+		// We do this here so the output is outside of the navigation menu block
+		// Prerequisite: You must install and activate the Debug Toolkit (https://wordpress.org/plugins/debug-toolkit/)
+		// this provides better error message screens and Kint variable debug functions, like vd(): vardump and vdd(): vardump and die.
+
+		$menu_name = 'primary';
+		$menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
+		// vdd($menu_items);
+		?>
