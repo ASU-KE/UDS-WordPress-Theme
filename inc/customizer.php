@@ -79,8 +79,6 @@ if (!function_exists('asu_wp2020_customize_register')) {
 		$wp_customize->get_setting('blogname')->transport         = 'postMessage';
 		$wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
 		$wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
-
-
 	}
 }
 add_action('customize_register', 'asu_wp2020_customize_register');
@@ -124,7 +122,7 @@ if (!function_exists('asu_wp2020_theme_get_endorsed_unit_logos')) {
 			// Nope!  We gotta make a call.
 		} else {
 			// Get the contents of the JSON file containing the array of endorsed unit logos
-			$strJsonFileContents = file_get_contents( get_template_directory() . "/img/endorsed-logo/unit-logos.json" );
+			$strJsonFileContents = file_get_contents(get_template_directory() . "/img/endorsed-logo/unit-logos.json");
 			// Convert to nested array
 			$endorsedLogos = json_decode($strJsonFileContents, true);
 
@@ -145,6 +143,27 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 	 */
 	function asu_wp2020_register_theme_customizer_settings($wp_customize)
 	{
+		if (!class_exists('Prefix_Separator_Control')) {
+			/**
+			 * Class Prefix_Separator_Control
+			 *
+			 * Custom control to display separator
+			 */
+			class Prefix_Separator_Control extends WP_Customize_Control
+			{
+				public function render_content()
+				{
+?>
+					<label>
+						<br>
+						<hr>
+						<br>
+					</label>
+<?php
+				}
+			}
+		}
+
 		// ==============================================================
 		// ==============================================================
 		// = Remove Default Wordpress Customizer Controls and Sections  =
@@ -157,17 +176,79 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		$wp_customize->remove_control('site_icon');
 		$wp_customize->remove_control('custom_logo');
 
-		//  ==============================
-		//  ==============================
-		//  = Unit Endorsed Logo Section =
-		//  ==============================
-		//  ==============================
 
-		$wp_customize->add_section(
-			'asu_wp2020_theme_section_unit_logo',
+		//  ================================
+		//  ================================
+		//  = Rename Site Identity Section =
+		//  ================================
+		//  ================================
+
+		$wp_customize->get_section('title_tagline')->title = __('Site Information');
+
+
+		//  =============================
+		//  = Parent Unit Name  =
+		//  =============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[parent_unit_name]',
 			array(
-				'title'      => __('Unit Endorsed Logo', 'asu-web-standards'),
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_org_text',
+			array(
+				'label'      => __('Parent Unit', 'asu-web-standards'),
+				'section'    => 'title_tagline',
+				'settings'   => 'asu_wp2020_theme_options[parent_unit_name]',
+				'priority'   => 20,
+			)
+		);
+
+		//  =============================
+		//  = Parent Unit URL           =
+		//  =============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[parent_unit_link]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_org_link',
+			array(
+				'label'      => __('Parent Unit URL', 'asu-web-standards'),
+				'section'    => 'title_tagline',
+				'settings'   => 'asu_wp2020_theme_options[parent_unit_link]',
 				'priority'   => 30,
+			)
+		);
+
+		//  ================================
+		//  = Section Separator            =
+		//  ================================
+		$wp_customize->add_setting(
+			'prefix_separator[0]',
+			array(
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			new Prefix_Separator_Control(
+				$wp_customize,
+				'prefix_separator[0]',
+				array(
+					'section' => 'title_tagline',
+					'priority'          => 40,
+				)
 			)
 		);
 
@@ -205,12 +286,12 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 						'Select the appropriate unit logo, if available.',
 						'asu-web-standards'
 					),
-					'section'           => 'asu_wp2020_theme_section_unit_logo',
+					'section'           => 'title_tagline',
 					'settings'          => 'asu_wp2020_theme_options[logo_select]',
 					'type'              => 'select',
 					'sanitize_callback' => 'asu_wp2020_sanitize_select',
 					'choices'           => $logoOptions,
-					'priority'          => apply_filters('asu_wp2020_sidebar_position_priority', 0),
+					'priority'          => 50,
 				)
 			)
 		);
@@ -236,70 +317,30 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
 					'asu-web-standards'
 				),
-				'section'    => 'asu_wp2020_theme_section_unit_logo',
+				'section'    => 'title_tagline',
 				'settings'   => 'asu_wp2020_theme_options[logo_url]',
-				'priority'   => 10,
+				'priority'   => 60,
 			)
 		);
 
 
-		//  =============================
-		//  =============================
-		//  = Unit Info Section  =
-		//  =============================
-		//  =============================
-
-		$wp_customize->add_section(
-			'asu_wp2020_theme_section_unit_info',
-			array(
-				'title'      => __('Unit Information', 'asu-web-standards'),
-				'priority'   => 30,
-			)
-		);
-
-		//  =============================
-		//  = Parent Unit Text  =
-		//  =============================
+		//  ================================
+		//  = Section Separator            =
+		//  ================================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[parent_unit_name]',
+			'prefix_separator[1]',
 			array(
-				'default'           => '',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
 				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
 			)
 		);
-
 		$wp_customize->add_control(
-			'asu_wp2020_org_text',
-			array(
-				'label'      => __('Parent Unit', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[parent_unit_name]',
-				'priority'   => 10,
-			)
-		);
-
-		//  =============================
-		//  = Parent Organization Link  =
-		//  =============================
-		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[parent_unit_link]',
-			array(
-				'default'           => '',
-				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
-				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
-			)
-		);
-
-		$wp_customize->add_control(
-			'asu_wp2020_org_link',
-			array(
-				'label'      => __('Parent Unit URL', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section_unit_info',
-				'settings'   => 'asu_wp2020_theme_options[parent_unit_link]',
-				'priority'   => 20,
+			new Prefix_Separator_Control(
+				$wp_customize,
+				'prefix_separator[1]',
+				array(
+					'section' => 'title_tagline',
+					'priority'          => 70,
+				)
 			)
 		);
 
@@ -320,9 +361,9 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_contact_email',
 			array(
 				'label'      => __('Contact Us Email or URL', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section_unit_info',
+				'section'    => 'title_tagline',
 				'settings'   => 'asu_wp2020_theme_options[contact_email]',
-				'priority'   => 30,
+				'priority'   => 80,
 			)
 		);
 
@@ -343,9 +384,9 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_contact_subject',
 			array(
 				'label'      => __('Contact Us Email Subject (Optional)', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section_unit_info',
+				'section'    => 'title_tagline',
 				'settings'   => 'asu_wp2020_theme_options[contact_subject]',
-				'priority'   => 40,
+				'priority'   => 90,
 			)
 		);
 
@@ -366,10 +407,10 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_contact_body',
 			array(
 				'label'    => __('Contact Us Email Body (Optional)', 'asu-web-standards'),
-				'section'  => 'asu_wp2020_theme_section_unit_info',
+				'section'  => 'title_tagline',
 				'settings' => 'asu_wp2020_theme_options[contact_body]',
 				'type'     => 'textarea',
-				'priority' => 50,
+				'priority' => 100,
 			)
 		);
 
@@ -390,9 +431,9 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_contribute_url',
 			array(
 				'label'      => __('Contribute URL (Optional)', 'asu-web-standards'),
-				'section'    => 'asu_wp2020_theme_section_unit_info',
+				'section'    => 'title_tagline',
 				'settings'   => 'asu_wp2020_theme_options[contribute_url]',
-				'priority'   => 60,
+				'priority'   => 110,
 			)
 		);
 
@@ -527,6 +568,33 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		);
 
 		//  ==============================
+		//  = Site Google Tag Manager    =
+		//  ==============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[site_gtm_container_id]',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			'asu_wp2020_site_gtm_container_id',
+			array(
+				'label'             => __('Google Tag Manager container ID', 'asu-web-standards'),
+				'description'       => __(
+					'Enter your unit\'s GTM container ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
+					'asu-web-standards'
+				),
+				'section'           => 'asu_wp2020_theme_section_asu_analytics',
+				'settings'          => 'asu_wp2020_theme_options[site_gtm_container_id]',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		//  ==============================
 		//  = Site Google Analytics ID   =
 		//  ==============================
 		$wp_customize->add_setting(
@@ -543,7 +611,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			array(
 				'label'             => __('Google Analytics Tracking ID', 'asu-web-standards'),
 				'description'       => __(
-					'Enter your unit\'s GA Tracking ID to enable analytics for this website.',
+					'Enter your unit\'s GA Tracking ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
 					'asu-web-standards'
 				),
 				'section'           => 'asu_wp2020_theme_section_asu_analytics',

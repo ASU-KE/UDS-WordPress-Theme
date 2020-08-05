@@ -11,10 +11,11 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$cOptions            = [];
-$asu_hub_analytics   = 'disabled';
-$site_ga_tracking_id = '';
-$hotjar_site_id      = '';
+$cOptions              = [];
+$asu_hub_analytics     = 'disabled';
+$site_gtm_container_id = '';
+$site_ga_tracking_id   = '';
+$hotjar_site_id        = '';
 
 // Check if we have Customizer options set
 if (is_array(get_option('asu_wp2020_theme_options'))) {
@@ -25,7 +26,11 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 if (!empty($cOptions['asu_hub_analytics'])) {
 	$asu_hub_analytics = $cOptions['asu_hub_analytics'];
 }
-// Do we have an site_ga_tracking_id setting?
+// Do we have a site_gtm_container_id setting?
+if (!empty($cOptions['site_gtm_container_id'])) {
+	$site_gtm_container_id = $cOptions['site_gtm_container_id'];
+}
+// Do we have a site_ga_tracking_id setting?
 if (!empty($cOptions['site_ga_tracking_id'])) {
 	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
@@ -61,14 +66,17 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enable') {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
-	?>
-	<?php
+
+	// Site Google Tag Manager
+	if (!empty($site_gtm_container_id)) {
+		include get_template_directory() . '/inc/analytics/google-tag-manager-tracking-code.php';
+	}
+
 	// Site Google Analytics
 	if (!empty($site_ga_tracking_id)) {
 		include get_template_directory() . '/inc/analytics/google-analytics-tracking-code.php';
 	}
-	?>
-	<?php
+
 	// Hotjar Analytics
 	if (!empty($hotjar_site_id)) {
 		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
@@ -78,7 +86,13 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 <body <?php body_class(); ?> <?php asu_wp2020_body_attributes(); ?>>
 	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'asu-web-standards'); ?></a>
-	<?php do_action('wp_body_open'); ?>
+	<?php do_action('wp_body_open');
+
+	// Site Google Tag Manager (noscript)
+	if (!empty($site_gtm_container_id)) {
+		include get_template_directory() . '/inc/analytics/google-tag-manager-noscript-code.php';
+	}
+	?>
 
 	<div class="site" id="page">
 
@@ -92,7 +106,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 								<a class="nav-link" href="https://my.asu.edu">My ASU</a>
 								<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
 								<a class="nav-link" href="https://weblogin.asu.edu/cgi-bin/login">Sign in</a>
-								<form class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
+								<form id="asu-header-search" class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
 									<input class="form-control" type="search" name="q" aria-label="Search">
 									<input name="site" value="default_collection" type="hidden">
 									<input name="sort" value="date:D:L:d1" type="hidden">
@@ -149,12 +163,30 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<div class="navbar-nav">
+											<?php
+											// ======================
+											// Create Main Navigation
+											// ======================
 
-											<a class="nav-link nav-link-home active" href="/">
+											$current_url = add_query_arg($wp->query_string, '', home_url($wp->request));
+											$we_are_on_the_homepage = (home_url() === $current_url);
+
+											$home_icon_class = 'nav-link-home';
+											if ($we_are_on_the_homepage) {
+												$home_icon_class .= ' active';
+											}
+											?>
+
+											<a class="nav-link <?php echo $home_icon_class ?>" href="<?php echo esc_url(home_url()); ?>">
 												<span class="d-lg-none">Home</span>
 												<span title="Home" class="fas fa-fw fa-home"></span>
 											</a>
 
+											<?php
+											include get_template_directory() . '/asu-navigation-menu.php';
+											?>
+
+											<!--
 											<div class="nav-item dropdown">
 												<a class="nav-link" href="#" id="dropdown-one-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													Drop (1 Col)
@@ -350,6 +382,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 													</div>
 												</div>
 											</div>
+											-->
 
 										</div><!-- end .navbar-nav -->
 
@@ -383,3 +416,14 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 		</header>
 
+
+		<?php
+		// Temp test code to render contents of the formatted menu array
+		// We do this here so the output is outside of the navigation menu block
+		// Prerequisite: You must install and activate the Debug Toolkit (https://wordpress.org/plugins/debug-toolkit/)
+		// this provides better error message screens and Kint variable debug functions, like vd(): vardump and vdd(): vardump and die.
+
+		$menu_name = 'primary';
+		$menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
+		// vdd($menu_items);
+		?>
