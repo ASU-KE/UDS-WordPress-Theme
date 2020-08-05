@@ -48,7 +48,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 
-	<?php if (is_user_logged_in()) :
+	<?php if (is_user_logged_in() && !is_customize_preview()) :
 		// shift page content below the WP Admin toolbar
 	?>
 		<style type="text/css" media="screen">
