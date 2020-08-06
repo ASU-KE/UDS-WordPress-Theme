@@ -51,20 +51,19 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 
 
 				<?php
-									if 	( has_nav_menu( 'social_media' ) )  {
+				if (has_nav_menu('social-media')) {
 
-										wp_nav_menu(array(
-											'theme_location'  => 'social_media',
-											'container' => 'div',
-											'container_class' => 'col-md',
-											'container_id' => 'social-media',
-											'menu_class'  => '',
-											'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
-											'walker'          => new Social_Media_Walker
-										));
-
-									}
-								  	?>
+					wp_nav_menu(array(
+						'theme_location'  => 'social-media',
+						'container' => 'div',
+						'container_class' => 'col-md',
+						'container_id' => 'social-media',
+						'menu_class'  => '',
+						'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
+						'walker'          => new Social_Media_Walker
+					));
+				}
+				?>
 
 			</div> <!-- row -->
 		</div> <!-- endorsed-footer -->

@@ -43,11 +43,12 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// Register nav menus.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'asu-web-standards' ),
-				'social_media' => __( 'Social Media Menu', 'asu-web-standards' )
+				'primary-menu' => __( 'Primary Menu', 'asu-web-standards' ),
+				'footer-menu' => __('Footer Menu', 'asu-web-standards'),
+				'social-media' => __( 'Social Media Menu', 'asu-web-standards' )
 			)
 		);
 
