@@ -54,17 +54,10 @@ foreach ($menu_items as $item) :
 						endforeach;
 						$column .= '</div>';
 
-						// output this collumn
+						// output this column
 						echo $column;
-						// we need to nullify $column in case this is the last column in this dropdown,
-						// and so it isn't rendered again below
-						$column = null;
 					endif;
 				endforeach;
-
-				// close out the basic one-column dropdown
-				$column .= '</div>';
-				echo $column;
 				?>
 			</div>
 		</div>
