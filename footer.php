@@ -9,11 +9,27 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+$cOptions              = [];
+$footer_row_branding   = 'enable';
+$footer_row_actions    = 'enable';
+
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
+
+// Do we have an footer_row_branding setting?
+if (!empty($cOptions['footer_row_branding'])) {
+	$footer_row_branding = $cOptions['footer_row_branding'];
+}
+// Do we have an footer_row_actions setting?
+if (!empty($cOptions['footer_row_actions'])) {
+	$footer_row_actions = $cOptions['footer_row_actions'];
+}
 ?>
 <footer role="contentinfo">
+	<?php
+	if ('enable' === $footer_row_branding) :
+	?>
 	<div class="wrapper" id="wrapper-endorsed-footer">
 		<div class="container" id="endorsed-footer">
 			<div class="row">
@@ -68,7 +84,11 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 			</div> <!-- row -->
 		</div> <!-- endorsed-footer -->
 	</div> <!-- wrapper-endorsed-footer -->
+	<?php
+	endif;
 
+	if ('enable' === $footer_row_actions) :
+	?>
 	<div class="wrapper" id="wrapper-footer-columns">
 		<nav aria-label="Footer">
 			<div class="container" id="footer-columns">
@@ -157,7 +177,9 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 			</div> <!-- footer-columns -->
 		</nav>
 	</div> <!-- wrapper-footer-columns -->
-
+	<?php
+	endif;
+	?>
 	<div class="wrapper" id="wrapper-footer-innovation">
 		<div class="container" id="footer-innovation">
 			<div class="row">
