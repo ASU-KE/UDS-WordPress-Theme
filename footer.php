@@ -151,7 +151,7 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 						?>
 					</div>
 					<?php
-					include get_template_directory() . '/asu-navigation-menu.php';
+					include get_template_directory() . '/asu-footer-menu.php';
 					?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
