@@ -75,7 +75,7 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 				<div class="row">
 
 
-					<div class="col-xl" id="info-column">
+					<div class="col-xl-3" id="info-column">
 						<?php
 						//  =============================
 						//  = Unit Name                 =
