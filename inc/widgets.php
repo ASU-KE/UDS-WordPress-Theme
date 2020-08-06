@@ -121,18 +121,5 @@ if ( ! function_exists( 'asu_wp2020_widgets_init' ) ) {
 				'after_title'   => '</h3>',
 			)
 		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Footer Menus', 'understrap' ),
-				'id'            => 'footeemenus',
-				'description'   => __( 'Full sized footer widget with dynamic grid', 'asu-web-standards' ),
-				'before_widget' => '<div class="col-xl flex-footer"> <div class="card card-foldable desktop-disable-xl">',
-				'after_widget'  => '</div> </div>',
-				'before_title'  => '<div class="card-header"><h5><a id="header-%1$s" class="collapsed" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="%1$s" >',
-				'after_title'   => '</a></h5></div>'
-			)
-		);
-
 	}
 } // End of function_exists( 'asu_wp2020_widgets_init' ).
