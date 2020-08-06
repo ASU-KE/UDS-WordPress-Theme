@@ -22,6 +22,7 @@ $asu_wp2020_includes = array(
 	'/customizer.php',                      // Customizer additions.
 	'/custom-comments.php',                 // Custom Comments file.
 	'/jetpack.php',                         // Load Jetpack compatibility file.
+	'/class-wp-social-media-walker.php',    // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-fields.php',                // Disable WP Core custom fields metaboxes.
 	'/advanced-custom-fields.php',          // Load integrated ACF plugin.
 	'/wp-custom-menu.php',                  // Load custom menu builder functions.

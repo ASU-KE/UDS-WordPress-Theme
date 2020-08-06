@@ -60,7 +60,7 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 						'container_id' => 'social-media',
 						'menu_class'  => '',
 						'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
-						'walker'          => new Social_Media_Walker
+						'walker' => new WP_Social_Media_Walker
 					));
 				}
 				?>
