@@ -150,11 +150,8 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 						}
 						?>
 					</div>
-
 					<?php
-					if (is_active_sidebar('footer-menus')) :
-						dynamic_sidebar('footer-menus');
-					endif;
+					include get_template_directory() . '/asu-navigation-menu.php';
 					?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
