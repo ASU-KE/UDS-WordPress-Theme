@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 $cOptions              = [];
-$asu_hub_analytics     = 'disabled';
+$asu_hub_analytics     = 'disable';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
