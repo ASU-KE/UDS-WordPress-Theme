@@ -152,27 +152,11 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 					</div>
 
 
-<?php if ( is_active_sidebar( 'footeemenus' ) ) : ?>
-							<?php dynamic_sidebar( 'footeemenus' ); ?>
-							<?php //echo get_sidebar( 'footeemenus' ); ?>
-							<?php  //the_widget('WP_Nav_Menu_Widget'); ?>
-							<?php endif; ?>
-
-							<?php
-										/*		if 	( has_nav_menu( 'footer' ) )  {
-
-													wp_nav_menu(array(
-														'theme_location'  => 'footer',
-														'container' => '',
-														'container_class' => '',
-														'container_id' => '',
-														'menu_class'  => '',
-														'items_wrap' => '<div id="%1$s" class="collapse card-body" aria-labelledby="header-%1$s">%3$s</div>',
-														'walker'          => new Footer_Walker
-													));
-
-												}*/
-											  	?>
+					<?php
+					if (is_active_sidebar('footer-menus')) :
+						dynamic_sidebar('footer-menus');
+					endif;
+					?>
 
 
 
