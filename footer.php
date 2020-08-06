@@ -151,97 +151,11 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 						?>
 					</div>
 
-
 					<?php
 					if (is_active_sidebar('footer-menus')) :
 						dynamic_sidebar('footer-menus');
 					endif;
 					?>
-
-
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-three" class="collapsed" data-toggle="collapse" href="#footlink-three" role="button" aria-expanded="false" aria-controls="footlink-three">Student Information
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-three" class="collapse card-body" aria-labelledby="footlink-header-three">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-four" class="collapsed" data-toggle="collapse" href="#footlink-four" role="button" aria-expanded="false" aria-controls="footlink-four">Column Number Four
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-four" class="collapse card-body" aria-labelledby="footlink-header-four">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-five" class="collapsed" data-toggle="collapse" href="#footlink-five" role="button" aria-expanded="false" aria-controls="footlink-five">Mambo Number Five
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-five" class="collapse card-body" aria-labelledby="footlink-header-five">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-six" class="collapsed" data-toggle="collapse" href="#footlink-six" role="button" aria-expanded="false" aria-controls="footlink-six">The Zen Master and the Hot Dog Vendor
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-six" class="collapse card-body" aria-labelledby="footlink-header-six">
-								<a class="nav-link" href="#" title="link">A Zen master</a>
-								<a class="nav-link" href="#" title="link">Visiting New York City</a>
-								<a class="nav-link" href="#" title="link">Walks up to</a>
-								<a class="nav-link" href="#" title="link">A hot dog vendor and says</a>
-								<a class="nav-link" href="#" title="link">Make me one with everything</a>
-							</div>
-						</div>
-					</div>
-
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
