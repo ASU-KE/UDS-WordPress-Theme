@@ -42,3 +42,11 @@ foreach ($menu_items as $item) :
 	endif;
 
 endforeach;
+
+
+// Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
+// this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
+// define('ENABLE_FOOTER_WIDGETS', true);
+if (true == ENABLE_FOOTER_WIDGETS && is_active_sidebar('sidebar-footer')) :
+	dynamic_sidebar('sidebar-footer');
+endif;

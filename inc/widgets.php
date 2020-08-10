@@ -121,5 +121,20 @@ if ( ! function_exists( 'asu_wp2020_widgets_init' ) ) {
 				'after_title'   => '</h3>',
 			)
 		);
+
+		// Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
+		// this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
+		// define('ENABLE_FOOTER_WIDGETS', true);
+		if (true == ENABLE_FOOTER_WIDGETS) {
+			register_sidebar(
+				array(
+					'name'          => __('Footer Widgets', 'asu-web-standards'),
+					'id'            => 'sidebar-footer',
+					'description'   => __('Additional footer column for widgets', 'asu-web-standards'),
+					'before_widget' => '<div class="col-xl flex-footer">',
+					'after_widget'  => '</div>'
+				)
+			);
+		}
 	}
 } // End of function_exists( 'asu_wp2020_widgets_init' ).
