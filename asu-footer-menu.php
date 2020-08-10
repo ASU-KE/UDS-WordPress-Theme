@@ -11,7 +11,6 @@ defined('ABSPATH') || exit;
 
 $menu_name = 'footer-menu';
 $menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
-// vd($menu_items);
 
 foreach ($menu_items as $item) :
 	// A top-level menu item with children is formatted as a column with a header
