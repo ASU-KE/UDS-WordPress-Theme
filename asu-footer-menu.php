@@ -20,7 +20,7 @@ foreach ($menu_items as $item) :
 			<div class="card card-foldable desktop-disable-xl">
 				<div class="card-header">
 					<h5>
-						<a id="footlink-header-<?= sanitize_title($item['title']) ?>" class="collapsed" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="footlink-<?= sanitize_title($item['title']) ?>">
+						<a id="footlink-header-<?= sanitize_title($item['title']) ?>" class="collapsed" data-toggle="collapse" href="#footlink-<?= sanitize_title($item['title']) ?>" role="button" aria-expanded="false" aria-controls="footlink-<?= sanitize_title($item['title']) ?>">
 							<?= $item['title'] ?>
 							<span class="fas fa-chevron-up"></span>
 						</a>
