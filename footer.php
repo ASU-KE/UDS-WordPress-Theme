@@ -64,8 +64,6 @@ if (!empty($cOptions['footer_row_actions'])) {
 					?>
 				</div>
 
-
-
 				<?php
 				if (has_nav_menu('social-media')) {
 
