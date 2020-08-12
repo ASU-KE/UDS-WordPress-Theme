@@ -24,12 +24,14 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 			foreach ($array_menu as $m) {
 				if (empty($m->menu_item_parent)) {
 					$menu[$m->ID] = array();
-					$menu[$m->ID]['ID']          =   $m->ID;
-					$menu[$m->ID]['order']       =   $m->menu_order;
-					$menu[$m->ID]['title']       =   $m->title;
-					$menu[$m->ID]['url']         =   $m->url;
-					$menu[$m->ID]['parent']      =   $m->menu_item_parent;
-					$menu[$m->ID]['children']    =   array();
+					$menu[$m->ID]['ID']         = $m->ID;
+					$menu[$m->ID]['order']      = $m->menu_order;
+					$menu[$m->ID]['title']      = $m->title;
+					$menu[$m->ID]['url']        = $m->url;
+					$menu[$m->ID]['cta_button'] = get_field('menu_cta_button', $m);
+					$menu[$m->ID]['cta_color']  = get_field('menu_cta_button_color', $m);
+					$menu[$m->ID]['parent']     = $m->menu_item_parent;
+					$menu[$m->ID]['children']   = array();
 				}
 			}
 
@@ -37,12 +39,14 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 			foreach ($array_menu as $m) {
 				if (!empty($m->menu_item_parent) && array_key_exists($m->menu_item_parent, $menu)) {
 					$dropdown[$m->ID] = array();
-					$dropdown[$m->ID]['ID']       =   $m->ID;
-					$dropdown[$m->ID]['order']    =   $m->menu_order;
-					$dropdown[$m->ID]['title']    =   $m->title;
-					$dropdown[$m->ID]['url']      =   $m->url;
-					$dropdown[$m->ID]['parent']   =   $m->menu_item_parent;
-					$dropdown[$m->ID]['children'] =   array();
+					$dropdown[$m->ID]['ID']         =   $m->ID;
+					$dropdown[$m->ID]['order']      =   $m->menu_order;
+					$dropdown[$m->ID]['title']      =   $m->title;
+					$dropdown[$m->ID]['url']        =   $m->url;
+					$dropdown[$m->ID]['cta_button'] = get_field('menu_cta_button', $m);
+					$dropdown[$m->ID]['cta_color']  = get_field('menu_cta_button_color', $m);
+					$dropdown[$m->ID]['parent']     =   $m->menu_item_parent;
+					$dropdown[$m->ID]['children']   =   array();
 
 					$menu[$m->menu_item_parent]['children'][$m->ID] = $dropdown[$m->ID];
 				}
@@ -52,10 +56,12 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 			foreach ($array_menu as $m) {
 				if ($m->menu_item_parent && !array_key_exists($m->menu_item_parent, $menu)) {
 					$column[$m->ID] = array();
-					$column[$m->ID]['ID']       =   $m->ID;
-					$column[$m->ID]['order']    =   $m->menu_order;
-					$column[$m->ID]['title']    =   $m->title;
-					$column[$m->ID]['url']      =   $m->url;
+					$column[$m->ID]['ID']         =   $m->ID;
+					$column[$m->ID]['order']      =   $m->menu_order;
+					$column[$m->ID]['title']      =   $m->title;
+					$column[$m->ID]['url']        =   $m->url;
+					$column[$m->ID]['cta_button'] = get_field('menu_cta_button', $m);
+					$column[$m->ID]['cta_color']  = get_field('menu_cta_button_color', $m);
 
 					$dropdown[$m->menu_item_parent]['children'][$m->ID] = $column[$m->ID];
 
