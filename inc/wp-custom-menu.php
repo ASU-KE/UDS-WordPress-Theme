@@ -70,9 +70,6 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 				}
 			}
 
-			// vd($dropdown);
-			// vdd($menu);
-
 			return $menu;
 		} else {
 			return;
