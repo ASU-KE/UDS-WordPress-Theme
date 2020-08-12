@@ -132,8 +132,16 @@ if (!function_exists('asu_wp2020_render_column_links')) {
 		$links = "";
 
 		foreach ($children as $child) {
-			$link = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
-			$links .= wp_kses(sprintf($link, $child['url'], $child['title']), wp_kses_allowed_html('post'));
+			// check if menu item is a CTA Button
+			$isCtaButton = $child['cta_button'];
+			$ctaButtonColor = $child['cta_color'];
+
+			if ($isCtaButton) {
+				$links .= asu_wp2020_render_nav_cta_button($ctaButtonColor, $child);
+			} else {
+				$link = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
+				$links .= wp_kses(sprintf($link, $child['url'], $child['title']), wp_kses_allowed_html('post'));
+			}
 		}
 
 		return $links;

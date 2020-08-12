@@ -21,6 +21,10 @@ foreach ($menu_items as $item) :
 	// evaluate item for: single, children (one column), or grandchildren (multiple columns)
 	$item['depth'] = asu_wp2020_get_menu_depth($item);
 
+	// check if menu item is a CTA Button
+	$isCtaButton = $item['cta_button'];
+	$ctaButtonColor = $item['cta_color'];
+
 	// render each item based on the depth
 	switch ($item['depth']) :
 		/*
@@ -63,9 +67,17 @@ foreach ($menu_items as $item) :
 						<div class="container">
 							<div class="row">
 								<?php
+								$megaCtaWrapper = '<div class="row with-buttons"><div class="col-lg-12">%1$s</div></div>';
+								$megaCtaButtons = '';
 
 								// outer loop - columns
 								foreach ($item['children'] as $child) :
+									// if $child is flagged as a CTA button, it is a mega-menu CTA button, outside of columns
+									if ($child['cta_button']) {
+										$megaCtaButtons .= asu_wp2020_render_nav_cta_button($child['cta_color'], $item);
+										continue;
+									}
+
 									$column = '<div class="col-lg">';
 									$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
 									$column .= asu_wp2020_render_column_links($child['children']); // inner loop - column links
@@ -76,6 +88,11 @@ foreach ($menu_items as $item) :
 								endforeach;
 								?>
 							</div>
+							<?php
+							if ($megaCtaButtons > '') {
+								echo wp_kses(sprintf($megaCtaWrapper, $megaCtaButtons), wp_kses_allowed_html('post'));
+							}
+							?>
 						</div>
 					</div>
 				</div>
@@ -88,7 +105,6 @@ foreach ($menu_items as $item) :
 					<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
 					<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
 						<?php
-
 						// outer loop
 						foreach ($item['children'] as $child) :
 							$column = '<div class="dropdown-col">';
