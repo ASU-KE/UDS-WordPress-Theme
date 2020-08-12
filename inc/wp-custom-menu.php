@@ -1,6 +1,6 @@
 <?php
 /**
- * Load requested menu object and format into hierarchical array for the custom WP nav menu builders.
+ * Helper functions for building ASU Web Standards 2.0 menus.
  *
  * @package asu-web-standards-2020
  */
@@ -10,7 +10,8 @@ defined( 'ABSPATH' ) || exit;
 
 if (!function_exists('asu_wp2020_get_menu_array')) {
 	/**
-	 * Build menu array for .
+	 * Load requested menu object and format into hierarchical array
+	 * for the custom WP nav menu builders.
 	 *
 	 * @param string $menu_name Slug name of desired menu.
 	 */
@@ -79,7 +80,7 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 
 if (!function_exists('asu_wp2020_get_menu_depth')) {
 	/**
-	 * Get the maximum depth of this particular menu item by inspecting
+	 * Get the depth of this particular menu item in its hierarchy by inspecting
 	 * the 'children' sub-array at each level to determine whether or not
 	 * it is empty
 	 *
@@ -147,9 +148,9 @@ if (!function_exists('asu_wp2020_render_column_links')) {
 
 if (!function_exists('asu_wp2020_render_nav_item_link')) {
 	/**
-	 * Renders the top-level link, either as a normal nav link, or a drop-down link
+	 * Renders the top-level link, either as a normal nav link or a drop-down link
 	 * Note that we're using the 'default:' case to render our actual default, and
-	 * not testing explicitly for the 'single' case
+	 * not testing explicitly for the 'single' case of menu depth.
 	 *
 	 * @param String $menuType The type of menu, used in the markup id and class names
 	 * @param Array $item The navigation item whose link we want to render
@@ -183,16 +184,16 @@ if (!function_exists('asu_wp2020_render_nav_cta_button')) {
 	/**
 	 * Renders menu link as a CTA button.
 	 *
-	 * @param String $ctaButtonColor The color slug, used in the markup id and class names
+	 * @param String $ctaColor The color slug, used in the markup id and class names
 	 * @param Array $item The navigation item whose CTA button we want to render
 	 * @return String $button The rendered button
 	 */
-	function asu_wp2020_render_nav_cta_button($ctaButtonColor, $item)
+	function asu_wp2020_render_nav_cta_button($ctaColor, $item)
 	{
 		$button = '';
 
 		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s">%3$s</a>';
-		$button = wp_kses(sprintf($template, $item['url'], $ctaButtonColor, $item['title']), wp_kses_allowed_html('post'));
+		$button = wp_kses(sprintf($template, $item['url'], $ctaColor, $item['title']), wp_kses_allowed_html('post'));
 		return $button;
 	}
 }
