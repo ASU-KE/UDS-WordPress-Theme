@@ -173,3 +173,21 @@ if (!function_exists('asu_wp2020_render_nav_item_link')) {
 		}
 	}
 }
+
+if (!function_exists('asu_wp2020_render_nav_cta_button')) {
+	/**
+	 * Renders menu link as a CTA button.
+	 *
+	 * @param String $ctaButtonColor The color slug, used in the markup id and class names
+	 * @param Array $item The navigation item whose CTA button we want to render
+	 * @return String $button The rendered button
+	 */
+	function asu_wp2020_render_nav_cta_button($ctaButtonColor, $item)
+	{
+		$button = '';
+
+		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s">%3$s</a>';
+		$button = wp_kses(sprintf($template, $item['url'], $ctaButtonColor, $item['title']), wp_kses_allowed_html('post'));
+		return $button;
+	}
+}
