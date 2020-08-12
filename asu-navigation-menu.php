@@ -55,6 +55,35 @@ foreach ($menu_items as $item) :
 		 * the menu items.
 		 */
 		case 'grandchildren':
+			// if there are more than 3 three columns, we have a megamenu to render
+			if (count($item['children']) > 3) :
+			?>
+				<div class="nav-item dropdown megamenu">
+					<?php echo asu_wp2020_render_nav_item_link('megamenu', $item); ?>
+					<div class="dropdown-menu" aria-labelledby="megamenu-one-col">
+						<div class="container">
+							<div class="row">
+								<?php
+
+								// outer loop - columns
+								foreach ($item['children'] as $child) :
+									$column = '<div class="col-lg">';
+									$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
+									$column .= asu_wp2020_render_column_links($child['children']); // inner loop - column links
+									$column .= '</div>';
+
+									// output this column
+									echo $column;
+								endforeach;
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php
+
+			else :
+				// nope, we are rendering a multi-column dropdown
 			?>
 			<div class="nav-item dropdown">
 					<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
