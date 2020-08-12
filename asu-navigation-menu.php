@@ -21,9 +21,8 @@ foreach ($menu_items as $item) :
 	// evaluate item for: single, children (one column), or grandchildren (multiple columns)
 	$item['depth'] = asu_wp2020_get_menu_depth($item);
 
-
 	// render each item based on the depth
-	switch ($item['depth']) {
+	switch ($item['depth']) :
 		/*
 		 * Items with no children are rendered as basic menu item links
 		 */
@@ -37,7 +36,7 @@ foreach ($menu_items as $item) :
 		 * as the menu items
 		 */
 		case 'children':
-			?>
+?>
 			<div class="nav-item dropdown">
 				<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
 				<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
@@ -85,29 +84,29 @@ foreach ($menu_items as $item) :
 			else :
 				// nope, we are rendering a multi-column dropdown
 			?>
-			<div class="nav-item dropdown">
+				<div class="nav-item dropdown">
 					<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
-				<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
-				<?php
+					<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
+						<?php
 
-				// outer loop
-				foreach ($item['children'] as $child) :
-					$column = '<div class="dropdown-col">';
-					$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
+						// outer loop
+						foreach ($item['children'] as $child) :
+							$column = '<div class="dropdown-col">';
+							$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
 							$column .= asu_wp2020_render_column_links($child['children']); // inner loop
-					$column .= '</div>';
+							$column .= '</div>';
 
-					// output this column
-					echo $column;
-				endforeach;
-				?>
-			</div>
-		</div>
-		<?php
+							// output this column
+							echo $column;
+						endforeach;
+						?>
+					</div>
+				</div>
+			<?php
+			endif;
 			break;
 
 		default:
-			# code...
 			break;
-	}
+	endswitch;
 endforeach;
