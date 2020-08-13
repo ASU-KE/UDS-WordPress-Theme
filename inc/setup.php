@@ -64,8 +64,12 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			$menu_id = wp_create_nav_menu($menu_name);
 
 			if ($menu_id > 0) {
+				//Get all menu locations
+				$locations = get_theme_mod('nav_menu_locations');
+
 				// Assign our new MENU at our theme's footer menu location
-				set_theme_mod('nav_menu_locations', array('footer' => $menu_id));
+				$locations['footer'] = $menu_id;
+				set_theme_mod('nav_menu_locations', $locations);
 			}
 
 			/*****************************************
