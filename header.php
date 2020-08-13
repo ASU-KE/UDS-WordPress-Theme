@@ -163,208 +163,28 @@ if (!empty($cOptions['hotjar_site_id'])) {
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<div class="navbar-nav">
+											<?php
+											// ======================
+											// Create Main Navigation
+											// ======================
 
-											<a class="nav-link nav-link-home active" href="/">
+											$current_url = add_query_arg($wp->query_string, '', home_url($wp->request));
+											$we_are_on_the_homepage = (home_url() === $current_url);
+
+											$home_icon_class = 'nav-link-home';
+											if ($we_are_on_the_homepage) {
+												$home_icon_class .= ' active';
+											}
+											?>
+
+											<a class="nav-link <?php echo $home_icon_class ?>" href="<?php echo esc_url(home_url()); ?>">
 												<span class="d-lg-none">Home</span>
 												<span title="Home" class="fas fa-fw fa-home"></span>
 											</a>
 
-											<div class="nav-item dropdown">
-												<a class="nav-link" href="#" id="dropdown-one-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Drop (1 Col)
-													<span class="fa fa-chevron-down"></span>
-												</a>
-												<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
-													<div class="dropdown-col">
-														<a class="dropdown-item" href="#">Navigation Link</a>
-														<a class="dropdown-item" href="#">Another Link</a>
-														<a class="dropdown-item" href="#">Does this dropdown menu have a maximum width or will it go on forever?</a>
-														<a href="#" class="btn btn-sm btn-dark">CTA Action 2</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="nav-item dropdown">
-												<a class="nav-link" href="#" id="dropdown-two-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Drop (2 col)
-													<span class="fa fa-chevron-down"></span>
-												</a>
-												<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-two-col">
-													<div class="dropdown-col">
-														<h3>Column One</h3>
-														<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-														<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-														<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-														<a class="dropdown-item" href="#">Dapibus lorem</a>
-														<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-														<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-														<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-													</div>
-													<div class="dropdown-col">
-														<h3>Brady Header</h3>
-														<a class="dropdown-item" href="#">Here's the story</a>
-														<a class="dropdown-item" href="#">Of a man named Brady</a>
-														<a class="dropdown-item" href="#">Who was busy with three</a>
-														<a class="dropdown-item" href="#">Boys of his own</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="nav-item dropdown megamenu">
-												<a class="nav-link" href="#" id="megamenu-three-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Mega Menu (3 col)
-													<span class="fa fa-chevron-down"></span>
-												</a>
-												<div class="dropdown-menu" aria-labelledby="megamenu-three-col">
-													<div class="container">
-														<div class="row">
-															<div class="col-lg">
-																<h3>Column One</h3>
-																<a class="dropdown-item" href="#">Recommended max of ten links</a>
-																<a class="dropdown-item" href="#">Navigation Link</a>
-																<a class="dropdown-item" href="#">Second link in the list</a>
-																<a class="dropdown-item" href="#">Here is link number three</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-																<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column Two</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-															</div>
-															<div class="col-lg-4">
-																<h3>Last Call 'Em</h3>
-																<a class="dropdown-item" href="#">Navigation Link</a>
-																<a class="dropdown-item" href="#">Another Link as an example of when something wraps</a>
-																<a class="dropdown-item" href="#">You Win A Prize</a>
-																<a href="#" class="btn btn-sm btn-dark">CTA Action 2</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-
-
-											<div class="nav-item dropdown megamenu">
-												<a class="nav-link" href="#" id="megamenu-four-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Mega Menu (4 col)
-													<span class="fa fa-chevron-down"></span>
-												</a>
-												<div class="dropdown-menu" aria-labelledby="megamenu-four-col">
-													<div class="container">
-														<div class="row">
-															<div class="col-lg">
-																<h3>Column One</h3>
-																<a class="dropdown-item" href="#">Navigation Link</a>
-																<a class="dropdown-item" href="#">Second link in the list</a>
-																<a class="dropdown-item" href="#">Here is link number three</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column Two</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-																<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column Two</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-																<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column four</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-															</div>
-														</div>
-														<div class="row with-buttons">
-															<div class="col-lg-12">
-																<a href="#" class="btn btn-sm btn-gold">Mega Menu CTA 1</a>
-																<a href="#" class="btn btn-sm btn-maroon">Mega Menu CTA 2</a>
-															</div>
-														</div>
-
-													</div>
-												</div>
-
-											</div>
-
-											<div class="nav-item dropdown megamenu">
-												<a class="nav-link" href="#" id="megamenu-five-col" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Mega Menu (5 col)
-													<span class="fa fa-chevron-down"></span>
-												</a>
-												<div class="dropdown-menu" aria-labelledby="megamenu-five-col">
-
-													<div class="container">
-														<div class="row">
-															<div class="col-lg">
-																<h3>Column One</h3>
-																<a class="dropdown-item" href="#">Navigation Link</a>
-																<a class="dropdown-item" href="#">Second link in the list</a>
-																<a class="dropdown-item" href="#">Here is link number three</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a href="#" class="btn btn-sm btn-dark">CTA in Column</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column Two</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-																<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column Two</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Massa nunc dictum nam venenatis</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a class="dropdown-item" href="#">Ultricies tellus eu</a>
-																<a class="dropdown-item" href="#">Pretium massa quis vitae pede quisque nulla ultricies sit</a>
-																<a class="dropdown-item" href="#">Quis tempus aliquam semper imperdiet</a>
-																<a href="#" class="btn btn-sm btn-dark">CTA in Column</a>
-															</div>
-															<div class="col-lg">
-																<h3>Column four</h3>
-																<a class="dropdown-item" href="#">Dis quam quis nisi ligula</a>
-																<a class="dropdown-item" href="#">Nisi ligula eget orci</a>
-																<a class="dropdown-item" href="#">Dapibus lorem</a>
-																<a href="#" class="btn btn-sm btn-dark">CTA in Column</a>
-															</div>
-															<div class="col-lg">
-																<h3>Mambo #5</h3>
-																<a class="dropdown-item" href="#">Jump up and down and</a>
-																<a class="dropdown-item" href="#">Shake your head to the sound</a>
-																<a class="dropdown-item" href="#">Put your hand on the ground</a>
-																<a class="dropdown-item" href="#">Take one step left and one step right</a>
-																<a class="dropdown-item" href="#">If it looks like this</a>
-																<a class="dropdown-item" href="#">Then you doing it right</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-
+											<?php
+											include get_template_directory() . '/asu-navigation-menu.php';
+											?>
 										</div><!-- end .navbar-nav -->
 
 										<div class="navbar-mobile-footer">
@@ -396,4 +216,3 @@ if (!empty($cOptions['hotjar_site_id'])) {
 			</div>
 
 		</header>
-

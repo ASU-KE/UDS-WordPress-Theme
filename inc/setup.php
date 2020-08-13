@@ -46,7 +46,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'asu-web-standards' ),
+				'primary' => __( 'Main Menu', 'asu-web-standards' ),
 			)
 		);
 
