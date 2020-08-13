@@ -46,7 +46,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		// Register nav menus.
 		register_nav_menus(
 			array(
-				'primary-menu' => __( 'Primary Menu', 'asu-web-standards' ),
+				'primary' => __( 'Main Menu', 'asu-web-standards' ),
 				'footer-menu' => __('Footer Menu', 'asu-web-standards'),
 				'social-media' => __( 'Social Media Menu', 'asu-web-standards' )
 			)
