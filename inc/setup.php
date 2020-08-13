@@ -47,7 +47,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		register_nav_menus(
 			array(
 				'primary' => __( 'Main Menu', 'asu-web-standards' ),
-				'footer-menu' => __('Footer Menu', 'asu-web-standards'),
+				'footer' => __('Footer Menu', 'asu-web-standards'),
 				'social-media' => __( 'Social Media Menu', 'asu-web-standards' )
 			)
 		);
@@ -65,7 +65,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 
 			if ($menu_id > 0) {
 				// Assign our new MENU at our theme's footer menu location
-				set_theme_mod('nav_menu_locations', array('footer-menu' => $menu_id));
+				set_theme_mod('nav_menu_locations', array('footer' => $menu_id));
 			}
 
 			/*****************************************

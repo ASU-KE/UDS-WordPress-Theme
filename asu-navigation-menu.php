@@ -11,7 +11,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$menu_name = 'primary-menu';
+$menu_name = 'primary';
 $menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
 
 /**

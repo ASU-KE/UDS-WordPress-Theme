@@ -9,7 +9,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$menu_name = 'footer-menu';
+$menu_name = 'footer';
 $menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
 
 foreach ($menu_items as $item) :
