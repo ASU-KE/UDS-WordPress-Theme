@@ -277,6 +277,36 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		}
 
 		/*
+		 * Generate example social media menu, if it doesn't already exist;  add example link to assist site builders.
+		 *
+		 */
+		$menu_name   = 'Social Media';
+		$menu_exists = wp_get_nav_menu_object($menu_name);
+
+		// If it doesn't exist, let's create it.
+		if (!$menu_exists) {
+			$menu_id = wp_create_nav_menu($menu_name);
+
+			if ($menu_id > 0) {
+				//Get all menu locations
+				$locations = get_theme_mod('nav_menu_locations');
+
+				// Assign our new MENU at our theme's footer menu location
+				$locations['social-media'] = $menu_id;
+				set_theme_mod('nav_menu_locations', $locations);
+			}
+
+			/*****************************************
+			 * Example Twitter Link
+			 *****************************************/
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('fa-twitter-square', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+		}
+
+		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
