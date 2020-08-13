@@ -24,11 +24,12 @@ $asu_wp2020_includes = array(
 	'/jetpack.php',                         // Load Jetpack compatibility file.
 	'/wp-custom-fields.php',                // Disable WP Core custom fields metaboxes.
 	'/advanced-custom-fields.php',          // Load integrated ACF plugin.
+	'/class-wp-social-media-walker.php',    // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-menu.php',                  // Load custom menu builder functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ( $asu_wp2020_includes as $file ) {
+foreach ($asu_wp2020_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }

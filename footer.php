@@ -9,11 +9,27 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+$cOptions              = [];
+$footer_row_branding   = 'enable';
+$footer_row_actions    = 'enable';
+
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
 }
+
+// Do we have an footer_row_branding setting?
+if (!empty($cOptions['footer_row_branding'])) {
+	$footer_row_branding = $cOptions['footer_row_branding'];
+}
+// Do we have an footer_row_actions setting?
+if (!empty($cOptions['footer_row_actions'])) {
+	$footer_row_actions = $cOptions['footer_row_actions'];
+}
 ?>
 <footer role="contentinfo">
+	<?php
+	if ('enable' === $footer_row_branding) :
+	?>
 	<div class="wrapper" id="wrapper-endorsed-footer">
 		<div class="container" id="endorsed-footer">
 			<div class="row">
@@ -48,26 +64,36 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 					?>
 				</div>
 
-				<div class="col-md" id="social-media">
-					<nav class="nav" aria-label="Social Media">
-						<a class="nav-link" href="#"><span title="Facebook Social Media Icon" class="fab fa-facebook-square"></span></a>
-						<a class="nav-link" href="#"><span title="Twitter Social Media Icon" class="fab fa-twitter-square"></span></a>
-						<a class="nav-link" href="#"><span title="LinkedIn Social Media Icon" class="fab fa-linkedin"></span></a>
-						<a class="nav-link" href="#"><span title="Instagram Social Media Icon" class="fab fa-instagram-square"></span></a>
-						<a class="nav-link" href="#"><span title="YouTube Social Media Icon" class="fab fa-youtube-square"></span></a>
-					</nav>
-				</div> <!-- social-media -->
+				<?php
+				if (has_nav_menu('social-media')) {
+
+					wp_nav_menu(array(
+						'theme_location'  => 'social-media',
+						'container' => 'div',
+						'container_class' => 'col-md',
+						'container_id' => 'social-media',
+						'menu_class'  => '',
+						'items_wrap' => '<nav aria-label="Social Media" class="nav">%3$s</nav>',
+						'walker' => new WP_Social_Media_Walker
+					));
+				}
+				?>
 
 			</div> <!-- row -->
 		</div> <!-- endorsed-footer -->
 	</div> <!-- wrapper-endorsed-footer -->
+	<?php
+	endif;
 
+	if ('enable' === $footer_row_actions) :
+	?>
 	<div class="wrapper" id="wrapper-footer-columns">
 		<nav aria-label="Footer">
 			<div class="container" id="footer-columns">
 				<div class="row">
 
-					<div class="col-xl" id="info-column">
+
+					<div class="col-xl-3" id="info-column">
 						<?php
 						//  =============================
 						//  = Unit Name                 =
@@ -142,113 +168,16 @@ if (is_array(get_option('asu_wp2020_theme_options'))) {
 						}
 						?>
 					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-two" class="collapsed" data-toggle="collapse" href="#footlink-two" role="button" aria-expanded="false" aria-controls="footlink-two">Second Column
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-two" class="collapse card-body" aria-labelledby="footlink-header-two">
-								<a class="nav-link" href="#" title="link">Biological and Health Systems Computing</a>
-								<a class="nav-link" href="#" title="link">Informatics and Decision Systems Electrical</a>
-								<a class="nav-link" href="#" title="link">Computer and Energy Matter</a>
-								<a class="nav-link" href="#" title="link">Transport and Energy Sustainability and the Built Environment</a>
-								<a class="nav-link" href="#" title="link">The Polytechnic School</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-three" class="collapsed" data-toggle="collapse" href="#footlink-three" role="button" aria-expanded="false" aria-controls="footlink-three">Student Information
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-three" class="collapse card-body" aria-labelledby="footlink-header-three">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-four" class="collapsed" data-toggle="collapse" href="#footlink-four" role="button" aria-expanded="false" aria-controls="footlink-four">Column Number Four
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-four" class="collapse card-body" aria-labelledby="footlink-header-four">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-five" class="collapsed" data-toggle="collapse" href="#footlink-five" role="button" aria-expanded="false" aria-controls="footlink-five">Mambo Number Five
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-five" class="collapse card-body" aria-labelledby="footlink-header-five">
-								<a class="nav-link" href="#" title="link">Student Organization</a>
-								<a class="nav-link" href="#" title="link">Inner Circle Newsletter</a>
-								<a class="nav-link" href="#" title="link">For Your Parents</a>
-								<a class="nav-link" href="#" title="link">Visit Campus</a>
-								<a class="nav-link" href="#" title="link">K-12 Outreach</a>
-								<a class="nav-link" href="#" title="link">Hire Our Graduates</a>
-								<a class="nav-link" href="#" title="link">Hire an Intern</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xl flex-footer">
-						<div class="card card-foldable desktop-disable-xl">
-							<div class="card-header">
-								<h5>
-									<a id="footlink-header-six" class="collapsed" data-toggle="collapse" href="#footlink-six" role="button" aria-expanded="false" aria-controls="footlink-six">The Zen Master and the Hot Dog Vendor
-										<span class="fas fa-chevron-up"></span>
-									</a>
-								</h5>
-							</div>
-							<div id="footlink-six" class="collapse card-body" aria-labelledby="footlink-header-six">
-								<a class="nav-link" href="#" title="link">A Zen master</a>
-								<a class="nav-link" href="#" title="link">Visiting New York City</a>
-								<a class="nav-link" href="#" title="link">Walks up to</a>
-								<a class="nav-link" href="#" title="link">A hot dog vendor and says</a>
-								<a class="nav-link" href="#" title="link">Make me one with everything</a>
-							</div>
-						</div>
-					</div>
-
+					<?php
+					include get_template_directory() . '/asu-footer-menu.php';
+					?>
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
 	</div> <!-- wrapper-footer-columns -->
-
+	<?php
+	endif;
+	?>
 	<div class="wrapper" id="wrapper-footer-innovation">
 		<div class="container" id="footer-innovation">
 			<div class="row">

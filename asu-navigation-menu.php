@@ -1,9 +1,7 @@
 <?php
 
 /**
- * The hero for our theme
- *
- * Displays the hero section
+ * The template for ASU main navigation menus in Web Standards 2.0
  *
  * @package asu-web-standards-2020
  */

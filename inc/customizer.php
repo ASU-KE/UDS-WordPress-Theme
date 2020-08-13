@@ -439,23 +439,23 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 
 		//  =============================
 		//  =============================
-		//  = 404 Image Section         =
+		//  = ASU Header Section         =
 		//  =============================
 		//  =============================
 
 		$wp_customize->add_section(
-			'asu_wp2020_theme_section_404',
+			'asu_wp2020_theme_section_header',
 			array(
-				'title'      => __('404 Image', 'asu-web-standards'),
-				'priority'   => 71,
+				'title'      => __('ASU Global Header', 'asu-web-standards'),
+				'priority'   => 20,
 			)
 		);
 
-		//  =============================
-		//  = 404 Image                 =
-		//  =============================
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 1 - URL
+		//  ===================================================
 		$wp_customize->add_setting(
-			'asu_wp2020_theme_options[image_404]',
+			'asu_wp2020_theme_options[header_cta1_url]',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -463,20 +463,243 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
 			)
 		);
-
 		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
+			'asu_wp2020_header_cta1_url',
+			array(
+				'label'      => __('Call to Action button 1 - URL', 'asu-web-standards'),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta1_url]',
+				'priority'   => 120,
+			)
+		);
+
+
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 1 - Label
+		//  ===================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[header_cta1_label]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_header_cta1_label',
+			array(
+				'label'      => __('Call to Action button 1 - Label', 'asu-web-standards'),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta1_label]',
+				'priority'   => 130,
+			)
+		);
+
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 1 - Color
+		//  ===================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[header_cta1_color]',
+			array(
+				'default'           => 'gold',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_header_cta1_color',
+			array(
+				'label'      => __('Call to Action button 1 - color', 'asu-web-standards'),
+				'description'       => __(
+					'Select the button color',
+					'asu-web-standards'
+				),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta1_color]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'gold'   => 'gold',
+					'maroon' => 'maroon',
+					'black'  => 'black',
+					'gray'   => 'gray',
+				),
+				'priority' => 140,
+			)
+		);
+
+		//  ================================
+		//  = Section Separator            =
+		//  ================================
+		$wp_customize->add_setting(
+			'prefix_separator[2]',
+			array(
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			new Prefix_Separator_Control(
 				$wp_customize,
-				'asu_wp2020_404',
+				'prefix_separator[2]',
 				array(
-					'label'      => __('404 Image', 'asu-web-standards'),
-					'description'       => __(
-						'Resize and crop your desired image to approximately 1200px x 500px',
-						'asu-web-standards'
-					),
-					'section'    => 'asu_wp2020_theme_section_404',
-					'settings'   => 'asu_wp2020_theme_options[image_404]',
+					'section' => 'asu_wp2020_theme_section_header',
+					'priority'          => 150,
 				)
+			)
+		);
+
+
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 2 - URL
+		//  ===================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[header_cta2_url]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_header_cta2_url',
+			array(
+				'label'      => __('Call to Action button 2 - URL', 'asu-web-standards'),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta2_url]',
+				'priority'   => 160,
+			)
+		);
+
+
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 2 - Label
+		//  ===================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[header_cta2_label]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_header_cta2_label',
+			array(
+				'label'      => __('Call to Action button 2 - Label', 'asu-web-standards'),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta2_label]',
+				'priority'   => 170,
+			)
+		);
+
+		//  ===================================================
+		//  = ASU Header - Call to Action Button 2 - Color
+		//  ===================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[header_cta2_color]',
+			array(
+				'default'           => 'gold',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_header_cta2_color',
+			array(
+				'label'      => __('Call to Action button 2 - color', 'asu-web-standards'),
+				'description'       => __(
+					'Select the button color',
+					'asu-web-standards'
+				),
+				'section'    => 'asu_wp2020_theme_section_header',
+				'settings'   => 'asu_wp2020_theme_options[header_cta2_color]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'gold'   => 'gold',
+					'maroon' => 'maroon',
+					'black'  => 'black',
+					'gray'   => 'gray',
+				),
+				'priority'   => 180,
+			)
+		);
+
+
+		//  =============================
+		//  =============================
+		//  = ASU Footer Section        =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'asu_wp2020_theme_section_footer',
+			array(
+				'title'      => __('ASU Global Footer', 'asu-web-standards'),
+				'priority'   => 20,
+			)
+		);
+
+		//  ===============================================================
+		//  = ASU Footer - Toggle Branding Row - Unit Logo and Social Media
+		//  ===============================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[footer_row_branding]',
+			array(
+				'default'           => 'enable',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_footer_row_branding',
+			array(
+				'label'      => __('Footer - Logo & Social Media Row', 'asu-web-standards'),
+				'description'       => __(
+					'Enable/disable the Logo and Social Media row in the ASU footer.',
+					'asu-web-standards'
+				),
+				'section'    => 'asu_wp2020_theme_section_footer',
+				'settings'   => 'asu_wp2020_theme_options[footer_row_branding]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'enable'  => 'enabled',
+					'disable' => 'disabled',
+				),
+			)
+		);
+
+		//  =======================================================
+		//  = ASU Footer - Toggle Actions Row - Unit Info and Menus
+		//  =======================================================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[footer_row_actions]',
+			array(
+				'default'           => 'enable',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+		$wp_customize->add_control(
+			'asu_wp2020_footer_row_actions',
+			array(
+				'label'      => __('Footer - Actions Row', 'asu-web-standards'),
+				'description'       => __(
+					'Enable/disable the Unit contact and menus row in the ASU footer.',
+					'asu-web-standards'
+				),
+				'section'    => 'asu_wp2020_theme_section_footer',
+				'settings'   => 'asu_wp2020_theme_options[footer_row_actions]',
+				'type'       => 'radio',
+				'choices'    => array(
+					'enable'  => 'enabled',
+					'disable' => 'disabled',
+				),
 			)
 		);
 
@@ -490,7 +713,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_theme_section_asu_search',
 			array(
 				'title'      => __('ASU Search', 'asu-web-standards'),
-				'priority'   => 70,
+				'priority'   => 30,
 			)
 		);
 
@@ -532,7 +755,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			'asu_wp2020_theme_section_asu_analytics',
 			array(
 				'title'      => __('ASU Analytics', 'asu-web-standards'),
-				'priority'   => 70,
+				'priority'   => 40,
 			)
 		);
 
@@ -648,6 +871,50 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 			)
 		);
 
+
+		//  =============================
+		//  =============================
+		//  = 404 Image Section         =
+		//  =============================
+		//  =============================
+
+		$wp_customize->add_section(
+			'asu_wp2020_theme_section_404',
+			array(
+				'title'      => __('404 Image', 'asu-web-standards'),
+				'priority'   => 50,
+			)
+		);
+
+		//  =============================
+		//  = 404 Image                 =
+		//  =============================
+		$wp_customize->add_setting(
+			'asu_wp2020_theme_options[image_404]',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'option',
+				'sanitize_callback' => 'asu_wp2020_sanitize_nothing',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'asu_wp2020_404',
+				array(
+					'label'      => __('404 Image', 'asu-web-standards'),
+					'description'       => __(
+						'Resize and crop your desired image to approximately 1200px x 500px',
+						'asu-web-standards'
+					),
+					'section'    => 'asu_wp2020_theme_section_404',
+					'settings'   => 'asu_wp2020_theme_options[image_404]',
+				)
+			)
+		);
+
 		//  ================================
 		//  ================================
 		//  = Theme Layout Manager Section =
@@ -661,7 +928,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 				'title'       => __('Theme Layout Settings', 'asu-web-standards'),
 				'capability'  => 'edit_theme_options',
 				'description' => __('Theme sidebar defaults', 'asu-web-standards'),
-				'priority'    => apply_filters('asu_wp2020_theme_layout_options_priority', 160),
+				'priority'    => 60,
 			)
 		);
 
