@@ -77,7 +77,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			 *****************************************/
 			// Set up example menu header for column 1
 			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
-				'menu-item-title'   =>  __('Column One', 'textdomain'),
+				'menu-item-title'   =>  __('Example Column One', 'textdomain'),
 				'menu-item-url'     => '#',
 				'menu-item-status'  => 'publish'
 			));
@@ -86,7 +86,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			wp_update_nav_menu_item($menu_id,
 				0,
 				array(
-					'menu-item-title'     =>  __('Link 1', 'textdomain'),
+					'menu-item-title'     =>  __('Example Link 1', 'textdomain'),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish'
@@ -95,7 +95,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 
 			// Set up example menu item for column 1
 			wp_update_nav_menu_item($menu_id, 0, array(
-				'menu-item-title'     =>  __('Link 2', 'textdomain'),
+				'menu-item-title'     =>  __('Example Link 2', 'textdomain'),
 				'menu-item-parent-id' => $menu_item_id,
 				'menu-item-url'       => '#',
 				'menu-item-status'    => 'publish'
@@ -106,7 +106,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			 *****************************************/
 			// Set up example menu header for column 2
 			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
-				'menu-item-title'   =>  __('Column Two', 'textdomain'),
+				'menu-item-title'   =>  __('Example Column Two', 'textdomain'),
 				'menu-item-url'     => '#',
 				'menu-item-status'  => 'publish'
 			));
@@ -115,7 +115,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 			wp_update_nav_menu_item($menu_id,
 				0,
 				array(
-					'menu-item-title'     =>  __('Link 3', 'textdomain'),
+					'menu-item-title'     =>  __('Example Link 3', 'textdomain'),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish'
@@ -124,7 +124,7 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 
 			// Set up example menu item for column 2
 			wp_update_nav_menu_item($menu_id, 0, array(
-				'menu-item-title'     =>  __('Link 4', 'textdomain'),
+				'menu-item-title'     =>  __('Example Link 4', 'textdomain'),
 				'menu-item-parent-id' => $menu_item_id,
 				'menu-item-url'       => '#',
 				'menu-item-status'    => 'publish'
