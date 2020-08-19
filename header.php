@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 $cOptions              = [];
-$asu_hub_analytics     = 'disable';
+$asu_hub_analytics     = 'disabled';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
@@ -63,7 +63,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	<?php endif;
 
 	// ASU Hub Analytics
-	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enable') {
+	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enabled') {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
 
