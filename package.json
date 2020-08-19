@@ -8,6 +8,7 @@
     "url": "https://github.com/asu-ke-web-services/asu-web-standards-2020-wordpress-theme/issues"
   },
   "scripts": {
+    "build": "gulp compile",
     "postinstall": "gulp copy-assets"
   },
   "engines": {
