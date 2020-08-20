@@ -74,7 +74,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_org_text',
+			'asu_wp2020_parent_unit_name',
 			array(
 				'label'      => __('Parent Unit', 'asu-web-standards'),
 				'section'    => 'title_tagline',
@@ -97,7 +97,7 @@ if (!function_exists('asu_wp2020_register_theme_customizer_settings')) {
 		);
 
 		$wp_customize->add_control(
-			'asu_wp2020_org_link',
+			'asu_wp2020_parent_unit_link',
 			array(
 				'label'      => __('Parent Unit URL', 'asu-web-standards'),
 				'section'    => 'title_tagline',
