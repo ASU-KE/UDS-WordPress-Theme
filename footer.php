@@ -10,8 +10,8 @@
 defined('ABSPATH') || exit;
 
 $cOptions              = [];
-$footer_row_branding   = 'enable';
-$footer_row_actions    = 'enable';
+$footer_row_branding   = 'enabled';
+$footer_row_actions    = 'enabled';
 
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
@@ -28,7 +28,7 @@ if (!empty($cOptions['footer_row_actions'])) {
 ?>
 <footer role="contentinfo">
 	<?php
-	if ('enable' === $footer_row_branding) :
+	if ('enabled' === $footer_row_branding) :
 	?>
 	<div class="wrapper" id="wrapper-endorsed-footer">
 		<div class="container" id="endorsed-footer">
@@ -85,7 +85,7 @@ if (!empty($cOptions['footer_row_actions'])) {
 	<?php
 	endif;
 
-	if ('enable' === $footer_row_actions) :
+	if ('enabled' === $footer_row_actions) :
 	?>
 	<div class="wrapper" id="wrapper-footer-columns">
 		<nav aria-label="Footer">

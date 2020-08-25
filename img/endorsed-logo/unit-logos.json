@@ -1,5 +1,10 @@
 [
 	{
+		"slug": "asu",
+		"name": "ASU",
+		"filename": "asu_university_white.png"
+	},
+	{
 		"slug": "biodesign-institute",
 		"name": "Biodesign Institute",
 		"filename": "asu_biodesign_white.png"
@@ -27,12 +32,12 @@
 	{
 		"slug": "global-futures",
 		"name": "Global Futures Laboratory",
-		"filename": "asu_global_futures_laboratory_white.png"
+		"filename": "asu_julie_ann_wrigley_global_futures_laboratory_white.png"
 	},
 	{
-		"slug": "gios",
-		"name": "GIOS",
-		"filename": "asu_jaw_globalsustainability_white.png"
+		"slug": "giosi",
+		"name": "GIOSI",
+		"filename": "asu_global_institute_of_sustainability_and_innovation_white.png"
 	},
 	{
 		"slug": "knowledge-enterprise",

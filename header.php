@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 $cOptions              = [];
-$asu_hub_analytics     = 'disable';
+$asu_hub_analytics     = 'disabled';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
@@ -20,6 +20,11 @@ $hotjar_site_id        = '';
 // Check if we have Customizer options set
 if (is_array(get_option('asu_wp2020_theme_options'))) {
 	$cOptions = get_option('asu_wp2020_theme_options');
+}
+
+// Is navigation menu enabled?
+if (!empty($cOptions['header_navigation_menu'])) {
+	$nav_menu_enabled = $cOptions['header_navigation_menu'];
 }
 
 // Do we have an asu_hub_analytics setting?
@@ -63,7 +68,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	<?php endif;
 
 	// ASU Hub Analytics
-	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enable') {
+	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enabled') {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
 
@@ -146,7 +151,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 									</span>
 								</button>
 
-								<div class="navbar-container">
+								<div class="navbar-container <?php if(!$nav_menu_enabled) echo 'no-links'; ?>">
 
 									<?php
 									// if no parentUnit defined, render site (subdomain) name alone
@@ -175,6 +180,10 @@ if (!empty($cOptions['hotjar_site_id'])) {
 									?>
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
+										<?php
+										// if nav menu is enabled, render it
+										if ('enabled' === $nav_menu_enabled) :
+										?>
 										<div class="navbar-nav">
 											<?php
 											// ======================
@@ -199,6 +208,9 @@ if (!empty($cOptions['hotjar_site_id'])) {
 											include get_template_directory() . '/asu-navigation-menu.php';
 											?>
 										</div><!-- end .navbar-nav -->
+										<?php
+										endif;
+										?>
 
 										<div class="navbar-mobile-footer">
 											<form class="form-inline navbar-mobile-search" action="https://search.asu.edu/search" method="get" name="gs">
