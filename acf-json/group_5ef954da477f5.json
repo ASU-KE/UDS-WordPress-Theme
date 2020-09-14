@@ -68,11 +68,11 @@
         },
         {
             "key": "field_5f5ac3e5eaa9e",
-            "label": "Hero Title Style",
-            "name": "hero_title_style",
+            "label": "Hero Highlight",
+            "name": "hero_highlight",
             "type": "radio",
             "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -80,8 +80,8 @@
                 "id": ""
             },
             "choices": {
-                "gold": "Gold",
-                "black": "Black",
+                "highlight-gold": "Gold",
+                "highlight-black": "Black",
                 "none": "None"
             },
             "allow_null": 0,
@@ -191,5 +191,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1599784301
+    "modified": 1600115228
 }
