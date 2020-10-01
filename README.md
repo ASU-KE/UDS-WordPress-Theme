@@ -2,7 +2,7 @@
   <img src="https://cdn.infonet.research.asu.edu/assets/asu_asu_knowledge_enterprise_horiz_150ppi.png" alt="ASU Knowledge Enterprise" width="400" />
 </p>
 
-<h1 align="center">ASU Web Standards WordPress Theme</h1>
+<h1 align="center">ASU TwentyTwenty WordPress Theme</h1>
 <h2 align="center">A WordPress theme based on ASU's Web Standards 2.0</h2>
 
 <p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
