@@ -9,8 +9,8 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define path and URL to the integrated ACF plugin in the theme.
-define( 'ACF_PLUGIN_PATH', get_stylesheet_directory() . '/inc/acf/' );
-define( 'ACF_PLUGIN_URL', get_stylesheet_directory_uri() . '/inc/acf/' );
+define( 'ACF_PLUGIN_PATH', get_template_directory() . '/inc/acf/' );
+define( 'ACF_PLUGIN_URL', get_template_directory_uri() . '/inc/acf/' );
 
 // Include the ACF plugin.
 include_once( ACF_PLUGIN_PATH . 'acf.php' );
