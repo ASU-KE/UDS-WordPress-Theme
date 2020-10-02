@@ -16,6 +16,7 @@ $asu_hub_analytics     = 'disabled';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
+$nav_menu_enabled	   = '';
 
 // Check if we have Customizer options set
 if (is_array(get_option('asu_wp2020_theme_options'))) {
