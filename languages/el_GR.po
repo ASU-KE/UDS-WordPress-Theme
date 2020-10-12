@@ -41,7 +41,7 @@ msgstr ""
 "X-Poedit-SearchPath-17: hero.php\n"
 "X-Poedit-SearchPath-18: page.php\n"
 "X-Poedit-SearchPath-19: functions.php\n"
-"X-Poedit-SearchPath-20: page-templates\n"
+"X-Poedit-SearchPath-20: templates-page\n"
 "X-Poedit-SearchPath-21: inc\n"
 
 #: search.php:29
@@ -146,22 +146,22 @@ msgstr "Αναζήτηση"
 msgid "Search &hellip;"
 msgstr "Αναζήτηση &hellip;"
 
-#: loop-templates/content-card.php:43 loop-templates/content-page.php:25
-#: loop-templates/content.php:37 loop-templates/content-single.php:31
-#: loop-templates/content-verticalpage.php:28
+#: templates-loop/content-card.php:43 templates-loop/content-page.php:25
+#: templates-loop/content.php:37 templates-loop/content-single.php:31
+#: templates-loop/content-verticalpage.php:28
 msgid "Pages:"
 msgstr "Σελίδες:"
 
-#: loop-templates/content-page.php:34
-#: loop-templates/content-verticalpage.php:37
+#: templates-loop/content-page.php:34
+#: templates-loop/content-verticalpage.php:37
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: loop-templates/content-none.php:15
+#: templates-loop/content-none.php:15
 msgid "Nothing Found"
 msgstr "Δεν βρέθηκε κάτι"
 
-#: loop-templates/content-none.php:23
+#: templates-loop/content-none.php:23
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
@@ -169,7 +169,7 @@ msgstr ""
 "Έτοιμος/η να δημοσιεύσετε την πρώτη σας ανάρτηση; <a href=\"%1$s\">Ξεκινήστε "
 "εδώ</a>."
 
-#: loop-templates/content-none.php:28
+#: templates-loop/content-none.php:28
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -177,7 +177,7 @@ msgstr ""
 "Συγγνώμη, δεν βρέθηκε κάτι που να ταιριάζει με τα κριτήρια αναζήτησης. "
 "Παρακαλούμε δοκιμάστε πάλι με νέα κριτήρια."
 
-#: loop-templates/content-none.php:34
+#: templates-loop/content-none.php:34
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -408,362 +408,9 @@ msgstr "Αριθμός κολονών  πλέγματος"
 msgid "Choose how many columns to use"
 msgstr "Επιλέξτε πόσες κολώνες θα χρησιμοποιούνται"
 
-#: woocommerce/cart/proceed-to-checkout-button.php:27
-msgid "Proceed to Checkout"
-msgstr "Προχωρήστε στην Πληρωμή"
-
-#: woocommerce/cart/mini-cart.php:49 woocommerce/cart/cart.php:60
-msgid "Remove this item"
-msgstr "Αφαίρεση προϊόντος"
-
-#: woocommerce/cart/mini-cart.php:72
-msgid "No products in the cart."
-msgstr "Δεν υπάρχουν προϊόντα στο καλάθι."
-
-#: woocommerce/cart/mini-cart.php:80
-msgid "Subtotal"
-msgstr "Μερικό σύνολο"
-
-#: woocommerce/cart/mini-cart.php:85
-msgid "View Cart"
-msgstr "Εμφάνιση Καλαθιού"
-
-#: woocommerce/cart/mini-cart.php:86
-msgid "Checkout"
-msgstr "Πληρωμή"
-
-#: woocommerce/cart/cart-empty.php:28
-msgid "Your cart is currently empty."
-msgstr "Το καλάθι σας είναι κενό."
-
-#: woocommerce/cart/cart-empty.php:36
-msgid "Return To Shop"
-msgstr "Επιστροφή στο Κατάστημα"
-
-#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:79
-#: woocommerce/checkout/form-pay.php:29
-msgid "Product"
-msgstr "Προϊόν"
-
-#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:97
-msgid "Price"
-msgstr "Τιμή"
-
-#: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:103
-msgid "Quantity"
-msgstr "Ποσότητα"
-
-#: woocommerce/cart/cart.php:39 woocommerce/cart/cart.php:120
-#: woocommerce/myaccount/my-orders.php:16
-msgid "Total"
-msgstr "Σύνολο"
-
-#: woocommerce/cart/cart.php:92
-msgid "Available on backorder"
-msgstr "Προσωρινά εκτός στοκ"
-
-#: woocommerce/cart/cart.php:138
-msgid "Coupon:"
-msgstr "Κουπόνι:"
-
-#: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:36
-msgid "Coupon code"
-msgstr "Κωδικός κουπονιού:"
-
-#: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:40
-msgid "Apply Coupon"
-msgstr "Εφαρμογή Κουπονιού"
-
-#: woocommerce/cart/cart.php:144
-msgid "Update Cart"
-msgstr "Ανανέωση Καλαθιού"
-
-#: woocommerce/checkout/payment.php:35
-msgid ""
-"Sorry, it seems that there are no available payment methods for your state. "
-"Please contact us if you require assistance or wish to make alternate "
-"arrangements."
-msgstr ""
-"Συγγνώμη, από ότι φαίνεται, δεν υπάρχουν διαθέσιμοι τρόποι πληρωμής για την "
-"περιοχή σας. Παρακαλούμε επικοινωνήστε μαζί μας εάν χρειάζεστε επιπλέον "
-"βοήθεια."
-
-#: woocommerce/checkout/payment.php:35
-msgid "Please fill in your details above to see available payment methods."
-msgstr ""
-"Παρακαλούμε συμπληρώστε τα στοιχεία σας ώστε να εμφανιστούν οι διαθέσιμοι "
-"τρόποι πληρωμής."
-
-#: woocommerce/checkout/payment.php:42
-msgid ""
-"Since your browser does not support JavaScript, or it is disabled, please "
-"ensure you click the <em>Update Totals</em> button before placing your "
-"order. You may be charged more than the amount stated above if you fail to "
-"do so."
-msgstr ""
-"Εφόσον ο φυλλομετρητής σας δεν υποστηρίζει JavaScript ή η JavaScript είναι "
-"απενεργοποιημένη, παρακαλούμε βεβαιωθείτε ότι έχετε πατήσει το κουμπί, "
-"<em>Αναέωση Συνόλου<em> προτού την τοποθέτηση της παραγγελίας σας. Μπορεί να "
-"χρεωθείτε παραπάνω από το κανονικό σε περίπτωση που δεν ακολουθήσετε αυτή τη "
-"συμβουλή."
-
-#: woocommerce/checkout/payment.php:43
-msgid "Update totals"
-msgstr "Ανανέωση Συνόλου"
-
-#: woocommerce/checkout/form-pay.php:30
-msgid "Qty"
-msgstr "Ποσότητα"
-
-#: woocommerce/checkout/form-pay.php:31
-msgid "Totals"
-msgstr "Σύνολο"
-
-#: woocommerce/checkout/form-pay.php:79
-msgid ""
-"Sorry, it seems that there are no available payment methods for your "
-"location. Please contact us if you require assistance or wish to make "
-"alternate arrangements."
-msgstr ""
-"Συγγνώμη, από ότι φαίνεται δεν υπάρχουν διαθέσιμοι τρόποι πληρωμής για τη "
-"περιοχή σας. Παρακαλούμε επικοινωνήστε μαζί μας εάν χρειάζεστε επιπλέον "
-"βοήθεια."
-
-#: woocommerce/checkout/form-coupon.php:28
-msgid "Have a coupon?"
-msgstr "Έχετε κουπόνι;"
-
-#: woocommerce/checkout/form-coupon.php:28
-msgid "Click here to enter your code"
-msgstr "Πατήστε εδώ για να εισάγετε τον κωδικό"
-
-#: woocommerce/global/form-login.php:35
-#: woocommerce/myaccount/form-lost-password.php:30
-msgid "Username or email"
-msgstr "Όνομα χρήστη ή λογαριασμός ηλεκτρονικού ταχυδρομείου"
-
-#: woocommerce/global/form-login.php:39 woocommerce/myaccount/form-login.php:48
-#: woocommerce/myaccount/form-login.php:98
-msgid "Password"
-msgstr "Κωδικός"
-
-#: woocommerce/global/form-login.php:48 woocommerce/myaccount/form-login.php:37
-#: woocommerce/myaccount/form-login.php:56
-msgid "Login"
-msgstr "Είσοδος"
-
-#: woocommerce/global/form-login.php:51 woocommerce/myaccount/form-login.php:58
-msgid "Remember me"
-msgstr "Να με θυμάσαι"
-
-#: woocommerce/global/form-login.php:55 woocommerce/myaccount/form-login.php:62
-msgid "Lost your password?"
-msgstr "Ξεχάσατε τον κωδικό σας;"
-
-#: woocommerce/global/quantity-input.php:24
-msgctxt "Product quantity input tooltip"
-msgid "Qty"
-msgstr "Ποσότητα"
-
-#: woocommerce/myaccount/form-lost-password.php:27
-msgid ""
-"Lost your password? Please enter your username or email address. You will "
-"receive a link to create a new password via email."
-msgstr ""
-"Χάσατε τον κωδικό σας; Παρακαλούμε εισάγετε το όνομα χρήστη ή την διεύθυνση "
-"ηλεκτρονικού ταχυδρομείου. Θα λάβετε έναν σύνδεσμο για τη δημιουργία νέου "
-"κωδικού μέσω ηλεκτρονικού ταχυδρομείου."
-
-#: woocommerce/myaccount/form-lost-password.php:40
-msgid "Reset Password"
-msgstr "Ακύρωση Κωδικού"
-
-#: woocommerce/myaccount/form-login.php:44
-msgid "Username or email address"
-msgstr "Όνομα χρήστη ή διεύθυνση ηλεκτρονικού ταχυδρομείου"
-
-#: woocommerce/myaccount/form-login.php:75
-#: woocommerce/myaccount/form-login.php:112
-msgid "Register"
-msgstr "Εγγραφή"
-
-#: woocommerce/myaccount/form-login.php:84
-msgid "Username"
-msgstr "Όνομα χρήστη"
-
-#: woocommerce/myaccount/form-login.php:91
-#: woocommerce/myaccount/form-edit-account.php:40
-msgid "Email address"
-msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
-
-#: woocommerce/myaccount/form-login.php:105
-msgid "Anti-spam"
-msgstr "Προστασία κατά ανεπιθύμητης αλληλογραφίας"
-
-#: woocommerce/myaccount/form-edit-account.php:30
-msgid "First name"
-msgstr "Όνομα"
-
-#: woocommerce/myaccount/form-edit-account.php:34
-msgid "Last name"
-msgstr "Επώνυμο"
-
-#: woocommerce/myaccount/form-edit-account.php:45
-msgid "Password Change"
-msgstr "Αλλαγή Κωδικού"
-
-#: woocommerce/myaccount/form-edit-account.php:48
-msgid "Current Password (leave blank to leave unchanged)"
-msgstr "Τρέχων Κωδικός (Αφήστε το κενό αν δεν θέλετε να αλλάξει)"
-
-#: woocommerce/myaccount/form-edit-account.php:52
-msgid "New Password (leave blank to leave unchanged)"
-msgstr "Νέος Κωδικός (Αφήστε το κενό αν δεν θέλετε να αλλάξει)"
-
-#: woocommerce/myaccount/form-edit-account.php:56
-msgid "Confirm New Password"
-msgstr "Επιβεβαίωση Νέου Κωδικού"
-
-#: woocommerce/myaccount/form-edit-account.php:66
-msgid "Save changes"
-msgstr "Αποθήκευση Αλλαγών"
-
-#: woocommerce/myaccount/my-orders.php:13
-msgid "Order"
-msgstr "Παραγγελία"
-
-#: woocommerce/myaccount/my-orders.php:14
-msgid "Date"
-msgstr "Ημερομηνία"
-
-#: woocommerce/myaccount/my-orders.php:15
-msgid "Status"
-msgstr "Κατάσταση"
-
-#: woocommerce/myaccount/my-orders.php:30
-msgid "Recent Orders"
-msgstr "Πρόσφατες Παραγγελίες"
-
-#: woocommerce/myaccount/my-orders.php:55 woocommerce/myaccount/orders.php:51
-msgctxt "hash before order number"
-msgid "#"
-msgstr "#"
-
-#: woocommerce/myaccount/my-orders.php:65 woocommerce/myaccount/orders.php:61
-#, php-format
-msgid "%s for %s item"
-msgid_plural "%s for %s items"
-msgstr[0] "%s για %s προϊόν"
-msgstr[1] "%s για %s προϊόντα"
-
-#: woocommerce/myaccount/my-orders.php:72 woocommerce/myaccount/orders.php:68
-msgid "Pay"
-msgstr "Πληρωμή"
-
-#: woocommerce/myaccount/my-orders.php:76 woocommerce/myaccount/orders.php:72
-msgid "View"
-msgstr "Εμφάνιση"
-
-#: woocommerce/myaccount/my-orders.php:80 woocommerce/myaccount/orders.php:76
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: woocommerce/myaccount/orders.php:107
-msgid "Previous"
-msgstr "Προηγούμενο"
-
-#: woocommerce/myaccount/orders.php:111
-msgid "Next"
-msgstr "Επόμενο"
-
-#: woocommerce/myaccount/orders.php:119 woocommerce/myaccount/downloads.php:98
-msgid "Go Shop"
-msgstr "Μεταφορά στο Κατάστημα"
-
-#: woocommerce/myaccount/orders.php:121
-msgid "No order has been made yet."
-msgstr "Δεν έχει πραγματοποιηθεί παραγγελία."
-
-#: woocommerce/myaccount/form-edit-address.php:23
-msgid "Billing Address"
-msgstr "Διεύθυνση Χρέωσης"
-
-#: woocommerce/myaccount/form-edit-address.php:23
-msgid "Shipping Address"
-msgstr "Διεύθυνση Αποστολής"
-
-#: woocommerce/myaccount/form-edit-address.php:46
-msgid "Save Address"
-msgstr "Αποθήκευση Διεύθυνσης"
-
-#: woocommerce/myaccount/form-reset-password.php:27
-msgid "Enter a new password below."
-msgstr "Εισάγετε τον κωδικό."
-
-#: woocommerce/myaccount/form-reset-password.php:30
-msgid "New password"
-msgstr "Νέος κωδικός"
-
-#: woocommerce/myaccount/form-reset-password.php:34
-msgid "Re-enter new password"
-msgstr "Επιβεβαίωση νέου κωδικού"
-
-#: woocommerce/myaccount/form-reset-password.php:47
-msgid "Save"
-msgstr "Αποθήκευση"
-
-#: woocommerce/myaccount/downloads.php:59
-msgid "&infin;"
-msgstr "&infin;"
-
-#: woocommerce/myaccount/downloads.php:67
-msgid "Never"
-msgstr "Ποτέ"
-
-#: woocommerce/myaccount/downloads.php:75
-msgid "Download"
-msgstr "Μεταφόρτωση"
-
-#: woocommerce/myaccount/downloads.php:100
-msgid "No downloads available yet."
-msgstr "Δεν υπάρχουν αρχεία για μεταφόρτωση."
-
-#: woocommerce/single-product/review-rating.php:28
-#, php-format
-msgid "Rated %d out of 5"
-msgstr "Βαθμολογήθηκε %d από 5"
-
-#: woocommerce/single-product/review-rating.php:29
-msgid "out of 5"
-msgstr "από 5"
-
-#: woocommerce/single-product/rating.php:36
-#, php-format
-msgid "Rated %s out of 5"
-msgstr "Βαθμολογήθηκε %s από 5"
-
-#: woocommerce/single-product/rating.php:38
-#, php-format
-msgid "out of %s5%s"
-msgstr "από %s5%s"
-
-#: woocommerce/single-product/rating.php:39
-#, php-format
-msgid "based on %s customer rating"
-msgid_plural "based on %s customer ratings"
-msgstr[0] "βασισμένο σε %s βαθμολογία πελάτη"
-msgstr[1] "βασισμένο σε %s βαθμολογίες πελατών"
-
-#: woocommerce/single-product/rating.php:42
-#, php-format
-msgid "%s customer review"
-msgid_plural "%s customer reviews"
-msgstr[0] "%s κριτική πελάτη"
-msgstr[1] "%s κριτικές πελατών"
-
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "ASU Web Standards 2020 Theme"
+msgstr "ASU Web Standards 2020 Theme"
 
 #. Description of the theme
 msgid ""

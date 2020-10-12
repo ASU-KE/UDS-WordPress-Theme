@@ -2,7 +2,7 @@
 /**
  * Theme basic setup
  *
- * @package UnderStrap
+ * @package asu-web-standards-2020
  */
 
 // Exit if accessed directly.
@@ -13,9 +13,9 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-add_action( 'after_setup_theme', 'understrap_setup' );
+add_action( 'after_setup_theme', 'asu_wp2020_setup' );
 
-if ( ! function_exists( 'understrap_setup' ) ) {
+if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -23,14 +23,14 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function understrap_setup() {
+	function asu_wp2020_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on understrap, use a find and replace
-		 * to change 'understrap' to the name of your theme in all the template files
+		 * to change 'asu-web-standards' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'understrap', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'asu-web-standards', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -43,12 +43,268 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// Register nav menus.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'understrap' ),
+				'primary' => __( 'Main Menu', 'asu-web-standards' ),
+				'footer' => __('Footer Menu', 'asu-web-standards'),
+				'social-media' => __( 'Social Media Menu', 'asu-web-standards' )
 			)
 		);
+
+		/*
+		 * Generate example footer menu, if it doesn't already exist;  add example links to assist site builders.
+		 *
+		 */
+		$menu_name   = 'Footer Menu';
+		$menu_exists = wp_get_nav_menu_object($menu_name);
+
+		// If it doesn't exist, let's create it.
+		if (!$menu_exists) {
+			$menu_id = wp_create_nav_menu($menu_name);
+
+			if ($menu_id > 0) {
+				//Get all menu locations
+				$locations = get_theme_mod('nav_menu_locations');
+
+				// Assign our new MENU at our theme's footer menu location
+				$locations['footer'] = $menu_id;
+				set_theme_mod('nav_menu_locations', $locations);
+			}
+
+			/*****************************************
+			 * Column One
+			 *****************************************/
+			// Set up example menu header for column 1
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('Example Column One', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+
+			// Set up example menu item for column 1
+			wp_update_nav_menu_item($menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 1', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column 1
+			wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'     =>  __('Example Link 2', 'textdomain'),
+				'menu-item-parent-id' => $menu_item_id,
+				'menu-item-url'       => '#',
+				'menu-item-status'    => 'publish'
+			));
+
+			/*****************************************
+			 * Column Two
+			 *****************************************/
+			// Set up example menu header for column 2
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('Example Column Two', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+
+			// Set up example menu item for column 2
+			wp_update_nav_menu_item($menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 3', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column 2
+			wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'     =>  __('Example Link 4', 'textdomain'),
+				'menu-item-parent-id' => $menu_item_id,
+				'menu-item-url'       => '#',
+				'menu-item-status'    => 'publish'
+			));
+		}
+
+		/*
+		 * Generate example footer menu, if it doesn't already exist;  add example links to assist site builders.
+		 *
+		 */
+		$menu_name   = 'Main Menu';
+		$menu_exists = wp_get_nav_menu_object($menu_name);
+
+		// If it doesn't exist, let's create it.
+		if (!$menu_exists) {
+			$menu_id = wp_create_nav_menu($menu_name);
+
+			if ($menu_id > 0) {
+				//Get all menu locations
+				$locations = get_theme_mod('nav_menu_locations');
+
+				// Assign our new MENU at our theme's footer menu location
+				$locations['primary'] = $menu_id;
+				set_theme_mod('nav_menu_locations', $locations);
+			}
+
+			/*****************************************
+			 * Menu Link
+			 *****************************************/
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('Example Link', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+
+			/*****************************************
+			 * One Column Dropdown
+			 *****************************************/
+			// Set up example dropdown activator
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('Example Dropdown', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+
+			// Set up example menu item
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 1', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item
+			wp_update_nav_menu_item($menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 2', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			/*****************************************
+			 * Two Column Dropdown
+			 *****************************************/
+			// Set up example dropdown activator
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('Example Two Column', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+
+			// Set up example column header for column 1
+			$column_header_id = wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Column One', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 3', 'textdomain'),
+					'menu-item-parent-id' => $column_header_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column 2
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 4', 'textdomain'),
+					'menu-item-parent-id' => $column_header_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example column header for column 2
+			$column_header_id = wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Column Two', 'textdomain'),
+					'menu-item-parent-id' => $menu_item_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 5', 'textdomain'),
+					'menu-item-parent-id' => $column_header_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+
+			// Set up example menu item for column 2
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'     =>  __('Example Link 6', 'textdomain'),
+					'menu-item-parent-id' => $column_header_id,
+					'menu-item-url'       => '#',
+					'menu-item-status'    => 'publish'
+				)
+			);
+		}
+
+		/*
+		 * Generate example social media menu, if it doesn't already exist;  add example link to assist site builders.
+		 *
+		 */
+		$menu_name   = 'Social Media';
+		$menu_exists = wp_get_nav_menu_object($menu_name);
+
+		// If it doesn't exist, let's create it.
+		if (!$menu_exists) {
+			$menu_id = wp_create_nav_menu($menu_name);
+
+			if ($menu_id > 0) {
+				//Get all menu locations
+				$locations = get_theme_mod('nav_menu_locations');
+
+				// Assign our new MENU at our theme's footer menu location
+				$locations['social-media'] = $menu_id;
+				set_theme_mod('nav_menu_locations', $locations);
+			}
+
+			/*****************************************
+			 * Example Twitter Link
+			 *****************************************/
+			$menu_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title'   =>  __('fa-twitter-square', 'textdomain'),
+				'menu-item-url'     => '#',
+				'menu-item-status'  => 'publish'
+			));
+		}
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -92,34 +348,18 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'understrap_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
-
-		// Set up the WordPress Theme logo feature.
-		add_theme_support( 'custom-logo' );
-
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
 		// Check and setup theme default settings.
-		understrap_setup_theme_default_settings();
-
+		asu_wp2020_setup_theme_default_settings();
 	}
 }
 
 
-add_filter( 'excerpt_more', 'understrap_custom_excerpt_more' );
+add_filter( 'excerpt_more', 'asu_wp2020_custom_excerpt_more' );
 
-if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
+if ( ! function_exists( 'asu_wp2020_custom_excerpt_more' ) ) {
 	/**
 	 * Removes the ... from the excerpt read more link
 	 *
@@ -127,7 +367,7 @@ if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	 *
 	 * @return string
 	 */
-	function understrap_custom_excerpt_more( $more ) {
+	function asu_wp2020_custom_excerpt_more( $more ) {
 		if ( ! is_admin() ) {
 			$more = '';
 		}
@@ -135,9 +375,9 @@ if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	}
 }
 
-add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+add_filter( 'wp_trim_excerpt', 'asu_wp2020_all_excerpts_get_more_link' );
 
-if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'asu_wp2020_all_excerpts_get_more_link' ) ) {
 	/**
 	 * Adds a custom read more link to all excerpts, manually or automatically generated
 	 *
@@ -145,11 +385,11 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	 *
 	 * @return string
 	 */
-	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
+	function asu_wp2020_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
 			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
-				'understrap'
+				'asu-web-standards'
 			) . '</a></p>';
 		}
 		return $post_excerpt;

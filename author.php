@@ -4,24 +4,23 @@
  *
  * Learn more: https://codex.wordpress.org/Author_Templates
  *
- * @package UnderStrap
+ * @package asu-web-standards-2020
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <div class="wrapper" id="author-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="container" id="content" tabindex="-1">
 
 		<div class="row">
 
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<!-- Check for the left sidebar and open the primary div -->
+			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
 
@@ -35,7 +34,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					}
 					?>
 
-					<h1><?php echo esc_html__( 'About:', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
+					<h1><?php echo esc_html__( 'About:', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
 
 					<?php
 					if ( ! empty( $curauth->ID ) ) {
@@ -46,20 +45,20 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
 							<?php if ( ! empty( $curauth->user_url ) ) : ?>
-								<dt><?php esc_html_e( 'Website', 'understrap' ); ?></dt>
+								<dt><?php esc_html_e( 'Website', 'asu-web-standards' ); ?></dt>
 								<dd>
 									<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
 								</dd>
 							<?php endif; ?>
 
 							<?php if ( ! empty( $curauth->user_description ) ) : ?>
-								<dt><?php esc_html_e( 'Profile', 'understrap' ); ?></dt>
+								<dt><?php esc_html_e( 'Profile', 'asu-web-standards' ); ?></dt>
 								<dd><?php echo esc_html( $curauth->user_description ); ?></dd>
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html__( 'Posts by', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h2><?php echo esc_html__( 'Posts by', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
 
 				</header><!-- .page-header -->
 					<!-- The Loop -->
@@ -72,17 +71,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 								printf(
 									'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
 									esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-									esc_attr( __( 'Permanent Link:', 'understrap' ) ),
+									esc_attr( __( 'Permanent Link:', 'asu-web-standards' ) ),
 									get_the_title()
 								);
-								understrap_posted_on();
-								esc_html_e( 'in', 'understrap' );
+								asu_wp2020_posted_on();
+								esc_html_e( 'in', 'asu-web-standards' );
 								the_category( '&' );
 							echo '</li>';
 						}
 						echo '</ul>';
 					} else {
-						get_template_part( 'loop-templates/content', 'none' );
+						get_template_part( 'templates-loop/content', 'none' );
 					}
 					?>
 					<!-- End Loop -->
@@ -90,10 +89,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php asu_wp2020_pagination(); ?>
 
-			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<!-- Check for the right sidebar -->
+			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
 		</div> <!-- .row -->
 

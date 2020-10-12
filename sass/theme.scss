@@ -1,11 +1,8 @@
-@import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
-@import "assets/bootstrap4";      // <-------- Loads Bootstrap4
-@import "understrap/understrap";  // <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
-@import "understrap/woocommerce"; // <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+// Override image base path for theme css
+$image-assets-path: '/wp-content/themes/asu-web-standards-2020-wordpress-theme/img' !default;
 
-// Optional files - If you dont use the corresponding scripts/fonts comment em out
-@import "assets/font-awesome";    // <-------- Font Awesome Icon font
+@import "../src/scss/bootstrap-asu";
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
-@import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
+//@import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support

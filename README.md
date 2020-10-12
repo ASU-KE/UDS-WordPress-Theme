@@ -1,99 +1,108 @@
-[![Build Status](https://api.travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
-[![Wordpress Theme Version](https://img.shields.io/wordpress/theme/v/understrap.svg)](https://wordpress.org/themes/understrap) 
-[![Wordpress Theme Active Installs](https://img.shields.io/wordpress/theme/installs/understrap.svg)](https://wordpress.org/themes/understrap/) 
-[![Github Last Commit](https://img.shields.io/github/last-commit/understrap/understrap)](https://github.com/understrap/understrap/commits/master) 
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0)
+<p align="center">
+  <img src="https://cdn.infonet.research.asu.edu/assets/asu_asu_knowledge_enterprise_horiz_150ppi.png" alt="ASU Knowledge Enterprise" width="400" />
+</p>
 
-#### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
+<h1 align="center">ASU Web Standards WordPress Theme</h1>
+<h2 align="center">A WordPress theme based on ASU's Web Standards 2.0</h2>
 
-# UnderStrap WordPress Theme Framework
+<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
 
-Website: [https://understrap.com](https://understrap.com)
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-Child Theme Project: [https://github.com/understrap/understrap-child](https://github.com/understrap/understrap-child)
+[![bootstrap](https://img.shields.io/badge/Bootstrap-4-blue)](https://getbootstrap.com/)
+[![wordpress](https://img.shields.io/badge/Wordpress-5-green?logo=Wordpress)](https://getbootstrap.com/)
+[![understrap](https://img.shields.io/badge/Built&nbsp;with-Understrap-lightgrey?)](https://understrap.com/)
 
-OverStrap Child Themes: [https://understrap.com/overstrap/](https://understrap.com/overstrap/)
+### Features
 
-## About
-
-I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework? That’s what UnderStrap is. You can use it as a starter theme and build your own theme on top of it. Or you can use it as a parent theme and create your own child theme for UnderStrap.
-
-## License
-UnderStrap WordPress Theme, Copyright 2013-2018 Holger Koenemann
-UnderStrap is distributed under the terms of the GNU GPL version 2
-
-http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
-
-## Changelog
-See [changelog](CHANGELOG.md)
+- ASU Web Standards 2.0
+  - Based on ASU's official design token libray for consistent adherence to Web Standards 2.0
+  - Utilizes the official ASU Bootstrap theme built on top of the design token library
+  - Accessibilty built-in: all Bootstrap markup and styling is approved by the ASU Accessibility community before release
+- WordPress
+  - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
 
 
-## Basic Features
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-- Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap (v4) Sass source files and additional .scss files. Nicely sorted and ready to add your own variables and customize the Bootstrap variables.
-- Uses a single minified CSS file for all the basic stuff.
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) integration (v4.7.0)
-- Jetpack ready.
-- WooCommerce support.
-- Contact Form 7 support.
-- [Child Theme](https://github.com/understrap/understrap-child) ready.
-- Translation ready.
+## ❯ Table of Contents
 
-## Starter Theme + HTML Framework = WordPress Theme Framework
+- [Project Structure](#-project-structure)
+- [Getting Started](#-for-developers)
+- [Scripts and Tasks](#-scripts-and-tasks)
 
-The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme. That means it outputs all the WordPress stuff correctly but without any layout or design.
-Why not add a well known and supported layout framework to have a solid, clean and responsive foundation? That’s where Bootstrap comes in.
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## Confused by All the CSS and Sass Files?
+## ❯ Project Structure
 
-Some basics about the Sass and CSS files that come with UnderStrap:
-- The theme itself uses the `/style.css`file only to identify the theme inside of WordPress. The file is not loaded by the theme and does not include any styles.
-- The `/css/theme.css` and its minified little brother `/css/theme.min.css` file(s) provides all styles. It is composed of five different SCSS sets and one variable file at `/sass/theme.scss`:
+This theme is built on top of [Understrap](https://understrap.com), with minor adjustments specific to the needs of the theme. Most traditional WordPress theme files are where you would expect them. Files and folders of interest include:
 
- ```@import "theme/theme_variables";  // 1. Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
- @import "../src/bootstrap-sass/assets/stylesheets/bootstrap";  // 2. All the Bootstrap stuff - Don´t edit this!
- @import "understrap/understrap"; // 3. Some basic WordPress stylings and needed styles to combine Boostrap and Underscores
- @import "../src/fontawesome/scss/font-awesome"; // 4. Font Awesome Icon styles
- // Any additional imported files //
- @import "theme/theme";  // 5. Add your styles into this file
- ```
+| Name                            | Description                                                                |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| **functions.php**               | A lean file that loads code from multiple files in the **/inc** directory  |
+| **/inc**                        | WordPress hooks and callbacks, organized by their purpose in the theme and loaded into **functions.php** at runtime     |
+| **/templates-loop**             | Partial templates for displaying content from posts and pages (the WordPress 'loop')                                     |
+| **/templates-page**  | Multiple full-page layout templates  |
+| **/templates-sidebar**          | Templates for the various widget areas in the theme (aka 'sidebars')    |
+| **/sass/theme/_theme**   | An SCSS file for styling rules that are not covered by the Bootstrap theme, or other SCSS files in the **/sass** directory. The first place to put your custom styles                                               |
 
-- Don’t edit the number 2-4 files/filesets listed above or you won’t be able to update UnderStrap without overwriting your own work!
-- Your design goes into: `/sass/theme`.
-  - Add your styles to the `/sass/theme/_theme.scss` file
-  - And your variables to the `/sass/theme/_theme_variables.scss`
-  - Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## Installation
-There are several ways to install UnderStrap. We'll look at three of them: (1) classic install by uploading UnderStrap to a WordPress install, (2) using npm, and (3) using the theme directory in WordPress.
+## ❯ For Developers
 
-### Classic install
-- Download the understrap folder from GitHub or from [https://understrap.com](https://understrap.com)
-- IMPORTANT: If you download it from GitHub make sure you rename the "understrap-master.zip" file just to "understrap.zip" or you might have problems using child themes!
-- Upload it into your WordPress installation theme subfolder: `/wp-content/themes/`
-- Login to your WordPress backend
-- Go to Appearance → Themes
-- Activate the UnderStrap theme
+### Set up the Development Environment
 
-### npm install
-- Open your terminal
-- Change to the directory where you want to add UnderStrap
-- Type `npm install understrap`
+You need to set up your development environment before you can do anything.
 
-### WordPress.org install
-- Open your WordPress backend
-- Click on "Appearance -> Themes"
-- Hit the "Add new" button
-- Search for "UnderStrap"
-- Hit the "install" button
-- Activate the theme
+Install [Node.js and NPM](https://nodejs.org/en/download/)
 
-## Developing With npm, Gulp and SASS and [Browser Sync][1]
+- on OSX use [homebrew](http://brew.sh) `brew install node`
+- on Windows use [chocolatey](https://chocolatey.org/) `choco install nodejs`
+
+
+### Create a Local WordPress Development Environment
+This is a WordPress theme, and you will need to have access, and administrative rights, to a WordPress site in order to do any development on the theme. It is **not recommended** to attempt theme development on a live server. There are several solutions available for hosting local WordPress development sites on your own computer, including:
+
+* [Local by Flywheel](https://localwp.com/)
+* [Lando](https://docs.lando.dev/)
+* [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up
+* [VVV](https://varyingvagrantvagrants.org/)
+
+NOTE: As of 23 June 2020, the KE WordPress Theme Development Task Force (WP Power Rangers) are instructed to use [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up. This framework has been pre-installed with [WP Snapshots](https://github.com/10up/wpsnapshots) a utility that allows us to capture file and database snapshots that will be pushed to an AWS S3 bucket, and allow us to restore our local development sites quickly and efficiently.
+
+#### Install and Configure wp-local-docker
+
+> TODO
+
+Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
+
+#### Using WP Snapshots to Push/Pull website snapshots
+
+> TODO
+
+### A Note on Installing Dependencies from the ASU Unity Design System Package Repository ###
+The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
+
+#### Creating a User Account and Saving your NPM Access Token
+1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com/
+2. Configure npm to use this private registry. Add the following line to the .npmrc file in my home directory (existing lines can be left in-place):
+
+```
+@asu-design-system:registry=http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+```
+
+This config tells npm that all packages from ‘@asu-design-system’ should be grabbed from the ASU private registry. If it says you are not authorized, try to login using:
+
+```
+npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
+```
+
+Once you have successfully signed-in, npm will automatically save new line to your .npmrc, saving your login token for the future.
 
 ### Installing Dependencies
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
-- Then open your terminal and browse to the location of your UnderStrap copy
+- Then open your terminal and browse to the location of the theme
+- Run: `$ composer install`
 - Run: `$ npm install`
 
 ### Running
@@ -115,41 +124,11 @@ Or, to run with Browser-Sync:
 ```
 - then run: `$ gulp watch-bs`
 
-## How to Use the Built-In Widget Slider
+## ❯ For Theme Users
+
+### How to Use the Built-In Widget Slider
 
 The front-page slider is widget driven. Simply add more than one widget to widget position “Hero”.
 - Click on Appearance → Widgets.
 - Add two, or more, widgets of any kind to widget area “Hero”.
 - That’s it.
-
-## RTL styles?
-Add a new file to the themes root folder called rtl.css. Add all alignments to this file according to this description:
-https://codex.wordpress.org/Right_to_Left_Language_Support
-
-## Page Templates
-UnderStrap includes several different page template files: (1) blank template, (2) empty template, and (3) full width template.
-
-### Blank Template
-
-The `blank.php` template is useful when working with various page builders and can be used as a starting blank canvas.
-
-### Empty Template
-
-The `empty.php` template displays a header and a footer only. A good starting point for landing pages.
-
-### Full Width Template
-
-The `fullwidthpage.php` template has full width layout without a sidebar.
-
-## Footnotes
-
-[1] Visit [http://browsersync.io](http://browsersync.io) for more information on Browser Sync
-
-Licenses & Credits
-=
-- Font Awesome: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-- Bootstrap: http://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (Code licensed under MIT documentation under CC BY 3.0.)
-and of course
-- jQuery: https://jquery.org | (Code licensed under MIT)
-- WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker | GNU GPL
-- Bootstrap Gallery Script based on Roots Sage Gallery: https://github.com/roots/sage/blob/5b9786b8ceecfe717db55666efe5bcf0c9e1801c/lib/gallery.php
