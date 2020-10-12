@@ -16,6 +16,7 @@ $asu_hub_analytics     = 'disabled';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
+$nav_menu_enabled	   = '';
 
 // Check if we have Customizer options set
 if (is_array(get_option('asu_wp2020_theme_options'))) {
@@ -139,8 +140,8 @@ if (!empty($cOptions['hotjar_site_id'])) {
 							<nav class="navbar navbar-expand-xl" aria-label="Main">
 
 								<a class="navbar-brand" href="#">
-									<img class="vert" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="Arizona State University" />
-									<img class="horiz" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo/asu_university_horiz_maroongold.png" alt="Arizona State University" />
+									<img class="vert" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="Arizona State University" />
+									<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_horiz_maroongold.png" alt="Arizona State University" />
 								</a>
 
 								<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menubar" aria-controls="menubar" aria-expanded="false" aria-label="Toggle navigation">
