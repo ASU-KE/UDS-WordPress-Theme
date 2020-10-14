@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $asu_wp2020_includes = array(
+	'/helpers.php',
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/asu-favicons.php',                    // Enable ASU Favicons.
@@ -33,3 +34,10 @@ $asu_wp2020_includes = array(
 foreach ($asu_wp2020_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+
+
+function asu_wp2020_remove_page_templates( $templates ) {
+    return array();
+}
+add_filter( 'theme_page_templates', 'asu_wp2020_remove_page_templates' );

@@ -17,7 +17,7 @@ get_header();
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
-	<div class="container" id="content">
+	<div class="<?php echo $container_classes;?>" id="content">
 
 		<div class="row">
 

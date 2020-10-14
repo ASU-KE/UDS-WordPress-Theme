@@ -7,20 +7,9 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-if ( ! is_active_sidebar( 'sidebar-right' ) ) {
-	return;
-}
-
-// when both sidebars turned on reduce col size to 3 from 4.
-$sidebar_pos = get_theme_mod( 'asu_wp2020_sidebar_position' );
+global $asu_wp2020_sidebar_opts;
 ?>
 
-<?php if ( 'both' === $sidebar_pos ) : ?>
-	<div class="col-md-3 widget-area" id="right-sidebar" role="complementary">
-<?php else : ?>
-	<div class="col-md-4 widget-area" id="right-sidebar" role="complementary">
-<?php endif; ?>
-<?php dynamic_sidebar( 'sidebar-right' ); ?>
-
-</div><!-- #right-sidebar -->
+<div class="col-md-4 col-xs-12 pr-0 widget-area" id="right-sidebar">
+<?php	dynamic_sidebar( $asu_wp2020_sidebar_opts['sidebar'] );?>
+</div>

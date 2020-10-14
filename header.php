@@ -45,6 +45,21 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	$hotjar_site_id = $cOptions['hotjar_site_id'];
 }
 ?>
+
+<!-- ========= Sidebar Classes ============ -->
+<?php global $asu_wp2020_sidebar_opts;
+			global $content_classes;
+			global $container_classes;
+			 $asu_wp2020_sidebar_opts=asu_wp2020_get_post_meta( get_the_ID() );
+			 $content_classes="col-xs pr-0 pl-0";
+			 $container_classes="container";
+
+			 if ( $asu_wp2020_sidebar_opts['use_sidebar'] == 'none' ):
+				 $container_classes="container-fluid";
+			 endif;
+ ?>
+ <!-- ========= END::Sidebar Classes ============ -->
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
