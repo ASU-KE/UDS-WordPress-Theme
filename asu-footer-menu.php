@@ -3,14 +3,14 @@
 /**
  * The footer navigation menu
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
 $menu_name = 'footer';
-$menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
+$menu_items = uds_wp_get_menu_formatted_array($menu_name);
 
 foreach ($menu_items as $item) :
 	// A top-level menu item with children is formatted as a column with a header

@@ -1,23 +1,23 @@
 <?php
 
 /**
- * ASU Web Standards 2020 Theme Customizer
+ * UDS WordPress Theme Customizer
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-if (!function_exists('asu_wp2020_theme_get_endorsed_unit_logos')) {
+if (!function_exists('uds_wp_theme_get_endorsed_unit_logos')) {
 	/**
 	 * Load a list of endorsed-logos from JSON file and store in transient for quick retrieval.
 	 *
 	 * @return array The array of endorsed logo arrays.
 	 */
-	function asu_wp2020_theme_get_endorsed_unit_logos()
+	function uds_wp_theme_get_endorsed_unit_logos()
 	{
-		$transient = get_transient('asu_wp2020_endorsed_unit_logos');
+		$transient = get_transient('uds_wp_endorsed_unit_logos');
 
 		// Do we have this information in our transients already?
 		// Yep, just return it and we're done. Ensure WP_DEBUG is not enabled.  (If debug is enabled, don't use transients cache)
@@ -33,7 +33,7 @@ if (!function_exists('asu_wp2020_theme_get_endorsed_unit_logos')) {
 			$endorsedLogos = json_decode($strJsonFileContents, true);
 
 			// Save the file system response so we don't have to call again for an hour.
-			set_transient('asu_wp2020_endorsed_unit_logos', $endorsedLogos, HOUR_IN_SECONDS);
+			set_transient('uds_wp_endorsed_unit_logos', $endorsedLogos, HOUR_IN_SECONDS);
 
 			// Return the array of endorsed logos.  The function will return here the first time it is run, and then once again, each time the transient expires.
 			return $endorsedLogos;

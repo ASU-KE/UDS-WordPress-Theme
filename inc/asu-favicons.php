@@ -1,9 +1,9 @@
 <?php
 /**
- * asu_wp2020_favicons header hook, provides links to the favicons from the asu-web-standards
+ * uds_wp_favicons header hook, provides links to the favicons from the UDS WordPress Theme
  */
 
-function asu_wp2020_favicons() {
+function uds_wp_favicons() {
 ?>
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-114x114.png" />
@@ -29,4 +29,4 @@ function asu_wp2020_favicons() {
 <?php
 }
 
-add_action( 'wp_head', 'asu_wp2020_favicons' );
+add_action( 'wp_head', 'uds_wp_favicons' );

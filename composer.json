@@ -1,6 +1,6 @@
 {
-	"name": "understrap/understrap",
-	"description": "Combines Automattic´s Underscores Starter Theme and Bootstrap 4",
+	"name": "asu-ke-web-services/uds-wordpress-theme",
+	"description": "ASU Unity Design System WordPress Theme",
 	"type": "wordpress-theme",
 	"license": "GPL-2.0-only",
 	"minimum-stability": "stable",
@@ -9,7 +9,7 @@
 		"theme",
 		"bootstrap"
 	],
-	"homepage": "https://github.com/understrap/understrap",
+	"homepage": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme",
 	"require": {
 		"composer/installers": "^1.9",
 		"php": ">=5.6",
@@ -28,7 +28,7 @@
 		"lint:php": ["@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."]
 	},
 	"support": {
-		"issues": "https://github.com/understrap/understrap/issues",
-		"source": "https://github.com/understrap/understrap"
+		"issues": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme/issues",
+		"source": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme"
 	}
 }

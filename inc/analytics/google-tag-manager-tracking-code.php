@@ -1,8 +1,8 @@
 <?php
 $site_gtm_container_id = '';
 
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if (is_array(get_option('uds_wp_theme_options'))) {
+	$cOptions = get_option('uds_wp_theme_options');
 }
 if (!empty($c_options['site_gtm_container_id'])) {
 	$site_gtm_container_id = $cOptions['site_gtm_container_id'];

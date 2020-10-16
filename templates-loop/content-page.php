@@ -2,7 +2,7 @@
 /**
  * Partial template for content in page.php
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'asu-web-standards' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php edit_post_link( __( 'Edit', 'asu-web-standards' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'uds-wordpress' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer><!-- .entry-footer -->
 

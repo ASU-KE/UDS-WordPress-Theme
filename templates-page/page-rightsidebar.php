@@ -4,7 +4,7 @@
  *
  * This template can be used to override the default template and sidebar setup
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.

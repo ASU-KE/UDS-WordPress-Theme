@@ -2,7 +2,7 @@
 /**
  * Search results partial template
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<div class="entry-meta">
 
-				<?php asu_wp2020_posted_on(); ?>
+				<?php uds_wp_posted_on(); ?>
 
 			</div><!-- .entry-meta -->
 
@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php // asu_wp2020_entry_footer(); ?>
+		<?php // uds_wp_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 

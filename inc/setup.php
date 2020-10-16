@@ -2,7 +2,7 @@
 /**
  * Theme basic setup
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -13,9 +13,9 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-add_action( 'after_setup_theme', 'asu_wp2020_setup' );
+add_action( 'after_setup_theme', 'uds_wp_setup' );
 
-if ( ! function_exists( 'asu_wp2020_setup' ) ) {
+if ( ! function_exists( 'uds_wp_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -23,14 +23,14 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function asu_wp2020_setup() {
+	function uds_wp_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on understrap, use a find and replace
-		 * to change 'asu-web-standards' to the name of your theme in all the template files
+		 * If you're building a theme based on this theme, use a find and replace
+		 * to change 'uds-wordpress' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'asu-web-standards', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'uds-wordpress', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -46,9 +46,9 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		// Register nav menus.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Main Menu', 'asu-web-standards' ),
-				'footer' => __('Footer Menu', 'asu-web-standards'),
-				'social-media' => __( 'Social Media Menu', 'asu-web-standards' )
+				'primary' => __( 'Main Menu', 'uds-wordpress' ),
+				'footer' => __('Footer Menu', 'uds-wordpress'),
+				'social-media' => __( 'Social Media Menu', 'uds-wordpress' )
 			)
 		);
 
@@ -352,14 +352,14 @@ if ( ! function_exists( 'asu_wp2020_setup' ) ) {
 		add_theme_support( 'responsive-embeds' );
 
 		// Check and setup theme default settings.
-		asu_wp2020_setup_theme_default_settings();
+		uds_wp_setup_theme_default_settings();
 	}
 }
 
 
-add_filter( 'excerpt_more', 'asu_wp2020_custom_excerpt_more' );
+add_filter( 'excerpt_more', 'uds_wp_custom_excerpt_more' );
 
-if ( ! function_exists( 'asu_wp2020_custom_excerpt_more' ) ) {
+if ( ! function_exists( 'uds_wp_custom_excerpt_more' ) ) {
 	/**
 	 * Removes the ... from the excerpt read more link
 	 *
@@ -367,7 +367,7 @@ if ( ! function_exists( 'asu_wp2020_custom_excerpt_more' ) ) {
 	 *
 	 * @return string
 	 */
-	function asu_wp2020_custom_excerpt_more( $more ) {
+	function uds_wp_custom_excerpt_more( $more ) {
 		if ( ! is_admin() ) {
 			$more = '';
 		}
@@ -375,9 +375,9 @@ if ( ! function_exists( 'asu_wp2020_custom_excerpt_more' ) ) {
 	}
 }
 
-add_filter( 'wp_trim_excerpt', 'asu_wp2020_all_excerpts_get_more_link' );
+add_filter( 'wp_trim_excerpt', 'uds_wp_all_excerpts_get_more_link' );
 
-if ( ! function_exists( 'asu_wp2020_all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
 	/**
 	 * Adds a custom read more link to all excerpts, manually or automatically generated
 	 *
@@ -385,11 +385,11 @@ if ( ! function_exists( 'asu_wp2020_all_excerpts_get_more_link' ) ) {
 	 *
 	 * @return string
 	 */
-	function asu_wp2020_all_excerpts_get_more_link( $post_excerpt ) {
+	function uds_wp_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
 			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
-				'asu-web-standards'
+				'uds-wordpress'
 			) . '</a></p>';
 		}
 		return $post_excerpt;

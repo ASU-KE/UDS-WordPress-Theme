@@ -2,7 +2,7 @@
 /**
  * Disable the WordPress wp_autop filter that automatically wraps lines in <p> tags.
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.

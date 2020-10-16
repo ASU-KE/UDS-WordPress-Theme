@@ -3,7 +3,7 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -11,8 +11,8 @@ defined('ABSPATH') || exit;
 
 $image_404 = '';
 
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if (is_array(get_option('uds_wp_theme_options'))) {
+	$cOptions = get_option('uds_wp_theme_options');
 
 	// Do we have a 404 image?
 	if ( !empty( $cOptions['image_404'] ) ) {
@@ -40,14 +40,14 @@ get_header();
 							<header class="page-header">
 
 								<h1 class="heading heading-one col-md-12">
-									<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e('404 - Not Found', 'asu-web-standards'); ?></span>
+									<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e('404 - Not Found', 'uds-wordpress'); ?></span>
 								</h1>
 
 							</header><!-- .page-header -->
 
 							<div class="page-content uds-hero-text">
 
-								<p><?php esc_html_e('It looks like nothing was found! Maybe try a search?', 'asu-web-standards'); ?></p>
+								<p><?php esc_html_e('It looks like nothing was found! Maybe try a search?', 'uds-wordpress'); ?></p>
 
 								<?php get_search_form(); ?>
 

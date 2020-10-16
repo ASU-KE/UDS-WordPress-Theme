@@ -2,20 +2,20 @@
 /**
  * Helper functions for building ASU Web Standards 2.0 menus.
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if (!function_exists('asu_wp2020_get_menu_array')) {
+if (!function_exists('uds_wp_get_menu_array')) {
 	/**
 	 * Load requested menu object and format into hierarchical array
 	 * for the custom WP nav menu builders.
 	 *
 	 * @param string $menu_name Slug name of desired menu.
 	 */
-	function asu_wp2020_get_menu_formatted_array($menu_name)
+	function uds_wp_get_menu_formatted_array($menu_name)
 	{
 		if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
 			$menu_object = wp_get_nav_menu_object($locations[$menu_name]);
@@ -78,7 +78,7 @@ if (!function_exists('asu_wp2020_get_menu_array')) {
 	}
 }
 
-if (!function_exists('asu_wp2020_get_menu_depth')) {
+if (!function_exists('uds_wp_get_menu_depth')) {
 	/**
 	 * Get the depth of this particular menu item in its hierarchy by inspecting
 	 * the 'children' sub-array at each level to determine whether or not
@@ -87,7 +87,7 @@ if (!function_exists('asu_wp2020_get_menu_depth')) {
 	 * @param Array $item array of top-level menu items
 	 * @return String Maximum depth of the menu: single, children, or grandchildren
 	 */
-	function asu_wp2020_get_menu_depth($item = null)
+	function uds_wp_get_menu_depth($item = null)
 	{
 		if (empty($item)) {
 			wp_die('Cannot find depth of a menu item that was not provided, or is empty.');
@@ -113,14 +113,14 @@ if (!function_exists('asu_wp2020_get_menu_depth')) {
 	}
 }
 
-if (!function_exists('asu_wp2020_render_column_links')) {
+if (!function_exists('uds_wp_render_column_links')) {
 	/**
 	 * Renders the individual links from the provided child/grandchild list
 	 *
 	 * @param Array $children The array of links for one column
 	 * @return String $links A string containing all the <a> tags for the column
 	 */
-	function asu_wp2020_render_column_links($children = array())
+	function uds_wp_render_column_links($children = array())
 	{
 
 		if (empty($children)) {
@@ -135,7 +135,7 @@ if (!function_exists('asu_wp2020_render_column_links')) {
 			$ctaButtonColor = $child['cta_color'];
 
 			if ($isCtaButton) {
-				$links .= asu_wp2020_render_nav_cta_button($ctaButtonColor, $child);
+				$links .= uds_wp_render_nav_cta_button($ctaButtonColor, $child);
 			} else {
 				$link = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
 				$links .= wp_kses(sprintf($link, $child['url'], $child['title']), wp_kses_allowed_html('post'));
@@ -146,7 +146,7 @@ if (!function_exists('asu_wp2020_render_column_links')) {
 	}
 }
 
-if (!function_exists('asu_wp2020_render_nav_item_link')) {
+if (!function_exists('uds_wp_render_nav_item_link')) {
 	/**
 	 * Renders the top-level link, either as a normal nav link or a drop-down link
 	 * Note that we're using the 'default:' case to render our actual default, and
@@ -156,7 +156,7 @@ if (!function_exists('asu_wp2020_render_nav_item_link')) {
 	 * @param Array $item The navigation item whose link we want to render
 	 * @return String $link The rendered navigation link
 	 */
-	function asu_wp2020_render_nav_item_link($menuType, $item)
+	function uds_wp_render_nav_item_link($menuType, $item)
 	{
 		$link = "";
 
@@ -180,7 +180,7 @@ if (!function_exists('asu_wp2020_render_nav_item_link')) {
 	}
 }
 
-if (!function_exists('asu_wp2020_render_nav_cta_button')) {
+if (!function_exists('uds_wp_render_nav_cta_button')) {
 	/**
 	 * Renders menu link as a CTA button.
 	 *
@@ -188,7 +188,7 @@ if (!function_exists('asu_wp2020_render_nav_cta_button')) {
 	 * @param Array $item The navigation item whose CTA button we want to render
 	 * @return String $button The rendered button
 	 */
-	function asu_wp2020_render_nav_cta_button($ctaColor, $item)
+	function uds_wp_render_nav_cta_button($ctaColor, $item)
 	{
 		$button = '';
 

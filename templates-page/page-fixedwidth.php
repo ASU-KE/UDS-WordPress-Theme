@@ -4,7 +4,7 @@
  *
  * Template for displaying a fixed-width page without sidebars
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.

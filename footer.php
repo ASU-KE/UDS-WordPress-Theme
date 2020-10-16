@@ -3,7 +3,7 @@
 /**
  * The template for displaying the footer
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -13,8 +13,8 @@ $cOptions              = [];
 $footer_row_branding   = 'enabled';
 $footer_row_actions    = 'enabled';
 
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if (is_array(get_option('uds_wp_theme_options'))) {
+	$cOptions = get_option('uds_wp_theme_options');
 }
 
 // Do we have an footer_row_branding setting?
@@ -45,7 +45,7 @@ if (!empty($cOptions['footer_row_actions'])) {
 					// First, check for Preset Logo Selection
 					if (isset($cOptions) && array_key_exists('logo_select', $cOptions) && $cOptions['logo_select'] !== 'none') {
 						// load array of endorsed units
-						$endorsedLogos = asu_wp2020_theme_get_endorsed_unit_logos();
+						$endorsedLogos = uds_wp_theme_get_endorsed_unit_logos();
 
 						// lookup logo filename
 						$filename = '';

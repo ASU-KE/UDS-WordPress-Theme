@@ -3,21 +3,21 @@
 /**
  * The template for ASU main navigation menus in Web Standards 2.0
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
 $menu_name = 'primary';
-$menu_items = asu_wp2020_get_menu_formatted_array($menu_name);
+$menu_items = uds_wp_get_menu_formatted_array($menu_name);
 
 /**
  * Main navigation loop
  */
 foreach ($menu_items as $item) :
 	// evaluate item for: single, children (one column), or grandchildren (multiple columns)
-	$item['depth'] = asu_wp2020_get_menu_depth($item);
+	$item['depth'] = uds_wp_get_menu_depth($item);
 
 	// check if menu item is a CTA Button
 	$isCtaButton = $item['cta_button'];
@@ -29,7 +29,7 @@ foreach ($menu_items as $item) :
 		 * Items with no children are rendered as basic menu item links
 		 */
 		case 'single':
-			echo asu_wp2020_render_nav_item_link('single', $item);
+			echo uds_wp_render_nav_item_link('single', $item);
 			break;
 
 		/*
@@ -40,10 +40,10 @@ foreach ($menu_items as $item) :
 		case 'children':
 ?>
 			<div class="nav-item dropdown">
-				<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
+				<?php echo uds_wp_render_nav_item_link('dropdown', $item); ?>
 				<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
 					<div class="dropdown-col">
-						<?php echo asu_wp2020_render_column_links($item['children']); ?>
+						<?php echo uds_wp_render_column_links($item['children']); ?>
 					</div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@ foreach ($menu_items as $item) :
 			if (count($item['children']) > 3) :
 			?>
 				<div class="nav-item dropdown megamenu">
-					<?php echo asu_wp2020_render_nav_item_link('megamenu', $item); ?>
+					<?php echo uds_wp_render_nav_item_link('megamenu', $item); ?>
 					<div class="dropdown-menu" aria-labelledby="megamenu-one-col">
 						<div class="container">
 							<div class="row">
@@ -72,13 +72,13 @@ foreach ($menu_items as $item) :
 								foreach ($item['children'] as $child) :
 									// if $child is flagged as a CTA button, it is a mega-menu CTA button, outside of columns
 									if ($child['cta_button']) {
-										$megaCtaButtons .= asu_wp2020_render_nav_cta_button($child['cta_color'], $item);
+										$megaCtaButtons .= uds_wp_render_nav_cta_button($child['cta_color'], $item);
 										continue;
 									}
 
 									$column = '<div class="col-lg">';
 									$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
-									$column .= asu_wp2020_render_column_links($child['children']); // inner loop - column links
+									$column .= uds_wp_render_column_links($child['children']); // inner loop - column links
 									$column .= '</div>';
 
 									// output this column
@@ -100,14 +100,14 @@ foreach ($menu_items as $item) :
 				// nope, we are rendering a multi-column dropdown
 			?>
 				<div class="nav-item dropdown">
-					<?php echo asu_wp2020_render_nav_item_link('dropdown', $item); ?>
+					<?php echo uds_wp_render_nav_item_link('dropdown', $item); ?>
 					<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
 						<?php
 						// outer loop
 						foreach ($item['children'] as $child) :
 							$column = '<div class="dropdown-col">';
 							$column .= "<h3>" . wp_kses($child['title'], wp_kses_allowed_html('post')) . "</h3>";
-							$column .= asu_wp2020_render_column_links($child['children']); // inner loop
+							$column .= uds_wp_render_column_links($child['children']); // inner loop
 							$column .= '</div>';
 
 							// output this column

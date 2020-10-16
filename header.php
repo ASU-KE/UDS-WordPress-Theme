@@ -5,7 +5,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -19,8 +19,8 @@ $hotjar_site_id        = '';
 $nav_menu_enabled	   = '';
 
 // Check if we have Customizer options set
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if (is_array(get_option('uds_wp_theme_options'))) {
+	$cOptions = get_option('uds_wp_theme_options');
 }
 
 // Is navigation menu enabled?
@@ -90,8 +90,8 @@ if (!empty($cOptions['hotjar_site_id'])) {
 	?>
 </head>
 
-<body <?php body_class(); ?> <?php asu_wp2020_body_attributes(); ?>>
-	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'asu-web-standards'); ?></a>
+<body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?>>
+	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'uds-wordpress'); ?></a>
 	<?php do_action('wp_body_open');
 
 	// Site Google Tag Manager (noscript)

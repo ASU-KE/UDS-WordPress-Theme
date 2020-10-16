@@ -1,14 +1,14 @@
 <?php
 /**
- * ASU Web Standards 2020 Theme functions and definitions
+ * UDS WordPress Theme functions and definitions
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$asu_wp2020_includes = array(
+$uds_wp_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/asu-favicons.php',                    // Enable ASU Favicons.
@@ -30,6 +30,6 @@ $asu_wp2020_includes = array(
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ($asu_wp2020_includes as $file) {
+foreach ($uds_wp_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }

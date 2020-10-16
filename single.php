@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
@@ -26,7 +26,7 @@ get_header();
 				while ( have_posts() ) {
 					the_post();
 					get_template_part( 'templates-loop/content', 'single' );
-					asu_wp2020_post_nav();
+					uds_wp_post_nav();
 
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) {

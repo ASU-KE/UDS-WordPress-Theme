@@ -2,16 +2,16 @@
 /**
  * Comment layout
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 // Add Bootstrap classes to comment form fields.
-add_filter( 'comment_form_default_fields', 'asu_wp2020_bootstrap_comment_form_fields' );
+add_filter( 'comment_form_default_fields', 'uds_wp_bootstrap_comment_form_fields' );
 
-if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form_fields' ) ) {
+if ( ! function_exists( 'uds_wp_bootstrap_comment_form_fields' ) ) {
 	/**
 	 * Add Bootstrap classes to WP's comment form default fields.
 	 *
@@ -26,7 +26,7 @@ if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form_fields' ) ) {
 	 *
 	 * @return array
 	 */
-	function asu_wp2020_bootstrap_comment_form_fields( $fields ) {
+	function uds_wp_bootstrap_comment_form_fields( $fields ) {
 
 		$replace = array(
 			'<p class="' => '<div class="form-group ',
@@ -56,12 +56,12 @@ if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form_fields' ) ) {
 
 		return $fields;
 	}
-} // End of if function_exists( 'asu_wp2020_bootstrap_comment_form_fields' )
+} // End of if function_exists( 'uds_wp_bootstrap_comment_form_fields' )
 
 // Add Bootstrap classes to comment form submit button and comment field.
-add_filter( 'comment_form_defaults', 'asu_wp2020_bootstrap_comment_form' );
+add_filter( 'comment_form_defaults', 'uds_wp_bootstrap_comment_form' );
 
-if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form' ) ) {
+if ( ! function_exists( 'uds_wp_bootstrap_comment_form' ) ) {
 	/**
 	 * Adds Bootstrap classes to comment form submit button and comment field.
 	 *
@@ -69,7 +69,7 @@ if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form' ) ) {
 	 *
 	 * @return string[]
 	 */
-	function asu_wp2020_bootstrap_comment_form( $args ) {
+	function uds_wp_bootstrap_comment_form( $args ) {
 		$replace = array(
 			'<p class="' => '<div class="form-group ',
 			'<textarea'  => '<textarea class="form-control" ',
@@ -86,21 +86,21 @@ if ( ! function_exists( 'asu_wp2020_bootstrap_comment_form' ) ) {
 
 		return $args;
 	}
-} // End of if function_exists( 'asu_wp2020_bootstrap_comment_form' ).
+} // End of if function_exists( 'uds_wp_bootstrap_comment_form' ).
 
 
 // Add note if comments are closed.
-add_action( 'comment_form_comments_closed', 'asu_wp2020_comment_form_comments_closed' );
+add_action( 'comment_form_comments_closed', 'uds_wp_comment_form_comments_closed' );
 
-if ( ! function_exists( 'asu_wp2020_comment_form_comments_closed' ) ) {
+if ( ! function_exists( 'uds_wp_comment_form_comments_closed' ) ) {
 	/**
 	 * Displays a note that comments are closed if comments are closed and there are comments.
 	 */
-	function asu_wp2020_comment_form_comments_closed() {
+	function uds_wp_comment_form_comments_closed() {
 		if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'asu-web-standards' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'uds-wordpress' ); ?></p>
 			<?php
 		}
 	}
-} // End of if function_exists( 'asu_wp2020_comment_form_comments_closed' ).
+} // End of if function_exists( 'uds_wp_comment_form_comments_closed' ).

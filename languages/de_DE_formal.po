@@ -89,7 +89,7 @@ msgstr ""
 "benötigst. WICHTIG: Alle Abhängigkeiten der Entwicklertools sind in diesem "
 "Paket nicht enthalten! Laden Sie die ZIP-Datei herunter, entpacken Sie sie "
 "und führen Sie \"npm install\" sowie \"gulp copy-assets\" in der Konsole im "
-"entpackten ASU Web Standards 2020 Theme-Ordner aus."
+"entpackten UDS WordPress Theme-Ordner aus."
 
 #: search.php:29
 #, php-format
@@ -428,8 +428,8 @@ msgid "Posts Index Style"
 msgstr "Layout der Beiträge auf der Startseite"
 
 #. Name of the theme
-msgid "ASU Web Standards 2020 Theme"
-msgstr "ASU Web Standards 2020 Theme"
+msgid "UDS WordPress Theme"
+msgstr "UDS WordPress Theme"
 
 #. Theme URI of the theme
 msgid "http://understrap.com"
