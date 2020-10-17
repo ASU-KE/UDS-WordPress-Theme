@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package uds-wordpress-theme-theme
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
