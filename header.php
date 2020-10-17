@@ -9,39 +9,39 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-$cOptions              = [];
+$cOptions              = array();
 $asu_hub_analytics     = 'disabled';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
-$nav_menu_enabled	   = '';
+$nav_menu_enabled      = '';
 
 // Check if we have Customizer options set
-if (is_array(get_option('uds_wp_theme_options'))) {
-	$cOptions = get_option('uds_wp_theme_options');
+if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
+	$cOptions = get_option( 'uds_wp_theme_options' );
 }
 
 // Is navigation menu enabled?
-if (!empty($cOptions['header_navigation_menu'])) {
+if ( ! empty( $cOptions['header_navigation_menu'] ) ) {
 	$nav_menu_enabled = $cOptions['header_navigation_menu'];
 }
 
 // Do we have an asu_hub_analytics setting?
-if (!empty($cOptions['asu_hub_analytics'])) {
+if ( ! empty( $cOptions['asu_hub_analytics'] ) ) {
 	$asu_hub_analytics = $cOptions['asu_hub_analytics'];
 }
 // Do we have a site_gtm_container_id setting?
-if (!empty($cOptions['site_gtm_container_id'])) {
+if ( ! empty( $cOptions['site_gtm_container_id'] ) ) {
 	$site_gtm_container_id = $cOptions['site_gtm_container_id'];
 }
 // Do we have a site_ga_tracking_id setting?
-if (!empty($cOptions['site_ga_tracking_id'])) {
+if ( ! empty( $cOptions['site_ga_tracking_id'] ) ) {
 	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
 // Do we have an hotjar_site_id setting?
-if (!empty($cOptions['hotjar_site_id'])) {
+if ( ! empty( $cOptions['hotjar_site_id'] ) ) {
 	$hotjar_site_id = $cOptions['hotjar_site_id'];
 }
 ?>
@@ -49,14 +49,15 @@ if (!empty($cOptions['hotjar_site_id'])) {
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 
-	<?php if (is_user_logged_in() && !is_customize_preview()) :
+	<?php 
+	if ( is_user_logged_in() && ! is_customize_preview() ) :
 		// shift page content below the WP Admin toolbar
-	?>
+		?>
 		<style type="text/css" media="screen">
 			#asu-header.fixed-top {
 				top: 32px !important;
@@ -66,36 +67,38 @@ if (!empty($cOptions['hotjar_site_id'])) {
 				z-index: 999999 !important;
 			}
 		</style>
-	<?php endif;
+		<?php 
+	endif;
 
 	// ASU Hub Analytics
-	if (!empty($asu_hub_analytics) && $asu_hub_analytics === 'enabled') {
+	if ( ! empty( $asu_hub_analytics ) && $asu_hub_analytics === 'enabled' ) {
 		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
 	}
 
 	// Site Google Tag Manager
-	if (!empty($site_gtm_container_id)) {
+	if ( ! empty( $site_gtm_container_id ) ) {
 		include get_template_directory() . '/inc/analytics/google-tag-manager-tracking-code.php';
 	}
 
 	// Site Google Analytics
-	if (!empty($site_ga_tracking_id)) {
+	if ( ! empty( $site_ga_tracking_id ) ) {
 		include get_template_directory() . '/inc/analytics/google-analytics-tracking-code.php';
 	}
 
 	// Hotjar Analytics
-	if (!empty($hotjar_site_id)) {
+	if ( ! empty( $hotjar_site_id ) ) {
 		include get_template_directory() . '/inc/analytics/hotjar-tracking-code.php';
 	}
 	?>
 </head>
 
 <body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?>>
-	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'uds-wordpress'); ?></a>
-	<?php do_action('wp_body_open');
+	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'uds-wordpress' ); ?></a>
+	<?php 
+	do_action( 'wp_body_open' );
 
 	// Site Google Tag Manager (noscript)
-	if (!empty($site_gtm_container_id)) {
+	if ( ! empty( $site_gtm_container_id ) ) {
 		include get_template_directory() . '/inc/analytics/google-tag-manager-noscript-code.php';
 	}
 	?>
@@ -152,55 +155,62 @@ if (!empty($cOptions['hotjar_site_id'])) {
 									</span>
 								</button>
 
-								<div class="navbar-container <?php if(!$nav_menu_enabled) echo 'no-links'; ?>">
+								<div class="navbar-container 
+								<?php 
+								if ( ! $nav_menu_enabled ) {
+									echo 'no-links';} 
+								?>
+								">
 
 									<?php
 									// if no parentUnit defined, render site (subdomain) name alone
-									if (empty($cOptions['parent_unit_name'])) : ?>
+									if ( empty( $cOptions['parent_unit_name'] ) ) : 
+										?>
 										<div class="title subdomain-name">
-											<?php echo wp_kses(get_bloginfo('name'), wp_kses_allowed_html('strip')); ?>
+											<?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?>
 										</div>
-									<?php
-									// render both site (subdomain) and parentUnit in header
-									else : ?>
+										<?php
+										// render both site (subdomain) and parentUnit in header
+									else : 
+										?>
 										<div class="title">
 											<?php
 											$parentOrg = '<a href="%1$s" class="unit-name">%2$s</a>';
-											if (isset($cOptions) && array_key_exists('parent_unit_name', $cOptions) && $cOptions['parent_unit_name'] !== '') {
+											if ( isset( $cOptions ) && array_key_exists( 'parent_unit_name', $cOptions ) && $cOptions['parent_unit_name'] !== '' ) {
 												$parentOrgLink = '#';
-												if (array_key_exists('parent_unit_link', $cOptions)) {
+												if ( array_key_exists( 'parent_unit_link', $cOptions ) ) {
 													$parentOrgLink = $cOptions['parent_unit_link'];
 												}
-												echo wp_kses(sprintf($parentOrg, $parentOrgLink, $cOptions['parent_unit_name']), wp_kses_allowed_html('post'));
+												echo wp_kses( sprintf( $parentOrg, $parentOrgLink, $cOptions['parent_unit_name'] ), wp_kses_allowed_html( 'post' ) );
 											}
 											?>
-											<span class="subdomain-name"><?php echo wp_kses(get_bloginfo('name'), wp_kses_allowed_html('strip')); ?></span>
+											<span class="subdomain-name"><?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?></span>
 										</div>
-									<?php
+										<?php
 									endif;
 									?>
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<?php
 										// if nav menu is enabled, render it
-										if ('enabled' === $nav_menu_enabled) :
-										?>
+										if ( 'enabled' === $nav_menu_enabled ) :
+											?>
 										<div class="navbar-nav">
 											<?php
 											// ======================
 											// Create Main Navigation
 											// ======================
 
-											$current_url = add_query_arg($wp->query_string, '', home_url($wp->request));
-											$we_are_on_the_homepage = (home_url() === $current_url);
+											$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+											$we_are_on_the_homepage = ( home_url() === $current_url );
 
 											$home_icon_class = 'nav-link-home';
-											if ($we_are_on_the_homepage) {
+											if ( $we_are_on_the_homepage ) {
 												$home_icon_class .= ' active';
 											}
 											?>
 
-											<a class="nav-link <?php echo $home_icon_class ?>" href="<?php echo esc_url(home_url()); ?>">
+											<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
 												<span class="d-lg-none">Home</span>
 												<span title="Home" class="fas fa-fw fa-home"></span>
 											</a>
@@ -209,7 +219,7 @@ if (!empty($cOptions['hotjar_site_id'])) {
 											include get_template_directory() . '/asu-navigation-menu.php';
 											?>
 										</div><!-- end .navbar-nav -->
-										<?php
+											<?php
 										endif;
 										?>
 

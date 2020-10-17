@@ -7,62 +7,59 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if (!function_exists('uds_wp_register_theme_customizer_settings')) {
+if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 	/**
 	 * Register custom ASU Web Standards settings through customizer's API.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customizer reference.
 	 */
-	function uds_wp_register_theme_customizer_settings($wp_customize)
-	{
-		if (!class_exists('Prefix_Separator_Control')) {
+	function uds_wp_register_theme_customizer_settings( $wp_customize ) {
+		if ( ! class_exists( 'Prefix_Separator_Control' ) ) {
 			/**
 			 * Class Prefix_Separator_Control
 			 *
 			 * Custom control to display separator
 			 */
-			class Prefix_Separator_Control extends WP_Customize_Control
-			{
-				public function render_content()
-				{
-?>
+			class Prefix_Separator_Control extends WP_Customize_Control {
+			
+				public function render_content() {                  ?>
 					<label>
 						<br>
 						<hr>
 						<br>
 					</label>
-<?php
+					<?php
 				}
 			}
 		}
 
 		// ==============================================================
 		// ==============================================================
-		// = Remove Default Wordpress Customizer Controls and Sections  =
+		// = Remove Default WordPress Customizer Controls and Sections  =
 		// ==============================================================
 		// ==============================================================
-		$wp_customize->remove_section('background_image');
-		$wp_customize->remove_section('colors');
-		$wp_customize->remove_section('header_image');
+		$wp_customize->remove_section( 'background_image' );
+		$wp_customize->remove_section( 'colors' );
+		$wp_customize->remove_section( 'header_image' );
 
-		$wp_customize->remove_control('site_icon');
-		$wp_customize->remove_control('custom_logo');
-
-
-		//  ================================
-		//  ================================
-		//  = Rename Site Identity Section =
-		//  ================================
-		//  ================================
-
-		$wp_customize->get_section('title_tagline')->title = __('Site Information');
+		$wp_customize->remove_control( 'site_icon' );
+		$wp_customize->remove_control( 'custom_logo' );
 
 
-		//  =============================
-		//  = Parent Unit Name  =
-		//  =============================
+		// ================================
+		// ================================
+		// = Rename Site Identity Section =
+		// ================================
+		// ================================
+
+		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Information' );
+
+
+		// =============================
+		// = Parent Unit Name  =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[parent_unit_name]',
 			array(
@@ -76,16 +73,16 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_parent_unit_name',
 			array(
-				'label'      => __('Parent Unit', 'uds-wordpress'),
+				'label'      => __( 'Parent Unit', 'uds-wordpress' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[parent_unit_name]',
 				'priority'   => 20,
 			)
 		);
 
-		//  =============================
-		//  = Parent Unit URL           =
-		//  =============================
+		// =============================
+		// = Parent Unit URL           =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[parent_unit_link]',
 			array(
@@ -99,16 +96,16 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_parent_unit_link',
 			array(
-				'label'      => __('Parent Unit URL', 'uds-wordpress'),
+				'label'      => __( 'Parent Unit URL', 'uds-wordpress' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[parent_unit_link]',
 				'priority'   => 30,
 			)
 		);
 
-		//  ================================
-		//  = Section Separator            =
-		//  ================================
+		// ================================
+		// = Section Separator            =
+		// ================================
 		$wp_customize->add_setting(
 			'prefix_separator[0]',
 			array(
@@ -126,9 +123,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  = Unit Logo Select   =
-		//  =============================
+		// =============================
+		// = Unit Logo Select   =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[logo_select]',
 			array(
@@ -144,8 +141,8 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 
 		// Load options list
 		$logoOptions = array();
-		foreach ($endorsedLogos as $logo) {
-			$logoOptions[$logo['slug']] = __($logo['name'], 'uds-wordpress');
+		foreach ( $endorsedLogos as $logo ) {
+			$logoOptions[ $logo['slug'] ] = __( $logo['name'], 'uds-wordpress' );
 		}
 
 		$wp_customize->add_control(
@@ -153,7 +150,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 				$wp_customize,
 				'uds_wp_logo_select',
 				array(
-					'label'             => __('Endorsed Logos Presets', 'uds-wordpress'),
+					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress' ),
 					'description'       => __(
 						'Select the appropriate unit logo, if available.',
 						'uds-wordpress'
@@ -168,9 +165,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  = Unit Logo URL      =
-		//  =============================
+		// =============================
+		// = Unit Logo URL      =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[logo_url]',
 			array(
@@ -184,7 +181,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_logo_url',
 			array(
-				'label'      => __('Unit Endorsed Logo URL', 'uds-wordpress'),
+				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress' ),
 				'description'       => __(
 					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
 					'uds-wordpress'
@@ -196,9 +193,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		);
 
 
-		//  ================================
-		//  = Section Separator            =
-		//  ================================
+		// ================================
+		// = Section Separator            =
+		// ================================
 		$wp_customize->add_setting(
 			'prefix_separator[1]',
 			array(
@@ -216,9 +213,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  = Contact Us Email or URL   =
-		//  =============================
+		// =============================
+		// = Contact Us Email or URL   =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[contact_email]',
 			array(
@@ -232,16 +229,16 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_contact_email',
 			array(
-				'label'      => __('Contact Us Email or URL', 'uds-wordpress'),
+				'label'      => __( 'Contact Us Email or URL', 'uds-wordpress' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contact_email]',
 				'priority'   => 80,
 			)
 		);
 
-		//  =============================
-		//  = Contact Us Email Subject  =
-		//  =============================
+		// =============================
+		// = Contact Us Email Subject  =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[contact_subject]',
 			array(
@@ -255,16 +252,16 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_contact_subject',
 			array(
-				'label'      => __('Contact Us Email Subject (Optional)', 'uds-wordpress'),
+				'label'      => __( 'Contact Us Email Subject (Optional)', 'uds-wordpress' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contact_subject]',
 				'priority'   => 90,
 			)
 		);
 
-		//  =============================
-		//  = Contact Us Email Body     =
-		//  =============================
+		// =============================
+		// = Contact Us Email Body     =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[contact_body]',
 			array(
@@ -278,7 +275,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_contact_body',
 			array(
-				'label'    => __('Contact Us Email Body (Optional)', 'uds-wordpress'),
+				'label'    => __( 'Contact Us Email Body (Optional)', 'uds-wordpress' ),
 				'section'  => 'title_tagline',
 				'settings' => 'uds_wp_theme_options[contact_body]',
 				'type'     => 'textarea',
@@ -286,9 +283,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  = Contribute URL            =
-		//  =============================
+		// =============================
+		// = Contribute URL            =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[contribute_url]',
 			array(
@@ -302,30 +299,30 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_contribute_url',
 			array(
-				'label'      => __('Contribute URL (Optional)', 'uds-wordpress'),
+				'label'      => __( 'Contribute URL (Optional)', 'uds-wordpress' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contribute_url]',
 				'priority'   => 110,
 			)
 		);
 
-		//  =============================
-		//  =============================
-		//  = ASU Header Section         =
-		//  =============================
-		//  =============================
+		// =============================
+		// =============================
+		// = ASU Header Section         =
+		// =============================
+		// =============================
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_header',
 			array(
-				'title'      => __('ASU Global Header', 'uds-wordpress'),
+				'title'      => __( 'ASU Global Header', 'uds-wordpress' ),
 				'priority'   => 20,
 			)
 		);
 
-		//  ===============================================================
-		//  = ASU Header - Toggle Navigation Menu for Landing Pages
-		//  ===============================================================
+		// ===============================================================
+		// = ASU Header - Toggle Navigation Menu for Landing Pages
+		// ===============================================================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[header_navigation_menu]',
 			array(
@@ -338,7 +335,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_header_navigation_menu',
 			array(
-				'label'      => __('Header - Navigation Menu', 'uds-wordpress'),
+				'label'      => __( 'Header - Navigation Menu', 'uds-wordpress' ),
 				'description'       => __(
 					'Enable/disable the navigation menu in the ASU header. This is approved for Landing Page sites.',
 					'uds-wordpress'
@@ -354,23 +351,23 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		);
 
 
-		//  =============================
-		//  =============================
-		//  = ASU Footer Section        =
-		//  =============================
-		//  =============================
+		// =============================
+		// =============================
+		// = ASU Footer Section        =
+		// =============================
+		// =============================
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
-				'title'      => __('ASU Global Footer', 'uds-wordpress'),
+				'title'      => __( 'ASU Global Footer', 'uds-wordpress' ),
 				'priority'   => 20,
 			)
 		);
 
-		//  ===============================================================
-		//  = ASU Footer - Toggle Branding Row - Unit Logo and Social Media
-		//  ===============================================================
+		// ===============================================================
+		// = ASU Footer - Toggle Branding Row - Unit Logo and Social Media
+		// ===============================================================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[footer_row_branding]',
 			array(
@@ -383,7 +380,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_footer_row_branding',
 			array(
-				'label'      => __('Footer - Logo & Social Media Row', 'uds-wordpress'),
+				'label'      => __( 'Footer - Logo & Social Media Row', 'uds-wordpress' ),
 				'description'       => __(
 					'Enable/disable the Logo and Social Media row in the ASU footer.',
 					'uds-wordpress'
@@ -398,9 +395,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =======================================================
-		//  = ASU Footer - Toggle Actions Row - Unit Info and Menus
-		//  =======================================================
+		// =======================================================
+		// = ASU Footer - Toggle Actions Row - Unit Info and Menus
+		// =======================================================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[footer_row_actions]',
 			array(
@@ -413,7 +410,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_footer_row_actions',
 			array(
-				'label'      => __('Footer - Actions Row', 'uds-wordpress'),
+				'label'      => __( 'Footer - Actions Row', 'uds-wordpress' ),
 				'description'       => __(
 					'Enable/disable the Unit contact and menus row in the ASU footer.',
 					'uds-wordpress'
@@ -428,16 +425,16 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  =============================
-		//  =============================
-		//  = ASU Search Section        =
-		//  =============================
-		//  =============================
+		// =============================
+		// =============================
+		// = ASU Search Section        =
+		// =============================
+		// =============================
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_search',
 			array(
-				'title'      => __('ASU Search', 'uds-wordpress'),
+				'title'      => __( 'ASU Search', 'uds-wordpress' ),
 				'priority'   => 30,
 			)
 		);
@@ -455,7 +452,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_asu_search',
 			array(
-				'label'      => __('ASU Search', 'uds-wordpress'),
+				'label'      => __( 'ASU Search', 'uds-wordpress' ),
 				'description'       => __(
 					'Replace WP internal search service with ASU\'s search service',
 					'uds-wordpress'
@@ -470,23 +467,23 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  ==================================
-		//  ==================================
-		//  = ASU Analytics Manager Section =
-		//  ==================================
-		//  ==================================
+		// ==================================
+		// ==================================
+		// = ASU Analytics Manager Section =
+		// ==================================
+		// ==================================
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_analytics',
 			array(
-				'title'      => __('ASU Analytics', 'uds-wordpress'),
+				'title'      => __( 'ASU Analytics', 'uds-wordpress' ),
 				'priority'   => 40,
 			)
 		);
 
-		//  =======================================
-		//  = ASU Marketing Hub Analytics Manager =
-		//  =======================================
+		// =======================================
+		// = ASU Marketing Hub Analytics Manager =
+		// =======================================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[asu_hub_analytics]',
 			array(
@@ -500,7 +497,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_asu_hub_analytics',
 			array(
-				'label'      => __('ASU Marketing Hub Analytics', 'uds-wordpress'),
+				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress' ),
 				'description'       => __(
 					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
 					'uds-wordpress'
@@ -515,9 +512,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  ==============================
-		//  = Site Google Tag Manager    =
-		//  ==============================
+		// ==============================
+		// = Site Google Tag Manager    =
+		// ==============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[site_gtm_container_id]',
 			array(
@@ -530,7 +527,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_site_gtm_container_id',
 			array(
-				'label'             => __('Google Tag Manager container ID', 'uds-wordpress'),
+				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress' ),
 				'description'       => __(
 					'Enter your unit\'s GTM container ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
 					'uds-wordpress'
@@ -542,9 +539,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  ==============================
-		//  = Site Google Analytics ID   =
-		//  ==============================
+		// ==============================
+		// = Site Google Analytics ID   =
+		// ==============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[site_ga_tracking_id]',
 			array(
@@ -557,7 +554,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_site_ga_tracking_id',
 			array(
-				'label'             => __('Google Analytics Tracking ID', 'uds-wordpress'),
+				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress' ),
 				'description'       => __(
 					'Enter your unit\'s GA Tracking ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
 					'uds-wordpress'
@@ -569,9 +566,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  ==============================
-		//  = Hotjar Analytics           =
-		//  ==============================
+		// ==============================
+		// = Hotjar Analytics           =
+		// ==============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[hotjar_site_id]',
 			array(
@@ -584,7 +581,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_control(
 			'uds_wp_hotjar_site_id',
 			array(
-				'label'             => __('Hotjar Site ID', 'uds-wordpress'),
+				'label'             => __( 'Hotjar Site ID', 'uds-wordpress' ),
 				'description'       => __(
 					'Enter your Hotjar Site ID to enable Hotjar analytics for this website.',
 					'uds-wordpress'
@@ -597,23 +594,23 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		);
 
 
-		//  =============================
-		//  =============================
-		//  = 404 Image Section         =
-		//  =============================
-		//  =============================
+		// =============================
+		// =============================
+		// = 404 Image Section         =
+		// =============================
+		// =============================
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_404',
 			array(
-				'title'      => __('404 Image', 'uds-wordpress'),
+				'title'      => __( '404 Image', 'uds-wordpress' ),
 				'priority'   => 50,
 			)
 		);
 
-		//  =============================
-		//  = 404 Image                 =
-		//  =============================
+		// =============================
+		// = 404 Image                 =
+		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[image_404]',
 			array(
@@ -629,7 +626,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 				$wp_customize,
 				'uds_wp_404',
 				array(
-					'label'      => __('404 Image', 'uds-wordpress'),
+					'label'      => __( '404 Image', 'uds-wordpress' ),
 					'description'       => __(
 						'Resize and crop your desired image to approximately 1200px x 500px',
 						'uds-wordpress'
@@ -640,19 +637,19 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
-		//  ================================
-		//  ================================
-		//  = Theme Layout Manager Section =
-		//  ================================
-		//  ================================
+		// ================================
+		// ================================
+		// = Theme Layout Manager Section =
+		// ================================
+		// ================================
 
 		// Theme layout settings.
 		$wp_customize->add_section(
 			'uds_wp_theme_layout_options',
 			array(
-				'title'       => __('Theme Layout Settings', 'uds-wordpress'),
+				'title'       => __( 'Theme Layout Settings', 'uds-wordpress' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __('Theme sidebar defaults', 'uds-wordpress'),
+				'description' => __( 'Theme sidebar defaults', 'uds-wordpress' ),
 				'priority'    => 60,
 			)
 		);
@@ -672,7 +669,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 				$wp_customize,
 				'uds_wp_sidebar_position',
 				array(
-					'label'             => __('Sidebar Positioning', 'uds-wordpress'),
+					'label'             => __( 'Sidebar Positioning', 'uds-wordpress' ),
 					'description'       => __(
 						'Set sidebar\'s default position. Can either be: right, left, both or none.',
 						'uds-wordpress'
@@ -682,15 +679,15 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
 					'choices'           => array(
-						'right' => __('Right sidebar', 'uds-wordpress'),
-						'left'  => __('Left sidebar', 'uds-wordpress'),
-						'both'  => __('Left & Right sidebars', 'uds-wordpress'),
-						'none'  => __('No sidebar', 'uds-wordpress'),
+						'right' => __( 'Right sidebar', 'uds-wordpress' ),
+						'left'  => __( 'Left sidebar', 'uds-wordpress' ),
+						'both'  => __( 'Left & Right sidebars', 'uds-wordpress' ),
+						'none'  => __( 'No sidebar', 'uds-wordpress' ),
 					),
-					'priority'          => apply_filters('uds_wp_sidebar_position_priority', 20),
+					'priority'          => apply_filters( 'uds_wp_sidebar_position_priority', 20 ),
 				)
 			)
 		);
 	}
 } // End of if function_exists( 'uds_wp_register_theme_customizer_settings' ).
-add_action('customize_register', 'uds_wp_register_theme_customizer_settings');
+add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );

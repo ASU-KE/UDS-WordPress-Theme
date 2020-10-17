@@ -125,14 +125,14 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 		// Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
 		// this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
 		// define('ENABLE_FOOTER_WIDGETS', true);
-		if (defined('ENABLE_FOOTER_WIDGETS') && true == ENABLE_FOOTER_WIDGETS) {
+		if ( defined( 'ENABLE_FOOTER_WIDGETS' ) && true == ENABLE_FOOTER_WIDGETS ) {
 			register_sidebar(
 				array(
-					'name'          => __('Footer Widgets', 'uds-wordpress'),
+					'name'          => __( 'Footer Widgets', 'uds-wordpress' ),
 					'id'            => 'sidebar-footer',
-					'description'   => __('Additional footer column for widgets', 'uds-wordpress'),
+					'description'   => __( 'Additional footer column for widgets', 'uds-wordpress' ),
 					'before_widget' => '<div class="col-xl flex-footer">',
-					'after_widget'  => '</div>'
+					'after_widget'  => '</div>',
 				)
 			);
 		}

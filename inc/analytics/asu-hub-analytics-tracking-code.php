@@ -1,5 +1,6 @@
 <?php
-/* Analytics Tracking Codes that go in the top of the <body> element
+/*
+ Analytics Tracking Codes that go in the top of the <body> element
  *
  * Coding standards complains about inlineing a script tag, which we're choosing to ignore here to
  * keep these tracking codes together.

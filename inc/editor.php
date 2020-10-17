@@ -88,8 +88,7 @@ if ( ! function_exists( 'uds_wp_tiny_mce_before_init' ) ) {
  * Add inline css editor width
  */
 
-function gutenberg_editor_full_width()
-{
+function gutenberg_editor_full_width() {
 	echo '<style>
     body.gutenberg-editor-page .editor-post-title__block,
 	body.gutenberg-editor-page .editor-default-block-appender,
@@ -107,4 +106,4 @@ function gutenberg_editor_full_width()
 	}
 </style>';
 }
-add_action('admin_head', 'gutenberg_editor_full_width');
+add_action( 'admin_head', 'gutenberg_editor_full_width' );

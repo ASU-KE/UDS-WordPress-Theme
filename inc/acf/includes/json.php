@@ -1,187 +1,203 @@
 <?php
 
-if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
-if( ! class_exists('acf_json') ) :
+if ( ! class_exists( 'acf_json' ) ) :
 
-class acf_json {
+	class acf_json {
 
-	function __construct() {
+		function __construct() {
 
-		// update setting
-		acf_update_setting('save_json', get_template_directory() . '/acf-json');
-		acf_append_setting('load_json', get_template_directory() . '/acf-json');
-
-
-		// actions
-		add_action('acf/update_field_group',		array($this, 'update_field_group'), 10, 1);
-		add_action('acf/untrash_field_group',		array($this, 'update_field_group'), 10, 1);
-		add_action('acf/trash_field_group',			array($this, 'delete_field_group'), 10, 1);
-		add_action('acf/delete_field_group',		array($this, 'delete_field_group'), 10, 1);
-		add_action('acf/include_fields', 			array($this, 'include_json_folders'), 10, 0);
-
-	}
+			// update setting
+			acf_update_setting( 'save_json', get_template_directory() . '/acf-json' );
+			acf_append_setting( 'load_json', get_template_directory() . '/acf-json' );
 
 
-	/*
-	*  update_field_group
-	*
-	*  This function is hooked into the acf/update_field_group action and will save all field group data to a .json file
-	*
-	*  @type	function
-	*  @date	10/03/2014
-	*  @since	5.0.0
-	*
-	*  @param	$field_group (array)
-	*  @return	n/a
-	*/
+			// actions
+			add_action( 'acf/update_field_group', array( $this, 'update_field_group' ), 10, 1 );
+			add_action( 'acf/untrash_field_group', array( $this, 'update_field_group' ), 10, 1 );
+			add_action( 'acf/trash_field_group', array( $this, 'delete_field_group' ), 10, 1 );
+			add_action( 'acf/delete_field_group', array( $this, 'delete_field_group' ), 10, 1 );
+			add_action( 'acf/include_fields', array( $this, 'include_json_folders' ), 10, 0 );
 
-	function update_field_group( $field_group ) {
-
-		// validate
-		if( !acf_get_setting('json') ) return;
+		}
 
 
-		// get fields
-		$field_group['fields'] = acf_get_fields( $field_group );
+		/*
+		*  update_field_group
+		*
+		*  This function is hooked into the acf/update_field_group action and will save all field group data to a .json file
+		*
+		*  @type    function
+		*  @date    10/03/2014
+		*  @since   5.0.0
+		*
+		*  @param   $field_group (array)
+		*  @return  n/a
+		*/
+
+		function update_field_group( $field_group ) {
+
+			// validate
+			if ( ! acf_get_setting( 'json' ) ) {
+				return;
+			}
 
 
-		// save file
-		acf_write_json_field_group( $field_group );
-
-	}
+			// get fields
+			$field_group['fields'] = acf_get_fields( $field_group );
 
 
-	/*
-	*  delete_field_group
-	*
-	*  This function will remove the field group .json file
-	*
-	*  @type	function
-	*  @date	10/03/2014
-	*  @since	5.0.0
-	*
-	*  @param	$field_group (array)
-	*  @return	n/a
-	*/
+			// save file
+			acf_write_json_field_group( $field_group );
 
-	function delete_field_group( $field_group ) {
-
-		// validate
-		if( !acf_get_setting('json') ) return;
+		}
 
 
-		// WP appends '__trashed' to end of 'key' (post_name)
-		$field_group['key'] = str_replace('__trashed', '', $field_group['key']);
+		/*
+		*  delete_field_group
+		*
+		*  This function will remove the field group .json file
+		*
+		*  @type    function
+		*  @date    10/03/2014
+		*  @since   5.0.0
+		*
+		*  @param   $field_group (array)
+		*  @return  n/a
+		*/
+
+		function delete_field_group( $field_group ) {
+
+			// validate
+			if ( ! acf_get_setting( 'json' ) ) {
+				return;
+			}
 
 
-		// delete
-		acf_delete_json_field_group( $field_group['key'] );
-
-	}
+			// WP appends '__trashed' to end of 'key' (post_name)
+			$field_group['key'] = str_replace( '__trashed', '', $field_group['key'] );
 
 
-	/*
-	*  include_json_folders
-	*
-	*  This function will include all registered .json files
-	*
-	*  @type	function
-	*  @date	10/03/2014
-	*  @since	5.0.0
-	*
-	*  @param	n/a
-	*  @return	n/a
-	*/
+			// delete
+			acf_delete_json_field_group( $field_group['key'] );
 
-	function include_json_folders() {
-
-		// validate
-		if( !acf_get_setting('json') ) return;
+		}
 
 
-		// vars
-		$paths = acf_get_setting('load_json');
+		/*
+		*  include_json_folders
+		*
+		*  This function will include all registered .json files
+		*
+		*  @type    function
+		*  @date    10/03/2014
+		*  @since   5.0.0
+		*
+		*  @param   n/a
+		*  @return  n/a
+		*/
+
+		function include_json_folders() {
+
+			// validate
+			if ( ! acf_get_setting( 'json' ) ) {
+				return;
+			}
 
 
-		// loop through and add to cache
-		foreach( $paths as $path ) {
+			// vars
+			$paths = acf_get_setting( 'load_json' );
 
-			$this->include_json_folder( $path );
+
+			// loop through and add to cache
+			foreach ( $paths as $path ) {
+
+				$this->include_json_folder( $path );
+
+			}
+
+		}
+
+
+		/*
+		*  include_json_folder
+		*
+		*  This function will include all .json files within a folder
+		*
+		*  @type    function
+		*  @date    1/5/17
+		*  @since   5.5.13
+		*
+		*  @param   n/a
+		*  @return  n/a
+		*/
+
+		function include_json_folder( $path = '' ) {
+
+			// remove trailing slash
+			$path = untrailingslashit( $path );
+
+
+			// bail early if path does not exist
+			if ( ! is_dir( $path ) ) {
+				return false;
+			}
+
+
+			// open
+			$dir = opendir( $path );
+
+			// bail early if not valid
+			if ( ! $dir ) {
+				return false;
+			}
+
+			// loop over files
+			while ( false !== ( $file = readdir( $dir ) ) ) {
+
+				// validate type
+				if ( pathinfo( $file, PATHINFO_EXTENSION ) !== 'json' ) {
+					continue;
+				}
+
+
+				// read json
+				$json = file_get_contents( "{$path}/{$file}" );
+
+
+				// validate json
+				if ( empty( $json ) ) {
+					continue;
+				}
+
+
+				// decode
+				$json = json_decode( $json, true );
+
+
+				// add local
+				$json['local'] = 'json';
+
+
+				// add field group
+				acf_add_local_field_group( $json );
+
+			}
+
+
+			// return
+			return true;
 
 		}
 
 	}
 
 
-	/*
-	*  include_json_folder
-	*
-	*  This function will include all .json files within a folder
-	*
-	*  @type	function
-	*  @date	1/5/17
-	*  @since	5.5.13
-	*
-	*  @param	n/a
-	*  @return	n/a
-	*/
-
-	function include_json_folder( $path = '' ) {
-
-		// remove trailing slash
-		$path = untrailingslashit( $path );
-
-
-		// bail early if path does not exist
-		if( !is_dir($path) ) return false;
-
-
-		// open
-		$dir = opendir( $path );
-
-		// bail early if not valid
-		if( !$dir ) return false;
-
-		// loop over files
-	    while(false !== ( $file = readdir($dir)) ) {
-
-	    	// validate type
-			if( pathinfo($file, PATHINFO_EXTENSION) !== 'json' ) continue;
-
-
-	    	// read json
-	    	$json = file_get_contents("{$path}/{$file}");
-
-
-	    	// validate json
-	    	if( empty($json) ) continue;
-
-
-	    	// decode
-	    	$json = json_decode($json, true);
-
-
-	    	// add local
-	    	$json['local'] = 'json';
-
-
-	    	// add field group
-	    	acf_add_local_field_group( $json );
-
-	    }
-
-
-	    // return
-	    return true;
-
-	}
-
-}
-
-
-// initialize
-acf()->json = new acf_json();
+	// initialize
+	acf()->json = new acf_json();
 
 endif; // class_exists check
 
@@ -202,7 +218,7 @@ endif; // class_exists check
 function acf_write_json_field_group( $field_group ) {
 
 	// vars
-	$path = acf_get_setting('save_json');
+	$path = acf_get_setting( 'save_json' );
 	$file = $field_group['key'] . '.json';
 
 
@@ -211,7 +227,9 @@ function acf_write_json_field_group( $field_group ) {
 
 
 	// bail early if dir does not exist
-	if( !is_writable($path) ) return false;
+	if ( ! is_writable( $path ) ) {
+		return false;
+	}
 
 
 	// prepare for export
@@ -220,13 +238,13 @@ function acf_write_json_field_group( $field_group ) {
 
 
 	// add modified time
-	$field_group['modified'] = get_post_modified_time('U', true, $id, true);
+	$field_group['modified'] = get_post_modified_time( 'U', true, $id, true );
 
 
 	// write file
-	$f = fopen("{$path}/{$file}", 'w');
-	fwrite($f, acf_json_encode( $field_group ));
-	fclose($f);
+	$f = fopen( "{$path}/{$file}", 'w' );
+	fwrite( $f, acf_json_encode( $field_group ) );
+	fclose( $f );
 
 
 	// return
@@ -251,7 +269,7 @@ function acf_write_json_field_group( $field_group ) {
 function acf_delete_json_field_group( $key ) {
 
 	// vars
-	$path = acf_get_setting('save_json');
+	$path = acf_get_setting( 'save_json' );
 	$file = $key . '.json';
 
 
@@ -260,7 +278,7 @@ function acf_delete_json_field_group( $key ) {
 
 
 	// bail early if file does not exist
-	if( !is_readable("{$path}/{$file}") ) {
+	if ( ! is_readable( "{$path}/{$file}" ) ) {
 
 		return false;
 
@@ -268,7 +286,7 @@ function acf_delete_json_field_group( $key ) {
 
 
 	// remove file
-	unlink("{$path}/{$file}");
+	unlink( "{$path}/{$file}" );
 
 
 	// return

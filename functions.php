@@ -30,6 +30,6 @@ $uds_wp_includes = array(
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ($uds_wp_includes as $file) {
+foreach ( $uds_wp_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }

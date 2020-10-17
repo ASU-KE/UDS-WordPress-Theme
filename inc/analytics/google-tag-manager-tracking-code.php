@@ -1,10 +1,10 @@
 <?php
 $site_gtm_container_id = '';
 
-if (is_array(get_option('uds_wp_theme_options'))) {
-	$cOptions = get_option('uds_wp_theme_options');
+if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
+	$cOptions = get_option( 'uds_wp_theme_options' );
 }
-if (!empty($c_options['site_gtm_container_id'])) {
+if ( ! empty( $c_options['site_gtm_container_id'] ) ) {
 	$site_gtm_container_id = $cOptions['site_gtm_container_id'];
 }
 ?>
@@ -23,6 +23,6 @@ if (!empty($c_options['site_gtm_container_id'])) {
 		j.src =
 			'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
 		f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', '<?php echo esc_html(trim($site_gtm_container_id)) ?>');
+	})(window, document, 'script', 'dataLayer', '<?php echo esc_html( trim( $site_gtm_container_id ) ); ?>');
 </script>
 <!-- End Google Tag Manager -->

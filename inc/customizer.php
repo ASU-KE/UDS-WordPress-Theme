@@ -7,7 +7,7 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
 	'/customizer-sanitizers.php',           // Load input sanitizer functions.
@@ -17,6 +17,6 @@ $uds_wp_includes = array(
 	'/customizer-settings.php',             // Load custom settings and sections in Customizer.
 );
 
-foreach ($uds_wp_includes as $file) {
+foreach ( $uds_wp_includes as $file ) {
 	require_once get_template_directory() . '/inc/customizer' . $file;
 }

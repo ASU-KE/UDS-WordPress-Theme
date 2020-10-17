@@ -1,5 +1,6 @@
 <?php
-/* Analytics Tracking Code for Hotjar
+/*
+ Analytics Tracking Code for Hotjar
  *
  */
 // @codingStandardsIgnoreStart

@@ -1,10 +1,10 @@
 <?php
 $site_ga_tracking_id = '';
 
-if (is_array(get_option('uds_wp_theme_options'))) {
-	$cOptions = get_option('uds_wp_theme_options');
+if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
+	$cOptions = get_option( 'uds_wp_theme_options' );
 }
-if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
+if ( ! empty( $cOptions['site_ga_tracking_id'] ) ) {
 	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
 }
 ?>
@@ -21,7 +21,7 @@ if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
 		m.parentNode.insertBefore(a, m)
 	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga_site');
 
-	ga_site('create', '<?php echo esc_html(trim($site_ga_tracking_id)) ?>', 'auto');
+	ga_site('create', '<?php echo esc_html( trim( $site_ga_tracking_id ) ); ?>', 'auto');
 	ga_site('require', 'linkid', 'linkid.js');
 	ga_site('send', 'pageview');
 	ga_site('set', 'forceSSL', true);
@@ -97,7 +97,8 @@ if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
 	});
 	*/
 
-	<?php // Track the users intent to print
+	<?php 
+	// Track the users intent to print
 	?>
 	try {
 		(function() {
