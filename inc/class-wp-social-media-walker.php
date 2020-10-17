@@ -1,5 +1,4 @@
 <?php
-
 /**
  * WP Bootstrap Navwalker
  *
@@ -22,7 +21,7 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 	 * @extends Walker_Nav_Menu
 	 */
 	class WP_Social_Media_Walker extends Walker_Nav_Menu {
-	
+
 		/**
 		 * Starts the element output.
 		 *
@@ -37,7 +36,7 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 		 * @param stdClass $args   An object of wp_nav_menu() arguments.
 		 * @param int      $id     Current item ID.
 		 */
-		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 
 			$class_names = join(
@@ -49,19 +48,24 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 				)
 			);
 
-			! empty( $class_names )
-				and $class_names = ' class="nav-link"';
+			if ( ! empty( $class_names ) ) {
+				$class_names = ' class="nav-link"';
+			}
 
 			$attributes  = '';
 
-			! empty( $item->description )
-				and $attributes .= ' title="' . esc_attr( $item->description ) . '"';
-			! empty( $item->target )
-				and $attributes .= ' target="' . esc_attr( $item->target ) . '"';
-			! empty( $item->xfn )
-				and $attributes .= ' rel="' . esc_attr( $item->xfn ) . '"';
-			! empty( $item->url )
-				and $attributes .= ' href="' . esc_attr( $item->url ) . '"';
+			if ( ! empty( $item->description ) ) {
+				$attributes .= ' title="' . esc_attr( $item->description ) . '"';
+			}
+			if ( ! empty( $item->target ) ) {
+				$attributes .= ' target="' . esc_attr( $item->target ) . '"';
+			}
+			if ( ! empty( $item->xfn ) ) {
+				$attributes .= ' rel="' . esc_attr( $item->xfn ) . '"';
+			}
+			if ( ! empty( $item->url ) ) {
+				$attributes .= ' href="' . esc_attr( $item->url ) . '"';
+			}
 
 			$output .= '';
 

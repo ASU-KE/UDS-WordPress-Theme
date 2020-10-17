@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for ASU main navigation menus in Web Standards 2.0
  *
@@ -13,20 +12,20 @@ $menu_name = 'primary';
 $menu_items = uds_wp_get_menu_formatted_array( $menu_name );
 
 /**
- * Main navigation loop
+ * Main navigation loop.
  */
 foreach ( $menu_items as $item ) :
-	// evaluate item for: single, children (one column), or grandchildren (multiple columns)
+	// evaluate item for: single, children (one column), or grandchildren (multiple columns).
 	$item['depth'] = uds_wp_get_menu_depth( $item );
 
-	// check if menu item is a CTA Button
-	$isCtaButton = $item['cta_button'];
-	$ctaButtonColor = $item['cta_color'];
+	// check if menu item is a CTA Button.
+	$is_cta_button = $item['cta_button'];
+	$cta_button_color = $item['cta_color'];
 
-	// render each item based on the depth
+	// render each item based on the depth.
 	switch ( $item['depth'] ) :
 		/*
-		 * Items with no children are rendered as basic menu item links
+		 * Items with no children are rendered as basic menu item links.
 		 */
 		case 'single':
 			echo uds_wp_render_nav_item_link( 'single', $item );
@@ -35,7 +34,7 @@ foreach ( $menu_items as $item ) :
 		/*
 		 * Items with children, but no grandchilren, are rendered as single-column
 		 * drop-downs with the parent name as the column heading and the children
-		 * as the menu items
+		 * as the menu items.
 		 */
 		case 'children':
 			?>
@@ -56,7 +55,7 @@ foreach ( $menu_items as $item ) :
 		 * the menu items.
 		 */
 		case 'grandchildren':
-			// if there are more than 3 three columns, we have a megamenu to render
+			// if there are more than 3 three columns, we have a megamenu to render.
 			if ( count( $item['children'] ) > 3 ) :
 				?>
 				<div class="nav-item dropdown megamenu">
@@ -65,30 +64,30 @@ foreach ( $menu_items as $item ) :
 						<div class="container">
 							<div class="row">
 								<?php
-								$megaCtaWrapper = '<div class="row with-buttons"><div class="col-lg-12">%1$s</div></div>';
-								$megaCtaButtons = '';
+								$mega_cta_wrapper = '<div class="row with-buttons"><div class="col-lg-12">%1$s</div></div>';
+								$mega_cta_buttons = '';
 
-								// outer loop - columns
+								// outer loop - columns.
 								foreach ( $item['children'] as $child ) :
-									// if $child is flagged as a CTA button, it is a mega-menu CTA button, outside of columns
+									// if $child is flagged as a CTA button, it is a mega-menu CTA button, outside of columns.
 									if ( $child['cta_button'] ) {
-										$megaCtaButtons .= uds_wp_render_nav_cta_button( $child['cta_color'], $item );
+										$mega_cta_buttons .= uds_wp_render_nav_cta_button( $child['cta_color'], $item );
 										continue;
 									}
 
 									$column = '<div class="col-lg">';
 									$column .= '<h3>' . wp_kses( $child['title'], wp_kses_allowed_html( 'post' ) ) . '</h3>';
-									$column .= uds_wp_render_column_links( $child['children'] ); // inner loop - column links
+									$column .= uds_wp_render_column_links( $child['children'] ); // inner loop - column links.
 									$column .= '</div>';
 
-									// output this column
+									// output this column.
 									echo $column;
 								endforeach;
 								?>
 							</div>
 							<?php
-							if ( $megaCtaButtons > '' ) {
-								echo wp_kses( sprintf( $megaCtaWrapper, $megaCtaButtons ), wp_kses_allowed_html( 'post' ) );
+							if ( $mega_cta_buttons > '' ) {
+								echo wp_kses( sprintf( $mega_cta_wrapper, $mega_cta_buttons ), wp_kses_allowed_html( 'post' ) );
 							}
 							?>
 						</div>
@@ -97,20 +96,20 @@ foreach ( $menu_items as $item ) :
 				<?php
 
 			else :
-				// nope, we are rendering a multi-column dropdown
+				// nope, we are rendering a multi-column dropdown.
 				?>
 				<div class="nav-item dropdown">
 					<?php echo uds_wp_render_nav_item_link( 'dropdown', $item ); ?>
 					<div class="dropdown-menu dropdown-columns" aria-labelledby="dropdown-one-col">
 						<?php
-						// outer loop
+						// outer loop.
 						foreach ( $item['children'] as $child ) :
 							$column = '<div class="dropdown-col">';
 							$column .= '<h3>' . wp_kses( $child['title'], wp_kses_allowed_html( 'post' ) ) . '</h3>';
-							$column .= uds_wp_render_column_links( $child['children'] ); // inner loop
+							$column .= uds_wp_render_column_links( $child['children'] ); // inner loop.
 							$column .= '</div>';
 
-							// output this column
+							// output this column.
 							echo $column;
 						endforeach;
 						?>

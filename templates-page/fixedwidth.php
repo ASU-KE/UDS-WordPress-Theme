@@ -4,7 +4,7 @@
  *
  * Template for displaying a fixed-width page without sidebars
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

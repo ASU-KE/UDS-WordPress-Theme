@@ -31,9 +31,9 @@ get_header();
 			get_template_part( 'templates-sidebar/sidebar', 'left' );
 
 			if ( is_active_sidebar( 'sidebar-left' ) xor is_active_sidebar( 'sidebar-right' ) ) {
-				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8
+				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8.
 			} elseif ( is_active_sidebar( 'sidebar-left' ) && is_active_sidebar( 'sidebar-right' ) ) {
-				$class = 'col-md-6';  // 2 Sidebars + Main: col-md-12 - col-md-3 - col-md-3 = col-md-6
+				$class = 'col-md-6';  // 2 Sidebars + Main: col-md-12 - col-md-3 - col-md-3 = col-md-6.
 			} else {
 				$class = 'col-md-12';
 			}

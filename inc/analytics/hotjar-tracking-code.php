@@ -1,8 +1,10 @@
 <?php
-/*
- Analytics Tracking Code for Hotjar
+/**
+ * Analytics Tracking Code for Hotjar
  *
+ * @package uds-wordpress-theme
  */
+
 // @codingStandardsIgnoreStart
 
 $hotjar_site_id = '';

@@ -2,7 +2,7 @@
 /**
  * Helper functions for building ASU Web Standards 2.0 menus.
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -16,7 +16,8 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 	 * @param string $menu_name Slug name of desired menu.
 	 */
 	function uds_wp_get_menu_formatted_array( $menu_name ) {
-		if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+		$locations = get_nav_menu_locations();
+		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
 			$array_menu = wp_get_nav_menu_items( $menu_object->term_id );
 
@@ -81,24 +82,24 @@ if ( ! function_exists( 'uds_wp_get_menu_depth' ) ) {
 	/**
 	 * Get the depth of this particular menu item in its hierarchy by inspecting
 	 * the 'children' sub-array at each level to determine whether or not
-	 * it is empty
+	 * it is empty.
 	 *
-	 * @param Array $item array of top-level menu items
-	 * @return String Maximum depth of the menu: single, children, or grandchildren
+	 * @param Array $item  Array of top-level menu items.
+	 * @return String      Maximum depth of the menu: single, children, or grandchildren.
 	 */
 	function uds_wp_get_menu_depth( $item = null ) {
 		if ( empty( $item ) ) {
 			wp_die( 'Cannot find depth of a menu item that was not provided, or is empty.' );
 		}
 
-		// presume that we do not have any children or grandchildren
+		// presume that we do not have any children or grandchildren.
 		$depth = 'single';
 
 		if ( ! empty( $item['children'] ) ) {
-			// we have at least children, since the array is not empty
+			// we have at least children, since the array is not empty.
 			$depth = 'children';
 
-			// check for any grandchildren, exiting if we find any
+			// check for any grandchildren, exiting if we find any.
 			foreach ( $item['children'] as $child ) {
 				if ( ! empty( $child['children'] ) ) {
 					$depth = 'grandchildren';
@@ -115,8 +116,9 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 	/**
 	 * Renders the individual links from the provided child/grandchild list
 	 *
-	 * @param Array $children The array of links for one column
-	 * @return String $links A string containing all the <a> tags for the column
+	 * @param array $children The array of links for one column.
+	 *
+	 * @return string A string containing all the <a> tags for the column.
 	 */
 	function uds_wp_render_column_links( $children = array() ) {
 
@@ -127,12 +129,12 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 		$links = '';
 
 		foreach ( $children as $child ) {
-			// check if menu item is a CTA Button
-			$isCtaButton = $child['cta_button'];
-			$ctaButtonColor = $child['cta_color'];
+			// check if menu item is a CTA Button.
+			$is_cta_button = $child['cta_button'];
+			$cta_button_color = $child['cta_color'];
 
-			if ( $isCtaButton ) {
-				$links .= uds_wp_render_nav_cta_button( $ctaButtonColor, $child );
+			if ( $is_cta_button ) {
+				$links .= uds_wp_render_nav_cta_button( $cta_button_color, $child );
 			} else {
 				$link = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
 				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
@@ -149,11 +151,12 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 * Note that we're using the 'default:' case to render our actual default, and
 	 * not testing explicitly for the 'single' case of menu depth.
 	 *
-	 * @param String $menuType The type of menu, used in the markup id and class names
-	 * @param Array  $item The navigation item whose link we want to render
-	 * @return String $link The rendered navigation link
+	 * @param string $menu_type The type of menu, used in the markup id and class names.
+	 * @param array  $item      The navigation item whose link we want to render.
+	 *
+	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menuType, $item ) {
+	function uds_wp_render_nav_item_link( $menu_type, $item ) {
 		$link = '';
 
 		switch ( $item['depth'] ) {
@@ -164,7 +167,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 			%3$s
 			<span class="fa fa-chevron-down"></span>
 			</a>';
-				$link = wp_kses( sprintf( $template, $item['url'], $menuType, $item['title'] ), wp_kses_allowed_html( 'post' ) );
+				$link = wp_kses( sprintf( $template, $item['url'], $menu_type, $item['title'] ), wp_kses_allowed_html( 'post' ) );
 				return $link;
 				break;
 
@@ -180,15 +183,16 @@ if ( ! function_exists( 'uds_wp_render_nav_cta_button' ) ) {
 	/**
 	 * Renders menu link as a CTA button.
 	 *
-	 * @param String $ctaColor The color slug, used in the markup id and class names
-	 * @param Array  $item The navigation item whose CTA button we want to render
-	 * @return String $button The rendered button
+	 * @param string $cta_color The color slug, used in the markup id and class names.
+	 * @param array  $item      The navigation item whose CTA button we want to render.
+	 *
+	 * @return string           The rendered button
 	 */
-	function uds_wp_render_nav_cta_button( $ctaColor, $item ) {
+	function uds_wp_render_nav_cta_button( $cta_color, $item ) {
 		$button = '';
 
 		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s">%3$s</a>';
-		$button = wp_kses( sprintf( $template, $item['url'], $ctaColor, $item['title'] ), wp_kses_allowed_html( 'post' ) );
+		$button = wp_kses( sprintf( $template, $item['url'], $cta_color, $item['title'] ), wp_kses_allowed_html( 'post' ) );
 		return $button;
 	}
 }

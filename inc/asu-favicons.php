@@ -1,8 +1,16 @@
 <?php
 /**
- * uds_wp_favicons header hook, provides links to the favicons from the UDS WordPress Theme
+ * Activate ASU favicons in the theme
+ *
+ * @package uds-wordpress-theme
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Theme favicons header hook, provides links to the favicons from the UDS WordPress Theme
+ */
 function uds_wp_favicons() {
 	?>
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-57x57.png" />

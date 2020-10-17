@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The footer navigation menu
  *
@@ -13,7 +12,7 @@ $menu_name = 'footer';
 $menu_items = uds_wp_get_menu_formatted_array( $menu_name );
 
 foreach ( $menu_items as $item ) :
-	// A top-level menu item with children is formatted as a column with a header
+	// A top-level menu item with children is formatted as a column with a header.
 	if ( empty( $item['menu_item_parent'] ) && ! empty( $item['children'] ) ) :
 		?>
 		<div class="col-xl flex-footer">
@@ -28,12 +27,12 @@ foreach ( $menu_items as $item ) :
 				</div>
 				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="collapse card-body" aria-labelledby="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>">
 					<?php
-					$column = '';
+					$footer_column = '';
 					foreach ( $item['children'] as $child ) :
-						$link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s</a>';
-						$column .= wp_kses( sprintf( $link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
+						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s</a>';
+						$footer_column .= wp_kses( sprintf( $footer_link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
 					endforeach;
-					echo $column;
+					echo $footer_column;
 					?>
 				</div>
 			</div>
@@ -46,7 +45,7 @@ endforeach;
 
 // Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
 // this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
-// define('ENABLE_FOOTER_WIDGETS', true);
+// define('ENABLE_FOOTER_WIDGETS', true).
 if ( defined( 'ENABLE_FOOTER_WIDGETS' ) && true == ENABLE_FOOTER_WIDGETS && is_active_sidebar( 'sidebar-footer' ) ) :
 	dynamic_sidebar( 'sidebar-footer' );
 endif;

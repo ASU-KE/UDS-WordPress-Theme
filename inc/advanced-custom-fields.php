@@ -15,13 +15,21 @@ define( 'ACF_PLUGIN_URL', get_template_directory_uri() . '/inc/acf/' );
 // Include the ACF plugin.
 include_once( ACF_PLUGIN_PATH . 'acf.php' );
 
-// Customize the url setting to fix incorrect asset URLs.
+/**
+ * Customize the url setting to fix incorrect asset URLs.
+ *
+ * @param string $url   Current ACF plugin settings url.
+ */
 function uds_wp_acf_settings_url( $url ) {
 	return ACF_PLUGIN_URL;
 }
 add_filter( 'acf/settings/url', 'uds_wp_acf_settings_url' );
 
-// Show the ACF admin menu?
+/**
+ * Show the ACF admin menu?
+ *
+ * @param boolean $show_admin   Current ACF Show Admin setting value.
+ */
 function uds_wp_acf_settings_show_admin( $show_admin ) {
 	return true;
 }

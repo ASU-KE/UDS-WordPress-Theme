@@ -1,11 +1,17 @@
 <?php
+/**
+ * No-Script Alt Analytics Tracking Code for Google Tag Manager
+ *
+ * @package uds-wordpress-theme
+ */
+
 $site_gtm_container_id = '';
 
 if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
-	$cOptions = get_option( 'uds_wp_theme_options' );
+	$c_options = get_option( 'uds_wp_theme_options' );
 }
 if ( ! empty( $c_options['site_gtm_container_id'] ) ) {
-	$site_gtm_container_id = $cOptions['site_gtm_container_id'];
+	$site_gtm_container_id = $c_options['site_gtm_container_id'];
 }
 ?>
 <!-- Google Tag Manager (noscript) -->

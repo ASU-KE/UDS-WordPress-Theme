@@ -64,10 +64,10 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			$menu_id = wp_create_nav_menu( $menu_name );
 
 			if ( $menu_id > 0 ) {
-				// Get all menu locations
+				// Get all menu locations.
 				$locations = get_theme_mod( 'nav_menu_locations' );
 
-				// Assign our new MENU at our theme's footer menu location
+				// Assign our new MENU at our theme's footer menu location.
 				$locations['footer'] = $menu_id;
 				set_theme_mod( 'nav_menu_locations', $locations );
 			}
@@ -75,35 +75,35 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			/*****************************************
 			 * Column One
 			 */
-			// Set up example menu header for column 1
+			// Set up example menu header for column 1.
 			$menu_item_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'Example Column One', 'textdomain' ),
+					'menu-item-title'   => __( 'Example Column One', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 1
+			// Set up example menu item for column 1.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 1', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 1', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 1
+			// Set up example menu item for column 1.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 2', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 2', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
@@ -113,35 +113,35 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			/*****************************************
 			 * Column Two
 			 */
-			// Set up example menu header for column 2
+			// Set up example menu header for column 2.
 			$menu_item_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'Example Column Two', 'textdomain' ),
+					'menu-item-title'   => __( 'Example Column Two', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 2
+			// Set up example menu item for column 2.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 3', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 3', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 2
+			// Set up example menu item for column 2.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 4', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 4', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
@@ -161,10 +161,10 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			$menu_id = wp_create_nav_menu( $menu_name );
 
 			if ( $menu_id > 0 ) {
-				// Get all menu locations
+				// Get all menu locations.
 				$locations = get_theme_mod( 'nav_menu_locations' );
 
-				// Assign our new MENU at our theme's footer menu location
+				// Assign our new MENU at our theme's footer menu location.
 				$locations['primary'] = $menu_id;
 				set_theme_mod( 'nav_menu_locations', $locations );
 			}
@@ -176,7 +176,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'Example Link', 'textdomain' ),
+					'menu-item-title'   => __( 'Example Link', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)
@@ -185,35 +185,35 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			/*****************************************
 			 * One Column Dropdown
 			 */
-			// Set up example dropdown activator
+			// Set up example dropdown activator.
 			$menu_item_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'Example Dropdown', 'textdomain' ),
+					'menu-item-title'   => __( 'Example Dropdown', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)
 			);
 
-			// Set up example menu item
+			// Set up example menu item.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 1', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 1', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item
+			// Set up example menu item.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 2', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 2', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
@@ -223,83 +223,83 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			/*****************************************
 			 * Two Column Dropdown
 			 */
-			// Set up example dropdown activator
+			// Set up example dropdown activator.
 			$menu_item_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'Example Two Column', 'textdomain' ),
+					'menu-item-title'   => __( 'Example Two Column', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)
 			);
 
-			// Set up example column header for column 1
+			// Set up example column header for column 1.
 			$column_header_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Column One', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Column One', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column
+			// Set up example menu item for column.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 3', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 3', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $column_header_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 2
+			// Set up example menu item for column 2.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 4', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 4', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $column_header_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example column header for column 2
+			// Set up example column header for column 2.
 			$column_header_id = wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Column Two', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Column Two', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $menu_item_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column
+			// Set up example menu item for column.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 5', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 5', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $column_header_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
 				)
 			);
 
-			// Set up example menu item for column 2
+			// Set up example menu item for column 2.
 			wp_update_nav_menu_item(
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'     => __( 'Example Link 6', 'textdomain' ),
+					'menu-item-title'     => __( 'Example Link 6', 'uds-wordpress-theme' ),
 					'menu-item-parent-id' => $column_header_id,
 					'menu-item-url'       => '#',
 					'menu-item-status'    => 'publish',
@@ -319,10 +319,10 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			$menu_id = wp_create_nav_menu( $menu_name );
 
 			if ( $menu_id > 0 ) {
-				// Get all menu locations
+				// Get all menu locations.
 				$locations = get_theme_mod( 'nav_menu_locations' );
 
-				// Assign our new MENU at our theme's footer menu location
+				// Assign our new MENU at our theme's footer menu location.
 				$locations['social-media'] = $menu_id;
 				set_theme_mod( 'nav_menu_locations', $locations );
 			}
@@ -334,7 +334,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 				$menu_id,
 				0,
 				array(
-					'menu-item-title'   => __( 'fa-twitter-square', 'textdomain' ),
+					'menu-item-title'   => __( 'fa-twitter-square', 'uds-wordpress-theme' ),
 					'menu-item-url'     => '#',
 					'menu-item-status'  => 'publish',
 				)

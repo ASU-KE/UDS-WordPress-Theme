@@ -4,7 +4,7 @@
  *
  * Template for displaying a full-width page without sidebars, even if a sidebar widget is published.
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

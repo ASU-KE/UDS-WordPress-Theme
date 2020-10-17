@@ -1,11 +1,13 @@
 <?php
-/*
- Analytics Tracking Codes that go in the top of the <body> element
+/**
+ * Analytics Tracking Code that go in the top of the <body> element
  *
  * Coding standards complains about inlineing a script tag, which we're choosing to ignore here to
  * keep these tracking codes together.
+ *
  * @package uds-wordpress-theme
  */
+
 // @codingStandardsIgnoreStart
 ?>
 <!-- Google Tag Manager ASU Universal-->

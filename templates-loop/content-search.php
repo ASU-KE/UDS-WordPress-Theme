@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php // uds_wp_entry_footer(); ?>
+		<?php /* uds_wp_entry_footer(); */ ?>
 
 	</footer><!-- .entry-footer -->
 

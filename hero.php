@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The hero for our theme
  *
@@ -19,7 +18,7 @@ $hero_text = get_field( 'hero_text' );
 $hero_call_to_action_url = get_field( 'hero_call_to_action_url' );
 $hero_call_to_action_text = get_field( 'hero_call_to_action_text' );
 
-// if we don't have a highlight class from ACF, or it was set to "none"
+// if we don't have a highlight class from ACF, or it was set to "none".
 if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
 	$hero_highlight = '';
 }

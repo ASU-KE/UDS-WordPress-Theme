@@ -1,5 +1,4 @@
 <?php
-
 /**
  * UDS WordPress Theme Customizer
  *

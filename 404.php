@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -12,11 +11,11 @@ defined( 'ABSPATH' ) || exit;
 $image_404 = '';
 
 if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
-	$cOptions = get_option( 'uds_wp_theme_options' );
+	$c_options = get_option( 'uds_wp_theme_options' );
 
 	// Do we have a 404 image?
-	if ( ! empty( $cOptions['image_404'] ) ) {
-		$image_404 = $cOptions['image_404'];
+	if ( ! empty( $c_options['image_404'] ) ) {
+		$image_404 = $c_options['image_404'];
 	}
 }
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * UDS WordPress Theme Customizer
  *
@@ -23,7 +22,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			 * Custom control to display separator
 			 */
 			class Prefix_Separator_Control extends WP_Customize_Control {
-			
+
+				/**
+				 * Render separator
+				 */
 				public function render_content() {                  ?>
 					<label>
 						<br>
@@ -136,13 +138,13 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
-		// load array of endorsed units and cache in transients
-		$endorsedLogos = uds_wp_theme_get_endorsed_unit_logos();
+		// Load array of endorsed units and cache in transients.
+		$endorsed_logos = uds_wp_theme_get_endorsed_unit_logos();
 
-		// Load options list
-		$logoOptions = array();
-		foreach ( $endorsedLogos as $logo ) {
-			$logoOptions[ $logo['slug'] ] = __( $logo['name'], 'uds-wordpress' );
+		// Load options list.
+		$logo_options = array();
+		foreach ( $endorsed_logos as $logo ) {
+			$logo_options[ $logo['slug'] ] = $logo['name'];
 		}
 
 		$wp_customize->add_control(
@@ -159,14 +161,14 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'settings'          => 'uds_wp_theme_options[logo_select]',
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
-					'choices'           => $logoOptions,
+					'choices'           => $logo_options,
 					'priority'          => 50,
 				)
 			)
 		);
 
 		// =============================
-		// = Unit Logo URL      =
+		// = Unit Logo URL             =
 		// =============================
 		$wp_customize->add_setting(
 			'uds_wp_theme_options[logo_url]',

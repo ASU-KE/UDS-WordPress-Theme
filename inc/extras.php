@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Custom functions that act independently of the theme templates
  *
@@ -17,31 +16,24 @@ if ( ! function_exists( 'include_theme_file' ) ) {
 	 * always call include with get_stylesheet_directory()."filename" because that will require that the
 	 * child theme always define that file. Instead we want the child theme to optionally override files
 	 * that they want to change.
+	 *
+	 * @param string $filename  File name to be included.
 	 */
 	function include_theme_file( $filename ) {
 		if ( file_exists( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename ) ) {
 			include( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename );
 		} else {
 			include( $filename );
-			// include will throw warnings if the file isn't found
+			// include will throw warnings if the file isn't found.
 		}
 	}
 }
 
-/**
- * Rename the Default Template
- */
-function uds_wp_change_default_template_name( $translation, $text, $domain ) {
-	if ( 'Default Template' == $text ) {
-		return __( 'Default Fixed Width', 'uds-wordpress' );
-	}
-	return $translation;
-}
-add_filter( 'gettext', 'uds_wp_change_default_template_name', 10, 3 );
-
 
 /**
  * Change the post edit link into a button
+ *
+ * @param string $output  Edited Post link content.
  */
 function uds_wp_custom_edit_post_link( $output ) {
 	$output = str_replace( 'class="post-edit-link"', 'class="post-edit-link btn btn-md btn-maroon"', $output );
@@ -54,10 +46,12 @@ add_filter( 'edit_post_link', 'uds_wp_custom_edit_post_link' );
  * Prevent iframing except when we are in the WordPress Admin interface.
  */
 function uds_wp_prevent_iframes() {
-	 // the page is not being rendered in the
-	// customizer which is a legit iframe for a site
+	/*
+	 * Verify the page is not being rendered in the customizer,
+	 * which is a legitimate iframe for viewing the site
+	 */
 	if ( ! is_customize_preview() ) {
-		// prevent pages from being iframed
+		// Prevent pages from being iframed.
 		?>
 		<style id="antiClickjack">
 			body {
@@ -88,9 +82,9 @@ add_action( 'wp_head', 'uds_wp_prevent_iframes' );
  */
 function uds_wp_add_x_frame_options_header() {
 	if ( ! is_customize_preview() ) {
-		// prevent pages from being iframed
+		// Prevent pages from being iframed.
 		header( 'X-Frame-Options: DENY' );
-		// add CSP frame ancestors for browsers that support this
+		// Add CSP frame ancestors for browsers that support this.
 		header( "Content-Security-Policy: frame-ancestors 'none'" );
 	}
 }
