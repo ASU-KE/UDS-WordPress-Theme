@@ -7,4 +7,4 @@ node_modules
 vendor
 js/bootstrap-asu
 js/fontawesome
-inc/acf/**/*.js
+inc/acf/assets/js/*.js
