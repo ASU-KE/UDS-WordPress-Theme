@@ -93,8 +93,10 @@
 		<exclude phpcs-only="true" name="Generic.Files.LineEndings"/>
 	</rule>
 
-	<!-- Use the WPThemeReview Ruleset -->
-	<rule ref="WPThemeReview" />
+	<!-- Use the WPThemeReview Ruleset, but disable the NoFavIcon rule -->
+	<rule ref="WPThemeReview">
+	  <exclude name="WPThemeReview.CoreFunctionality.NoFavicon.NoFavicon"/>
+	</rule>
 
 	<!--
 		Exclude checking for shortened URLs in Bootstrap's js. files.
