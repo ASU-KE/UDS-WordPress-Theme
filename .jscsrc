@@ -10,6 +10,7 @@
     "vendor/**",
     "node_modules/**",
 		"js/bootstrap-asu/**",
-		"js/fontawesome/**"
+		"js/fontawesome/**",
+		"inc/acf/assets/**/*.js"
   ]
 }
