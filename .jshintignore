@@ -5,3 +5,6 @@ js/theme.js
 gulpfile.js
 node_modules
 vendor
+js/bootstrap-asu
+js/fontawesome
+inc/acf/**/*.js
