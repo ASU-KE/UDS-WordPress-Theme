@@ -2,7 +2,7 @@
 /**
  * Declaring widgets
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -100,9 +100,9 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 	function uds_wp_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Right Sidebar', 'uds-wordpress' ),
+				'name'          => __( 'Right Sidebar', 'uds-wordpress-theme' ),
 				'id'            => 'sidebar-right',
-				'description'   => __( 'Right sidebar widget area', 'uds-wordpress' ),
+				'description'   => __( 'Right sidebar widget area', 'uds-wordpress-theme' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -112,9 +112,9 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Left Sidebar', 'uds-wordpress' ),
+				'name'          => __( 'Left Sidebar', 'uds-wordpress-theme' ),
 				'id'            => 'sidebar-left',
-				'description'   => __( 'Left sidebar widget area', 'uds-wordpress' ),
+				'description'   => __( 'Left sidebar widget area', 'uds-wordpress-theme' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -128,9 +128,9 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 		if ( defined( 'ENABLE_FOOTER_WIDGETS' ) && true == ENABLE_FOOTER_WIDGETS ) {
 			register_sidebar(
 				array(
-					'name'          => __( 'Footer Widgets', 'uds-wordpress' ),
+					'name'          => __( 'Footer Widgets', 'uds-wordpress-theme' ),
 					'id'            => 'sidebar-footer',
-					'description'   => __( 'Additional footer column for widgets', 'uds-wordpress' ),
+					'description'   => __( 'Additional footer column for widgets', 'uds-wordpress-theme' ),
 					'before_widget' => '<div class="col-xl flex-footer">',
 					'after_widget'  => '</div>',
 				)

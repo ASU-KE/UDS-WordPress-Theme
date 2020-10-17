@@ -2,7 +2,7 @@
 /**
  * Search results partial template
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

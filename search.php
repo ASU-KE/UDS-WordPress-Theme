@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -30,7 +30,7 @@ get_header();
 								<?php
 								printf(
 									/* translators: %s: query term */
-									esc_html__( 'Search Results for: %s', 'uds-wordpress' ),
+									esc_html__( 'Search Results for: %s', 'uds-wordpress-theme' ),
 									'<span>' . get_search_query() . '</span>'
 								);
 								?>

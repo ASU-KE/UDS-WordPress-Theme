@@ -9,7 +9,7 @@
 		"theme",
 		"bootstrap"
 	],
-	"homepage": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme",
+	"homepage": "https://github.com/asu-ke-web-services/uds-wordpress-theme",
 	"require": {
 		"composer/installers": "^1.9",
 		"php": ">=5.6",
@@ -28,7 +28,7 @@
 		"lint:php": ["@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."]
 	},
 	"support": {
-		"issues": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme/issues",
-		"source": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme"
+		"issues": "https://github.com/asu-ke-web-services/uds-wordpress-theme/issues",
+		"source": "https://github.com/asu-ke-web-services/uds-wordpress-theme"
 	}
 }

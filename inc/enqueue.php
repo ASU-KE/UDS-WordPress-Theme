@@ -2,7 +2,7 @@
 /**
  * UDS WordPress Theme enqueue scripts
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

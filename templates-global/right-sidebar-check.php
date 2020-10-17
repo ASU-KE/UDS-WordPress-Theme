@@ -2,7 +2,7 @@
 /**
  * Right sidebar check
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

@@ -1,9 +1,9 @@
 {
   "name": "uds-wordpress-theme",
   "description": "ASU Unity Design System WordPress Theme",
-  "repository": "git://github.com/asu-ke-web-services/UDS-WordPress-Theme.git",
+  "repository": "git://github.com/asu-ke-web-services/uds-wordpress-theme.git",
   "bugs": {
-    "url": "https://github.com/asu-ke-web-services/UDS-WordPress-Theme/issues"
+    "url": "https://github.com/asu-ke-web-services/uds-wordpress-theme/issues"
   },
   "scripts": {
     "build": "gulp compile",

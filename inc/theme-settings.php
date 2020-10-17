@@ -2,7 +2,7 @@
 /**
  * Check and setup theme's default settings
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

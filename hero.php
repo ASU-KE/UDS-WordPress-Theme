@@ -5,7 +5,7 @@
  *
  * Displays the hero section
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

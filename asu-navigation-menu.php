@@ -3,7 +3,7 @@
 /**
  * The template for ASU main navigation menus in Web Standards 2.0
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

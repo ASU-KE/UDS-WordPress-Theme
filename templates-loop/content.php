@@ -2,7 +2,7 @@
 /**
  * Post rendering content according to caller of get_template_part
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
 				'after'  => '</div>',
 			)
 		);

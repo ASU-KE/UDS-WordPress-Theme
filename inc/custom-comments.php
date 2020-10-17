@@ -2,7 +2,7 @@
 /**
  * Comment layout
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -99,7 +99,7 @@ if ( ! function_exists( 'uds_wp_comment_form_comments_closed' ) ) {
 	function uds_wp_comment_form_comments_closed() {
 		if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'uds-wordpress' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'uds-wordpress-theme' ); ?></p>
 			<?php
 		}
 	}

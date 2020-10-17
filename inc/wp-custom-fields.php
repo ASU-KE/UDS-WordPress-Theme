@@ -2,7 +2,7 @@
 /**
  * Remove the WordPress Core Custom Fields metabox in Page and Post content (superceded by ACF)
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

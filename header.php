@@ -5,7 +5,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -93,7 +93,7 @@ if ( ! empty( $cOptions['hotjar_site_id'] ) ) {
 </head>
 
 <body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?>>
-	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'uds-wordpress' ); ?></a>
+	<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'uds-wordpress-theme' ); ?></a>
 	<?php 
 	do_action( 'wp_body_open' );
 

@@ -3,7 +3,7 @@
 /**
  * The template for displaying the footer
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

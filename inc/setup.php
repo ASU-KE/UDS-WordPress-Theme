@@ -2,7 +2,7 @@
 /**
  * Theme basic setup
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -28,9 +28,9 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on this theme, use a find and replace
-		 * to change 'uds-wordpress' to the name of your theme in all the template files
+		 * to change 'uds-wordpress-theme' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'uds-wordpress', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'uds-wordpress-theme', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -46,9 +46,9 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 		// Register nav menus.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Main Menu', 'uds-wordpress' ),
-				'footer' => __( 'Footer Menu', 'uds-wordpress' ),
-				'social-media' => __( 'Social Media Menu', 'uds-wordpress' ),
+				'primary' => __( 'Main Menu', 'uds-wordpress-theme' ),
+				'footer' => __( 'Footer Menu', 'uds-wordpress-theme' ),
+				'social-media' => __( 'Social Media Menu', 'uds-wordpress-theme' ),
 			)
 		);
 
@@ -424,7 +424,7 @@ if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
 		if ( ! is_admin() ) {
 			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
-				'uds-wordpress'
+				'uds-wordpress-theme'
 			) . '</a></p>';
 		}
 		return $post_excerpt;

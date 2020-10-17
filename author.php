@@ -4,7 +4,7 @@
  *
  * Learn more: https://codex.wordpress.org/Author_Templates
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -34,7 +34,7 @@ get_header();
 					}
 					?>
 
-					<h1><?php echo esc_html__( 'About:', 'uds-wordpress' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
+					<h1><?php echo esc_html__( 'About:', 'uds-wordpress-theme' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
 
 					<?php
 					if ( ! empty( $curauth->ID ) ) {
@@ -45,20 +45,20 @@ get_header();
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
 							<?php if ( ! empty( $curauth->user_url ) ) : ?>
-								<dt><?php esc_html_e( 'Website', 'uds-wordpress' ); ?></dt>
+								<dt><?php esc_html_e( 'Website', 'uds-wordpress-theme' ); ?></dt>
 								<dd>
 									<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
 								</dd>
 							<?php endif; ?>
 
 							<?php if ( ! empty( $curauth->user_description ) ) : ?>
-								<dt><?php esc_html_e( 'Profile', 'uds-wordpress' ); ?></dt>
+								<dt><?php esc_html_e( 'Profile', 'uds-wordpress-theme' ); ?></dt>
 								<dd><?php echo esc_html( $curauth->user_description ); ?></dd>
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html__( 'Posts by', 'uds-wordpress' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h2><?php echo esc_html__( 'Posts by', 'uds-wordpress-theme' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
 
 				</header><!-- .page-header -->
 					<!-- The Loop -->
@@ -71,11 +71,11 @@ get_header();
 								printf(
 									'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
 									esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-									esc_attr( __( 'Permanent Link:', 'uds-wordpress' ) ),
+									esc_attr( __( 'Permanent Link:', 'uds-wordpress-theme' ) ),
 									get_the_title()
 								);
 								uds_wp_posted_on();
-								esc_html_e( 'in', 'uds-wordpress' );
+								esc_html_e( 'in', 'uds-wordpress-theme' );
 								the_category( '&' );
 							echo '</li>';
 						}

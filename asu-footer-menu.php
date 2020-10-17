@@ -3,7 +3,7 @@
 /**
  * The footer navigation menu
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

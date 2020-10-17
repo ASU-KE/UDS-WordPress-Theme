@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

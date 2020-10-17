@@ -10,7 +10,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

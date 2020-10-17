@@ -3,7 +3,7 @@
 /**
  * UDS WordPress Theme Customizer
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -54,7 +54,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// ================================
 		// ================================
 
-		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Information' );
+		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Information', 'uds-wordpress-theme' );
 
 
 		// =============================
@@ -73,7 +73,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_parent_unit_name',
 			array(
-				'label'      => __( 'Parent Unit', 'uds-wordpress' ),
+				'label'      => __( 'Parent Unit', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[parent_unit_name]',
 				'priority'   => 20,
@@ -96,7 +96,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_parent_unit_link',
 			array(
-				'label'      => __( 'Parent Unit URL', 'uds-wordpress' ),
+				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[parent_unit_link]',
 				'priority'   => 30,
@@ -150,10 +150,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				$wp_customize,
 				'uds_wp_logo_select',
 				array(
-					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress' ),
+					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress-theme' ),
 					'description'       => __(
 						'Select the appropriate unit logo, if available.',
-						'uds-wordpress'
+						'uds-wordpress-theme'
 					),
 					'section'           => 'title_tagline',
 					'settings'          => 'uds_wp_theme_options[logo_select]',
@@ -181,10 +181,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_logo_url',
 			array(
-				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress' ),
+				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[logo_url]',
@@ -229,7 +229,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_contact_email',
 			array(
-				'label'      => __( 'Contact Us Email or URL', 'uds-wordpress' ),
+				'label'      => __( 'Contact Us Email or URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contact_email]',
 				'priority'   => 80,
@@ -252,7 +252,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_contact_subject',
 			array(
-				'label'      => __( 'Contact Us Email Subject (Optional)', 'uds-wordpress' ),
+				'label'      => __( 'Contact Us Email Subject (Optional)', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contact_subject]',
 				'priority'   => 90,
@@ -275,7 +275,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_contact_body',
 			array(
-				'label'    => __( 'Contact Us Email Body (Optional)', 'uds-wordpress' ),
+				'label'    => __( 'Contact Us Email Body (Optional)', 'uds-wordpress-theme' ),
 				'section'  => 'title_tagline',
 				'settings' => 'uds_wp_theme_options[contact_body]',
 				'type'     => 'textarea',
@@ -299,7 +299,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_contribute_url',
 			array(
-				'label'      => __( 'Contribute URL (Optional)', 'uds-wordpress' ),
+				'label'      => __( 'Contribute URL (Optional)', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'uds_wp_theme_options[contribute_url]',
 				'priority'   => 110,
@@ -315,7 +315,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_header',
 			array(
-				'title'      => __( 'ASU Global Header', 'uds-wordpress' ),
+				'title'      => __( 'ASU Global Header', 'uds-wordpress-theme' ),
 				'priority'   => 20,
 			)
 		);
@@ -335,10 +335,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_header_navigation_menu',
 			array(
-				'label'      => __( 'Header - Navigation Menu', 'uds-wordpress' ),
+				'label'      => __( 'Header - Navigation Menu', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enable/disable the navigation menu in the ASU header. This is approved for Landing Page sites.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_header',
 				'settings'   => 'uds_wp_theme_options[header_navigation_menu]',
@@ -360,7 +360,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
-				'title'      => __( 'ASU Global Footer', 'uds-wordpress' ),
+				'title'      => __( 'ASU Global Footer', 'uds-wordpress-theme' ),
 				'priority'   => 20,
 			)
 		);
@@ -380,10 +380,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_footer_row_branding',
 			array(
-				'label'      => __( 'Footer - Logo & Social Media Row', 'uds-wordpress' ),
+				'label'      => __( 'Footer - Logo & Social Media Row', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enable/disable the Logo and Social Media row in the ASU footer.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'uds_wp_theme_options[footer_row_branding]',
@@ -410,10 +410,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_footer_row_actions',
 			array(
-				'label'      => __( 'Footer - Actions Row', 'uds-wordpress' ),
+				'label'      => __( 'Footer - Actions Row', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enable/disable the Unit contact and menus row in the ASU footer.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'uds_wp_theme_options[footer_row_actions]',
@@ -434,7 +434,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_search',
 			array(
-				'title'      => __( 'ASU Search', 'uds-wordpress' ),
+				'title'      => __( 'ASU Search', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
@@ -452,10 +452,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_asu_search',
 			array(
-				'label'      => __( 'ASU Search', 'uds-wordpress' ),
+				'label'      => __( 'ASU Search', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Replace WP internal search service with ASU\'s search service',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_asu_search',
 				'settings'   => 'uds_wp_theme_options[asu_search]',
@@ -476,7 +476,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_analytics',
 			array(
-				'title'      => __( 'ASU Analytics', 'uds-wordpress' ),
+				'title'      => __( 'ASU Analytics', 'uds-wordpress-theme' ),
 				'priority'   => 40,
 			)
 		);
@@ -497,10 +497,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_asu_hub_analytics',
 			array(
-				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress' ),
+				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enable the ASU Marketing Hub\'s analytics package. This must be active on all production ASU web sites.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_asu_analytics',
 				'settings'   => 'uds_wp_theme_options[asu_hub_analytics]',
@@ -527,10 +527,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_site_gtm_container_id',
 			array(
-				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress' ),
+				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter your unit\'s GTM container ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'uds_wp_theme_options[site_gtm_container_id]',
@@ -554,10 +554,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_site_ga_tracking_id',
 			array(
-				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress' ),
+				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter your unit\'s GA Tracking ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'uds_wp_theme_options[site_ga_tracking_id]',
@@ -581,10 +581,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'uds_wp_hotjar_site_id',
 			array(
-				'label'             => __( 'Hotjar Site ID', 'uds-wordpress' ),
+				'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter your Hotjar Site ID to enable Hotjar analytics for this website.',
-					'uds-wordpress'
+					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
 				'settings'          => 'uds_wp_theme_options[hotjar_site_id]',
@@ -603,7 +603,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_section_404',
 			array(
-				'title'      => __( '404 Image', 'uds-wordpress' ),
+				'title'      => __( '404 Image', 'uds-wordpress-theme' ),
 				'priority'   => 50,
 			)
 		);
@@ -626,10 +626,10 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				$wp_customize,
 				'uds_wp_404',
 				array(
-					'label'      => __( '404 Image', 'uds-wordpress' ),
+					'label'      => __( '404 Image', 'uds-wordpress-theme' ),
 					'description'       => __(
 						'Resize and crop your desired image to approximately 1200px x 500px',
-						'uds-wordpress'
+						'uds-wordpress-theme'
 					),
 					'section'    => 'uds_wp_theme_section_404',
 					'settings'   => 'uds_wp_theme_options[image_404]',
@@ -647,9 +647,9 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_section(
 			'uds_wp_theme_layout_options',
 			array(
-				'title'       => __( 'Theme Layout Settings', 'uds-wordpress' ),
+				'title'       => __( 'Theme Layout Settings', 'uds-wordpress-theme' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __( 'Theme sidebar defaults', 'uds-wordpress' ),
+				'description' => __( 'Theme sidebar defaults', 'uds-wordpress-theme' ),
 				'priority'    => 60,
 			)
 		);
@@ -669,20 +669,20 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				$wp_customize,
 				'uds_wp_sidebar_position',
 				array(
-					'label'             => __( 'Sidebar Positioning', 'uds-wordpress' ),
+					'label'             => __( 'Sidebar Positioning', 'uds-wordpress-theme' ),
 					'description'       => __(
 						'Set sidebar\'s default position. Can either be: right, left, both or none.',
-						'uds-wordpress'
+						'uds-wordpress-theme'
 					),
 					'section'           => 'uds_wp_theme_layout_options',
 					'settings'          => 'uds_wp_theme_options[sidebars]',
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
 					'choices'           => array(
-						'right' => __( 'Right sidebar', 'uds-wordpress' ),
-						'left'  => __( 'Left sidebar', 'uds-wordpress' ),
-						'both'  => __( 'Left & Right sidebars', 'uds-wordpress' ),
-						'none'  => __( 'No sidebar', 'uds-wordpress' ),
+						'right' => __( 'Right sidebar', 'uds-wordpress-theme' ),
+						'left'  => __( 'Left sidebar', 'uds-wordpress-theme' ),
+						'both'  => __( 'Left & Right sidebars', 'uds-wordpress-theme' ),
+						'none'  => __( 'No sidebar', 'uds-wordpress-theme' ),
 					),
 					'priority'          => apply_filters( 'uds_wp_sidebar_position_priority', 20 ),
 				)

@@ -2,7 +2,7 @@
 /**
  * Advanced Custom Fields Integration into Theme
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

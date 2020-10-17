@@ -2,7 +2,7 @@
 /**
  * Partial template for content in page.php
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php edit_post_link( __( 'Edit', 'uds-wordpress' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'uds-wordpress-theme' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer><!-- .entry-footer -->
 

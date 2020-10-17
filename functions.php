@@ -2,7 +2,7 @@
 /**
  * UDS WordPress Theme functions and definitions
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

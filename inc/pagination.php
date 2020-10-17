@@ -2,7 +2,7 @@
 /**
  * Pagination layout
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -50,11 +50,11 @@ if ( ! function_exists( 'uds_wp_pagination' ) ) {
 			array(
 				'mid_size'           => 2,
 				'prev_next'          => true,
-				'prev_text'          => __( '&laquo;', 'uds-wordpress' ),
-				'next_text'          => __( '&raquo;', 'uds-wordpress' ),
+				'prev_text'          => __( '&laquo;', 'uds-wordpress-theme' ),
+				'next_text'          => __( '&raquo;', 'uds-wordpress-theme' ),
 				'type'               => 'array',
 				'current'            => max( 1, get_query_var( 'paged' ) ),
-				'screen_reader_text' => __( 'Posts navigation', 'uds-wordpress' ),
+				'screen_reader_text' => __( 'Posts navigation', 'uds-wordpress-theme' ),
 			)
 		);
 

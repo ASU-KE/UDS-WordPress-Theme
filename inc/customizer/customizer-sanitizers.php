@@ -2,7 +2,7 @@
 /**
  * UDS WordPress Theme Customizer
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

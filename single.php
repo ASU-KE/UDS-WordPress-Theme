@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

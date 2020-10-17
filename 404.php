@@ -3,7 +3,7 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package uds-wordpress
+ * @package uds-wordpress-theme-theme
  */
 
 // Exit if accessed directly.
@@ -40,14 +40,14 @@ get_header();
 							<header class="page-header">
 
 								<h1 class="heading heading-one col-md-12">
-									<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e( '404 - Not Found', 'uds-wordpress' ); ?></span>
+									<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e( '404 - Not Found', 'uds-wordpress-theme' ); ?></span>
 								</h1>
 
 							</header><!-- .page-header -->
 
 							<div class="page-content uds-hero-text">
 
-								<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress' ); ?></p>
+								<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></p>
 
 								<?php get_search_form(); ?>
 

@@ -4,6 +4,7 @@
  *
  * Coding standards complains about inlineing a script tag, which we're choosing to ignore here to
  * keep these tracking codes together.
+ * @package uds-wordpress-theme
  */
 // @codingStandardsIgnoreStart
 ?>
