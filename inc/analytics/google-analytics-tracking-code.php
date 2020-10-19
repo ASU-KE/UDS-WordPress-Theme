@@ -1,11 +1,17 @@
 <?php
+/**
+ * Analytics Tracking Code for Google Analytics
+ *
+ * @package uds-wordpress-theme
+ */
+
 $site_ga_tracking_id = '';
 
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
+	$c_options = get_option( 'uds_wp_theme_options' );
 }
-if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
-	$site_ga_tracking_id = $cOptions['site_ga_tracking_id'];
+if ( ! empty( $c_options['site_ga_tracking_id'] ) ) {
+	$site_ga_tracking_id = $c_options['site_ga_tracking_id'];
 }
 ?>
 <script type="text/javascript">
@@ -21,15 +27,15 @@ if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
 		m.parentNode.insertBefore(a, m)
 	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga_site');
 
-	ga_site('create', '<?php echo esc_html(trim($site_ga_tracking_id)) ?>', 'auto');
+	ga_site('create', '<?php echo esc_html( trim( $site_ga_tracking_id ) ); ?>', 'auto');
 	ga_site('require', 'linkid', 'linkid.js');
 	ga_site('send', 'pageview');
 	ga_site('set', 'forceSSL', true);
 
-	ga = ga_site; // for allowing integration with other google analytics plugins
+	ga = ga_site; // for allowing integration with other google analytics plugins.
 
 	<?php
-	// Log analytics of Signed-in ASU CAS users
+	// Log analytics of Signed-in ASU CAS users.
 	?>
 	var asuLoginName;
 	asuLoginName = (function() {
@@ -97,7 +103,8 @@ if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
 	});
 	*/
 
-	<?php // Track the users intent to print
+	<?php
+	// Track the users intent to print.
 	?>
 	try {
 		(function() {
@@ -116,4 +123,3 @@ if (!empty( $cOptions['site_ga_tracking_id'] ) ) {
 	} catch (e) {}
 </script>
 <?php
-// @codingStandardsIgnoreEnd

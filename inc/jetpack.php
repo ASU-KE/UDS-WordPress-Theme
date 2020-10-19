@@ -4,15 +4,15 @@
  *
  * @link https://jetpack.me/
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'after_setup_theme', 'asu_wp2020_components_jetpack_setup' );
+add_action( 'after_setup_theme', 'uds_wp_components_jetpack_setup' );
 
-if ( ! function_exists( 'asu_wp2020_components_jetpack_setup' ) ) {
+if ( ! function_exists( 'uds_wp_components_jetpack_setup' ) ) {
 	/**
 	 * Jetpack setup function.
 	 *
@@ -20,13 +20,13 @@ if ( ! function_exists( 'asu_wp2020_components_jetpack_setup' ) ) {
 	 * @link https://jetpack.me/support/responsive-videos/
 	 * @link https://jetpack.me/support/social-menu/
 	 */
-	function asu_wp2020_components_jetpack_setup() {
+	function uds_wp_components_jetpack_setup() {
 		// Add theme support for Infinite Scroll.
 		add_theme_support(
 			'infinite-scroll',
 			array(
 				'container' => 'main',
-				'render'    => 'asu_wp2020_components_infinite_scroll_render',
+				'render'    => 'uds_wp_components_infinite_scroll_render',
 				'footer'    => 'page',
 			)
 		);
@@ -40,11 +40,11 @@ if ( ! function_exists( 'asu_wp2020_components_jetpack_setup' ) ) {
 	}
 }
 
-if ( ! function_exists( 'asu_wp2020_components_infinite_scroll_render' ) ) {
+if ( ! function_exists( 'uds_wp_components_infinite_scroll_render' ) ) {
 	/**
 	 * Custom render function for Infinite Scroll.
 	 */
-	function asu_wp2020_components_infinite_scroll_render() {
+	function uds_wp_components_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			if ( is_search() ) :
@@ -56,12 +56,12 @@ if ( ! function_exists( 'asu_wp2020_components_infinite_scroll_render' ) ) {
 	}
 }
 
-if ( ! function_exists( 'asu_wp2020_components_social_menu' ) ) {
+if ( ! function_exists( 'uds_wp_components_social_menu' ) ) {
 	/**
 	 * Display Jetpack's social menu if available.
 	 * Avoids fatal errors if Jetpack isn’t activated.
 	 */
-	function asu_wp2020_components_social_menu() {
+	function uds_wp_components_social_menu() {
 		if ( ! function_exists( 'jetpack_social_menu' ) ) {
 			// Return early if social menu is not available.
 			return;

@@ -2,7 +2,7 @@
 /**
  * Left sidebar check
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.

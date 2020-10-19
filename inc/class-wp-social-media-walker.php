@@ -1,5 +1,4 @@
 <?php
-
 /**
  * WP Bootstrap Navwalker
  *
@@ -7,7 +6,7 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /*
  * Class Name: WP_Social_Media_Walker
@@ -15,14 +14,14 @@ defined('ABSPATH') || exit;
  */
 
 /* Check if Class Exists. */
-if (!class_exists('WP_Social_Media_Walker')) {
+if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 	/**
 	 * WP_Social_Media_Walker class.
 	 *
 	 * @extends Walker_Nav_Menu
 	 */
-	class WP_Social_Media_Walker extends Walker_Nav_Menu
-	{
+	class WP_Social_Media_Walker extends Walker_Nav_Menu {
+
 		/**
 		 * Starts the element output.
 		 *
@@ -37,36 +36,40 @@ if (!class_exists('WP_Social_Media_Walker')) {
 		 * @param stdClass $args   An object of wp_nav_menu() arguments.
 		 * @param int      $id     Current item ID.
 		 */
-		function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-		{
-			$classes     = empty($item->classes) ? array() : (array) $item->classes;
+		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+			$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 
 			$class_names = join(
 				' ',
 				apply_filters(
 					'nav_menu_css_class',
-					array_filter($classes),
+					array_filter( $classes ),
 					$item
 				)
 			);
 
-			!empty($class_names)
-				and $class_names = ' class="nav-link"';
+			if ( ! empty( $class_names ) ) {
+				$class_names = ' class="nav-link"';
+			}
 
 			$attributes  = '';
 
-			!empty($item->description)
-				and $attributes .= ' title="'  . esc_attr($item->description) . '"';
-			!empty($item->target)
-				and $attributes .= ' target="' . esc_attr($item->target) . '"';
-			!empty($item->xfn)
-				and $attributes .= ' rel="'    . esc_attr($item->xfn) . '"';
-			!empty($item->url)
-				and $attributes .= ' href="'   . esc_attr($item->url) . '"';
+			if ( ! empty( $item->description ) ) {
+				$attributes .= ' title="' . esc_attr( $item->description ) . '"';
+			}
+			if ( ! empty( $item->target ) ) {
+				$attributes .= ' target="' . esc_attr( $item->target ) . '"';
+			}
+			if ( ! empty( $item->xfn ) ) {
+				$attributes .= ' rel="' . esc_attr( $item->xfn ) . '"';
+			}
+			if ( ! empty( $item->url ) ) {
+				$attributes .= ' href="' . esc_attr( $item->url ) . '"';
+			}
 
-			$output .= "";
+			$output .= '';
 
-			$title = apply_filters('the_title', $item->title, $item->ID);
+			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
 			$item_output = $args->before
 				. "<a id='menu-item-$item->ID' $class_names $attributes ><span class='fab $title'>"

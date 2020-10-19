@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: uds-wordpress-theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2016-12-20 05:10+0000\n"
 "POT-Revision-Date: Mon Jul 04 2016 09:13:18 GMT+0200 (CEST)\n"
@@ -404,8 +404,8 @@ msgid "Choose how many columns to use"
 msgstr "使用する列の数を選択する"
 
 #. Name of the theme
-msgid "ASU Web Standards 2020 Theme"
-msgstr "ASU Web Standards 2020 Theme"
+msgid "UDS WordPress Theme"
+msgstr "UDS WordPress Theme"
 
 #. Description of the theme
 msgid ""

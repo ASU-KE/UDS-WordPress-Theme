@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -32,7 +32,7 @@ get_header();
 								<?php
 								printf(
 									/* translators: %s: query term */
-									esc_html__( 'Search Results for: %s', 'asu-web-standards' ),
+									esc_html__( 'Search Results for: %s', 'uds-wordpress-theme' ),
 									'<span>' . get_search_query() . '</span>'
 								);
 								?>
@@ -63,7 +63,7 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php asu_wp2020_pagination(); ?>
+			<?php uds_wp_pagination(); ?>
 		</div>
 			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>

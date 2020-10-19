@@ -29,6 +29,8 @@
 	<exclude-pattern>/node_modules/*</exclude-pattern>
 	<exclude-pattern>/dist/*</exclude-pattern>
 	<exclude-pattern>/dist-product/*</exclude-pattern>
+	<exclude-pattern>/acf-json/*</exclude-pattern>
+	<exclude-pattern>/inc/acf/*</exclude-pattern>
 
 	<!-- Use the WordPress Ruleset -->
 	<rule ref="WordPress">
@@ -41,7 +43,7 @@
 	-->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="understrap"/>
+			<property name="text_domain" type="array" value="uds-wordpress-theme"/>
 		</properties>
 	</rule>
 
@@ -53,6 +55,13 @@
 		<properties>
 			<property name="is_theme" value="true"/>
 		</properties>
+	</rule>
+
+	<!--
+		Disable class filename rule on these specific files only.
+	-->
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<exclude-pattern>/inc/customizer/customizer-settings\.php</exclude-pattern>
 	</rule>
 
 	<!-- Assignments in while conditions are a valid method of looping over iterables. -->
@@ -76,7 +85,7 @@
 		</properties>
 	</rule>
 
-	<!-- 
+	<!--
 		Exclude checking of line endings when reporting errors, but fix them
 		when running phpcbf.
 	-->
@@ -84,10 +93,12 @@
 		<exclude phpcs-only="true" name="Generic.Files.LineEndings"/>
 	</rule>
 
-	<!-- Use the WPThemeReview Ruleset -->
-	<rule ref="WPThemeReview" />
+	<!-- Use the WPThemeReview Ruleset, but disable the NoFavIcon rule -->
+	<rule ref="WPThemeReview">
+		<exclude name="WPThemeReview.CoreFunctionality.NoFavicon.NoFavicon"/>
+	</rule>
 
-	<!-- 
+	<!--
 		Exclude checking for shortened URLs in Bootstrap's js. files.
 		Also exlude theme.js which includes bootstrap.js.
 	-->

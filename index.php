@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -52,7 +52,7 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php asu_wp2020_pagination(); ?>
+			<?php uds_wp_pagination(); ?>
 		</div>
 			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
