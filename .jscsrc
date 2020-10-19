@@ -8,6 +8,9 @@
     "js/theme.js",
     "gulpfile.js",
     "vendor/**",
-    "node_modules/**"
+    "node_modules/**",
+		"js/bootstrap-asu/**",
+		"js/fontawesome/**",
+		"inc/acf/assets/**/*.js"
   ]
 }

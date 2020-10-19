@@ -2,15 +2,18 @@
 /**
  * Remove the WordPress Core Custom Fields metabox in Page and Post content (superceded by ACF)
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-
-function asu_wp2020_remove_metaboxes() {
- remove_meta_box( 'postcustom' , 'page' , 'normal' ); //removes custom fields for pages
- remove_meta_box( 'postcustom' , 'post' , 'normal' ); //removes custom fields for posts
+/**
+ * Remove metaboxes for WordPress' basic custom fields.
+ * This functionality will be replaced by Advanced Custom Fields.
+ */
+function uds_wp_remove_metaboxes() {
+	remove_meta_box( 'postcustom', 'page', 'normal' ); // Remove custom fields for Pages.
+	remove_meta_box( 'postcustom', 'post', 'normal' ); // Remove custom fields for Posts.
 }
-add_action( 'admin_menu' , 'asu_wp2020_remove_metaboxes' );
+add_action( 'admin_menu', 'uds_wp_remove_metaboxes' );

@@ -2,7 +2,7 @@
 /**
  * The right sidebar containing the main widget area
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-right' ) ) {
 }
 
 // when both sidebars turned on reduce col size to 3 from 4.
-$sidebar_pos = get_theme_mod( 'asu_wp2020_sidebar_position' );
+$sidebar_pos = get_theme_mod( 'uds_wp_sidebar_position' );
 ?>
 
 <?php if ( 'both' === $sidebar_pos ) : ?>

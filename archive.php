@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -54,7 +54,7 @@ get_header();
 
 			<?php
 			// Display the pagination component.
-			asu_wp2020_pagination();
+			uds_wp_pagination();
 
 			// Check for the right sidebar.
 			get_template_part( 'templates-global/right-sidebar-check' );

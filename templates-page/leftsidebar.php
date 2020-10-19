@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Fixed Width Layout
+ * Template Name: Left Sidebar Layout
  *
- * Template for displaying a fixed-width page without sidebars
+ * This template can be used to override the default template and sidebar setup
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="fixed-width-wrapper">
+<div class="wrapper" id="left-sidebar-page-wrapper">
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
@@ -21,13 +21,16 @@ get_header();
 
 		<div class="row">
 
-			<div class="col-md-12 content-area" id="primary">
+			<?php get_template_part( 'templates-sidebar/sidebar', 'left' ); ?>
+
+			<div class="<?php echo is_active_sidebar( 'sidebar-right' ) ? 'col-md-8' : 'col-md-12'; ?> content-area" id="primary">
 
 				<main class="site-main" id="main" role="main">
 
 					<?php
 					while ( have_posts() ) {
 						the_post();
+
 						get_template_part( 'templates-loop/content', 'page' );
 
 						// If comments are open or we have at least one comment, load up the comment template.

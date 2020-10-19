@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: uds-wordpress-theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2015-09-01 21:23+0200\n"
 "PO-Revision-Date: Thu Apr 14 2016 20:58:56 GMT-0300 (E. South America "
@@ -427,8 +427,8 @@ msgstr ""
 "removida.<br><br> Tente os links abaixo ou use a pesquisa."
 
 #. Name of the theme
-msgid "ASU Web Standards 2020 Theme"
-msgstr "ASU Web Standards 2020 Theme"
+msgid "UDS WordPress Theme"
+msgstr "UDS WordPress Theme"
 
 #. Theme URI of the theme
 msgid "http://understrap.com"

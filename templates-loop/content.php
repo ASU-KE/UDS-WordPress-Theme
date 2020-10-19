@@ -2,7 +2,7 @@
 /**
  * Post rendering content according to caller of get_template_part
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php if ( 'post' === get_post_type() ) : ?>
 
 			<div class="entry-meta">
-				<?php asu_wp2020_posted_on(); ?>
+				<?php uds_wp_posted_on(); ?>
 			</div><!-- .entry-meta -->
 
 		<?php endif; ?>
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'asu-web-standards' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -49,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php asu_wp2020_entry_footer(); ?>
+		<?php uds_wp_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 

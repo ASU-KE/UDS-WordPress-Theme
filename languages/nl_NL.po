@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: uds-wordpress-theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-17 17:56+0000\n"
 "PO-Revision-Date: 2018-07-12 20:51+0000\n"
@@ -378,8 +378,8 @@ msgid "Choose how many columns to use"
 msgstr "Kies het aantal kolommen"
 
 #. Name of the theme
-msgid "ASU Web Standards 2020 Theme"
-msgstr "ASU Web Standards 2020 Theme"
+msgid "UDS WordPress Theme"
+msgstr "UDS WordPress Theme"
 
 #. Description of the theme
 msgid ""

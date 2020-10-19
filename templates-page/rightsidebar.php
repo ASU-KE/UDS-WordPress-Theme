@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Left Sidebar Layout
+ * Template Name: Right Sidebar Layout
  *
  * This template can be used to override the default template and sidebar setup
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -13,15 +13,13 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="left-sidebar-page-wrapper">
+<div class="wrapper" id="right-sidebar-page-wrapper">
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
 	<div class="container" id="content">
 
 		<div class="row">
-
-			<?php get_template_part( 'templates-sidebar/sidebar', 'left' ); ?>
 
 			<div class="<?php echo is_active_sidebar( 'sidebar-right' ) ? 'col-md-8' : 'col-md-12'; ?> content-area" id="primary">
 
@@ -43,6 +41,8 @@ get_header();
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
+
+			<?php get_template_part( 'templates-sidebar/sidebar', 'right' ); ?>
 
 		</div><!-- .row -->
 

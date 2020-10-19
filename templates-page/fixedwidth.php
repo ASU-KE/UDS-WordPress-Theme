@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Full Width Page
+ * Template Name: Fixed Width Layout
  *
- * Template for displaying a full-width page without sidebars, even if a sidebar widget is published.
+ * Template for displaying a fixed-width page without sidebars
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -13,11 +13,11 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="full-width-wrapper">
+<div class="wrapper" id="fixed-width-wrapper">
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
-	<div class="container-fluid" id="content">
+	<div class="container" id="content">
 
 		<div class="row">
 
@@ -41,7 +41,7 @@ get_header();
 
 			</div><!-- #primary -->
 
-		</div><!-- .row end -->
+		</div><!-- .row -->
 
 	</div><!-- #content -->
 

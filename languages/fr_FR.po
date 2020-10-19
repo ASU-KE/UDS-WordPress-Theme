@@ -1,7 +1,7 @@
 # Loco Gettext template
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: uds-wordpress-theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2016-12-20 18:30+0100\n"
 "PO-Revision-Date: 2018-03-02 09:44+0100\n"
@@ -405,8 +405,8 @@ msgid "Choose how many columns to use"
 msgstr "Combien de colonnes"
 
 #. Name of the theme
-msgid "ASU Web Standards 2020 Theme"
-msgstr "ASU Web Standards 2020 Theme"
+msgid "UDS WordPress Theme"
+msgstr "UDS WordPress Theme"
 
 #. Description of the theme
 msgid ""

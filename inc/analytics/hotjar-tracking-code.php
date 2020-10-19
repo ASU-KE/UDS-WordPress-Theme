@@ -1,13 +1,16 @@
 <?php
-/* Analytics Tracking Code for Hotjar
+/**
+ * Analytics Tracking Code for Hotjar
  *
+ * @package uds-wordpress-theme
  */
+
 // @codingStandardsIgnoreStart
 
 $hotjar_site_id = '';
 
-if (is_array(get_option('asu_wp2020_theme_options'))) {
-	$cOptions = get_option('asu_wp2020_theme_options');
+if (is_array(get_option('uds_wp_theme_options'))) {
+	$cOptions = get_option('uds_wp_theme_options');
 }
 if (!empty( $c_options['hotjar_site_id'] ) ) {
 	$hotjar_site_id = $c_options['hotjar_site_id'];

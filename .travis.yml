@@ -34,13 +34,13 @@ matrix:
       env: PHPCS=1
   allow_failures:
     - php: nightly
-  
+
 # Use this to prepare the build for testing.
 before_script:
     # Speed up build time by disabling Xdebug.
     - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
     # Install composer dependencies
-    - if [ "$TRAVIS_PHP_VERSION" != "nightly" ]; then 
+    - if [ "$TRAVIS_PHP_VERSION" != "nightly" ]; then
         composer install;
       else
         composer install --ignore-platform-reqs;
