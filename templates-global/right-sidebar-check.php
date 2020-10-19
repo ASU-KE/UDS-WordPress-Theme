@@ -11,8 +11,8 @@ defined( 'ABSPATH' ) || exit;
 
 
 <!-- ========= Right Sidebar ============ -->
-		<?php global $asu_wp2020_sidebar_opts;
-		  if ( $asu_wp2020_sidebar_opts['use_sidebar'] == 'right' ):
+		<?php global $uds_wp_sidebar_opts;
+		  if ( $uds_wp_sidebar_opts['use_sidebar'] == 'right' ):
            get_template_part( 'templates-sidebar/sidebar', 'right' );
       endif;
 	?>

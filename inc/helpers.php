@@ -1,8 +1,8 @@
 <?php
 
 /* Get sidebar layouts */
-if ( !function_exists( 'asu_wp2020_get_sidebar_layouts' ) ):
-	function asu_wp2020_get_sidebar_layouts( $inherit = false ) {
+if ( !function_exists( 'uds_wp_get_sidebar_layouts' ) ):
+	function uds_wp_get_sidebar_layouts( $inherit = false ) {
 
 		$layouts = array();
 
@@ -20,8 +20,8 @@ if ( !function_exists( 'asu_wp2020_get_sidebar_layouts' ) ):
 endif;
 
 /* Get all sidebars */
-if ( !function_exists( 'asu_wp2020_get_sidebars_list' ) ):
-	function asu_wp2020_get_sidebars_list( $inherit = false ) {
+if ( !function_exists( 'uds_wp_get_sidebars_list' ) ):
+	function uds_wp_get_sidebars_list( $inherit = false ) {
 
 		$sidebars = array();
 
@@ -47,8 +47,8 @@ endif;
 
 
 /* Get post meta with default values */
-if ( !function_exists( 'asu_wp2020_get_post_meta' ) ):
-	function asu_wp2020_get_post_meta( $post_id, $field = false ) {
+if ( !function_exists( 'uds_wp_get_post_meta' ) ):
+	function uds_wp_get_post_meta( $post_id, $field = false ) {
 
 		$defaults = array(
 			'use_sidebar' => 'fixed',

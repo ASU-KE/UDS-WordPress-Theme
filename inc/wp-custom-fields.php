@@ -55,34 +55,34 @@ add_action( 'admin_menu', 'uds_wp_remove_metaboxes' );
 
 /*	--- Add Metaboxes --- */
 
-add_action( 'load-post.php', 'asu_wp2020_meta_boxes_setup' );
-add_action( 'load-post-new.php', 'asu_wp2020_meta_boxes_setup' );
+add_action( 'load-post.php', 'uds_wp_meta_boxes_setup' );
+add_action( 'load-post-new.php', 'uds_wp_meta_boxes_setup' );
 
 
-if ( !function_exists( 'asu_wp2020_meta_boxes_setup' ) ) :
-	function asu_wp2020_meta_boxes_setup() {
+if ( !function_exists( 'uds_wp_meta_boxes_setup' ) ) :
+	function uds_wp_meta_boxes_setup() {
 		global $typenow;
 		if ( $typenow == 'page' ) {
-			add_action( 'add_meta_boxes', 'asu_wp2020_load_page_metaboxes' );
-			add_action( 'save_post', 'asu_wp2020_save_page_metaboxes', 10, 2 );
+			add_action( 'add_meta_boxes', 'uds_wp_load_page_metaboxes' );
+			add_action( 'save_post', 'uds_wp_save_page_metaboxes', 10, 2 );
 		}
 
 		if ( $typenow == 'post' ) {
-			add_action( 'add_meta_boxes', 'asu_wp2020_load_post_metaboxes' );
-			add_action( 'save_post', 'asu_wp2020_save_post_metaboxes', 10, 2 );
+			add_action( 'add_meta_boxes', 'uds_wp_load_post_metaboxes' );
+			add_action( 'save_post', 'uds_wp_save_post_metaboxes', 10, 2 );
 		}
 	}
 endif;
 
 /* Add page metaboxes */
-if ( !function_exists( 'asu_wp2020_load_page_metaboxes' ) ) :
-	function asu_wp2020_load_page_metaboxes() {
+if ( !function_exists( 'uds_wp_load_page_metaboxes' ) ) :
+	function uds_wp_load_page_metaboxes() {
 
 		/* Sidebar metabox */
 		add_meta_box(
-			'asu_wp2020_sidebar',
+			'uds_wp_sidebar',
 			__( 'Sidebars & Templates', THEME_SLUG ),
-			'asu_wp2020_sidebar_metabox',
+			'uds_wp_sidebar_metabox',
 			'page',
 			'side',
 			'default'
@@ -92,14 +92,14 @@ if ( !function_exists( 'asu_wp2020_load_page_metaboxes' ) ) :
 endif;
 
 /* Add post metaboxes */
-if ( !function_exists( 'asu_wp2020_load_post_metaboxes' ) ) :
-	function asu_wp2020_load_post_metaboxes() {
+if ( !function_exists( 'uds_wp_load_post_metaboxes' ) ) :
+	function uds_wp_load_post_metaboxes() {
 
 		/* Sidebar metabox */
 		add_meta_box(
-			'asu_wp2020_sidebar',
+			'uds_wp_sidebar',
 			__( 'Sidebars & Templates', THEME_SLUG ),
-			'asu_wp2020_sidebar_metabox',
+			'uds_wp_sidebar_metabox',
 			'post',
 			'side',
 			'default'
@@ -110,23 +110,23 @@ endif;
 
 
 /* Create Sidebars Metabox */
-if ( !function_exists( 'asu_wp2020_sidebar_metabox' ) ) :
-	function asu_wp2020_sidebar_metabox( $object, $box ) {
-		$asu_wp2020_meta = asu_wp2020_get_post_meta( $object->ID );
-		$sidebars_lay = asu_wp2020_get_sidebar_layouts( false );
-		$sidebars = asu_wp2020_get_sidebars_list( false );
+if ( !function_exists( 'uds_wp_sidebar_metabox' ) ) :
+	function uds_wp_sidebar_metabox( $object, $box ) {
+		$uds_wp_meta = uds_wp_get_post_meta( $object->ID );
+		$sidebars_lay = uds_wp_get_sidebar_layouts( false );
+		$sidebars = uds_wp_get_sidebars_list( false );
 ?>
 <?php
-//echo '<pre>'; print_r($asu_wp2020_meta); echo '</pre>';
+//echo '<pre>'; print_r($uds_wp_meta); echo '</pre>';
 ?>
 	  	<ul class="img-select-wrap next-hide">
 	  	<?php foreach ( $sidebars_lay as $id => $layout ): ?>
 	  		<li >
-	  			<?php $selected_class = $id == $asu_wp2020_meta['use_sidebar'] ? ' selected': ''; ?>
+	  			<?php $selected_class = $id == $uds_wp_meta['use_sidebar'] ? ' selected': ''; ?>
 	  			<img src="<?php echo $layout['img']; ?>" title="<?php echo $layout['title']; ?>" class="img-select<?php echo $selected_class; ?>">
 	  			<span><?php echo $layout['title']; ?></span>
-	  			<input type="radio" class="hidden" name="asu_wp2020[use_sidebar]" value="<?php echo $id; ?>"
-          <?php checked( $id, $asu_wp2020_meta['use_sidebar'] );?>/> </label>
+	  			<input type="radio" class="hidden" name="uds_wp[use_sidebar]" value="<?php echo $id; ?>"
+          <?php checked( $id, $uds_wp_meta['use_sidebar'] );?>/> </label>
 	  		</li>
 	  	<?php endforeach; ?>
 	   </ul>
@@ -135,10 +135,10 @@ if ( !function_exists( 'asu_wp2020_sidebar_metabox' ) ) :
 
 	  <?php
     if ( !empty( $sidebars ) ): ?>
-<?php  if($asu_wp2020_meta['use_sidebar']=='none' || $asu_wp2020_meta['use_sidebar']=='fixed' )  $display=' style="display:none;"';?>
-	  	<p><select name="asu_wp2020[sidebar]" class="widefat" <?php echo $display;?>>
+<?php  if($uds_wp_meta['use_sidebar']=='none' || $uds_wp_meta['use_sidebar']=='fixed' )  $display=' style="display:none;"';?>
+	  	<p><select name="uds_wp[sidebar]" class="widefat" <?php echo $display;?>>
 	  	<?php foreach ( $sidebars as $id => $name ): ?>
-	  		<option value="<?php echo $id; ?>" <?php selected( $id, $asu_wp2020_meta['sidebar'] );?>><?php echo $name; ?></option>
+	  		<option value="<?php echo $id; ?>" <?php selected( $id, $uds_wp_meta['sidebar'] );?>><?php echo $name; ?></option>
 	  	<?php endforeach; ?>
 	  </select></p>
 
@@ -155,8 +155,8 @@ endif;
 
 
 /* Save Page Meta */
-if ( !function_exists( 'asu_wp2020_save_page_metaboxes' ) ) :
-	function asu_wp2020_save_page_metaboxes( $post_id, $post ) {
+if ( !function_exists( 'uds_wp_save_page_metaboxes' ) ) :
+	function uds_wp_save_page_metaboxes( $post_id, $post ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return;
 
@@ -170,21 +170,21 @@ if ( !function_exists( 'asu_wp2020_save_page_metaboxes' ) ) :
 			if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
 				return $post_id;
 
-			$asu_wp2020_meta = array();
+			$uds_wp_meta = array();
 
-			$asu_wp2020_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
-			$asu_wp2020_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
 
 
-			update_post_meta( $post_id, '_asu_wp2020_meta', $asu_wp2020_meta );
+			update_post_meta( $post_id, '_asu_wp2020_meta', $uds_wp_meta );
 
 		}
 	}
 endif;
 
 /* Save Post Meta */
-if ( !function_exists( 'asu_wp2020_save_post_metaboxes' ) ) :
-	function asu_wp2020_save_post_metaboxes( $post_id, $post ) {
+if ( !function_exists( 'uds_wp_save_post_metaboxes' ) ) :
+	function uds_wp_save_post_metaboxes( $post_id, $post ) {
 
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return;
@@ -200,12 +200,12 @@ if ( !function_exists( 'asu_wp2020_save_post_metaboxes' ) ) :
 			if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
 				return $post_id;
 
-			$asu_wp2020_meta = array();
+			$uds_wp_meta = array();
 
-			$asu_wp2020_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
-			$asu_wp2020_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
 
-			update_post_meta( $post_id, '_asu_wp2020_meta', $asu_wp2020_meta );
+			update_post_meta( $post_id, '_asu_wp2020_meta', $uds_wp_meta );
 
 		}
 	}

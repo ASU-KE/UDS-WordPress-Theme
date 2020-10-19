@@ -37,7 +37,7 @@ foreach ( $uds_wp_includes as $file ) {
 
 
 
-function asu_wp2020_remove_page_templates( $templates ) {
+function uds_wp_remove_page_templates( $templates ) {
     return array();
 }
-add_filter( 'theme_page_templates', 'asu_wp2020_remove_page_templates' );
+add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );

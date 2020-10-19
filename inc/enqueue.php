@@ -41,12 +41,12 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 add_action( 'wp_enqueue_scripts', 'uds_wp_scripts' );
 
 // Add metabox script
-function asu_wp2020_metaboxes_scripts() {
+function uds_wp_metaboxes_scripts() {
 global $pagenow;
 if ( $pagenow == 'post.php' || $pagenow == 'post-new.php' ) {
 
-			wp_enqueue_script( 'asu-wp2020-post-metaboxes', get_template_directory_uri().'/js/metaboxes.js', array('jquery'), '1.0.5', true);
+			wp_enqueue_script( 'uds-wordpress-post-metaboxes', get_template_directory_uri().'/js/metaboxes.js', array('jquery'), '1.0.5', true);
 }
 }
 
-add_action( 'admin_enqueue_scripts', 'asu_wp2020_metaboxes_scripts' );
+add_action( 'admin_enqueue_scripts', 'uds_wp_metaboxes_scripts' );
