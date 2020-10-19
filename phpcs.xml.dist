@@ -61,7 +61,7 @@
 		Disable class filename rule on these specific files only.
 	-->
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
-    <exclude-pattern>/inc/customizer/customizer-settings\.php</exclude-pattern>
+		<exclude-pattern>/inc/customizer/customizer-settings\.php</exclude-pattern>
 	</rule>
 
 	<!-- Assignments in while conditions are a valid method of looping over iterables. -->
@@ -95,7 +95,7 @@
 
 	<!-- Use the WPThemeReview Ruleset, but disable the NoFavIcon rule -->
 	<rule ref="WPThemeReview">
-	  <exclude name="WPThemeReview.CoreFunctionality.NoFavicon.NoFavicon"/>
+		<exclude name="WPThemeReview.CoreFunctionality.NoFavicon.NoFavicon"/>
 	</rule>
 
 	<!--
