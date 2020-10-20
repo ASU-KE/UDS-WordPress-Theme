@@ -5,14 +5,14 @@
  * @package uds-wordpress-theme
  */
 
-
 add_action( 'switch_theme', 'uds_wordpress_build_sample_menus' );
-function uds_wordpress_build_sample_menus () {
 
-	/*
-	* Generate example footer menu, if it doesn't already exist;  add example links to assist site builders.
-	*
-	*/
+/**
+ * Generates example menus if they don't already exist.
+ */
+function uds_wordpress_build_sample_menus() {
+
+	// Generate example footer menu.
 	$menu_name   = 'Example Footer Menu';
 	$menu_exists = wp_get_nav_menu_object( $menu_name );
 
@@ -97,10 +97,7 @@ function uds_wordpress_build_sample_menus () {
 		);
 	}
 
-	/*
-	* Generate example main menu, if it doesn't already exist;  add example links to assist site builders.
-	*
-	*/
+	// Generate example main menu.
 	$menu_name   = 'Example Main Menu';
 	$menu_exists = wp_get_nav_menu_object( $menu_name );
 
@@ -246,10 +243,7 @@ function uds_wordpress_build_sample_menus () {
 		);
 	}
 
-	/*
-	* Generate example social media menu, if it doesn't already exist;  add example link to assist site builders.
-	*
-	*/
+	// Generate example social media menu.
 	$menu_name   = 'Example Social Media';
 	$menu_exists = wp_get_nav_menu_object( $menu_name );
 

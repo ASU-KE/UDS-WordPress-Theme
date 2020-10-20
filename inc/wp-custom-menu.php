@@ -22,7 +22,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$array_menu = wp_get_nav_menu_items( $menu_object->term_id );
 
 			// array_menu will return false if there are no menu options.
-			if (! $array_menu ) {
+			if ( ! $array_menu ) {
 				$array_menu = array();
 			}
 
