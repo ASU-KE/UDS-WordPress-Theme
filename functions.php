@@ -36,8 +36,12 @@ foreach ( $uds_wp_includes as $file ) {
 }
 
 
-
+/**
+ * Remove templates field from metabox.
+ *
+ * @param Templates $templates is for template field in metabox.
+ */
 function uds_wp_remove_page_templates( $templates ) {
-    return array();
+	return array();
 }
 add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );

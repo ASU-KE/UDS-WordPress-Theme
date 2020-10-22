@@ -40,13 +40,16 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'uds_wp_scripts' );
 
-// Add metabox script
-function uds_wp_metaboxes_scripts() {
-global $pagenow;
-if ( $pagenow == 'post.php' || $pagenow == 'post-new.php' ) {
 
-			wp_enqueue_script( 'uds-wordpress-post-metaboxes', get_template_directory_uri().'/js/metaboxes.js', array('jquery'), '1.0.5', true);
-}
+/**
+ * Add metabox script.
+ */
+function uds_wp_metaboxes_scripts() {
+	global $pagenow;
+	if ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
+
+			wp_enqueue_script( 'uds-wordpress-post-metaboxes', get_template_directory_uri() . '/js/metaboxes.js', array( 'jquery' ), '1.0.5', true );
+	}
 }
 
 add_action( 'admin_enqueue_scripts', 'uds_wp_metaboxes_scripts' );

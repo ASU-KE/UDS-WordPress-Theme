@@ -46,17 +46,18 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 ?>
 
 <!-- ========= Sidebar Classes ============ -->
-<?php global $uds_wp_sidebar_opts;
+<?php
+global $uds_wp_sidebar_opts;
 			global $content_classes;
 			global $container_classes;
-			 $uds_wp_sidebar_opts=uds_wp_get_post_meta( get_the_ID() );
-			 $content_classes="col-xs pr-0 pl-0";
-			 $container_classes="container";
+			 $uds_wp_sidebar_opts = uds_wp_get_post_meta( get_the_ID() );
+			 $content_classes = 'col-xs pr-0 pl-0';
+			 $container_classes = 'container';
 
-			 if ( $uds_wp_sidebar_opts['use_sidebar'] == 'none' ):
-				 $container_classes="container-fluid";
+if ( 'none' == $uds_wp_sidebar_opts['use_sidebar'] ) :
+	$container_classes = 'container-fluid';
 			 endif;
- ?>
+?>
  <!-- ========= END::Sidebar Classes ============ -->
 
 <!DOCTYPE html>

@@ -14,14 +14,14 @@ get_header();
 
 <div class="wrapper" id="single-wrapper">
 
-	<div class="<?php echo $container_classes;?>" id="content" tabindex="-1">
+	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
-			<div class="<?php echo $content_classes;?>">
+			<div class="<?php echo $content_classes; ?>">
 
 			<main class="site-main" id="main">
 
