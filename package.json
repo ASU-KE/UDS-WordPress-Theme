@@ -20,7 +20,10 @@
     "bootstrap",
     "underscores"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "node-wget": "^0.4.3",
+    "wget": "0.0.1"
+  },
   "devDependencies": {
     "@asu-design-system/bootstrap4-theme": "dev",
     "@asu-design-system/design-tokens": "dev",
