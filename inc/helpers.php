@@ -91,7 +91,7 @@ if ( ! function_exists( 'uds_wp_get_post_meta' ) ) :
 			'sidebar' => 0,
 		);
 
-		$meta = get_post_meta( $post_id, '_asu_wp2020_meta', true );
+		$meta = get_post_meta( $post_id, '_uds_wp_meta', true );
 		$meta = wp_parse_args( (array) $meta, $defaults );
 
 		if ( $field ) {

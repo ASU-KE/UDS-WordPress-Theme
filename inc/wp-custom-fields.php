@@ -189,13 +189,13 @@ if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) :
 			return;
 		}
 
-		if ( isset( $_POST['asu_wp2020_page_nonce'] ) ) {
-			if ( ! wp_verify_nonce( $_POST['asu_wp2020_page_nonce'], __FILE__ ) ) {
+		if ( isset( $_POST['uds_wp_page_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_POST['uds_wp_page_nonce'], __FILE__ ) ) {
 				return;
 			}
 		}
 
-		if ( 'page' == $post->post_type && isset( $_POST['asu_wp2020'] ) ) {
+		if ( 'page' == $post->post_type && isset( $_POST['uds_wp'] ) ) {
 			$post_type = get_post_type_object( $post->post_type );
 			if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 				return $post_id;
@@ -203,11 +203,11 @@ if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) :
 
 			$uds_wp_meta = array();
 
-			$uds_wp_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
-			$uds_wp_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
 
 
-			update_post_meta( $post_id, '_asu_wp2020_meta', $uds_wp_meta );
+			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
 
 		}
 	}
@@ -227,14 +227,14 @@ if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) :
 			return;
 		}
 
-		if ( isset( $_POST['asu_wp2020_post_nonce'] ) ) {
-			if ( ! wp_verify_nonce( $_POST['asu_wp2020_post_nonce'], __FILE__ ) ) {
+		if ( isset( $_POST['uds_wp_post_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_POST['uds_wp_post_nonce'], __FILE__ ) ) {
 				return;
 			}
 		}
 
 
-		if ( 'post' == $post->post_type && isset( $_POST['asu_wp2020'] ) ) {
+		if ( 'post' == $post->post_type && isset( $_POST['uds_wp'] ) ) {
 			$post_type = get_post_type_object( $post->post_type );
 			if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 				return $post_id;
@@ -242,10 +242,10 @@ if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) :
 
 			$uds_wp_meta = array();
 
-			$uds_wp_meta['use_sidebar'] = isset( $_POST['asu_wp2020']['use_sidebar'] ) ? $_POST['asu_wp2020']['use_sidebar'] : 'fixed';
-			$uds_wp_meta['sidebar'] = isset( $_POST['asu_wp2020']['sidebar'] ) ? $_POST['asu_wp2020']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
 
-			update_post_meta( $post_id, '_asu_wp2020_meta', $uds_wp_meta );
+			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
 
 		}
 	}
