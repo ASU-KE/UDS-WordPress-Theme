@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $uds_wp_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
+	'/theme-activation.php',                // Build sample menus upon theme activation.
 	'/asu-favicons.php',                    // Enable ASU Favicons.
 	'/wpautop.php',                         // Disable wpautop.
 	'/widgets.php',                         // Register widget area.

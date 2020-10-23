@@ -55,8 +55,8 @@ foreach ( $menu_items as $item ) :
 		 * the menu items.
 		 */
 		case 'grandchildren':
-			// if there are more than 3 three columns, we have a megamenu to render.
-			if ( count( $item['children'] ) > 3 ) :
+			// if there are 3 or more columns, we have a megamenu to render.
+			if ( count( $item['children'] ) > 2 ) :
 				?>
 				<div class="nav-item dropdown megamenu">
 					<?php echo uds_wp_render_nav_item_link( 'megamenu', $item ); ?>
