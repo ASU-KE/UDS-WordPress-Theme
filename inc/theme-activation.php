@@ -5,7 +5,7 @@
  * @package uds-wordpress-theme
  */
 
-add_action( 'switch_theme', 'uds_wordpress_build_sample_menus' );
+add_action( 'after_switch_theme', 'uds_wordpress_build_sample_menus' );
 
 /**
  * Generates example menus if they don't already exist.
