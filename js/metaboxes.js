@@ -8,7 +8,7 @@
                 $( this ).closest( 'li' ).find( 'input' ).prop( 'checked', true );
 
                 if ( $( this ).closest( 'ul' ).hasClass( 'next-hide' ) ) {
-                    if ( 'none' == v || 0 == v || 'fixed' == v ) {
+                    if ( 'none' === v || 0 === v || 'fixed' === v ) {
                          $( this ).closest( 'ul' ).parent().find( 'select' ).fadeOut( 400 );
                     } else {
                         $( this ).closest( 'ul' ).parent().find( 'select' ).fadeIn( 400 );
