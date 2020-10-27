@@ -31,9 +31,9 @@
 - [❯ Getting Started](#-getting-started)
   - [Installing the Theme](#installing-the-theme)
   - [Updating the Theme](#updating-the-theme)
-    - [Using Github Updater](#using-github-updater)
   - [Using the Theme](#using-the-theme)
 - [❯ For Developers](#-for-developers)
+  - [Contributing](#contributing)
   - [Requirements](#requirements)
   - [Local WordPress Environment](#local-wordpress-environment)
     - [Local By Flywheel](#local-by-flywheel)
@@ -41,7 +41,7 @@
   - [Installing Dependencies](#installing-dependencies)
   - [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
     - [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
-  - [Running](#running)
+  - [Developer Workflow](#developer-workflow)
   - [Project Structure](#project-structure)
 
 
@@ -52,17 +52,27 @@
 
 ### Installing the Theme
 [to-do]
+- instructions here for end-user installing the theme
+- methods? GitHub Updater? Downloaded ZIP file?
 
 ### Updating the Theme
 [to-do]
-
-#### Using Github Updater
-[to-do]
+- instructions here for end-user updating the theme
+- methods? GitHub Updater? Downloaded ZIP file?
 
 ### Using the Theme
 [to-do]
+- customizer options
+- setting a hero image
+- social media icons
+- menus
+- shortcodes(?)
+- ???
 
 ## ❯ For Developers
+
+### Contributing
+[to-do: overall description of contributing??]
 
 ### Requirements
 You need to set up your development environment before you can do anything.
@@ -82,13 +92,14 @@ There are several solutions available for hosting local WordPress development si
 * [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up
 * [VVV](https://varyingvagrantvagrants.org/)
 
-Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
 
 #### Local By Flywheel
-[to-do-local-setup]
+[to-do: local-setup]
 
 #### Lando
-[to-do-lando-setup]
+[to-do: lando-setup]
+
+Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
 
 ### Installing Dependencies
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
@@ -115,7 +126,13 @@ npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
 
 Once you have successfully signed-in, npm will automatically save new line to your .npmrc, saving your login token for the future.
 
-### Running
+### Developer Workflow
+[to-do]
+- Travis CI
+- Linting/testing
+- Developer workflow
+- ?? (see current theme README for ideas)
+
 To work with and compile your Sass files on the fly start:
 
 - `$ gulp watch`
