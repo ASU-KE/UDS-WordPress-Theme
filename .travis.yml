@@ -35,6 +35,10 @@ matrix:
   allow_failures:
     - php: nightly
 
+# Control installation settings
+before_install:
+  - composer self-update --1
+
 # Use this to prepare the build for testing.
 before_script:
     # Speed up build time by disabling Xdebug.
