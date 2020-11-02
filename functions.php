@@ -28,7 +28,7 @@ $uds_wp_includes = array(
 	'/wp-custom-menu.php',                  // Load custom menu builder functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
-	'/tgm-plugin-activation.php'			// Load TGM Plugin Activation script for dependent plugin recommendations.
+	'/tgm-plugin-activation.php',            // Load TGM Plugin Activation script for dependent plugin recommendations.
 );
 
 foreach ( $uds_wp_includes as $file ) {

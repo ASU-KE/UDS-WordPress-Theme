@@ -3,8 +3,9 @@
  * This file contains the code that recommends or reqiuires plugins to be present.
  * Based on the included TGMPA library.
  * See: http://tgmpluginactivation.com/ for details.
+ *
+ * @package uds-wordpress-theme
  */
-
 
 add_action( 'tgmpa_register', 'uds_wp_register_required_plugins' );
 
@@ -23,7 +24,7 @@ function uds_wp_register_required_plugins() {
 			'name'        => 'Advanced Custom Fields',
 			'slug'        => 'advanced-custom-fields',
 			'is_callable' => 'get_field',
-			// 'required'	  => 'false'
+			'required'    => 'false',
 		),
 
 	);

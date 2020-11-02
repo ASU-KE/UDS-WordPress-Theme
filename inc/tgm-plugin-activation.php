@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
 	'/class-tgm-plugin-activation.php',     // Load the TGM plugin class.
-	'/recommended-plugins.php'      	    // Load our recommended plugins.
+	'/recommended-plugins.php',             // Load our recommended plugins.
 );
 
 foreach ( $uds_wp_includes as $file ) {
