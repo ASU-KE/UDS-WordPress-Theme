@@ -1,5 +1,9 @@
 <?php
 /**
+ * phpcs:ignoreFile -- File directly included from package listed below.
+ */
+
+/**
  * Plugin installation and activation for WordPress themes.
  *
  * Please note that this is a drop-in library for a theme or plugin.
