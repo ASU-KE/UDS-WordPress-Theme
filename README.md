@@ -25,55 +25,64 @@
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## ❯ Table of Contents
+## Table of Contents
 
-- [❯ Table of Contents](#-table-of-contents)
+- [Table of Contents](#table-of-contents)
 - [❯ Getting Started](#-getting-started)
-  - [Installing the Theme](#installing-the-theme)
-  - [Updating the Theme](#updating-the-theme)
+  - [Installation](#installation)
+    - [GitHub Updater](#github-updater)
+    - [Installing Required Plugins](#installing-required-plugins)
+    - [Updating the Theme](#updating-the-theme)
   - [Using the Theme](#using-the-theme)
+    - [Customizer Options](#customizer-options)
+    - [Page Heroes](#page-heroes)
+    - [Social Media Icons](#social-media-icons)
+    - [Menus](#menus)
+    - [Shortcodes](#shortcodes)
+    - [Adding Sidebars](#adding-sidebars)
+  - [Reporting Issues](#reporting-issues)
 - [❯ For Developers](#-for-developers)
-  - [Contributing](#contributing)
+  - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Local WordPress Environment](#local-wordpress-environment)
+  - [Setting Up Local or Lando](#setting-up-local-or-lando)
     - [Local By Flywheel](#local-by-flywheel)
     - [Lando](#lando)
   - [Installing Dependencies](#installing-dependencies)
   - [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
-    - [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
-  - [Developer Workflow](#developer-workflow)
-  - [Project Structure](#project-structure)
-
+  - [Contributing to the Theme](#contributing-to-the-theme)
+    - [Coding Standards](#coding-standards)
+    - [Code Linting](#code-linting)
+      - [Composer Scripts](#composer-scripts)
+      - [PHPCS](#phpcs)
+    - [Working with Styles](#working-with-styles)
+    - [BroswerSync](#broswersync)
+    - [Travis CI](#travis-ci)
+- [Project Structure](#project-structure)
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-
 ## ❯ Getting Started
 
-### Installing the Theme
-[to-do]
-- instructions here for end-user installing the theme
-- methods? GitHub Updater? Downloaded ZIP file?
-
-### Updating the Theme
-[to-do]
-- instructions here for end-user updating the theme
-- methods? GitHub Updater? Downloaded ZIP file?
+### Installation
+#### GitHub Updater
+#### Installing Required Plugins
+#### Updating the Theme
 
 ### Using the Theme
-[to-do]
-- customizer options
-- setting a hero image
-- social media icons
-- menus
-- shortcodes(?)
-- ???
+#### Customizer Options
+#### Page Heroes
+#### Social Media Icons
+#### Menus
+#### Shortcodes
+#### Adding Sidebars
+
+### Reporting Issues
+
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
 ## ❯ For Developers
-
-### Contributing
-[to-do: overall description of contributing??]
-
+### Introduction
 ### Requirements
 You need to set up your development environment before you can do anything.
 
@@ -92,12 +101,9 @@ There are several solutions available for hosting local WordPress development si
 * [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up
 * [VVV](https://varyingvagrantvagrants.org/)
 
-
+### Setting Up Local or Lando
 #### Local By Flywheel
-[to-do: local-setup]
-
 #### Lando
-[to-do: lando-setup]
 
 Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
 
@@ -108,35 +114,17 @@ Once you have been able to install and run a local version of WordPress, clone t
 - Run: `$ npm install`
 
 ### Installing Dependencies from the ASU Unity Design System
-The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
+- Does this need its own section?
 
-#### Creating a User Account and Saving your NPM Access Token
-1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com/
-2. Configure npm to use this private registry. Add the following line to the .npmrc file in your home directory (existing lines can be left in-place):
-
-```
-@asu-design-system:registry=http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
-```
-
-This config tells npm that all packages from ‘@asu-design-system’ should be grabbed from the ASU private registry. If it says you are not authorized, try to login using:
-
-```
-npm login --registry http://ec2-54-201-88-203.us-west-2.compute.amazonaws.com
-```
-
-Once you have successfully signed-in, npm will automatically save new line to your .npmrc, saving your login token for the future.
-
-### Developer Workflow
-[to-do]
-- Travis CI
-- Linting/testing
-- Developer workflow
-- ?? (see current theme README for ideas)
-
-To work with and compile your Sass files on the fly start:
-
-- `$ gulp watch`
-
+### Contributing to the Theme
+Welcoming paragraph here with general contribution notes
+#### Coding Standards
+#### Code Linting
+##### Composer Scripts
+##### PHPCS
+#### Working with Styles
+To work with and compile your Sass files on the fly start:`$ gulp watch`
+#### BroswerSync
 Or, to run with Browser-Sync:
 
 - First change the browser-sync options to reflect your environment in the file `/gulpconfig.json` in the beginning of the file:
@@ -150,8 +138,13 @@ Or, to run with Browser-Sync:
 };
 ```
 - then run: `$ gulp watch-bs`
+#### Travis CI
 
-### Project Structure
+![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
+
+## Project Structure
+[is this needed?]
+
 This theme is built on top of [Understrap](https://understrap.com), with minor adjustments specific to the needs of the theme. Most traditional WordPress theme files are where you would expect them. Files and folders of interest include:
 
 | Name                            | Description                                                                |
