@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <?php
 /**
  * Remove the WordPress Core Custom Fields metabox in Page and Post content (superceded by ACF)
