@@ -38,9 +38,6 @@ img.img-select.selected {
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-define( 'THEME_SLUG', 'uds-wordpress-theme' );
-define( 'THEME_URI', trailingslashit( get_template_directory_uri() ) );
-define( 'IMG_URI', THEME_URI . 'images' );
 
 /**
  * Remove metaboxes for WordPress' basic custom fields.
@@ -53,39 +50,32 @@ function uds_wp_remove_metaboxes() {
 add_action( 'admin_menu', 'uds_wp_remove_metaboxes' );
 
 
-/*	--- Add Metaboxes --- */
 
 add_action( 'load-post.php', 'uds_wp_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'uds_wp_meta_boxes_setup' );
-
-
-
-if ( ! function_exists( 'uds_wp_meta_boxes_setup' ) ) :
+if ( ! function_exists( 'uds_wp_meta_boxes_setup' ) ) {
 	/**
 	 * Metabox setup
 	 */
 	function uds_wp_meta_boxes_setup() {
 		global $typenow;
-		if ( 'page' == $typenow ) {
+		if ( 'page' === $typenow ) {
 			add_action( 'add_meta_boxes', 'uds_wp_load_page_metaboxes' );
 			add_action( 'save_post', 'uds_wp_save_page_metaboxes', 10, 2 );
 		}
 
-		if ( 'post' == $typenow ) {
+		if ( 'post' === $typenow ) {
 			add_action( 'add_meta_boxes', 'uds_wp_load_post_metaboxes' );
 			add_action( 'save_post', 'uds_wp_save_post_metaboxes', 10, 2 );
 		}
 	}
-endif;
+}
 
-
-
-if ( ! function_exists( 'uds_wp_load_page_metaboxes' ) ) :
+if ( ! function_exists( 'uds_wp_load_page_metaboxes' ) ) {
 	/**
 	 * Add page metaboxes
 	 */
 	function uds_wp_load_page_metaboxes() {
-
 		/* Sidebar metabox */
 		add_meta_box(
 			'uds_wp_sidebar',
@@ -95,18 +85,14 @@ if ( ! function_exists( 'uds_wp_load_page_metaboxes' ) ) :
 			'side',
 			'default'
 		);
-
 	}
-endif;
+}
 
-
-
-if ( ! function_exists( 'uds_wp_load_post_metaboxes' ) ) :
+if ( ! function_exists( 'uds_wp_load_post_metaboxes' ) ) {
 	/**
 	 * Add post metaboxes
 	 */
 	function uds_wp_load_post_metaboxes() {
-
 		/**
 	  *  Sidebar metabox
 			*/
@@ -120,64 +106,49 @@ if ( ! function_exists( 'uds_wp_load_post_metaboxes' ) ) :
 		);
 
 	}
-endif;
+}
 
-
-
-if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) :
+if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) {
 	/**
 	 * Create Sidebars Metabox
 	 *
-	 * @param Object $object for current post/page ID.
+	 * @param Object $object The current Post/Page object.
 	 *
 	 * @param Box    $box for metabox.
 	 */
 	function uds_wp_sidebar_metabox( $object, $box ) {
 		$uds_wp_meta = uds_wp_get_post_meta( $object->ID );
-		$sidebars_lay = uds_wp_get_sidebar_layouts( false );
+		$sidebars_layout = uds_wp_get_sidebar_layouts( false );
 		$sidebars = uds_wp_get_sidebars_list( false );
 		?>
-		  <ul class="img-select-wrap next-hide">
-		<?php foreach ( $sidebars_lay as $id => $layout ) : ?>
-			  <li >
+		<ul class="img-select-wrap next-hide">
+		<?php foreach ( $sidebars_layout as $id => $layout ) : ?>
+			<li >
 				<?php $selected_class = $id == $uds_wp_meta['use_sidebar'] ? ' selected' : ''; ?>
-				  <img src="<?php echo $layout['img']; ?>" title="<?php echo $layout['title']; ?>" class="img-select<?php echo $selected_class; ?>">
-				  <span><?php echo $layout['title']; ?></span>
-				  <input type="radio" class="hidden" name="uds_wp[use_sidebar]" value="<?php echo $id; ?>"
+				<img src="<?php echo $layout['img']; ?>" title="<?php echo $layout['title']; ?>" class="img-select<?php echo $selected_class; ?>">
+				<span><?php echo $layout['title']; ?></span>
+				<input type="radio" class="hidden" name="uds_wp[use_sidebar]" value="<?php echo $id; ?>"
 			<?php checked( $id, $uds_wp_meta['use_sidebar'] ); ?>/> </label>
-			  </li>
+			</li>
 		<?php endforeach; ?>
-	   </ul>
-
-
-
-		<?php
-		if ( ! empty( $sidebars ) ) :
-			?>
-			<?php
-			if ( 'none' == $uds_wp_meta['use_sidebar'] || 'fixed' == $uds_wp_meta['use_sidebar'] ) {
+	</ul>
+		<?php 
+		$display = '';
+		if ( ! empty( $sidebars ) ) {
+			if ( 'none' === $uds_wp_meta['use_sidebar'] || 'fixed' === $uds_wp_meta['use_sidebar'] ) {
 				$display = ' style="display:none;"';}
 			?>
-		  <p><select name="uds_wp[sidebar]" class="widefat" <?php echo $display; ?>>
+		<p><select name="uds_wp[sidebar]" class="widefat" <?php echo $display; ?>>
 			<?php foreach ( $sidebars as $id => $name ) : ?>
-			  <option value="<?php echo $id; ?>" <?php selected( $id, $uds_wp_meta['sidebar'] ); ?>><?php echo $name; ?></option>
+			<option value="<?php echo $id; ?>" <?php selected( $id, $uds_wp_meta['sidebar'] ); ?>><?php echo $name; ?></option>
 		<?php endforeach; ?>
-	  </select></p>
-
-
-		  <?php endif; ?>
-		<?php
+	</select></p>
+			<?php 
+		}
 	}
-endif;
+}
 
-
-
-
-
-
-
-
-if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) :
+if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) {
 	/**
 	 *  Save Page Meta
 	 *
@@ -195,26 +166,21 @@ if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) :
 			}
 		}
 
-		if ( 'page' == $post->post_type && isset( $_POST['uds_wp'] ) ) {
+		if ( 'page' === $post->post_type && isset( $_POST['uds_wp'] ) ) {
 			$post_type = get_post_type_object( $post->post_type );
 			if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 				return $post_id;
 			}
 
 			$uds_wp_meta = array();
-
 			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
 			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
-
-
 			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
-
 		}
 	}
-endif;
+}
 
-
-if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) :
+if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) {
 	/**
 	 *  Save Post Meta
 	 *
@@ -222,7 +188,6 @@ if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) :
 	 * @param post    $post for post arry.
 	 */
 	function uds_wp_save_post_metaboxes( $post_id, $post ) {
-
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
 		}
@@ -233,34 +198,15 @@ if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) :
 			}
 		}
 
-
-		if ( 'post' == $post->post_type && isset( $_POST['uds_wp'] ) ) {
+		if ( 'post' === $post->post_type && isset( $_POST['uds_wp'] ) ) {
 			$post_type = get_post_type_object( $post->post_type );
 			if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 				return $post_id;
 			}
-
 			$uds_wp_meta = array();
-
 			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
 			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
-
 			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
-
 		}
 	}
-endif;
-
-
-
-
-
-
-
-
-
-?>
-
-
-
-<?php
+}

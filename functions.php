@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
-	'/helpers.php',
+	'/theme-sidebars-helpers.php',          // Sidebar helper functions.
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/asu-favicons.php',                    // Enable ASU Favicons.
@@ -37,7 +37,8 @@ foreach ( $uds_wp_includes as $file ) {
 
 
 /**
- * Remove templates field from metabox.
+ * To remove Template field from the Page Attributes metabox.
+ * ====== I'm leaving this function here till we decide whether to use it or not ====== .
  *
  * @param Templates $templates is for template field in metabox.
  */
