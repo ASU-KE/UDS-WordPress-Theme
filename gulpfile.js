@@ -82,6 +82,7 @@ gulp.task( 'minifycss', function() {
 		.src( [
 			paths.css + '/custom-editor-style.css',
 			paths.css + '/theme.css',
+			paths.css + '/admin.css',
 		] )
 		.pipe(
 			sourcemaps.init( {

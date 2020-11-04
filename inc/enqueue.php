@@ -48,9 +48,11 @@ if ( ! function_exists( 'uds_wp_metaboxes_scripts' ) ) {
 		$the_theme     = wp_get_theme();
 		$theme_version = $the_theme->get( 'Version' );
 		$js_metaboxes_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/metaboxes.js' );
+		$css_metaboxes_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.min.css' );
 		if ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
 
-			wp_enqueue_script( 'uds-wordpress-post-metaboxes', get_template_directory_uri() . '/js/metaboxes.js', array( 'jquery' ), $js_metaboxes_version, true );
+			wp_enqueue_script( 'uds-wordpress-sidebar-metabox-scripts', get_template_directory_uri() . '/js/metaboxes.js', array( 'jquery' ), $js_metaboxes_version, true );
+			wp_enqueue_style( 'uds-wordpress-sidebar-metabox-styles', get_template_directory_uri() . '/css/admin.min.css', array(), $css_metaboxes_version );
 		}
 	}
 } // End of if function_exists( 'uds_wp_metaboxes_scripts' ).

@@ -1,33 +1,5 @@
 <style>
-ul.img-select-wrap {
-	width: 100%;
-	display: flex;
-	margin: 15px 0;
-}
 
-ul.img-select-wrap li {
-	float: left;
-	margin-right: 1px;
-}
-img.img-select {
-	border: 2px solid #eee;
-	cursor: pointer;
-	border-radius: 4px;
-	background: #fff;
-}
-.img-select-wrap li span {
-	font-size: 11px;
-	display: block;
-	text-align: center;
-	max-width: 60px;
-	line-height: 13px;
-}
-input.hidden {
-	display: none!important;
-}
-img.img-select.selected {
-	border: 2px solid #ffc627;
-}
 </style>
 <?php
 /**
@@ -124,7 +96,7 @@ if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) {
 		<ul class="img-select-wrap next-hide">
 		<?php foreach ( $sidebars_layout as $id => $layout ) : ?>
 			<li >
-				<?php $selected_class = $id == $uds_wp_meta['use_sidebar'] ? ' selected' : ''; ?>
+				<?php $selected_class = ( $id == $uds_wp_meta['use_sidebar'] ) ? ' selected' : ''; ?>
 				<img src="<?php echo $layout['img']; ?>" title="<?php echo $layout['title']; ?>" class="img-select<?php echo $selected_class; ?>">
 				<span><?php echo $layout['title']; ?></span>
 				<input type="radio" class="hidden" name="uds_wp[use_sidebar]" value="<?php echo $id; ?>"
@@ -132,7 +104,7 @@ if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) {
 			</li>
 		<?php endforeach; ?>
 	</ul>
-		<?php 
+		<?php
 		$display = '';
 		if ( ! empty( $sidebars ) ) {
 			if ( 'none' === $uds_wp_meta['use_sidebar'] || 'fixed' === $uds_wp_meta['use_sidebar'] ) {
@@ -143,7 +115,7 @@ if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) {
 			<option value="<?php echo $id; ?>" <?php selected( $id, $uds_wp_meta['sidebar'] ); ?>><?php echo $name; ?></option>
 		<?php endforeach; ?>
 	</select></p>
-			<?php 
+			<?php
 		}
 	}
 }
@@ -173,8 +145,8 @@ if ( ! function_exists( 'uds_wp_save_page_metaboxes' ) ) {
 			}
 
 			$uds_wp_meta = array();
-			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
-			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = ( isset( $_POST['uds_wp']['use_sidebar'] ) ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = ( isset( $_POST['uds_wp']['sidebar'] ) ) ? $_POST['uds_wp']['sidebar'] : 0;
 			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
 		}
 	}
@@ -204,8 +176,8 @@ if ( ! function_exists( 'uds_wp_save_post_metaboxes' ) ) {
 				return $post_id;
 			}
 			$uds_wp_meta = array();
-			$uds_wp_meta['use_sidebar'] = isset( $_POST['uds_wp']['use_sidebar'] ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
-			$uds_wp_meta['sidebar'] = isset( $_POST['uds_wp']['sidebar'] ) ? $_POST['uds_wp']['sidebar'] : 0;
+			$uds_wp_meta['use_sidebar'] = ( isset( $_POST['uds_wp']['use_sidebar'] ) ) ? $_POST['uds_wp']['use_sidebar'] : 'fixed';
+			$uds_wp_meta['sidebar'] = ( isset( $_POST['uds_wp']['sidebar'] ) ) ? $_POST['uds_wp']['sidebar'] : 0;
 			update_post_meta( $post_id, '_uds_wp_meta', $uds_wp_meta );
 		}
 	}
