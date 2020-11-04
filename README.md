@@ -48,6 +48,7 @@
   - [Setting Up Local or Lando](#setting-up-local-or-lando)
     - [Local By Flywheel](#local-by-flywheel)
     - [Lando](#lando)
+  - [Cloning the Theme](#cloning-the-theme)
   - [Installing Dependencies](#installing-dependencies)
   - [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
   - [Contributing to the Theme](#contributing-to-the-theme)
@@ -105,7 +106,8 @@ There are several solutions available for hosting local WordPress development si
 #### Local By Flywheel
 #### Lando
 
-Once you have been able to install and run a local version of WordPress, clone this repository into the `wp-content/themes` folder and continue with the installation process below.
+### Cloning the Theme
+Once you have been able to install and run a local version of WordPress, clone [theme repository](https://github.com/asu-ke-web-services/UDS-WordPress-Theme.git) into the `wp-content/themes` folder and continue with the installation process below.
 
 ### Installing Dependencies
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
