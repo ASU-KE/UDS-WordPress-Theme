@@ -61,7 +61,7 @@ if ( ! function_exists( 'uds_wp_load_post_metaboxes' ) ) {
 	 */
 	function uds_wp_load_post_metaboxes() {
 		/**
-	  	 *  Sidebar metabox
+		 *  Sidebar metabox
 		 */
 		add_meta_box(
 			'uds_wp_sidebar',
