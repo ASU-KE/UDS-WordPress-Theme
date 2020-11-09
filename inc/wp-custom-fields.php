@@ -18,10 +18,6 @@ function uds_wp_remove_metaboxes() {
 }
 add_action( 'admin_menu', 'uds_wp_remove_metaboxes' );
 
-
-
-add_action( 'load-post.php', 'uds_wp_meta_boxes_setup' );
-add_action( 'load-post-new.php', 'uds_wp_meta_boxes_setup' );
 if ( ! function_exists( 'uds_wp_meta_boxes_setup' ) ) {
 	/**
 	 * Metabox setup
@@ -39,6 +35,8 @@ if ( ! function_exists( 'uds_wp_meta_boxes_setup' ) ) {
 		}
 	}
 }
+add_action( 'load-post.php', 'uds_wp_meta_boxes_setup' );
+add_action( 'load-post-new.php', 'uds_wp_meta_boxes_setup' );
 
 if ( ! function_exists( 'uds_wp_load_page_metaboxes' ) ) {
 	/**
@@ -63,8 +61,8 @@ if ( ! function_exists( 'uds_wp_load_post_metaboxes' ) ) {
 	 */
 	function uds_wp_load_post_metaboxes() {
 		/**
-	  *  Sidebar metabox
-			*/
+	  	 *  Sidebar metabox
+		 */
 		add_meta_box(
 			'uds_wp_sidebar',
 			__( 'Sidebars & Templates', 'uds-wordpress-theme' ),

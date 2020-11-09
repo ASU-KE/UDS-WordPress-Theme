@@ -13,28 +13,34 @@ if ( ! function_exists( 'uds_wp_get_sidebar_layouts' ) ) {
 	 */
 	function uds_wp_get_sidebar_layouts( $inherit = false ) {
 		$layouts = array();
+
 		if ( $inherit ) {
 			$layouts['inherit'] = array(
 				'title' => __( 'Inherit', 'uds-wordpress-theme' ),
 				'img' => get_template_directory_uri() . '/img/admin/inherit.png',
 			);
 		}
+
 		$layouts['none'] = array(
 			'title' => __( 'Full width', 'uds-wordpress-theme' ),
 			'img' => get_template_directory_uri() . '/img/admin/content_no_sid.png',
 		);
+
 		$layouts['fixed'] = array(
 			'title' => __( 'Fixed width', 'uds-wordpress-theme' ),
 			'img' => get_template_directory_uri() . '/img/admin/content_fixed.png',
 		);
+
 		$layouts['left'] = array(
 			'title' => __( 'Left sidebar', 'uds-wordpress-theme' ),
 			'img' => get_template_directory_uri() . '/img/admin/content_sid_left.png',
 		);
+
 		$layouts['right'] = array(
 			'title' => __( 'Right sidebar', 'uds-wordpress-theme' ),
 			'img' => get_template_directory_uri() . '/img/admin/content_sid_right.png',
 		);
+
 		return $layouts;
 	}
 }
@@ -46,16 +52,19 @@ if ( ! function_exists( 'uds_wp_get_sidebars_list' ) ) {
 	 * @param Inherit $inherit is for the default option 'inherit' in sidebar options.
 	 */
 	function uds_wp_get_sidebars_list( $inherit = false ) {
+		global $wp_registered_sidebars;
 		$sidebars = array();
+
 		if ( $inherit ) {
 			$sidebars['inherit'] = __( 'Inherit', 'uds-wordpress-theme' );
 		}
-		global $wp_registered_sidebars;
+
 		if ( ! empty( $wp_registered_sidebars ) ) {
 			foreach ( $wp_registered_sidebars as $sidebar ) {
 				$sidebars[ $sidebar['id'] ] = $sidebar['name'];
 			}
 		}
+
 		return $sidebars;
 	}
 }

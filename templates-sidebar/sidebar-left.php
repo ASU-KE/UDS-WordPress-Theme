@@ -9,7 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 global $uds_wp_sidebar_opts;
 
-?>
-<div class="col-md-4 col-xs-12 pl-0 widget-area" id="left-sidebar">
-<?php	dynamic_sidebar( $uds_wp_sidebar_opts['sidebar'] ); ?>
-</div>
+echo '<div class="col-md-4 col-xs-12 pl-0 widget-area" id="left-sidebar">';
+	dynamic_sidebar( $uds_wp_sidebar_opts['sidebar'] );
+echo '</div>';
