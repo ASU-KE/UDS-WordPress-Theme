@@ -1,13 +1,13 @@
 <?php
 /**
- * Get sidebar layouts
+ * Helper functions for displaying page sidebar options in the Content Editor.
  *
  * @package uds-wordpress-theme
  */
 
 if ( ! function_exists( 'uds_wp_get_sidebar_layouts' ) ) {
 	/**
-	 * Get sidebar layouts without includeing $inherit option
+	 * Build options array with helper thumbnail images to display sidebar layout options in the page editor
 	 *
 	 * @param Inherit $inherit is for the default option 'inherit' in sidebar options.
 	 */
@@ -41,7 +41,7 @@ if ( ! function_exists( 'uds_wp_get_sidebar_layouts' ) ) {
 
 if ( ! function_exists( 'uds_wp_get_sidebars_list' ) ) {
 	/**
-	 * Get all sidebars without includeing $inherit option
+	 * Return array of all registered sidebars
 	 *
 	 * @param Inherit $inherit is for the default option 'inherit' in sidebar options.
 	 */
