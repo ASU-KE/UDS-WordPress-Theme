@@ -193,14 +193,6 @@ function your_project_add_prefooter_content() {
 add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
 ```
 
-
-
-
-
-
-
-
-
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
 ## Project Structure
