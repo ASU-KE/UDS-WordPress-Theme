@@ -116,7 +116,27 @@ Once you have been able to install and run a local version of WordPress, clone [
 - Run: `$ npm install`
 
 ### Installing Dependencies from the ASU Unity Design System
-- Does this need its own section?
+
+The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
+
+#### Creating a User Account and Saving your NPM Access Token
+
+1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: https://registry.web.asu.edu/
+2. Create your npm user account by executing in a terminal: `npm adduser --registry https://registry.web.asu.edu`
+3. It is recommended that you use your ASU.edu email address. You can use any password; be sure to save it in LastPass!
+4. Configure npm to use this private registry. Add the following line to the .npmrc file in your home directory (existing lines can be left in-place):
+
+```
+@asu-design-system:registry=https://registry.web.asu.edu/
+```
+
+This config tells npm that all packages from ‘@asu-design-system’ should be requested from the ASU private registry. If it says you are not authorized, sign in using:
+
+```
+npm login --registry https://registry.web.asu.edu/
+```
+
+Once you have successfully signed-in, npm will automatically save a new line to your .npmrc, saving your login token for the future.
 
 ### Contributing to the Theme
 Welcoming paragraph here with general contribution notes
