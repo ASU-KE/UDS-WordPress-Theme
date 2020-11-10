@@ -24,7 +24,7 @@ $uds_wp_includes = array(
 	'/custom-comments.php',                 // Custom Comments file.
 	'/jetpack.php',                         // Load Jetpack compatibility file.
 	'/wp-custom-fields.php',                // Disable WP Core custom fields metaboxes.
-	'/advanced-custom-fields.php',          // Load integrated ACF plugin.
+	'/tgm-plugin-activation.php',           // Load TGM Plugin Activation script for dependent plugin recommendations.
 	'/class-wp-social-media-walker.php',    // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-menu.php',                  // Load custom menu builder functions.
 	'/editor.php',                          // Load Editor functions.
