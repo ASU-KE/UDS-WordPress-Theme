@@ -253,3 +253,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 			</div>
 
 		</header>
+
+		<?php do_action( 'uds_wp_after_global_header' ); ?>
+
