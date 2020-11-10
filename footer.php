@@ -89,6 +89,8 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 		<?php
 	endif;
 
+	do_action( 'uds_wp_before_global_footer_columns' );
+
 	if ( 'enabled' === $footer_row_actions ) :
 		?>
 	<div class="wrapper" id="wrapper-footer-columns">
