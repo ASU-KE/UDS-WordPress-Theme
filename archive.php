@@ -15,12 +15,14 @@ get_header();
 
 <div class="wrapper" id="archive-wrapper">
 
-	<div class="container" id="content" tabindex="-1">
+	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+
+			<div class="<?php echo $content_classes; ?>">
 
 			<main class="site-main" id="main">
 
@@ -55,10 +57,12 @@ get_header();
 			<?php
 			// Display the pagination component.
 			uds_wp_pagination();
-
+			?>
+</div>
+	  <?php
 			// Check for the right sidebar.
 			get_template_part( 'templates-global/right-sidebar-check' );
-			?>
+		?>
 
 		</div><!-- .row -->
 

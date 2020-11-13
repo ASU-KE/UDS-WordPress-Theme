@@ -23,21 +23,15 @@ get_header();
 
 	<?php include get_template_directory() . '/hero.php'; ?>
 
-	<div class="container" id="content" tabindex="-1">
 
-		<div class="row">
+	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
+	<div class="row">
 
-			<?php
-			get_template_part( 'templates-sidebar/sidebar', 'left' );
+			<!-- Check for the left sidebar and open the primary div -->
+			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
-			if ( is_active_sidebar( 'sidebar-left' ) xor is_active_sidebar( 'sidebar-right' ) ) {
-				$class = 'col-md-8';  // Sidebar + Main: col-md-12 - col-md-4 = col-md-8.
-			} elseif ( is_active_sidebar( 'sidebar-left' ) && is_active_sidebar( 'sidebar-right' ) ) {
-				$class = 'col-md-6';  // 2 Sidebars + Main: col-md-12 - col-md-3 - col-md-3 = col-md-6.
-			} else {
-				$class = 'col-md-12';
-			}
-			?>
+
+		<div class="<?php echo $content_classes; ?>">
 
 			<div class="<?php echo $class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> content-area" id="primary">
 
@@ -59,13 +53,17 @@ get_header();
 
 			</div><!-- #primary -->
 
-			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
-		</div><!-- .row -->
+		</div>
 
-	</div><!-- #content -->
+		<!-- Check for the right sidebar -->
+		<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
+
+
+	</div><!-- .row -->
+
+</div><!-- #content -->
 </div><!-- #page-wrapper -->
 
 <?php
