@@ -269,3 +269,6 @@ if ( 'none' === $uds_wp_sidebar_opts['use_sidebar'] ) {
 			</div>
 
 		</header>
+
+		<?php do_action( 'uds_wp_after_global_header' ); ?>
+

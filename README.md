@@ -28,36 +28,39 @@
 
 - [Table of Contents](#table-of-contents)
 - [❯ Getting Started](#-getting-started)
-  - [Installation](#installation)
-    - [GitHub Updater](#github-updater)
-    - [Installing Required Plugins](#installing-required-plugins)
-    - [Updating the Theme](#updating-the-theme)
-  - [Using the Theme](#using-the-theme)
-    - [Customizer Options](#customizer-options)
-    - [Page Heroes](#page-heroes)
-    - [Social Media Icons](#social-media-icons)
-    - [Menus](#menus)
-    - [Shortcodes](#shortcodes)
-    - [Adding Sidebars](#adding-sidebars)
-  - [Reporting Issues](#reporting-issues)
+	- [Installation](#installation)
+		- [GitHub Updater](#github-updater)
+		- [Installing Required Plugins](#installing-required-plugins)
+		- [Updating the Theme](#updating-the-theme)
+	- [Using the Theme](#using-the-theme)
+		- [Customizer Options](#customizer-options)
+		- [Page Heroes](#page-heroes)
+		- [Social Media Icons](#social-media-icons)
+		- [Menus](#menus)
+		- [Shortcodes](#shortcodes)
+		- [Adding Sidebars](#adding-sidebars)
+	- [Reporting Issues](#reporting-issues)
 - [❯ For Developers](#-for-developers)
-  - [Introduction](#introduction)
-  - [Requirements](#requirements)
-  - [Local WordPress Environment](#local-wordpress-environment)
-  - [Setting Up Local or Lando](#setting-up-local-or-lando)
-    - [Local By Flywheel](#local-by-flywheel)
-    - [Lando](#lando)
-  - [Cloning the Theme](#cloning-the-theme)
-  - [Installing Dependencies](#installing-dependencies)
-  - [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
-  - [Contributing to the Theme](#contributing-to-the-theme)
-    - [Coding Standards](#coding-standards)
-    - [Code Linting](#code-linting)
-      - [Composer Scripts](#composer-scripts)
-      - [PHPCS](#phpcs)
-    - [Working with Styles](#working-with-styles)
-    - [BroswerSync](#broswersync)
-    - [Travis CI](#travis-ci)
+	- [Introduction](#introduction)
+	- [Requirements](#requirements)
+	- [Local WordPress Environment](#local-wordpress-environment)
+	- [Setting Up Local or Lando](#setting-up-local-or-lando)
+		- [Local By Flywheel](#local-by-flywheel)
+		- [Lando](#lando)
+	- [Cloning the Theme](#cloning-the-theme)
+	- [Installing Dependencies](#installing-dependencies)
+	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
+	- [Contributing to the Theme](#contributing-to-the-theme)
+		- [Coding Standards](#coding-standards)
+		- [Code Linting](#code-linting)
+			- [Composer Scripts](#composer-scripts)
+			- [PHPCS](#phpcs)
+		- [Working with Styles](#working-with-styles)
+		- [BroswerSync](#broswersync)
+		- [Travis CI](#travis-ci)
+	- [Extending the Theme](#extending-the-theme)
+		- [UDS-WordPress-Child-Theme theme template](#uds-wordpress-child-theme-theme-template)
+		- [Action Hooks and Filters](#action-hooks-and-filters)
 - [Project Structure](#project-structure)
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
@@ -189,6 +192,54 @@ Or, to run with Browser-Sync:
 - then run: `$ gulp watch-bs`
 
 #### Travis CI
+
+### Extending the Theme
+The UDS-WordPress theme is a complete theme which includes all of the required WordPress template files and assets for the theme to work.
+
+It can also function as the [parent](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme) for a customized child theme. A [child theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-child-theme) allows developers to make modifications to any part of the existing theme and to keep their customizations separate from the parent theme functions.
+
+The UDS-WordPress theme also includes several [action hooks](https://kinsta.com/blog/wordpress-hooks/) that can be used either by a child theme or a plugin to add or alter functionality of the parent theme.
+
+#### UDS-WordPress-Child-Theme theme template
+
+A "starter" child theme template has been made available for use in creating your custom solution for WordPress. That theme template is located here:
+
+- https://github.com/asu-ke-web-services/UDS-WordPress-Child-Theme
+
+Out of the box, the child theme template:
+
+- Compiles its own set of CSS rules so that styles from the parent can be overwritten by the child theme's CSS.
+- Includes a reference to the **UDS-Boostrap-4** design token library, so that you can include these standardized references in your child theme's codebase.
+- Includes both the child and the parent's `functions.php` (and related) files. This follows the best practices of the WordPress project.
+
+Further instructions on how to best use the child theme template can be found the GitHub repository.
+
+#### Action Hooks and Filters
+
+The **UDS-WordPress-Theme** includes hooks in the following places.
+| Hook | Location |
+|------|----------|
+| uds_wp_after_global_header     | header.php         |
+| uds_wp_before_global_footer     | footer.php         |
+| uds_wp_before_global_footer_columns | footer.php |
+
+**uds_wp_after_global_header** - fires immediately after the closing `</header><!-- end #asu-header -->` statement in `header.php`. Serves as an ideal place for a small banner or other alert mechanism to be added before a potential hero image across multiple pages on the site.
+
+**uds_wp_before_global_footer** - fires immediately before the closing global `<footer>` tag in `footer.php`. Allows for a persistent block of code to appear across multiple pages of the site, just above the point at which the global footer begins.
+
+**uds_wp_before_global_footer_columns** - fires immediately before the `<div id="wrapper-footer-columns">` landmark within `footer.php`. In conjunction with the theme option to turn off the native footer column feature, this would be a handy way to replace the native functionality for the footer columns with your own solution.
+
+You can take advantage of these hooks within a child theme or plugin using a function like the following:
+```
+/**
+ * Adds a section of content immediately above the global footer.
+ * Looks for a template called '/templates/content-prefooter.php'
+ */
+function your_project_add_prefooter_content() {
+	get_template_part( 'templates/content', 'prefooter' );
+}
+add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
+```
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 

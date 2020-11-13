@@ -25,6 +25,9 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 	$footer_row_actions = $c_options['footer_row_actions'];
 }
 ?>
+
+<?php do_action( 'uds_wp_before_global_footer' ); ?>
+
 <footer role="contentinfo">
 	<?php
 	if ( 'enabled' === $footer_row_branding ) :
@@ -85,6 +88,8 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 	</div> <!-- wrapper-endorsed-footer -->
 		<?php
 	endif;
+
+	do_action( 'uds_wp_before_global_footer_columns' );
 
 	if ( 'enabled' === $footer_row_actions ) :
 		?>
