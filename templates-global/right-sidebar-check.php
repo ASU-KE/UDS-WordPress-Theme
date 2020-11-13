@@ -9,11 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-</div><!-- #closing the primary container from /templates-global/left-sidebar-check.php -->
-
-<?php
-$sidebar_pos = get_theme_mod( 'uds_wp_sidebar_position' );
-
-if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) {
-	get_template_part( 'templates-sidebar/sidebar', 'right' );
-}
+<!-- ========= Right Sidebar ============ -->
+		<?php
+		global $uds_wp_sidebar_opts;
+		if ( 'right' === $uds_wp_sidebar_opts['use_sidebar'] ) :
+			get_template_part( 'templates-sidebar/sidebar', 'right' );
+		endif;
+		?>
+<!-- ========= END::Right Sidebar ============ -->

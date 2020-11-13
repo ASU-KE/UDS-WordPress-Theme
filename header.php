@@ -44,6 +44,22 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	$hotjar_site_id = $c_options['hotjar_site_id'];
 }
 ?>
+
+<!-- ========= Sidebar Classes ============ -->
+<?php
+global $uds_wp_sidebar_opts;
+global $content_classes;
+global $container_classes;
+$uds_wp_sidebar_opts = uds_wp_get_post_meta( get_the_ID() );
+$content_classes = 'col-xs pr-0 pl-0';
+$container_classes = 'container';
+
+if ( 'none' === $uds_wp_sidebar_opts['use_sidebar'] ) {
+			$container_classes = 'container-fluid';
+}
+?>
+ <!-- ========= END::Sidebar Classes ============ -->
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -54,7 +70,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	<?php wp_head(); ?>
 
 	<?php
-	if ( is_user_logged_in() && ! is_customize_preview() ) :
+	if ( is_user_logged_in() && ! is_customize_preview() ) {
 		// shift page content below the WP Admin toolbar.
 		?>
 		<style type="text/css" media="screen">
@@ -67,7 +83,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 			}
 		</style>
 		<?php
-	endif;
+	}
 
 	// ASU Hub Analytics.
 	if ( ! empty( $asu_hub_analytics ) && 'enabled' === $asu_hub_analytics ) {
@@ -163,14 +179,14 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 
 									<?php
 									// if no parentUnit defined, render site (subdomain) name alone.
-									if ( empty( $c_options['parent_unit_name'] ) ) :
+									if ( empty( $c_options['parent_unit_name'] ) ) {
 										?>
 										<div class="title subdomain-name">
 											<?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?>
 										</div>
 										<?php
 										// render both site (subdomain) and parentUnit in header.
-									else :
+									} else {
 										?>
 										<div class="title">
 											<?php
@@ -186,13 +202,13 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 											<span class="subdomain-name"><?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?></span>
 										</div>
 										<?php
-									endif;
+									}
 									?>
 
 									<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 										<?php
 										// if nav menu is enabled, render it.
-										if ( 'enabled' === $nav_menu_enabled ) :
+										if ( 'enabled' === $nav_menu_enabled ) {
 											?>
 										<div class="navbar-nav">
 											<?php
@@ -219,7 +235,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 											?>
 										</div><!-- end .navbar-nav -->
 											<?php
-										endif;
+										}
 										?>
 
 										<div class="navbar-mobile-footer">

@@ -15,12 +15,14 @@ get_header();
 
 <div class="wrapper" id="author-wrapper">
 
-	<div class="container" id="content" tabindex="-1">
+	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+
+			<div class="<?php echo $content_classes; ?>">
 
 			<main class="site-main" id="main">
 
@@ -90,7 +92,7 @@ get_header();
 
 			<!-- The pagination component -->
 			<?php uds_wp_pagination(); ?>
-
+		</div>
 			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 
