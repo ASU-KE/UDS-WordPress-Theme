@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
+	'/navigation-widget.php',               // Custom Navigation menu widget.
 	'/theme-sidebars-helpers.php',          // Sidebar helper functions.
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
