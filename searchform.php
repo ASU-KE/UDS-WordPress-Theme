@@ -10,13 +10,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	<label class="sr-only" for="s"><?php esc_html_e( 'Search', 'uds-wordpress-theme' ); ?></label>
+
 	<div class="input-group">
-		<input class="field form-control" id="s" name="s" type="text"
-			placeholder="<?php esc_attr_e( 'Search &hellip;', 'uds-wordpress-theme' ); ?>" value="<?php the_search_query(); ?>">
-		<span class="input-group-append">
-			<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-			value="<?php esc_attr_e( 'Search', 'uds-wordpress-theme' ); ?>">
-		</span>
+		<input class="field form-control border-right-0 rounded-0" id="s" name="s" type="text"
+			placeholder="<?php esc_attr_e( 'Search', 'uds-wordpress-theme' ); ?>" value="<?php the_search_query(); ?>">
+			<span class="input-group-append">
+			<button class="submit bg-transparent form-control border-left-0 rounded-0" id="searchsubmit" name="submit" type="submit"> <i class="fa fa-search"></i></button>
+			</span>
 	</div>
 </form>
