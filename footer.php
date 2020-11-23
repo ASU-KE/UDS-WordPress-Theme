@@ -220,8 +220,6 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 	</div> <!-- wrapper-footer-colophon -->
 </footer>
 
-</div><!-- #page we need this extra closing tag here -->
-
 <?php wp_footer(); ?>
 
 </body>
