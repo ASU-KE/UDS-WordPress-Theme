@@ -24,7 +24,7 @@ $uds_wp_includes = array(
 	'/customizer.php',                      // Customizer additions.
 	'/custom-comments.php',                 // Custom Comments file.
 	'/jetpack.php',                         // Load Jetpack compatibility file.
-	'/wp-custom-fields.php',                // Disable WP Core custom fields metaboxes.
+	// '/wp-custom-fields.php',                // Disable WP Core custom fields metaboxes.
 	'/tgm-plugin-activation.php',           // Load TGM Plugin Activation script for dependent plugin recommendations.
 	'/class-wp-social-media-walker.php',    // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-menu.php',                  // Load custom menu builder functions.
@@ -46,4 +46,4 @@ foreach ( $uds_wp_includes as $file ) {
 function uds_wp_remove_page_templates( $templates ) {
 	return array();
 }
-add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );
+// add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );
