@@ -53,7 +53,6 @@ function uds_wp_theme_navigation_menu_custom_walker( $args ) {
 			$args,
 			array(
 				'container'            => '',
-				'theme_location' => 'social-media',
 				'menu_class'           => '',
 				'menu_id'              => '',
 				'items_wrap'           => '%3$s',
