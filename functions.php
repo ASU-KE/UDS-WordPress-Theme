@@ -30,7 +30,7 @@ $uds_wp_includes = array(
 	'/wp-custom-menu.php',                       // Load custom menu builder functions.
 	'/editor.php',                               // Load Editor functions.
 	'/deprecated.php',                           // Load deprecated functions.
-	'/class-uds-notification-banner-widget.php', // Load the UDS notification widget.
+	'/class-uds-notification-banner.php', // Load the UDS notification widget.
 );
 
 foreach ( $uds_wp_includes as $file ) {
