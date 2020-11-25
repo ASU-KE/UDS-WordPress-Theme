@@ -105,7 +105,7 @@ if ( ! function_exists( 'uds_wp_sidebar_metabox' ) ) {
 			if ( 'none' === $uds_wp_meta['use_sidebar'] || 'fixed' === $uds_wp_meta['use_sidebar'] ) {
 				$display = ' style="display:none;"';}
 			?>
-		<p><select name="uds_wp[sidebar]" class="widefat" <?php echo $display; ?>>
+		<p><select name="uds_wp[sidebar]" class="" <?php echo $display; ?>>
 			<?php foreach ( $sidebars as $id => $name ) : ?>
 			<option value="<?php echo $id; ?>" <?php selected( $id, $uds_wp_meta['sidebar'] ); ?>><?php echo $name; ?></option>
 		<?php endforeach; ?>
