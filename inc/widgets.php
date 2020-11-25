@@ -9,6 +9,12 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Removes support for blocks in the widget areas.
+ * Feature included via the Gutenberg plugin but not ready for production. (Nov 2020)
+ */
+remove_theme_support( 'widgets-block-editor' );
+
+/**
  * Add filter to the parameters passed to a widget's display callback.
  * The filter is evaluated on both the front and the back end!
  *
