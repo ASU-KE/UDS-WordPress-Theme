@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
-	'/theme-sidebars-helpers.php',          // Sidebar helper functions.
+	// '/theme-sidebars-helpers.php',          // Sidebar helper functions.
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/theme-activation.php',                // Build sample menus upon theme activation.
@@ -36,14 +36,20 @@ foreach ( $uds_wp_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
 
-
 /**
  * To remove Template field from the Page Attributes metabox.
  * ====== I'm leaving this function here till we decide whether to use it or not ====== .
  *
  * @param Templates $templates is for template field in metabox.
  */
-function uds_wp_remove_page_templates( $templates ) {
-	return array();
-}
+// function uds_wp_remove_page_templates( $templates ) {
+// 	return array();
+// }
 // add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );
+
+function uds_filter_default_page_template_name( $label ) {
+	return __( 'Sidebar (Default)', 'uds-wordpress-theme' );
+}
+add_filter( 'default_page_template_title', 'uds_filter_default_page_template_name', 10, 2 );
+
+remove_theme_support( 'widgets-block-editor' );

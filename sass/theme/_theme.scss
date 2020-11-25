@@ -1,1 +1,25 @@
-// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+/*--------------------------------------------------------------
+1. Max width 1920px, align center
+--------------------------------------------------------------*/
+
+main > * {
+	margin-left:auto;
+	margin-right:auto;
+	max-width:1960px;
+}
+
+/*--------------------------------------------------------------
+2. Default page (sidebar), sidebar ordering
+--------------------------------------------------------------*/
+
+// The source order of the page will display the sidebar on the right naturally.
+.page-template-default {
+	.sidebar-left {
+		article #secondary {
+			order: 1;
+		}
+		article #primary {
+			order: 2;
+		}
+	}
+}

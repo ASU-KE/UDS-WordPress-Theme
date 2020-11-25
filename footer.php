@@ -98,7 +98,6 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 			<div class="container" id="footer-columns">
 				<div class="row">
 
-
 					<div class="col-xl-3" id="info-column">
 						<?php
 						// =============================

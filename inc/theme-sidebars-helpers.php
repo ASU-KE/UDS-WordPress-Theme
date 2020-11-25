@@ -21,16 +21,6 @@ if ( ! function_exists( 'uds_wp_get_sidebar_layouts' ) ) {
 			);
 		}
 
-		$layouts['none'] = array(
-			'title' => __( 'Full width', 'uds-wordpress-theme' ),
-			'img' => get_template_directory_uri() . '/img/admin/content_no_sid.png',
-		);
-
-		$layouts['fixed'] = array(
-			'title' => __( 'Fixed width', 'uds-wordpress-theme' ),
-			'img' => get_template_directory_uri() . '/img/admin/content_fixed.png',
-		);
-
 		$layouts['left'] = array(
 			'title' => __( 'Left sidebar', 'uds-wordpress-theme' ),
 			'img' => get_template_directory_uri() . '/img/admin/content_sid_left.png',

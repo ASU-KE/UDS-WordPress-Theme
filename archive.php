@@ -15,14 +15,14 @@ get_header();
 
 <div class="wrapper" id="archive-wrapper">
 
-	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
+	<div id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
-			<div class="<?php echo $content_classes; ?>">
+			<div>
 
 			<main class="site-main" id="main">
 

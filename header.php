@@ -45,21 +45,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 }
 ?>
 
-<!-- ========= Sidebar Classes ============ -->
-<?php
-global $uds_wp_sidebar_opts;
-global $content_classes;
-global $container_classes;
-$uds_wp_sidebar_opts = uds_wp_get_post_meta( get_the_ID() );
-$content_classes = 'col-xs pr-0 pl-0';
-$container_classes = 'container';
-
-if ( 'none' === $uds_wp_sidebar_opts['use_sidebar'] ) {
-			$container_classes = 'container-fluid';
-}
-?>
- <!-- ========= END::Sidebar Classes ============ -->
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
