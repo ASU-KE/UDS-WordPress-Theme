@@ -16,6 +16,7 @@ $uds_wp_includes = array(
 	'/asu-favicons.php',                         // Enable ASU Favicons.
 	'/wpautop.php',                              // Disable wpautop.
 	'/widgets.php',                              // Register widget area.
+	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
 	'/template-tags.php',                        // Custom template tags for this theme.
 	'/pagination.php',                           // Custom pagination for this theme.
@@ -30,7 +31,6 @@ $uds_wp_includes = array(
 	'/wp-custom-menu.php',                       // Load custom menu builder functions.
 	'/editor.php',                               // Load Editor functions.
 	'/deprecated.php',                           // Load deprecated functions.
-	'/class-uds-notification-banner.php', // Load the UDS notification widget.
 );
 
 foreach ( $uds_wp_includes as $file ) {
