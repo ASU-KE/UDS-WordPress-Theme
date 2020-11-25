@@ -22,7 +22,7 @@ get_header();
 
 			the_post();
 
-			get_template_part( 'templates-global/hero');
+			get_template_part( 'templates-global/hero' );
 
 			the_content();
 

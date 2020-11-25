@@ -28,7 +28,7 @@ while ( have_posts() ) {
 
 	<main id="skip-to-content" <?php post_class( $sidebar_position_class ); ?>>
 
-		<?php get_template_part( 'templates-global/hero'); ?>
+		<?php get_template_part( 'templates-global/hero' ); ?>
 
 		<article class="container">
 			<div class="row">
@@ -60,6 +60,6 @@ while ( have_posts() ) {
 
 	<?php
 
-	}
+}
 
 get_footer();
