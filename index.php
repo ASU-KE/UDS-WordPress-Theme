@@ -19,7 +19,7 @@ get_header();
 
 <div class="wrapper" id="index-wrapper">
 
-	<?php include get_template_directory() . '/hero.php'; ?>
+	<?php get_template_part( 'templates-global/hero' ); ?>
 
 	<div id="content" tabindex="-1">
 
