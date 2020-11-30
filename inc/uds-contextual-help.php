@@ -1,22 +1,33 @@
 <?php
+/**
+ * Creates a context help tab on the WordPress admin's menu page.
+ *
+ * @package UDS-WordPress Theme
+ * @author ASU KE Web Services
+ */
+
+/**
+ * Function to add contextual help tab and add content via a callback.
+ */
 function add_context_menu_help() {
 
-	//get the current screen object
+	// get the current screen object.
 	$current_screen = get_current_screen();
 
-	//
-	if( "nav-menus" === $current_screen->id) {
-		$current_screen->add_help_tab( array(
-			'id' => 'uds_menu_help_tab',
-			'title' => __('ASU Web Standards'),
-			'callback' => 'nav_menu_help_content'));
-		}
+	if ( 'nav-menus' === $current_screen->id ) {
+		$current_screen->add_help_tab(
+			array(
+				'id' => 'uds_menu_help_tab',
+				'title' => __( 'ASU Web Standards', 'uds-wordpress-theme' ),
+				'callback' => 'nav_menu_help_content',
+			)
+		);
+	}
 }
 
 
 /**
  * Function to echo the contextual help content that appears only on the menu building admin screen.
- *
  */
 function nav_menu_help_content() {
 
@@ -38,4 +49,4 @@ EOS;
 	echo $content;
 }
 
-add_action('admin_head', 'add_context_menu_help');
+add_action( 'admin_head', 'add_context_menu_help' );

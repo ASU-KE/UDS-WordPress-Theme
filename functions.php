@@ -17,7 +17,7 @@ $uds_wp_includes = array(
 	'/wpautop.php',                         // Disable wpautop.
 	'/widgets.php',                         // Register widget area.
 	'/enqueue.php',                         // Enqueue scripts and styles.
-	'/uds-contextual-help.php',                 // theme-specific context-senstive help tabs
+	'/uds-contextual-help.php',             // theme-specific context-senstive help tabs.
 	'/template-tags.php',                   // Custom template tags for this theme.
 	'/pagination.php',                      // Custom pagination for this theme.
 	'/hooks.php',                           // Custom hooks.

@@ -99,21 +99,19 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$column[ $m->ID ]['cta_color']  = get_field( 'menu_cta_button_color', $m );
 
 					/**
-					 * add this item's data as a child to the $dropdown array we created in step 2.
-					 * placing it under the parent, then under 'children', in a new array with ID of this item's ID.
+					 * Add this item's data as a child to the $dropdown array we created in step 2.
+					 * Place it under the parent, then under 'children', in a new array with ID of this item's ID.
 					 */
 					$dropdown[ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
 
 					/**
-					 * determine this item's top-menu item (grandparent) by getting the parent ID of this item's parent.
-					 * adding a check here to ensure that there is a parent array in the parent of this item for us to
+					 * Determine this item's top-menu item (grandparent) by getting the parent ID of this item's parent.
+					 * Adding a check here to ensure that there is a parent array in the parent of this item for us to
 					 * add anything to.
 					 */
-					if ( array_key_exists ( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
+					if ( array_key_exists( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
 						$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
 						$menu[ $top_menu ]['children'][ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
-					}else{
-						// if the menu item has a parent, but that parent is not a dropdown, ignore it.
 					}
 				}
 			}
