@@ -34,15 +34,13 @@ function nav_menu_help_content() {
 	$content = <<<EOS
 	<p>The UDS-WordPress theme interprets nested menu items in a specific way: </p>
 	<ul>
-		<li>Standard menu items will appear in the top level menu of your site</li>
-		<li>Sub-items at the second level will become part of a drop-down menu under their parent</li>
-		<li>Sub-items at the third level will do two things:
+		<li>menu items can be nested no more than <b>three</b> levels deep. Any menu you item to drag to the fourth level (or any level beyond that) <b>will not appear</b> in the menu.</li>
+		<li>First level menu items will appear as entries in the main navigation menu</li>
+		<li>Second level menu items will form dropdown menus beneath their parent item, <b>unless</b> there are also third-level items beneath them. In that case:
 			<ul style="margin-top: .5em;">
-				<li><b>Convert</b> the second level item above them to a non-clickable <b>column header</b> and then...</li>
-				<li>Add all third level sub-items to the newly created column below their parent</li>
+				<li>the second level item will become a non-clickable column header, and all third-level items below it will form links in a single column</li>
 			</ul>
-		</li>
-		<li>All sub-items at the fourth level, or lower, <b>will be ignored</b> and will not display at all</li>
+		<li>any sub-menu with more than two columns will be rendered as a full-width 'mega-menu'</li>
 	</ul>
 EOS;
 
