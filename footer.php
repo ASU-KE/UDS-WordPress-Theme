@@ -28,7 +28,7 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 
 <?php do_action( 'uds_wp_before_global_footer' ); ?>
 
-<footer role="contentinfo">
+<footer id="asu-footer">
 	<?php
 	if ( 'enabled' === $footer_row_branding ) :
 		?>
