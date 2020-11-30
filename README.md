@@ -37,6 +37,9 @@
 		- [Page Heroes](#page-heroes)
 		- [Social Media Icons](#social-media-icons)
 		- [Menus](#menus)
+			- [Working with the Main Menu](#working-with-the-main-menu)
+			- [Working with the Footer Menu](#working-with-the-footer-menu)
+			- [Working with the Social Media Icons Menu](#working-with-the-social-media-icons-menu)
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
 	- [Reporting Issues](#reporting-issues)
@@ -50,6 +53,7 @@
 	- [Cloning the Theme](#cloning-the-theme)
 	- [Installing Dependencies](#installing-dependencies)
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
+		- [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
 	- [Contributing to the Theme](#contributing-to-the-theme)
 		- [Coding Standards](#coding-standards)
 		- [Code Linting](#code-linting)
@@ -84,6 +88,27 @@
 #### Social Media Icons
 
 #### Menus
+The UDS-WordPress theme has three assignable menu areas:
+- The **main navigation** menu, at the top of every page
+- The **main footer** menu, at the bottom of every page
+- The **social media icons** menu, shown above the main footer area
+
+
+##### Working with the Main Menu
+You build the main menu of your site using the built-in WordPress menu builder. The menu-building code behind the scenes, however, will enforce certain ASU Web Standards when it comes to the main navigation menu:
+
+- menu items can be nested no more than **three** levels deep. Any menu you item to drag to the fourth level (or any level beyond that) **will not appear** in the menu.
+- First level menu items will appear as entries in the main navigation menu
+- Second level menu items will form dropdown menus beneath their parent item, **unless** there are also third-level items beneath them. In that case:
+  - the second level item will become a non-clickable column header, and all third-level items below it will form links in a single column
+  - any sub-menu with more than two columns will be rendered as a full-width 'mega-menu'
+
+Here is an example of a main menu hierarchy, and how each item would be rendered in this theme.
+
+![Example of menu hierarchy](img/admin/menu-hierarchy.png "Example Menu Hierarchy")
+
+##### Working with the Footer Menu
+##### Working with the Social Media Icons Menu
 
 #### Shortcodes
 
