@@ -27,12 +27,12 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [❯ Getting Started](#-getting-started)
+- [Getting Started](#getting-started)
 	- [Installation](#installation)
 		- [GitHub Updater](#github-updater)
 		- [Installing Required Plugins](#installing-required-plugins)
-		- [Updating the Theme](#updating-the-theme)
 	- [Using the Theme](#using-the-theme)
+		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
 		- [Page Heroes](#page-heroes)
 		- [Social Media Icons](#social-media-icons)
@@ -40,7 +40,7 @@
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
 	- [Reporting Issues](#reporting-issues)
-- [❯ For Developers](#-for-developers)
+- [For Developers](#for-developers)
 	- [Introduction](#introduction)
 	- [Requirements](#requirements)
 	- [Local WordPress Environment](#local-wordpress-environment)
@@ -50,6 +50,7 @@
 	- [Cloning the Theme](#cloning-the-theme)
 	- [Installing Dependencies](#installing-dependencies)
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
+		- [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
 	- [Contributing to the Theme](#contributing-to-the-theme)
 		- [Coding Standards](#coding-standards)
 		- [Code Linting](#code-linting)
@@ -65,7 +66,7 @@
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## ❯ Getting Started
+## Getting Started
 
 ### Installation
 
@@ -73,9 +74,9 @@
 
 #### Installing Required Plugins
 
-#### Updating the Theme
-
 ### Using the Theme
+
+#### Updating the Theme
 
 #### Customizer Options
 
@@ -93,7 +94,7 @@
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## ❯ For Developers
+## For Developers
 
 ### Introduction
 
