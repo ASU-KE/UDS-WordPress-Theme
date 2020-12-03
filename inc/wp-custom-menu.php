@@ -19,7 +19,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
-			$array_menu = wp_get_nav_menu_items( $menu_object->term_id );
+			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
 
 			// array_menu will return false if there are no menu options.
 			if ( ! $array_menu ) {
@@ -29,7 +29,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$menu = array();
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
-					$menu[ $m->ID ] = array();
+					$menu[ $m->ID ]               = array();
 					$menu[ $m->ID ]['ID']         = $m->ID;
 					$menu[ $m->ID ]['order']      = $m->menu_order;
 					$menu[ $m->ID ]['title']      = $m->title;
@@ -44,7 +44,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$dropdown = array();
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $menu ) ) {
-					$dropdown[ $m->ID ] = array();
+					$dropdown[ $m->ID ]               = array();
 					$dropdown[ $m->ID ]['ID']         = $m->ID;
 					$dropdown[ $m->ID ]['order']      = $m->menu_order;
 					$dropdown[ $m->ID ]['title']      = $m->title;
@@ -61,7 +61,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$column = array();
 			foreach ( $array_menu as $m ) {
 				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $menu ) ) {
-					$column[ $m->ID ] = array();
+					$column[ $m->ID ]               = array();
 					$column[ $m->ID ]['ID']         = $m->ID;
 					$column[ $m->ID ]['order']      = $m->menu_order;
 					$column[ $m->ID ]['title']      = $m->title;
@@ -75,7 +75,6 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$menu[ $top_menu ]['children'][ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
 				}
 			}
-
 			return $menu;
 		} else {
 			return;
@@ -85,35 +84,78 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 
 if ( ! function_exists( 'uds_wp_get_menu_depth' ) ) {
 	/**
-	 * Get the depth of this particular menu item in its hierarchy by inspecting
+	 * Get the depth of this particular top-level item's hierarchy by inspecting
 	 * the 'children' sub-array at each level to determine whether or not
 	 * it is empty.
 	 *
-	 * @param Array $item  Array of top-level menu items.
-	 * @return String      Maximum depth of the menu: single, children, or grandchildren.
+	 * While we are here, we also compare each child/grandchild's URL to see if
+	 * it matches the URL of the currently displayed page, so we can highlight
+	 * the top-level menu item.
+	 *
+	 * @param Array  $item  Array of top-level menu items.
+	 * @param String $this_page  The URL of the current page.
+	 *
+	 * @return Array $item_info Array containing info on the menu item
+	 *    $item_info = [
+	 *        'depth' => (string) depth of menu: single,children, or grandchildren
+	 *        'has_current' => (bool) does this top-level item contain the current page?
+	 *        'title'=> (string) text of the menu item
+	 *    ]
 	 */
-	function uds_wp_get_menu_depth( $item = null ) {
+	function uds_wp_get_menu_depth( $item = null, $this_page = null ) {
+
+		// create local variable for the current page URL.
+		$current_page = $this_page;
+
+		// prepare the array will return with default values.
+		$item_info = array(
+			'depth'       => 'single',
+			'has_current' => false,
+			'title'       => $item['title'],
+		);
+
 		if ( empty( $item ) ) {
 			wp_die( 'Cannot find depth of a menu item that was not provided, or is empty.' );
 		}
 
-		// presume that we do not have any children or grandchildren.
-		$depth = 'single';
+		// compare the top-level item's URL with the current page URL.
+		if ( $current_page === $item['url'] ) {
+			$item_info['has_current'] = true;
+		}
 
+		// if we have child items under this top-level item, evaluate them.
 		if ( ! empty( $item['children'] ) ) {
-			// we have at least children, since the array is not empty.
-			$depth = 'children';
 
-			// check for any grandchildren, exiting if we find any.
+			// we have at least children, since the array is not empty.
+			$item_info['depth'] = 'children';
+
+			/**
+			 * We have children. See if any of them are the current page
+			 * or if any of them have grandchildren
+			 */
 			foreach ( $item['children'] as $child ) {
+
+				// If this child's URL is the current URL, update our array.
+				if ( $current_page === $child['url'] ) {
+					$item_info['has_current'] = true;
+				}
+
+				// check to see if this child item also has children.
 				if ( ! empty( $child['children'] ) ) {
-					$depth = 'grandchildren';
-					break;
+
+					// if the child-level item has children, we have grandchildren.
+					$item_info['depth'] = 'grandchildren';
+
+					// check each grandchild to see if it is the current page.
+					foreach ( $child['children'] as $grandchild ) {
+						if ( $current_page === $grandchild['url'] ) {
+							$item_info['has_current'] = true;
+						}
+					}
 				}
 			}
 		}
-
-		return $depth;
+		return $item_info;
 	}
 }
 
@@ -135,13 +177,13 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 
 		foreach ( $children as $child ) {
 			// check if menu item is a CTA Button.
-			$is_cta_button = $child['cta_button'];
+			$is_cta_button    = $child['cta_button'];
 			$cta_button_color = $child['cta_color'];
 
 			if ( $is_cta_button ) {
 				$links .= uds_wp_render_nav_cta_button( $cta_button_color, $child );
 			} else {
-				$link = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
+				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
 				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
 			}
 		}
@@ -158,11 +200,17 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 *
 	 * @param string $menu_type The type of menu, used in the markup id and class names.
 	 * @param array  $item      The navigation item whose link we want to render.
-	 *
+	 * @param array  $item_data Array of information about the current top-level nav link.
 	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menu_type, $item ) {
+	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data ) {
 		$link = '';
+
+		if ( true === $item_data['has_current'] ) {
+			$active_classname = 'active';
+		} else {
+			$active_classname = '';
+		}
 
 		switch ( $item['depth'] ) {
 
@@ -172,13 +220,12 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 			%3$s
 			<span class="fa fa-chevron-down"></span>
 			</a>';
-				$link = wp_kses( sprintf( $template, $item['url'], $menu_type, $item['title'] ), wp_kses_allowed_html( 'post' ) );
+				$link     = wp_kses( sprintf( $template, $item['url'], $menu_type, $item['title'] ), wp_kses_allowed_html( 'post' ) );
 				return $link;
-				break;
 
 			default:
-				$template = '<a class="nav-link" href="%1$s" title="%2$s">%2$s</a>';
-				$link = wp_kses( sprintf( $template, $item['url'], $item['title'] ), wp_kses_allowed_html( 'post' ) );
+				$template = '<a class="nav-link %1$s" href="%2$s" title="%3$s">%3$s</a>';
+				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'] ), wp_kses_allowed_html( 'post' ) );
 				return $link;
 		}
 	}
@@ -197,7 +244,7 @@ if ( ! function_exists( 'uds_wp_render_nav_cta_button' ) ) {
 		$button = '';
 
 		$template = '<a href="%1$s" class="btn btn-sm btn-%2$s">%3$s</a>';
-		$button = wp_kses( sprintf( $template, $item['url'], $cta_color, $item['title'] ), wp_kses_allowed_html( 'post' ) );
+		$button   = wp_kses( sprintf( $template, $item['url'], $cta_color, $item['title'] ), wp_kses_allowed_html( 'post' ) );
 		return $button;
 	}
 }
