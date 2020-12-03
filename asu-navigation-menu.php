@@ -40,7 +40,7 @@ foreach ( $menu_items as $item ) :
 
 	// set the CSS classname for this top-level item.
 	if ( $item_data['has_current'] ) {
-		$current_class = ' active';
+		$current_class = 'active';
 	} else {
 		$current_class = '';
 	}
