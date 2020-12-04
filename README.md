@@ -35,6 +35,7 @@
 	- [Using the Theme](#using-the-theme)
 		- [Customizer Options](#customizer-options)
 		- [Page Heroes](#page-heroes)
+		- [Page Banners](#page-banners)
 		- [Social Media Icons](#social-media-icons)
 		- [Menus](#menus)
 			- [Working with the Main Menu](#working-with-the-main-menu)
@@ -84,6 +85,13 @@
 #### Customizer Options
 
 #### Page Heroes
+
+#### Page Banners
+The theme provides a widget area, and corresponding widget, for displaying UDS-compliant banners across the top of every page in your site. These banners will appear below the hero area, and above all other content.
+
+To create a banner, add the provided *Notification Banner* widget to the *Global Banner Area* on the WordPress widgets admin screen (or via the Customizer) and configure the banner as desired using the options provided. Make sure to set the *Show Banner* option to **Yes** in order to have the banner appear on your site.
+
+To remove a page banner, either delete the widget from the Global Banner widget area, or set the *Show Banner* option to **No**.
 
 #### Social Media Icons
 
