@@ -27,12 +27,12 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [❯ Getting Started](#-getting-started)
+- [Getting Started](#getting-started)
 	- [Installation](#installation)
 		- [GitHub Updater](#github-updater)
 		- [Installing Required Plugins](#installing-required-plugins)
-		- [Updating the Theme](#updating-the-theme)
 	- [Using the Theme](#using-the-theme)
+		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
@@ -44,7 +44,7 @@
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
 	- [Reporting Issues](#reporting-issues)
-- [❯ For Developers](#-for-developers)
+- [For Developers](#for-developers)
 	- [Introduction](#introduction)
 	- [Requirements](#requirements)
 	- [Local WordPress Environment](#local-wordpress-environment)
@@ -70,7 +70,7 @@
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## ❯ Getting Started
+## Getting Started
 
 ### Installation
 
@@ -78,9 +78,9 @@
 
 #### Installing Required Plugins
 
-#### Updating the Theme
-
 ### Using the Theme
+
+#### Updating the Theme
 
 #### Customizer Options
 
@@ -126,7 +126,7 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
-## ❯ For Developers
+## For Developers
 
 ### Introduction
 
