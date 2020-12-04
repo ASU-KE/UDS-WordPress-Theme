@@ -25,8 +25,16 @@ get_header();
 
 
 	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
-	<div class="row">
 
+		<div class="row mb-12">
+			<div class="col">
+				<?php if ( is_active_sidebar( 'global-banner' ) ) : ?>
+					<?php dynamic_sidebar( 'global-banner' ); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+
+		<div class="row">
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 

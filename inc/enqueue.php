@@ -39,6 +39,26 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'wp_enqueue_scripts', 'uds_wp_scripts' );
 
+
+
+if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
+	/**
+	 * Load admin JavaScript and CSS sources.
+	 */
+	function uds_wp_admin_scripts() {
+		// Get the theme data.
+		$the_theme     = wp_get_theme();
+		$theme_version = $the_theme->get( 'Version' );
+
+		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.css' );
+		wp_enqueue_style( 'uds-wordpress-admin-styles', get_template_directory_uri() . '/css/admin.css', array(), $css_version );
+	}
+} // End of if function_exists( 'uds_wp_scripts' ).
+add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
+
+
+
+
 if ( ! function_exists( 'uds_wp_metaboxes_scripts' ) ) {
 	/**
 	 * Add metabox script and call it on admin side only.

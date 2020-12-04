@@ -8,7 +8,7 @@ ul.img-select-wrap {
   margin: 15px 0; }
   ul.img-select-wrap li {
     float: left;
-    margin-right: 1px; }
+    margin-right: 10px; }
     ul.img-select-wrap li span {
       font-size: 11px;
       display: block;
@@ -27,4 +27,83 @@ img.img-select {
 input.hidden {
   display: none !important; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluL19zaWRlYmFyLW1ldGFib3guc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNDLFdBQVc7RUFDWCxvQkFBYTtFQUFiLHFCQUFhO0VBQWIsaUJBQWE7RUFBYixvQkFBYTtFQUFiLGFBQWE7RUFDYixjQUFjLEVBQUE7RUFIZjtJQUtFLFdBQVc7SUFDWCxpQkFBaUIsRUFBQTtJQU5uQjtNQVFHLGVBQWU7TUFDZixjQUFjO01BQ2Qsa0JBQWtCO01BQ2xCLGVBQWU7TUFDZixpQkFBaUIsRUFBQTs7QUFLcEI7RUFDQyxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBQTtFQUpqQjtJQU1FLHlCQUF5QixFQUFBOztBQUkzQjtFQUNDLHdCQUF1QixFQUFBIiwiZmlsZSI6ImFkbWluLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcblxudWwuaW1nLXNlbGVjdC13cmFwIHtcblx0d2lkdGg6IDEwMCU7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdG1hcmdpbjogMTVweCAwO1xuXHRsaXtcblx0XHRmbG9hdDogbGVmdDtcblx0XHRtYXJnaW4tcmlnaHQ6IDFweDtcblx0XHRzcGFuIHtcblx0XHRcdGZvbnQtc2l6ZTogMTFweDtcblx0XHRcdGRpc3BsYXk6IGJsb2NrO1xuXHRcdFx0dGV4dC1hbGlnbjogY2VudGVyO1xuXHRcdFx0bWF4LXdpZHRoOiA2MHB4O1xuXHRcdFx0bGluZS1oZWlnaHQ6IDEzcHg7XG5cdFx0fVxuXHR9XG59XG5cbmltZy5pbWctc2VsZWN0IHtcblx0Ym9yZGVyOiAycHggc29saWQgI2VlZTtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHRib3JkZXItcmFkaXVzOiA0cHg7XG5cdGJhY2tncm91bmQ6ICNmZmY7XG5cdCYuc2VsZWN0ZWQge1xuXHRcdGJvcmRlcjogMnB4IHNvbGlkICNmZmM2Mjc7XG5cdH1cbn1cblxuaW5wdXQuaGlkZGVuIHtcblx0ZGlzcGxheTogbm9uZSFpbXBvcnRhbnQ7XG59XG4iXX0= */
+/*
+ * change color of draggable menu items that are too deep.
+ */
+.menu-item-depth-3 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-3 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-3 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-4 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-4 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-4 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-5 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-5 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-5 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-6 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-6 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-6 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-7 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-7 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-7 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-8 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-8 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-8 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-9 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-9 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-9 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-10 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-10 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-10 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-11 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-11 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-11 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-12 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-12 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-12 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-13 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-13 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-13 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
