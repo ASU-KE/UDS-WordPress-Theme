@@ -16,6 +16,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 	 * @param string $menu_name Slug name of desired menu.
 	 */
 	function uds_wp_get_menu_formatted_array( $menu_name ) {
+
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
@@ -26,6 +27,15 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 				$array_menu = array();
 			}
 
+			/**
+			 * Constructing a menu array
+			 */
+
+			/**
+			 * Step 1: Loop through ALL source menu items we retreived from WordPress,
+			 * and add any that DO NOT HAVE a parent item. These would then be
+			 * the top-level menu items. We call our menu holding array $menu.
+			 */
 			$menu = array();
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
@@ -41,6 +51,15 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 				}
 			}
 
+
+			/**
+			 * Step 2: Loop through ALL source menu items again. If an item has a parent, AND
+			 * that parent is in the array we just made in step 1, it is a child item of
+			 * a top-level menu item. We place that item's information as a new element in
+			 * the $dropdown array.
+			 *
+			 * The item's information will have the id of the parent item as well.
+			 */
 			$dropdown = array();
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $menu ) ) {
@@ -54,11 +73,21 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$dropdown[ $m->ID ]['parent']     = $m->menu_item_parent;
 					$dropdown[ $m->ID ]['children']   = array();
 
+					/**
+					 * Add the current child's data to the existing $menu array under 'children',
+					 * and then under this item's ID, for that parent ID
+					 */
 					$menu[ $m->menu_item_parent ]['children'][ $m->ID ] = $dropdown[ $m->ID ];
 				}
 			}
 
+			/**
+			 * Step 3: Loop through every source menu item a third time. If this item has a
+			 * parent value, but that value IS NOT IN the top-level menu array, build an array
+			 * of data for this menu item
+			 */
 			$column = array();
+
 			foreach ( $array_menu as $m ) {
 				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $menu ) ) {
 					$column[ $m->ID ]               = array();
@@ -69,10 +98,21 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$column[ $m->ID ]['cta_button'] = get_field( 'menu_cta_button', $m );
 					$column[ $m->ID ]['cta_color']  = get_field( 'menu_cta_button_color', $m );
 
+					/**
+					 * Add this item's data as a child to the $dropdown array we created in step 2.
+					 * Place it under the parent, then under 'children', in a new array with ID of this item's ID.
+					 */
 					$dropdown[ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
 
-					$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
-					$menu[ $top_menu ]['children'][ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
+					/**
+					 * Determine this item's top-menu item (grandparent) by getting the parent ID of this item's parent.
+					 * Adding a check here to ensure that there is a parent array in the parent of this item for us to
+					 * add anything to.
+					 */
+					if ( array_key_exists( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
+						$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
+						$menu[ $top_menu ]['children'][ $m->menu_item_parent ]['children'][ $m->ID ] = $column[ $m->ID ];
+					}
 				}
 			}
 			return $menu;
