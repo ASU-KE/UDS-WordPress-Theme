@@ -7,7 +7,7 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-require_once get_template_directory() . '/inc/class-custom-walker-nav-menu.php';
+require_once get_template_directory() . '/inc/class-uds-custom-walker-widget-nav-menu.php';
 
 /* Check if function exists. */
 if ( ! function_exists( 'uds_wp_theme_custom_widget_title_tag' ) ) {
@@ -67,7 +67,7 @@ if ( ! function_exists( 'uds_wp_theme_navigation_menu_custom_walker' ) ) {
 					'menu_class'           => '',
 					'menu_id'              => '',
 					'items_wrap'           => '%3$s',
-					'walker'               => new Custom_Walker_Nav_Menu(),
+					'walker'               => new Uds_Custom_Walker_Widget_Nav_Menu(),
 				)
 			);
 		} else {
