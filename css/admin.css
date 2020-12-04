@@ -27,4 +27,83 @@ img.img-select {
 input.hidden {
   display: none !important; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluL19zaWRlYmFyLW1ldGFib3guc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNDLFdBQVc7RUFDWCxvQkFBYTtFQUFiLHFCQUFhO0VBQWIsaUJBQWE7RUFBYixvQkFBYTtFQUFiLGFBQWE7RUFDYixjQUFjLEVBQUE7RUFIZjtJQUtFLFdBQVc7SUFDWCxrQkFBa0IsRUFBQTtJQU5wQjtNQVFHLGVBQWU7TUFDZixjQUFjO01BQ2Qsa0JBQWtCO01BQ2xCLGVBQWU7TUFDZixpQkFBaUIsRUFBQTs7QUFLcEI7RUFDQyxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBQTtFQUpqQjtJQU1FLHlCQUF5QixFQUFBOztBQUkzQjtFQUNDLHdCQUF1QixFQUFBIiwiZmlsZSI6ImFkbWluLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcblxudWwuaW1nLXNlbGVjdC13cmFwIHtcblx0d2lkdGg6IDEwMCU7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdG1hcmdpbjogMTVweCAwO1xuXHRsaXtcblx0XHRmbG9hdDogbGVmdDtcblx0XHRtYXJnaW4tcmlnaHQ6IDEwcHg7XG5cdFx0c3BhbiB7XG5cdFx0XHRmb250LXNpemU6IDExcHg7XG5cdFx0XHRkaXNwbGF5OiBibG9jaztcblx0XHRcdHRleHQtYWxpZ246IGNlbnRlcjtcblx0XHRcdG1heC13aWR0aDogNjBweDtcblx0XHRcdGxpbmUtaGVpZ2h0OiAxM3B4O1xuXHRcdH1cblx0fVxufVxuXG5pbWcuaW1nLXNlbGVjdCB7XG5cdGJvcmRlcjogMnB4IHNvbGlkICNlZWU7XG5cdGN1cnNvcjogcG9pbnRlcjtcblx0Ym9yZGVyLXJhZGl1czogNHB4O1xuXHRiYWNrZ3JvdW5kOiAjZmZmO1xuXHQmLnNlbGVjdGVkIHtcblx0XHRib3JkZXI6IDJweCBzb2xpZCAjZmZjNjI3O1xuXHR9XG59XG5cbmlucHV0LmhpZGRlbiB7XG5cdGRpc3BsYXk6IG5vbmUhaW1wb3J0YW50O1xufVxuIl19 */
+/*
+ * change color of draggable menu items that are too deep.
+ */
+.menu-item-depth-3 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-3 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-3 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-4 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-4 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-4 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-5 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-5 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-5 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-6 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-6 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-6 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-7 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-7 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-7 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-8 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-8 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-8 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-9 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-9 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-9 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-10 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-10 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-10 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-11 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-11 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-11 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-12 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-12 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-12 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
+.menu-item-depth-13 .menu-item-bar .menu-item-handle {
+  background-color: #F99; }
+  .menu-item-depth-13 .menu-item-bar .menu-item-handle .is-submenu::after {
+    content: ' - too deep!'; }
+  .menu-item-depth-13 .menu-item-bar .menu-item-handle .item-title {
+    margin-right: 5em; }
+
