@@ -16,6 +16,7 @@ $uds_wp_includes = array(
 	'/asu-favicons.php',                         // Enable ASU Favicons.
 	'/wpautop.php',                              // Disable wpautop.
 	'/widgets.php',                              // Register widget area.
+	'/navigation-widget.php',                    // Custom Navigation menu widget.
 	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
 	'/template-tags.php',                        // Custom template tags for this theme.
