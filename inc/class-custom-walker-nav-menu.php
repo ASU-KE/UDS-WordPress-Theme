@@ -32,11 +32,11 @@ if ( ! class_exists( 'Custom_Walker_Nav_Menu' ) ) {
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = null ) {
 			global $parent_menu_item_id;
-			if ($depth === 0){
+			if ( 0 === $depth ) {
 				$output .= '<div id="menu-content-of-' . $parent_menu_item_id . '" class="card-body collapse" aria-labelledby="' . $parent_menu_item_id . '" data-parent=".sidebar">';
-      }else {
+			} else {
 				$output .= '<div class="card-body pt-2">';
-      }
+			}
 		}
 		/**
 		 * Ends the list of after child elements are added, to add a close tag for the child menu.
@@ -48,11 +48,11 @@ if ( ! class_exists( 'Custom_Walker_Nav_Menu' ) ) {
 		 * @param args   $args navigation mwnu arguments.
 		 */
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
-			if ($depth === 0){
-        $output .= "\n</div></div>\n";
-			}else {
+			if ( 0 === $depth ) {
+				$output .= "\n</div></div>\n";
+			} else {
 				$output .= "\n</div>\n";
-      }
+			}
 		}
 		/**
 		 * Starts the menu element output.
