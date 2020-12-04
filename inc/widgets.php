@@ -15,7 +15,6 @@ defined( 'ABSPATH' ) || exit;
  * @link https://developer.wordpress.org/reference/hooks/dynamic_sidebar_params/
  */
 add_filter( 'dynamic_sidebar_params', 'uds_wp_widget_classes' );
-
 if ( ! function_exists( 'uds_wp_widget_classes' ) ) {
 
 	/**
@@ -115,6 +114,19 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 				'name'          => __( 'Left Sidebar', 'uds-wordpress-theme' ),
 				'id'            => 'sidebar-left',
 				'description'   => __( 'Left sidebar widget area', 'uds-wordpress-theme' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		// register our global banner area below the hero image.
+		register_sidebar(
+			array(
+				'name'          => __( 'Global Banner Area', 'uds-wordpress-theme' ),
+				'id'            => 'global-banner',
+				'description'   => __( 'Global alert banner widget area, below the Hero image and above all content.', 'uds-wordpress-theme' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
