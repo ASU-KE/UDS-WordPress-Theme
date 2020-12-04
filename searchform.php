@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-
+	<label class="sr-only" for="s"><?php esc_html_e( 'Search', 'uds-wordpress-theme' ); ?></label>
 	<div class="input-group">
 		<input class="field form-control border-right-0 rounded-0" id="s" name="s" type="text"
 			placeholder="<?php esc_attr_e( 'Search', 'uds-wordpress-theme' ); ?>" value="<?php the_search_query(); ?>">
