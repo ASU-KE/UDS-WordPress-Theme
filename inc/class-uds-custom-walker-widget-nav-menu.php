@@ -9,18 +9,18 @@
 defined( 'ABSPATH' ) || exit;
 
 /*
- * Class Name: Custom_Walker_Nav_Menu
- * Description: A custom WordPress nav walker class to customize navigation menu element wrapper and child menu's wrapper.
+ * Class Name: Uds_Custom_Walker_Widget_Nav_Menu
+ * Description: A custom Nav Walker class to generate ASU Web Standards-compliant menus for widget-based menus (sidebars, etc.)
  */
 
 /* Check if Class Exists. */
-if ( ! class_exists( 'Custom_Walker_Nav_Menu' ) ) {
+if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 	/**
 	 * Custom Walker for navigation menu class.
 	 *
 	 * @extends Walker_Nav_Menu
 	 */
-	class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+	class Uds_Custom_Walker_Widget_Nav_Menu extends Walker_Nav_Menu {
 		/**
 		 * Starts the list before child elements are added, to add a wrapper tag for the child menu.
 		 *

@@ -9,7 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
-	'/navigation-widget.php',               // Custom Navigation menu widget.
 	'/theme-sidebars-helpers.php',               // Sidebar helper functions.
 	'/theme-settings.php',                       // Initialize theme default settings.
 	'/setup.php',                                // Theme setup and custom theme supports.
@@ -17,6 +16,7 @@ $uds_wp_includes = array(
 	'/asu-favicons.php',                         // Enable ASU Favicons.
 	'/wpautop.php',                              // Disable wpautop.
 	'/widgets.php',                              // Register widget area.
+	'/navigation-widget.php',                    // Custom Navigation menu widget.
 	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
 	'/template-tags.php',                        // Custom template tags for this theme.
