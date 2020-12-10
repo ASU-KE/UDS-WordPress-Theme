@@ -24,6 +24,8 @@ get_header();
 
 			get_template_part( 'templates-global/hero' );
 
+			get_template_part( 'templates-global/global-banner');
+
 			the_content();
 
 			// Display the edit post button to logged in users.

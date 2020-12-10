@@ -1,14 +1,8 @@
 <?php
 /**
- * Default Layout - Fixed Width
  *
- * Template for displaying a fixed-width page with sidebars,
- * if sidebars are enabled in the Customizer.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * Displays all content within a dedicated col-8 area. Intended to be compatible with most native WP blocks.
+ * Includes options for where to draw the sidebar's content and in what position to place the sidebar.
  *
  * @package uds-wordpress-theme
  */
@@ -17,62 +11,57 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-?>
 
-<div class="wrapper" id="page-wrapper">
+while ( have_posts() ) {
+	the_post();
 
-	<?php include get_template_directory() . '/hero.php'; ?>
+	// First action: Read post meta to determine if page is left-sidebar or right.
+	// Append that info to post_class below.
 
+	$sidebar_position = get_field( 'page_sidebar_position' );
+	if ( 'left' === $sidebar_position ) {
+		$sidebar_position_class = 'sidebar-left';
+	} else {
+		$sidebar_position_class = '';
+	}
+	?>
 
-	<div class="<?php echo $container_classes; ?>" id="content" tabindex="-1">
+	<main id="skip-to-content" <?php post_class( $sidebar_position_class ); ?>>
 
-		<div class="row mb-12">
-			<div class="col">
-				<?php if ( is_active_sidebar( 'global-banner' ) ) : ?>
-					<?php dynamic_sidebar( 'global-banner' ); ?>
-				<?php endif; ?>
+		<?php get_template_part( 'templates-global/hero'); ?>
+
+		<?php get_template_part( 'templates-global/global-banner'); ?>
+
+		<article class="container">
+			<div class="row">
+				<div class="col-md-8" id="primary">
+
+					<?php the_content(); ?>
+
+				</div>
+
+				<aside class="col-md-4 widget-area" id="secondary">
+
+					<?php dynamic_sidebar( 'sidebar' ); ?>
+
+				</aside><!-- #secondary -->
+
 			</div>
-		</div>
+		</article>
 
-		<div class="row">
-			<!-- Check for the left sidebar and open the primary div -->
-			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+		<?php
 
+		// Display the edit post button to logged in users.
+		echo '<footer class="entry-footer"><div class="container mb-2"><div class="row"><div class="col-md-12">';
+		edit_post_link( __( 'Edit', 'uds-wordpress-theme' ), '<span class="edit-link">', '</span>' );
+		echo '</div></div></div></footer><!-- end .entry-footer -->';
 
-		<div class="<?php echo $content_classes; ?>">
+		?>
 
-			<div class="<?php echo $class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> content-area" id="primary">
+	</main><!-- #main -->
 
-				<main class="site-main" id="main">
+	<?php
 
-					<?php
-					while ( have_posts() ) {
-						the_post();
-						get_template_part( 'templates-loop/content', 'page' );
+	}
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) {
-							comments_template();
-						}
-					}
-					?>
-
-				</main><!-- #main -->
-
-			</div><!-- #primary -->
-
-
-		</div>
-
-		<!-- Check for the right sidebar -->
-		<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
-
-
-
-	</div><!-- .row -->
-
-</div><!-- #content -->
-</div><!-- #page-wrapper -->
-
-<?php
 get_footer();
