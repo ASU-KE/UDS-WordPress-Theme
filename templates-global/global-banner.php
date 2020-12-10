@@ -5,9 +5,9 @@
  *
  * @package uds-wordpress-theme
  */
-?>
 
-<?php if ( is_active_sidebar( 'global-banner' ) ) : ?>
+if ( is_active_sidebar( 'global-banner' ) ) : ?>
+
 	<div class="container">
 		<div class="row mb-12">
 			<div class="col">
@@ -15,5 +15,5 @@
 			</div>
 		</div>
 	</div>
-<?php endif; ?>
 
+<?php endif; ?>

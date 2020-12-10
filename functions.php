@@ -30,7 +30,7 @@ $uds_wp_includes = array(
 	'/wp-custom-menu.php',                       // Load custom menu builder functions.
 	'/editor.php',                               // Load Editor functions.
 	'/deprecated.php',                           // Load deprecated functions.
-	'/uds-contextual-help.php',             	 // theme-specific context-senstive help tabs.
+	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
 );
 
 foreach ( $uds_wp_includes as $file ) {
