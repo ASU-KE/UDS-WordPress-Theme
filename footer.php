@@ -28,7 +28,7 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 
 <?php do_action( 'uds_wp_before_global_footer' ); ?>
 
-<footer role="contentinfo">
+<footer id="asu-footer">
 	<?php
 	if ( 'enabled' === $footer_row_branding ) :
 		?>
@@ -97,7 +97,6 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 		<nav aria-label="Footer">
 			<div class="container" id="footer-columns">
 				<div class="row">
-
 
 					<div class="col-xl-3" id="info-column">
 						<?php
@@ -219,8 +218,6 @@ if ( ! empty( $c_options['footer_row_actions'] ) ) {
 		</div>
 	</div> <!-- wrapper-footer-colophon -->
 </footer>
-
-</div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
 

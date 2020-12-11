@@ -72,7 +72,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 		/*
 		 * Adding Thumbnail basic support
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 		/*
 		 * Adding support for Widget edit icons in customizer
