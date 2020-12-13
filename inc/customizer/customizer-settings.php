@@ -63,21 +63,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Parent Unit Name  =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[parent_unit_name]',
+			// 'uds_wp_theme_options[parent_unit_name]',
+			'parent_unit_name',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_parent_unit_name',
+			'parent_unit_name',
 			array(
 				'label'      => __( 'Parent Unit', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[parent_unit_name]',
+				'settings'   => 'parent_unit_name',
 				'priority'   => 20,
 			)
 		);
@@ -86,21 +87,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Parent Unit URL           =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[parent_unit_link]',
+			// 'uds_wp_theme_options[parent_unit_link]',
+			'parent_unit_link',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_parent_unit_link',
+			'parent_unit_link',
 			array(
 				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[parent_unit_link]',
+				'settings'   => 'parent_unit_link',
 				'priority'   => 30,
 			)
 		);
@@ -129,10 +131,11 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Unit Logo Select   =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[logo_select]',
+			// 'uds_wp_theme_options[logo_select]',
+			'logo_select',
 			array(
 				'default'           => 'none',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'sanitize_text_field',
 				'capability'        => 'edit_theme_options',
 			)
@@ -150,15 +153,15 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'uds_wp_logo_select',
+				'logo_select',
 				array(
 					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress-theme' ),
 					'description'       => __(
 						'Select the appropriate unit logo, if available.',
 						'uds-wordpress-theme'
 					),
-					'section'           => 'title_tagline',
-					'settings'          => 'uds_wp_theme_options[logo_select]',
+					'section'           => 'title_tagline', // move to global footer?
+					'settings'          => 'logo_select',
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
 					'choices'           => $logo_options,
@@ -171,25 +174,26 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Unit Logo URL             =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[logo_url]',
+			// 'uds_wp_theme_options[logo_url]',
+			'logo_url',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_logo_url',
+			'logo_url',
 			array(
 				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
 					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
 					'uds-wordpress-theme'
 				),
-				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[logo_url]',
+				'section'    => 'title_tagline', // move to footer?
+				'settings'   => 'logo_url',
 				'priority'   => 60,
 			)
 		);
@@ -219,21 +223,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Contact Us Email or URL   =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[contact_email]',
+			// 'uds_wp_theme_options[contact_email]',
+			'contact_email',
 			array(
 				'default'        => '',
 				'capability'     => 'edit_theme_options',
-				'type'           => 'option',
+				'type'           => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_email_or_url',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_contact_email',
+			'contact_email',
 			array(
 				'label'      => __( 'Contact Us Email or URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[contact_email]',
+				'settings'   => 'contact_email',
 				'priority'   => 80,
 			)
 		);
@@ -242,21 +247,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Contact Us Email Subject  =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[contact_subject]',
+			// 'uds_wp_theme_options[contact_subject]',
+			'contact_subject',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_contact_subject',
+			'contact_subject',
 			array(
 				'label'      => __( 'Contact Us Email Subject (Optional)', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[contact_subject]',
+				'settings'   => 'contact_subject',
 				'priority'   => 90,
 			)
 		);
@@ -265,21 +271,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Contact Us Email Body     =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[contact_body]',
+			// 'uds_wp_theme_options[contact_body]',
+			'contact_body',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_contact_body',
+			'contact_body',
 			array(
 				'label'    => __( 'Contact Us Email Body (Optional)', 'uds-wordpress-theme' ),
 				'section'  => 'title_tagline',
-				'settings' => 'uds_wp_theme_options[contact_body]',
+				'settings' => 'contact_body',
 				'type'     => 'textarea',
 				'priority' => 100,
 			)
@@ -289,21 +296,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Contribute URL            =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[contribute_url]',
+			// 'uds_wp_theme_options[contribute_url]',
+			'contribute_url',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_url',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_contribute_url',
+			'contribute_url',
 			array(
 				'label'      => __( 'Contribute URL (Optional)', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
-				'settings'   => 'uds_wp_theme_options[contribute_url]',
+				'settings'   => 'contribute_url',
 				'priority'   => 110,
 			)
 		);
@@ -326,16 +334,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = ASU Header - Toggle Navigation Menu for Landing Pages
 		// ===============================================================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[header_navigation_menu]',
+			// 'uds_wp_theme_options[header_navigation_menu]',
+			'header_navigation_menu',
 			array(
 				'default'           => 'enabled',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 		$wp_customize->add_control(
-			'uds_wp_header_navigation_menu',
+			'header_navigation_menu',
 			array(
 				'label'      => __( 'Header - Navigation Menu', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -343,7 +352,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_header',
-				'settings'   => 'uds_wp_theme_options[header_navigation_menu]',
+				'settings'   => 'header_navigation_menu',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'enabled',
@@ -371,16 +380,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = ASU Footer - Toggle Branding Row - Unit Logo and Social Media
 		// ===============================================================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[footer_row_branding]',
+			// 'uds_wp_theme_options[footer_row_branding]',
+			'footer_row_branding',
 			array(
 				'default'           => 'enabled',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 		$wp_customize->add_control(
-			'uds_wp_footer_row_branding',
+			'footer_row_branding',
 			array(
 				'label'      => __( 'Footer - Logo & Social Media Row', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -388,7 +398,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
-				'settings'   => 'uds_wp_theme_options[footer_row_branding]',
+				'settings'   => 'footer_row_branding',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'enabled',
@@ -401,16 +411,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = ASU Footer - Toggle Actions Row - Unit Info and Menus
 		// =======================================================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[footer_row_actions]',
+			// 'uds_wp_theme_options[footer_row_actions]',
+			'footer_row_actions',
 			array(
 				'default'           => 'enabled',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 		$wp_customize->add_control(
-			'uds_wp_footer_row_actions',
+			'footer_row_actions',
 			array(
 				'label'      => __( 'Footer - Actions Row', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -418,7 +429,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
-				'settings'   => 'uds_wp_theme_options[footer_row_actions]',
+				'settings'   => 'footer_row_actions',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'enabled',
@@ -442,17 +453,18 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[asu_search]',
+			// 'uds_wp_theme_options[asu_search]',
+			'asu_search',
 			array(
 				'default'           => 'enabled',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_asu_search',
+			'asu_search',
 			array(
 				'label'      => __( 'ASU Search', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -460,7 +472,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_asu_search',
-				'settings'   => 'uds_wp_theme_options[asu_search]',
+				'settings'   => 'asu_search',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'enabled',
@@ -487,17 +499,18 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = ASU Marketing Hub Analytics Manager =
 		// =======================================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[asu_hub_analytics]',
+			// 'uds_wp_theme_options[asu_hub_analytics]',
+			'asu_hub_analytics',
 			array(
 				'default'           => 'disabled',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_asu_hub_analytics',
+			'asu_hub_analytics',
 			array(
 				'label'      => __( 'ASU Marketing Hub Analytics', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -505,7 +518,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_asu_analytics',
-				'settings'   => 'uds_wp_theme_options[asu_hub_analytics]',
+				'settings'   => 'asu_hub_analytics',
 				'type'       => 'radio',
 				'choices'    => array(
 					'enabled'  => 'enabled',
@@ -518,16 +531,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Site Google Tag Manager    =
 		// ==============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[site_gtm_container_id]',
+			// 'uds_wp_theme_options[site_gtm_container_id]',
+			'site_gtm_container_id',
 			array(
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_site_gtm_container_id',
+			'site_gtm_container_id',
 			array(
 				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -535,7 +549,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'uds_wp_theme_options[site_gtm_container_id]',
+				'settings'          => 'site_gtm_container_id',
 				'type'              => 'option',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
@@ -545,16 +559,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Site Google Analytics ID   =
 		// ==============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[site_ga_tracking_id]',
+			// 'uds_wp_theme_options[site_ga_tracking_id]',
+			'site_ga_tracking_id',
 			array(
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_site_ga_tracking_id',
+			'site_ga_tracking_id',
 			array(
 				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -562,7 +577,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'uds_wp_theme_options[site_ga_tracking_id]',
+				'settings'          => 'site_ga_tracking_id',
 				'type'              => 'option',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
@@ -572,16 +587,17 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = Hotjar Analytics           =
 		// ==============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[hotjar_site_id]',
+			// 'uds_wp_theme_options[hotjar_site_id]',
+			'hotjar_site_id',
 			array(
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
 
 		$wp_customize->add_control(
-			'uds_wp_hotjar_site_id',
+			'hotjar_site_id',
 			array(
 				'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
 				'description'       => __(
@@ -589,7 +605,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
-				'settings'          => 'uds_wp_theme_options[hotjar_site_id]',
+				'settings'          => 'hotjar_site_id',
 				'type'              => 'option',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
@@ -614,11 +630,12 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		// = 404 Image                 =
 		// =============================
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[image_404]',
+			// 'uds_wp_theme_options[image_404]',
+			'image_404',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 			)
 		);
@@ -626,7 +643,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Image_Control(
 				$wp_customize,
-				'uds_wp_404',
+				'image_404',
 				array(
 					'label'      => __( '404 Image', 'uds-wordpress-theme' ),
 					'description'       => __(
@@ -634,7 +651,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 						'uds-wordpress-theme'
 					),
 					'section'    => 'uds_wp_theme_section_404',
-					'settings'   => 'uds_wp_theme_options[image_404]',
+					'settings'   => 'image_404',
 				)
 			)
 		);
@@ -657,10 +674,11 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'uds_wp_theme_options[sidebars]',
+			// 'uds_wp_theme_options[sidebars]',
+			'sidebar_position',
 			array(
 				'default'           => 'left',
-				'type'              => 'option',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'sanitize_text_field',
 				'capability'        => 'edit_theme_options',
 			)
@@ -669,7 +687,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'uds_wp_sidebar_position',
+				'sidebar_position',
 				array(
 					'label'             => __( 'Sidebar Positioning', 'uds-wordpress-theme' ),
 					'description'       => __(
@@ -677,7 +695,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 						'uds-wordpress-theme'
 					),
 					'section'           => 'uds_wp_theme_layout_options',
-					'settings'          => 'uds_wp_theme_options[sidebars]',
+					'settings'          => 'sidebar_position',
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
 					'choices'           => array(
@@ -686,7 +704,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 						'both'  => __( 'Left & Right sidebars', 'uds-wordpress-theme' ),
 						'none'  => __( 'No sidebar', 'uds-wordpress-theme' ),
 					),
-					'priority'          => apply_filters( 'uds_wp_sidebar_position_priority', 20 ),
+					'priority'          => apply_filters( 'sidebar_position', 20 ),
 				)
 			)
 		);
