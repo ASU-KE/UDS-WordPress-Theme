@@ -17,10 +17,9 @@ $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
 $nav_menu_enabled      = '';
 
-// Check if we have Customizer options set.
-if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
-	$c_options = get_option( 'uds_wp_theme_options' );
-}
+// retrieve settings from the theme mods entry in the options database table.
+$c_options = get_theme_mods();
+// wp_die( var_dump ( $c_options ) );
 
 // Is navigation menu enabled?
 if ( ! empty( $c_options['header_navigation_menu'] ) ) {
@@ -271,4 +270,3 @@ if ( 'none' === $uds_wp_sidebar_opts['use_sidebar'] ) {
 		</header>
 
 		<?php do_action( 'uds_wp_after_global_header' ); ?>
-
