@@ -15,6 +15,7 @@ if ( ! function_exists( 'uds_wp_setup_theme_default_settings' ) ) {
 	function uds_wp_setup_theme_default_settings() {
 		$defaults = uds_wp_get_theme_default_settings();
 		$settings = get_theme_mods();
+
 		foreach ( $defaults as $setting_id => $default_value ) {
 			// Check if setting is set, if not set it to its default value.
 			if ( ! isset( $settings[ $setting_id ] ) ) {
@@ -32,9 +33,16 @@ if ( ! function_exists( 'uds_wp_get_theme_default_settings' ) ) {
 	 */
 	function uds_wp_get_theme_default_settings() {
 		$defaults = array(
-			'uds_wp_posts_index_style' => 'default',   // Latest blog posts style.
-			'uds_wp_sidebar_position'  => 'right',     // Sidebar position.
-			'uds_wp_container_type'    => 'container', // Container width.
+			'posts_index_style'      => 'default',   // Latest blog posts style.
+			'sidebar_position'       => 'right',     // Sidebar position.
+			'container_type'         => 'container', // Container width.
+			'logo_select'            => 'asu', // default to the ASU logo. See img/unit-logos.json for options.
+			'header_navigation_menu' => 'enabled', // enable main nav menu by default.
+			'nav_menu_locations'     => array ( // enable example main, footer, and social media menus by default.
+				'footer'       => 2,
+				'primary'      => 3,
+				'social-media' => 4
+			)
 		);
 
 		/**
