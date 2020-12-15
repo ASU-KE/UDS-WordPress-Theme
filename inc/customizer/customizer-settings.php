@@ -655,59 +655,6 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				)
 			)
 		);
-
-		// ================================
-		// ================================
-		// = Theme Layout Manager Section =
-		// ================================
-		// ================================
-
-		// Theme layout settings.
-		$wp_customize->add_section(
-			'uds_wp_theme_layout_options',
-			array(
-				'title'       => __( 'Theme Layout Settings', 'uds-wordpress-theme' ),
-				'capability'  => 'edit_theme_options',
-				'description' => __( 'Theme sidebar defaults', 'uds-wordpress-theme' ),
-				'priority'    => 60,
-			)
-		);
-
-		$wp_customize->add_setting(
-			// 'uds_wp_theme_options[sidebars]',
-			'sidebar_position',
-			array(
-				'default'           => 'left',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'sanitize_text_field',
-				'capability'        => 'edit_theme_options',
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'sidebar_position',
-				array(
-					'label'             => __( 'Sidebar Positioning', 'uds-wordpress-theme' ),
-					'description'       => __(
-						'Set sidebar\'s default position. Can either be: right, left, both or none.',
-						'uds-wordpress-theme'
-					),
-					'section'           => 'uds_wp_theme_layout_options',
-					'settings'          => 'sidebar_position',
-					'type'              => 'select',
-					'sanitize_callback' => 'uds_wp_sanitize_select',
-					'choices'           => array(
-						'right' => __( 'Right sidebar', 'uds-wordpress-theme' ),
-						'left'  => __( 'Left sidebar', 'uds-wordpress-theme' ),
-						'both'  => __( 'Left & Right sidebars', 'uds-wordpress-theme' ),
-						'none'  => __( 'No sidebar', 'uds-wordpress-theme' ),
-					),
-					'priority'          => apply_filters( 'sidebar_position', 20 ),
-				)
-			)
-		);
 	}
 } // End of if function_exists( 'uds_wp_register_theme_customizer_settings' ).
 add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );

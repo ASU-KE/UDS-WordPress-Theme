@@ -1,8 +1,7 @@
 <?php
 /**
- * The hero for our theme
- *
- * Displays the hero section
+ * Displays the hero content on the top of a page.
+ * Should be called within the loop. (Displays the page title if not enabled.)
  *
  * @package uds-wordpress-theme
  */
@@ -23,6 +22,8 @@ if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
 	$hero_highlight = '';
 }
 
+
+// Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if ( ! empty( $hero_asset_url ) ) :
 	?>
 <div class="uds-hero <?php echo $hero_type; ?>" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses( $hero_asset_url, wp_kses_allowed_html( 'strip' ) ); ?>')">
@@ -58,5 +59,12 @@ if ( ! empty( $hero_asset_url ) ) :
 	</div>
 </div>
 	<?php
+
+else :
+
+	echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
+	the_title( '<h1 class="entry-title">', '</h1>' );
+	echo '</div></div></div></section>';
+
 endif;
 ?>

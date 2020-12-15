@@ -9,6 +9,12 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Removes support for blocks in the widget areas.
+ * Feature included via the Gutenberg plugin but not ready for production. (Nov 2020)
+ */
+remove_theme_support( 'widgets-block-editor' );
+
+/**
  * Add filter to the parameters passed to a widget's display callback.
  * The filter is evaluated on both the front and the back end!
  *
@@ -99,25 +105,13 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 	function uds_wp_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Right Sidebar', 'uds-wordpress-theme' ),
-				'id'            => 'sidebar-right',
-				'description'   => __( 'Right sidebar widget area', 'uds-wordpress-theme' ),
+				'name'          => __( 'Sidebar', 'uds-wordpress-theme' ),
+				'id'            => 'sidebar',
+				'description'   => __( 'Sidebar widget area', 'uds-wordpress-theme' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Left Sidebar', 'uds-wordpress-theme' ),
-				'id'            => 'sidebar-left',
-				'description'   => __( 'Left sidebar widget area', 'uds-wordpress-theme' ),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
 			)
 		);
 

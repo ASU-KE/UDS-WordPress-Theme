@@ -9,7 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $uds_wp_includes = array(
-	'/theme-sidebars-helpers.php',               // Sidebar helper functions.
 	'/theme-settings.php',                       // Initialize theme default settings.
 	'/setup.php',                                // Theme setup and custom theme supports.
 	'/theme-activation.php',                     // Build sample menus upon theme activation.
@@ -26,7 +25,6 @@ $uds_wp_includes = array(
 	'/customizer.php',                           // Customizer additions.
 	'/custom-comments.php',                      // Custom Comments file.
 	'/jetpack.php',                              // Load Jetpack compatibility file.
-	'/wp-custom-fields.php',                     // Disable WP Core custom fields metaboxes.
 	'/tgm-plugin-activation.php',                // Load TGM Plugin Activation script for dependent plugin recommendations.
 	'/class-wp-social-media-walker.php',         // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-menu.php',                       // Load custom menu builder functions.
@@ -38,15 +36,3 @@ $uds_wp_includes = array(
 foreach ( $uds_wp_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
-
-
-/**
- * To remove Template field from the Page Attributes metabox.
- * ====== I'm leaving this function here till we decide whether to use it or not ====== .
- *
- * @param Templates $templates is for template field in metabox.
- */
-function uds_wp_remove_page_templates( $templates ) {
-	return array();
-}
-add_filter( 'theme_page_templates', 'uds_wp_remove_page_templates' );

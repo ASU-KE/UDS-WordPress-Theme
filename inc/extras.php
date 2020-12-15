@@ -307,3 +307,13 @@ add_filter( 'the_title', 'uds_wp_kses_title' );
 
 // Escapes all occurances of 'the_archive_title' and 'get_the_archive_title()'.
 add_filter( 'get_the_archive_title', 'uds_wp_kses_title' );
+
+/**
+ * Renames the default page template. Includes better description of intended layout.
+ *
+ * @param string $label Returned label for the dropdown menu.
+ */
+function uds_filter_default_page_template_name( $label ) {
+	return __( 'Sidebar (Default)', 'uds-wordpress-theme' );
+}
+add_filter( 'default_page_template_title', 'uds_filter_default_page_template_name', 10, 2 );
