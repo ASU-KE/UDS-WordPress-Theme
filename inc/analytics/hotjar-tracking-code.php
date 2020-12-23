@@ -6,15 +6,15 @@
  */
 
 // @codingStandardsIgnoreStart
+$hotjar_site_id = get_theme_mod( 'hotjar_site_id' );
+// $hotjar_site_id = '';
 
-$hotjar_site_id = '';
-
-if (is_array(get_option('uds_wp_theme_options'))) {
-	$cOptions = get_option('uds_wp_theme_options');
-}
-if (!empty( $c_options['hotjar_site_id'] ) ) {
-	$hotjar_site_id = $c_options['hotjar_site_id'];
-}
+// if (is_array(get_option('uds_wp_theme_options'))) {
+// 	$cOptions = get_option('uds_wp_theme_options');
+// }
+// if (!empty( $c_options['hotjar_site_id'] ) ) {
+// 	$hotjar_site_id = $c_options['hotjar_site_id'];
+// }
 ?>
 <!-- Hotjar Tracking Code -->
 	<script>

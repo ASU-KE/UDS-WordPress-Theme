@@ -5,14 +5,16 @@
  * @package uds-wordpress-theme
  */
 
-$site_gtm_container_id = '';
+// $site_gtm_container_id = '';
 
-if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
-	$c_options = get_option( 'uds_wp_theme_options' );
-}
-if ( ! empty( $c_options['site_gtm_container_id'] ) ) {
-	$site_gtm_container_id = $c_options['site_gtm_container_id'];
-}
+// if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
+// 	$c_options = get_option( 'uds_wp_theme_options' );
+// }
+// if ( ! empty( $c_options['site_gtm_container_id'] ) ) {
+// 	$site_gtm_container_id = $c_options['site_gtm_container_id'];
+// }
+
+$site_gtm_container_id = get_theme_mod( 'site_gtm_container_id' );
 ?>
 <!-- Google Tag Manager -->
 <script>
