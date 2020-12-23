@@ -8,35 +8,69 @@
 
 ( function( $ ) {
 
-	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
+	// // Site title and description.
+	// wp.customize( 'blogname', function( value ) {
+	// 	value.bind( function( to ) {
+	// 		// $( '.site-title a' ).text( to );
+	// 		// modified to match class names in UDS global header
+	// 		$( '.title .subdomain-name' ).text( to );
+	// 	} );
+	// } );
+
+	// wp.customize( 'blogdescription', function( value ) {
+	// 	value.bind( function( to ) {
+	// 		$( '.site-description' ).text( to );
+	// 	} );
+	// } );
+
+	// Parent Unit Link
+	// To avoid another visual control, which we would get if we used
+	// the selective refresh option, we'll just update the URL here with
+	// Javascript
+	wp.customize( 'parent_unit_link', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+			$('a.unit-name').attr('href', to );
 		} );
 	} );
 
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
+	/**
+	 * Show/hide the main navigation menu in the Customizer
+	 *
+	 * When the main navigation menu is disabled, there is no '.navbar-nav' element
+	 * for us to toggle. In that case, we use the menu's parent, '#menubar' to hold
+	 * a message for the user to let them know that the menu will appear when they
+	 * are done with their customizing.
+	 */
+	wp.customize( 'header_navigation_menu', function( value ) {
+
+		// use the Customizer javascript API to get the current setting
+		var currentState = wp.customize( 'header_navigation_menu' ).get();
+
+		// Function to run when the value is changed.
+		// The variable 'to' holds the newly selected value from the control.
 		value.bind( function( to ) {
-			if ( 'blank' === to ) {
-				$( '.site-title a, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
-				} );
-			} else {
-				$( '.site-title a, .site-description' ).css( {
-					'clip': 'auto',
-					'position': 'relative'
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					'color': to
-				} );
+			// If the menu is enabled already, we can just toggle visibility.
+			if( 'enabled' === currentState ) {
+				if( 'disabled' === to ) {
+					$('.navbar-nav').css( 'display', 'none' );
+				}else{
+					$('.navbar-nav').css( 'display', 'flex' );
+				}
+			/**
+			 * If the menu is not there to toggle, we toggle a message about
+			 * how it WILL be there once the settings have changed. We format
+			 * the message as if it were a menu item so the page layout will
+			 * look as close as possible to the updated version
+			 */
+			}else{
+				if( 'disabled' === to ) {
+					$('#menubar').empty();
+				}else{
+					$('#menubar').html('<span class="nav-link" href="#" title="Example Link">Menu will appear here after you publish and exit the Customizer</span>');
+					$('#menubar').css( 'display', 'flex' );
+				}
 			}
 		} );
 	} );
+
 } )( jQuery );
