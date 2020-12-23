@@ -13,9 +13,7 @@ $footer_row_branding   = 'enabled';
 $footer_row_actions    = 'enabled';
 
 if ( is_array( get_option( 'theme_mods_UDS-WordPress-Theme' ) ) ) {
-	// $c_options = get_option( 'theme_mods_UDS-WordPress-Theme' );
 	$c_options = get_theme_mods();
-	// wp_die( var_dump( $c_options ) );
 }
 
 // Do we have an footer_row_branding setting?

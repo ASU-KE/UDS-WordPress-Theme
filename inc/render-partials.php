@@ -1,24 +1,46 @@
 <?php
-
 /**
- * Render functions for use in templates and the customizer
+ * Template Rendering Functions
+ *
+ * @package uds-wordpress-theme
+ * @author KE Web Services
+ *
+ * In order to implement selective refresh in the customizer (see the link
+ * below), some display logic has been moved out of our templates and into
+ * functions here. The customizer can then call these methods via AJAX to
+ * refresh just the parts of the page that are affected by the setting
+ * being adjusted.
+ *
+ * (https://developer.wordpress.org/themes/customize-api/tools-for-improved-user-experience/#selective-refresh-fast-accurate-updates)
  */
 
+/**
+ * Returns the blog name (which we call the subdomain name). Using this function
+ * to avoid errors/warnings from PHPCS about the use of anonymous functions
+ * in 'customizer-settings.php'.
+ */
+function uds_wp_render_blog_name() {
+	return get_bloginfo( 'name' );
+}
 
 /**
  * Render parent unit name and link
+ *
+ * Takes the unit name and link settings and renders a link tag.
  */
-function uds_wp_render_parent_unit_name () {
+function uds_wp_render_parent_unit_name() {
 	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
 	$parent_unit_link = get_theme_mod( 'parent_unit_link' );
 
-	if( $parent_unit_name && !empty( $parent_unit_name ) ) {
+	if ( $parent_unit_name && ! empty( $parent_unit_name ) ) {
 		echo '<a class="unit-name" href="' . $parent_unit_link . '">' . $parent_unit_name . '</a>';
 	}
 }
 
 /**
  * Render site name
+ *
+ * Renders the default blog name setting in a span.
  */
 function uds_wp_render_subdomain_name() {
 	echo '<span class="subdomain-name">' . get_bloginfo( 'name' ) . '</span>';
@@ -26,6 +48,10 @@ function uds_wp_render_subdomain_name() {
 
 /**
  * Render Footer Logo
+ *
+ * Takes the selected endorsed logo, and the value of the logo_url setting,
+ * to determine what to render in the logo area of the footer. Selecting a
+ * logo takes preference over a logo URL.
  */
 function uds_wp_render_footer_logo() {
 	$logo_select = get_theme_mod( 'logo_select' );
@@ -47,7 +73,7 @@ function uds_wp_render_footer_logo() {
 		}
 		echo wp_kses( sprintf( $logo_template, get_template_directory_uri() . '/img/endorsed-logo/' . $filename, get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
 
-	// Else, check for Logo URL.
+		// Else, check for Logo URL.
 	} elseif ( $logo_url && '' !== $logo_url ) {
 		echo wp_kses( sprintf( $logo_template, $logo_url, get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
 	}
@@ -55,6 +81,8 @@ function uds_wp_render_footer_logo() {
 
 /**
  * Render the 'Contribute' button
+ *
+ * Takes the contribute_url setting and coditionally renders the button.
  */
 function uds_wp_render_contribute_button() {
 	$contribute_url = get_theme_mod( 'contribute_url' );
@@ -68,6 +96,10 @@ function uds_wp_render_contribute_button() {
 
 /**
  * Render Footer branding row (logo and social media icons together)
+ *
+ * Determines whether or not we render the logo+social row of the footer.
+ * When this is set to 'disabled' we skip generating the markup altogether,
+ * meaning that individual settings for logo or social icons are ignored.
  */
 function uds_wp_render_footer_branding_row() {
 	$row_status = get_theme_mod( 'footer_row_branding' );
@@ -113,7 +145,7 @@ function uds_wp_render_footer_branding_row() {
  * renders a link with that value as the URL.
  */
 function uds_wp_render_contact_link() {
-// =============================
+	// =============================
 	$contact_url = get_theme_mod( 'contact_url' );
 	$contact_template = '<p class="contact-link"><a href="%1$s">Contact Us</a></p>';
 
@@ -124,14 +156,19 @@ function uds_wp_render_contact_link() {
 
 
 /**
- * Render 'action' and menu row in footer
+ * Render the info+menu links row in the footer
+ *
+ * Determines whether or not we render the info+menu row of the footer.
+ * When this is set to 'disabled' we skip generating the markup altogether,
+ * meaning that individual settings for contact, contribute, and the menu
+ * items are ignored altogether.
  */
 function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 	$org_name = wp_kses( get_bloginfo( 'name' ), array() );
 
 	if ( 'enabled' === $action_row_status ) {
-	?>
+		?>
 		<nav aria-label="Footer">
 			<div class="container" id="footer-columns">
 				<div class="row">
@@ -150,5 +187,6 @@ function uds_wp_render_footer_action_row() {
 				</div> <!-- row -->
 			</div> <!-- footer-columns -->
 		</nav>
-<?php }
+		<?php
+	}
 }

@@ -19,7 +19,7 @@ $uds_wp_includes = array(
 	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
 	'/template-tags.php',                        // Custom template tags for this theme.
-	'/render-partials.php',                      // Rendering methods for certain customizer controlled items
+	'/render-partials.php',                      // Rendering methods for certain customizer-controlled items.
 	'/pagination.php',                           // Custom pagination for this theme.
 	'/hooks.php',                                // Custom hooks.
 	'/extras.php',                               // Custom functions that act independently of the theme templates.
