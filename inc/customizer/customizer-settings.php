@@ -400,12 +400,11 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		) );
 
 
-		// =============================
-		// = Contact Us Email or URL   =
-		// =============================
+		/**
+		 * Contact Us URL
+		 */
 		$wp_customize->add_setting(
-			// 'uds_wp_theme_options[contact_email]',
-			'contact_email',
+			'contact_url',
 			array(
 				'default'        => '',
 				'capability'     => 'edit_theme_options',
