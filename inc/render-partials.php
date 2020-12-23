@@ -57,13 +57,11 @@ function uds_wp_render_footer_logo() {
  * Render the 'Contribute' button
  */
 function uds_wp_render_contribute_button() {
-
-	$show_button = get_theme_mod( 'show_contribute_button' );
 	$contribute_url = get_theme_mod( 'contribute_url' );
 	$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
 
 	// Do we have a contribute?
-	if ( $show_button && $contribute_url && '' !== $contribute_url ) {
+	if ( $contribute_url && '' !== $contribute_url ) {
 		echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
 	}
 }
