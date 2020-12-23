@@ -19,7 +19,6 @@ $nav_menu_enabled      = '';
 
 // retrieve settings from the theme mods entry in the options database table.
 $c_options = get_theme_mods();
-// wp_die( var_dump ( $c_options ) );
 
 // Is navigation menu enabled?
 if ( ! empty( $c_options['header_navigation_menu'] ) ) {
@@ -159,33 +158,10 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 							?>
 							">
 
-								<?php
-								// if no parentUnit defined, render site (subdomain) name alone.
-								if ( empty( $c_options['parent_unit_name'] ) ) {
-									?>
-									<div class="title subdomain-name">
-										<?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?>
-									</div>
-									<?php
-									// render both site (subdomain) and parentUnit in header.
-								} else {
-									?>
-									<div class="title">
-										<?php
-										$parent_org = '<a href="%1$s" class="unit-name">%2$s</a>';
-										if ( isset( $c_options ) && array_key_exists( 'parent_unit_name', $c_options ) && '' !== $c_options['parent_unit_name'] ) {
-											$parent_org_link = '#';
-											if ( array_key_exists( 'parent_unit_link', $c_options ) ) {
-												$parent_org_link = $c_options['parent_unit_link'];
-											}
-											echo wp_kses( sprintf( $parent_org, $parent_org_link, $c_options['parent_unit_name'] ), wp_kses_allowed_html( 'post' ) );
-										}
-										?>
-										<span class="subdomain-name"><?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?></span>
-									</div>
-									<?php
-								}
-								?>
+							<div class="title">
+								<?php uds_wp_render_parent_unit_name(); ?>
+								<?php uds_wp_render_subdomain_name(); ?>
+							</div>
 
 								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 									<?php
