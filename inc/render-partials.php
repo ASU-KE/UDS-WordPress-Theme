@@ -174,7 +174,7 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><?php echo $org_name; ?></h5>
+						<h5><span class="footer-site-name"><?php echo $org_name; ?></span></h5>
 						<div class="contact-wrapper">
 							<?php uds_wp_render_contact_link(); ?>
 						</div>

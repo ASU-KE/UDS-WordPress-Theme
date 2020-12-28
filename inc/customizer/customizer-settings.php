@@ -74,7 +74,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			'blogname',
 			array(
-				'selector' => '.subdomain-name',
+				'selector' => '.subdomain-name, .footer-site-name',
 				'render_callback' => 'uds_wp_render_blog_name',
 			)
 		);
