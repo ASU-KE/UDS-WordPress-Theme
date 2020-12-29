@@ -1,0 +1,13 @@
+// fixes for Customizer shortcut buttons that overlap, or are too close to each other
+.customize-partial-edit-shortcut-contribute_url {
+	position: relative !important;
+	top: 30px;
+}
+
+.customize-partial-edit-shortcut-footer_row_actions, .customize-partial-edit-shortcut-footer_row_branding {
+	left: 30px;
+}
+
+.customize-partial-edit-shortcut-logo_select {
+	top: 45px;
+}
