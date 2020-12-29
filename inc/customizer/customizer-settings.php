@@ -324,16 +324,6 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
-		$wp_customize->selective_refresh->add_partial(
-			'logo_url',
-			array(
-				'selector' => '#endorsed-logo',
-				'container_inclusive' => false,
-				'render_callback' => 'uds_wp_render_footer_logo',
-			)
-		);
-
-
 		/**
 		 * Section Separator
 		 */
