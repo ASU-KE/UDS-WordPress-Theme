@@ -96,10 +96,11 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_name',
 			array(
-				'label'      => __( 'Parent Unit', 'uds-wordpress-theme' ),
-				'section'    => 'title_tagline',
-				'settings'   => 'parent_unit_name',
-				'priority'   => 20,
+				'description' => __( 'The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Parent Unit', 'uds-wordpress-theme' ),
+				'section'     => 'title_tagline',
+				'settings'    => 'parent_unit_name',
+				'priority'    => 20,
 			)
 		);
 
@@ -129,6 +130,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_link',
 			array(
+				'description'       => __( 'To make the Parent Unit a link, provide the URL here.', 'uds-wordpress-theme'),
 				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'parent_unit_link',
@@ -172,7 +174,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'      => __( 'Main Navigation Menu', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'<p>Show or hide the main navigation menu.</p><p>Hiding this is approved for Landing Page sites.</p>',
+					'<p>Show or hide the main navigation menu. Hiding this is <b>only</b> approved for Landing Page sites.</p>',
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_header',
@@ -274,7 +276,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				array(
 					'label'             => __( 'Endorsed Logos Presets', 'uds-wordpress-theme' ),
 					'description'       => __(
-						'Select the appropriate unit logo, if available.',
+						'Select an endorsed logo to appear in the footer, or \'none\' to provide a link to a different endorsed logo.',
 						'uds-wordpress-theme'
 					),
 					'section'           => 'uds_wp_theme_section_footer',
@@ -315,7 +317,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Enter full url to an alternate endorsed logo. This field has no effect when Preset is selected above.',
+					'',
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
@@ -586,7 +588,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'             => __( 'Google Tag Manager container ID', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Enter your unit\'s GTM container ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
+					'Enter your unit\'s GTM container ID to enable analytics for this website.',
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
@@ -614,7 +616,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'             => __( 'Google Analytics Tracking ID', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Enter your unit\'s GA Tracking ID to enable analytics for this website. Note: Enabling GTM and GA at the same time can negatively impact page performance.',
+					'Your unit\'s Google Analytics Tracking ID',
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
@@ -643,7 +645,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'             => __( 'Hotjar Site ID', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Enter your Hotjar Site ID to enable Hotjar analytics for this website.',
+					'Your Hotjar Site ID',
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
@@ -654,6 +656,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 	}
 } // End of if function_exists( 'uds_wp_register_theme_customizer_settings' ).
+add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
 
 /**
  * Callback for our 'show 404 page' button. For backwards compatability, and to
@@ -664,5 +667,3 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 function show_404_callback() {
 	return ! is_404();
 }
-
-add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
