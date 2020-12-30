@@ -430,10 +430,11 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_setting(
 			'contact_url',
 			array(
-				'default'        => '',
-				'capability'     => 'edit_theme_options',
-				'type'           => 'theme_mod',
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_email_or_url',
+				'transport'         => 'postMessage',
 			)
 		);
 
