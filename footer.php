@@ -7,23 +7,6 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-$c_options              = array();
-$footer_row_branding   = 'enabled';
-$footer_row_actions    = 'enabled';
-
-if ( is_array( get_option( 'theme_mods_UDS-WordPress-Theme' ) ) ) {
-	$c_options = get_theme_mods();
-}
-
-// Do we have an footer_row_branding setting?
-if ( ! empty( $c_options['footer_row_branding'] ) ) {
-	$footer_row_branding = $c_options['footer_row_branding'];
-}
-// Do we have an footer_row_actions setting?
-if ( ! empty( $c_options['footer_row_actions'] ) ) {
-	$footer_row_actions = $c_options['footer_row_actions'];
-}
 ?>
 
 <?php do_action( 'uds_wp_before_global_footer' ); ?>
