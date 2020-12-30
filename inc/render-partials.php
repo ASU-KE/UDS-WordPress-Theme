@@ -47,6 +47,49 @@ function uds_wp_render_subdomain_name() {
 }
 
 /**
+ * Render main navigation menu
+ *
+ * Takes the value of the header_navigation_menu theme mod and determines
+ * whether or not to draw the main navigation menu.
+ */
+function uds_wp_render_main_nav_menu() {
+
+	// get our setting and initialize some variables.
+	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
+	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+	$we_are_on_the_homepage = ( home_url() === $current_url );
+	$home_icon_class = 'nav-link-home';
+
+	// if nav menu is enabled, render it.
+	if ( 'enabled' === $nav_menu_enabled ) { ?>
+
+		<div class="navbar-nav">
+
+		<?php
+		// draw the home icon, and set it active if we are on the home page
+		if ( $we_are_on_the_homepage ) {
+			$home_icon_class .= ' active';
+		}
+		?>
+
+		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
+			<span class="d-lg-none">Home</span>
+			<span title="Home" class="fas fa-fw fa-home"></span>
+		</a>
+
+
+		<?php
+		// render the actual menu items
+		include get_template_directory() . '/asu-navigation-menu.php';
+		?>
+
+		</div>
+	<?php }
+}
+
+
+
+/**
  * Render Footer Logo
  *
  * Takes the selected endorsed logo, and the value of the logo_url setting,

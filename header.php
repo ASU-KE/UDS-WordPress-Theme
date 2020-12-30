@@ -164,37 +164,8 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 							</div>
 
 								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
-									<?php
-									// if nav menu is enabled, render it.
-									if ( 'enabled' === $nav_menu_enabled ) {
-										?>
-									<div class="navbar-nav">
-										<?php
-										// ======================
-										// Create Main Navigation
-										// ======================
 
-										$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
-										$we_are_on_the_homepage = ( home_url() === $current_url );
-
-										$home_icon_class = 'nav-link-home';
-										if ( $we_are_on_the_homepage ) {
-											$home_icon_class .= ' active';
-										}
-										?>
-
-										<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-											<span class="d-lg-none">Home</span>
-											<span title="Home" class="fas fa-fw fa-home"></span>
-										</a>
-
-										<?php
-										include get_template_directory() . '/asu-navigation-menu.php';
-										?>
-									</div><!-- end .navbar-nav -->
-										<?php
-									}
-									?>
+									<?php uds_wp_render_main_nav_menu(); ?>
 
 									<div class="navbar-mobile-footer">
 										<form class="form-inline navbar-mobile-search" action="https://search.asu.edu/search" method="get" name="gs">
