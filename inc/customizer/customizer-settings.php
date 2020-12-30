@@ -130,7 +130,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_link',
 			array(
-				'description'       => __( 'To make the Parent Unit a link, provide the URL here.', 'uds-wordpress-theme'),
+				'description'       => __( 'To make the Parent Unit a link, provide the URL here.', 'uds-wordpress-theme' ),
 				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'parent_unit_link',
@@ -317,7 +317,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'',
+					'Provide a URL to an approved logo',
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
