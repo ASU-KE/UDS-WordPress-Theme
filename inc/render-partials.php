@@ -145,7 +145,6 @@ function uds_wp_render_footer_branding_row() {
  * renders a link with that value as the URL.
  */
 function uds_wp_render_contact_link() {
-	// =============================
 	$contact_url = get_theme_mod( 'contact_url' );
 	$contact_template = '<p class="contact-link"><a href="%1$s">Contact Us</a></p>';
 
