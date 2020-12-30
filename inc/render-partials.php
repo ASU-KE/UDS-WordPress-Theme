@@ -66,7 +66,7 @@ function uds_wp_render_main_nav_menu() {
 		<div class="navbar-nav">
 
 		<?php
-		// draw the home icon, and set it active if we are on the home page
+		// draw the home icon, and set it active if we are on the home page.
 		if ( $we_are_on_the_homepage ) {
 			$home_icon_class .= ' active';
 		}
@@ -79,12 +79,13 @@ function uds_wp_render_main_nav_menu() {
 
 
 		<?php
-		// render the actual menu items
+		// render the actual menu items.
 		include get_template_directory() . '/asu-navigation-menu.php';
 		?>
 
 		</div>
-	<?php }
+		<?php
+	}
 }
 
 
@@ -215,7 +216,7 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><span class="footer-site-name"><?php echo uds_wp_render_blog_name() ?></span></h5>
+						<h5><span class="footer-site-name"><?php echo uds_wp_render_blog_name(); ?></span></h5>
 						<div class="contact-wrapper">
 							<?php uds_wp_render_contact_link(); ?>
 						</div>
