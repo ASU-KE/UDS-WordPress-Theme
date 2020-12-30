@@ -164,7 +164,6 @@ function uds_wp_render_contact_link() {
  */
 function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
-	$org_name = wp_kses( get_bloginfo( 'name' ), array() );
 
 	if ( 'enabled' === $action_row_status ) {
 		?>
@@ -173,7 +172,7 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><span class="footer-site-name"><?php echo $org_name; ?></span></h5>
+						<h5><span class="footer-site-name"><?php echo uds_wp_render_blog_name() ?></span></h5>
 						<div class="contact-wrapper">
 							<?php uds_wp_render_contact_link(); ?>
 						</div>
