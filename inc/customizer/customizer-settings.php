@@ -188,6 +188,15 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		$wp_customize->selective_refresh->add_partial(
+			'header_navigation_menu',
+			array(
+				'selector'            => '#menubar',
+				'container_inclusive' => false,
+				'render_callback'     => 'uds_wp_render_main_nav_menu',
+			)
+		);
+
 		/***********************************************************************
 		 * ASU Global Footer Section
 		 *
