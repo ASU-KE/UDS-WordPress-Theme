@@ -17,6 +17,4 @@
 			$( 'a.unit-name' ).attr( 'href', to );
 		} );
 	} );
-
-
 } )( jQuery );
