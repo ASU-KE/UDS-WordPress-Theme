@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 		<input class="field form-control border-right-0 rounded-0" id="s" name="s" type="text"
 			placeholder="<?php esc_attr_e( 'Search', 'uds-wordpress-theme' ); ?>" value="<?php the_search_query(); ?>">
 			<span class="input-group-append">
-			<button class="submit bg-transparent form-control border-left-0 rounded-0" id="searchsubmit" name="submit" type="submit"> <i class="fa fa-search"></i></button>
+			<button class="submit form-control border-left-0 rounded-0" id="searchsubmit" name="submit" type="submit"> <i class="fa fa-search"></i></button>
 			</span>
 	</div>
 </form>
