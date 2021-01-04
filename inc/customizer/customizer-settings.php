@@ -201,7 +201,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * ASU Global Footer Section
 		 *
 		 * Contains: logo+social row toggle, footer logo, social media menu
-		 */
+		 **********************************************************************/
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
@@ -253,6 +253,48 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		/**
+		 * Logo type radio buttons
+		 */
+		$wp_customize->add_setting(
+			'footer_logo_type',
+			array(
+				'default'           => 'enabled',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'footer_logo_type',
+			array(
+				'label'      => __( 'Footer Logo', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'Logo to use in the global footer area. If you do not have a unit logo, you must use the ASU logo.',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'footer_logo_type',
+				'type'       => 'radio',
+				'choices'    => array(
+					'asu'  => 'Use the ASU logo',
+					'custom' => 'Use a unit logo',
+				),
+				'priority'   => 15,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'footer_logo_type',
+			array(
+				'selector' => '#endorsed-logo',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_footer_logo',
+			)
+		);
+
+		/**
 		 * Endorsed logo drop-down
 		 */
 		$wp_customize->add_setting(
@@ -293,6 +335,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'type'              => 'select',
 					'sanitize_callback' => 'uds_wp_sanitize_select',
 					'choices'           => $logo_options,
+					'active_callback' => 'show_custom_logo_fields',
 					'priority'          => 20,
 				)
 			)
@@ -326,11 +369,12 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'      => __( 'Unit Endorsed Logo URL', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Provide a URL to an approved logo',
+					'If you have chosen \'none\' above, provide a URL to an approved logo. Choosing \'none\' and leaving this field empty will result in the ASU logo being displayed.',
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'logo_url',
+				'active_callback' => 'show_custom_logo_fields',
 				'priority'   => 30,
 			)
 		);
@@ -676,4 +720,20 @@ add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
  */
 function show_404_callback() {
 	return ! is_404();
+}
+
+/**
+ * Show or hide the custom logo options (the drop-down and the URL field)
+ * based on the logo_select value. If the current value is 'ASU', we don't
+ * show the other options. If it's 'custom', we do show them.
+ */
+function show_custom_logo_fields( $control ) {
+
+	$logo_type = get_theme_mod( 'footer_logo_type' );
+
+	if ( 'asu' === $logo_type ) {
+		return false;
+	}else{
+		return true;
+	}
 }

@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $uds_wp_includes = array(
 	'/customizer-sanitizers.php',           // Load input sanitizer functions.
 	'/customizer-preview-js.php',           // Make Theme Customizer preview reload changes asynchronously.
+	'/customizer-controls-js.php',          // Javascript to operate on actual Customizer controls
 	'/customizer-post-message-support.php', // Add postMessage support for site title and description in the Theme Customizer.
 	'/customizer-endorsed-unit-logos.php',  // Load endorsed unit logos for Customizer.
 	'/customizer-settings.php',             // Load custom settings and sections in Customizer.

@@ -88,8 +88,6 @@ function uds_wp_render_main_nav_menu() {
 	}
 }
 
-
-
 /**
  * Render Footer Logo
  *
@@ -98,28 +96,51 @@ function uds_wp_render_main_nav_menu() {
  * logo takes preference over a logo URL.
  */
 function uds_wp_render_footer_logo() {
+	$logo_type = get_theme_mod( 'footer_logo_type' );
 	$logo_select = get_theme_mod( 'logo_select' );
 	$logo_url = get_theme_mod( 'logo_url' );
-	$logo_template = '<img src="%1$s" alt="%2$s" />';
+	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
 
-	// First, check for Preset Logo Selection.
-	if ( $logo_select && 'none' !== $logo_select ) {
-		// load array of endorsed units.
-		$endorsed_logos = uds_wp_theme_get_endorsed_unit_logos();
+	if ( $logo_type && 'asu' === $logo_type ) {
+		// Footer logo type is set to 'asu'. Use ASU logo and link to asu.edu!
+		uds_wp_render_asu_footer_logo();
+	}else{
 
-		// lookup logo filename.
-		$filename = '';
-		foreach ( $endorsed_logos as $unit ) {
-			if ( $unit['slug'] === $logo_select ) {
-				$filename = $unit['filename'];
-				break;
+		// First, check for Preset Logo Selection.
+		if ( $logo_select && 'none' !== $logo_select ) {
+
+			// load array of endorsed units.
+			$endorsed_logos = uds_wp_theme_get_endorsed_unit_logos();
+
+			// lookup logo filename.
+			$filename = '';
+			foreach ( $endorsed_logos as $unit ) {
+				if ( $unit['slug'] === $logo_select ) {
+					$filename = $unit['filename'];
+					break;
+				}
 			}
-		}
-		echo wp_kses( sprintf( $logo_template, get_template_directory_uri() . '/img/endorsed-logo/' . $filename, get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
+
+			echo wp_kses( sprintf(
+				$logo_template,
+				get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
+				get_bloginfo( 'name' ) . ' Logo',
+				home_url( '/' ) ),
+				wp_kses_allowed_html( 'post' ) );
 
 		// Else, check for Logo URL.
-	} elseif ( $logo_url && '' !== $logo_url ) {
-		echo wp_kses( sprintf( $logo_template, $logo_url, get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
+		} elseif ( $logo_url && '' !== $logo_url ) {
+			echo wp_kses( sprintf(
+				$logo_template,
+				$logo_url,
+				get_bloginfo( 'name' ) . ' Logo',
+				home_url( '/' ) ),
+				wp_kses_allowed_html( 'post' ) );
+		}else{
+			// No preset logo chosen, and no logo URL provided.
+			// Fall back to using the ASU logo
+			uds_wp_render_asu_footer_logo();
+		}
 	}
 }
 
@@ -231,4 +252,16 @@ function uds_wp_render_footer_action_row() {
 		</nav>
 		<?php
 	}
+}
+
+function uds_wp_render_asu_footer_logo() {
+	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
+
+	echo wp_kses( sprintf(
+		$logo_template,
+		get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
+		get_bloginfo( 'name' ) . ' Logo',
+		'https://asu.edu' ),
+		wp_kses_allowed_html( 'post' )
+	);
 }
