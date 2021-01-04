@@ -201,7 +201,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * ASU Global Footer Section
 		 *
 		 * Contains: logo+social row toggle, footer logo, social media menu
-		 **********************************************************************/
+		 */
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
@@ -727,13 +727,13 @@ function show_404_callback() {
  * based on the logo_select value. If the current value is 'ASU', we don't
  * show the other options. If it's 'custom', we do show them.
  */
-function show_custom_logo_fields( $control ) {
+function show_custom_logo_fields() {
 
 	$logo_type = get_theme_mod( 'footer_logo_type' );
 
 	if ( 'asu' === $logo_type ) {
 		return false;
-	}else{
+	} else {
 		return true;
 	}
 }
