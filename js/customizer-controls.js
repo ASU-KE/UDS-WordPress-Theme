@@ -15,7 +15,7 @@
 	/**
 	 *
 	 */
-	api( 'footer_logo_type', function(setting) {
+	api( 'footer_logo_type', function( setting ) {
 		var linkSettingValueToControl;
 
 		/**
