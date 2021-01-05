@@ -67,6 +67,9 @@ function uds_wp_render_subdomain_name() {
  */
 function uds_wp_render_main_nav_menu() {
 
+	// We need access to the $wp object. Standard warning about using 'global'!
+	global $wp;
+
 	// get our setting and initialize some variables.
 	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
 	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
