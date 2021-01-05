@@ -18,3 +18,8 @@
 .customize-partial-edit-shortcut-logo_select, .customize-partial-edit-shortcut-footer_logo_type {
 	top: 45px;
 }
+
+// hide the logo URL shortcut, to avoid double shortcut on the logo
+span.customize-partial-edit-shortcut-logo_url {
+	display: none;
+}
