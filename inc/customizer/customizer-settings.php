@@ -74,8 +74,35 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			'blogname',
 			array(
-				'selector' => '.subdomain-name, .footer-site-name',
-				'render_callback' => 'uds_wp_render_blog_name',
+				'selector'        => '.subdomain-name, .footer-site-name',
+				'render_callback' => 'uds_wp_render_blogname',
+				'container_inclusive' => false,
+			)
+		);
+
+		/**
+		 * Site Name as a link checkbox
+		 */
+		$wp_customize->add_setting(
+			'sitename_as_link',
+			array(
+				'default'           => false,
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'sitename_as_link_control',
+			array(
+				'description' => __( '<p>Determines if the site name in the header is also a link to the root (home page) of your site.</p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Make title a link', 'uds-wordpress-theme' ),
+				'section'     => 'title_tagline',
+				'type'        => 'checkbox',
+				'settings'    => 'sitename_as_link',
+				'priority'    => 15,
 			)
 		);
 
@@ -96,8 +123,8 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_name',
 			array(
-				'description' => __( 'The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b>', 'uds-wordpress-theme' ),
-				'label'       => __( 'Parent Unit', 'uds-wordpress-theme' ),
+				'description' => __( '<p>The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b></p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Parent Unit Name', 'uds-wordpress-theme' ),
 				'section'     => 'title_tagline',
 				'settings'    => 'parent_unit_name',
 				'priority'    => 20,
@@ -130,7 +157,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'parent_unit_link',
 			array(
-				'description'       => __( 'To make the Parent Unit a link, provide the URL here.', 'uds-wordpress-theme' ),
+				'description'       => __( '<p>To make the Parent Unit a link, provide the URL here.</p>', 'uds-wordpress-theme' ),
 				'label'      => __( 'Parent Unit URL', 'uds-wordpress-theme' ),
 				'section'    => 'title_tagline',
 				'settings'   => 'parent_unit_link',
@@ -376,6 +403,15 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'settings'   => 'logo_url',
 				'active_callback' => 'show_custom_logo_fields',
 				'priority'   => 30,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'logo_url',
+			array(
+				'selector' => '#endorsed-logo',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_footer_logo',
 			)
 		);
 

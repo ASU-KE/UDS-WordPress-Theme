@@ -15,11 +15,11 @@
  */
 
 /**
- * Returns the blog name (which we call the subdomain name). Using this function
- * to avoid errors/warnings from PHPCS about the use of anonymous functions
- * in 'customizer-settings.php'.
+ * Returns the blog name in the header (which we call the subdomain name).
+ * We are Using this function to avoid errors/warnings from PHPCS about the
+ * use of anonymous functions in 'customizer-settings.php'.
  */
-function uds_wp_render_blog_name() {
+function uds_wp_render_blogname() {
 	return get_bloginfo( 'name' );
 }
 
@@ -43,7 +43,20 @@ function uds_wp_render_parent_unit_name() {
  * Renders the default blog name setting in a span.
  */
 function uds_wp_render_subdomain_name() {
-	echo '<span class="subdomain-name">' . get_bloginfo( 'name' ) . '</span>';
+	$is_link = get_theme_mod( 'sitename_as_link' );
+	$title_link = '';
+
+	if ( $is_link ) {
+		$title_link .= '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">';
+	}
+
+	$title_link .= '<span class="subdomain-name">' . get_bloginfo( 'name' ) . '</span>';
+
+	if ( $is_link ) {
+		$title_link .= '</a>';
+	}
+
+	echo $title_link;
 }
 
 /**
@@ -243,7 +256,7 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><span class="footer-site-name"><?php echo uds_wp_render_blog_name(); ?></span></h5>
+						<h5><span class="footer-site-name"><?php echo get_bloginfo( 'name' ); ?></span></h5>
 						<div class="contact-wrapper">
 							<?php uds_wp_render_contact_link(); ?>
 						</div>

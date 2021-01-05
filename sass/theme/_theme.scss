@@ -23,3 +23,12 @@ main > * {
 		}
 	}
 }
+
+.title .subdomain-name a {
+	text-decoration: none;
+	color: #191919;
+}
+
+.title .subdomain-name a:hover {
+	text-decoration: underline;
+}
