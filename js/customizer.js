@@ -38,13 +38,13 @@
 	 */
 	wp.customize( 'sitename_as_link', function( value ) {
 		value.bind( function( to ) {
-			if( false === to ) {
+			if ( false === to ) {
 				/**
-				 * the box is UNCHECKED, so remove the wrapping <a> tag from
+				 * The box is UNCHECKED, so remove the wrapping <a> tag from
 				 * around the title using jQUery's unwrap().
 				 */
 				$( 'span.subdomain-name' ).unwrap();
-			}else{
+			} else {
 				/**
 				 * The box is CHECKED, so wrap the site title in a temporary
 				 * (only for viewing in the customizer) link tag. Since these kind
