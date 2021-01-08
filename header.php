@@ -151,17 +151,21 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 								</span>
 							</button>
 
-							<div class="navbar-container
 							<?php
-							if ( ! $nav_menu_enabled ) {
-								echo 'no-links';}
+							// Check the customizer setting to see if $nav_menu_enabled = enabled/disabled.
+							// $nav_nolinks_class = '';
+							// if ( 'disabled' === $nav_menu_enabled ) {
+							// 	$nav_nolinks_class = 'no-links';
+							// }
+							// <div class="navbar-container <?php echo $nav_nolinks_class;
 							?>
-							">
 
-							<div class="title">
-								<?php uds_wp_render_parent_unit_name(); ?>
-								<?php uds_wp_render_subdomain_name(); ?>
-							</div>
+							<?php uds_wp_render_navbar_container(); ?>
+
+								<div class="title">
+									<?php uds_wp_render_parent_unit_name(); ?>
+									<?php uds_wp_render_subdomain_name(); ?>
+								</div>
 
 								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
 

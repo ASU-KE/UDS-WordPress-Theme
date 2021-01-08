@@ -60,6 +60,25 @@ function uds_wp_render_subdomain_name() {
 }
 
 /**
+ * Add no-link css class .navbar-container, if needed.
+ *
+ * Considers the value of the header_navigation_menu theme mod and determines
+ * whether or not to add the no-link css class to .navbar-container
+ */
+function uds_wp_render_navbar_container() {
+	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
+	$navbar_container = '<div class="navbar-container ';
+
+	if ( 'disabled' === $nav_menu_enabled ) {
+		$navbar_container .= 'no-links';
+	}
+
+	$navbar_container .= '">';
+
+	echo $navbar_container;
+}
+
+/**
  * Render main navigation menu
  *
  * Takes the value of the header_navigation_menu theme mod and determines

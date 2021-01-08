@@ -220,7 +220,14 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'selector'            => '#menubar',
 				'container_inclusive' => false,
-				'render_callback'     => 'uds_wp_render_main_nav_menu',
+				// 'render_callback'     => 'uds_wp_render_main_nav_menu',
+				'render_callback' => function() {
+					return (
+						uds_wp_render_navbar_container()
+						&&
+						uds_wp_render_main_nav_menu()
+					);
+				},
 			)
 		);
 
