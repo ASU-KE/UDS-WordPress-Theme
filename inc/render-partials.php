@@ -24,6 +24,22 @@ function uds_wp_render_blogname() {
 }
 
 /**
+ * Render site title wrapper div
+ *
+ * The wrapper div for the site title should either be <div class="title">
+ * or <div class="title subdomain-name"> depending on the presence or absence of the parent title info.
+ */
+function uds_wp_render_title_wrapper() {
+	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
+
+	if ( empty( $parent_unit_name ) ) {
+		echo '<div class="title subdomain-name">';
+	} else {
+		echo '<div class="title">';
+	}
+}
+
+/**
  * Render parent unit name and link
  *
  * Takes the unit name and link settings and renders a link tag.
@@ -32,9 +48,21 @@ function uds_wp_render_parent_unit_name() {
 	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
 	$parent_unit_link = get_theme_mod( 'parent_unit_link' );
 
-	if ( $parent_unit_name && ! empty( $parent_unit_name ) ) {
-		echo '<a class="unit-name" href="' . $parent_unit_link . '">' . $parent_unit_name . '</a>';
+	if ( ! empty( $parent_unit_name ) ) {
+		// If there is a unit name, do we need a link as well?
+		if ( ! empty( $parent_unit_link ) ) {
+			$parent_string = '<a class="unit-name" href="' . $parent_unit_link . '">' . $parent_unit_name . '</a>';
+		} else {
+			// There is no link entered but we want to still produce the unit name.
+			// The following option is undocumented within UDS-Boostrap, but it works.
+			$parent_string = '<span class="unit-name">' . $parent_unit_name . '</span>';
+		}
+	} else {
+		// There is no parent name defined. Return empty.
+		$parent_string = '';
 	}
+
+	echo $parent_string;
 }
 
 /**
@@ -43,20 +71,29 @@ function uds_wp_render_parent_unit_name() {
  * Renders the default blog name setting in a span.
  */
 function uds_wp_render_subdomain_name() {
-	$is_link = get_theme_mod( 'sitename_as_link' );
-	$title_link = '';
+	// TODO: Need to check the parent name status here as well as the link status.
+	// If no parent, produce link + name or just the name, no CSS class required.
+	// If a parent, produce span.subdomain-name + either a link or not.
 
-	if ( $is_link ) {
-		$title_link .= '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">';
+	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
+	$sitename_is_linked = get_theme_mod( 'sitename_as_link' );
+
+	$title_string = '';
+	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">' . get_bloginfo( 'name' ) . '</a>';
+
+	// If a link is indicated, include the markup. Otherwise, just the site name.
+	if ( $sitename_is_linked ) {
+		$title_string .= $title_link;
+	} else {
+		$title_string .= get_bloginfo( 'name' );
 	}
 
-	$title_link .= '<span class="subdomain-name">' . get_bloginfo( 'name' ) . '</span>';
-
-	if ( $is_link ) {
-		$title_link .= '</a>';
+	if ( ! empty( $parent_unit_name ) ) {
+		// There's a parent, so we need to a span wrapper.
+		$title_string = '<span class="subdomain-name">' . $title_string . '</span>';
 	}
 
-	echo $title_link;
+	echo $title_string;
 }
 
 /**
