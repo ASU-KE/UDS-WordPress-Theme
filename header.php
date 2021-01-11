@@ -158,7 +158,8 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 
 								<?php
 								// <div class="title"> +/- a utility class.
-								uds_wp_render_title_wrapper(); ?>
+								uds_wp_render_title_wrapper();
+								?>
 
 									<?php uds_wp_render_parent_unit_name(); ?>
 									<?php uds_wp_render_subdomain_name(); ?>
