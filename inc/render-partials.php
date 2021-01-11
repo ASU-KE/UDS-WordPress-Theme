@@ -24,30 +24,6 @@ function uds_wp_render_blogname() {
 }
 
 /**
- * Creating a named function to avoid anonymous functions that break in PHP <5.2.
- */
-function uds_wp_build_sitename() {
-	uds_wp_render_title_wrapper();
-	uds_wp_render_subdomain_name();
-};
-
-/**
- * Same thing as above. Named function to replace anonymous function elsewhere.
- */
-function uds_wp_build_parentname() {
-	uds_wp_render_title_wrapper();
-	uds_wp_render_parent_unit_name();
-};
-
-/**
- * One more. Named function to replace anonymous function elsewhere.
- */
-function uds_wp_build_navbar_markup() {
-	uds_wp_render_navbar_container();
-	uds_wp_render_main_nav_menu();
-};
-
-/**
  * Render site title wrapper div
  *
  * The wrapper div for the site title should either be <div class="title">

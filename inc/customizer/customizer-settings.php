@@ -75,9 +75,14 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			'blogname',
 			array(
 				'selector'        => '.subdomain-name, .footer-site-name',
-				// 'render_callback' => 'uds_wp_render_blogname',
 				'container_inclusive' => false,
-				'render_callback' => 'uds_wp_build_sitename',
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
 			)
 		);
 
@@ -104,6 +109,21 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'type'        => 'checkbox',
 				'settings'    => 'sitename_as_link',
 				'priority'    => 15,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'sitename_as_link_control',
+			array(
+				'selector'        => '.navbar-container',
+				'container_inclusive' => false,
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
 			)
 		);
 
@@ -137,7 +157,13 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'selector' => '.navbar-container',
 				'container_inclusive' => true,
-				'render_callback' => 'uds_wp_build_parentname',
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_parent_unit_name()
+					);
+				},
 			)
 		);
 
@@ -171,7 +197,13 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'selector' => '.navbar-container',
 				'container_inclusive' => true,
-				'render_callback' => 'uds_wp_build_parentname',
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_parent_unit_name()
+					);
+				},
 			)
 		);
 
@@ -230,7 +262,13 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'selector'            => '#menubar',
 				'container_inclusive' => false,
-				'render_callback' => 'uds_wp_build_navbar_markup',
+				'render_callback' => function() {
+					return (
+						uds_wp_render_navbar_container()
+						&&
+						uds_wp_render_main_nav_menu()
+					);
+				},
 			)
 		);
 
