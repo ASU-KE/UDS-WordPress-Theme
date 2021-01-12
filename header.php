@@ -17,10 +17,8 @@ $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
 $nav_menu_enabled      = '';
 
-// Check if we have Customizer options set.
-if ( is_array( get_option( 'uds_wp_theme_options' ) ) ) {
-	$c_options = get_option( 'uds_wp_theme_options' );
-}
+// retrieve settings from the theme mods entry in the options database table.
+$c_options = get_theme_mods();
 
 // Is navigation menu enabled?
 if ( ! empty( $c_options['header_navigation_menu'] ) ) {
@@ -153,73 +151,24 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 								</span>
 							</button>
 
-							<div class="navbar-container
 							<?php
-							if ( ! $nav_menu_enabled ) {
-								echo 'no-links';}
+							// <div class="navbar-container"> +/- a "no-link" class.
+							uds_wp_render_navbar_container();
 							?>
-							">
 
 								<?php
-								// if no parentUnit defined, render site (subdomain) name alone.
-								if ( empty( $c_options['parent_unit_name'] ) ) {
-									?>
-									<div class="title subdomain-name">
-										<?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?>
-									</div>
-									<?php
-									// render both site (subdomain) and parentUnit in header.
-								} else {
-									?>
-									<div class="title">
-										<?php
-										$parent_org = '<a href="%1$s" class="unit-name">%2$s</a>';
-										if ( isset( $c_options ) && array_key_exists( 'parent_unit_name', $c_options ) && '' !== $c_options['parent_unit_name'] ) {
-											$parent_org_link = '#';
-											if ( array_key_exists( 'parent_unit_link', $c_options ) ) {
-												$parent_org_link = $c_options['parent_unit_link'];
-											}
-											echo wp_kses( sprintf( $parent_org, $parent_org_link, $c_options['parent_unit_name'] ), wp_kses_allowed_html( 'post' ) );
-										}
-										?>
-										<span class="subdomain-name"><?php echo wp_kses( get_bloginfo( 'name' ), wp_kses_allowed_html( 'strip' ) ); ?></span>
-									</div>
-									<?php
-								}
+								// <div class="title"> +/- a utility class.
+								uds_wp_render_title_wrapper();
 								?>
 
+									<?php uds_wp_render_parent_unit_name(); ?>
+									<?php uds_wp_render_subdomain_name(); ?>
+
+								</div><!-- .end .title -->
+
 								<div class="collapse navbar-collapse w-100 justify-content-between" id="menubar">
-									<?php
-									// if nav menu is enabled, render it.
-									if ( 'enabled' === $nav_menu_enabled ) {
-										?>
-									<div class="navbar-nav">
-										<?php
-										// ======================
-										// Create Main Navigation
-										// ======================
 
-										$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
-										$we_are_on_the_homepage = ( home_url() === $current_url );
-
-										$home_icon_class = 'nav-link-home';
-										if ( $we_are_on_the_homepage ) {
-											$home_icon_class .= ' active';
-										}
-										?>
-
-										<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-											<span class="d-lg-none">Home</span>
-											<span title="Home" class="fas fa-fw fa-home"></span>
-										</a>
-
-										<?php
-										include get_template_directory() . '/asu-navigation-menu.php';
-										?>
-									</div><!-- end .navbar-nav -->
-										<?php
-									}
-									?>
+									<?php uds_wp_render_main_nav_menu(); ?>
 
 									<div class="navbar-mobile-footer">
 										<form class="form-inline navbar-mobile-search" action="https://search.asu.edu/search" method="get" name="gs">
@@ -254,4 +203,3 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	</header>
 
 	<?php do_action( 'uds_wp_after_global_header' ); ?>
-

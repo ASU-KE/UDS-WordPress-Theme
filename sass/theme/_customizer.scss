@@ -1,0 +1,25 @@
+/**
+ * Styling for the customizer. Most of this is for dealing with shortcut
+ * buttons that overlap, or are too close to each other.
+ */
+
+// move the contribute button out from under another button
+.customize-partial-edit-shortcut-contribute_url {
+	position: relative !important;
+	top: 30px;
+}
+
+// move the button for the whole branding row out from under the side panel
+.customize-partial-edit-shortcut-footer_row_actions, .customize-partial-edit-shortcut-footer_row_branding {
+	left: 30px;
+}
+
+// move the logo and logo type buttons
+.customize-partial-edit-shortcut-logo_select, .customize-partial-edit-shortcut-footer_logo_type {
+	top: 45px;
+}
+
+// hide the logo URL shortcut, to avoid double shortcut on the logo
+span.customize-partial-edit-shortcut-logo_url {
+	display: none;
+}
