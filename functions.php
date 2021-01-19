@@ -30,7 +30,7 @@ $uds_wp_includes = array(
 	'/class-wp-social-media-walker.php',         // Load custom WordPress nav walker for footer Social Media menu wdiget.
 	'/wp-custom-menu.php',                       // Load custom menu builder functions.
 	'/editor.php',                               // Load Editor functions.
-	'/uds-blocks.php',                           // Custom blocks created with ACF Pro
+	'/uds-blocks.php',                           // Custom blocks created with ACF Pro.
 	'/deprecated.php',                           // Load deprecated functions.
 	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
 );
