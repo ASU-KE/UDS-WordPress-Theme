@@ -13,7 +13,10 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+		if ( ! get_field( 'hide_page_title' ) ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );} 
+		?>
 
 		<div class="entry-meta">
 
