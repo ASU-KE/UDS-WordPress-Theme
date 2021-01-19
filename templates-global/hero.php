@@ -63,7 +63,8 @@ if ( ! empty( $hero_asset_url ) ) :
 else :
 
 	echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
-	the_title( '<h1 class="entry-title">', '</h1>' );
+	if ( ! get_field( 'hide_page_title' ) ) {
+		the_title( '<h1 class="entry-title">', '</h1>' ); }
 	echo '</div></div></div></section>';
 
 endif;
