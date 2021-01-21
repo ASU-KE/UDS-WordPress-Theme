@@ -5,7 +5,8 @@
  * To register block, unregister block, render block, enueue assets and etc
  *
  */
-(function( $ ) {
+ /*jshint esversion: 6 */
+(function() {
 
 	// Unregister unwanted blocks.
 		wp.domReady( () => {
