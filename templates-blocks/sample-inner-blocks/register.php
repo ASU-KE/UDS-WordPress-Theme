@@ -33,10 +33,16 @@ acf_register_block_type(
 			'jsx'           => true, // Support JSX tags, such as <InnerBlocks />.
 			'mode'          => false, // Turns off the mode-switching button (this block wants to be in preview).
 		),
-		'mode'              => 'preview', // make this block default to full edit mode when added to the page.
+		'mode'              => 'preview', // make this block default to preview mode when added to the page
+		/**
+		 * For the small preview that shows on hovering over this block in the block selector.
+		 * Since this block doesn't have any content of its own, and is just a wrapper around
+		 * an <InnerBlocks /> tag, there's nothing to preview, so we set the preview mode to
+		 * 'edit', which shows the ACF fields instead of a preview.
+		 */
 		'example'  => array(
 			'attributes' => array(
-				'mode' => 'preview',
+				'mode' => 'edit',
 				'data' => array(
 					'background_pattern'        => 'network',
 					'background_color_variant'  => 'white',
