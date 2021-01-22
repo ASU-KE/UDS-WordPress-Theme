@@ -145,7 +145,7 @@ function uds_wp_render_main_nav_menu() {
 		?>
 
 		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-			<span class="d-lg-none">Home</span>
+			<span class="d-xl-none">Home</span>
 			<span title="Home" class="fas fa-fw fa-home"></span>
 		</a>
 
