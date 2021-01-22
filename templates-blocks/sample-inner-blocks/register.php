@@ -33,7 +33,7 @@ acf_register_block_type(
 			'jsx'           => true, // Support JSX tags, such as <InnerBlocks />.
 			'mode'          => false, // Turns off the mode-switching button (this block wants to be in preview).
 		),
-		'mode'              => 'preview', // make this block default to preview mode when added to the page
+		'mode'              => 'preview', // make this block default to preview mode when added to the page.
 		/**
 		 * For the small preview that shows on hovering over this block in the block selector.
 		 * Since this block doesn't have any content of its own, and is just a wrapper around
