@@ -246,9 +246,11 @@ gulp.task( 'copy-assets', function( done ) {
 // Deleting the files distributed by the copy-assets task
 gulp.task( 'clean-vendor-assets', function() {
 	return del( [
+		paths.dev + '/img',
 		paths.dev + '/js/bootstrap4',
+		paths.dev + '/js/bootstrap4-asu',
+		paths.dev + '/sass',
 		paths.js + '/fontawesome',
-		paths.js + paths.vendor,
 	] );
 } );
 
