@@ -3,8 +3,8 @@ src/**/*.js
 js/popper.js
 js/theme.js
 gulpfile.js
+dist
 node_modules
 vendor
-js/bootstrap-asu
 js/fontawesome
 inc/acf/assets/**/*.js
