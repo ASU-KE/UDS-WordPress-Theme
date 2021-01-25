@@ -210,20 +210,14 @@ gulp.task( 'clean-source', function() {
 
 ////////////////// All Bootstrap SASS  Assets /////////////////////////
 gulp.task( 'copy-assets', function( done ) {
-	////////////////// All Bootstrap 4 Assets /////////////////////////
-	// Copy all JS files
+	////////////////// Vanilla Bootstrap 4 Assets /////////////////////////
+
+	// Copy vanilla Bootstrap JS files
 	var stream = gulp
 		.src(
-			paths.node + '/@asu-design-system/bootstrap4-theme/dist/js/**/*.js'
+			paths.node + '/bootstrap/dist/js/*.js'
 		)
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
-
-	// Copy all Bootstrap image files
-	gulp.src(
-		paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*'
-	).pipe( gulp.dest( paths.dev + '/img/asu-unity' ) );
-
-	////////////////// End Bootstrap 4 Assets /////////////////////////
 
 	// Copy Font Awesome JS (Auto-replaces FA <i> & <span> tags with SVGs)
 	gulp.src(
@@ -232,12 +226,18 @@ gulp.task( 'copy-assets', function( done ) {
 	).pipe( gulp.dest( paths.js + '/fontawesome' ) );
 
 	////////////////// All UDS Assets /////////////////////////
+
+	// Copy UDS image files
+	gulp.src(
+		paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*'
+	).pipe( gulp.dest( paths.dev + '/img/asu-unity' ) );
+
 	// Copy UDS JS files
 	var stream = gulp
 		.src( paths.node + '/@asu-design-system/bootstrap4-theme/src/js/*.js' )
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4-asu' ) );
 
-	// Copy UDS Bootstrap SCSS files
+	// Copy UDS SCSS files
 	var stream = gulp
 		.src(
 			paths.node +
