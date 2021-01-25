@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "gulp compile",
-    "postinstall": "gulp copy-assets"
+    "postinstall": "gulp reset-assets"
   },
   "engines": {
     "node": ">=10",

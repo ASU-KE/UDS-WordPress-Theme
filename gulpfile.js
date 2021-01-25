@@ -327,6 +327,11 @@ gulp.task(
 );
 
 // Run
+// gulp reset-assets
+// CLear and re-copy the vendor assets
+gulp.task( 'reset-assets', gulp.series( 'clean-vendor-assets', 'copy-assets' ) );
+
+// Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task
 gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'imagemin', 'dist' ) );
