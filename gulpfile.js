@@ -183,7 +183,7 @@ gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
 gulp.task( 'scripts', function() {
 	var scripts = [
 		paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
-		paths.dev + '/js/skip-link-focus-fix.js',
+		paths.dev + '/js/custom/skip-link-focus-fix.js',
 		paths.dev + '/js/bootstrap4-asu/global-header.js',
 	];
 	gulp.src( scripts, { allowEmpty: true } )
