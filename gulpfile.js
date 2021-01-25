@@ -184,13 +184,9 @@ gulp.task( 'scripts', function() {
 	var scripts = [
 		paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
 		paths.dev + '/js/skip-link-focus-fix.js',
-
-		// Adding currently empty javascript file to add on for your own themes´ customizations
-		// Please add any customizations to this .js file only!
-		paths.dev + '/js/custom-javascript.js',
+		paths.dev + '/js/bootstrap4-asu/global-header.js',
 	];
-	gulp
-		.src( scripts, { allowEmpty: true } )
+	gulp.src( scripts, { allowEmpty: true } )
 		.pipe( babel( { presets: ['@babel/preset-env'] } ) )
 		.pipe( concat( 'theme.min.js' ) )
 		.pipe( uglify() )
@@ -217,20 +213,37 @@ gulp.task( 'copy-assets', function( done ) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
 	var stream = gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/js/**/*.js' )
+		.src(
+			paths.node + '/@asu-design-system/bootstrap4-theme/dist/js/**/*.js'
+		)
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
 
 	// Copy all Bootstrap image files
-	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*' )
-		.pipe( gulp.dest( paths.dev + '/img/asu-unity' ) );
+	gulp.src(
+		paths.node + '/@asu-design-system/bootstrap4-theme/dist/img/**/*'
+	).pipe( gulp.dest( paths.dev + '/img/asu-unity' ) );
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
 	// Copy Font Awesome JS (Auto-replaces FA <i> & <span> tags with SVGs)
-	gulp
-		.src( paths.node + '/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/js/*' )
-		.pipe( gulp.dest( paths.js + '/fontawesome' ) );
+	gulp.src(
+		paths.node +
+			'/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/js/*'
+	).pipe( gulp.dest( paths.js + '/fontawesome' ) );
+
+	////////////////// All UDS Assets /////////////////////////
+	// Copy UDS JS files
+	var stream = gulp
+		.src( paths.node + '/@asu-design-system/bootstrap4-theme/src/js/*.js' )
+		.pipe( gulp.dest( paths.dev + '/js/bootstrap4-asu' ) );
+
+	// Copy UDS Bootstrap SCSS files
+	var stream = gulp
+		.src(
+			paths.node +
+				'/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss'
+		)
+		.pipe( gulp.dest( paths.dev + '/sass' ) );
 
 	done();
 } );
