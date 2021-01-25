@@ -199,11 +199,6 @@ gulp.task( 'scripts', function() {
 		.pipe( gulp.dest( paths.js ) );
 } );
 
-// Deleting any file inside the /src folder
-gulp.task( 'clean-source', function() {
-	return del( [ 'src/**/*' ] );
-} );
-
 // Run:
 // gulp copy-assets.
 // Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder. Run this task after npm update
