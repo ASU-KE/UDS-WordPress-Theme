@@ -2,11 +2,17 @@
 /**
  * Declaring widgets
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+/**
+ * Removes support for blocks in the widget areas.
+ * Feature included via the Gutenberg plugin but not ready for production. (Nov 2020)
+ */
+remove_theme_support( 'widgets-block-editor' );
 
 /**
  * Add filter to the parameters passed to a widget's display callback.
@@ -14,9 +20,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @link https://developer.wordpress.org/reference/hooks/dynamic_sidebar_params/
  */
-add_filter( 'dynamic_sidebar_params', 'asu_wp2020_widget_classes' );
-
-if ( ! function_exists( 'asu_wp2020_widget_classes' ) ) {
+add_filter( 'dynamic_sidebar_params', 'uds_wp_widget_classes' );
+if ( ! function_exists( 'uds_wp_widget_classes' ) ) {
 
 	/**
 	 * Count number of visible widgets in a sidebar and add classes to widgets accordingly,
@@ -49,7 +54,7 @@ if ( ! function_exists( 'asu_wp2020_widget_classes' ) ) {
 	 * }
 	 * @return array $params
 	 */
-	function asu_wp2020_widget_classes( $params ) {
+	function uds_wp_widget_classes( $params ) {
 
 		global $sidebars_widgets;
 
@@ -89,20 +94,33 @@ if ( ! function_exists( 'asu_wp2020_widget_classes' ) ) {
 		return $params;
 
 	}
-} // End of if function_exists( 'asu_wp2020_widget_classes' ).
+} // End of if function_exists( 'uds_wp_widget_classes' ).
 
-add_action( 'widgets_init', 'asu_wp2020_widgets_init' );
+add_action( 'widgets_init', 'uds_wp_widgets_init' );
 
-if ( ! function_exists( 'asu_wp2020_widgets_init' ) ) {
+if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 	/**
 	 * Initializes themes widgets.
 	 */
-	function asu_wp2020_widgets_init() {
+	function uds_wp_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Right Sidebar', 'asu-web-standards' ),
-				'id'            => 'sidebar-right',
-				'description'   => __( 'Right sidebar widget area', 'asu-web-standards' ),
+				'name'          => __( 'Sidebar', 'uds-wordpress-theme' ),
+				'id'            => 'sidebar',
+				'description'   => __( 'Sidebar widget area', 'uds-wordpress-theme' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+
+		// register our global banner area below the hero image.
+		register_sidebar(
+			array(
+				'name'          => __( 'Global Banner Area', 'uds-wordpress-theme' ),
+				'id'            => 'global-banner',
+				'description'   => __( 'Global alert banner widget area, below the Hero image and above all content.', 'uds-wordpress-theme' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -110,31 +128,21 @@ if ( ! function_exists( 'asu_wp2020_widgets_init' ) ) {
 			)
 		);
 
-		register_sidebar(
-			array(
-				'name'          => __( 'Left Sidebar', 'asu-web-standards' ),
-				'id'            => 'sidebar-left',
-				'description'   => __( 'Left sidebar widget area', 'asu-web-standards' ),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
-		// Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
-		// this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
-		// define('ENABLE_FOOTER_WIDGETS', true);
-		if (defined('ENABLE_FOOTER_WIDGETS') && true == ENABLE_FOOTER_WIDGETS) {
+		/*
+		 * Because the Footer widgets enable page designs that may stress/violate Web Standards compliance,
+		 * this widget zone is only enabled when a constant, ENABLE_FOOTER_WIDGETS, is set in wp-config.php:
+		 * define('ENABLE_FOOTER_WIDGETS', true);
+		 */
+		if ( defined( 'ENABLE_FOOTER_WIDGETS' ) && true == ENABLE_FOOTER_WIDGETS ) {
 			register_sidebar(
 				array(
-					'name'          => __('Footer Widgets', 'asu-web-standards'),
+					'name'          => __( 'Footer Widgets', 'uds-wordpress-theme' ),
 					'id'            => 'sidebar-footer',
-					'description'   => __('Additional footer column for widgets', 'asu-web-standards'),
+					'description'   => __( 'Additional footer column for widgets', 'uds-wordpress-theme' ),
 					'before_widget' => '<div class="col-xl flex-footer">',
-					'after_widget'  => '</div>'
+					'after_widget'  => '</div>',
 				)
 			);
 		}
 	}
-} // End of function_exists( 'asu_wp2020_widgets_init' ).
+} // End of function_exists( 'uds_wp_widgets_init' ).

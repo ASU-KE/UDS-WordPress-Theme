@@ -1,6 +1,6 @@
 {
-	"name": "understrap/understrap",
-	"description": "Combines Automattic´s Underscores Starter Theme and Bootstrap 4",
+	"name": "asu-ke-web-services/uds-wordpress-theme",
+	"description": "ASU Unity Design System WordPress Theme",
 	"type": "wordpress-theme",
 	"license": "GPL-2.0-only",
 	"minimum-stability": "stable",
@@ -9,11 +9,10 @@
 		"theme",
 		"bootstrap"
 	],
-	"homepage": "https://github.com/understrap/understrap",
+	"homepage": "https://github.com/asu-ke-web-services/uds-wordpress-theme",
 	"require": {
 		"composer/installers": "^1.9",
-		"php": ">=5.6",
-		"htmlburger/carbon-fields": "^3.1"
+		"php": ">=5.6"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
@@ -23,12 +22,12 @@
 		"php-parallel-lint/php-parallel-lint": "^1.2"
 	},
 	"scripts": {
-		"check:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"],
+		"check:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 5.6-"],
 		"fix:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"],
 		"lint:php": ["@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."]
 	},
 	"support": {
-		"issues": "https://github.com/understrap/understrap/issues",
-		"source": "https://github.com/understrap/understrap"
+		"issues": "https://github.com/asu-ke-web-services/uds-wordpress-theme/issues",
+		"source": "https://github.com/asu-ke-web-services/uds-wordpress-theme"
 	}
 }

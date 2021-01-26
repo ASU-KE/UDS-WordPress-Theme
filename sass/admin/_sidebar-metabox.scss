@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+ul.img-select-wrap {
+	width: 100%;
+	display: flex;
+	margin: 15px 0;
+	li{
+		float: left;
+		margin-right: 10px;
+		span {
+			font-size: 11px;
+			display: block;
+			text-align: center;
+			max-width: 60px;
+			line-height: 13px;
+		}
+	}
+}
+
+img.img-select {
+	border: 2px solid #eee;
+	cursor: pointer;
+	border-radius: 4px;
+	background: #fff;
+	&.selected {
+		border: 2px solid #ffc627;
+	}
+}
+
+input.hidden {
+	display: none!important;
+}

@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -19,15 +19,16 @@ get_header();
 
 <div class="wrapper" id="index-wrapper">
 
-	<?php include get_template_directory() . '/hero.php'; ?>
+	<?php get_template_part( 'templates-global/hero' ); ?>
 
-	<div class="container" id="content" tabindex="-1">
+	<div id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
 
+	   <div>
 			<main class="site-main" id="main">
 
 				<?php
@@ -51,8 +52,8 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php asu_wp2020_pagination(); ?>
-
+			<?php uds_wp_pagination(); ?>
+		</div>
 			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 

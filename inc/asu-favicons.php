@@ -1,10 +1,18 @@
 <?php
 /**
- * asu_wp2020_favicons header hook, provides links to the favicons from the asu-web-standards
+ * Activate ASU favicons in the theme
+ *
+ * @package uds-wordpress-theme
  */
 
-function asu_wp2020_favicons() {
-?>
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Theme favicons header hook, provides links to the favicons from the UDS WordPress Theme
+ */
+function uds_wp_favicons() {
+	?>
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-114x114.png" />
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/favicon/apple-touch-icon-72x72.png" />
@@ -26,7 +34,7 @@ function asu_wp2020_favicons() {
 <meta name="msapplication-wide310x150logo" content="<?php echo get_template_directory_uri(); ?>/img/favicon/mstile-310x150.png" />
 <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/img/favicon/mstile-310x310.png" />
 
-<?php
+	<?php
 }
 
-add_action( 'wp_head', 'asu_wp2020_favicons' );
+add_action( 'wp_head', 'uds_wp_favicons' );

@@ -1,8 +1,9 @@
 // Override image base path for theme css
-$image-assets-path: '/wp-content/themes/asu-web-standards-2020-wordpress-theme/img' !default;
+$image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
 
 @import "../src/scss/bootstrap-asu";
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
-//@import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
+@import "theme/customizer";       // <------ Tweaks to the customizer (mostly buttons)
+//@import "theme/contact-form7";  // <-------- Contact Form 7 - Bootstrap 4 support

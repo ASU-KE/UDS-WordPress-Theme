@@ -1,11 +1,9 @@
 {
-  "name": "asu-web-standards-2020-wordpress-theme",
-  "version": "0.5.1",
-  "description": "ASU Web Standards 2.0 WordPress Theme",
-  "main": "index.js",
-  "repository": "git://github.com/asu-ke-web-services/asu-web-standards-2020-wordpress-theme.git",
+  "name": "uds-wordpress-theme",
+  "description": "ASU Unity Design System WordPress Theme",
+  "repository": "git://github.com/asu-ke-web-services/uds-wordpress-theme.git",
   "bugs": {
-    "url": "https://github.com/asu-ke-web-services/asu-web-standards-2020-wordpress-theme/issues"
+    "url": "https://github.com/asu-ke-web-services/uds-wordpress-theme/issues"
   },
   "scripts": {
     "build": "gulp compile",
@@ -22,18 +20,15 @@
     "bootstrap",
     "underscores"
   ],
-  "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
-  "license": "GPL-2.0",
-  "homepage": "https://understrap.com",
   "dependencies": {},
   "devDependencies": {
     "@asu-design-system/bootstrap4-theme": "dev",
     "@asu-design-system/design-tokens": "dev",
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "autoprefixer": "^9.8.6",
-    "bootstrap": "^4.5.2",
-    "browser-sync": "^2.26.12",
+    "bootstrap": "^4.5.3",
+    "browser-sync": "^2.26.13",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",

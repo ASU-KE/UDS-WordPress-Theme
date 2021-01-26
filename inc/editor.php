@@ -1,49 +1,49 @@
 <?php
 /**
- * ASU Web Standards 2020 Theme modify editor
+ * UDS WordPress Theme modify editor
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'admin_init', 'asu_wp2020_wpdocs_theme_add_editor_styles' );
+add_action( 'admin_init', 'uds_wp_wpdocs_theme_add_editor_styles' );
 
-if ( ! function_exists( 'asu_wp2020_wpdocs_theme_add_editor_styles' ) ) {
+if ( ! function_exists( 'uds_wp_wpdocs_theme_add_editor_styles' ) ) {
 	/**
 	 * Registers an editor stylesheet for the theme.
 	 */
-	function asu_wp2020_wpdocs_theme_add_editor_styles() {
+	function uds_wp_wpdocs_theme_add_editor_styles() {
 		add_editor_style( 'css/custom-editor-style.min.css' );
 	}
 }
 
-add_filter( 'mce_buttons_2', 'asu_wp2020_tiny_mce_style_formats' );
+add_filter( 'mce_buttons_2', 'uds_wp_tiny_mce_style_formats' );
 
-if ( ! function_exists( 'asu_wp2020_tiny_mce_style_formats' ) ) {
+if ( ! function_exists( 'uds_wp_tiny_mce_style_formats' ) ) {
 	/**
 	 * Reveals TinyMCE's hidden Style dropdown.
 	 *
 	 * @param array $buttons Array of Tiny MCE's button ids.
 	 * @return array
 	 */
-	function asu_wp2020_tiny_mce_style_formats( $buttons ) {
+	function uds_wp_tiny_mce_style_formats( $buttons ) {
 		array_unshift( $buttons, 'styleselect' );
 		return $buttons;
 	}
 }
 
-add_filter( 'tiny_mce_before_init', 'asu_wp2020_tiny_mce_before_init' );
+add_filter( 'tiny_mce_before_init', 'uds_wp_tiny_mce_before_init' );
 
-if ( ! function_exists( 'asu_wp2020_tiny_mce_before_init' ) ) {
+if ( ! function_exists( 'uds_wp_tiny_mce_before_init' ) ) {
 	/**
 	 * Adds style options to TinyMCE's Style dropdown.
 	 *
 	 * @param array $settings TinyMCE settings array.
 	 * @return array
 	 */
-	function asu_wp2020_tiny_mce_before_init( $settings ) {
+	function uds_wp_tiny_mce_before_init( $settings ) {
 
 		$style_formats = array(
 			array(
@@ -87,9 +87,7 @@ if ( ! function_exists( 'asu_wp2020_tiny_mce_before_init' ) ) {
 /**
  * Add inline css editor width
  */
-
-function gutenberg_editor_full_width()
-{
+function gutenberg_editor_full_width() {
 	echo '<style>
     body.gutenberg-editor-page .editor-post-title__block,
 	body.gutenberg-editor-page .editor-default-block-appender,
@@ -107,4 +105,4 @@ function gutenberg_editor_full_width()
 	}
 </style>';
 }
-add_action('admin_head', 'gutenberg_editor_full_width');
+add_action( 'admin_head', 'gutenberg_editor_full_width' );

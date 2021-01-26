@@ -4,7 +4,7 @@
  *
  * Learn more: https://codex.wordpress.org/Author_Templates
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -15,12 +15,14 @@ get_header();
 
 <div class="wrapper" id="author-wrapper">
 
-	<div class="container" id="content" tabindex="-1">
+	<div id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Check for the left sidebar and open the primary div -->
 			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+
+			<div>
 
 			<main class="site-main" id="main">
 
@@ -34,7 +36,7 @@ get_header();
 					}
 					?>
 
-					<h1><?php echo esc_html__( 'About:', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
+					<h1><?php echo esc_html__( 'About:', 'uds-wordpress-theme' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
 
 					<?php
 					if ( ! empty( $curauth->ID ) ) {
@@ -45,20 +47,20 @@ get_header();
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
 							<?php if ( ! empty( $curauth->user_url ) ) : ?>
-								<dt><?php esc_html_e( 'Website', 'asu-web-standards' ); ?></dt>
+								<dt><?php esc_html_e( 'Website', 'uds-wordpress-theme' ); ?></dt>
 								<dd>
 									<a href="<?php echo esc_url( $curauth->user_url ); ?>"><?php echo esc_html( $curauth->user_url ); ?></a>
 								</dd>
 							<?php endif; ?>
 
 							<?php if ( ! empty( $curauth->user_description ) ) : ?>
-								<dt><?php esc_html_e( 'Profile', 'asu-web-standards' ); ?></dt>
+								<dt><?php esc_html_e( 'Profile', 'uds-wordpress-theme' ); ?></dt>
 								<dd><?php echo esc_html( $curauth->user_description ); ?></dd>
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html__( 'Posts by', 'asu-web-standards' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<h2><?php echo esc_html__( 'Posts by', 'uds-wordpress-theme' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
 
 				</header><!-- .page-header -->
 					<!-- The Loop -->
@@ -71,11 +73,11 @@ get_header();
 								printf(
 									'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
 									esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-									esc_attr( __( 'Permanent Link:', 'asu-web-standards' ) ),
+									esc_attr( __( 'Permanent Link:', 'uds-wordpress-theme' ) ),
 									get_the_title()
 								);
-								asu_wp2020_posted_on();
-								esc_html_e( 'in', 'asu-web-standards' );
+								uds_wp_posted_on();
+								esc_html_e( 'in', 'uds-wordpress-theme' );
 								the_category( '&' );
 							echo '</li>';
 						}
@@ -89,8 +91,8 @@ get_header();
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php asu_wp2020_pagination(); ?>
-
+			<?php uds_wp_pagination(); ?>
+		</div>
 			<!-- Check for the right sidebar -->
 			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
 

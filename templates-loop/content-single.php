@@ -2,7 +2,7 @@
 /**
  * Single post partial template
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
@@ -13,11 +13,14 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+		if ( ! get_field( 'hide_page_title' ) ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );} 
+		?>
 
 		<div class="entry-meta">
 
-			<?php asu_wp2020_posted_on(); ?>
+			<?php uds_wp_posted_on(); ?>
 
 		</div><!-- .entry-meta -->
 
@@ -32,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'asu-web-standards' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -42,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php asu_wp2020_entry_footer(); ?>
+		<?php uds_wp_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 

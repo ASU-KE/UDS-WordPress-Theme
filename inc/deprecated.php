@@ -2,13 +2,13 @@
 /**
  * Rest in peace
  *
- * @package asu-web-standards-2020
+ * @package uds-wordpress-theme
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'asu_wp2020_slbd_count_widgets' ) ) {
+if ( ! function_exists( 'uds_wp_slbd_count_widgets' ) ) {
 	/**
 	 * Count number of widgets in a sidebar
 	 * Used to add classes to widget areas so widgets can be displayed one, two, three or four per row
@@ -16,7 +16,7 @@ if ( ! function_exists( 'asu_wp2020_slbd_count_widgets' ) ) {
 	 * @param int $sidebar_id The ID of the sidebar.
 	 * @deprecated 0.8.9
 	 */
-	function asu_wp2020_slbd_count_widgets( $sidebar_id ) {
+	function uds_wp_slbd_count_widgets( $sidebar_id ) {
 		// If loading from front page, consult $_wp_sidebars_widgets rather than options
 		// to see if wp_convert_widget_settings() has made manipulations in memory.
 		global $_wp_sidebars_widgets;
