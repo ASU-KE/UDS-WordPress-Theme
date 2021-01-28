@@ -45,7 +45,7 @@ $inner_template = array(
 );
 ?>
 
-<div class="container p-6 p-md-12 bg <? echo $background_classname; ?>">
+<div class="container p-6 p-md-12 bg <?php echo $background_classname; ?>">
 	<div class="row">
 		<div class="col">
 			<div class="p-2 p-md-4 bg-gray-2" >
