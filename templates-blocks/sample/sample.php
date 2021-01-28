@@ -20,8 +20,8 @@
 	<?php endif; ?>
 	<div class="row" style="background-color: #eee;">
 		<div class="col mx-auto px-12">
-			<h3><? the_field( 'title' ); ?></h3>
-			<p><? the_field( 'content' ); ?></p>
+			<h3><?php the_field( 'title' ); ?></h3>
+			<p><?php the_field( 'content' ); ?></p>
 		</div>
 	</div>
 	<?php if ( get_field( 'add_inner_container' ) ) : ?>
