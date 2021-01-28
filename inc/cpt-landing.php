@@ -1,7 +1,6 @@
 <?php
 /**
  * Creates a custom post type for this theme called Landing Pages.
- * slug: landing
  *
  * Also handles some additional things like permalink rewriting for the new CPT.
  * Reference: https://gist.github.com/wpexplorer/9745717
@@ -66,41 +65,41 @@ function uds_wordpress_register_landing_cpt() {
 }
 add_action( 'init', 'uds_wordpress_register_landing_cpt', 0 );
 
-// /**
-//  * 	Removes the custom post type slug for CPT "landing."
-//  *  Reference: https://wordpress.stackexchange.com/a/204210/69368
-//  */
+/**
+ * 	Removes the custom post type slug for CPT "landing."
+ *  Reference: https://wordpress.stackexchange.com/a/204210/69368
+ */
 
-// function uds_wordpress_remove_cpt_slug( $post_link, $post, $leavename ) {
+function uds_wordpress_remove_cpt_slug( $post_link, $post, $leavename ) {
 
-//     if ( 'landing' != $post->post_type || 'publish' != $post->post_status ) {
-//         return $post_link;
-//     }
+    if ( 'landing' != $post->post_type || 'publish' != $post->post_status ) {
+        return $post_link;
+    }
 
-//     $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
 
-//     return $post_link;
-// }
-// add_filter( 'post_type_link', 'uds_wordpress_remove_cpt_slug', 10, 3 );
+    return $post_link;
+}
+add_filter( 'post_type_link', 'uds_wordpress_remove_cpt_slug', 10, 3 );
 
-// /**
-//  * 	Handles all rewrite cases for collisions between CPT "landing" and normal pages.
-//  *  Reference: https://wordpress.stackexchange.com/a/204210/69368
-//  */
+/**
+ * 	Handles all rewrite cases for collisions between CPT "landing" and normal pages.
+ *  Reference: https://wordpress.stackexchange.com/a/204210/69368
+ */
 
-// function uds_wordpress_change_cpt_slug_struct( $query ) {
+function uds_wordpress_change_cpt_slug_struct( $query ) {
 
-//     if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
-//         return;
-//     }
+    if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
+        return;
+    }
 
-//     if ( ! empty( $query->query['name'] ) ) {
-//         $query->set( 'post_type', array( 'post', 'landing', 'page' ) );
-//     } elseif ( ! empty( $query->query['pagename'] ) && false === strpos( $query->query['pagename'], '/' ) ) {
-//         $query->set( 'post_type', array( 'post', 'landing', 'page' ) );
+    if ( ! empty( $query->query['name'] ) ) {
+        $query->set( 'post_type', array( 'post', 'landing', 'page' ) );
+    } elseif ( ! empty( $query->query['pagename'] ) && false === strpos( $query->query['pagename'], '/' ) ) {
+        $query->set( 'post_type', array( 'post', 'landing', 'page' ) );
 
-//         // We also need to set the name query var since redirect_guess_404_permalink() relies on it.
-//         $query->set( 'name', $query->query['pagename'] );
-//     }
-// }
-// add_action( 'pre_get_posts', 'uds_wordpress_change_cpt_slug_struct' );
+        // We also need to set the name query var since redirect_guess_404_permalink() relies on it.
+        $query->set( 'name', $query->query['pagename'] );
+    }
+}
+add_action( 'pre_get_posts', 'uds_wordpress_change_cpt_slug_struct' );

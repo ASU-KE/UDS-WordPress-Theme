@@ -1,9 +1,8 @@
 <?php
 /**
- * A page template for a "landing" page.
  *
- * Includes no specific option for a container on the page.
- * Dependent on blocks to define their own containers in order to work within this context.
+ * Page template for CPT "landing". Includes no specific option for a container on the page.
+ * Dependent on blocks to define their own containers or to be nested in container blocks to work within this context.
  *
  * @package uds-wordpress-theme
  */
@@ -15,6 +14,8 @@ get_header();
 ?>
 
 	<main id="skip-to-content" <?php post_class(); ?>>
+
+		<h1>Template: page-templates/landing.php</h1>
 
 		<?php
 
