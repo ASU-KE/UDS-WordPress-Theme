@@ -18,6 +18,7 @@ $uds_wp_includes = array(
 	'/navigation-widget.php',                    // Custom Navigation menu widget.
 	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
+	'/cpt-landing.php',							 // Create landing page custom post type.
 	'/template-tags.php',                        // Custom template tags for this theme.
 	'/render-partials.php',                      // Rendering methods for certain customizer-controlled items.
 	'/pagination.php',                           // Custom pagination for this theme.

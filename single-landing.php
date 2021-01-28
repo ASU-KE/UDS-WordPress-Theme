@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Landing Page
+ * A page template for a "landing" page.
  *
  * Includes no specific option for a container on the page.
  * Dependent on blocks to define their own containers in order to work within this context.
