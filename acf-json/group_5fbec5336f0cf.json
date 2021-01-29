@@ -30,9 +30,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "default"
+                "value": "document"
             }
         ]
     ],
@@ -44,5 +44,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Controls the layout of the sidebar column when viewed on desktop.",
-    "modified": 1606338636
+    "modified": 1611880304
 }
