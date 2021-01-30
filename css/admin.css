@@ -1,3 +1,32 @@
+ul.img-select-wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 15px 0; }
+  ul.img-select-wrap li {
+    float: left;
+    margin-right: 10px; }
+    ul.img-select-wrap li span {
+      font-size: 11px;
+      display: block;
+      text-align: center;
+      max-width: 60px;
+      line-height: 13px; }
+
+img.img-select {
+  border: 2px solid #eee;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #fff; }
+  img.img-select.selected {
+    border: 2px solid #ffc627; }
+
+input.hidden {
+  display: none !important; }
+
 /*
  * change color of draggable menu items that are too deep.
  */
