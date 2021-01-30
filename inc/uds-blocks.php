@@ -7,7 +7,6 @@
  * This file is responsible for loading all of our block 'register.php' files
  * (found in the individual block folders) so that we can register our custom
  * blocks. We do this by hooking into ACF Pro's 'acf/init' action.
- *
  */
 
 /**
