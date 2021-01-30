@@ -7,7 +7,14 @@
  * This file is responsible for loading all of our block 'register.php' files
  * (found in the individual block folders) so that we can register our custom
  * blocks. We do this by hooking into ACF Pro's 'acf/init' action.
+ *
  */
+
+/**
+ * First, let's work on a way to register/unregister native blocks.
+ */
+
+require_once get_template_directory() . '/templates-blocks/unregister-native.php';
 
 /**
  * Loops through an array of block folder names and includes the 'register.php'
