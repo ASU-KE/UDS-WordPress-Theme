@@ -55,3 +55,17 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
+
+
+
+if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
+	/**
+	 * Load CSS styles in editor area.
+	 */
+	function uds_wp_gutenberg_css() {
+		add_theme_support( 'editor-styles' );
+		add_editor_style( get_template_directory_uri() . '/css/theme.min.css' );
+
+	}
+}// End of if function_exists( 'uds_wp_gutenberg_css' ).
+add_action( 'after_setup_theme', 'uds_wp_gutenberg_css' );
