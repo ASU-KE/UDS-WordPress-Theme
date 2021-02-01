@@ -45,6 +45,6 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	return $wrapper . $sidebar_title . $sidebar . '</nav>';
 }
 
-// @codingStandardsIgnoreStart
+// phpcs:disable WPThemeReview.PluginTerritory.ForbiddenFunctions.plugin_territory_add_shortcode
 add_shortcode( 'uds-sidebar-menu', 'uds_wordpress_shortcode_sidebar_menu' );
- //@codingStandardsIgnoreEnd
+// phpcs:enable WPThemeReview.PluginTerritory.ForbiddenFunctions.plugin_territory_add_shortcode
