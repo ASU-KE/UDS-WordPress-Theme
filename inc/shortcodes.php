@@ -44,4 +44,7 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 
 	return $wrapper . $sidebar_title . $sidebar . '</nav>';
 }
+
+// @codingStandardsIgnoreStart
 add_shortcode( 'uds-sidebar-menu', 'uds_wordpress_shortcode_sidebar_menu' );
+ //@codingStandardsIgnoreEnd
