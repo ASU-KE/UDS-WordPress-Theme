@@ -10,28 +10,38 @@
  * Shortcode [uds-sidebar-menu].
  * Replicates a function call to return a wp_nav_menu object.
  * References the nav menu custom walker to produce the correct markup.
+ *
+ * @param array $atts Shortcode attributes.
  */
-function uds_wordpress_shortcode_sidebar_menu($atts, $content = null) {
-	extract(shortcode_atts(array(
-		'menu'            => '',
-		'title'			  => '',
-	), $atts));
+function uds_wordpress_shortcode_sidebar_menu( $atts ) {
+	$args = shortcode_atts(
+		array(
+			'menu'            => '',
+			'title'           => '',
+		),
+		$atts
+	);
+
+	$menu = $args['menu'];
+	$title = $args['title'];
 
 	$wrapper = '<nav class="sidebar accordion" aria-label="Secondary">';
 
-	if (! empty ($title)) {
+	if ( ! empty( $title ) ) {
 		$sidebar_title = '<div class="nav-text">' . $title . '</div>';
 	} else {
 		$sidebar_title = '';
 	}
 
-	$sidebar = wp_nav_menu( array(
-		'menu'            => $menu,
-		'echo'            => false,
-		'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
-		'items-wrap'	  => '%3$s',
-	));
+	$sidebar = wp_nav_menu(
+		array(
+			'menu'            => $menu,
+			'echo'            => false,
+			'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
+			'items-wrap'      => '%3$s',
+		)
+	);
 
 	return $wrapper . $sidebar_title . $sidebar . '</nav>';
 }
-add_shortcode('uds-sidebar-menu', 'uds_wordpress_shortcode_sidebar_menu');
+add_shortcode( 'uds-sidebar-menu', 'uds_wordpress_shortcode_sidebar_menu' );
