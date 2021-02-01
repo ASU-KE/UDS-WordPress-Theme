@@ -14,8 +14,8 @@ $uds_wp_includes = array(
 	'/theme-activation.php',                     // Build sample menus upon theme activation.
 	'/asu-favicons.php',                         // Enable ASU Favicons.
 	'/wpautop.php',                              // Disable wpautop.
-	// '/widgets.php',                           // Register widget area.
-	'/navigation-widget.php',                    // Custom Navigation menu widget.
+	'/widgets.php',                           	 // Register widget area.
+	'/navigation-widget.php',                 	 // Custom Navigation menu widget.
 	'/shortcodes.php', 							 // Additional shortcodes for the theme.
 	'/class-uds-notification-banner.php',        // Load the UDS notification widget.
 	'/enqueue.php',                              // Enqueue scripts and styles.
