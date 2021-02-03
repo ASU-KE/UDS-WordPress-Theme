@@ -9,20 +9,8 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2. Default page (sidebar), sidebar ordering
+2. Header title underline styles
 --------------------------------------------------------------*/
-
-// The source order of the page will display the sidebar on the right naturally.
-.page-template-default {
-	.sidebar-left {
-		article #secondary {
-			order: 1;
-		}
-		article #primary {
-			order: 2;
-		}
-	}
-}
 
 .title .subdomain-name a {
 	text-decoration: none;
@@ -32,3 +20,7 @@ main > * {
 .title .subdomain-name a:hover {
 	text-decoration: underline;
 }
+
+/*--------------------------------------------------------------
+X. Misc. styles
+--------------------------------------------------------------*/
