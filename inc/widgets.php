@@ -103,17 +103,6 @@ if ( ! function_exists( 'uds_wp_widgets_init' ) ) {
 	 * Initializes themes widgets.
 	 */
 	function uds_wp_widgets_init() {
-		register_sidebar(
-			array(
-				'name'          => __( 'Sidebar', 'uds-wordpress-theme' ),
-				'id'            => 'sidebar',
-				'description'   => __( 'Sidebar widget area', 'uds-wordpress-theme' ),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
-				'before_title'  => '<h4 class="widget-title">',
-				'after_title'   => '</h4>',
-			)
-		);
 
 		// register our global banner area below the hero image.
 		register_sidebar(
