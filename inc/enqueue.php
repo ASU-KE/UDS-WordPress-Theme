@@ -55,22 +55,14 @@ add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
 
 
 
-
-if ( ! function_exists( 'uds_wp_metaboxes_scripts' ) ) {
+if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
 	/**
-	 * Add metabox script and call it on admin side only.
+	 * Load CSS styles in editor area.
 	 */
-	function uds_wp_metaboxes_scripts() {
-		global $pagenow;
-		$the_theme     = wp_get_theme();
-		$theme_version = $the_theme->get( 'Version' );
-		$js_metaboxes_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/metaboxes.js' );
-		$css_metaboxes_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.min.css' );
-		if ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
+	function uds_wp_gutenberg_css() {
+		add_theme_support( 'editor-styles' );
+		add_editor_style( get_template_directory_uri() . '/css/theme.min.css' );
 
-			wp_enqueue_script( 'uds-wordpress-sidebar-metabox-scripts', get_template_directory_uri() . '/js/metaboxes.js', array( 'jquery' ), $js_metaboxes_version, true );
-			wp_enqueue_style( 'uds-wordpress-sidebar-metabox-styles', get_template_directory_uri() . '/css/admin.min.css', array(), $css_metaboxes_version );
-		}
 	}
-} // End of if function_exists( 'uds_wp_metaboxes_scripts' ).
-add_action( 'admin_enqueue_scripts', 'uds_wp_metaboxes_scripts' );
+}// End of if function_exists( 'uds_wp_gutenberg_css' ).
+add_action( 'after_setup_theme', 'uds_wp_gutenberg_css' );
