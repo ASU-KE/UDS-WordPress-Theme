@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "gulp compile",
-    "postinstall": "gulp copy-assets"
+    "postinstall": "gulp reset-assets"
   },
   "engines": {
     "node": ">=10",
@@ -20,15 +20,16 @@
     "bootstrap",
     "underscores"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  },
   "devDependencies": {
     "@asu-design-system/bootstrap4-theme": "dev",
     "@asu-design-system/design-tokens": "dev",
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "autoprefixer": "^9.8.6",
-    "bootstrap": "^4.5.3",
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.26.14",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
