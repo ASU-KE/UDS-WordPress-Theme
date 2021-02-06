@@ -25,6 +25,7 @@ function my_acf_blocks_init() {
 		$block_includes = array(
 			'/sample',              // A sample block to be deleted at some point.
 			'/sample-inner-blocks', // Sample block using the <InnerBlocks /> tag.
+			'/cards', // UDS Cards
 		);
 
 		// Loop through array items and include each register file.
@@ -69,4 +70,3 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 
 	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
 }
-
