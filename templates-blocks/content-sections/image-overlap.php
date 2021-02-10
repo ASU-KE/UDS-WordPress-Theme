@@ -6,23 +6,37 @@
  *
  */
 
+$background = get_field('uds_image_overlap_background');
+$orientation = get_field('uds_image_overlap_orientation');
+
+// Allowed blocks inside inner content.
+$allowed_blocks = array( 'core/heading', 'core/paragraph', 'core/separator', 'core/html', 'core/list');
+
+// Pre-populate the InnerBlocks area with some content.
+$template = array(
+	array('core/heading', array(
+		'level' => 3,
+		'content' => 'Title Goes Here',
+	)),
+    array( 'core/paragraph', array(
+        'content' => 'Creating daily standups with the possibility to make the logo bigger. Execute analytics yet take this offline. Repurpose below the line with the possibility to infiltrate new markets. Growing first party data and try to create synergy.',
+	)),
+);
+
+// Echo the block.
+if ( $background ) {
+
+	if ( "left" === $orientation ) {
+		echo '<div class="uds-image-overlap content-left">';
+	} else {
+		echo '<div class="uds-image-overlap">';
+	}
+
+	echo '<img class="img-fluid" src="' . $background['url'] . '" alt="' . $background['alt'] . '" />';
+	echo '<div class="content-wrapper">';
+	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
+	echo '</div>';
+	echo '</div>';
+}
+
 ?>
-
-<h1>Block output</h1>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-
-        <div class="uds-image-overlap">
-          <img class="img-fluid" src="https://placeimg.com/800/600/nature" alt="Generic image from PlaceIMG">
-          <div class="content-wrapper">
-            <h3>This is the content that goes in the box.</h3>
-            <p>Instagram tour operator travel sailing flying package. Territory New York City group discount active lifestyle creditcard insurance wellness kayak guide overnight rural lonely planet.</p>
-            <p>Train luxury Paris recommendations nature France sight seeing. Flexibility Amsterdam maps. Pacific lonely planet private jet national insurance taxi tourist attractions. Budget Pacific guide caravan Barcelona place to stay maps gateway diary tour operator money</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> -->

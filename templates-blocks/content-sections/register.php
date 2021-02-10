@@ -14,28 +14,17 @@
 
 acf_register_block_type(
 	array(
-		'name'              => 'content-image-overlap', // internal name, like a slug.
-		'title'             => __( 'Content Image Overlap', 'uds-wordpress-theme' ), // name the user will see.
-		'description'       => __( 'From the misc content section of the UDS design docs.', 'uds-wordpress-theme' ), // description the user will see.
-		'icon'              => 'star-filled', // Dashicon, or custom SVG code, for the icon.
-		'render_template'   => 'templates-blocks/content-sections/image-overlap.php', // location of the block's template.
-		'category'          => 'layout', // category this block appears in.
+		'name'              => 'content-image-overlap',
+		'title'             => __( 'Content Image Overlap', 'uds-wordpress-theme' ),
+		'description'       => __( 'From the misc content section of the UDS design docs.', 'uds-wordpress-theme' ),
+		'icon'              => 'star-filled',
+		'render_template'   => 'templates-blocks/content-sections/image-overlap.php',
+		'category'          => 'layout',
 		'keywords'          => array( 'overlap', 'content', 'section' ),
 		'supports'          => array(
-			'align' => false, // Remove the align button in the editor toolbar.
+			'align' => false,
+			'jsx' => true,
 		),
-		'mode'              => 'edit', // make this block default to full edit mode when added to the page.
-		// 'example'  => array(
-		// 	'attributes' => array(
-		// 		'mode' => 'preview',
-		// 		'data' => array(
-		// 			'title'                   => 'A Sample Block',
-		// 			'background_style'        => 'network-white',
-		// 			'container_type'          => 'container-fluid',
-		// 			'add_inner_container'     => true,
-		// 			'content'                 => 'Lorem ipsum sit dolor amet.',
-		// 		),
-		// 	),
-		// ),
+		'mode'              => 'edit',
 	)
 );
