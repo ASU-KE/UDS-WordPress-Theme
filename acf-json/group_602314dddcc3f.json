@@ -3,183 +3,52 @@
     "title": "BLOCK: Content Image Overlap",
     "fields": [
         {
-            "key": "field_6023158c0c7e0",
-            "label": "Layout Options",
-            "name": "uds_image_overlap_layout",
-            "type": "group",
-            "instructions": "Select the desired layout options for the block.",
-            "required": 0,
+            "key": "field_602314ea0c7df",
+            "label": "Background Image",
+            "name": "uds_image_overlap_background",
+            "type": "image",
+            "instructions": "Select the background image for the component. \r\nHorizontal orientation, any aspect ratio.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_602314ea0c7df",
-                    "label": "Background Image",
-                    "name": "background",
-                    "type": "image",
-                    "instructions": "Select the background image for the component. \r\nHorizontal orientation, any aspect ratio.",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "large",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_6023169c15df8",
-                    "label": "Position of the content section",
-                    "name": "orientation",
-                    "type": "radio",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "left": "Left",
-                        "right": "Right"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "right",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                },
-                {
-                    "key": "field_602318b415df9",
-                    "label": "Content Type",
-                    "name": "content_type",
-                    "type": "radio",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "text": "Text",
-                        "blockquote": "Blockquote"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "text",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                }
-            ]
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
-            "key": "field_60231d977d5d9",
-            "label": "Text Options",
-            "name": "uds_image_overlap_text_options",
-            "type": "group",
-            "instructions": "Enter the headline and content of the component.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602318b415df9",
-                        "operator": "==",
-                        "value": "text"
-                    }
-                ]
-            ],
+            "key": "field_6023169c15df8",
+            "label": "Position of the content section",
+            "name": "uds_image_overlap_orientation",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_60231e0f7d5da",
-                    "label": "Headline",
-                    "name": "headline",
-                    "type": "text",
-                    "instructions": "Pro Tip: Use the text area below to insert something like a <code>highlight-gold<\/code> class on an H3.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_60231a1815dfd",
-                    "label": "Body Text",
-                    "name": "bodytext",
-                    "type": "wysiwyg",
-                    "instructions": "Standard HTML markup should be allowed here.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
-                }
-            ]
-        },
-        {
-            "key": "field_60231e667d5db",
-            "label": "Blockquote Options",
-            "name": "uds_image_overlap_text_options",
-            "type": "text",
-            "instructions": "Temporary",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602318b415df9",
-                        "operator": "==",
-                        "value": "blockquote"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
+            "choices": {
+                "left": "Left",
+                "right": "Right"
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "right",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -199,5 +68,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612914383
+    "modified": 1612984486
 }
