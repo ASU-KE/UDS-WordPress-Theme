@@ -24,3 +24,17 @@ main > * {
 /*--------------------------------------------------------------
 X. Misc. styles
 --------------------------------------------------------------*/
+
+/**
+ * The UDS 'quicklinks' class was causing a conflict with the WP
+ * admin bar, which also uses the class 'quicklinks'. The UDS styles
+ * were applying 'display: flex', where the admin bar needs 'display: block'.
+ *
+ * To __temporarily__ fix this, I'm applying the display block to the area.
+ * It turns out that the same section that has 'class: quicklinks' also has an
+ * ID of 'wp-toolbar'. Since ID's are nearly the most specific rule you can get,
+ * I'm targeting that for minimum conflict with other classes.
+ */
+#wp-toolbar {
+	display: block;
+}
