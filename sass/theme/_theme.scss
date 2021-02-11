@@ -31,9 +31,10 @@ X. Misc. styles
  * were applying 'display: flex', where the admin bar needs 'display: block'.
  *
  * To __temporarily__ fix this, I'm applying the display block to the area.
- * It turns out that the same section that has 'class: quicklinks' also has an
- * ID of 'wp-toolbar'. Since ID's are nearly the most specific rule you can get,
- * I'm targeting that for minimum conflict with other classes.
+ * It turns out that the section that has the class of 'quicklinks' also has an
+ * ID of 'wp-toolbar'. Since ID's are more specific, I'm targeting that.
+ *
+ *
  */
 #wp-toolbar {
 	display: block;
