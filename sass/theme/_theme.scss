@@ -34,8 +34,8 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 
 @include media-breakpoint-up(xl) {
 	.dropdown-pinned {
-		// overflow:initial;
-		// position:static;
+		overflow:initial;
+		position:static;
 	}
 }
 
