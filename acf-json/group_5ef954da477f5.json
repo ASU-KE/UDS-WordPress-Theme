@@ -1,7 +1,83 @@
 {
     "key": "group_5ef954da477f5",
-    "title": "Page Hero",
+    "title": "UDS Page Hero",
     "fields": [
+        {
+            "key": "field_60188d3a96e58",
+            "label": "Hero Type",
+            "name": "hero_type",
+            "type": "button_group",
+            "instructions": "Choose the type of page here you want: image or video",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Image",
+                "video": "Video"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60188dd996e59",
+            "label": "Hero Media Source",
+            "name": "media_source",
+            "type": "button_group",
+            "instructions": "Select an image or video from the media library, or use a URL?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "library": "Media Library",
+                "url": "URL"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_601895ea57156",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60188dd996e59",
+                        "operator": "==",
+                        "value": "library"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
         {
             "key": "field_5ef9561897989",
             "label": "Hero Asset URL",
@@ -9,9 +85,17 @@
             "type": "text",
             "instructions": "Enter the URL or file path to the Image or Video file for this Hero. If empty, Hero is not rendered.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60188dd996e59",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
@@ -23,21 +107,21 @@
         },
         {
             "key": "field_5ef9553c97988",
-            "label": "Hero Type",
-            "name": "hero_type",
+            "label": "Hero Size",
+            "name": "hero_size",
             "type": "select",
             "instructions": "Select type of page hero to be displayed",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "uds-hero-sm": "Small",
-                "uds-hero-md": "Medium",
-                "uds-hero-lg": "Large"
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             },
             "default_value": false,
             "allow_null": 0,
@@ -56,7 +140,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -75,13 +159,14 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
             "choices": {
                 "highlight-gold": "Gold",
                 "highlight-black": "Black",
+                "highlight-white": "White",
                 "none": "None"
             },
             "allow_null": 0,
@@ -92,6 +177,39 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_602adc094d066",
+            "label": "Title Color",
+            "name": "title_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f5ac3e5eaa9e",
+                        "operator": "==",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "black": "Black",
+                "white": "White"
+            },
+            "default_value": "black",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5ef956e49798b",
             "label": "Hero Text",
             "name": "hero_text",
@@ -100,7 +218,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -119,7 +237,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -135,7 +253,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -156,12 +274,12 @@
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
+    "position": "normal",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606335667
+    "modified": 1613424226
 }
