@@ -3,33 +3,37 @@
     "title": "UDS Page Hero",
     "fields": [
         {
-            "key": "field_60188d3a96e58",
-            "label": "Hero Type",
-            "name": "hero_type",
-            "type": "button_group",
-            "instructions": "Choose the type of page here you want: image or video",
-            "required": 1,
+            "key": "field_5ef9553c97988",
+            "label": "Hero Size",
+            "name": "hero_size",
+            "type": "select",
+            "instructions": "Select type of page hero to be displayed",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "image": "Image",
-                "video": "Video"
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
             },
+            "default_value": "medium",
             "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_60188dd996e59",
-            "label": "Hero Media Source",
+            "label": "Media Source",
             "name": "media_source",
             "type": "button_group",
-            "instructions": "Select an image or video from the media library, or use a URL?",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -48,7 +52,7 @@
         },
         {
             "key": "field_601895ea57156",
-            "label": "Hero Image",
+            "label": "Image",
             "name": "hero_image",
             "type": "image",
             "instructions": "",
@@ -80,9 +84,9 @@
         },
         {
             "key": "field_5ef9561897989",
-            "label": "Hero Asset URL",
+            "label": "Media URL",
             "name": "hero_asset_url",
-            "type": "text",
+            "type": "url",
             "instructions": "Enter the URL or file path to the Image or Video file for this Hero. If empty, Hero is not rendered.",
             "required": 0,
             "conditional_logic": [
@@ -100,40 +104,11 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ef9553c97988",
-            "label": "Hero Size",
-            "name": "hero_size",
-            "type": "select",
-            "instructions": "Select type of page hero to be displayed",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "small": "Small",
-                "medium": "Medium",
-                "large": "Large"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
             "placeholder": ""
         },
         {
             "key": "field_5ef956ca9798a",
-            "label": "Hero Title",
+            "label": "Title Text",
             "name": "hero_title",
             "type": "text",
             "instructions": "Enter the short title to be displayed (optional)",
@@ -152,9 +127,9 @@
         },
         {
             "key": "field_5f5ac3e5eaa9e",
-            "label": "Hero Highlight",
+            "label": "Title Highlight Color",
             "name": "hero_highlight",
-            "type": "radio",
+            "type": "select",
             "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
             "required": 0,
             "conditional_logic": 0,
@@ -169,16 +144,17 @@
                 "highlight-white": "White",
                 "none": "None"
             },
-            "allow_null": 0,
-            "other_choice": 0,
             "default_value": "Gold",
-            "layout": "horizontal",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
             "return_format": "value",
-            "save_other_choice": 0
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_602adc094d066",
-            "label": "Title Color",
+            "label": "Title Text Color",
             "name": "title_color",
             "type": "select",
             "instructions": "",
@@ -211,7 +187,7 @@
         },
         {
             "key": "field_5ef956e49798b",
-            "label": "Hero Text",
+            "label": "Body Text",
             "name": "hero_text",
             "type": "text",
             "instructions": "Enter a short text blurb to be displayed below the Hero Title. (optional)",
@@ -230,7 +206,7 @@
         },
         {
             "key": "field_5ef9577c9798c",
-            "label": "Hero Call to Action URL",
+            "label": "Call to Action URL",
             "name": "hero_call_to_action_url",
             "type": "url",
             "instructions": "Enter URL for the Hero Call to Action Button. If empty, no button is rendered.",
@@ -246,7 +222,7 @@
         },
         {
             "key": "field_5ef957b39798d",
-            "label": "Hero Call to Action Text",
+            "label": "Call to Action Text",
             "name": "hero_call_to_action_text",
             "type": "text",
             "instructions": "Enter the label for the Hero Call to Action Button. If empty, no button is rendered.",
@@ -275,11 +251,11 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "seamless",
+    "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1613424226
+    "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
+    "modified": 1613434254
 }
