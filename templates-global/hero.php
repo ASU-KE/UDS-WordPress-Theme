@@ -28,21 +28,24 @@ if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
  * chosen, we allow the user to choose between black or white text to best fit
  * with the image.
  */
-if ('white' == $title_color && 'none' == $hero_highlight || empty( $hero_highlight ) ) {
-	$title_color_class = "text-white";
-}else{
+if ( 'white' == $title_color && 'none' == $hero_highlight || empty( $hero_highlight ) ) {
+	$title_color_class = 'text-white';
+} else {
 	$title_color_class = '';
 }
 
-switch ($hero_size) {
+switch ( $hero_size ) {
 	case 'small':
 		$hero_size_class = 'uds-hero-sm';
 		break;
 	case 'medium':
 		$hero_size_class = 'uds-hero-md';
+		break;
 	case 'large':
 		$hero_size_class = 'uds-hero-lg';
+		break;
 	default:
+		// Should there be a problem, default to medium size.
 		$hero_size_class = 'uds-hero-md';
 		break;
 }
