@@ -10,7 +10,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $hero_asset_url = get_field( 'hero_asset_url' );
-$hero_type = get_field( 'hero_type' );
 $hero_size = get_field( 'hero_size' );
 $hero_title = get_field( 'hero_title' );
 $hero_highlight = get_field( 'hero_highlight' );
