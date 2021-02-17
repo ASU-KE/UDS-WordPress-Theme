@@ -18,22 +18,30 @@ $hero_text = get_field( 'hero_text' );
 $hero_call_to_action_url = get_field( 'hero_call_to_action_url' );
 $hero_call_to_action_text = get_field( 'hero_call_to_action_text' );
 
-// if we don't have a highlight class from ACF, or it was set to "none".
-if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
-	$hero_highlight = '';
-}
 
 /**
- * The text color of the hero title is usually black. However, when 'none' is
- * chosen, we allow the user to choose between black or white text to best fit
- * with the image.
+ * If we don't have a highlight style, then determine the text color and
+ * use that class for the title. Otherwise, use the selected highlight
+ * class.
  */
-if ( 'white' == $title_color && 'none' == $hero_highlight || empty( $hero_highlight ) ) {
-	$title_color_class = 'text-white';
+
+ // holds our final title style.
+$hero_title_style = '';
+
+if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
+	// we did not choose a highlight. Check for white text, and default to black.
+	if ( 'white' == $title_color ) {
+		$hero_title_style = 'text-white';
+	} else {
+		$title_title_style = 'text-black';
+	}
 } else {
-	$title_color_class = '';
+	// we chose a highlight style, so just use that.
+	$hero_title_style = $hero_highlight;
 }
 
+
+// Deterine the hero size.
 switch ( $hero_size ) {
 	case 'small':
 		$hero_size_class = 'uds-hero-sm';
@@ -59,7 +67,7 @@ if ( ! empty( $hero_asset_url ) ) :
 		if ( ! empty( $hero_title ) ) :
 			?>
 		<h1 class="col-md-8">
-			<span class="<?php echo $hero_highlight; ?> <?php echo $title_color_class; ?>"><?php echo wp_kses( $hero_title, wp_kses_allowed_html( 'strip' ) ); ?></span>
+			<span class="<?php echo $hero_title_style; ?>"><?php echo wp_kses( $hero_title, wp_kses_allowed_html( 'strip' ) ); ?></span>
 		</h1>
 			<?php
 		endif;
