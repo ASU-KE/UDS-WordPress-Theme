@@ -29,60 +29,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_60188dd996e59",
-            "label": "Media Source",
-            "name": "media_source",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "library": "Media Library",
-                "url": "URL"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_601895ea57156",
-            "label": "Image",
-            "name": "hero_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60188dd996e59",
-                        "operator": "==",
-                        "value": "library"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5ef9561897989",
             "label": "Media URL",
             "name": "hero_asset_url",
@@ -257,5 +203,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1613434254
+    "modified": 1613580877
 }
