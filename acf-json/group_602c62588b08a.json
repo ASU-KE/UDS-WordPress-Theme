@@ -1,0 +1,225 @@
+{
+    "key": "group_602c62588b08a",
+    "title": "blockquote",
+    "fields": [
+        {
+            "key": "field_602c6467eb60e",
+            "label": "Block Quote Styles",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_602c6279c09d8",
+            "label": "Quote Image",
+            "name": "image",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Do you want an image?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_602c62bcc09d9",
+            "label": "Image Source",
+            "name": "image_source",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_602c637dc09da",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "light": "Light Grey",
+                "dark": "Dark Grey"
+            },
+            "allow_null": 0,
+            "default_value": "none",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_602c63e7c09db",
+            "label": "Accent Color",
+            "name": "accent_color",
+            "type": "button_group",
+            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gold": "Gold",
+                "maroon": "Maroon",
+                "black": "Dark Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_602c64aef0dcc",
+            "label": "Block Quote Text",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_602c64c2f0dcd",
+            "label": "Quote Text",
+            "name": "quote_text",
+            "type": "textarea",
+            "instructions": "This is the actual text of the quote.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 400,
+            "rows": 6,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_602c6539f0dce",
+            "label": "Name",
+            "name": "name",
+            "type": "text",
+            "instructions": "This is the person who you are quoting",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602c658af0dcf",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "Optional text for anything you want to add",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1613522346
+}
