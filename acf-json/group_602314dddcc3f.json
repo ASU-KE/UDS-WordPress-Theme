@@ -1,0 +1,72 @@
+{
+    "key": "group_602314dddcc3f",
+    "title": "BLOCK: Content Image Overlap",
+    "fields": [
+        {
+            "key": "field_602314ea0c7df",
+            "label": "Background Image",
+            "name": "uds_image_overlap_background",
+            "type": "image",
+            "instructions": "Select the background image for the component. \r\nHorizontal orientation, any aspect ratio.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6023169c15df8",
+            "label": "Position of the content section",
+            "name": "uds_image_overlap_orientation",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "right",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/content-image-overlap"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1612984486
+}
