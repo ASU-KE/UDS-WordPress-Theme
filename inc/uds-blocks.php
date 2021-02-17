@@ -23,9 +23,10 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
+			'/sample',                      // A sample block to be deleted at some point.
+			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
+			'/content-sections',            // Miscellaneous content sections.
 			'/headings',              // A UDS Headings block.
-			'/sample',              // A sample block to be deleted at some point.
-			'/sample-inner-blocks', // Sample block using the <InnerBlocks /> tag.
 		);
 
 		// Loop through array items and include each register file.

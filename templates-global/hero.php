@@ -10,29 +10,64 @@
 defined( 'ABSPATH' ) || exit;
 
 $hero_asset_url = get_field( 'hero_asset_url' );
-$hero_type = get_field( 'hero_type' );
+$hero_size = get_field( 'hero_size' );
 $hero_title = get_field( 'hero_title' );
 $hero_highlight = get_field( 'hero_highlight' );
+$title_color = get_field( 'title_color' );
 $hero_text = get_field( 'hero_text' );
 $hero_call_to_action_url = get_field( 'hero_call_to_action_url' );
 $hero_call_to_action_text = get_field( 'hero_call_to_action_text' );
 
-// if we don't have a highlight class from ACF, or it was set to "none".
+
+/**
+ * If we don't have a highlight style, then determine the text color and
+ * use that class for the title. Otherwise, use the selected highlight
+ * class.
+ */
+
+ // holds our final title style.
+$hero_title_style = '';
+
 if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
-	$hero_highlight = '';
+	// we did not choose a highlight. Check for white text, and default to black.
+	if ( 'white' == $title_color ) {
+		$hero_title_style = 'text-white';
+	} else {
+		$title_title_style = 'text-black';
+	}
+} else {
+	// we chose a highlight style, so just use that.
+	$hero_title_style = $hero_highlight;
 }
 
+
+// Deterine the hero size.
+switch ( $hero_size ) {
+	case 'small':
+		$hero_size_class = 'uds-hero-sm';
+		break;
+	case 'medium':
+		$hero_size_class = 'uds-hero-md';
+		break;
+	case 'large':
+		$hero_size_class = 'uds-hero-lg';
+		break;
+	default:
+		// Should there be a problem, default to medium size.
+		$hero_size_class = 'uds-hero-md';
+		break;
+}
 
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if ( ! empty( $hero_asset_url ) ) :
 	?>
-<div class="uds-hero <?php echo $hero_type; ?>" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses( $hero_asset_url, wp_kses_allowed_html( 'strip' ) ); ?>')">
-	<div class="container uds-hero-container">
+<div class="uds-hero <?php echo $hero_size_class; ?>" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses( $hero_asset_url, wp_kses_allowed_html( 'strip' ) ); ?>')">
+	<div class="container uds-hero-container lazyloaded">
 		<?php
 		if ( ! empty( $hero_title ) ) :
 			?>
 		<h1 class="col-md-8">
-			<span class="<?php echo $hero_highlight; ?>"><?php echo wp_kses( $hero_title, wp_kses_allowed_html( 'strip' ) ); ?></span>
+			<span class="<?php echo $hero_title_style; ?>"><?php echo wp_kses( $hero_title, wp_kses_allowed_html( 'strip' ) ); ?></span>
 		</h1>
 			<?php
 		endif;
