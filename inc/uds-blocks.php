@@ -25,6 +25,7 @@ function my_acf_blocks_init() {
 		$block_includes = array(
 			'/sample',              // A sample block to be deleted at some point.
 			'/sample-inner-blocks', // Sample block using the <InnerBlocks /> tag.
+			'/blockquote', // Sample block using the <InnerBlocks /> tag.
 		);
 
 		// Loop through array items and include each register file.
