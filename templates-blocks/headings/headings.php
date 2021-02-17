@@ -1,4 +1,3 @@
-
 <?php
 /**
  * UDS Headings Block
@@ -8,16 +7,16 @@
  * This is a UDS heading block to replace the standard heading block.
  */
 
-$startTag = '<h' . get_field( 'level' ) . '>';
-$endTag = '</h' . get_field( 'level' ) . '>';
-$highlightClass = get_field( 'text_highlight' );
-    if( $highlightClass == 'none' ) {
-        $highlightClass = '';
-    }
+$start_tag = '<h' . get_field( 'level' ) . '>';
+$end_tag = '</h' . get_field( 'level' ) . '>';
+$highlight_class = get_field( 'text_highlight' );
+if ( 'none' == $highlight_class ) {
+	$highlight_class = '';
+}
 
-$headerText = get_field( 'text' );
+$header_text = get_field( 'text' );
 
-echo $startTag . ' <span class="' . $highlightClass . '">' . $headerText . '</span>' . $endTag;
+echo $start_tag . ' <span class="' . $highlight_class . '">' . $header_text . '</span>' . $end_tag;
 ?>
 
 
