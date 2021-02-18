@@ -42,7 +42,8 @@
             "choices": {
                 "none": "None",
                 "highlight-gold": "Gold",
-                "highlight-black": "Black"
+                "highlight-black": "Black",
+                "highlight-white": "White"
             },
             "allow_null": 0,
             "default_value": "none",
@@ -86,5 +87,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612570564
+    "modified": 1613608463
 }
