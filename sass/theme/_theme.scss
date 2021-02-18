@@ -3,9 +3,9 @@
 --------------------------------------------------------------*/
 
 main > * {
-	margin-left:auto;
-	margin-right:auto;
-	max-width:1960px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1920px;
 }
 
 /*--------------------------------------------------------------
@@ -13,8 +13,8 @@ main > * {
 --------------------------------------------------------------*/
 
 .title .subdomain-name a {
-	text-decoration: none;
 	color: #191919;
+	text-decoration: none;
 }
 
 .title .subdomain-name a:hover {
@@ -34,8 +34,8 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 
 @include media-breakpoint-up(xl) {
 	.dropdown-pinned {
-		overflow:initial;
-		position:static;
+		overflow: initial;
+		position: static;
 	}
 }
 

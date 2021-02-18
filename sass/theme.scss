@@ -9,5 +9,5 @@ $image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
 //@import "theme/contact-form7";  // <-------- Contact Form 7 - Bootstrap 4 support
 
 // Temporary files. Expected to be incorporated into UDS-Bootstrap eventually.
-// @import "blocks/image-overlap";
+@import "blocks/image-overlap";
 @import "blocks/blockquote-v2";
