@@ -26,6 +26,7 @@ function my_acf_blocks_init() {
 			'/sample',                      // A sample block to be deleted at some point.
 			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
 			'/content-sections',            // Miscellaneous content sections.
+			'/headings',              // A UDS Headings block.
 			'/cards', // UDS Cards
 		);
 
