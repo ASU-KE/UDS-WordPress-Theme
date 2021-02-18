@@ -27,6 +27,7 @@ function my_acf_blocks_init() {
 			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
 			'/content-sections',            // Miscellaneous content sections.
 			'/headings',              // A UDS Headings block.
+			'/button', // Button block for UDS theme.
 			'/cards', // UDS Cards
 		);
 
