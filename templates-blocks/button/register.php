@@ -15,7 +15,7 @@ acf_register_block_type(
 		'title'             => __( 'UDS Button', 'uds-wordpress-theme' ), // name the user will see.
 		'description'       => __( 'A button block for the UDS.', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'button', // Dashicon, or custom SVG code, for the icon.
-		'render_template'   => 'templates-blocks/uds-button/uds-button.php', // location of the block's template.
+		'render_template'   => 'templates-blocks/button/button.php', // location of the block's template.
 		'category'          => 'layout', // category this block appears in.
 		'keywords'          => array( 'button', 'link' ),
 		'supports'          => array(
@@ -26,11 +26,9 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview',
 				'data' => array(
-					'title'                   => 'A UDS Button Block',
-					'background_style'        => 'network-white',
-					'container_type'          => 'container-fluid',
-					'add_inner_container'     => true,
-					'content'                 => 'Lorem ipsum sit dolor amet.',
+					'button_label'                   => 'UDS Button',
+					'button_color'        => 'gold',
+					'button_size'          => 'default',
 				),
 			),
 		),
