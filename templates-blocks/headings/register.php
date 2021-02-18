@@ -8,14 +8,13 @@
  *
  * @package UDS WordPress Theme
  *
- * Notes: A UDS block, for creating a branded header. This block is attempting to use the settings we are
- * most likely to want, but you can find all of the available settings in the ACF
- * documentation here:
- * https://www.advancedcustomfields.com/resources/acf_register_block_type/
+ * Notes: A UDS block, for creating a branded heading tag. Allows for selecting H1 through
+ * H4, and applying all approved highlight styles from the UDS XD file:
  *
- * Note: for the icon, you can use any Dashicon:
- * https://developer.wordpress.org/resource/dashicons, OR an actual <SVG></SVG> tag
- * with all the required content. In this example, I'm using a dashicon.
+ * - none (black text)
+ * - black text on gold bg
+ * - white text on black bg
+ * - black text on white bg
  */
 
 acf_register_block_type(
