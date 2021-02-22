@@ -1,0 +1,8 @@
+// The front-end contains a vertical-align rule that helps to align
+// icons with the text. Because of the '.editor-styles-wrapper' on the
+// editor side, it was not working. Added that same rule, specifically
+// targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
+// so that we get the same look while editing.
+.editor-styles-wrapper svg.svg-inline--fa {
+	vertical-align: -.125rem;
+}
