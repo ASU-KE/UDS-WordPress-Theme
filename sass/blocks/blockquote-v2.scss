@@ -102,6 +102,25 @@ figure.uds-blockquote {
 		}
 	}
 
+	&.bq-color {
+		padding: $uds-size-spacing-3;
+
+		&.bq-light {
+			background-color: $uds-color-base-gray-1;
+		}
+
+		&.bq-medium {
+			background-color: $uds-color-base-gray-2;
+		}
+
+		&.bq-dark {
+			background-color: $uds-color-base-gray-7;
+			color: $uds-color-base-gray-1;
+		}
+	}
+
+
+
 	&.accent-maroon {
 		svg {
 			fill: $uds-color-base-maroon;

@@ -12,10 +12,34 @@
  * width page template, and NOT in the sidebar template.
  */
 
+switch ( get_field( 'background_color' ) ) {
+
+		case 'light':
+		$background_class = 'bq-color bq-light';
+		$accent_class = get_field( 'accent_light' );
+		break;
+
+		case 'medium':
+		$background_class = 'bq-color bq-medium';
+		$accent_class = get_field( 'accent_medium' );
+		break;
+
+		case 'dark':
+		$background_class = 'bq-color bq-dark';
+		$accent_class = get_field( 'accent_dark' );
+		break;
+
+	default:
+		// Default is to apply no styles or "none".
+		$background_class = '';
+		$accent_class = get_field( 'accent_none' );
+		break;
+}
+
 ?>
 
-<figure class="uds-blockquote accent-<?php the_field( 'accent_color' ); ?> <?php the_field( 'image' ); ?> <?php the_field( 'image_reversed' ); ?>">
-<img src="image_source" />
+<figure class="uds-blockquote accent-<?php echo $accent_class; ?>  <?php echo $background_class; ?>">
+<!-- <img src="image_source" /> -->
     <svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
         <title id="open-quote-title"><?php the_field( 'title' ); ?></title>
         <path
