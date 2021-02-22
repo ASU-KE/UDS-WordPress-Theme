@@ -66,11 +66,19 @@ if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
 }// End of if function_exists( 'uds_wp_gutenberg_css' ).
 add_action( 'after_setup_theme', 'uds_wp_gutenberg_css' );
 
-if ( ! function_exists( 'uds_wp_theme_support_opt_in' ) ) {
+
+
+if ( ! function_exists( 'uds_wp_theme_support_block_editor_opt_in' ) ) {
 	/**
-	 * Opt in features
+	 * Opt in features for the theme and the block editor.
+	 * From: https://developer.wordpress.org/block-editor/developers/themes/theme-support/
 	 */
-	function uds_wp_gutenberg_opt_in() {
+	function uds_wp_theme_support_block_editor_opt_in() {
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'disable-custom-colors' );
+		add_theme_support( 'disable-custom-gradients' );
+		add_theme_support( 'responsive-embeds' );
+
 		add_theme_support( 'editor-color-palette', array(
 			array(
 				'name' => esc_attr__( 'ASU Gold', 'uds-wordpress-theme' ),
@@ -140,4 +148,4 @@ if ( ! function_exists( 'uds_wp_theme_support_opt_in' ) ) {
 		) );
 	}
 }// End of if function_exists( 'uds_wp_gutenberg_opt_in' ).
-add_action( 'after_setup_theme', 'uds_wp_gutenberg_opt_in' );
+add_action( 'after_setup_theme', 'uds_wp_gutenberg_block_editor_opt_in' );
