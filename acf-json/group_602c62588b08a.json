@@ -1,6 +1,6 @@
 {
     "key": "group_602c62588b08a",
-    "title": "blockquote",
+    "title": "UDS Blockquote",
     "fields": [
         {
             "key": "field_602c6467eb60e",
@@ -86,6 +86,7 @@
             "choices": {
                 "none": "None",
                 "light": "Light Grey",
+                "medium": "Medium Grey",
                 "dark": "Dark Grey"
             },
             "allow_null": 0,
@@ -95,8 +96,8 @@
         },
         {
             "key": "field_602c63e7c09db",
-            "label": "Accent Color",
-            "name": "accent_color",
+            "label": "Quote Color none",
+            "name": "accent_none",
             "type": "button_group",
             "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
             "required": 0,
@@ -106,11 +107,98 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "none"
-                    },
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gold": "Gold",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_603422ad2f087",
+            "label": "Quote Color light",
+            "name": "accent_light",
+            "type": "button_group",
+            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
+            "required": 0,
+            "conditional_logic": [
+                [
                     {
-                        "field": "field_602c6279c09d8",
+                        "field": "field_602c637dc09da",
                         "operator": "==",
-                        "value": "1"
+                        "value": "light"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gold": "Gold",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60341a9fc2333",
+            "label": "Quote Color medium",
+            "name": "accent_medium",
+            "type": "button_group",
+            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "medium"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "maroon",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60341aa5c2334",
+            "label": "Quote Color dark",
+            "name": "accent_dark",
+            "type": "button_group",
+            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "dark"
                     }
                 ]
             ],
@@ -121,8 +209,7 @@
             },
             "choices": {
                 "gold": "Gold",
-                "maroon": "Maroon",
-                "black": "Dark Gray"
+                "gray-5": "Gray"
             },
             "allow_null": 0,
             "default_value": "gold",
@@ -207,9 +294,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/blockquote"
             }
         ]
     ],
@@ -221,5 +308,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613522346
+    "modified": 1614029687
 }
