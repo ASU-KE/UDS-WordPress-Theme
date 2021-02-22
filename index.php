@@ -15,53 +15,37 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
 ?>
 
-<div class="wrapper" id="index-wrapper">
+	<main id="skip-to-content" <?php post_class(); ?>>
 
-	<?php get_template_part( 'templates-global/hero' ); ?>
+		<?php
+		if ( have_posts() ) {
 
-	<div id="content" tabindex="-1">
+			while ( have_posts() ) {
 
-		<div class="row">
+				the_post();
 
-			<!-- Check for the left sidebar and open the primary div -->
-			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
+				get_template_part( 'templates-global/global-banner' );
 
-	   <div>
-			<main class="site-main" id="main">
+				/*
+				* Include the Post-Format-specific template for the content.
+				* If you want to override this in a child theme, then include a file
+				* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				*/
+				get_template_part( 'templates-loop/content', get_post_format() );
 
-				<?php
-				if ( have_posts() ) {
-					// Start the Loop.
-					while ( have_posts() ) {
-						the_post();
+			}
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'templates-loop/content', get_post_format() );
-					}
-				} else {
-					get_template_part( 'templates-loop/content', 'none' );
-				}
-				?>
+		} else {
+			get_template_part( 'templates-loop/content', 'none' );
+		}
 
-			</main><!-- #main -->
+		?>
 
-			<!-- The pagination component -->
-			<?php uds_wp_pagination(); ?>
-		</div>
-			<!-- Check for the right sidebar -->
-			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
-
-</div><!-- #page-wrapper -->
+	</main><!-- #main -->
 
 <?php
 get_footer();
+

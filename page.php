@@ -1,8 +1,9 @@
 <?php
 /**
+ * The default template in use by all pages within the UDS-WordPress theme.
  *
- * Displays all content within a dedicated col-8 area. Intended to be compatible with most native WP blocks.
- * Includes options for where to draw the sidebar's content and in what position to place the sidebar.
+ * All content is expected to be wrapped by ASU Bootstrap container and row blocks,
+ * both of which are included with the theme.
  *
  * @package uds-wordpress-theme
  */
