@@ -36,8 +36,7 @@ get_header();
 				*/
 				get_template_part( 'templates-loop/content', get_post_format() );
 
-			}
-
+			}       
 		} else {
 			get_template_part( 'templates-loop/content', 'none' );
 		}

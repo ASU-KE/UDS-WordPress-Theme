@@ -79,73 +79,76 @@ if ( ! function_exists( 'uds_wp_theme_support_block_editor_opt_in' ) ) {
 		add_theme_support( 'disable-custom-gradients' );
 		add_theme_support( 'responsive-embeds' );
 
-		add_theme_support( 'editor-color-palette', array(
+		add_theme_support(
+			'editor-color-palette',
 			array(
-				'name' => esc_attr__( 'ASU Gold', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gold',
-				'color' => '#ffc627',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Maroon', 'uds-wordpress-theme' ),
-				'slug' => 'asu-maroon',
-				'color' => '#8c1d40',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Blue', 'uds-wordpress-theme' ),
-				'slug' => 'asu-blue',
-				'color' => '#00A3E0',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Green', 'uds-wordpress-theme' ),
-				'slug' => 'asu-green',
-				'color' => '#78BE20',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Orange', 'uds-wordpress-theme' ),
-				'slug' => 'asu-orange',
-				'color' => '#ff7f32',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 1', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-1',
-				'color' => '#fafafa',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 2', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-2',
-				'color' => '#e8e8e8',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 3', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-3',
-				'color' => '#d0d0d0',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 4', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-4',
-				'color' => '#bfbfbf',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 5', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-5',
-				'color' => '#747474',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 6', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-6',
-				'color' => '#484848',
-			),
-			array(
-				'name' => esc_attr__( 'ASU Gray 7', 'uds-wordpress-theme' ),
-				'slug' => 'asu-gray-7',
-				'color' => '#191919',
-			),
-			array(
-				'name' => esc_attr__( 'ASU White', 'uds-wordpress-theme' ),
-				'slug' => 'asu-white',
-				'color' => '#ffffff',
-			),
-		) );
+				array(
+					'name' => esc_attr__( 'ASU Gold', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gold',
+					'color' => '#ffc627',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Maroon', 'uds-wordpress-theme' ),
+					'slug' => 'asu-maroon',
+					'color' => '#8c1d40',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Blue', 'uds-wordpress-theme' ),
+					'slug' => 'asu-blue',
+					'color' => '#00A3E0',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Green', 'uds-wordpress-theme' ),
+					'slug' => 'asu-green',
+					'color' => '#78BE20',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Orange', 'uds-wordpress-theme' ),
+					'slug' => 'asu-orange',
+					'color' => '#ff7f32',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 1', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-1',
+					'color' => '#fafafa',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 2', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-2',
+					'color' => '#e8e8e8',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 3', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-3',
+					'color' => '#d0d0d0',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 4', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-4',
+					'color' => '#bfbfbf',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 5', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-5',
+					'color' => '#747474',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 6', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-6',
+					'color' => '#484848',
+				),
+				array(
+					'name' => esc_attr__( 'ASU Gray 7', 'uds-wordpress-theme' ),
+					'slug' => 'asu-gray-7',
+					'color' => '#191919',
+				),
+				array(
+					'name' => esc_attr__( 'ASU White', 'uds-wordpress-theme' ),
+					'slug' => 'asu-white',
+					'color' => '#ffffff',
+				),
+			) 
+		);
 	}
 }// End of if function_exists( 'uds_wp_gutenberg_opt_in' ).
 add_action( 'after_setup_theme', 'uds_wp_gutenberg_block_editor_opt_in' );

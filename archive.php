@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<main id="skip-to-content" <?php post_class('container'); ?>>
+<main id="skip-to-content" <?php post_class( 'container' ); ?>>
 
 	<div class="row">
 		<div class="col">
