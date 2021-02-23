@@ -26,8 +26,9 @@ function my_acf_blocks_init() {
 			'/sample',                      // A sample block to be deleted at some point.
 			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
 			'/content-sections',            // Miscellaneous content sections.
-			'/headings',              // A UDS Headings block.
-			'/button', // Button block for UDS theme.
+			'/headings',              		// A UDS Headings block.
+			'/button', 						// Button block for UDS theme.
+			'/background-section',			// Background section wrapper for a BS container.
 		);
 
 		// Loop through array items and include each register file.
