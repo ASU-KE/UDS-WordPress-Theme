@@ -49,6 +49,10 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 
 		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/admin.css' );
 		wp_enqueue_style( 'uds-wordpress-admin-styles', get_template_directory_uri() . '/css/admin.css', array(), $css_version );
+
+		$fa_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/fontawesome/all.min.js' );
+		wp_enqueue_script( 'uds-wordpress-fa-scripts', get_template_directory_uri() . '/js/fontawesome/all.min.js', array(), $fa_js_version, true );
+
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );

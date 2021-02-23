@@ -1,8 +1,6 @@
-/*--------------------------------------------------------------
-# Admin SASS
-Rules here should impact the wp-admin area only.
-Temporary fixes should be included in the main _theme.scss file
-and labeled appropriately.
+@import "admin/sidebar-metabox";            // <-------- That's where you can add your own design to wp admin side. Thats your part!
+@import "admin/menu_builder";
+@import "admin/fontawesome-fixes";
 
 1. Menus, draggable items
 --------------------------------------------------------------*/
