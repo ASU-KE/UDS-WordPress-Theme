@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_602f0b2b2e093",
-            "label": "Base Settings",
+            "label": "Image, Icon and Style",
             "name": "",
             "type": "accordion",
             "instructions": "",
@@ -16,14 +16,14 @@
                 "id": ""
             },
             "open": 1,
-            "multi_expand": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
             "key": "field_602f0b39b4c29",
             "label": "Card Style",
             "name": "card_style",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,13 +38,48 @@
                 "event": "Event",
                 "story": "Story"
             },
-            "default_value": "basic",
             "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_602f0c315bfc0",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem Ipsum",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602f0c412559a",
+            "label": "Body Text",
+            "name": "body_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 1
         },
         {
             "key": "field_602f0b5660bc4",
@@ -133,14 +168,14 @@
         },
         {
             "key": "field_602f0c2622823",
-            "label": "Orientation",
+            "label": "Card Orientation",
             "name": "card_orientation",
-            "type": "button_group",
-            "instructions": "",
+            "type": "radio",
+            "instructions": "Choose between a vertical and horizontal card layout",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -149,47 +184,11 @@
                 "horizontal": "Horizontal"
             },
             "allow_null": 0,
-            "default_value": "vertical",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_602f0c315bfc0",
-            "label": "Title",
-            "name": "title",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Lorem Ipsum",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602f0c412559a",
-            "label": "Body Text",
-            "name": "body_text",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "tabs": "visual",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_602f0c58aff5b",
@@ -212,7 +211,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
+            "open": 1,
             "multi_expand": 0,
             "endpoint": 0
         },
@@ -298,7 +297,7 @@
                 "id": ""
             },
             "open": 0,
-            "multi_expand": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
@@ -462,7 +461,7 @@
                 "id": ""
             },
             "open": 0,
-            "multi_expand": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
@@ -554,7 +553,7 @@
                 "id": ""
             },
             "open": 0,
-            "multi_expand": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
@@ -619,7 +618,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/uds-card"
+                "value": "all"
             }
         ]
     ],
@@ -631,5 +630,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613697220
+    "modified": 1614036688
 }
