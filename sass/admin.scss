@@ -1,8 +1,9 @@
-@import "admin/sidebar-metabox";            // <-------- That's where you can add your own design to wp admin side. Thats your part!
-@import "admin/menu_builder";
-@import "admin/fontawesome-fixes";
+/*--------------------------------------------------------------
+# Admin CSS fixes.
+Enqueued only within the admin screen. (Via enqueue.php)
 
 1. Menus, draggable items
+2. Font Awesome fixes for Gutenberg
 --------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------
@@ -32,4 +33,17 @@ $warning-color: #F99;
 				margin-right: 5em;
 			}
 	}
+}
+
+/*-------------------------------------------------------------------
+2. Font Awesome fixes for Gutenberg
+--------------------------------------------------------------------*/
+
+// The front-end contains a vertical-align rule that helps to align
+// icons with the text. Because of the '.editor-styles-wrapper' on the
+// editor side, it was not working. Added that same rule, specifically
+// targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
+// so that we get the same look while editing.
+.editor-styles-wrapper svg.svg-inline--fa {
+	vertical-align: -.125rem;
 }
