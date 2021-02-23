@@ -1,6 +1,6 @@
 {
     "key": "group_602314dddcc3f",
-    "title": "BLOCK: Content Image Overlap",
+    "title": "UDS Content Image Overlap",
     "fields": [
         {
             "key": "field_602314ea0c7df",
@@ -68,5 +68,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612984486
+    "modified": 1614111677
 }
