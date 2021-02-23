@@ -151,8 +151,8 @@ if ( ! function_exists( 'uds_wp_theme_support_block_editor_opt_in' ) ) {
 					'slug' => 'asu-white',
 					'color' => '#ffffff',
 				),
-			) 
+			)
 		);
 	}
-}// End of if function_exists( 'uds_wp_gutenberg_opt_in' ).
-add_action( 'after_setup_theme', 'uds_wp_gutenberg_block_editor_opt_in' );
+}// End of if function_exists( 'uds_wp_theme_support_block_editor_opt_in' ).
+add_action( 'after_setup_theme', 'uds_wp_theme_support_block_editor_opt_in' );
