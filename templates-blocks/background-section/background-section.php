@@ -13,15 +13,16 @@ $innercolor = get_field( 'uds_background_section_inner_color' );
 
 
 // Allowed blocks inside inner content.
-$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html');
+$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
 
 // Pre-populate the InnerBlocks area with some content.
 $template = array(
 	array(
-		'wp-bootstrap-blocks/container', array(
-			"marginAfter" => "mb-0",
-		)
-	)
+		'wp-bootstrap-blocks/container',
+		array(
+			'marginAfter' => 'mb-0',
+		),
+	),
 );
 
 // Produce the correct classes for the <section> element.
@@ -51,7 +52,7 @@ if ( 'pattern' === $choice ) {
 // Echo the block.
 if ( $choice ) {
 
-	if ('upload' !== "$choice" ) {
+	if ( 'upload' !== "$choice" ) {
 		echo '<section class="uds-section ' . $css_class . '" >';
 	} else {
 		echo '<section class="uds-section ' . $css_class . '" style="background-image: ' . $inline_style . '" >';
