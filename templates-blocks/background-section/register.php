@@ -17,10 +17,10 @@
 acf_register_block_type(
 	array(
 		'name'              => 'background-section',
-		'title'             => __( 'Background Section', 'uds-wordpress-theme' ),
+		'title'             => __( 'UDS Background Section', 'uds-wordpress-theme' ),
 		'description'       => __( 'A wrapper to apply a background color or texture to a container.', 'uds-wordpress-theme' ),
 		'icon'              => 'star-filled',
-		'render_template'   => 'templates-blocks/content-sections/background-section.php',
+		'render_template'   => 'templates-blocks/background-section/background-section.php',
 		'category'          => 'layout',
 		'keywords'          => array( 'background', 'section' ),
 		'supports'          => array(

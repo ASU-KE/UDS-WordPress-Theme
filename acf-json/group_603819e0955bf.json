@@ -1,0 +1,187 @@
+{
+    "key": "group_603819e0955bf",
+    "title": "UDS Background Section",
+    "fields": [
+        {
+            "key": "field_603819ea114a9",
+            "label": "Pattern or Color",
+            "name": "uds_background_section_choice",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "pattern": "UDS background texture",
+                "color": "ASU Background color",
+                "upload": "Upload a file"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "pattern",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60381aa3114aa",
+            "label": "Select a background pattern",
+            "name": "uds_background_section_pattern",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603819ea114a9",
+                        "operator": "==",
+                        "value": "pattern"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "morse-code-white": "Morse code - White",
+                "morse-code-black": "Morse code - Dark",
+                "topo-white": "Topographic map - White",
+                "topo-black": "Topographic map - Dark",
+                "network-white": "Network map - White",
+                "network-black": "Network map - Dark"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "morse-code-white",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60381c933ba86",
+            "label": "Select a background color",
+            "name": "uds_background_section_color",
+            "type": "radio",
+            "instructions": "Background colors within the UDS system are limited to a subset of the overall color palette. Choose from the following options. Refer to the <a href=\"https:\/\/unity.web.asu.edu\/@asu-design-system\/bootstrap4-theme\/index.html?path=\/story\/design-colors--color-palette\" target=\"_blank\">color palette<\/a> for the resulting colors.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603819ea114a9",
+                        "operator": "==",
+                        "value": "color"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bg-gray-7": "UDS Gray 7",
+                "bg-gray-2": "UDS Gray 2",
+                "bg-gray-1": "UDS Gray 1"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "bg-gray-4",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60381d8c3ba87",
+            "label": "Upload a background pattern",
+            "name": "uds_background_section_upload_url",
+            "type": "image",
+            "instructions": "Choose an image from the media library for your background pattern. Images selected will be centered within the container and repeated on both axes.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603819ea114a9",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "png, jpg, gif"
+        },
+        {
+            "key": "field_60387e57ea953",
+            "label": "Select inner background color",
+            "name": "uds_background_section_inner_color",
+            "type": "radio",
+            "instructions": "When placing text over a background texture or photo within the UDS system, you are required to provide a background color on the inner container to assist with readability and accessibility. Choose from the following options.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603819ea114a9",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "inner-bg-gray-7": "UDS Gray 7",
+                "inner-bg-gray-2": "UDS Gray 2",
+                "inner-bg-gray-1": "UDS Gray 1",
+                "inner-bg-white": "UDS White",
+                "inner-bg-opacity-50": "Opacity 50%",
+                "inner-bg-opacity-75": "Opacity 75%",
+                "inner-bg-opacity-90": "Opacity 90%"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "inner-bg-white",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/background-section"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1614316988
+}

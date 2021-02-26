@@ -1,0 +1,162 @@
+/*--------------------------------------------------------------
+# UDS Background Section
+
+1. General styles
+2. Desktop
+3. Additional styles for Gutenberg.
+--------------------------------------------------------------*/
+
+// Inner padding of the section
+.uds-section {
+	padding-top: $uds-size-spacing-6;
+	padding-bottom: $uds-size-spacing-6;
+}
+
+// Adjusting the margins of the surrounding area.
+div.container + .uds-section,
+.uds-section + div.container {
+	margin-top: $uds-size-spacing-6;
+}
+
+// When a section has a background texture, the inner container
+// needs padding and a background color.
+.uds-section.bg {
+
+	.container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.morse-code-black .container,
+	&.topo-white .container,
+	&.network-black .container {
+		background-color:$uds-color-base-gray-7;
+		color: $uds-color-base-white;
+	}
+
+	&.morse-code-white .container,
+	&.topo-black .container,
+	&.network-white .container {
+		background-color:$uds-color-base-white;
+	}
+
+}
+
+// Dealing with custom background textures.
+.uds-section.media-file {
+
+	background-position:center;
+	background-repeat: repeat;
+
+	.container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.inner-bg-gray-7 .container {
+		background-color: $uds-color-base-gray-7;
+		color: $uds-color-base-white;
+	}
+
+	&.inner-bg-gray-2 .container {
+		background-color: $uds-color-base-gray-2;
+	}
+
+	&.inner-bg-gray-1 .container {
+		background-color: $uds-color-base-gray-1;
+	}
+
+	&.inner-bg-white .container {
+		background-color: $uds-color-base-white;
+	}
+
+	&.inner-bg-opacity-50 .container {
+		background-color: rgba(255, 255, 255, .5);
+	}
+
+	&.inner-bg-opacity-75 .container {
+		background-color: rgba(255, 255, 255, .75);
+	}
+
+	&.inner-bg-opacity-90 .container {
+		background-color: rgba(255, 255, 255, .9);
+	}
+}
+
+
+/* ------------------------------------------------------------------
+2. Desktop, large
+------------------------------------------------------------------- */
+@include media-breakpoint-up(md) {
+
+	.uds-section {
+		padding-top: $uds-size-spacing-12;
+		padding-bottom: $uds-size-spacing-12;
+	}
+
+	div.container + .uds-section,
+	.uds-section + div.container {
+		margin-top: $uds-size-spacing-12;
+	}
+
+}
+
+/* ------------------------------------------------------------------
+3. Styles specifically for Gutenberg.
+------------------------------------------------------------------- */
+
+.uds-section.bg {
+
+	.wp-block-wp-bootstrap-blocks-container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.morse-code-black .wp-block-wp-bootstrap-blocks-container,
+	&.topo-white .wp-block-wp-bootstrap-blocks-container,
+	&.network-black .wp-block-wp-bootstrap-blocks-container {
+		background-color:$uds-color-base-gray-7;
+		color: $uds-color-base-white;
+	}
+
+	&.morse-code-white .wp-block-wp-bootstrap-blocks-container,
+	&.topo-black .wp-block-wp-bootstrap-blocks-container,
+	&.network-white .wp-block-wp-bootstrap-blocks-container {
+		background-color:$uds-color-base-white;
+	}
+
+}
+
+// Dealing with custom background textures.
+.uds-section.media-file {
+
+	.wp-block-wp-bootstrap-blocks-container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.inner-bg-gray-7 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-7;
+		color: $uds-color-base-white;
+	}
+
+	&.inner-bg-gray-2 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-2;
+	}
+
+	&.inner-bg-gray-1 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-1;
+	}
+
+	&.inner-bg-white .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-white;
+	}
+
+	&.inner-bg-opacity-50 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .5);
+	}
+
+	&.inner-bg-opacity-75 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .75);
+	}
+
+	&.inner-bg-opacity-90 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .9);
+	}
+}

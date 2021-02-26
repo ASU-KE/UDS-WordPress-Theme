@@ -5,43 +5,60 @@
  * @package UDS WordPress Theme
  */
 
-$background = get_field( 'uds_image_overlap_background' );
-$orientation = get_field( 'uds_image_overlap_orientation' );
+$choice = get_field( 'uds_background_section_choice' );
+$pattern = get_field( 'uds_background_section_pattern' );
+$color = get_field( 'uds_background_section_color' );
+$upload = get_field( 'uds_background_section_upload_url' );
+$innercolor = get_field( 'uds_background_section_inner_color' );
+
 
 // Allowed blocks inside inner content.
-$allowed_blocks = array( 'core/heading', 'core/paragraph', 'core/separator', 'core/html', 'core/list' );
+$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html');
 
 // Pre-populate the InnerBlocks area with some content.
 $template = array(
 	array(
-		'core/heading',
-		array(
-			'level' => 3,
-			'content' => 'Title Goes Here',
-		),
-	),
-	array(
-		'core/paragraph',
-		array(
-			'content' => 'Creating daily standups with the possibility to make the logo bigger. Execute analytics yet take this offline. Repurpose below the line with the possibility to infiltrate new markets. Growing first party data and try to create synergy.',
-		),
-	),
+		'wp-bootstrap-blocks/container', array(
+			"marginAfter" => "mb-0",
+		)
+	)
 );
 
-// Echo the block.
-if ( $background ) {
+// Produce the correct classes for the <section> element.
+// The $choice variable will be one of the following three values. It has a default value set by the ACF control.
 
-	if ( 'left' === $orientation ) {
-		echo '<div class="uds-image-overlap content-left">';
+if ( 'pattern' === $choice ) {
+
+	// UDS Background patterns.
+	$css_class = 'bg ' . $pattern . '"';
+
+} else if ( 'color' === $choice ) {
+
+	// Background colors via utility BS4 classes.
+	$css_class = $color;
+
+} else if ( 'upload' === $choice ) {
+
+	// Background image. Sets the inline style + a generic class + a class for the inner container.
+	$css_class = 'media-file ' . $innercolor;
+	$inline_style = 'url(' . $upload . ');';
+
+} else {
+	$css_class = '';
+}
+
+
+// Echo the block.
+if ( $choice ) {
+
+	if ('upload' !== "$choice" ) {
+		echo '<section class="uds-section ' . $css_class . '" >';
 	} else {
-		echo '<div class="uds-image-overlap">';
+		echo '<section class="uds-section ' . $css_class . '" style="background-image: ' . $inline_style . '" >';
 	}
 
-	echo '<img class="img-fluid" src="' . $background['url'] . '" alt="' . $background['alt'] . '" />';
-	echo '<div class="content-wrapper">';
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
-	echo '</div>';
-	echo '</div>';
+	echo '</section>';
 }
 
 ?>
