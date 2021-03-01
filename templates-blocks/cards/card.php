@@ -69,7 +69,7 @@ if ( ! empty( get_field( 'hover' ) ) ) {
 }
 ?>
 
-<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class;?>">
+<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class; ?>">
 	<?php if ( 'image' == $header_style ) : ?>
 		<img class="card-img-top" src="<?php the_field( 'image' ); ?>" alt="Card image cap">
 	<?php endif; ?>
@@ -115,8 +115,8 @@ if ( ! empty( get_field( 'hover' ) ) ) {
 
 		<?php
 			// Show buttons, links and tags ONLY if 'hover' is false/no.
-			if ( ! get_field( 'hover' ) ):
-		?>
+		if ( ! get_field( 'hover' ) ) :
+			?>
 
 			<?php if ( get_field( 'buttons' ) ) : ?>
 				<?php if ( have_rows( 'buttons' ) ) : ?>
