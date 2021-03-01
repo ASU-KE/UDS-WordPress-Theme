@@ -52,14 +52,14 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 		<i class="fas fa-<?php echo $icon_name; ?> fa-2x card-icon-top"></i>
 	<?php endif;?>
 		<?php if ('card-horizontal' == $orientation_class ): ?>
-			<div class="card-content-wrapper" /> <!-- open horizontal content -->
+			<div class="card-content-wrapper" />
 		<?php endif; ?>
 			<div class="card-header">
-				<h3 class="card-title"><?php echo wp_kses( the_field( 'title' ), '' ); ?></h3>
+				<h3 class="card-title"><?php echo sanitize_text_field( get_field( 'title' ), '' ); ?></h3>
 			</div>
 		<?php if( '' !== get_field( 'body_text' ) ): ?>
 			<div class="card-body">
-				<p class="card-text"><?php echo wp_kses( the_field( 'body_text' ), '' );?></p>
+				<p class="card-text"><?php echo wp_kses( get_field( 'body_text' ), '' );?></p>
 			</div>
 		<? endif; ?>
 
@@ -82,7 +82,7 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 				<div class="card-event-details">
 					<div class="card-event-icons">
 						<div><i class="fas fa-map-marker-alt"></i></div>
-						<div><?php the_field( 'location' ); ?></div>
+						<div><?php echo sanitize_text_field( get_field('location' ) ); ?></div>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -93,8 +93,8 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 				<?php while( have_rows( 'buttons' ) ) : the_row(); ?>
 					<div class="card-button">
 						<?php
-							$button_label = get_sub_field( 'button_label' );
-							$button_url = get_sub_field( 'button_url' );
+							$button_label = sanitize_text_field( get_sub_field( 'button_label' ) );
+							$button_url = esc_url ( get_sub_field( 'button_url' ) );
 							$external_link = get_sub_field( 'external_link' );
 							$button_color = get_sub_field( 'button_color' );
 							$button_size = get_sub_field( 'button_size' );
@@ -122,8 +122,8 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 				<div class="card-link">
 				<?php while( have_rows('links') ) : the_row(); ?>
 					<?php
-						$link_label = get_sub_field('link_text');
-						$link_url = get_sub_field( 'link_url');
+						$link_label = sanitize_text_field( get_sub_field('link_text') );
+						$link_url = esc_url( get_sub_field( 'link_url') );
 						$external_link = get_sub_field( 'external_link' );
 
 						if( $external_link ) {
@@ -143,8 +143,8 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 				<div class="card-tags">
 				<?php while( have_rows('tags') ) : the_row(); ?>
 					<?php
-						$tag_label = get_sub_field('tag_text');
-						$tag_url = get_sub_field( 'tag_url');
+						$tag_label = sanitize_text_field( get_sub_field('tag_text') );
+						$tag_url = esc_url( get_sub_field( 'tag_url') );
 					?>
 					<a class="btn btn-tag btn-tag-alt-white" href="<?php echo $tag_url;?>" ><?php echo $tag_label;?></a>
 				<?php endwhile; ?>
