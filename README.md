@@ -154,7 +154,46 @@ There are several solutions available for hosting local WordPress development si
 
 #### Local By Flywheel
 
+- Visit [Local by Flywheel](https://localwp.com/) and click the "Download" button.
+- Choose your platform and enter some information (only the email field is mandatory), the download should start and you’ll be taken to a start-up screen, where you will select the "Let’s Go!" button. After installation, you’ll be taken to the dashboard.
+- Proceed to create a new local WordPress install or connect to a remote service like [WP Engine](https://wpengine.com/).
+
+We are currently using WP Engine to manage our WordPress sites and to connect your Local By Flywheel installation to WP Engine you will need a WP Engine account and API key.
+
+[WP Engine Instructions](https://wpengine.com/support/local/).
+- To connect select the "Connect" icon on the left hand side of your Local dashboard.
+
+![Local By FlyWheel Connect Select Example](img/admin/local-by-flywheel-connect.png "Local By FlyWheel Connect Select Example")
+
+- After you have connected to WP Engine you will see all of the site available to your account listed within the "Connect" area.
+
+![Local By FlyWheel Connect Area Example](img/admin/local-by-flywheel-connect-area.png "Local By FlyWheel Connect Area Example")
+You can then pull whichever site local to work on. For new project's select: ASU UDS Quickstart
+
+`*` After you have pulled the site to to your local machine disconnect it from the host to ensure premature development is not deployed in the background. You can do this by clicking the same button used to "Pull To Local".
+
+You are now ready to clone the theme within the projects `wp-content/themes` folder.
+
 #### Lando
+
+- Review [Lando Requirements](https://docs.lando.dev/basics/installation.html#hardware-requirements) to check your system against the hardware requirements.
+- Install [Lando](https://docs.lando.dev/basics/installation.html#macos)
+
+Lando will install all necessary underlying dependencies to run.
+
+Lando constructs a Docker based development environment according to YAML files called recipes that guides the containers it builds, services available and tooling provided.
+
+Within the theme's repository is a .lando.yml file that will be used to start Lando and build the development environment.
+
+The process will look like this.
+- Change directory to project folder or make one.
+- Start Lando: `$ lando start`
+- Install WordPress core: `$ lando wp download core`
+- Create wp-config: `$ wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database`
+- Download and import the database: `$ lando db-import site-database-export-file.sql`
+- Setup theme.
+
+You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
 ### Cloning the Theme
 
