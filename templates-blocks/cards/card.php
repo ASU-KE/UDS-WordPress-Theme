@@ -61,9 +61,15 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 if ( ! empty( $block['className'] ) ) {
 	$additional_classes = $block['className'];
 }
+
+// Check for the 'hover' variant, and set the class if needed.
+$hover_class = '';
+if ( ! empty( get_field( 'hover' ) ) ) {
+	$hover_class = 'card-hover';
+}
 ?>
 
-<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
+<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class;?>">
 	<?php if ( 'image' == $header_style ) : ?>
 		<img class="card-img-top" src="<?php the_field( 'image' ); ?>" alt="Card image cap">
 	<?php endif; ?>
@@ -107,79 +113,86 @@ if ( ! empty( $block['className'] ) ) {
 			<?php endif; ?>
 		<?php endif; ?>
 
-		<?php if ( get_field( 'buttons' ) ) : ?>
-			<?php if ( have_rows( 'buttons' ) ) : ?>
-				<?php
-				while ( have_rows( 'buttons' ) ) :
-					the_row();
-					?>
-					<div class="card-button">
+		<?php
+			// Show buttons, links and tags ONLY if 'hover' is false/no.
+			if ( ! get_field( 'hover' ) ):
+		?>
+
+			<?php if ( get_field( 'buttons' ) ) : ?>
+				<?php if ( have_rows( 'buttons' ) ) : ?>
+					<?php
+					while ( have_rows( 'buttons' ) ) :
+						the_row();
+						?>
+						<div class="card-button">
+							<?php
+								$button_label = sanitize_text_field( get_sub_field( 'button_label' ) );
+								$button_url = esc_url( get_sub_field( 'button_url' ) );
+								$external_link = get_sub_field( 'external_link' );
+								$button_color = get_sub_field( 'button_color' );
+								$button_size = get_sub_field( 'button_size' );
+
+							if ( $external_link ) {
+								$rel = 'rel="noopener noreferrer"';
+							} else {
+								$rel = '';
+							}
+
+							if ( 'default' !== $button_size ) {
+								$button_size = 'btn-' . $button_size;
+							} else {
+								$button_size = '';
+							}
+							?>
+							<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?>><?php echo $button_label; ?></a>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			<?php endif; ?>
+
+			<?php if ( get_field( 'links' ) ) : ?>
+				<?php if ( have_rows( 'links' ) ) : ?>
+					<div class="card-link">
+					<?php
+					while ( have_rows( 'links' ) ) :
+						the_row();
+						?>
 						<?php
-							$button_label = sanitize_text_field( get_sub_field( 'button_label' ) );
-							$button_url = esc_url( get_sub_field( 'button_url' ) );
+							$link_label = sanitize_text_field( get_sub_field( 'link_text' ) );
+							$link_url = esc_url( get_sub_field( 'link_url' ) );
 							$external_link = get_sub_field( 'external_link' );
-							$button_color = get_sub_field( 'button_color' );
-							$button_size = get_sub_field( 'button_size' );
 
 						if ( $external_link ) {
 							$rel = 'rel="noopener noreferrer"';
 						} else {
 							$rel = '';
 						}
-
-						if ( 'default' !== $button_size ) {
-							$button_size = 'btn-' . $button_size;
-						} else {
-							$button_size = '';
-						}
 						?>
-						<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?>><?php echo $button_label; ?></a>
+						<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_label; ?></a>
+					<?php endwhile; ?>
 					</div>
-				<?php endwhile; ?>
+				<?php endif; ?>
 			<?php endif; ?>
-		<?php endif; ?>
 
-		<?php if ( get_field( 'links' ) ) : ?>
-			<?php if ( have_rows( 'links' ) ) : ?>
-				<div class="card-link">
-				<?php
-				while ( have_rows( 'links' ) ) :
-					the_row();
-					?>
+			<?php if ( get_field( 'tags' ) ) : ?>
+				<?php if ( have_rows( 'tags' ) ) : ?>
+					<div class="card-tags">
 					<?php
-						$link_label = sanitize_text_field( get_sub_field( 'link_text' ) );
-						$link_url = esc_url( get_sub_field( 'link_url' ) );
-						$external_link = get_sub_field( 'external_link' );
-
-					if ( $external_link ) {
-						$rel = 'rel="noopener noreferrer"';
-					} else {
-						$rel = '';
-					}
-					?>
-					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_label; ?></a>
-				<?php endwhile; ?>
-				</div>
+					while ( have_rows( 'tags' ) ) :
+						the_row();
+						?>
+						<?php
+							$tag_label = sanitize_text_field( get_sub_field( 'tag_text' ) );
+							$tag_url = esc_url( get_sub_field( 'tag_url' ) );
+						?>
+						<a class="btn btn-tag btn-tag-alt-white" href="<?php echo $tag_url; ?>" ><?php echo $tag_label; ?></a>
+					<?php endwhile; ?>
+					</div>
+				<?php endif; ?>
 			<?php endif; ?>
-		<?php endif; ?>
-
-		<?php if ( get_field( 'tags' ) ) : ?>
-			<?php if ( have_rows( 'tags' ) ) : ?>
-				<div class="card-tags">
-				<?php
-				while ( have_rows( 'tags' ) ) :
-					the_row();
-					?>
-					<?php
-						$tag_label = sanitize_text_field( get_sub_field( 'tag_text' ) );
-						$tag_url = esc_url( get_sub_field( 'tag_url' ) );
-					?>
-					<a class="btn btn-tag btn-tag-alt-white" href="<?php echo $tag_url; ?>" ><?php echo $tag_label; ?></a>
-				<?php endwhile; ?>
-				</div>
+			<?php if ( 'card-horizontal' == $orientation_class ) : ?>
+				</div> <!-- close horizontal content -->
 			<?php endif; ?>
-		<?php endif; ?>
-		<?php if ( 'card-horizontal' == $orientation_class ) : ?>
-			</div> <!-- close horizontal content -->
-		<?php endif; ?>
+
+		<?php endif; // end if/then for hover. ?>
 </div>

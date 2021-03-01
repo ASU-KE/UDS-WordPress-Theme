@@ -208,6 +208,25 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_603d52a9b2db1",
+            "label": "Hover",
+            "name": "hover",
+            "type": "true_false",
+            "instructions": "Hover cards cannot have buttons, links, or tags.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Apply Hover Effect?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_602f0c58aff5b",
             "label": "Date and Time",
             "name": "",
@@ -307,7 +326,15 @@
             "type": "accordion",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603d52a9b2db1",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -471,7 +498,15 @@
             "type": "accordion",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603d52a9b2db1",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -563,7 +598,15 @@
             "type": "accordion",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603d52a9b2db1",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -647,5 +690,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Block for creating static versions of basic, event, and story cards",
-    "modified": 1614623113
+    "modified": 1614632393
 }
