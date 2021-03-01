@@ -22,7 +22,7 @@
         {
             "key": "field_602c6279c09d8",
             "label": "Quote Image",
-            "name": "image",
+            "name": "quote_image",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -308,5 +308,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614029687
+    "modified": 1614122192
 }
