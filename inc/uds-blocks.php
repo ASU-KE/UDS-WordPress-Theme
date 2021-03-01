@@ -27,6 +27,7 @@ function my_acf_blocks_init() {
 			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
 			'/content-sections',            // Miscellaneous content sections.
 			'/headings',              // A UDS Headings block.
+			'/button', // Button block for UDS theme.
 			'/blockquote', // Sample block using the <InnerBlocks /> tag.
 		);
 
@@ -63,6 +64,13 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 		unset( $registered_blocks['core/verse'] );
 		unset( $registered_blocks['core/pullquote'] );
 		unset( $registered_blocks['core/preformatted'] );
+		unset( $registered_blocks['core/cover'] );
+		unset( $registered_blocks['core/file'] );
+		unset( $registered_blocks['core/button'] );
+		unset( $registered_blocks['core/buttons'] );
+		unset( $registered_blocks['core/column'] );
+		unset( $registered_blocks['core/columns'] );
+
 
 		// Strip the array down to just the keys.
 		$registered_blocks = array_keys( $registered_blocks );
