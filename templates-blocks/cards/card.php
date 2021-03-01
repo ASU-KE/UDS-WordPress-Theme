@@ -2,10 +2,23 @@
 /**
  * UDS Card Block
  *
- * An attempt to make an all-encompassing card block.
+ * A block for creating static versions of a UDS card. Supports the following features:
+ *
+ * - basic, story, and event card formats with
+ * - vertical or horizontal cards
+ * - blank, image, or icon header styles
+ * - ability to add multiple buttons, links, or tags (or all three!)
+ * - simple date and time values for event cards
+ *
+ * Note: horizontal cards have a different structure, so when horizontal is
+ * chosen, a new <div> with the class 'card-content-wrapper' is added to
+ * via two conditional statements.
  */
 
-// determine card style classes to use.
+/** Determine card style classes to use. Rather than use actual class names in
+ * in the ACF field group, we have it give us basic values and determine the
+ * class names here
+ */
 $style = get_field( 'card_style' );
 switch ($style) {
 	case 'degree':
@@ -35,12 +48,11 @@ if ( 'horizontal' == get_field( 'card_orientation' ) ) {
 	$orientation_class = '';
 }
 
-// if there's an icon, clean it up for use
+// If there's an icon, clean it up for use.
 $icon_name = get_field( 'header_icon' );
 if ( 'icon' == $header_style && '' != $icon_name ) {
 	$icon_name = sanitize_text_field( $icon_name );
 }
-
 ?>
 
 
