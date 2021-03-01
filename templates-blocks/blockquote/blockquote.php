@@ -38,8 +38,8 @@ switch ( get_field( 'background_color' ) ) {
 
 ?>
 
-<figure class="uds-blockquote accent-<?php echo $accent_class; ?>  <?php echo $background_class; ?>">
-<!-- <img src="image_source" /> -->
+<figure class="uds-blockquote accent-<?php echo $accent_class; ?>  <?php echo $background_class; ?> <?php the_field( 'quote_image' ); ?>">
+<img src="<?php the_field( 'image_source' ); ?>" />
     <svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
         <title id="open-quote-title"><?php the_field( 'title' ); ?></title>
         <path
