@@ -56,10 +56,14 @@ $icon_name = get_field( 'header_icon' );
 if ( 'icon' == $header_style && '' != $icon_name ) {
 	$icon_name = sanitize_text_field( $icon_name );
 }
+
+// Retrieve additional classes from the 'advanced' field in the editor.
+if ( ! empty( $block['className'] ) ) {
+	$additional_classes = $block['className'];
+}
 ?>
 
-
-<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?>">
+<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
 	<?php if ( 'image' == $header_style ) : ?>
 		<img class="card-img-top" src="<?php the_field( 'image' ); ?>" alt="Card image cap">
 	<?php endif; ?>
