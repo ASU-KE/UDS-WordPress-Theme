@@ -1,10 +1,10 @@
 {
     "key": "group_602edd7eb0e61",
-    "title": "UDS Card Block",
+    "title": "UDS Card",
     "fields": [
         {
-            "key": "field_602f0b2b2e093",
-            "label": "Image, Icon and Style",
+            "key": "field_603d25e83b9ce",
+            "label": "Title and Text",
             "name": "",
             "type": "accordion",
             "instructions": "",
@@ -18,30 +18,6 @@
             "open": 1,
             "multi_expand": 1,
             "endpoint": 0
-        },
-        {
-            "key": "field_602f0b39b4c29",
-            "label": "Card Style",
-            "name": "card_style",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "basic": "Basic",
-                "degree": "Degree",
-                "event": "Event",
-                "story": "Story"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
         },
         {
             "key": "field_602f0c315bfc0",
@@ -82,6 +58,47 @@
             "delay": 1
         },
         {
+            "key": "field_602f0b2b2e093",
+            "label": "Image, Icon and Style",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_602f0b39b4c29",
+            "label": "Card Style",
+            "name": "card_style",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "basic": "Basic",
+                "degree": "Degree",
+                "event": "Event",
+                "story": "Story"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_602f0b5660bc4",
             "label": "Header Style",
             "name": "header_style",
@@ -95,9 +112,9 @@
                 "id": ""
             },
             "choices": {
-                "none": "None",
-                "icon": "Icon Only",
-                "image": "Image Only"
+                "none": "Basic",
+                "icon": "Icon",
+                "image": "Image"
             },
             "default_value": "none",
             "allow_null": 0,
@@ -171,7 +188,7 @@
             "label": "Card Orientation",
             "name": "card_orientation",
             "type": "radio",
-            "instructions": "Choose between a vertical and horizontal card layout",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -185,7 +202,7 @@
             },
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "",
+            "default_value": "vertical",
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
@@ -211,8 +228,8 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
-            "multi_expand": 0,
+            "open": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
@@ -618,7 +635,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/uds-card"
             }
         ]
     ],
@@ -629,6 +646,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1614036688
+    "description": "Block for creating static versions of basic, event, and story cards",
+    "modified": 1614623113
 }
