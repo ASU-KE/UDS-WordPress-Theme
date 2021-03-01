@@ -28,7 +28,7 @@ function my_acf_blocks_init() {
 			'/content-sections',            // Miscellaneous content sections.
 			'/headings',              // A UDS Headings block.
 			'/button', // Button block for UDS theme.
-			'/cards', // UDS Cards
+			'/cards', // UDS Cards.
 		);
 
 		// Loop through array items and include each register file.

@@ -37,7 +37,7 @@ acf_register_block_type(
 				'data' => array(
 					'title'      => 'A Sample Block',
 					'body_text'  => 'Lorem ipsum sit dolor amet.',
-					'card_style' => 'basic'
+					'card_style' => 'basic',
 				),
 			),
 		),
