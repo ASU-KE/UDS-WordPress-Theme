@@ -1,3 +1,9 @@
+/*--------------------------------------------------------------
+Understrap's basic styles that came with the parent theme.
+Not @included in anything as of Feb 2021.
+Kept within the theme for reference, should we need these reset styles elsewhere.
+--------------------------------------------------------------*/
+
 // Some basic padding for all wrappers
 .wrapper {
 	padding: $grid-gutter-width 0;

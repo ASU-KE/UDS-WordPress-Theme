@@ -11,68 +11,48 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<div class="wrapper" id="search-wrapper">
+<main id="skip-to-content" <?php post_class( 'container' ); ?>>
 
-	<div id="content" tabindex="-1">
+	<div class="row">
+		<div class="col">
 
-		<div class="row">
+			<?php
+			if ( have_posts() ) {
 
-			<!-- Check for the left sidebar and open the primary div -->
-			<?php get_template_part( 'templates-global/left-sidebar-check' ); ?>
-
-			<div>
-
-			<main class="site-main" id="main">
-
-				<?php if ( have_posts() ) : ?>
-
-					<header class="page-header">
-
-							<h1 class="page-title">
-								<?php
-								printf(
-									/* translators: %s: query term */
-									esc_html__( 'Search Results for: %s', 'uds-wordpress-theme' ),
-									'<span>' . get_search_query() . '</span>'
-								);
-								?>
-							</h1>
-
-					</header><!-- .page-header -->
-
-					<?php /* Start the Loop */ ?>
+				?>
+				<h1 class="page-title">
 					<?php
-					while ( have_posts() ) :
-						the_post();
-
-						/*
-						 * Run the loop for the search to output the results.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-search.php and that will be used instead.
-						 */
-						get_template_part( 'templates-loop/content', 'search' );
-					endwhile;
+					printf(
+						/* translators: %s: query term */
+						esc_html__( 'Search Results for: %s', 'uds-wordpress-theme' ),
+						'<span>' . get_search_query() . '</span>'
+					);
 					?>
+				</h1>
 
-				<?php else : ?>
+				<?php
+				// Start the loop.
+				while ( have_posts() ) {
+					the_post();
+					get_template_part( 'templates-loop/content', 'search' );
+				}
+			} else {
+				get_template_part( 'templates-loop/content', 'none' );
+			}
+			?>
 
-					<?php get_template_part( 'templates-loop/content', 'none' ); ?>
+		</div>
+	</div>
 
-				<?php endif; ?>
-
-			</main><!-- #main -->
-
+	<div class="row">
+		<div class="col">
 			<!-- The pagination component -->
 			<?php uds_wp_pagination(); ?>
 		</div>
-			<!-- Check for the right sidebar -->
-			<?php get_template_part( 'templates-global/right-sidebar-check' ); ?>
+	</div>
 
-		</div><!-- .row -->
-
-	</div><!-- #content -->
-
-</div><!-- #search-wrapper -->
+</main><!-- #main -->
 
 <?php
 get_footer();
+

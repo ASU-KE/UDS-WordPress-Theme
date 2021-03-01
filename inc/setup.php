@@ -94,9 +94,6 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 			)
 		);
 
-		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
-
 		// Check and setup theme default settings.
 		uds_wp_setup_theme_default_settings();
 	}
