@@ -3,8 +3,8 @@
     "title": "UDS Blockquote",
     "fields": [
         {
-            "key": "field_602c6467eb60e",
-            "label": "Block Quote Styles",
+            "key": "field_602c64aef0dcc",
+            "label": "Content",
             "name": "",
             "type": "accordion",
             "instructions": "",
@@ -15,13 +15,13 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
+            "open": 1,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
             "key": "field_602c6279c09d8",
-            "label": "Quote Image",
+            "label": "Image",
             "name": "quote_image",
             "type": "true_false",
             "instructions": "",
@@ -32,7 +32,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Do you want an image?",
+            "message": "",
             "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
@@ -71,10 +71,84 @@
             "mime_types": ""
         },
         {
+            "key": "field_602c64c2f0dcd",
+            "label": "Quote Text",
+            "name": "quote_text",
+            "type": "textarea",
+            "instructions": "The actual text of the quote.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "placeholder": "",
+            "maxlength": 400,
+            "rows": 6,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_602c6539f0dce",
+            "label": "Name",
+            "name": "name",
+            "type": "text",
+            "instructions": "This is the person who you are quoting",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem Ipsum",
+            "placeholder": "Enter the person's name here",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602c658af0dcf",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "Optional text for a person's title, or other information",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602c6467eb60e",
+            "label": "Style",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
             "key": "field_602c637dc09da",
             "label": "Background Color",
             "name": "background_color",
-            "type": "button_group",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -85,14 +159,17 @@
             },
             "choices": {
                 "none": "None",
-                "light": "Light Grey",
-                "medium": "Medium Grey",
-                "dark": "Dark Grey"
+                "light": "Light Gray",
+                "medium": "Medium Gray",
+                "dark": "Dark Gray"
             },
-            "allow_null": 0,
             "default_value": "none",
-            "layout": "horizontal",
-            "return_format": "value"
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_602c63e7c09db",
@@ -107,6 +184,11 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "none"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -138,6 +220,11 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "light"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -169,6 +256,11 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "medium"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -199,6 +291,11 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "dark"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -215,80 +312,6 @@
             "default_value": "gold",
             "layout": "horizontal",
             "return_format": "value"
-        },
-        {
-            "key": "field_602c64aef0dcc",
-            "label": "Block Quote Text",
-            "name": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_602c64c2f0dcd",
-            "label": "Quote Text",
-            "name": "quote_text",
-            "type": "textarea",
-            "instructions": "This is the actual text of the quote.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": 400,
-            "rows": 6,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_602c6539f0dce",
-            "label": "Name",
-            "name": "name",
-            "type": "text",
-            "instructions": "This is the person who you are quoting",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602c658af0dcf",
-            "label": "Description",
-            "name": "description",
-            "type": "text",
-            "instructions": "Optional text for anything you want to add",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -308,5 +331,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614122192
+    "modified": 1614716142
 }
