@@ -29,6 +29,7 @@ function my_acf_blocks_init() {
 			'/headings',              // A UDS Headings block.
 			'/button', // Button block for UDS theme.
 			'/blockquote', // Sample block using the <InnerBlocks /> tag.
+			'/cards', // UDS Cards.
 		);
 
 		// Loop through array items and include each register file.
@@ -80,4 +81,3 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 
 	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
 }
-
