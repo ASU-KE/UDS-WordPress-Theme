@@ -14,37 +14,49 @@
 
 switch ( get_field( 'background_color' ) ) {
 
-		case 'light':
-		$background_class = 'bq-color bq-light';
-		$accent_class = get_field( 'accent_light' );
-		break;
+	case 'light':
+	$background_class = 'bq-color bq-light';
+	$accent_class = get_field( 'accent_light' );
+	break;
 
-		case 'medium':
-		$background_class = 'bq-color bq-medium';
-		$accent_class = get_field( 'accent_medium' );
-		break;
+	case 'medium':
+	$background_class = 'bq-color bq-medium';
+	$accent_class = get_field( 'accent_medium' );
+	break;
 
-		case 'dark':
-		$background_class = 'bq-color bq-dark';
-		$accent_class = get_field( 'accent_dark' );
-		break;
+	case 'dark':
+	$background_class = 'bq-color bq-dark';
+	$accent_class = get_field( 'accent_dark' );
+	break;
 
-	default:
-		// Default is to apply no styles or "none".
-		$background_class = '';
-		$accent_class = get_field( 'accent_none' );
-		break;
+default:
+	// Default is to apply no styles or "none".
+	$background_class = '';
+	$accent_class = get_field( 'accent_none' );
+	break;
 }
 
+// See if we are in image, or no-image, mode.
+$image = get_field( 'quote_image' );
+$image_class = '';
+
+if ( $image ) {
+	$image_class = "with-image";
+}
 ?>
 
-<figure class="uds-blockquote accent-<?php echo $accent_class; ?>  <?php echo $background_class; ?> <?php the_field( 'quote_image' ); ?>">
-<img src="<?php the_field( 'image_source' ); ?>" />
-    <svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
-        <title id="open-quote-title"><?php the_field( 'title' ); ?></title>
-        <path
-            d="M113.61,245.82H0V164.56q0-49.34,8.69-77.83T40.84,35.58Q64.29,12.95,100.67,0l22.24,46.9q-34,11.33-48.72,31.54T58.63,132.21h55Zm180,0H180V164.56q0-49.74,8.7-78T221,35.58Q244.65,12.95,280.63,0l22.24,46.9q-34,11.33-48.72,31.54t-15.57,53.77h55Z" />
-    </svg>
+<figure class="uds-blockquote accent-<?php echo $accent_class;?> <?php echo $background_class;?> <?php echo $image_class; ?>">
+	<?php if ( $image ): ?>
+		<img src="<?php the_field( 'image_source' ); ?>" />
+	<?php endif; ?>
+
+	<?php if ( ! $image ): ?>
+		<svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
+			<title id="open-quote-title"><?php the_field( 'title' ); ?></title>
+			<path
+				d="M113.61,245.82H0V164.56q0-49.34,8.69-77.83T40.84,35.58Q64.29,12.95,100.67,0l22.24,46.9q-34,11.33-48.72,31.54T58.63,132.21h55Zm180,0H180V164.56q0-49.74,8.7-78T221,35.58Q244.65,12.95,280.63,0l22.24,46.9q-34,11.33-48.72,31.54t-15.57,53.77h55Z" />
+		</svg>
+	<?php endif; ?>
     <blockquote>
         <p><?php the_field( 'quote_text' ); ?></p>
     </blockquote>
@@ -53,4 +65,3 @@ switch ( get_field( 'background_color' ) ) {
         <cite class="description"><?php the_field( 'description' ); ?></cite>
     </figcaption>
 </figure>
-
