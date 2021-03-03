@@ -319,7 +319,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/blockquote"
+                "value": "acf\/uds-blockquote"
             }
         ]
     ],
@@ -331,5 +331,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614716142
+    "modified": 1614792363
 }
