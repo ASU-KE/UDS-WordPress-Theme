@@ -47,11 +47,13 @@ if ( $image ) {
 
 <figure class="uds-blockquote accent-<?php echo $accent_class; ?> <?php echo $background_class; ?> <?php echo $image_class; ?>">
 	<?php if ( $image ) : ?>
-		<img src="<?php the_field( 'image_source' ); ?>" />
+		<div class="feature-wrapper">
+			<img src="<?php the_field( 'image_source' ); ?>" />
+		</div>
 	<?php endif; ?>
 
 	<?php if ( ! $image ) : ?>
-		<div class="svg-wrapper">
+		<div class="feature-wrapper">
 			<svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
 				<title id="open-quote-title"><?php the_field( 'title' ); ?></title>
 				<path

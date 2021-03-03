@@ -169,7 +169,8 @@ figure.uds-blockquote {
 		gap: $uds-size-spacing-4 $uds-size-spacing-3;
 		text-align: left;
 
-		div.svg-wrapper {
+		// wraps either the large quotes, or the image
+		div.feature-wrapper {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
