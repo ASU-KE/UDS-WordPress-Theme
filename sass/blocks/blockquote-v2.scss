@@ -209,6 +209,8 @@ figure.uds-blockquote {
 			gap: $uds-size-spacing-4;
 
 			img {
+				object-fit: cover;
+				height: 180px;
 				grid-row: 1 / span 2;
 			}
 		}
