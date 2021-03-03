@@ -15,25 +15,25 @@
 switch ( get_field( 'background_color' ) ) {
 
 	case 'light':
-	$background_class = 'bq-color bq-light';
-	$accent_class = get_field( 'accent_light' );
-	break;
+		$background_class = 'bq-color bq-light';
+		$accent_class = get_field( 'accent_light' );
+		break;
 
 	case 'medium':
-	$background_class = 'bq-color bq-medium';
-	$accent_class = get_field( 'accent_medium' );
-	break;
+		$background_class = 'bq-color bq-medium';
+		$accent_class = get_field( 'accent_medium' );
+		break;
 
 	case 'dark':
-	$background_class = 'bq-color bq-dark';
-	$accent_class = get_field( 'accent_dark' );
-	break;
+		$background_class = 'bq-color bq-dark';
+		$accent_class = get_field( 'accent_dark' );
+		break;
 
-default:
-	// Default is to apply no styles or "none".
-	$background_class = '';
-	$accent_class = get_field( 'accent_none' );
-	break;
+	default:
+		// Default is to apply no styles or "none".
+		$background_class = '';
+		$accent_class = get_field( 'accent_none' );
+		break;
 }
 
 // See if we are in image, or no-image, mode.
@@ -41,16 +41,16 @@ $image = get_field( 'quote_image' );
 $image_class = '';
 
 if ( $image ) {
-	$image_class = "with-image";
+	$image_class = 'with-image';
 }
 ?>
 
-<figure class="uds-blockquote accent-<?php echo $accent_class;?> <?php echo $background_class;?> <?php echo $image_class; ?>">
-	<?php if ( $image ): ?>
+<figure class="uds-blockquote accent-<?php echo $accent_class; ?> <?php echo $background_class; ?> <?php echo $image_class; ?>">
+	<?php if ( $image ) : ?>
 		<img src="<?php the_field( 'image_source' ); ?>" />
 	<?php endif; ?>
 
-	<?php if ( ! $image ): ?>
+	<?php if ( ! $image ) : ?>
 		<div class="svg-wrapper">
 			<svg title="Open quote" role="img" aria-labelledby="open-quote-title" viewBox="0 0 302.87 245.82">
 				<title id="open-quote-title"><?php the_field( 'title' ); ?></title>
@@ -59,11 +59,11 @@ if ( $image ) {
 			</svg>
 		</div>
 	<?php endif; ?>
-    <blockquote>
-        <p><?php the_field( 'quote_text' ); ?></p>
-    </blockquote>
-    <figcaption>
-        <cite class="name"><?php the_field( 'name' ); ?></cite>
-        <cite class="description"><?php the_field( 'description' ); ?></cite>
-    </figcaption>
+	<blockquote>
+		<p><?php the_field( 'quote_text' ); ?></p>
+	</blockquote>
+	<figcaption>
+		<cite class="name"><?php the_field( 'name' ); ?></cite>
+		<cite class="description"><?php the_field( 'description' ); ?></cite>
+	</figcaption>
 </figure>
