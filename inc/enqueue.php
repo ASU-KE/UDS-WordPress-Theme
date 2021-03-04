@@ -65,7 +65,7 @@ if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
 	 */
 	function uds_wp_gutenberg_css() {
 		add_theme_support( 'editor-styles' );
-		add_editor_style( get_template_directory_uri() . '/css/theme.min.css' );
+		add_editor_style( 'css/theme.min.css' );
 	}
 }// End of if function_exists( 'uds_wp_gutenberg_css' ).
 add_action( 'after_setup_theme', 'uds_wp_gutenberg_css' );
