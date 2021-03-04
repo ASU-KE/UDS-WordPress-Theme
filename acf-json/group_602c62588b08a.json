@@ -71,6 +71,36 @@
             "mime_types": ""
         },
         {
+            "key": "field_603fef3dcbb40",
+            "label": "Image Side",
+            "name": "image_side",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_602c64c2f0dcd",
             "label": "Quote Text",
             "name": "quote_text",
@@ -141,7 +171,7 @@
                 "id": ""
             },
             "open": 0,
-            "multi_expand": 0,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
@@ -170,6 +200,33 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_603ffa83a5fbd",
+            "label": "Add Space",
+            "name": "add_space",
+            "type": "true_false",
+            "instructions": "Add space around the content?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_602c63e7c09db",
@@ -331,5 +388,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614792363
+    "modified": 1614805700
 }
