@@ -15,17 +15,17 @@
 switch ( get_field( 'background_color' ) ) {
 
 	case 'light':
-		$background_class = 'bq-color bq-light';
+		$background_class = 'bq-light';
 		$accent_class = get_field( 'accent_light' );
 		break;
 
 	case 'medium':
-		$background_class = 'bq-color bq-medium';
+		$background_class = 'bq-medium';
 		$accent_class = get_field( 'accent_medium' );
 		break;
 
 	case 'dark':
-		$background_class = 'bq-color bq-dark';
+		$background_class = 'bq-dark';
 		$accent_class = get_field( 'accent_dark' );
 		break;
 
@@ -36,12 +36,25 @@ switch ( get_field( 'background_color' ) ) {
 		break;
 }
 
+// Now check to see if they want to add the padding.
+if ( get_field( 'add_space' ) ) {
+	$background_class .= ' bq-color-padding';
+}
+
 // See if we are in image, or no-image, mode.
 $image = get_field( 'quote_image' );
 $image_class = '';
 
 if ( $image ) {
 	$image_class = 'with-image';
+
+	/**
+	 * If image is on, and the user has chosen for it to be on the right,
+	 * apply the 'reversed' class as well.
+	 */
+	if ( 'right' === get_field( 'image_side' ) ) {
+		$image_class .= ' reversed';
+	}
 }
 ?>
 
