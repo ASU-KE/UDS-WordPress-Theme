@@ -38,7 +38,7 @@ gulp.task( 'sass', function() {
 		.pipe( sass( { errLogToConsole: true } ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
 		.pipe( sourcemaps.write( undefined, { sourceRoot: null } ) )
-		.pipe( gulp.dest( paths.css ));
+		.pipe( gulp.dest( paths.css ) );
 } );
 
 /**
@@ -69,7 +69,7 @@ gulp.task( 'imagemin', () =>
 				}
 			)
 		)
-		.pipe( gulp.dest( paths.img ))
+		.pipe( gulp.dest( paths.img ) )
 
 );
 
