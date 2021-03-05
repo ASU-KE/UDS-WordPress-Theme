@@ -149,7 +149,6 @@ gulp.task( 'watch', function() {
 		gulp.series( 'scripts' )
 	);
 
-
 	// Inside the watch task.
 	gulp.watch( paths.imgsrc + '/**', gulp.series( 'imagemin-watch' ) );
 } );
@@ -173,8 +172,6 @@ gulp.task(
 	} )
 );
 
-
-
 /**
  * Starts watcher with browser-sync.
  * Browser-sync reloads page automatically on your browser.
@@ -182,8 +179,6 @@ gulp.task(
  * Run: gulp watch-bs
  */
 gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
-
-
 
 // Run:
 // gulp scripts.
