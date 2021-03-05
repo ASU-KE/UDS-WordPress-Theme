@@ -38,8 +38,7 @@ gulp.task( 'sass', function() {
 		.pipe( sass( { errLogToConsole: true } ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
 		.pipe( sourcemaps.write( undefined, { sourceRoot: null } ) )
-		.pipe( gulp.dest( paths.css ))
-		.pipe(browserSync.reload({ stream: true }));
+		.pipe( gulp.dest( paths.css ));
 } );
 
 /**
@@ -71,7 +70,7 @@ gulp.task( 'imagemin', () =>
 			)
 		)
 		.pipe( gulp.dest( paths.img ))
-		.pipe(browserSync.reload({ stream: true }))
+
 );
 
 /**
@@ -150,7 +149,7 @@ gulp.task( 'watch', function() {
 	);
 
 	// Inside the watch task.
-	gulp.watch( paths.imgsrc + '/**', gulp.series( 'imagemin-watch' ) );
+	gulp.watch( paths.imgsrc + '/**' );
 } );
 
 /**
@@ -199,7 +198,8 @@ gulp.task( 'scripts', function() {
 		.src( scripts, { allowEmpty: true } )
 		.pipe( babel() )
 		.pipe( concat( 'theme.js' ) )
-		.pipe( gulp.dest( paths.js ) );
+		.pipe( gulp.dest( paths.js ) )
+		.pipe(browserSync.reload({ stream: true }));
 } );
 
 // Run:
