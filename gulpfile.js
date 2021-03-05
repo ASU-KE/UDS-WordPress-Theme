@@ -70,7 +70,6 @@ gulp.task( 'imagemin', () =>
 			)
 		)
 		.pipe( gulp.dest( paths.img ) )
-
 );
 
 /**
