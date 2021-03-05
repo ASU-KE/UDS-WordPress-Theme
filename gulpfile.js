@@ -38,7 +38,8 @@ gulp.task( 'sass', function() {
 		.pipe( sass( { errLogToConsole: true } ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
 		.pipe( sourcemaps.write( undefined, { sourceRoot: null } ) )
-		.pipe( gulp.dest( paths.css ) );
+		.pipe( gulp.dest( paths.css ))
+		.pipe(browserSync.reload({ stream: true }));
 } );
 
 /**
@@ -69,7 +70,8 @@ gulp.task( 'imagemin', () =>
 				}
 			)
 		)
-		.pipe( gulp.dest( paths.img ) )
+		.pipe( gulp.dest( paths.img ))
+		.pipe(browserSync.reload({ stream: true }))
 );
 
 /**
@@ -104,7 +106,8 @@ gulp.task( 'minifycss', function() {
 		)
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( sourcemaps.write( './' ) )
-		.pipe( gulp.dest( paths.css ) );
+		.pipe( gulp.dest( paths.css ) )
+		.pipe(browserSync.reload({ stream: true }));
 } );
 
 /**
@@ -146,6 +149,7 @@ gulp.task( 'watch', function() {
 		gulp.series( 'scripts' )
 	);
 
+
 	// Inside the watch task.
 	gulp.watch( paths.imgsrc + '/**', gulp.series( 'imagemin-watch' ) );
 } );
@@ -169,6 +173,8 @@ gulp.task(
 	} )
 );
 
+
+
 /**
  * Starts watcher with browser-sync.
  * Browser-sync reloads page automatically on your browser.
@@ -176,6 +182,8 @@ gulp.task(
  * Run: gulp watch-bs
  */
 gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
+
+
 
 // Run:
 // gulp scripts.
