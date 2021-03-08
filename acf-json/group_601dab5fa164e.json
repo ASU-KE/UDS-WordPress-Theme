@@ -3,6 +3,25 @@
     "title": "UDS Headings",
     "fields": [
         {
+            "key": "field_601db92f495ad",
+            "label": "Text",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem ipsum",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
             "key": "field_601dab6d495ab",
             "label": "Heading Level",
             "name": "level",
@@ -27,6 +46,33 @@
             "return_format": "value"
         },
         {
+            "key": "field_60466b92e86f9",
+            "label": "Smaller Size",
+            "name": "smaller_size",
+            "type": "true_false",
+            "instructions": "For longer titles, a smaller H1 can be used",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_601dab6d495ab",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_601dac1e495ac",
             "label": "Text Highlight",
             "name": "text_highlight",
@@ -49,25 +95,6 @@
             "default_value": "none",
             "layout": "horizontal",
             "return_format": "value"
-        },
-        {
-            "key": "field_601db92f495ad",
-            "label": "Text",
-            "name": "text",
-            "type": "text",
-            "instructions": "Place your heading here.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "Place your heading here",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -87,5 +114,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613608463
+    "modified": 1615239809
 }
