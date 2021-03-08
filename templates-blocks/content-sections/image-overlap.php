@@ -9,7 +9,7 @@ $background = get_field( 'uds_image_overlap_background' );
 $orientation = get_field( 'uds_image_overlap_orientation' );
 
 // Allowed blocks inside inner content.
-$allowed_blocks = array( 'core/heading', 'core/paragraph', 'core/separator', 'core/html', 'core/list' );
+$allowed_blocks = array( 'core/heading', 'core/paragraph', 'core/separator', 'core/html', 'core/list', 'acf/uds-button', 'acf/uds-card', 'acf/headings' );
 
 // Pre-populate the InnerBlocks area with some content.
 $template = array(
