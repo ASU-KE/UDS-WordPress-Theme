@@ -168,7 +168,15 @@ We are currently using WP Engine to manage our WordPress sites and to connect yo
 - After you have connected to WP Engine you will see all of the site available to your account listed within the "Connect" area.
 
 ![Local By FlyWheel Connect Area Example](img/admin/local-by-flywheel-connect-area.png "Local By FlyWheel Connect Area Example")
-You can then pull whichever site local to work on. For new project's select: ASU UDS Quickstart
+- In order to connect to WP Engine you must click the "My HostS" button in the upper right corner of the "Connect" area.
+
+Then you will see a list of hosting providers to choose from.
+
+- Select "WP Engine" and sign in.
+
+This will give you access to pull sites locally to work on.
+
+For new project's select: ASU UDS Quickstart
 
 `*` After you have pulled the site to to your local machine disconnect it from the host to ensure premature development is not deployed in the background. You can do this by clicking the same button used to "Pull To Local".
 
@@ -191,7 +199,6 @@ The process will look like this.
 - Install WordPress core: `$ lando wp download core`
 - Create wp-config: `$ wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database`
 - Download and import the database: `$ lando db-import site-database-export-file.sql`
-- Setup theme.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
