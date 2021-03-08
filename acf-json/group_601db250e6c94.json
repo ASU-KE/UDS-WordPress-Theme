@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Your label here",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -94,7 +94,7 @@
                 "dark": "Dark Gray",
                 "gray": "Light Gray"
             },
-            "default_value": false,
+            "default_value": "maroon",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -120,7 +120,7 @@
                 "md": "Medium",
                 "sm": "Small"
             },
-            "default_value": false,
+            "default_value": "md",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -165,5 +165,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613594885
+    "modified": 1615245423
 }
