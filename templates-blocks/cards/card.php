@@ -59,7 +59,7 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 
 // Retrieve additional classes from the 'advanced' field in the editor.
 if ( ! empty( $block['className'] ) ) {
-	$additional_classes = $block['className'];
+	$additional_classes = sanitize_text_field( $block['className'] );
 }
 
 // Check for the 'hover' variant, and set the class if needed.
