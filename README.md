@@ -154,31 +154,31 @@ There are several solutions available for hosting local WordPress development si
 
 #### Local By Flywheel
 
-- Visit [Local by Flywheel](https://localwp.com/) and click the "Download" button.
-- Choose your platform and enter some information (only the email field is mandatory), the download should start and you’ll be taken to a start-up screen, where you will select the "Let’s Go!" button. After installation, you’ll be taken to the dashboard.
+- Visit [Local by Flywheel](https://localwp.com/) and click the `Download` button.
+- Choose your platform and enter some information (only the email field is mandatory), the download should start and you’ll be taken to a start-up screen, where you will select the `Let’s Go!` button. After installation, you’ll be taken to the dashboard.
 - Proceed to create a new local WordPress install or connect to a remote service like [WP Engine](https://wpengine.com/).
 
 We are currently using WP Engine to manage our WordPress sites and to connect your Local By Flywheel installation to WP Engine you will need a WP Engine account and API key.
 
 [WP Engine Instructions](https://wpengine.com/support/local/).
-- To connect select the "Connect" icon on the left hand side of your Local dashboard.
+- To connect select the `Connect` icon on the left hand side of your Local dashboard.
 
 ![Local By FlyWheel Connect Select Example](img/admin/local-by-flywheel-connect.png "Local By FlyWheel Connect Select Example")
 
-- After you have connected to WP Engine you will see all of the site available to your account listed within the "Connect" area.
+- After you have connected to WP Engine you will see all of the site available to your account listed within the `Connect` area.
 
 ![Local By FlyWheel Connect Area Example](img/admin/local-by-flywheel-connect-area.png "Local By FlyWheel Connect Area Example")
-- In order to connect to WP Engine you must click the "My HostS" button in the upper right corner of the "Connect" area.
+- In order to connect to WP Engine you must click the `My Hosts` button in the upper right corner of the `Connect` area.
 
 Then you will see a list of hosting providers to choose from.
 
-- Select "WP Engine" and sign in.
+- Select `WP Engine` and sign in.
 
 This will give you access to pull sites locally to work on.
 
-For new project's select: ASU UDS Quickstart
+For new project's select: `ASU UDS Quickstart`
 
-`*` After you have pulled the site to to your local machine disconnect it from the host to ensure premature development is not deployed in the background. You can do this by clicking the same button used to "Pull To Local".
+`*` After you have pulled the site to to your local machine disconnect it from the host to ensure premature development is not deployed in the background. You can do this by clicking the same button used to `Pull To Local` to `Disconnect`.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
