@@ -30,7 +30,7 @@ acf_register_block_type(
 			'align' => false, // Disable the align button in the editor toolbar.
 			'html' => false, // Disable the use of html editor.
 		),
-		'mode'              => 'edit', // make this block default to full edit mode when added to the page.
+		'mode'              => 'preview', // make this block default to preview mode when added to the page.
 		'example'  => array(
 			'attributes' => array(
 				'mode' => 'preview',
