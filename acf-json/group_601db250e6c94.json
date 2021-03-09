@@ -120,7 +120,7 @@
                 "md": "Medium",
                 "sm": "Small"
             },
-            "default_value": "md",
+            "default_value": "default",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -165,5 +165,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615245423
+    "modified": 1615324831
 }
