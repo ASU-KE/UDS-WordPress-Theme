@@ -25,6 +25,6 @@ acf_register_block_type(
 			'align' => false,
 			'jsx' => true,
 		),
-		'mode'              => 'edit',
+		'mode'              => 'preview',
 	)
 );
