@@ -21,12 +21,12 @@ if ( ! empty( $block['className'] ) ) {
 }
 
 // If the 'smaller size' checkbox was checked, add the 'article' class.
-if( get_field( 'smaller_size' ) ) {
+if ( get_field( 'smaller_size' ) ) {
 	$additional_classes .= ' article';
 }
 
 // Setup our variables.
-$start_tag = '<h' . get_field( 'level' ) . ' class="' . trim( $additional_classes ). '" >';
+$start_tag = '<h' . get_field( 'level' ) . ' class="' . trim( $additional_classes ) . '" >';
 $end_tag = '</h' . get_field( 'level' ) . '>';
 $highlight_class = get_field( 'text_highlight' );
 

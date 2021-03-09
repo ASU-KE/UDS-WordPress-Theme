@@ -8,9 +8,9 @@
 // Get the background image, or set a placeholder if there isn't one.
 $background = get_field( 'uds_image_overlap_background' );
 
-if( ! $background ) {
-	$background['url'] = "https://via.placeholder.com/960x640/191919/FAFAFA.png?text=image+placeholder";
-	$background['alt'] = "A placeholder image";
+if ( ! $background ) {
+	$background['url'] = 'https://via.placeholder.com/960x640/191919/FAFAFA.png?text=image+placeholder';
+	$background['alt'] = 'A placeholder image';
 }
 
 // Retrieve additional classes from the 'advanced' field in the editor.
@@ -23,10 +23,10 @@ $orientation = get_field( 'uds_image_overlap_orientation' );
 
 
 // Combine the base, orientation, and advanced classes into one string.
-$classes = "uds-image-overlap ";
+$classes = 'uds-image-overlap ';
 
 if ( 'left' === $orientation ) {
-	$classes .= "content-left ";
+	$classes .= 'content-left ';
 }
 
 $classes .= $additional_classes;
@@ -40,7 +40,8 @@ $allowed_blocks = array(
 	'core/list',
 	'acf/uds-button',
 	'acf/uds-card',
-	'acf/headings', );
+	'acf/headings',
+);
 
 // Pre-populate the InnerBlocks area with some content.
 $template = array(
