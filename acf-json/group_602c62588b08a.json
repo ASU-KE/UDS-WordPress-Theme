@@ -3,10 +3,10 @@
     "title": "UDS Blockquote",
     "fields": [
         {
-            "key": "field_602c64aef0dcc",
-            "label": "Content",
+            "key": "field_60494b5df56b8",
+            "label": "Text",
             "name": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,8 +15,80 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
-            "multi_expand": 1,
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_602c64c2f0dcd",
+            "label": "Quote Text",
+            "name": "quote_text",
+            "type": "textarea",
+            "instructions": "The actual text of the quote.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "placeholder": "",
+            "maxlength": 400,
+            "rows": 6,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_602c6539f0dce",
+            "label": "Name",
+            "name": "name",
+            "type": "text",
+            "instructions": "This is the person who you are quoting",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem Ipsum",
+            "placeholder": "Enter the person's name here",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602c658af0dcf",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "Optional text for a person's title, or other information",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60494b75f56b9",
+            "label": "Image",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
             "endpoint": 0
         },
         {
@@ -28,7 +100,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -55,7 +127,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -87,7 +159,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -101,67 +173,10 @@
             "return_format": "value"
         },
         {
-            "key": "field_602c64c2f0dcd",
-            "label": "Quote Text",
-            "name": "quote_text",
-            "type": "textarea",
-            "instructions": "The actual text of the quote.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "placeholder": "",
-            "maxlength": 400,
-            "rows": 6,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_602c6539f0dce",
-            "label": "Name",
-            "name": "name",
-            "type": "text",
-            "instructions": "This is the person who you are quoting",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Lorem Ipsum",
-            "placeholder": "Enter the person's name here",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602c658af0dcf",
-            "label": "Description",
-            "name": "description",
-            "type": "text",
-            "instructions": "Optional text for a person's title, or other information",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602c6467eb60e",
-            "label": "Style",
+            "key": "field_60494cb84bf21",
+            "label": "Colors",
             "name": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -170,20 +185,151 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 1,
+            "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_602c63e7c09db",
+            "label": "Accent Color",
+            "name": "accent_none",
+            "type": "button_group",
+            "instructions": "Accent color for large quotation marks and content dividers",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gold": "Gold",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_603422ad2f087",
+            "label": "Accent Color",
+            "name": "accent_light",
+            "type": "button_group",
+            "instructions": "Accent color for large quotation marks and content dividers",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "light"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gold": "Gold",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60341a9fc2333",
+            "label": "Accent Color",
+            "name": "accent_medium",
+            "type": "button_group",
+            "instructions": "Accent color for large quotation marks and content dividers",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "medium"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "maroon",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_60341aa5c2334",
+            "label": "Accent Color",
+            "name": "accent_dark",
+            "type": "button_group",
+            "instructions": "Accent color for large quotation marks and content dividers",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602c637dc09da",
+                        "operator": "==",
+                        "value": "dark"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gold": "Gold",
+                "gray-5": "Gray"
+            },
+            "allow_null": 0,
+            "default_value": "gold",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_602c637dc09da",
             "label": "Background Color",
             "name": "background_color",
             "type": "select",
-            "instructions": "",
+            "instructions": "Choose a UDS-approved gray background color. This may affect your accent color options.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -218,7 +364,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -227,148 +373,6 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
-        },
-        {
-            "key": "field_602c63e7c09db",
-            "label": "Quote Color none",
-            "name": "accent_none",
-            "type": "button_group",
-            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602c637dc09da",
-                        "operator": "==",
-                        "value": "none"
-                    },
-                    {
-                        "field": "field_602c6279c09d8",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "maroon": "Maroon",
-                "gold": "Gold",
-                "gray-5": "Gray"
-            },
-            "allow_null": 0,
-            "default_value": "gold",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_603422ad2f087",
-            "label": "Quote Color light",
-            "name": "accent_light",
-            "type": "button_group",
-            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602c637dc09da",
-                        "operator": "==",
-                        "value": "light"
-                    },
-                    {
-                        "field": "field_602c6279c09d8",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "maroon": "Maroon",
-                "gold": "Gold",
-                "gray-5": "Gray"
-            },
-            "allow_null": 0,
-            "default_value": "gold",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_60341a9fc2333",
-            "label": "Quote Color medium",
-            "name": "accent_medium",
-            "type": "button_group",
-            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602c637dc09da",
-                        "operator": "==",
-                        "value": "medium"
-                    },
-                    {
-                        "field": "field_602c6279c09d8",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "maroon": "Maroon",
-                "gray-5": "Gray"
-            },
-            "allow_null": 0,
-            "default_value": "maroon",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_60341aa5c2334",
-            "label": "Quote Color dark",
-            "name": "accent_dark",
-            "type": "button_group",
-            "instructions": "Lets you choose the color of the large quotation mark for block quotes with no image.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602c637dc09da",
-                        "operator": "==",
-                        "value": "dark"
-                    },
-                    {
-                        "field": "field_602c6279c09d8",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "gold": "Gold",
-                "gray-5": "Gray"
-            },
-            "allow_null": 0,
-            "default_value": "gold",
-            "layout": "horizontal",
-            "return_format": "value"
         }
     ],
     "location": [
@@ -388,5 +392,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614805700
+    "modified": 1615420495
 }
