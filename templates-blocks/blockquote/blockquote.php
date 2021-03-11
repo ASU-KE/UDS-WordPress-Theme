@@ -36,6 +36,13 @@ switch ( get_field( 'background_color' ) ) {
 		break;
 }
 
+// Build the accent class, leaving it blank if we don't need it.
+if( ! empty( $accent_class ) ) {
+	$accent_class = 'accent-' . $accent_class;
+}else{
+	$accent_class = '';
+}
+
 // Now check to see if they want to add the padding.
 if ( get_field( 'add_space' ) ) {
 	$background_class .= ' bq-color-padding';
@@ -56,9 +63,14 @@ if ( $image ) {
 		$image_class .= ' reversed';
 	}
 }
+
+// Retrieve additional classes from the 'advanced' field in the editor.
+if ( ! empty( $block['className'] ) ) {
+	$additional_classes = $block['className'];
+}
 ?>
 
-<figure class="uds-blockquote accent-<?php echo $accent_class; ?> <?php echo $background_class; ?> <?php echo $image_class; ?>">
+<figure class="uds-blockquote <?php echo $accent_class; ?> <?php echo $background_class; ?> <?php echo $image_class; ?> <?php echo $additional_classes; ?>">
 	<?php if ( $image ) : ?>
 		<div class="feature-wrapper">
 			<img src="<?php the_field( 'image_source' ); ?>" />
@@ -74,11 +86,13 @@ if ( $image ) {
 			</svg>
 		</div>
 	<?php endif; ?>
-	<blockquote>
-		<p><?php the_field( 'quote_text' ); ?></p>
-	</blockquote>
-	<figcaption>
-		<cite class="name"><?php the_field( 'name' ); ?></cite>
-		<cite class="description"><?php the_field( 'description' ); ?></cite>
-	</figcaption>
+	<div class="content-wrapper">
+		<blockquote>
+			<p><?php the_field( 'quote_text' ); ?></p>
+		</blockquote>
+		<figcaption>
+			<cite class="name"><?php the_field( 'name' ); ?></cite>
+			<cite class="description"><?php the_field( 'description' ); ?></cite>
+		</figcaption>
+	</div>
 </figure>
