@@ -54,7 +54,7 @@ figure.uds-blockquote {
 		&:before {
 			content: '';
 			display: block;
-			background-color: $uds-color-base-gray-7;
+			background-color: $uds-color-base-gray-5;
 			height: $uds-size-spacing-half;
 			width: $uds-size-spacing-9;
 			margin: $uds-size-spacing-2 auto;
@@ -163,27 +163,22 @@ figure.uds-blockquote {
 
 	figure.uds-blockquote {
 
-		display: grid;
-		grid-template-columns: auto 1fr;
-		grid-template-rows: 1fr auto;
-		gap: $uds-size-spacing-4 $uds-size-spacing-3;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
 		text-align: left;
 
 		// wraps either the large quotes, or the image
 		div.feature-wrapper {
 			display: flex;
 			flex-direction: column;
-			justify-content: flex-start;
 			height: 100%;
-		}
+			justify-content: flex-start;
+			padding: 0 $uds-size-spacing-2 0 0;
 
-		svg {
-			grid-column: 1 / span 1;
 		}
 
 		blockquote {
-			grid-column: 2 / span 1;
-			grid-row: 1 / span 1;
 
 			margin-top: 0;
 
@@ -197,8 +192,8 @@ figure.uds-blockquote {
 		}
 
 		figcaption {
-			grid-column: 2 / span 1;
-			grid-row: 2 / span 1;
+			// The space between quote and person's name/description.
+			margin-top: $uds-size-spacing-2;
 
 			&:before {
 				display: none;
@@ -206,29 +201,24 @@ figure.uds-blockquote {
 		}
 
 		&.with-image {
-			gap: $uds-size-spacing-4;
+			align-items: center;
 
 			img {
 				object-fit: cover;
 				height: 180px;
-				grid-row: 1 / span 2;
+			}
+
+			div.feature-wrapper {
+				margin-right: $uds-size-spacing-4;
 			}
 		}
 
 		&.with-image.reversed {
+			flex-direction: row-reverse;
 
-			img {
-				grid-column: 2 / span 1;
-				grid-row: 1 / span 2;
-			}
-
-			blockquote {
-				grid-column: 1 / span 1;
-			}
-
-			figcaption {
-				grid-column: 1 / span 1;
-				grid-row: 2 / span 1;
+			div.feature-wrapper {
+				// With image on the right, put margin on the left of it.
+				margin-left: $uds-size-spacing-4;
 			}
 		}
 	}
