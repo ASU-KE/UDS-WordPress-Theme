@@ -37,9 +37,9 @@ switch ( get_field( 'background_color' ) ) {
 }
 
 // Build the accent class, leaving it blank if we don't need it.
-if( ! empty( $accent_class ) ) {
+if ( ! empty( $accent_class ) ) {
 	$accent_class = 'accent-' . $accent_class;
-}else{
+} else {
 	$accent_class = '';
 }
 
