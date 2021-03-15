@@ -174,7 +174,7 @@
         },
         {
             "key": "field_60494cb84bf21",
-            "label": "Colors",
+            "label": "Style",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -354,15 +354,7 @@
             "type": "true_false",
             "instructions": "Add space around the content?",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_602c637dc09da",
-                        "operator": "!=",
-                        "value": "none"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "30",
                 "class": "",
@@ -392,5 +384,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615420495
+    "modified": 1615848434
 }
