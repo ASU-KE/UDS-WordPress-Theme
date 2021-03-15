@@ -81,10 +81,14 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
 }
 
-/**
- * Deregister core block patterns
- */
-function remove_core_patterns() {
-	remove_theme_support( 'core-block-patterns' );
+// Deregister the core WordPress block patterns.
+if ( ! function_exists( 'remove_core_patterns' ) ) {
+	/**
+	 * Removes theme support for 'core-block-patterns', which removes
+	 * ALL core block patterns from the editor.
+	 */
+	function remove_core_patterns() {
+		remove_theme_support( 'core-block-patterns' );
+	}
+	add_action( 'after_setup_theme', 'remove_core_patterns' );
 }
-add_action( 'after_setup_theme', 'remove_core_patterns' );
