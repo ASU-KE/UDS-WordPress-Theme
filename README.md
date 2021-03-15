@@ -256,7 +256,7 @@ To work with and compile your Sass files on the fly start:`$ gulp watch`
 
 Or, to run with Browser-Sync:
 
-- First change the browser-sync options to reflect your environment in the file `/gulpconfig.json` in the beginning of the file:
+- First create a new .json file in the theme root, name it "browserSyncOptions.json", copy and paste the lines below into the new created file:
 
 ```javascript
 {
@@ -267,7 +267,7 @@ Or, to run with Browser-Sync:
     ...
 };
 ```
-
+- Change the browser-sync options to reflect your environment in the file `/browserSyncOptions.json` in the beginning of the file:
 - then run: `$ gulp watch-bs`
 
 #### Travis CI
