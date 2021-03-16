@@ -73,7 +73,11 @@ if ( ! empty( $block['className'] ) ) {
 <figure class="uds-blockquote <?php echo $accent_class; ?> <?php echo $background_class; ?> <?php echo $image_class; ?> <?php echo $additional_classes; ?>">
 	<?php if ( $image ) : ?>
 		<div class="feature-wrapper">
-			<img src="<?php the_field( 'image_source' ); ?>" />
+			<?php if ( ! empty( get_field( 'image_source' ) ) ) : ?>
+				<img src="<?php the_field( 'image_source' ); ?>" />
+			<?php else : ?>
+				<img src="https://via.placeholder.com/180/8C1D40/FFFFFF/?text=Placeholder" />
+			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 
