@@ -3,22 +3,6 @@
     "title": "UDS Button",
     "fields": [
         {
-            "key": "field_6052398e4cad7",
-            "label": "Label and Link",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
             "key": "field_60522a8361f39",
             "label": "Label and Link",
             "name": "button_link",
@@ -51,22 +35,6 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
-        },
-        {
-            "key": "field_605239a64cad8",
-            "label": "Style",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
         },
         {
             "key": "field_601f031d80f7e",
@@ -158,5 +126,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Creates UDS compliant button links with customizable color, size, and icon.",
-    "modified": 1616002288
+    "modified": 1616013071
 }
