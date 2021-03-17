@@ -52,6 +52,6 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 
-<div class="uds-button">
-	<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" <?php echo $target; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
+<div class="uds-button <?php echo $additional_classes; ?>">
+	<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $target; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
 </div>
