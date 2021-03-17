@@ -14,11 +14,11 @@
 
 // Multiple values are taken from the 'button_link' field.
 $button_link = get_field( 'button_link' );
-if( $button_link ) {
+if ( $button_link ) {
 	$button_label = sanitize_text_field( $button_link['title'] );
 	$button_url = $button_link['url'];
 	$target = $button_link['target'];
-}else{
+} else {
 	// no link provided!
 	$button_label = 'Label Missing!';
 	$button_url = '#';
