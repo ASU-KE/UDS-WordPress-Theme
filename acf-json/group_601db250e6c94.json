@@ -3,10 +3,10 @@
     "title": "UDS Button",
     "fields": [
         {
-            "key": "field_601e38efafff0",
-            "label": "Label",
-            "name": "button_label",
-            "type": "text",
+            "key": "field_6052398e4cad7",
+            "label": "Label and Link",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,18 +15,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Your label here",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_601e3956afff1",
-            "label": "URL",
-            "name": "button_url",
-            "type": "url",
-            "instructions": "",
+            "key": "field_60522a8361f39",
+            "label": "Label and Link",
+            "name": "button_link",
+            "type": "link",
+            "instructions": "Choose the button label and destination link",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,15 +31,14 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_601e39a0afff2",
             "label": "External Link?",
             "name": "external_link",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "Adds appropriate \"rel\" values for links that leave the 'asu.edu' domain.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -57,10 +53,10 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_602c2e74605cb",
-            "label": "Open in new tab",
-            "name": "new_tab",
-            "type": "true_false",
+            "key": "field_605239a64cad8",
+            "label": "Style",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,11 +65,8 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_601f031d80f7e",
@@ -133,7 +126,7 @@
             "label": "Button Icon",
             "name": "icon",
             "type": "text",
-            "instructions": "",
+            "instructions": "Enter the base name of a FontAwesome icon (ex. for 'fa-info', just enter the word 'info')",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -164,6 +157,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1615324831
+    "description": "Creates UDS compliant button links with customizable color, size, and icon.",
+    "modified": 1616002288
 }
