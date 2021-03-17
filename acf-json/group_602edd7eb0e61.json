@@ -52,7 +52,7 @@
                 "id": ""
             },
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 1
@@ -357,17 +357,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_602f0cedb189a",
+            "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "block",
             "button_label": "New Button",
             "sub_fields": [
                 {
-                    "key": "field_602f0cedb189a",
-                    "label": "Label",
-                    "name": "button_label",
-                    "type": "text",
+                    "key": "field_605260e337e2b",
+                    "label": "Card Buttons",
+                    "name": "card_buttons",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -376,118 +376,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_602f0d2220e59",
-                    "label": "Color",
-                    "name": "button_color",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "gold": "Gold",
-                        "maroon": "Maroon",
-                        "dark": "Dark Gray",
-                        "gray": "Light Gray"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_602f0d8d0939b",
-                    "label": "Size",
-                    "name": "button_size",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "default": "Normal",
-                        "md": "Medium",
-                        "sm": "Small"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_602f0d0528c60",
-                    "label": "URL",
-                    "name": "button_url",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_602f0d13635c6",
-                    "label": "External Link?",
-                    "name": "external_link",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "key": "field_602f102b2aed2",
-                    "label": "New Tab?",
-                    "name": "new_tab",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "clone": [
+                        "group_601db250e6c94"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1
                 }
             ]
         },
@@ -690,5 +585,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Block for creating static versions of basic, event, and story cards",
-    "modified": 1614632393
+    "modified": 1616012238
 }
