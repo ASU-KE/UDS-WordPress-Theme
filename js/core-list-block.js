@@ -126,6 +126,8 @@ wp.hooks.addFilter(
 * (This will only be added to the Gutenberg editor and style previewer not to block html tags)
 *
 */
+addPropsClassNameFunction();
+function addPropsClassNameFunction() {
 var addPropsClassName = wp.compose.createHigherOrderComponent( function( BlockListBlock ) {
 var newProps;
     return function( props ) {
@@ -157,3 +159,4 @@ wp.hooks.addFilter(
     'editor.BlockListBlock',
     'my-plugin/with-client-id-class-name',
     addPropsClassName );
+}
