@@ -60,16 +60,6 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
 
 
-add_filter( 'script_loader_tag', 'add_tag_to_script', 10, 3 );
-
-function add_tag_to_script( $tag, $handle, $src ) {
-    if ( 'uds-wordpress-admin-scripts' === $handle ) {
-        $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
-    }
-
-    return $tag;
-}
-
 if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
 	/**
 	 * Load CSS styles in editor area.
