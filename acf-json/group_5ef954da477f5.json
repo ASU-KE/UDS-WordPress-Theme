@@ -3,22 +3,38 @@
     "title": "UDS Page Hero",
     "fields": [
         {
+            "key": "field_60527f44c91db",
+            "label": "Media",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5ef9553c97988",
             "label": "Hero Size",
             "name": "hero_size",
             "type": "select",
-            "instructions": "Select type of page hero to be displayed",
+            "instructions": "Choose",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "small": "Small",
-                "medium": "Medium",
-                "large": "Large"
+                "small": "Small (1920x256)",
+                "medium": "Medium (1920x512)",
+                "large": "Large (1920x684)"
             },
             "default_value": "medium",
             "allow_null": 0,
@@ -29,28 +45,98 @@
             "placeholder": ""
         },
         {
+            "key": "field_60527e8bb6c34",
+            "label": "Media Source",
+            "name": "media_source",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "url": "URL",
+                "local": "Media Library"
+            },
+            "allow_null": 0,
+            "default_value": "local",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_5ef9561897989",
             "label": "Media URL",
             "name": "hero_asset_url",
             "type": "url",
-            "instructions": "Enter the URL or file path to the Image or Video file for this Hero. If empty, Hero is not rendered.",
+            "instructions": "Enter a valid URL to the hero media",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60188dd996e59",
+                        "field": "field_60527e8bb6c34",
                         "operator": "==",
                         "value": "url"
                     }
                 ]
             ],
             "wrapper": {
-                "width": "60",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_60527e5bb6c33",
+            "label": "Media File",
+            "name": "hero_asset_file",
+            "type": "image",
+            "instructions": "Choose a media file from the media library",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60527e8bb6c34",
+                        "operator": "==",
+                        "value": "local"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60527f5dc91dc",
+            "label": "Text",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_5ef956ca9798a",
@@ -61,7 +147,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -80,7 +166,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -115,7 +201,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -151,6 +237,22 @@
             "maxlength": ""
         },
         {
+            "key": "field_60527f75c91dd",
+            "label": "Button",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5ef9577c9798c",
             "label": "Call to Action URL",
             "name": "hero_call_to_action_url",
@@ -159,7 +261,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -175,7 +277,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -184,6 +286,28 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_60527fa9c91de",
+            "label": "Call to Action Color",
+            "name": "call_to_action_color",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "maroon": "Maroon",
+                "gold": "Gold"
+            },
+            "allow_null": 0,
+            "default_value": "Maroon",
+            "layout": "horizontal",
+            "return_format": "value"
         }
     ],
     "location": [
@@ -203,5 +327,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1613580877
+    "modified": 1616029343
 }

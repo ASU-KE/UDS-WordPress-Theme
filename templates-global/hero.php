@@ -9,7 +9,18 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$hero_asset_url = get_field( 'hero_asset_url' );
+// Get asset value based on choice of URL or local file.
+$media_source = get_field( 'media_source' );
+switch ($media_source) {
+	case 'url':
+		$hero_asset_url = get_field( 'hero_asset_url' );
+		break;
+
+	default:
+		$hero_asset_url = get_field( 'hero_asset_file' );
+		break;
+}
+
 $hero_size = get_field( 'hero_size' );
 $hero_title = get_field( 'hero_title' );
 $hero_highlight = get_field( 'hero_highlight' );
@@ -17,7 +28,13 @@ $title_color = get_field( 'title_color' );
 $hero_text = get_field( 'hero_text' );
 $hero_call_to_action_url = get_field( 'hero_call_to_action_url' );
 $hero_call_to_action_text = get_field( 'hero_call_to_action_text' );
+$hero_call_to_action_color = get_field( 'call_to_action_color' );
 
+// Allow certain tags in the hero title and text.
+$hero_allowed_tags = array(
+	'br' => array(),
+	'p'  => array(),
+);
 
 /**
  * If we don't have a highlight style, then determine the text color and
@@ -66,10 +83,10 @@ if ( ! empty( $hero_asset_url ) ) :
 		<?php
 		if ( ! empty( $hero_title ) ) :
 			?>
-		<h1 class="col-md-8">
-			<span class="<?php echo $hero_title_style; ?>"><?php echo wp_kses( $hero_title, wp_kses_allowed_html( 'strip' ) ); ?></span>
-		</h1>
-			<?php
+		<div class="col-md-8">
+			<h1><span class="<?php echo $hero_title_style; ?>"><?php echo wp_kses( $hero_title, $hero_allowed_tags ); ?></span></h1>
+		</div>
+		<?php
 		endif;
 
 		if ( ! empty( $hero_text ) || ( ! empty( $hero_call_to_action_url ) && ! empty( $hero_call_to_action_text ) ) ) :
@@ -78,13 +95,13 @@ if ( ! empty( $hero_asset_url ) ) :
 			<?php
 			if ( ! empty( $hero_text ) ) {
 				$text = '<p>%1$s</p>';
-				echo wp_kses( sprintf( $text, $hero_text ), wp_kses_allowed_html( 'post' ) );
+				echo wp_kses( sprintf( $text, $hero_text ), $hero_allowed_tags );
 			}
 			?>
 			<?php
 			if ( ! empty( $hero_call_to_action_url ) && ! empty( $hero_call_to_action_text ) ) {
-				$text = '<a class="btn btn-gold" href="%1$s">%2$s</a>';
-				echo wp_kses( sprintf( $text, $hero_call_to_action_url, $hero_call_to_action_text ), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
+				echo wp_kses( sprintf( $text, $hero_call_to_action_url, $hero_call_to_action_text, $hero_call_to_action_color ), wp_kses_allowed_html( 'post' ) );
 			}
 			?>
 		</div>
