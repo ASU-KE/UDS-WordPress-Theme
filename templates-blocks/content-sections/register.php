@@ -17,7 +17,7 @@ acf_register_block_type(
 		'name'              => 'content-image-overlap',
 		'title'             => __( 'Content Image Overlap', 'uds-wordpress-theme' ),
 		'description'       => __( 'A stylized layout element with a prominent image, and a configurable content area.', 'uds-wordpress-theme' ),
-		'icon'              => 'star-filled',
+		'icon'              => 'layout',
 		'render_template'   => 'templates-blocks/content-sections/image-overlap.php',
 		'category'          => 'uds',
 		'keywords'          => array( 'overlap', 'content', 'section' ),
