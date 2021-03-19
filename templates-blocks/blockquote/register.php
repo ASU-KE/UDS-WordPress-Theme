@@ -22,7 +22,7 @@ acf_register_block_type(
 	array(
 		'name'              => 'uds-blockquote', // internal name, like a slug.
 		'title'             => __( 'UDS Blockquote', 'uds-wordpress-theme' ), // name the user will see.
-		'description'       => __( 'UDS styled block quotes, with or without an image', 'uds-wordpress-theme' ), // description the user will see.
+		'description'       => __( 'Stylized quotation, with optional image and configurable accent colors.', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'format-quote', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/blockquote/blockquote.php', // location of the block's template.
 		'category'          => 'layout', // category this block appears in.
