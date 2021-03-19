@@ -19,7 +19,7 @@ acf_register_block_type(
 		'description'       => __( 'A stylized layout element with a prominent image, and a configurable content area.', 'uds-wordpress-theme' ),
 		'icon'              => 'star-filled',
 		'render_template'   => 'templates-blocks/content-sections/image-overlap.php',
-		'category'          => 'layout',
+		'category'          => 'uds',
 		'keywords'          => array( 'overlap', 'content', 'section' ),
 		'supports'          => array(
 			'align' => false,

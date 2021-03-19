@@ -16,7 +16,7 @@ acf_register_block_type(
 		'description'       => __( 'UDS compliant button with configurable size, color, and icon.', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'button', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/button/button.php', // location of the block's template.
-		'category'          => 'layout', // category this block appears in.
+		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'button', 'link' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.

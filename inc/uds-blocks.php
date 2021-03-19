@@ -10,6 +10,24 @@
  */
 
 /**
+ * Register a custom block category for our blocks to live in.
+ */
+if( ! function_exists( 'uds_custom_category' ) ) {
+	function uds_custom_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'uds',
+					'title' => __( 'UDS', 'uds-wordpress-theme' ),
+				),
+			)
+		);
+	}
+}
+add_filter( 'block_categories', 'uds_custom_category', 10, 2);
+
+/**
  * Loops through an array of block folder names and includes the 'register.php'
  * from within each one.
  *

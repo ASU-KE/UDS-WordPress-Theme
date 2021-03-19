@@ -25,7 +25,7 @@ acf_register_block_type(
 		<path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
 	  </svg>', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/cards/card.php', // location of the block's template.
-		'category'          => 'layout', // category this block appears in.
+		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'card', 'cards', 'content' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.

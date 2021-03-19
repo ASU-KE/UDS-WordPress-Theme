@@ -25,7 +25,7 @@ acf_register_block_type(
 		'description'       => __( 'Stylized quotation, with optional image and configurable accent colors.', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'format-quote', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/blockquote/blockquote.php', // location of the block's template.
-		'category'          => 'layout', // category this block appears in.
+		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'blockquote', 'block', 'quote' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.
