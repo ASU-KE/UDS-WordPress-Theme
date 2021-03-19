@@ -1,6 +1,6 @@
 {
     "key": "group_601db250e6c94",
-    "title": "UDS Button",
+    "title": "UDS Block: Button",
     "fields": [
         {
             "key": "field_60522a8361f39",
@@ -125,6 +125,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Creates UDS compliant button links with customizable color, size, and icon.",
-    "modified": 1616013071
+    "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
+    "modified": 1616188129
 }

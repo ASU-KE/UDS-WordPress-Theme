@@ -1,6 +1,6 @@
 {
     "key": "group_602314dddcc3f",
-    "title": "BLOCK: Content Image Overlap",
+    "title": "UDS Block: Content-Image Overlap",
     "fields": [
         {
             "key": "field_602314ea0c7df",
@@ -67,6 +67,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1615247368
+    "description": "Fields for creating block that features a prominent image, with a smaller content area overlapped. The content area can contain other blocks, and comes with placeholder content.",
+    "modified": 1616188293
 }

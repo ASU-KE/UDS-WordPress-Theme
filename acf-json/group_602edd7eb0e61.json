@@ -1,6 +1,6 @@
 {
     "key": "group_602edd7eb0e61",
-    "title": "UDS Card",
+    "title": "UDS Block: Card",
     "fields": [
         {
             "key": "field_603d25e83b9ce",
@@ -584,6 +584,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Block for creating static versions of basic, event, and story cards",
-    "modified": 1616012238
+    "description": "Fields for creating static, but customizable, versions of all UDS card types: standard, story, degree, and event.",
+    "modified": 1616188270
 }
