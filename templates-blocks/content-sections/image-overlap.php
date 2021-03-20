@@ -59,7 +59,7 @@ $template = array(
 	array(
 		'core/paragraph',
 		array(
-			'content' => 'Click on the image placeholder area to add or change the image.',
+			'content' => 'Edit this block to select an image.',
 		),
 	),
 	array(
