@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Get asset value based on choice of URL or local file.
 $media_source = get_field( 'media_source' );
-switch ($media_source) {
+switch ( $media_source ) {
 	case 'url':
 		$hero_asset_url = get_field( 'hero_asset_url' );
 		break;
@@ -86,7 +86,7 @@ if ( ! empty( $hero_asset_url ) ) :
 		<div class="col-md-8">
 			<h1><span class="<?php echo $hero_title_style; ?>"><?php echo wp_kses( $hero_title, $hero_allowed_tags ); ?></span></h1>
 		</div>
-		<?php
+			<?php
 		endif;
 
 		if ( ! empty( $hero_text ) || ( ! empty( $hero_call_to_action_url ) && ! empty( $hero_call_to_action_text ) ) ) :

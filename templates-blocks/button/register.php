@@ -27,8 +27,8 @@ acf_register_block_type(
 				'mode' => 'preview',
 				'data' => array(
 					'button_link' => array(
-						'title' => 'Your label'
-						),
+						'title' => 'Your label',
+					),
 					'button_color' => 'maroon',
 					'button_size' => 'default',
 				),

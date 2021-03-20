@@ -29,8 +29,7 @@ acf_register_block_type(
 		'example'           => array(
 			'attributes' => array(
 				'mode' => 'preview', // show the actual card view for the preview when adding this block.
-				'data' => array(
-				),
+				'data' => array(),
 			),
 		),
 	)
