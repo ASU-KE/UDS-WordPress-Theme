@@ -20,7 +20,7 @@ if ( $button_link ) {
 	$target = $button_link['target'];
 } else {
 	// no link provided!
-	$button_label = 'Label Missing!';
+	$button_label = 'Button';
 	$button_url = '#';
 	$target = '';
 }
