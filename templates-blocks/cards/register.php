@@ -35,9 +35,11 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview', // show the actual card view for the preview when adding this block.
 				'data' => array(
-					'title'      => 'A Sample Block',
-					'body_text'  => 'Lorem ipsum sit dolor amet.',
-					'card_style' => 'basic',
+					'title'        => 'A Sample Block',
+					'body_text'    => 'Lorem ipsum sit dolor amet.',
+					'card_style'   => 'basic',
+					'header_style' => 'image',
+					'image'        => 'https://via.placeholder.com/240x120?text=Placeholder+Image',
 				),
 			),
 		),

@@ -26,9 +26,11 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview',
 				'data' => array(
-					'button_label'                   => 'UDS Button',
-					'button_color'        => 'maroon',
-					'button_size'          => 'default',
+					'button_link' => array(
+						'title' => 'Your label'
+						),
+					'button_color' => 'maroon',
+					'button_size' => 'default',
 				),
 			),
 		),
