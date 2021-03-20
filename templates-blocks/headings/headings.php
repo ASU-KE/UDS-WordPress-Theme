@@ -25,6 +25,11 @@ if ( get_field( 'smaller_size' ) ) {
 	$additional_classes .= ' article';
 }
 
+// If 'extra space' was requested, add 3rem (mt-6) to the top of this header.
+if ( get_field( 'uds_heading_add_spacing' ) ) {
+	$additional_classes .= ' mt-6';
+}
+
 // Setup our variables.
 $start_tag = '<h' . get_field( 'level' ) . ' class="' . trim( $additional_classes ) . '" >';
 $end_tag = '</h' . get_field( 'level' ) . '>';
