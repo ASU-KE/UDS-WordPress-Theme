@@ -35,9 +35,9 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview',
 				'data' => array(
-					'level'                   => '1',
-					'text_highlight'        => 'highlight-gold',
-					'text'          => 'your heading text',
+					'level'          => '2',
+					'text_highlight' => 'highlight-gold',
+					'text'           => 'Your text',
 				),
 			),
 		),
