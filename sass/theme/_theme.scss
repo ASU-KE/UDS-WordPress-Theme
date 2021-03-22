@@ -59,6 +59,30 @@ X. Misc. styles
 }
 
 
+/*--------------------------------------------------------------
+ Hero img
+--------------------------------------------------------------*/
+.uds-hero{
+position:relative;
+&:after{
+	content: "";
+	background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+	height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.uds-hero-container{
+	z-index: 999;
+}
+	img{
+		position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+	}
+}
+
 .is-style-maroon{
     @extend .maroon;
 	}
