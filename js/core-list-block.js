@@ -6,7 +6,8 @@
 */
 
 //jshint esversion: 6
-
+( function( $ ) {
+$(document).ready(function(){
 //Register block style for core/list block
 wp.domReady( function() {
 
@@ -160,3 +161,5 @@ wp.hooks.addFilter(
     'my-plugin/with-client-id-class-name',
     addPropsClassName );
 }
+});
+} )( jQuery );
