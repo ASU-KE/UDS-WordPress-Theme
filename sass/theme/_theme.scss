@@ -60,7 +60,31 @@ X. Misc. styles
 
 
 /*--------------------------------------------------------------
-5. Add breakpoints to border-[side] classes
+ Hero img
+--------------------------------------------------------------*/
+.uds-hero{
+position:relative;
+&:after{
+	content: "";
+	background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+	height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.uds-hero-container{
+	z-index: 999;
+}
+	img{
+		position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+	}
+}
+
+/*--------------------------------------------------------------
+. Add breakpoints to border-[side] classes
 --------------------------------------------------------------*/
 /**
  * This will allow us to use border-[side] classes with bootstrap breackpoints:
@@ -98,4 +122,3 @@ X. Misc. styles
       border-bottom: $border-width solid $border-color !important;
     }
   }
-}
