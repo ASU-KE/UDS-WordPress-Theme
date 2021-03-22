@@ -7,7 +7,8 @@
 
 //jshint esversion: 6
 ( function( $ ) {
-$(document).ready(function(){
+$( document ).ready(function() {
+
 //Register block style for core/list block
 wp.domReady( function() {
 
