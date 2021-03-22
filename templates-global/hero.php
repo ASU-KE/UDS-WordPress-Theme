@@ -78,7 +78,8 @@ switch ( $hero_size ) {
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if ( ! empty( $hero_asset_url ) ) :
 	?>
-<div class="uds-hero <?php echo $hero_size_class; ?>" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses( $hero_asset_url, wp_kses_allowed_html( 'strip' ) ); ?>')">
+<div class="uds-hero <?php echo $hero_size_class; ?>" >
+	<img srcset="<?php echo $hero_asset_url; ?>" src="<?php echo $hero_asset_url; ?>"/>
 	<div class="container uds-hero-container lazyloaded">
 		<?php
 		if ( ! empty( $hero_title ) ) :
