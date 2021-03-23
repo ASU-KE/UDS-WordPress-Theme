@@ -59,7 +59,7 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 
 // Retrieve additional classes from the 'advanced' field in the editor.
 if ( ! empty( $block['className'] ) ) {
-	$additional_classes = $block['className'];
+	$additional_classes = sanitize_text_field( $block['className'] );
 }
 
 // Check for the 'hover' variant, and set the class if needed.
@@ -126,25 +126,47 @@ if ( ! empty( get_field( 'hover' ) ) ) {
 						?>
 						<div class="card-button">
 							<?php
-								$button_label = sanitize_text_field( get_sub_field( 'button_label' ) );
-								$button_url = esc_url( get_sub_field( 'button_url' ) );
-								$external_link = get_sub_field( 'external_link' );
-								$button_color = get_sub_field( 'button_color' );
-								$button_size = get_sub_field( 'button_size' );
+								// Get our ACF Field values.
+								$external_link = get_sub_field( 'card_buttons_external_link' );
+								$button_color  = get_sub_field( 'card_buttons_button_color' );
+								$button_size   = get_sub_field( 'card_buttons_button_size' );
+								$button_icon   = get_sub_field( 'card_buttons_icon' );
+								// These come in from the ACF cloned fields from the button group.
+								$link_values   = get_sub_field( 'card_buttons_button_link' );
+								$button_label  = sanitize_text_field( $link_values['title'] );
+								$button_url    = esc_url( $link_values['url'] );
+								$button_target = $link_values['target'];
 
+							// Set "rel" text if requested.
 							if ( $external_link ) {
 								$rel = 'rel="noopener noreferrer"';
 							} else {
 								$rel = '';
 							}
 
+							// Set the text for the button size class.
 							if ( 'default' !== $button_size ) {
 								$button_size = 'btn-' . $button_size;
 							} else {
 								$button_size = '';
 							}
+
+							// Set the text for the icon, if requested.
+							if ( $button_icon ) {
+								$button_icon = sanitize_text_field( $button_icon );
+								$icon_span = '<span class="fas fa-' . $button_icon . '"></span>&nbsp;&nbsp;';
+							} else {
+								$icon_span = '';
+							}
+
+							// Set the text for a target of "_blank" if opening in a new tab.
+							if ( $button_target ) {
+								$target_text = 'target="' . $button_target . '"';
+							} else {
+								$target_text = '';
+							}
 							?>
-							<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?>><?php echo $button_label; ?></a>
+							<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
