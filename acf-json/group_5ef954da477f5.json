@@ -158,13 +158,47 @@
             "maxlength": ""
         },
         {
+            "key": "field_605a7e752fb32",
+            "label": "Title Highlight Type",
+            "name": "title_highlight_type",
+            "type": "select",
+            "instructions": "Apply highlight to the entire title, one word, or nothing",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "all": "The entire title",
+                "word": "Only one word",
+                "none": "None"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5f5ac3e5eaa9e",
             "label": "Title Highlight Color",
             "name": "hero_highlight",
             "type": "select",
             "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_605a7e752fb32",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "30",
                 "class": "",
@@ -185,21 +219,40 @@
             "placeholder": ""
         },
         {
-            "key": "field_602adc094d066",
-            "label": "Title Text Color",
-            "name": "title_color",
-            "type": "select",
-            "instructions": "",
+            "key": "field_605a7929986d0",
+            "label": "Single Word Highlight",
+            "name": "single_word_highlight",
+            "type": "text",
+            "instructions": "Enter a word from the title that you want to highlight",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5f5ac3e5eaa9e",
+                        "field": "field_605a7e752fb32",
                         "operator": "==",
-                        "value": "none"
+                        "value": "word"
                     }
                 ]
             ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602adc094d066",
+            "label": "Title Text Color",
+            "name": "title_color",
+            "type": "select",
+            "instructions": "Text color for title with no highlighting, or single word highlighting.",
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "30",
                 "class": "",
@@ -221,7 +274,7 @@
             "key": "field_5ef956e49798b",
             "label": "Body Text",
             "name": "hero_text",
-            "type": "text",
+            "type": "textarea",
             "instructions": "Enter a short text blurb to be displayed below the Hero Title. (optional)",
             "required": 0,
             "conditional_logic": 0,
@@ -232,13 +285,13 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
         },
         {
             "key": "field_60527f75c91dd",
-            "label": "Button",
+            "label": "Buttons",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -253,45 +306,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_5ef9577c9798c",
-            "label": "Call to Action URL",
-            "name": "hero_call_to_action_url",
-            "type": "url",
-            "instructions": "Enter URL for the Hero Call to Action Button. If empty, no button is rendered.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5ef957b39798d",
-            "label": "Call to Action Text",
-            "name": "hero_call_to_action_text",
-            "type": "text",
-            "instructions": "Enter the label for the Hero Call to Action Button. If empty, no button is rendered.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_60527fa9c91de",
-            "label": "Call to Action Color",
-            "name": "call_to_action_color",
-            "type": "button_group",
+            "key": "field_605930976d34b",
+            "label": "Hero CTA Buttons",
+            "name": "hero_cta_buttons",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -300,14 +318,34 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "maroon": "Maroon",
-                "gold": "Gold"
-            },
-            "allow_null": 0,
-            "default_value": "Maroon",
-            "layout": "horizontal",
-            "return_format": "value"
+            "collapsed": "field_605930ab6d34c",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Button",
+            "sub_fields": [
+                {
+                    "key": "field_605930ab6d34c",
+                    "label": "Hero Buttons",
+                    "name": "hero_buttons",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_601db250e6c94"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1
+                }
+            ]
         }
     ],
     "location": [
@@ -327,5 +365,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1616187591
+    "modified": 1616623623
 }
