@@ -1,6 +1,6 @@
 {
     "key": "group_5f3345f93ac4c",
-    "title": "Main Menu - Call to Action",
+    "title": "UDS: Menu CTA Buttons",
     "fields": [
         {
             "key": "field_5f334612ad385",
@@ -72,7 +72,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1597210622
+    "active": true,
+    "description": "Fields for customizing Call to Action buttons that appear in the main navigation menu.",
+    "modified": 1616191439
 }

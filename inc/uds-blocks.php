@@ -10,6 +10,30 @@
  */
 
 /**
+ * Register a custom block category for our blocks to live in.
+ */
+if ( ! function_exists( 'uds_custom_category' ) ) {
+	/**
+	 * Merges our custom category in with the others.
+	 *
+	 * @param array   $categories The existing block categories.
+	 * @param WP_Post $post The current Post.
+	 */
+	function uds_custom_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'uds',
+					'title' => __( 'UDS', 'uds-wordpress-theme' ),
+				),
+			)
+		);
+	}
+}
+add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
+
+/**
  * Loops through an array of block folder names and includes the 'register.php'
  * from within each one.
  *
@@ -23,13 +47,11 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
-			'/sample',                      // A sample block to be deleted at some point.
-			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
-			'/content-sections',            // Miscellaneous content sections.
-			'/headings',              // A UDS Headings block.
+			'/blockquote', // Combination of UDS block quote and testimonial.
 			'/button', // Button block for UDS theme.
-			'/blockquote', // Sample block using the <InnerBlocks /> tag.
 			'/cards', // UDS Cards.
+			'/content-sections', // Miscellaneous content sections.
+			'/headings', // A UDS Headings block.
 		);
 
 		// Loop through array items and include each register file.
