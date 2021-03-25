@@ -1,0 +1,43 @@
+/*--------------------------------------------------------------
+. Add breakpoints to border-[side] classes
+--------------------------------------------------------------*/
+/**
+ * This will allow us to use border-[side] classes with bootstrap breackpoints:
+ * border-{breakpoint}-{side}-{size} (size works on 0 only)
+ * .border-lg-top || .border-lg-top-0
+ * .border-lg-right || .border-lg-right-0
+ * .border-lg-bottom || .border-lg-bottom-0
+ * .border-lg-left || .border-lg-left-0
+ * .border-lg-x for both left and right
+ * .border-lg-Y for both top and bottom
+ * And so on ...
+ *
+ */
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .border#{$infix}-top {      border-top: $border-width solid $border-color !important; }
+    .border#{$infix}-right {    border-right: $border-width solid $border-color !important; }
+    .border#{$infix}-bottom {   border-bottom: $border-width solid $border-color !important; }
+    .border#{$infix}-left {     border-left: $border-width solid $border-color !important; }
+
+    .border#{$infix}-top-0 {    border-top: 0 !important; }
+    .border#{$infix}-right-0 {  border-right: 0 !important; }
+    .border#{$infix}-bottom-0 { border-bottom: 0 !important; }
+    .border#{$infix}-left-0 {   border-left: 0 !important; }
+		.border#{$infix}-x-0 {   		border-left: 0 !important; border-right: 0 !important; }
+		.border#{$infix}-y-0 {   		border-top: 0 !important; border-bottom: 0 !important; }
+		.border#{$infix}-0 {   			border: none !important; }
+
+    .border#{$infix}-x {
+      border-left: $border-width solid $border-color !important;
+      border-right: $border-width solid $border-color !important;
+    }
+
+    .border#{$infix}-y {
+      border-top: $border-width solid $border-color !important;
+      border-bottom: $border-width solid $border-color !important;
+    }
+  }
+}
