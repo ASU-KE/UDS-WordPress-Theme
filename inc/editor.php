@@ -97,12 +97,6 @@ function gutenberg_editor_full_width() {
 	.block-editor__container .wp-block {
 		max-width: none !important;
 	}
-	/*code editor*/
-	.edit-post-text-editor__body {
-		max-width: none !important;
-		margin-left: 5%;
-		margin-right: 5%;
-	}
 </style>';
 }
 add_action( 'admin_head', 'gutenberg_editor_full_width' );
