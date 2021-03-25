@@ -143,99 +143,11 @@
             "label": "Title Text",
             "name": "hero_title",
             "type": "text",
-            "instructions": "Enter the short title to be displayed (optional)",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_605a7e752fb32",
-            "label": "Title Highlight Type",
-            "name": "title_highlight_type",
-            "type": "select",
-            "instructions": "Apply highlight to the entire title, one word, or nothing",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "all": "The entire title",
-                "word": "Only one word",
-                "none": "None"
-            },
-            "default_value": "none",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_5f5ac3e5eaa9e",
-            "label": "Title Highlight Color",
-            "name": "hero_highlight",
-            "type": "select",
-            "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_605a7e752fb32",
-                        "operator": "!=",
-                        "value": "none"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "30",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "highlight-gold": "Gold",
-                "highlight-black": "Black",
-                "highlight-white": "White",
-                "none": "None"
-            },
-            "default_value": "Gold",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_605a7929986d0",
-            "label": "Single Word Highlight",
-            "name": "single_word_highlight",
-            "type": "text",
-            "instructions": "Enter a word from the title that you want to highlight",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_605a7e752fb32",
-                        "operator": "==",
-                        "value": "word"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -269,6 +181,124 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_605bcd7bcf1be",
+            "label": "Apply Highlighting?",
+            "name": "apply_highlighting",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5f5ac3e5eaa9e",
+            "label": "Title Highlight Color",
+            "name": "hero_highlight",
+            "type": "select",
+            "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_605bcd7bcf1be",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "highlight-gold": "Gold",
+                "highlight-black": "Black",
+                "highlight-white": "White"
+            },
+            "default_value": "Gold",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_605a7e752fb32",
+            "label": "Title Highlight Type",
+            "name": "title_highlight_type",
+            "type": "select",
+            "instructions": "Apply highlight to the entire title or a specific word",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_605bcd7bcf1be",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "all": "The entire title",
+                "word": "Only one word"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_605a7929986d0",
+            "label": "Single Word Highlight",
+            "name": "single_word_highlight",
+            "type": "text",
+            "instructions": "Enter the word(s) from the title that you want to highlight.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_605bcd7bcf1be",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_605a7e752fb32",
+                        "operator": "==",
+                        "value": "word"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Word to highlight",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5ef956e49798b",
@@ -365,5 +395,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1616623623
+    "modified": 1616631896
 }

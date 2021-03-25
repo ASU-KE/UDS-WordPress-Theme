@@ -45,35 +45,23 @@ $hero_allowed_tags = array(
  */
 $hero_size = get_field( 'hero_size' );
 $hero_title = wp_kses( get_field( 'hero_title' ), $hero_allowed_tags );
+$apply_highlighting = get_field( 'apply_highlighting' );
 $hero_highlight = get_field( 'hero_highlight' );
 $title_color = get_field( 'title_color' );
 $hero_text = wp_kses( get_field( 'hero_text' ), $hero_allowed_tags );
 $single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight' ) );
 
-
-
-/**
- * If the user has selected a highlight color for the title, use that. If
- * they didn't, use the value from the 'text color' field to determine the
- * color of the title.
- */
-
- // holds our final title style.
-$hero_title_style = '';
-
-if ( empty( $hero_highlight ) || 'none' == $hero_highlight ) {
-	// we did not choose a highlight. Check for white text, and default to black.
-	if ( 'white' == $title_color ) {
-		$hero_title_style = 'text-white';
-	} else {
-		$hero_title_style = 'text-black';
-	}
-} else {
-	// we chose a highlight style, so just use that.
-	$hero_title_style = $hero_highlight;
+// Determine the text color class. Default to white.
+switch ($title_color) {
+	case 'black':
+		$title_color_class = "text-black";
+		break;
+	case 'white':
+	default:
+		$title_color_class = "text-white";
 }
 
-// Determine the hero size class.
+// Determine the hero size class. Default to medium.
 switch ( $hero_size ) {
 	case 'small':
 		$hero_size_class = 'uds-hero-sm';
@@ -85,7 +73,6 @@ switch ( $hero_size ) {
 		$hero_size_class = 'uds-hero-lg';
 		break;
 	default:
-		// Should there be a problem, default to medium size.
 		$hero_size_class = 'uds-hero-md';
 		break;
 }
@@ -100,51 +87,40 @@ if ( ! empty( $hero_asset_url ) ) :
 		<?php
 		if ( ! empty( $hero_title ) ) {
 
-			/**
-			 * The user can choose between highlighting the whole title, just one word, or
-			 * having no title highlight. Based on that choice, we apply highlighting in
-			 * different way.
-			 */
-			$title_highlight_type = get_field( 'title_highlight_type' );
+			// Determine if there is any kind of highlighting to apply.
+			if( $apply_highlighting ) {
+				// yes
+				$title_highlight_type = get_field( 'title_highlight_type' );
 
-			switch ($title_highlight_type) {
-				case 'all':
-					// Full title highlight. Wrap the entire text in a <span> of the chosen style.
-					echo '<h1><span class="' . $hero_title_style . '">' . $hero_title . '</span></h1>';
-					break;
-				case 'word':
-					/**
-					 * For single-word highlighting, we ensure the following:
-					 * - A word was actually provided
-					 * - That word is in the title
-					 * - You did not choose style 'none', even though you provided a word.
-					 *
-					 * If all those are true, then we replace the word with the same word wrapped in a span
-					 * of the approprite class. Otherwise, we fall back on the default title behavior.
-					 */
-					if( ! empty( $single_word_highlight ) && false !== strpos( $hero_title, $single_word_highlight ) && 'none' !== $hero_highlight) {
-						$title_string = str_replace(
-							$single_word_highlight,
-							'<span class="' . $hero_title_style . '">' . $single_word_highlight . '</span>',
-							$hero_title
-						);
+				switch ( $title_highlight_type ) {
+					case 'word':
+						/**
+						 * For single-word highlighting, we ensure the following:
+						 * - A word was actually provided
+						 * - That word is in the title
+						 *
+						 * If both those are true, then we replace the word with the same word wrapped in a span
+						 * of the approprite class. Otherwise, we fall back on the default title behavior.
+						 */
+						if( ! empty( $single_word_highlight ) && false !== strpos( $hero_title, $single_word_highlight ) ) {
+							$title_string = str_replace(
+								$single_word_highlight,
+								'<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
+								$hero_title
+							);
+						}
 						echo '<h1 class="text-' . $title_color . '">' . $title_string . '</h1>';
-					}else{
-						// Display a normal title, but with the selected text color
-						echo '<h1><span class="' . $hero_title_style . '">' . $hero_title . '</span></h1>';
-					}
-					break;
-				case 'none':
-					// User has chosen the 'none' highlight. Ignore highlight settings and use title color only.
-					echo '<h1><span class="text-' . $title_color . '">' . $hero_title . '</span></h1>';
-					break;
-				default:
-					// Display a normal title, but with the selected text color
-					echo '<h1><span class="' . $hero_title_style . '">' . $title_string . '</span></h1>';
-					break;
+						break;
+					case 'all':
+					default:
+						// Full title highlight. Wrap the entire text in a <span> of the chosen style.
+						echo '<h1><span class="' . $hero_highlight . '">' . $hero_title . '</span></h1>';
+						break;
+				}
+			}else{
+				// No. Just present the title with the appropriate text color class.
+				echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
 			}
-		}else{
-			wp_die( 'Title is empty!' );
 		}
 
 		if ( ! empty( $hero_text )  ) :
