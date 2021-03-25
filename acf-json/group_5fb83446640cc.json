@@ -1,6 +1,6 @@
 {
     "key": "group_5fb83446640cc",
-    "title": "Banner Widget",
+    "title": "UDS: Banner Widget",
     "fields": [
         {
             "key": "field_5fbc342d99ff4",
@@ -276,6 +276,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1606237365
+    "description": "Fields for creating a global banner across all pages, using the Banner widget area in the theme.",
+    "modified": 1616188552
 }
