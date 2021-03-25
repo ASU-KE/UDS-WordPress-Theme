@@ -82,3 +82,10 @@ position:relative;
 			object-position: top;
 	}
 }
+
+/*--------------------------------------------------------------
+ ACF Button block
+--------------------------------------------------------------*/
+.acf-block-preview .uds-button a{
+	pointer-events: none;
+}

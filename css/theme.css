@@ -17083,6 +17083,12 @@ X. Misc. styles
        object-position: top; }
 
 /*--------------------------------------------------------------
+ ACF Button block
+--------------------------------------------------------------*/
+.acf-block-preview .uds-button a {
+  pointer-events: none; }
+
+/*--------------------------------------------------------------
 Color picker CSS rules
 
 Creates "has-color" and "has-background-color" style classes.
