@@ -52,13 +52,13 @@ $hero_text = wp_kses( get_field( 'hero_text' ), $hero_allowed_tags );
 $single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight' ) );
 
 // Determine the text color class. Default to white.
-switch ($title_color) {
+switch ( $title_color ) {
 	case 'black':
-		$title_color_class = "text-black";
+		$title_color_class = 'text-black';
 		break;
 	case 'white':
 	default:
-		$title_color_class = "text-white";
+		$title_color_class = 'text-white';
 }
 
 // Determine the hero size class. Default to medium.
@@ -88,8 +88,8 @@ if ( ! empty( $hero_asset_url ) ) :
 		if ( ! empty( $hero_title ) ) {
 
 			// Determine if there is any kind of highlighting to apply.
-			if( $apply_highlighting ) {
-				// yes
+			if ( $apply_highlighting ) {
+				// Yes. Highlighting has been chosen.
 				$title_highlight_type = get_field( 'title_highlight_type' );
 
 				switch ( $title_highlight_type ) {
@@ -102,7 +102,7 @@ if ( ! empty( $hero_asset_url ) ) :
 						 * If both those are true, then we replace the word with the same word wrapped in a span
 						 * of the approprite class. Otherwise, we fall back on the default title behavior.
 						 */
-						if( ! empty( $single_word_highlight ) && false !== strpos( $hero_title, $single_word_highlight ) ) {
+						if ( ! empty( $single_word_highlight ) && false !== strpos( $hero_title, $single_word_highlight ) ) {
 							$title_string = str_replace(
 								$single_word_highlight,
 								'<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
@@ -117,13 +117,13 @@ if ( ! empty( $hero_asset_url ) ) :
 						echo '<h1><span class="' . $hero_highlight . '">' . $hero_title . '</span></h1>';
 						break;
 				}
-			}else{
-				// No. Just present the title with the appropriate text color class.
+			} else {
+				// No highlighting. Just present the title with the appropriate text color class.
 				echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
 			}
 		}
 
-		if ( ! empty( $hero_text )  ) :
+		if ( ! empty( $hero_text ) ) :
 			?>
 		<div class="uds-hero-text col-sm-12 col-md-7">
 			<?php
@@ -138,32 +138,33 @@ if ( ! empty( $hero_asset_url ) ) :
 		?>
 		<?php
 			// Render any buttons we have added to the hero area.
-			if( have_rows( 'hero_cta_buttons' ) ) {
-				echo '<div class="hero-buttons">';
-				while( have_rows( 'hero_cta_buttons' ) ) : the_row();
-					$size = get_sub_field( 'button_size' );
-					$color = get_sub_field( 'button_color' );
-					/**
-					 * The label, URL and target values are inside an ACF 'Link' field.
-					 * They do not have default values, like the other button fields,
-					 * so we check here to see if they've been set, and apply some defaults.
-					 */
-					if( get_sub_field( 'button_link' ) ) {
-						$button_link_data = get_sub_field( 'button_link' );
-						$button_label     = sanitize_text_field( $button_link_data['title'] );
-						$button_url       = esc_url( $button_link_data['url'] );
-						$button_target    = $button_link_data['target'];
-					}else{
-						$button_label  = 'Label Missing!';
-						$button_url    = '#';
-						$bugton_target = '_self';
-					}
+		if ( have_rows( 'hero_cta_buttons' ) ) {
+			echo '<div class="hero-buttons">';
+			while ( have_rows( 'hero_cta_buttons' ) ) :
+				the_row();
+				$size = get_sub_field( 'button_size' );
+				$color = get_sub_field( 'button_color' );
+				/**
+				 * The label, URL and target values are inside an ACF 'Link' field.
+				 * They do not have default values, like the other button fields,
+				 * so we check here to see if they've been set, and apply some defaults.
+				 */
+				if ( get_sub_field( 'button_link' ) ) {
+					$button_link_data = get_sub_field( 'button_link' );
+					$button_label     = sanitize_text_field( $button_link_data['title'] );
+					$button_url       = esc_url( $button_link_data['url'] );
+					$button_target    = $button_link_data['target'];
+				} else {
+					$button_label  = 'Label Missing!';
+					$button_url    = '#';
+					$bugton_target = '_self';
+				}
 
-					$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s">%2$s</a>';
-					echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s">%2$s</a>';
+				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
-				echo '</div>';
-			}
+			echo '</div>';
+		}
 		?>
 	</div>
 </div>
