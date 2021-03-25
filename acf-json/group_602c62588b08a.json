@@ -1,6 +1,6 @@
 {
     "key": "group_602c62588b08a",
-    "title": "UDS Blockquote",
+    "title": "UDS Block: Blockquote",
     "fields": [
         {
             "key": "field_60494b5df56b8",
@@ -193,7 +193,7 @@
             "label": "Accent Color",
             "name": "accent_none",
             "type": "button_group",
-            "instructions": "Accent color for large quotation marks and content dividers",
+            "instructions": "Accent color for the large quotations marks (if visible), as well as the separator bar on mobile view.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -232,6 +232,11 @@
                         "field": "field_602c637dc09da",
                         "operator": "==",
                         "value": "light"
+                    },
+                    {
+                        "field": "field_602c6279c09d8",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -383,6 +388,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1615848434
+    "description": "Fields for creating a UDS compliant block quote, with options for adding an image and customizing colors",
+    "modified": 1616188110
 }

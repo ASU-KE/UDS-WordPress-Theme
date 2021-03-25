@@ -16,15 +16,21 @@ acf_register_block_type(
 	array(
 		'name'              => 'content-image-overlap',
 		'title'             => __( 'Content Image Overlap', 'uds-wordpress-theme' ),
-		'description'       => __( 'From the misc content section of the UDS design docs.', 'uds-wordpress-theme' ),
-		'icon'              => 'star-filled',
+		'description'       => __( 'A stylized layout element with a prominent image, and a configurable content area.', 'uds-wordpress-theme' ),
+		'icon'              => 'layout',
 		'render_template'   => 'templates-blocks/content-sections/image-overlap.php',
-		'category'          => 'layout',
+		'category'          => 'uds',
 		'keywords'          => array( 'overlap', 'content', 'section' ),
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,
 		),
-		'mode'              => 'edit',
+		'mode'              => 'preview',
+		'example'           => array(
+			'attributes' => array(
+				'mode' => 'preview', // show the actual card view for the preview when adding this block.
+				'data' => array(),
+			),
+		),
 	)
 );
