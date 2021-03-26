@@ -1,6 +1,6 @@
 {
     "key": "group_603436127871b",
-    "title": "UDS Alert",
+    "title": "UDS Block: Alert",
     "fields": [
         {
             "key": "field_6034364b72b72",
@@ -41,7 +41,7 @@
             },
             "default_value": "",
             "tabs": "visual",
-            "toolbar": "full",
+            "toolbar": "uds_wp_simple",
             "media_upload": 0,
             "delay": 1
         }
@@ -51,7 +51,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/alert"
+                "value": "acf\/uds-alert"
             }
         ]
     ],
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614034765
+    "modified": 1616779263
 }
