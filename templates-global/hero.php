@@ -157,11 +157,11 @@ if ( ! empty( $hero_asset_url ) ) :
 				} else {
 					$button_label  = 'Label Missing!';
 					$button_url    = '#';
-					$bugton_target = '_self';
+					$button_target = '_self';
 				}
 
-				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s">%2$s</a>';
-				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color ), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" target="%4%s">%2$s</a>';
+				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $button_target ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
 			echo '</div>';
 		}
