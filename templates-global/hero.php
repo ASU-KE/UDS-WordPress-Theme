@@ -164,6 +164,20 @@ if ( ! empty( $hero_asset_url ) ) :
 				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $button_target ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
 			echo '</div>';
+		}else{
+			/**
+			 * For backwards compatability, if no buttons are found in the cta_buttons
+			 * field, check for values in the older fields and draw a single button
+			 * if they're found.
+			 */
+			$cta_url = get_field( 'hero_call_to_action_url' );
+			$cta_text = get_field( 'hero_call_to_action_text' );
+			$cta_color = get_field( 'call_to_action_color' );
+
+			if( ! empty( $cta_url ) && ! empty( $cta_text ) ) {
+				$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
+				echo wp_kses( sprintf( $text, $cta_url, $cta_text, $cta_color), wp_kses_allowed_html( 'post' ) );
+			}
 		}
 		?>
 	</div>
