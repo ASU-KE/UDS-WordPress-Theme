@@ -114,6 +114,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_60625cab68b39",
+            "label": "Anchor",
+            "name": "uds_heading_anchor_text",
+            "type": "text",
+            "instructions": "Enter an ID, without any spaces, for this header. This will allow direct links to this header.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "anchor-name",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -129,9 +148,9 @@
     "position": "normal",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating UDS compliant header tags, with customizable text and highlight colors.",
-    "modified": 1616200454
+    "modified": 1617062194
 }

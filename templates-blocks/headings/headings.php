@@ -16,8 +16,8 @@
 
  // If additional classes were requested, add them.
 $additional_classes = '';
-if ( ! empty( $block['className'] ) ) {
-	$additional_classes = sanitize_text_field( $block['className'] );
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = 'class="' . trim ( sanitize_text_field( $block['className'] ) ) . '"';
 }
 
 // If the 'smaller size' checkbox was checked, add the 'article' class.
@@ -30,10 +30,17 @@ if ( get_field( 'uds_heading_add_spacing' ) ) {
 	$additional_classes .= ' mt-6';
 }
 
+// Build text for an ID, if text for a named anchor was provided.
+$anchor_text = '';
+if( get_field( 'uds_heading_anchor_text' ) ) {
+	$anchor_text = 'id="' . sanitize_text_field( get_field( 'uds_heading_anchor_text' ) ) . '"';
+}
+
 // Setup our variables.
-$start_tag = '<h' . get_field( 'level' ) . ' class="' . trim( $additional_classes ) . '" >';
+$start_tag = '<h' . get_field( 'level' ) . ' ' . $anchor_text . trim( $additional_classes ) . '>';
 $end_tag = '</h' . get_field( 'level' ) . '>';
 $highlight_class = get_field( 'text_highlight' );
+$named_anchor_text = get_field( 'uds_heading_anchor_text' );
 
 // Dont use highlight class if none is selected.
 if ( 'none' == $highlight_class ) {
