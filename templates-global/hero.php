@@ -17,11 +17,17 @@ defined( 'ABSPATH' ) || exit;
 $media_source = get_field( 'media_source' );
 switch ( $media_source ) {
 	case 'url':
-		$hero_asset_url = esc_url( get_field( 'hero_asset_url' ) );
+		/**
+		 * If we're using the URL field, create a data structure that matches
+		 * what we would get from the media library option - rather than create
+		 * conditional logic when we're rendering the tag.
+		 */
+		$hero_asset_data = array();
+		$hero_asset_data['url'] = esc_url( get_field( 'hero_asset_url' ) );
 		break;
 
 	default:
-		$hero_asset_url = get_field( 'hero_asset_file' );
+		$hero_asset_data = get_field( 'hero_asset_file' );
 		break;
 }
 
@@ -78,10 +84,16 @@ switch ( $hero_size ) {
 }
 
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
-if ( ! empty( $hero_asset_url ) ) :
+if ( ! empty( $hero_asset_data['url'] ) ) :
 	?>
 <div class="uds-hero <?php echo $hero_size_class; ?>" >
-	<img srcset="<?php echo $hero_asset_url; ?>" src="<?php echo $hero_asset_url; ?>"/>
+
+	<img
+		srcset="<?php echo $hero_asset_data['url']; ?>"
+		src="<?php echo $hero_asset_data['url']; ?>"
+		alt="<?php echo $hero_asset_data['alt']; ?>"
+	/>
+
 	<div class="container uds-hero-container lazyloaded">
 
 		<?php
