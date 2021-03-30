@@ -140,13 +140,15 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 
 		if ( ! empty( $hero_text ) ) :
 			?>
-		<div class="uds-hero-text col-sm-12 col-md-7">
-			<?php
-			if ( ! empty( $hero_text ) ) {
-				$text = '<p>%1$s</p>';
-				echo wp_kses( sprintf( $text, $hero_text ), $hero_allowed_tags );
-			}
-			?>
+		<div class="row">
+			<div class="uds-hero-text col col-lg-9">
+				<?php
+				if ( ! empty( $hero_text ) ) {
+					$text = '<p>%1$s</p>';
+					echo wp_kses( sprintf( $text, $hero_text ), $hero_allowed_tags );
+				}
+				?>
+			</div>
 		</div>
 			<?php
 		endif;
