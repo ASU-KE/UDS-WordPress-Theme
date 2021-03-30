@@ -273,7 +273,7 @@
             "label": "Single Word Highlight",
             "name": "single_word_highlight",
             "type": "text",
-            "instructions": "Enter the word(s) from the title that you want to highlight.",
+            "instructions": "Enter the exact word that you want to highlight, including any capitalization.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -448,9 +448,9 @@
     "position": "normal",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1617037648
+    "modified": 1617138696
 }
