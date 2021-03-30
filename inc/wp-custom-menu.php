@@ -39,15 +39,16 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$menu = array();
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
-					$menu[ $m->ID ]               = array();
-					$menu[ $m->ID ]['ID']         = $m->ID;
-					$menu[ $m->ID ]['order']      = $m->menu_order;
-					$menu[ $m->ID ]['title']      = $m->title;
-					$menu[ $m->ID ]['url']        = $m->url;
-					$menu[ $m->ID ]['cta_button'] = get_field( 'menu_cta_button', $m );
-					$menu[ $m->ID ]['cta_color']  = get_field( 'menu_cta_button_color', $m );
-					$menu[ $m->ID ]['parent']     = $m->menu_item_parent;
-					$menu[ $m->ID ]['children']   = array();
+					$menu[ $m->ID ]                  = array();
+					$menu[ $m->ID ]['ID']            = $m->ID;
+					$menu[ $m->ID ]['order']         = $m->menu_order;
+					$menu[ $m->ID ]['title']         = $m->title;
+					$menu[ $m->ID ]['url']           = $m->url;
+					$menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
+					$menu[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
+					$menu[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
+					$menu[ $m->ID ]['parent']        = $m->menu_item_parent;
+					$menu[ $m->ID ]['children']      = array();
 				}
 			}
 
@@ -63,15 +64,16 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 			$dropdown = array();
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $menu ) ) {
-					$dropdown[ $m->ID ]               = array();
-					$dropdown[ $m->ID ]['ID']         = $m->ID;
-					$dropdown[ $m->ID ]['order']      = $m->menu_order;
-					$dropdown[ $m->ID ]['title']      = $m->title;
-					$dropdown[ $m->ID ]['url']        = $m->url;
-					$dropdown[ $m->ID ]['cta_button'] = get_field( 'menu_cta_button', $m );
-					$dropdown[ $m->ID ]['cta_color']  = get_field( 'menu_cta_button_color', $m );
-					$dropdown[ $m->ID ]['parent']     = $m->menu_item_parent;
-					$dropdown[ $m->ID ]['children']   = array();
+					$dropdown[ $m->ID ]                  = array();
+					$dropdown[ $m->ID ]['ID']            = $m->ID;
+					$dropdown[ $m->ID ]['order']         = $m->menu_order;
+					$dropdown[ $m->ID ]['title']         = $m->title;
+					$dropdown[ $m->ID ]['url']           = $m->url;
+					$dropdown[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
+					$dropdown[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
+					$dropdown[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
+					$dropdown[ $m->ID ]['parent']        = $m->menu_item_parent;
+					$dropdown[ $m->ID ]['children']      = array();
 
 					/**
 					 * Add the current child's data to the existing $menu array under 'children',
@@ -90,13 +92,14 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 
 			foreach ( $array_menu as $m ) {
 				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $menu ) ) {
-					$column[ $m->ID ]               = array();
-					$column[ $m->ID ]['ID']         = $m->ID;
-					$column[ $m->ID ]['order']      = $m->menu_order;
-					$column[ $m->ID ]['title']      = $m->title;
-					$column[ $m->ID ]['url']        = $m->url;
-					$column[ $m->ID ]['cta_button'] = get_field( 'menu_cta_button', $m );
-					$column[ $m->ID ]['cta_color']  = get_field( 'menu_cta_button_color', $m );
+					$column[ $m->ID ]                  = array();
+					$column[ $m->ID ]['ID']            = $m->ID;
+					$column[ $m->ID ]['order']         = $m->menu_order;
+					$column[ $m->ID ]['title']         = $m->title;
+					$column[ $m->ID ]['url']           = $m->url;
+					$column[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
+					$column[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
+					$column[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
 
 					/**
 					 * Add this item's data as a child to the $dropdown array we created in step 2.
@@ -220,11 +223,18 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 			$is_cta_button    = $child['cta_button'];
 			$cta_button_color = $child['cta_color'];
 
+			// check to see if the external link icon has been requested.
+			$is_external_link    = $child['external_link'];
+			$external_link_text = '';
+			if ( $is_external_link ) {
+				$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
+			}
+
 			if ( $is_cta_button ) {
 				$links .= uds_wp_render_nav_cta_button( $cta_button_color, $child );
 			} else {
-				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s</a>';
-				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
+				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s %3$s</a>';
+				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'], $external_link_text ), wp_kses_allowed_html( 'post' ) );
 			}
 		}
 
