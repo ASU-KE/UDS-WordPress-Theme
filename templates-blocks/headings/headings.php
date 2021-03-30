@@ -17,19 +17,16 @@
  // If additional classes were requested, clean up the input and add them.
 $additional_classes = array();
 if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
-	// $additional_classes = 'class="' . trim ( sanitize_text_field( $block['className'] ) ) . '"';
 	array_push( $additional_classes, trim( sanitize_text_field( $block['className'] ) ) );
 }
 
 // If the 'smaller size' checkbox was checked, add the 'article' class.
 if ( get_field( 'smaller_size' ) ) {
-	// $additional_classes .= ' article';
 	array_push( $additional_classes, 'article' );
 }
 
 // If 'extra space' was requested, add 3rem (mt-6) to the top of this header.
 if ( get_field( 'uds_heading_add_spacing' ) ) {
-	// $additional_classes .= ' mt-6';
 	array_push( $additional_classes, 'mt-6' );
 }
 
