@@ -17,6 +17,7 @@ if ( ! function_exists( 'scroll_to_div' ) ) {
 		var menu   = jQuery('a[href^="#"]');
 		 menu.on('click', function(event) {
 			var target = jQuery(this.getAttribute('href'));
+
 			if( target.length ) {
 				event.preventDefault();
 					jQuery('html, body').stop().animate({
@@ -25,6 +26,22 @@ if ( ! function_exists( 'scroll_to_div' ) ) {
 				}
 			});
 		});
+
+		jQuery ( document ).ready ( function() {
+		var hash= window.location.hash
+		if ( hash == '' || hash == '#' || hash == undefined ) return false;
+		  var target=jQuery(hash);
+		   target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+
+			  if (target.length) {
+
+							jQuery('html, body').stop().animate({
+								scrollTop: target.offset().top - 150
+							}, 1000);
+
+			  }
+
+		} );
 
 </script>
 		<?php
