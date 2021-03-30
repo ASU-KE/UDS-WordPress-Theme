@@ -34,6 +34,7 @@ $uds_wp_includes = array(
 	'/uds-blocks.php',                           // Custom blocks created with ACF Pro.
 	'/deprecated.php',                           // Load deprecated functions.
 	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
+	'/scrollToDiv.php',                          // Add animation to anchore scroll and offset -150.
 );
 
 foreach ( $uds_wp_includes as $file ) {
