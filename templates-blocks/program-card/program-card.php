@@ -15,16 +15,22 @@ if ( ! $image ) {
  $button = get_field( 'button' );
 if ( ! $button ) {
 	$button = array(
+		'external_link' => '/',
 		'button_color' => 'gray',
 		'icon' => 'fas fa-arrow-right',
 		'button_size' => 'normal',
-		'button_link' => array(),
+		'button_link' => array(
+			'title' => '',
+			'url' => '/',
+			'target' => '_blank',
+		),
 	);}
 $hover_image = get_field( 'hover_image' );
 if ( ! $hover_image ) {
 	$hover_image = array(
 		'url' => 'https://thesundevils.com/common/controls/image_handler.aspx?thumb_id=0&image_path=/images/2020/4/27/ASU_Sun_Devil_Athetics_Video_Background_76.jpg',
 	);}
+
 
 ?>
 <div class="home-program-card">
@@ -49,9 +55,17 @@ if ( ! $hover_image ) {
 				$button_size   = $button['button_size'];
 				$button_icon   = $button['icon'];
 				// These come in from the ACF cloned fields from the button group.
-				$button_label  = $button['button_link']['title'];
-				$button_url    = $button['button_link']['url'];
-				$button_target = $button['button_link']['target'];
+
+				$button_link = $button['button_link'];
+			if ( $button_link ) {
+				$button_label  = $button_link['title'];
+				$button_url    = $button_link['url'];
+				$button_target = $button_link['target'];
+			} else {
+				$button_label  = '';
+				$button_url = '/';
+				$button_target = '_blank';
+			}
 
 			// Set "rel" text if requested.
 			if ( $external_link ) {
