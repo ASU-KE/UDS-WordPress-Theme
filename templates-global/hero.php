@@ -120,6 +120,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 								'<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
 								$hero_title
 							);
+						}else{
+							// Word not found. Just present the title with the appropriate text color class.
+							echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
 						}
 						echo '<h1 class="text-' . $title_color . '">' . $title_string . '</h1>';
 						break;
