@@ -95,7 +95,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 	/>
 
 	<div class="container uds-hero-container lazyloaded">
-
+		<div class="container px-0">
+		<div class="row">
+			<div class="col col-lg-8">
 		<?php
 		if ( ! empty( $hero_title ) ) {
 
@@ -137,11 +139,14 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
 			}
 		}
-
+		?>
+			</div>
+		</div>
+		<?php
 		if ( ! empty( $hero_text ) ) :
 			?>
 		<div class="row">
-			<div class="uds-hero-text col col-lg-9">
+			<div class="uds-hero-text col col-lg-8">
 				<?php
 				if ( ! empty( $hero_text ) ) {
 					$text = '<p>%1$s</p>';
@@ -153,6 +158,8 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			<?php
 		endif;
 		?>
+		<div class="row">
+			<div class="col col-lg-8">
 		<?php
 			// Render any buttons we have added to the hero area.
 		if ( have_rows( 'hero_cta_buttons' ) ) {
@@ -197,6 +204,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			}
 		}
 		?>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 	<?php
