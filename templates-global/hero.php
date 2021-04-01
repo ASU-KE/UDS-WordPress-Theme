@@ -83,6 +83,12 @@ switch ( $hero_size ) {
 		break;
 }
 
+// Check to see if we have buttons, in order to apply a specific class if so.
+$has_buttons_class = '';
+if ( have_rows( 'hero_cta_buttons' ) || get_field( 'hero_call_to_action_url' ) ) {
+	$has_buttons_class = 'has-buttons';
+}
+
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if ( ! empty( $hero_asset_data['url'] ) ) :
 	?>
@@ -94,7 +100,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 		alt="<?php echo $hero_asset_data['alt']; ?>"
 	/>
 
-	<div class="container uds-hero-container lazyloaded">
+	<div class="container uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
 		<div class="container px-0">
 		<div class="row">
 			<div class="col col-lg-8">
