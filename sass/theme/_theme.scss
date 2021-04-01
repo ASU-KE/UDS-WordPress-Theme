@@ -112,3 +112,21 @@ position:relative;
 .acf-block-preview .card-button a{
 	pointer-events: none;
 }
+
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+  position: relative;
+	 //overflow: hidden;
+  video {
+
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-height: 100%;
+    //height: auto;
+  }
+}

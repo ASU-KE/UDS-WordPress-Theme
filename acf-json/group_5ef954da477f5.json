@@ -59,7 +59,8 @@
             },
             "choices": {
                 "url": "URL",
-                "local": "Media Library"
+                "local_image": "Image",
+                "local_video": "Video"
             },
             "allow_null": 0,
             "default_value": "local",
@@ -92,17 +93,17 @@
         },
         {
             "key": "field_60527e5bb6c33",
-            "label": "Media File",
+            "label": "Image",
             "name": "hero_asset_file",
             "type": "image",
-            "instructions": "Choose a media file from the media library",
+            "instructions": "Choose an image from the media library",
             "required": 0,
             "conditional_logic": [
                 [
                     {
                         "field": "field_60527e8bb6c34",
                         "operator": "==",
-                        "value": "local"
+                        "value": "local_image"
                     }
                 ]
             ],
@@ -121,6 +122,33 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_60663bf1e6be1",
+            "label": "Video",
+            "name": "video",
+            "type": "file",
+            "instructions": "Choose a video from the media library. (only mp4 is allowed)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60527e8bb6c34",
+                        "operator": "==",
+                        "value": "local_video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "mp4"
         },
         {
             "key": "field_60527f5dc91dc",
@@ -452,5 +480,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1617138696
+    "modified": 1617313018
 }
