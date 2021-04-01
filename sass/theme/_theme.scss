@@ -22,6 +22,28 @@ main > * {
 }
 
 /*--------------------------------------------------------------
+2.5 Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+.uds-hero {
+	.uds-hero-container {
+		// At mobile size, do not apply negative margin.
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 2rem !important;
+			margin-left: 1rem;
+
+			// With buttons, apply negative margin as in the original styles.
+			&.has-buttons {
+				margin-bottom: -2rem !important;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 
@@ -86,6 +108,7 @@ position:relative;
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
-.acf-block-preview .uds-button a{
+.acf-block-preview .uds-button a,
+.acf-block-preview .card-button a{
 	pointer-events: none;
 }
