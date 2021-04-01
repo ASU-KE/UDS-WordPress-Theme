@@ -84,6 +84,7 @@ switch ( $hero_size ) {
 }
 
 // Check to see if we have buttons, in order to apply a specific class if so.
+// Note: this checks both the 'new' hero buttons, and the 'old' url field.
 $has_buttons_class = '';
 if ( have_rows( 'hero_cta_buttons' ) || get_field( 'hero_call_to_action_url' ) ) {
 	$has_buttons_class = 'has-buttons';
