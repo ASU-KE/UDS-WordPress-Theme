@@ -18,7 +18,7 @@ if ( ! function_exists( 'scroll_to_div' ) ) {
 		 menu.on('click', function(event) {
 			var target = jQuery(this.getAttribute('href'));
 
-			if( target.length ) {
+			if( (target.length) && (0 != target.offset().top) ) {
 				event.preventDefault();
 					jQuery('html, body').stop().animate({
 						scrollTop: target.offset().top - 150
