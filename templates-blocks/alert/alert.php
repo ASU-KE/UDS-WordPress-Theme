@@ -48,6 +48,6 @@
 		<?php echo $content; ?>
 	</div>
 	<div class="alert-close">
-		<button type="button" class="btn btn-circle btn-circle-alt-black close" aria-label="Close" onclick="event.target.parentNode.parentNode.parentNode.style.display='none';"><i class="fas fa-times"></i></button>
+		<button type="button" class="btn btn-circle btn-circle-alt-black close" aria-label="Close" onclick="event.target.closest('.alert').style.display='none'"><i class="fas fa-times"></i></button>
 	</div>
 </div>
