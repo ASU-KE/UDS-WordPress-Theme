@@ -52,6 +52,7 @@ function my_acf_blocks_init() {
 			'/cards', // UDS Cards.
 			'/content-sections', // Miscellaneous content sections.
 			'/headings', // A UDS Headings block.
+			'/program-card', // UDS Program Cards.
 		);
 
 		// Loop through array items and include each register file.
