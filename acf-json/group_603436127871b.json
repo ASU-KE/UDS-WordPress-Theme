@@ -22,7 +22,7 @@
                 "danger": "Error"
             },
             "allow_null": 0,
-            "default_value": "",
+            "default_value": "info",
             "layout": "horizontal",
             "return_format": "value"
         },
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616779263
+    "modified": 1617324823
 }
