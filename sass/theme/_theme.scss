@@ -112,3 +112,21 @@ position:relative;
 .acf-block-preview .card-button a{
 	pointer-events: none;
 }
+
+/*---------------------------------------------------------------
+ Fix Alert Close button
+ To use the existing Javascript in Bootstrap to close alerts, you
+ need to use the class 'alert-dismissible'. However, that class
+ has some strong opinions on where buttons go. Here we override
+ those settings to get UDS styles.
+---------------------------------------------------------------*/
+.alert-dismissible {
+	//Remove alert-dismissible's 4rem right padding.
+	padding-right: 1rem;
+	//It's already using Flexbox, so why not line everything up?
+	align-items: center;
+	& .close {
+		//Remove alert-dismissible's absolute button positioning.
+		position: relative;
+	}
+}

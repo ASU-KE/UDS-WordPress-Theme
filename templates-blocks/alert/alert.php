@@ -40,7 +40,7 @@
 	?>
 
 <!-- alert block -->
-<div class="alert alert-block alert-<?php echo $settings[ $style ]['class']; ?>" role="alert">
+<div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?>" role="alert">
 	<div class="alert-icon">
 		<span title="<?php echo $settings[ $style ]['title']; ?>" class="fa fa-icon <?php echo $settings[ $style ]['icon']; ?>"></span>
 	</div>
@@ -48,6 +48,8 @@
 		<?php echo $content; ?>
 	</div>
 	<div class="alert-close">
-		<button type="button" class="btn btn-circle btn-circle-alt-black close" aria-label="Close" onclick="event.target.closest('.alert').style.display='none'"><i class="fas fa-times"></i></button>
+		<button type="button" data-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
+			<i class="fas fa-times"></i>
+		</button>
 	</div>
 </div>
