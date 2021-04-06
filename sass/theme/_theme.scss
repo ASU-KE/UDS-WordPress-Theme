@@ -128,3 +128,24 @@ position:relative;
 		position: relative;
 	}
 }
+
+/*---------------------------------------------------------------
+ Adjust position of icon and close button on XS
+
+ Margins were being applied to both the icon and close button
+ on XS, essentially to maximize the room available for text, but
+ it ended up putting the icon, text, and close button all on
+ different lines - nothing was aligned at all.
+---------------------------------------------------------------*/
+@media screen and (max-width: $uds-breakpoint-sm) {
+    .alert .alert-icon svg {
+        margin-top: 0 !important;
+    }
+
+	.alert .alert-close {
+		margin-top: 0;
+		margin-right: 0;
+	}
+
+
+}
