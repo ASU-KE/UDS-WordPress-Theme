@@ -29,7 +29,7 @@ get_header();
 			the_content();
 
 			// Display the edit post button to logged in users.
-			echo '<footer class="entry-footer"><div class="container mb-2"><div class="row"><div class="col-md-12">';
+			echo '<footer class="entry-footer"><div class="container"><div class="row"><div class="col-md-12">';
 			edit_post_link( __( 'Edit', 'uds-wordpress-theme' ), '<span class="edit-link">', '</span>' );
 			echo '</div></div></div></footer><!-- end .entry-footer -->';
 		}

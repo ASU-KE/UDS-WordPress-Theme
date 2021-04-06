@@ -113,6 +113,22 @@ position:relative;
 	pointer-events: none;
 }
 
+/*--------------------------------------------------------------
+Override UDS scss
+--------------------------------------------------------------*/
+
+//Override the UDS hero class on heroes.scss
+@media screen and (max-width: $uds-breakpoint-sm){
+.uds-hero.uds-hero-sm {
+	padding-left: 0;
+	padding-bottom: 0;
+	}
+}
+
+//Override the UDS padding on uds-list class on list.scss
+ul.uds-list {
+    padding: 0 5rem 0 2rem;
+}
 
 /*--------------------------------------------------------------
 Hero video
