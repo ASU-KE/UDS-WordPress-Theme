@@ -47,3 +47,12 @@ $warning-color: #F99;
 .editor-styles-wrapper svg.svg-inline--fa {
 	vertical-align: -.125rem;
 }
+
+/*-------------------------------------------------------------------
+3. Hide [External Link?] switch on first level menu item
+--------------------------------------------------------------------*/
+.menu-item-depth-0 .acf-field-true-false{
+	&[data-name="menu_external_link"]{
+		display: none;
+	}
+}

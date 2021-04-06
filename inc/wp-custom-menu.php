@@ -226,14 +226,15 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 			// check to see if the external link icon has been requested.
 			$is_external_link    = $child['external_link'];
 			$external_link_text = '';
-			if ( $is_external_link ) {
-				$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
-			}
 
 			if ( $is_cta_button ) {
 				$links .= uds_wp_render_nav_cta_button( $cta_button_color, $child );
 			} else {
 				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s %3$s</a>';
+				if($is_external_link){
+					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
+					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" target="_blank">%2$s %3$s</a>';
+				}
 				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'], $external_link_text ), wp_kses_allowed_html( 'post' ) );
 			}
 		}
