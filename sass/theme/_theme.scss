@@ -119,14 +119,17 @@ Hero video
 --------------------------------------------------------------*/
 .hero-video {
   position: relative;
-	 //overflow: hidden;
+	 overflow: hidden;
+	 @include media-breakpoint-down(sm) {
+	 	overflow: unset;
+	 }
   video {
 
     height: 100%;
+		min-height: 100%;
     position: absolute;
     top: 0;
-    right: 0;
-    min-height: 100%;
-    //height: auto;
+    left: 50%;
+		transform: translateX(-50%);
   }
 }

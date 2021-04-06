@@ -29,6 +29,7 @@ switch ( $media_source ) {
 	case 'local_video':
 		$media_type = 'video';
 		$hero_asset_data = get_field( 'video' );
+		$hero_image_data = get_field( 'hero_asset_file' );
 		break;
 	default:
 		$media_type = 'image';
@@ -104,18 +105,28 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 
 
 
-			  <video id="media-video" autoplay="" loop="" muted="">
+			  <video class="d-none d-sm-block" id="media-video" autoplay="" loop="" muted="">
 				<source src="<?php echo $hero_asset_data['url']; ?>" type="video/mp4">
 				<?php echo $hero_asset_data['alt']; ?>
 			  </video>
+		<?php if ( $hero_image_data ) { ?>
+				<img
+				class="d-block d-sm-none"
+					srcset="<?php echo $hero_image_data['url']; ?>"
+					src="<?php echo $hero_image_data['url']; ?>"
+					alt="<?php echo $hero_image_data['alt']; ?>"
+				/>
 
-			<?php } else { ?>
+			<?php 
+		} 
+	} else { 
+		?>
 	<img
 		srcset="<?php echo $hero_asset_data['url']; ?>"
 		src="<?php echo $hero_asset_data['url']; ?>"
 		alt="<?php echo $hero_asset_data['alt']; ?>"
 	/>
-<?php } ?>
+	<?php } ?>
 	<div class="container uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
 		<div class="container px-0">
 		<div class="row">
