@@ -123,8 +123,6 @@ position:relative;
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding.
 	padding-right: 1rem;
-	//It's already using Flexbox, so why not line everything up?
-	align-items: center;
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
