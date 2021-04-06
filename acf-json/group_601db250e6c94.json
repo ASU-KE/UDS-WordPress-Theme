@@ -1,67 +1,28 @@
 {
     "key": "group_601db250e6c94",
-    "title": "UDS Button",
+    "title": "UDS Block: Button",
     "fields": [
         {
-            "key": "field_601e38efafff0",
-            "label": "Label",
-            "name": "button_label",
-            "type": "text",
+            "key": "field_60522a8361f39",
+            "label": "Label and Link",
+            "name": "button_link",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "-collapsed-target",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_601e3956afff1",
-            "label": "URL",
-            "name": "button_url",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_601e39a0afff2",
             "label": "External Link?",
             "name": "external_link",
             "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_602c2e74605cb",
-            "label": "Open in new tab",
-            "name": "new_tab",
-            "type": "true_false",
-            "instructions": "",
+            "instructions": "Adds appropriate \"rel\" values for links that leave the 'asu.edu' domain.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,7 +55,7 @@
                 "dark": "Dark Gray",
                 "gray": "Light Gray"
             },
-            "default_value": false,
+            "default_value": "maroon",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -120,7 +81,7 @@
                 "md": "Medium",
                 "sm": "Small"
             },
-            "default_value": false,
+            "default_value": "default",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -133,7 +94,7 @@
             "label": "Button Icon",
             "name": "icon",
             "type": "text",
-            "instructions": "",
+            "instructions": "Enter the base name of a FontAwesome icon (ex. for 'fa-info', just enter the word 'info')",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -164,6 +125,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1613594885
+    "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
+    "modified": 1616619261
 }

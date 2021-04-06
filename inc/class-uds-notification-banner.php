@@ -95,7 +95,7 @@ class UDS_Notification_Banner extends WP_Widget {
 			// all banner colors, besides black, use the dark buttons.
 			$button_class = 'dark';
 			if ( 'black' == $color ) {
-				$button_class = 'gray';
+				$button_class = 'gold';
 			}
 
 			// if we got here we have more than zero buttons, so we will render button #1.

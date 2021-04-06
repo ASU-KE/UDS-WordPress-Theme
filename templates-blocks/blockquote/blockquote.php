@@ -3,15 +3,30 @@
  * UDS Blockquote Block
  *
  * @package UDS WordPress Theme
+ * @version 1.0.0
+ * @author KE Web Services
  *
- * This is a sample block for demonstrating our code organization and style. This
- * particular block is a callout with a title and some text, and uses ACF functions
- * to bring in particular class names and content. This is an example of a larger
- * 'page section' kind of block, with all the Bootstrap containers, rows, and
- * columns as part of the markup. It would be intended for use only in our full
- * width page template, and NOT in the sidebar template.
+ * An Advanced Custom Fields block to implement a UDS Block Quote. With no mobile
+ * design for block quotes, we opted to use one of the Testimonial styles as the
+ * mobile block quote.
+ *
+ * Features include:
+ * - Select quote with image, or no image, and image on either side
+ * - Placeholder image if user chooses image style, but forgets to choose an image
+ * - Customize the color of the large, stylized quotation marks
+ * - Customize the background color (to approved shades of gray)
  */
 
+/**
+ * We implemented some standards by creating multiple controls for choosing the
+ * 'accent' color of the block quote. A different set of controls is shown based
+ * on the background color choice. Here we are getting the background color
+ * choice and using it to set a class, and to decide which ACF control we will
+ * use to select our accent color.
+ *
+ * Example: if the user chose a 'light gray' background, we will look at the
+ * 'accent_light' ACF field to get our accent color.
+ */
 switch ( get_field( 'background_color' ) ) {
 
 	case 'light':
