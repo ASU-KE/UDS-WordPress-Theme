@@ -231,7 +231,7 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 				$links .= uds_wp_render_nav_cta_button( $cta_button_color, $child );
 			} else {
 				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s %3$s</a>';
-				if($is_external_link){
+				if ( $is_external_link ) {
 					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
 					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" target="_blank">%2$s %3$s</a>';
 				}
