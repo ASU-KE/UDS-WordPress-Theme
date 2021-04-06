@@ -41,9 +41,12 @@
 
 <!-- alert block -->
 <div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?>" role="alert">
-	<div class="alert-icon">
-		<span title="<?php echo $settings[ $style ]['title']; ?>" class="fa fa-icon <?php echo $settings[ $style ]['icon']; ?>"></span>
-	</div>
+
+	<?php if ( get_field( 'alert_include_icon' ) ) : ?>
+		<div class="alert-icon">
+			<span title="<?php echo $settings[ $style ]['title']; ?>" class="fa fa-icon <?php echo $settings[ $style ]['icon']; ?>"></span>
+		</div>
+	<?php endif; ?>
 	<div class="alert-content">
 		<?php echo $content; ?>
 	</div>

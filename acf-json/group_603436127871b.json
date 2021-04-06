@@ -44,6 +44,25 @@
             "toolbar": "uds_wp_simple",
             "media_upload": 0,
             "delay": 1
+        },
+        {
+            "key": "field_606c9b92ea06c",
+            "label": "Include Icon?",
+            "name": "alert_include_icon",
+            "type": "true_false",
+            "instructions": "Show the icon associated with the alert style?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -63,5 +82,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617324823
+    "modified": 1617730521
 }
