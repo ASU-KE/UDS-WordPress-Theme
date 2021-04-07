@@ -23,7 +23,7 @@
         },
         {
             "key": "field_606cf43547783",
-            "label": "Target= _blank?",
+            "label": "Open in new tab?",
             "name": "menu_target_blank",
             "type": "true_false",
             "instructions": "",
@@ -66,5 +66,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617753815
+    "modified": 1617755138
 }
