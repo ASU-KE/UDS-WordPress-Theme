@@ -27,7 +27,7 @@
 
 //When space key is clicked
 	$( window ).keypress(function( e ) {
-	  if ( 32 == e.which ) {
+	  if ( 32 === e.which ) {
 	    if ( HeroVid.paused ) {
 				HeroVid.play();
 				$( '#pauseHeroVid' ).show();
