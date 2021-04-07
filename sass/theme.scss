@@ -8,6 +8,7 @@ $image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
 @import "theme/color-picker";	  // Default rules for defined ASU color palette options. Works with default blocks.
 @import "theme/customizer";       // Tweaks to the customizer (mostly buttons).
 //@import "theme/contact-form7";  // Contact Form 7 - Bootstrap 4 support
+@import "theme/responsive-borders"; //Add breakpoints to border-[side] classes
 
 // Permanent files. Blocks and other items not directly indicated by UDS Bootstrap
 @import "blocks/background-section";
@@ -15,3 +16,5 @@ $image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
 
 // Temporary files. Expected to be incorporated into UDS-Bootstrap eventually.
 @import "blocks/image-overlap";
+@import "blocks/blockquote-v2";
+@import "blocks/program-card";

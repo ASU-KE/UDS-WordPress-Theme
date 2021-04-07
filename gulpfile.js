@@ -15,6 +15,7 @@ var cleanCSS = require( 'gulp-clean-css' );
 var autoprefixer = require( 'autoprefixer' );
 
 // Configuration file to keep your code DRY
+var bso = require( './browserSyncOptions.json' );
 var cfg = require( './gulpconfig.json' );
 var paths = cfg.paths;
 
@@ -104,7 +105,8 @@ gulp.task( 'minifycss', function() {
 		)
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( sourcemaps.write( './' ) )
-		.pipe( gulp.dest( paths.css ) );
+		.pipe( gulp.dest( paths.css ) )
+		.pipe(browserSync.reload({ stream: true }));
 } );
 
 /**
@@ -147,7 +149,7 @@ gulp.task( 'watch', function() {
 	);
 
 	// Inside the watch task.
-	gulp.watch( paths.imgsrc + '/**', gulp.series( 'imagemin-watch' ) );
+	gulp.watch( paths.imgsrc + '/**' );
 } );
 
 /**
@@ -156,7 +158,7 @@ gulp.task( 'watch', function() {
  * Run: gulp browser-sync
  */
 gulp.task( 'browser-sync', function() {
-	browserSync.init( cfg.browserSyncOptions );
+	browserSync.init( bso.browserSyncOptions );
 } );
 
 /**
@@ -196,7 +198,8 @@ gulp.task( 'scripts', function() {
 		.src( scripts, { allowEmpty: true } )
 		.pipe( babel() )
 		.pipe( concat( 'theme.js' ) )
-		.pipe( gulp.dest( paths.js ) );
+		.pipe( gulp.dest( paths.js ) )
+		.pipe(browserSync.reload({ stream: true }));
 } );
 
 // Run:

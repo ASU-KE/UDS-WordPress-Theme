@@ -10,6 +10,30 @@
  */
 
 /**
+ * Register a custom block category for our blocks to live in.
+ */
+if ( ! function_exists( 'uds_custom_category' ) ) {
+	/**
+	 * Merges our custom category in with the others.
+	 *
+	 * @param array   $categories The existing block categories.
+	 * @param WP_Post $post The current Post.
+	 */
+	function uds_custom_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'uds',
+					'title' => __( 'UDS', 'uds-wordpress-theme' ),
+				),
+			)
+		);
+	}
+}
+add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
+
+/**
  * Loops through an array of block folder names and includes the 'register.php'
  * from within each one.
  *
@@ -23,12 +47,12 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
-			'/sample',                      // A sample block to be deleted at some point.
-			'/sample-inner-blocks',         // Sample block using the <InnerBlocks /> tag.
-			'/content-sections',            // Miscellaneous content sections.
-			'/headings',                    // A UDS Headings block.
-			'/button',                      // Button block for UDS theme.
-			'/background-section',          // Background section wrapper for a BS container.
+			'/blockquote', // Combination of UDS block quote and testimonial.
+			'/button', // Button block for UDS theme.
+			'/cards', // UDS Cards.
+			'/content-sections', // Miscellaneous content sections.
+			'/headings', // A UDS Headings block.
+			'/program-card', // UDS Program Cards.
 		);
 
 		// Loop through array items and include each register file.
@@ -81,3 +105,14 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
 }
 
+// Deregister the core WordPress block patterns.
+if ( ! function_exists( 'remove_core_patterns' ) ) {
+	/**
+	 * Removes theme support for 'core-block-patterns', which removes
+	 * ALL core block patterns from the editor.
+	 */
+	function remove_core_patterns() {
+		remove_theme_support( 'core-block-patterns' );
+	}
+	add_action( 'after_setup_theme', 'remove_core_patterns' );
+}

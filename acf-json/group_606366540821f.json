@@ -1,11 +1,11 @@
 {
-    "key": "group_60074496e95ba",
-    "title": "Page Title",
+    "key": "group_606366540821f",
+    "title": "UDS: Menu External Links",
     "fields": [
         {
-            "key": "field_6007449f54b72",
-            "label": "Hide  Page Title?",
-            "name": "hide_page_title",
+            "key": "field_6063588fd9346",
+            "label": "External Link?",
+            "name": "menu_external_link",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -25,26 +25,19 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "nav_menu_item",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
+                "value": "all"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "field",
+    "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Single field used on all pages to hide the page name that shows at the top of the page when there is no Hero image.",
-    "modified": 1616188683
+    "description": "",
+    "modified": 1617314619
 }

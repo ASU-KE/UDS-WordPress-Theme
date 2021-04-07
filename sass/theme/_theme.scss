@@ -22,6 +22,28 @@ main > * {
 }
 
 /*--------------------------------------------------------------
+2.5 Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+.uds-hero {
+	.uds-hero-container {
+		// At mobile size, do not apply negative margin.
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 2rem !important;
+			margin-left: 1rem;
+
+			// With buttons, apply negative margin as in the original styles.
+			&.has-buttons {
+				margin-bottom: -2rem !important;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 
@@ -56,4 +78,54 @@ X. Misc. styles
  */
 #wp-toolbar {
 	display: block;
+}
+
+
+/*--------------------------------------------------------------
+ Hero img
+--------------------------------------------------------------*/
+.uds-hero{
+position:relative;
+&:after{
+	content: "";
+	background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+	height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.uds-hero-container{
+	z-index: 999;
+}
+	img{
+		position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+	}
+}
+
+/*--------------------------------------------------------------
+ ACF Button block
+--------------------------------------------------------------*/
+.acf-block-preview .uds-button a,
+.acf-block-preview .card-button a{
+	pointer-events: none;
+}
+
+/*--------------------------------------------------------------
+Override UDS scss
+--------------------------------------------------------------*/
+
+//Override the UDS hero class on heroes.scss
+@media screen and (max-width: $uds-breakpoint-sm){
+.uds-hero.uds-hero-sm {
+	padding-left: 0;
+	padding-bottom: 0;
+	}
+}
+
+//Override the UDS padding on uds-list class on list.scss
+ul.uds-list {
+    padding: 0 5rem 0 2rem;
 }
