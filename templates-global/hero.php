@@ -103,9 +103,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 
 	<?php if ( 'video' === $media_type ) { ?>
 
-
-
-			  <video class="d-none d-sm-block" id="media-video" autoplay="" loop="" muted="">
+			  <video class="d-none d-sm-block" id="media-video" autoplay loop muted>
 				<source src="<?php echo $hero_asset_data['url']; ?>" type="video/mp4">
 				<?php echo $hero_asset_data['alt']; ?>
 			  </video>
@@ -117,9 +115,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 					alt="<?php echo $hero_image_data['alt']; ?>"
 				/>
 
-			<?php 
-		} 
-	} else { 
+			<?php
+		}
+	} else {
 		?>
 	<img
 		srcset="<?php echo $hero_asset_data['url']; ?>"
@@ -238,6 +236,18 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 		}
 		?>
 				</div>
+				<?php if ( 'video' === $media_type ) { ?>
+					<div class="hero-video-controls d-none d-sm-block">
+			<button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
+	        <i class="fas fa-play"></i>
+	        <span class="sr-only">Play hero video</span>
+	      </button>
+				<button id="pauseHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
+		        <i class="fas fa-pause"></i>
+		        <span class="sr-only">Pause hero video</span>
+		      </button>
+				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

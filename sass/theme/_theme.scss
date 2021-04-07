@@ -140,7 +140,6 @@ Hero video
 	 	overflow: unset;
 	 }
   video {
-
     height: 100%;
 		min-height: 100%;
     position: absolute;
@@ -148,4 +147,26 @@ Hero video
     left: 50%;
 		transform: translateX(-50%);
   }
+	.hero-video-controls{
+		position: relative;
+		width: 100%;
+display: block;
+	.btn.btn-circle.btn-circle-large{
+		z-index: 9;
+		position: absolute;
+     right: 0;
+		 bottom: 0;
+		 transition: 0.3s;
+		 opacity: 0.4;
+	}
+	#playHeroVid{
+		padding-left: 8px;
+		display: none;
+	}
+}
+&:hover{
+	.btn.btn-circle.btn-circle-large{
+		opacity: 1;
+	}
+}
 }
