@@ -237,8 +237,10 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s %3$s</a>';
 				if ( $is_external_link ) {
 					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
-					if ($is_target_blank) $is_target_blank ="target=_blank";
-					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" '.$is_target_blank.'>%2$s %3$s</a>';
+					if ( $is_target_blank ) {
+						$is_target_blank = 'target=_blank';
+					}
+					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s %3$s</a>';
 				}
 				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'], $external_link_text ), wp_kses_allowed_html( 'post' ) );
 			}
