@@ -239,13 +239,13 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				<?php if ( 'video' === $media_type ) { ?>
 					<div class="hero-video-controls d-none d-sm-block">
 			<button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
-	        <i class="fas fa-play"></i>
-	        <span class="sr-only">Play hero video</span>
-	      </button>
+			<i class="fas fa-play"></i>
+			<span class="sr-only">Play hero video</span>
+		  </button>
 				<button id="pauseHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
-		        <i class="fas fa-pause"></i>
-		        <span class="sr-only">Pause hero video</span>
-		      </button>
+				<i class="fas fa-pause"></i>
+				<span class="sr-only">Pause hero video</span>
+			  </button>
 				</div>
 				<?php } ?>
 			</div>
