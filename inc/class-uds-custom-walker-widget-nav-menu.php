@@ -111,6 +111,12 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			if ( 0 === $depth && $has_children > 0 ) {
 				$item_output .= '<span class="fas fa-chevron-up"></span>';
 			}
+
+			// Add external link icon if it has been requested. Using extra-small size here.
+			if ( get_field( 'menu_external_link', $item->ID ) ) {
+				$item_output .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
+			}
+
 			$item_output .= '</a>';
 			$item_output .= $args->after;
 			$item_output  .= $end_wrapper;
