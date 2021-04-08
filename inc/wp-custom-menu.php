@@ -282,8 +282,20 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 				return $link;
 
 			default:
-				$template = '<a class="nav-link %1$s" href="%2$s" title="%3$s">%3$s</a>';
-				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'] ), wp_kses_allowed_html( 'post' ) );
+				// Check for external link and new tab options from our ACF fields.
+				$external_link_text = '';
+				$new_tab_text = 'rel="noopener noreferer"';
+
+				if ( true === $item['external_link'] ) {
+					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
+				}
+
+				if ( true === $item['target_blank'] ) {
+					$new_tab_text = 'rel="noopener noreferer"';
+				}
+
+				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s">%3$s%4$s</a>';
+				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'], $external_link_text, $new_tab_text ), wp_kses_allowed_html( 'post' ) );
 				return $link;
 		}
 	}
