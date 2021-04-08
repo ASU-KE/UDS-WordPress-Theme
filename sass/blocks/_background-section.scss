@@ -22,21 +22,27 @@ div.container + .uds-section,
 // needs padding and a background color.
 .uds-section.bg {
 
-	.container {
+	[class*="container"] {
 		padding: $uds-size-spacing-4;
 	}
 
-	&.morse-code-black .container,
-	&.topo-white .container,
-	&.network-black .container {
-		background-color:$uds-color-base-gray-7;
-		color: $uds-color-base-white;
+	&.morse-code-black,
+	&.topo-white,
+	&.network-black {
+
+		[class*="container"]{
+			background-color:$uds-color-base-gray-7;
+			color: $uds-color-base-white;
+		}
 	}
 
-	&.morse-code-white .container,
-	&.topo-black .container,
-	&.network-white .container {
-		background-color:$uds-color-base-white;
+	&.morse-code-white,
+	&.topo-black,
+	&.network-white{
+
+		[class*="container"]{
+			background-color:$uds-color-base-white;
+		}
 	}
 
 }
@@ -47,37 +53,25 @@ div.container + .uds-section,
 	background-position:center;
 	background-repeat: repeat;
 
-	.container {
+	[class*="container"] {
 		padding: $uds-size-spacing-4;
 	}
 
-	&.inner-bg-gray-7 .container {
+	&.inner-bg-gray-7 [class*="container"] {
 		background-color: $uds-color-base-gray-7;
 		color: $uds-color-base-white;
 	}
 
-	&.inner-bg-gray-2 .container {
+	&.inner-bg-gray-2 [class*="container"] {
 		background-color: $uds-color-base-gray-2;
 	}
 
-	&.inner-bg-gray-1 .container {
+	&.inner-bg-gray-1 [class*="container"] {
 		background-color: $uds-color-base-gray-1;
 	}
 
-	&.inner-bg-white .container {
+	&.inner-bg-white [class*="container"] {
 		background-color: $uds-color-base-white;
-	}
-
-	&.inner-bg-opacity-50 .container {
-		background-color: rgba(255, 255, 255, .5);
-	}
-
-	&.inner-bg-opacity-75 .container {
-		background-color: rgba(255, 255, 255, .75);
-	}
-
-	&.inner-bg-opacity-90 .container {
-		background-color: rgba(255, 255, 255, .9);
 	}
 }
 

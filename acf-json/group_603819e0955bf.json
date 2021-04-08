@@ -1,7 +1,24 @@
 {
     "key": "group_603819e0955bf",
-    "title": "UDS Background Section",
+    "title": "UDS Block: Background Section",
     "fields": [
+        {
+            "key": "field_606e2cf36592e",
+            "label": "Basic Options",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
         {
             "key": "field_603819ea114a9",
             "label": "Pattern or Color",
@@ -51,8 +68,8 @@
             "choices": {
                 "morse-code-white": "Morse code - White",
                 "morse-code-black": "Morse code - Dark",
-                "topo-white": "Topographic map - White",
-                "topo-black": "Topographic map - Dark",
+                "topo-black": "Topographic map - White",
+                "topo-white": "Topographic map - Dark",
                 "network-white": "Network map - White",
                 "network-black": "Network map - Dark"
             },
@@ -65,10 +82,10 @@
         },
         {
             "key": "field_60381c933ba86",
-            "label": "Select a background color",
-            "name": "uds_background_section_color",
+            "label": "Background color presets",
+            "name": "uds_background_section_preset",
             "type": "radio",
-            "instructions": "Background colors within the UDS system are limited to a subset of the overall color palette. Choose from the following options. Refer to the <a href=\"https:\/\/unity.web.asu.edu\/@asu-design-system\/bootstrap4-theme\/index.html?path=\/story\/design-colors--color-palette\" target=\"_blank\">color palette<\/a> for the resulting colors.",
+            "instructions": "Background colors within the UDS system are generally limited to a subset of the overall color palette. The colors above are considered \"allowable\" by the brand standards. Refer to the <a href=\"https:\/\/unity.web.asu.edu\/@asu-design-system\/bootstrap4-theme\/index.html?path=\/story\/design-colors--color-palette\" target=\"_blank\">color palette<\/a> for the resulting colors.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -87,18 +104,42 @@
             "choices": {
                 "bg-gray-7": "UDS Gray 7",
                 "bg-gray-2": "UDS Gray 2",
-                "bg-gray-1": "UDS Gray 1"
+                "bg-gray-1": "UDS Gray 1",
+                "custom": "Use a custom color"
             },
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "bg-gray-4",
+            "default_value": "bg-gray-7",
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
         },
         {
+            "key": "field_606e315965932",
+            "label": "Custom background color",
+            "name": "uds_background_section_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60381c933ba86",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_60381d8c3ba87",
-            "label": "Upload a background pattern",
+            "label": "Upload a background image",
             "name": "uds_background_section_upload_url",
             "type": "image",
             "instructions": "Choose an image from the media library for your background pattern. Images selected will be centered within the container and repeated on both axes.",
@@ -129,11 +170,11 @@
             "mime_types": "png, jpg, gif"
         },
         {
-            "key": "field_60387e57ea953",
-            "label": "Select inner background color",
-            "name": "uds_background_section_inner_color",
-            "type": "radio",
-            "instructions": "When placing text over a background texture or photo within the UDS system, you are required to provide a background color on the inner container to assist with readability and accessibility. Choose from the following options.",
+            "key": "field_606e2d656592f",
+            "label": "Background Image Settings",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -145,6 +186,23 @@
                 ]
             ],
             "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_60387e57ea953",
+            "label": "Select inner color",
+            "name": "uds_background_inner_color",
+            "type": "radio",
+            "instructions": "When placing text over a background texture or photo within the UDS system, you may be required to provide a measure of color contrast between the visible text and the inner container to assist with readability and accessibility. Choose from the following options.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
                 "width": "33",
                 "class": "",
                 "id": ""
@@ -154,9 +212,7 @@
                 "inner-bg-gray-2": "UDS Gray 2",
                 "inner-bg-gray-1": "UDS Gray 1",
                 "inner-bg-white": "UDS White",
-                "inner-bg-opacity-50": "Opacity 50%",
-                "inner-bg-opacity-75": "Opacity 75%",
-                "inner-bg-opacity-90": "Opacity 90%"
+                "inner-bg-none": "No background color"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -164,6 +220,63 @@
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_606e31f365933",
+            "label": "Background Repeat",
+            "name": "uds_background_image_repeat",
+            "type": "select",
+            "instructions": "Sets the <code>background-repeat<\/code> option of the supplied image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "repeat": "Repeat (All)",
+                "no-repeat": "No Repeat"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_606e340a65934",
+            "label": "Background Position",
+            "name": "uds_background_image_position",
+            "type": "select",
+            "instructions": "Sets the <code>background position<\/code> of the supplied image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top left": "Top Left",
+                "top center": "Top Center",
+                "top right": "Top Right",
+                "left": "Center Left",
+                "center": "Center",
+                "right": "Center Right",
+                "bottom left": "Bottom Left",
+                "bottom center": "Bottom Center",
+                "bottom right": "Bottom Right"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -183,5 +296,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614316988
+    "modified": 1617840568
 }
