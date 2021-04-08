@@ -4,12 +4,39 @@
     "fields": [
         {
             "key": "field_6063588fd9346",
-            "label": "External Link?",
+            "label": "Show External Link Icon?",
             "name": "menu_external_link",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_606cf43547783",
+            "label": "Open in new tab?",
+            "name": "menu_target_blank",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6063588fd9346",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -38,6 +65,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1617314619
+    "description": "Fields for allowing external link icons, and opening links in a new tab, on all menu items.",
+    "modified": 1617915532
 }

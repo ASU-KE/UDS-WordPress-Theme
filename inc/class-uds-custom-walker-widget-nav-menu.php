@@ -101,11 +101,19 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 				$wrapper = '';
 				$end_wrapper = '';
 			}
+			$is_external_link = get_field( 'menu_external_link', $item->ID );
+			if ( $is_external_link ) {
+				$is_external_link   = 'rel="noreferrer noopener"';
+			}
+			$is_target_blank    = get_field( 'menu_target_blank', $item->ID );
+			if ( $is_target_blank ) {
+				$is_target_blank = 'target=_blank';
+			}
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			$class_names = ' class="' . esc_attr( $class_names ) . '"';
 			$item_output  = $wrapper;
 			$item_output .= $args->before;
-			$item_output .= '<a' . $id . $value . $attributes . $value . $class_names . '>';
+			$item_output .= '<a' . $id . $value . $attributes . $value . $class_names . $is_external_link . $is_target_blank . '>';
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			// Add the drop down arrow to the parent menu item if the item level is 0 and has children.
 			if ( 0 === $depth && $has_children > 0 ) {
@@ -113,7 +121,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			}
 
 			// Add external link icon if it has been requested. Using extra-small size here.
-			if ( get_field( 'menu_external_link', $item->ID ) ) {
+			if ( $is_external_link ) {
 				$item_output .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
 			}
 
