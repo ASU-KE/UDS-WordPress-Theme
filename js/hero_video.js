@@ -24,7 +24,7 @@
 			$( this ).hide();
 			$( '#playHeroVid' ).show();
 	});
-
+/*
 //When space key is clicked
 	$( window ).keypress(function( e ) {
 	  if ( 32 === e.which ) {
@@ -40,5 +40,6 @@
 
 	  }
 	});
+	*/
 
 	} )( jQuery );
