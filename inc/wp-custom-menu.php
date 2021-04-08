@@ -47,6 +47,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
 					$menu[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
 					$menu[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
+					$menu[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
 					$menu[ $m->ID ]['parent']        = $m->menu_item_parent;
 					$menu[ $m->ID ]['children']      = array();
 				}
@@ -72,6 +73,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$dropdown[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
 					$dropdown[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
 					$dropdown[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
+					$dropdown[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
 					$dropdown[ $m->ID ]['parent']        = $m->menu_item_parent;
 					$dropdown[ $m->ID ]['children']      = array();
 
@@ -100,6 +102,7 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 					$column[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
 					$column[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
 					$column[ $m->ID ]['external_link'] = get_field( 'menu_external_link', $m );
+					$column[ $m->ID ]['target_blank'] = get_field( 'menu_target_blank', $m );
 
 					/**
 					 * Add this item's data as a child to the $dropdown array we created in step 2.
@@ -225,6 +228,7 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 
 			// check to see if the external link icon has been requested.
 			$is_external_link    = $child['external_link'];
+			$is_target_blank    = $child['target_blank'];
 			$external_link_text = '';
 
 			if ( $is_cta_button ) {
@@ -233,7 +237,10 @@ if ( ! function_exists( 'uds_wp_render_column_links' ) ) {
 				$link   = '<a class="dropdown-item" href="%1$s" title="%2$s">%2$s %3$s</a>';
 				if ( $is_external_link ) {
 					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
-					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" target="_blank">%2$s %3$s</a>';
+					if ( $is_target_blank ) {
+						$is_target_blank = 'target=_blank';
+					}
+					$link   = '<a class="dropdown-item" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s %3$s</a>';
 				}
 				$links .= wp_kses( sprintf( $link, $child['url'], $child['title'], $external_link_text ), wp_kses_allowed_html( 'post' ) );
 			}
@@ -275,8 +282,20 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 				return $link;
 
 			default:
-				$template = '<a class="nav-link %1$s" href="%2$s" title="%3$s">%3$s</a>';
-				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'] ), wp_kses_allowed_html( 'post' ) );
+				// Check for external link and new tab options from our ACF fields.
+				$external_link_text = '';
+				$new_tab_text = 'rel="noopener noreferer"';
+
+				if ( true === $item['external_link'] ) {
+					$external_link_text = '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-sm"></i>';
+				}
+
+				if ( true === $item['target_blank'] ) {
+					$new_tab_text = 'rel="noopener noreferer"';
+				}
+
+				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s">%3$s%4$s</a>';
+				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'], $external_link_text, $new_tab_text ), wp_kses_allowed_html( 'post' ) );
 				return $link;
 		}
 	}
