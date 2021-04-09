@@ -37,10 +37,15 @@
 	if ( ! array_key_exists( $style, $settings ) ) {
 		$style = 'info';
 	}
-	?>
 
+	// If additional classes were requested, clean up the input and add them.
+	$additional_classes = '';
+	if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+		$additional_classes = trim( sanitize_text_field( $block['className'] ) );
+	}
+?>
 <!-- alert block -->
-<div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?>" role="alert">
+<div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?> <?php echo $additional_classes; ?>" role="alert">
 
 	<?php if ( get_field( 'alert_include_icon' ) ) : ?>
 		<div class="alert-icon">
