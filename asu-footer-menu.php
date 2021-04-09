@@ -29,8 +29,20 @@ foreach ( $menu_items as $item ) :
 					<?php
 					$footer_column = '';
 					foreach ( $item['children'] as $child ) :
-						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s</a>';
-						$footer_column .= wp_kses( sprintf( $footer_link, $child['url'], $child['title'] ), wp_kses_allowed_html( 'post' ) );
+						$child['external_link'] = '';
+						$is_target_blank    = $child['target_blank'];
+						// Add external link icon if it has been requested. Using extra-small size here.
+						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
+						if ( get_field( 'menu_external_link', $child['ID'] ) ) {
+							if ( $is_target_blank ) {
+								$is_target_blank = 'target=_blank';
+							}
+							$child['external_link'] .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
+							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
+						}
+
+
+						$footer_column .= wp_kses( sprintf( $footer_link, $child['url'], $child['title'], $child['external_link'] ), wp_kses_allowed_html( 'post' ) );
 					endforeach;
 					echo $footer_column;
 					?>

@@ -1,17 +1,17 @@
 {
-    "key": "group_5f3345f93ac4c",
-    "title": "UDS: Menu CTA Buttons",
+    "key": "group_606366540821f",
+    "title": "UDS: Menu External Links",
     "fields": [
         {
-            "key": "field_5f334612ad385",
-            "label": "CTA Button",
-            "name": "menu_cta_button",
+            "key": "field_6063588fd9346",
+            "label": "Show External Link Icon?",
+            "name": "menu_external_link",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -22,39 +22,31 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5f337fdca3842",
-            "label": "CTA Button Color",
-            "name": "menu_cta_button_color",
-            "type": "select",
+            "key": "field_606cf43547783",
+            "label": "Open in new tab?",
+            "name": "menu_target_blank",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5f334612ad385",
+                        "field": "field_6063588fd9346",
                         "operator": "==",
                         "value": "1"
                     }
                 ]
             ],
             "wrapper": {
-                "width": "60",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "dark": "Black",
-                "gold": "Gold",
-                "light": "Gray",
-                "maroon": "Maroon"
-            },
-            "default_value": "dark",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -62,7 +54,7 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "location\/primary"
+                "value": "all"
             }
         ]
     ],
@@ -73,6 +65,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Fields for customizing Call to Action buttons that appear in the main navigation menu.",
-    "modified": 1617127069
+    "description": "Fields for allowing external link icons, and opening links in a new tab, on all menu items.",
+    "modified": 1617915532
 }
