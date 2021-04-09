@@ -62,14 +62,31 @@ if ( ! empty( $block['className'] ) ) {
 	$additional_classes = sanitize_text_field( $block['className'] );
 }
 
-// Check for the 'hover' variant, and set the class if needed.
+// Check for the 'hover' variant, and set up some hover-specific variables.
 $hover_class = '';
-if ( ! empty( get_field( 'hover' ) ) ) {
+$hover_target_text = '';
+
+if ( true === get_field( 'hover' ) )  {
+	$is_hover_card = true;
+
+	$hover_link_data = get_field( 'card_hover_link' );
+	$hover_url = $hover_link_data['url'];
+	$hover_target = $hover_link_data['target'];
+
+	if( ! empty ( $hover_target ) ) {
+		$hover_target_text = 'target="' . $hover_target . '"';
+	}
+
 	$hover_class = 'card-hover';
 }
 ?>
 
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class; ?>">
+
+	<?php if ( $is_hover_card ): ?>
+		<a href="<?php echo $hover_url;?>" <?php echo $hover_target_text;?>" class="hover-card-link">
+	<?php endif; ?>
+
 	<?php if ( 'image' == $header_style ) : ?>
 		<img class="card-img-top" src="<?php the_field( 'image' ); ?>" alt="Card image cap">
 	<?php endif; ?>
@@ -217,4 +234,8 @@ if ( ! empty( get_field( 'hover' ) ) ) {
 			<?php endif; ?>
 
 		<?php endif; // end if/then for hover. ?>
+
+		<?php if ( $is_hover_card ): ?>
+			</a>
+		<?php endif; ?>
 </div>
