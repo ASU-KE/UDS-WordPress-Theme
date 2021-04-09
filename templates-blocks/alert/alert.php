@@ -43,7 +43,7 @@
 	if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 		$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 	}
-?>
+	?>
 <!-- alert block -->
 <div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?> <?php echo $additional_classes; ?>" role="alert">
 
