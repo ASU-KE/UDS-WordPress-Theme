@@ -122,11 +122,25 @@ position:relative;
 ---------------------------------------------------------------*/
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding.
-	padding-right: 1rem;
+	padding-right: 0;
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
 	}
+}
+
+.alert-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.alert-close {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 /*---------------------------------------------------------------
@@ -137,14 +151,15 @@ position:relative;
  it ended up putting the icon, text, and close button all on
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
-@media screen and (max-width: $uds-breakpoint-sm) {
+@media screen and (max-width: $uds-breakpoint-lg) {
     .alert .alert-icon svg {
         margin-top: 0 !important;
     }
 
+	// Reposition the close button on smaller screens.
 	.alert .alert-close {
-		margin-top: 0;
-		margin-right: 0;
+		margin: 0 .5rem;
+		justify-content: flex-start;
 	}
 
 
