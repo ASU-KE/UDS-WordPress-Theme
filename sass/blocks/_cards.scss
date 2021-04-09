@@ -5,8 +5,9 @@
 		text-decoration: none;
 	}
 
-	// Hover cards should only have titles/text.
-	p, h3 {
+	// Hover cards should only have titles, text, and icon.
+	// Remove link colors on those items.
+	p, h3, svg {
 		color: $uds-color-base-gray-7;
 	}
 
