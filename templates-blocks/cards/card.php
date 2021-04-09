@@ -66,14 +66,14 @@ if ( ! empty( $block['className'] ) ) {
 $hover_class = '';
 $hover_target_text = '';
 
-if ( true === get_field( 'hover' ) )  {
+if ( true === get_field( 'hover' ) ) {
 	$is_hover_card = true;
 
 	$hover_link_data = get_field( 'card_hover_link' );
 	$hover_url = $hover_link_data['url'];
 	$hover_target = $hover_link_data['target'];
 
-	if( ! empty ( $hover_target ) ) {
+	if ( ! empty( $hover_target ) ) {
 		$hover_target_text = 'target="' . $hover_target . '"';
 	}
 
@@ -83,8 +83,8 @@ if ( true === get_field( 'hover' ) )  {
 
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class; ?>">
 
-	<?php if ( $is_hover_card ): ?>
-		<a href="<?php echo $hover_url;?>" <?php echo $hover_target_text;?>" class="hover-card-link">
+	<?php if ( $is_hover_card ) : ?>
+		<a href="<?php echo $hover_url; ?>" <?php echo $hover_target_text; ?>" class="hover-card-link">
 	<?php endif; ?>
 
 	<?php if ( 'image' == $header_style ) : ?>
@@ -235,7 +235,7 @@ if ( true === get_field( 'hover' ) )  {
 
 		<?php endif; // end if/then for hover. ?>
 
-		<?php if ( $is_hover_card ): ?>
+		<?php if ( $is_hover_card ) : ?>
 			</a>
 		<?php endif; ?>
 </div>
