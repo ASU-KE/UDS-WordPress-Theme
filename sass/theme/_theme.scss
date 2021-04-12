@@ -121,7 +121,7 @@ position:relative;
  those settings to get UDS styles.
 ---------------------------------------------------------------*/
 .alert-dismissible {
-	//Remove alert-dismissible's 4rem right padding.
+	//Remove alert-dismissible's 4rem right padding in favor of UDS 1rem.
 	padding-right: 1rem;
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
@@ -139,7 +139,7 @@ position:relative;
 .alert-close {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-end;
 }
 
@@ -160,8 +160,10 @@ position:relative;
 	// Reposition the close button on smaller screens.
 	.alert .alert-close {
 		// Remove the negative margin on the close button used to move it up and right.
-		margin: 0;
 		justify-content: flex-start;
+		align-items: flex-end;
+		margin-top: 0;
+		margin-right: 0;
 	}
 
 
@@ -174,6 +176,7 @@ Override UDS scss
 //Override the UDS hero class on heroes.scss
 @media screen and (max-width: $uds-breakpoint-sm){
 .uds-hero.uds-hero-sm {
+	margin: 0;
 	padding-left: 0;
 	padding-bottom: 0;
 	}
