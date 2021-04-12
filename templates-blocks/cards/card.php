@@ -79,6 +79,17 @@ if ( true === get_field( 'hover' ) ) {
 
 	$hover_class = 'card-hover';
 }
+
+// Get our image data from the array provided by ACF.
+$image_url = '';
+$image_alt = '';
+
+$image_data = get_field( 'image' );
+
+if ( ! empty( $image_data ) ) {
+	$image_url = $image_data['url'];
+	$image_alt = $image_data['alt'];
+}
 ?>
 
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?> <?php echo $hover_class; ?>">
@@ -88,7 +99,7 @@ if ( true === get_field( 'hover' ) ) {
 	<?php endif; ?>
 
 	<?php if ( 'image' == $header_style ) : ?>
-		<img class="card-img-top" src="<?php the_field( 'image' ); ?>" alt="Card image cap">
+		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
 	<?php endif; ?>
 	<?php if ( 'icon' == $header_style ) : ?>
 		<i class="fas fa-<?php echo $icon_name; ?> fa-2x card-icon-top"></i>
