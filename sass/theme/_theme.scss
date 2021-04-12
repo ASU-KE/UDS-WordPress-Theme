@@ -122,7 +122,7 @@ position:relative;
 ---------------------------------------------------------------*/
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding.
-	padding-right: 0;
+	padding-right: 1rem;
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
@@ -140,7 +140,7 @@ position:relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
 }
 
 /*---------------------------------------------------------------
@@ -152,13 +152,15 @@ position:relative;
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
 @media screen and (max-width: $uds-breakpoint-lg) {
-    .alert .alert-icon svg {
+    // remove the 1rem top margin that is added to the icon on mobile.
+	.alert .alert-icon svg {
         margin-top: 0 !important;
     }
 
 	// Reposition the close button on smaller screens.
 	.alert .alert-close {
-		margin: 0 .5rem;
+		// Remove the negative margin on the close button used to move it up and right.
+		margin: 0;
 		justify-content: flex-start;
 	}
 
