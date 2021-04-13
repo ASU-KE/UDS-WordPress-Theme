@@ -59,10 +59,11 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 		$fa_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/fontawesome/all.min.js' );
 		wp_enqueue_script( 'uds-wordpress-fa-scripts', get_template_directory_uri() . '/js/fontawesome/all.min.js', array(), $fa_js_version, true );
 
+		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-list-block.js' );
+		wp_enqueue_script( 'uds-wordpress-admin-scripts', get_template_directory_uri() . '/js/core-list-block.js', array(), $js_version );
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
-
 
 
 if ( ! function_exists( 'uds_wp_gutenberg_css' ) ) {
