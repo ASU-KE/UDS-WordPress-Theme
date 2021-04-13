@@ -30,7 +30,7 @@ acf_register_block_type(
 		'mode'              => 'preview', // make this block default to preview mode when added to the page.
 		'example'           => array(
 			'attributes' => array(
-				'mode' => 'preview', // show the actual card view for the preview when adding this block.
+				'mode' => 'preview', // show the actual tabs view for the preview when adding this block.
 				'data' => array(
 					'tabs_style'        => 'regular_horizonal',
 					'tabs'        => array(
