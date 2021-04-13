@@ -101,7 +101,7 @@
                     "name": "post_content",
                     "type": "post_object",
                     "instructions": "You have to have a pre-created post to add it here as a tab content",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
@@ -136,7 +136,7 @@
                     "name": "text_content",
                     "type": "wysiwyg",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
@@ -177,5 +177,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1618274416
+    "modified": 1618331440
 }
