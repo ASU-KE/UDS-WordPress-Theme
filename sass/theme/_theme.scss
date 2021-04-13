@@ -217,7 +217,7 @@ position:relative;
 ---------------------------------------------------------------*/
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding in favor of UDS 1rem.
-	padding-right: 1rem;
+	padding-right: $uds-size-spacing-2;
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
@@ -247,6 +247,10 @@ position:relative;
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
 @media screen and (max-width: $uds-breakpoint-lg) {
+	// Ensure some extra space between the content and the close button
+	.alert .alert-content {
+		margin-right: $uds-size-spacing-2
+	}
     // remove the 1rem top margin that is added to the icon on mobile.
 	.alert .alert-icon svg {
         margin-top: 0 !important;
