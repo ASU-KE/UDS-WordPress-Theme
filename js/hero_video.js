@@ -42,4 +42,14 @@
 	});
 	*/
 
+	$( window ).scroll(function() {
+
+    if ( $( this ).scrollTop() > 150 ) {
+
+        $( '.uds-back-to-top:hidden' ).stop( true, true ).fadeIn();
+    } else {
+        $( '.uds-back-to-top' ).stop( true, true ).fadeOut();
+    }
+});
+
 	} )( jQuery );
