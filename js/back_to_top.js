@@ -9,9 +9,9 @@
 
 	$( window ).scroll(function() {
 
-		var vh=$( window ).height();
+		var vh = $( window ).height();
 
-    if ( $( this ).scrollTop() > vh+vh/2 ) {
+    if ( $( this ).scrollTop() > vh + vh / 2 ) {
 
         $( '.uds-back-to-top:hidden' ).stop( true, true ).fadeIn();
     } else {
