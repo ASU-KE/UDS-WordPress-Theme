@@ -1,0 +1,86 @@
+{
+    "key": "group_603436127871b",
+    "title": "UDS Block: Alert",
+    "fields": [
+        {
+            "key": "field_6034364b72b72",
+            "label": "Alert Style",
+            "name": "alert_style",
+            "type": "button_group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "warning": "Warning",
+                "success": "Success",
+                "info": "Info",
+                "danger": "Error"
+            },
+            "allow_null": 0,
+            "default_value": "info",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_606c9b92ea06c",
+            "label": "Include Icon?",
+            "name": "alert_include_icon",
+            "type": "true_false",
+            "instructions": "Show the icon associated with the alert style?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_603436fa72b73",
+            "label": "Alert Content",
+            "name": "alert_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "uds_wp_simple",
+            "media_upload": 0,
+            "delay": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-alert"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1617735490
+}

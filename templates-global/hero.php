@@ -22,11 +22,17 @@ switch ( $media_source ) {
 		 * what we would get from the media library option - rather than create
 		 * conditional logic when we're rendering the tag.
 		 */
+		$media_type = 'url';
 		$hero_asset_data = array();
 		$hero_asset_data['url'] = esc_url( get_field( 'hero_asset_url' ) );
 		break;
-
+	case 'local_video':
+		$media_type = 'video';
+		$hero_asset_data = get_field( 'video' );
+		$hero_image_data = get_field( 'hero_asset_file' );
+		break;
 	default:
+		$media_type = 'image';
 		$hero_asset_data = get_field( 'hero_asset_file' );
 		break;
 }
@@ -93,14 +99,32 @@ if ( have_rows( 'hero_cta_buttons' ) || get_field( 'hero_call_to_action_url' ) )
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if ( ! empty( $hero_asset_data['url'] ) ) :
 	?>
-<div class="uds-hero <?php echo $hero_size_class; ?>" >
+<div class="uds-hero <?php echo $hero_size_class; ?> hero-<?php echo $media_type; ?>" >
 
+	<?php if ( 'video' === $media_type ) { ?>
+
+			  <video class="d-none d-sm-block" id="media-video" autoplay loop muted>
+				<source src="<?php echo $hero_asset_data['url']; ?>" type="video/mp4">
+				<?php echo $hero_asset_data['alt']; ?>
+			  </video>
+		<?php if ( $hero_image_data ) { ?>
+				<img
+				class="d-block d-sm-none"
+					srcset="<?php echo $hero_image_data['url']; ?>"
+					src="<?php echo $hero_image_data['url']; ?>"
+					alt="<?php echo $hero_image_data['alt']; ?>"
+				/>
+
+			<?php
+		}
+	} else {
+		?>
 	<img
 		srcset="<?php echo $hero_asset_data['url']; ?>"
 		src="<?php echo $hero_asset_data['url']; ?>"
 		alt="<?php echo $hero_asset_data['alt']; ?>"
 	/>
-
+	<?php } ?>
 	<div class="container uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
 		<div class="container px-0">
 		<div class="row">
@@ -212,6 +236,18 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 		}
 		?>
 				</div>
+				<?php if ( 'video' === $media_type ) { ?>
+					<div class="hero-video-controls d-none d-sm-block">
+			<button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
+			<i class="fas fa-play"></i>
+			<span class="sr-only">Play hero video</span>
+		  </button>
+				<button id="pauseHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" >
+				<i class="fas fa-pause"></i>
+				<span class="sr-only">Pause hero video</span>
+			  </button>
+				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

@@ -113,6 +113,161 @@ position:relative;
 	pointer-events: none;
 }
 
+.is-style-maroon{
+    @extend .maroon;
+	}
+
+.is-style-smokemode{
+	@extend .smokemode;
+}
+
+.is-style-light-smokemode{
+	@extend .light-smokemode;
+}
+
+.is-style-darkmode{
+	@extend .darkmode;
+}
+.is-style-darkmode-gold{
+	@extend .darkmode;
+	@extend .gold;
+}
+.uds-list ul,
+.uds-list ol{
+	@extend .uds-list;
+}
+
+.is-style-steplist{
+	@extend .uds-steplist;
+}
+
+.is-style-steplist-gold{
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+}
+
+.is-style-steplist-maroon{
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+}
+
+.is-style-steplist-smokemode{
+	@extend .uds-steplist;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-gold{
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-maroon{
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .smokemode;
+}
+
+.is-style-steplist-light-smokemode{
+	@extend .uds-steplist;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-gold{
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-maroon{
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-darkmode{
+	@extend .uds-steplist;
+	@extend .darkmode;
+	li{
+		&:before{
+			background-color: #fafafa!important;
+     color: #191919!important;
+		}
+	}
+}
+
+.is-style-steplist-darkmode-gold{
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .darkmode;
+}
+
+.is-style-steplist-darkmode-maroon{
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .darkmode;
+}
+
+/*---------------------------------------------------------------
+ Fix Alert Close button
+ To use the existing Javascript in Bootstrap to close alerts, you
+ need to use the class 'alert-dismissible'. However, that class
+ has some strong opinions on where buttons go. Here we override
+ those settings to get UDS styles.
+---------------------------------------------------------------*/
+.alert-dismissible {
+	//Remove alert-dismissible's 4rem right padding in favor of UDS 1rem.
+	padding-right: $uds-size-spacing-2;
+	& .close {
+		//Remove alert-dismissible's absolute button positioning.
+		position: relative;
+	}
+}
+
+.alert-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.alert-close {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+
+/*---------------------------------------------------------------
+ Adjust position of icon and close button on XS
+
+ Margins were being applied to both the icon and close button
+ on XS, essentially to maximize the room available for text, but
+ it ended up putting the icon, text, and close button all on
+ different lines - nothing was aligned at all.
+---------------------------------------------------------------*/
+@media screen and (max-width: $uds-breakpoint-lg) {
+	// Ensure some extra space between the content and the close button
+	.alert .alert-content {
+		margin-right: $uds-size-spacing-2
+	}
+    // remove the 1rem top margin that is added to the icon on mobile.
+	.alert .alert-icon svg {
+        margin-top: 0 !important;
+    }
+
+	// Reposition the close button on smaller screens.
+	.alert .alert-close {
+		// Remove the negative margin on the close button used to move it up and right.
+		justify-content: flex-start;
+		align-items: flex-end;
+		margin-top: 0;
+		margin-right: 0;
+	}
+
+
+}
+
 /*--------------------------------------------------------------
 Override UDS scss
 --------------------------------------------------------------*/
@@ -120,6 +275,7 @@ Override UDS scss
 //Override the UDS hero class on heroes.scss
 @media screen and (max-width: $uds-breakpoint-sm){
 .uds-hero.uds-hero-sm {
+	margin: 0;
 	padding-left: 0;
 	padding-bottom: 0;
 	}
@@ -128,4 +284,53 @@ Override UDS scss
 //Override the UDS padding on uds-list class on list.scss
 ul.uds-list {
     padding: 0 5rem 0 2rem;
+}
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+  position: relative;
+	 overflow: hidden;
+	 @include media-breakpoint-down(xs) {
+	 	overflow: unset;
+	 }
+  video {
+    height: 100%;
+		min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+		transform: translateX(-50%);
+  }
+	.hero-video-controls{
+		position: relative;
+		width: 100%;
+display: block;
+	.btn.btn-circle.btn-circle-large{
+		z-index: 9;
+		position: absolute;
+     right: 0;
+		 bottom: 0;
+		 transition: 0.3s;
+		 opacity: 0.4;
+	}
+	#playHeroVid{
+		padding-left: 8px;
+		display: none;
+	}
+}
+&:hover{
+	.btn.btn-circle.btn-circle-large{
+		opacity: 1;
+	}
+}
+}
+
+
+@include media-breakpoint-down(md) {
+  #footer-colophon, #footer-innovation{
+		padding-right: 12px;
+    padding-left: 12px;
+  }
 }

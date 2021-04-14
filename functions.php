@@ -34,6 +34,7 @@ $uds_wp_includes = array(
 	'/uds-blocks.php',                           // Custom blocks created with ACF Pro.
 	'/deprecated.php',                           // Load deprecated functions.
 	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
+	'/tiny-mce.php',                              // Create custom toolbars for the WYSIWYG editor in ACF.
 	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
 );
 
