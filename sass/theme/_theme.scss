@@ -292,7 +292,7 @@ Hero video
 .hero-video {
   position: relative;
 	 overflow: hidden;
-	 @include media-breakpoint-down(sm) {
+	 @include media-breakpoint-down(xs) {
 	 	overflow: unset;
 	 }
   video {
