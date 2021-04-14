@@ -326,3 +326,11 @@ display: block;
 	}
 }
 }
+
+
+@include media-breakpoint-down(md) {
+  #footer-colophon, #footer-innovation{
+		padding-right: 12px;
+    padding-left: 12px;
+  }
+}
