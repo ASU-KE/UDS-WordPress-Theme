@@ -26,7 +26,7 @@ if ( $choice ) {
 	if ( 'pattern' === $choice ) {
 
 		// UDS Background patterns.
-		echo '<section class="uds-section bg ' . $pattern . ' ' . $additional_classes .'" >';
+		echo '<section class="uds-section bg ' . $pattern . ' ' . $additional_classes . '" >';
 
 	} else if ( 'color' === $choice ) {
 
@@ -35,20 +35,19 @@ if ( $choice ) {
 			echo '<section class="uds-section bg-color' . $additional_classes . '" style="background-color: ' . $color . ';" >';
 		} else {
 			// Background colors via utility BS4 classes.
-			echo '<section class="uds-section bg-color ' . $preset . ' ' . $additional_classes .'" >';
+			echo '<section class="uds-section bg-color ' . $preset . ' ' . $additional_classes . '" >';
 		}
-
 	} else if ( 'upload' === $choice ) {
 
 		if ( 'no-repeat' === $position ) {
 			// Add the "/ cover " value to the generated string if we are not repeating the pattern.
 			$position = $position . ' / cover ';
 		} else {
-			// Add just an embedded space
+			// Add just an embedded space.
 			$position = $position . ' ';
 		}
 
-		// Build the inline style rule
+		// Build the inline style rule.
 		$inline_style = 'background: url(' . $upload . ') ' . $position . $repeat . ';';
 
 		// Set the basic utility class + inner bg color as classes.
