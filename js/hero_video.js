@@ -10,6 +10,8 @@
 	 //Get the hero video ID.
 	var HeroVid = document.getElementById( 'media-video' );
 
+if ( HeroVid ) {
+
 //When play button is clicked
 	document.getElementById( 'playHeroVid' ).addEventListener( 'click', function() {
 	    HeroVid.play();
@@ -24,6 +26,8 @@
 			$( this ).hide();
 			$( '#playHeroVid' ).show();
 	});
+}
+
 /*
 //When space key is clicked
 	$( window ).keypress(function( e ) {

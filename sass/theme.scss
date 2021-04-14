@@ -11,7 +11,6 @@ $image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
 @import "theme/responsive-borders"; //Add breakpoints to border-[side] classes
 
 // Temporary files. Expected to be incorporated into UDS-Bootstrap eventually.
-@import "blocks/image-overlap";
 @import "blocks/blockquote-v2";
 @import "blocks/program-card";
 @import "blocks/cards";
