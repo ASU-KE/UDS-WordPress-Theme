@@ -112,17 +112,23 @@ class UDS_Notification_Banner extends WP_Widget {
 
 		// We now have all the variables we need to construct the actual banner.
 		echo <<<EOS
-		<div class="banner banner-$color" role="banner">
-		<div class="banner-icon">
-			<span title="Banner" class="fa fa-icon fa-$icon"></span>
-		</div>
-			<div class="banner-content">
-				<h3>$title</h3>
-				$body
-			</div>
-			$button_block
-			<div class="banner-close">
-				<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="banner banner-$color" role="banner">
+						<div class="banner-icon">
+							<span title="Banner" class="fa fa-icon fa-$icon"></span>
+						</div>
+						<div class="banner-content">
+							<h3>$title</h3>
+							$body
+						</div>
+						$button_block
+						<div class="banner-close">
+							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 EOS;
