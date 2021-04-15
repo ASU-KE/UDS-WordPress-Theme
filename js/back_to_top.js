@@ -6,10 +6,12 @@
  */
 
  ( function( $ ) {
+	 var vh = $( window ).height();
+	 $( window ).resize(function() {
+		 vh = $( window ).height();
+	 });
 
 	$( window ).scroll(function() {
-
-		var vh = $( window ).height();
 
     if ( $( this ).scrollTop() > vh + vh / 2 ) {
 
