@@ -9,6 +9,6 @@
  * @package uds-wordpress-theme
  */
 
-if( is_active_sidebar( 'global-banner') ) {
+if ( is_active_sidebar( 'global-banner' ) ) {
 	dynamic_sidebar( 'global-banner' );
 }
