@@ -7,11 +7,11 @@
 
  ( function( $ ) {
 	 var vh = $( window ).height();
-	 $( window ).on( "resize", (function() {
+	 $( window ).on( 'resize', (function() {
 		vh = $( window ).height();
-	 }));
+	 }) );
 
-	$( window ).on( "scroll", function() {
+	$( window ).on( 'scroll', function() {
 
     if ( $( this ).scrollTop() > vh + vh / 2 ) {
 
