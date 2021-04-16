@@ -32,7 +32,15 @@ if ( ! $hover_image ) {
 	);}
 
 
-?>
+?><script>
+( function( $ ) {
+$('.home-program-card').hover(function(){
+	var this_src=$(this).find('.hover-image').attr('src');
+	$(this).find('.hover-image').attr('src',this_src);
+});
+
+ } )( jQuery );
+</script>
 <div class="home-program-card">
 	<?php if ( $image ) { ?>
 	<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
