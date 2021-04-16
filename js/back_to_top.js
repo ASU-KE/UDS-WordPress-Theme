@@ -7,9 +7,9 @@
 
  ( function( $ ) {
 	 var vh = $( window ).height();
-	 $( window ).on( 'resize', (function() {
+	 $( window ).on( 'resize', function() {
 		vh = $( window ).height();
-	 }) );
+	 });
 
 	$( window ).on( 'scroll', function() {
 
