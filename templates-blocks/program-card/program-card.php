@@ -1,12 +1,15 @@
 <?php
 /**
- * UDS Program Card Block
+ * UDS Overlay Card Block
  *
  * @package UDS WordPress Theme
  * @author Zainab Alsidiki
  */
 
  $card_title = get_field( 'title' );
+ $card_description = get_field( 'description' );
+ $with_desc_class = $card_description ? 'with-desc' : '';
+
  $image = get_field( 'image' );
 if ( ! $image ) {
 	$image = array(
@@ -20,7 +23,7 @@ if ( ! $button ) {
 		'icon' => 'fas fa-arrow-right',
 		'button_size' => 'normal',
 		'button_link' => array(
-			'title' => '',
+			'title' => 'Add a button',
 			'url' => '/',
 			'target' => '_blank',
 		),
@@ -32,30 +35,29 @@ if ( ! $hover_image ) {
 	);}
 
 
-?><script>
+?>
+<script>
 ( function( $ ) {
-$('.home-program-card').hover(function(){
-	var this_src=$(this).find('.hover-image').attr('src');
-	$(this).find('.hover-image').attr('src',this_src);
-});
-
+		$('.home-program-card').hover(function(){
+			var this_src=$(this).find('.hover-image').attr('src');
+			$(this).find('.hover-image').attr('src',this_src);
+		});
  } )( jQuery );
 </script>
-<div class="home-program-card">
-	<?php if ( $image ) { ?>
-	<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
-<?php } ?>
-<?php if ( $hover_image ) { ?>
-<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo $hover_image['alt']; ?>" title="<?php echo $hover_image['title']; ?>" />
-<?php } ?>
+<div class="home-program-card card <?php echo $with_desc_class; ?>">
+
 
 	<div class="card-content">
 		<?php
 		if ( $card_title ) {
-			echo '<p>' . $card_title . '</p>';}
+			echo '<h3 class="' . $with_desc_class . '">' . $card_title . '</h3>';
+		}
+		if ( $card_description ) {
+				echo '<p>' . $card_description . '</p>';
+		}
 		?>
 		<?php if ( $button ) { ?>
-		<div class="card-button">
+		<div class="card-button <?php echo $with_desc_class; ?>">
 			<?php
 				// Get our ACF Field values.
 				$external_link = $button['external_link'];
@@ -111,4 +113,14 @@ $('.home-program-card').hover(function(){
 		</div>
  <?php } //End of the button ?>
 	</div>
+
+
+	<?php if ( $image ) { ?>
+	<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
+<?php } ?>
+<?php if ( $hover_image ) { ?>
+<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo $hover_image['alt']; ?>" title="<?php echo $hover_image['title']; ?>" />
+<?php } ?>
+
+
 </div>

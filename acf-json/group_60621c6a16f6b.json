@@ -1,6 +1,6 @@
 {
     "key": "group_60621c6a16f6b",
-    "title": "UDS Block: Program Card",
+    "title": "UDS Block: Overlay Card",
     "fields": [
         {
             "key": "field_606270615d9ec",
@@ -109,6 +109,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_6078d8ad123e4",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_606270a35d9ee",
             "label": "Button",
             "name": "",
@@ -163,5 +182,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617064557
+    "modified": 1618532866
 }
