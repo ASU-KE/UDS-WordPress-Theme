@@ -1,12 +1,12 @@
 /*--------------------------------------------------------------
-# Program Card Block
+# Overlay Card Block
 
 1. Mobile
 2. Desktop lg
 3. Desktop xl
 --------------------------------------------------------------*/
 
-.home-program-card{
+.home-overlay-card{
 
 	position: relative;
 	img{
@@ -120,6 +120,9 @@ padding-left: 0px;
 		opacity: 0;
 	}
 
+}
+&.card{
+	padding: 0;
 }
 }
 

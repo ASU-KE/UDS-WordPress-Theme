@@ -38,13 +38,14 @@ if ( ! $hover_image ) {
 ?>
 <script>
 ( function( $ ) {
-		$('.home-program-card').hover(function(){
+	//updated the image src when hove to make the gif re-play.
+		$('.home-overlay-card').hover(function(){
 			var this_src=$(this).find('.hover-image').attr('src');
 			$(this).find('.hover-image').attr('src',this_src);
 		});
  } )( jQuery );
 </script>
-<div class="home-program-card card <?php echo $with_desc_class; ?>">
+<div class="home-overlay-card card <?php echo $with_desc_class; ?>">
 
 
 	<div class="card-content">
@@ -64,7 +65,6 @@ if ( ! $hover_image ) {
 				$button_color  = $button['button_color'];
 				$button_size   = $button['button_size'];
 				$button_icon   = $button['icon'];
-				// These come in from the ACF cloned fields from the button group.
 
 				$button_link = $button['button_link'];
 			if ( $button_link ) {

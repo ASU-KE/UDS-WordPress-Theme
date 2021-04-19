@@ -23,7 +23,7 @@ acf_register_block_type(
 		'icon'              => 'admin-page', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/program-card/program-card.php', // location of the block's template.
 		'category'          => 'uds', // category this block appears in.
-		'keywords'          => array( 'card', 'cards', 'content', 'program', 'gif' ),
+		'keywords'          => array( 'card', 'cards', 'content', 'program', 'gif', 'overlay', 'uds' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.
 		),
