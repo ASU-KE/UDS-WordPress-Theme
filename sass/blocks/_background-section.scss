@@ -3,7 +3,8 @@
 
 1. General styles
 2. Desktop
-3. Additional styles for Gutenberg.
+3. Additional styles for Gutenberg
+4. Background shapes
 --------------------------------------------------------------*/
 
 // Inner padding of the section
@@ -32,7 +33,6 @@ div.container + .uds-section,
 
 		[class*="container"]{
 			background-color:$uds-color-base-gray-7;
-			color: $uds-color-base-white;
 		}
 	}
 
@@ -59,7 +59,6 @@ div.container + .uds-section,
 
 	&.inner-bg-gray-7 [class*="container"] {
 		background-color: $uds-color-base-gray-7;
-		color: $uds-color-base-white;
 	}
 
 	&.inner-bg-gray-2 [class*="container"] {
@@ -74,7 +73,6 @@ div.container + .uds-section,
 		background-color: $uds-color-base-white;
 	}
 }
-
 
 /* ------------------------------------------------------------------
 2. Desktop, large
@@ -111,7 +109,6 @@ need to use the full name of the block. */
 	&.topo-white .wp-block-wp-bootstrap-blocks-container,
 	&.network-black .wp-block-wp-bootstrap-blocks-container {
 		background-color:$uds-color-base-gray-7;
-		color: $uds-color-base-white;
 	}
 
 	&.morse-code-white .wp-block-wp-bootstrap-blocks-container,
@@ -131,7 +128,6 @@ need to use the full name of the block. */
 
 	&.inner-bg-gray-7 .wp-block-wp-bootstrap-blocks-container {
 		background-color: $uds-color-base-gray-7;
-		color: $uds-color-base-white;
 	}
 
 	&.inner-bg-gray-2 .wp-block-wp-bootstrap-blocks-container {
@@ -157,4 +153,19 @@ need to use the full name of the block. */
 	&.inner-bg-opacity-90 .wp-block-wp-bootstrap-blocks-container {
 		background-color: rgba(255, 255, 255, .9);
 	}
+}
+
+/* ------------------------------------------------------------------
+4. Background shapes. (Early access, no UI.)
+------------------------------------------------------------------- */
+
+.uds-section.shape-oval {
+	border-bottom-left-radius: 55% 10%;
+    border-bottom-right-radius: 55% 10%;
+    border-top-left-radius: 55% 10%;
+    border-top-right-radius: 55% 10%;
+	width: 1900px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }

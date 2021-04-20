@@ -45,6 +45,30 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_607f30538c20f",
+            "label": "Select the inner text color",
+            "name": "uds_background_section_text",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "text-white": "White"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "default",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_60381aa3114aa",
             "label": "Select a background pattern",
             "name": "uds_background_section_pattern",
@@ -236,6 +260,8 @@
             },
             "choices": {
                 "repeat": "Repeat (All)",
+                "repeat-x": "Repeat horizontal",
+                "repeat-y": "Repeat vertical",
                 "no-repeat": "No Repeat"
             },
             "default_value": false,
@@ -277,6 +303,31 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_607f2bc905fd6",
+            "label": "Background Size",
+            "name": "uds_background_image_size",
+            "type": "select",
+            "instructions": "Sets the <code>background-size<\/code> property of the supplied image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cover": "Cover",
+                "contain": "Contain"
+            },
+            "default_value": "cover",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -296,5 +347,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617840568
+    "modified": 1618952472
 }
