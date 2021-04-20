@@ -33,10 +33,10 @@ if ( ! $hover_image ) {
 	$hover_image = array(
 		'url' => 'https://thesundevils.com/common/controls/image_handler.aspx?thumb_id=0&image_path=/images/2020/4/27/ASU_Sun_Devil_Athetics_Video_Background_76.jpg',
 	);}
-$additional_classes="";
-	if ( ! empty( $block['className'] ) ) {
-		$additional_classes = $block['className'];
-	}
+$additional_classes = '';
+if ( ! empty( $block['className'] ) ) {
+	$additional_classes = $block['className'];
+}
 
 ?>
 <script>
@@ -48,7 +48,7 @@ $additional_classes="";
 		});
  } )( jQuery );
 </script>
-<div class="home-overlay-card card <?php echo $with_desc_class.' '.$additional_classes; ?>">
+<div class="home-overlay-card card <?php echo $with_desc_class . ' ' . $additional_classes; ?>">
 
 
 	<div class="card-content">
