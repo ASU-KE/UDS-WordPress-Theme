@@ -56,13 +56,13 @@ if ( ! empty( $block['className'] ) ) {
 	<!-- <div class="card-content">-->
 		<?php
 		if ( $card_title ) {
-			//echo '<h3 class="' . $with_desc_class . '">' . $card_title . '</h3>';
-			echo '<div class="card-header '.$with_desc_class.'">
-				<h3 class="card-title">'.$card_title.'</h3>
+			// echo '<h3 class="' . $with_desc_class . '">' . $card_title . '</h3>'; .
+			echo '<div class="card-header ' . $with_desc_class . '">
+				<h3 class="card-title">' . $card_title . '</h3>
 			</div>';
 		}
 		if ( $card_description ) {
-			//	echo '<p>' . $card_description . '</p>';
+			// echo '<p>' . $card_description . '</p>'; .
 			echo '<div class="card-body">
 				<p class="card-text">' . $card_description . '</p>
 			</div>';
