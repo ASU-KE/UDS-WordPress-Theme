@@ -29,7 +29,7 @@ $colors: (
 --------------------------------------------------------------------*/
 
 @each $name, $value in $colors {
-	.has-#{name}-color {
+	.has-#{$name}-color {
 		color: $value;
 	}
 }
@@ -39,7 +39,7 @@ $colors: (
 --------------------------------------------------------------------*/
 
 @each $name, $value in $colors {
-	.has-#{name}-background-color {
+	.has-#{$name}-background-color {
 		background-color: $value;
 	}
 }
