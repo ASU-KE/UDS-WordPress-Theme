@@ -39,15 +39,7 @@ if ( ! empty( $block['className'] ) ) {
 }
 
 ?>
-<script>
-( function( $ ) {
-	//updated the image src when hove to make the gif re-play.
-		$('.home-overlay-card').hover(function(){
-			var this_src=$(this).find('.hover-image').attr('src');
-			$(this).find('.hover-image').attr('src',this_src);
-		});
- } )( jQuery );
-</script>
+
 <div class="home-overlay-card card <?php echo $with_desc_class . ' ' . $additional_classes; ?>">
 
 
