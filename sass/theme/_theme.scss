@@ -335,3 +335,40 @@ display: block;
     padding-left: 12px;
   }
 }
+
+/*--------------------------------------------------------------
+Back to top
+--------------------------------------------------------------*/
+
+.uds-back-to-top{
+	    z-index: 9;
+	display: none;
+	//display: inline-block;
+	padding: 12px 16px;
+	background-color: #747474A3;
+	position: fixed;
+	bottom: 98px;
+	right: -26px;
+	transform: rotate(-90deg);
+	a {
+		text-decoration: none;
+		color: #fff;
+		span{
+			font-size: 20px;
+			line-height: 19px;
+		padding-right: 10px;
+
+		display: inline-block;
+text-align: right;
+	}
+	svg{
+		font-size: 40px;
+		transition: 0.3s;
+	}
+	}
+	&:hover{
+		a svg{
+			transform: translateX(3px);
+		}
+	}
+}

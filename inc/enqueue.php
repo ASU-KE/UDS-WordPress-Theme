@@ -32,6 +32,9 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		$js_hero_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/hero_video.js' );
 		wp_enqueue_script( 'uds-wordpress-hero-video-scripts', get_template_directory_uri() . '/js/hero_video.js', array(), $js_hero_version, true );
 
+		$js_back_to_top_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/back_to_top.js' );
+		wp_enqueue_script( 'uds-wordpress-back-to-top-scripts', get_template_directory_uri() . '/js/back_to_top.js', array(), $js_back_to_top_version, true );
+
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
