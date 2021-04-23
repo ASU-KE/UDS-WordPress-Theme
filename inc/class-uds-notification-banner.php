@@ -116,7 +116,7 @@ class UDS_Notification_Banner extends WP_Widget {
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="banner banner-$color" role="banner">
+						<div class="banner" role="banner">
 							<div class="banner-icon">
 								<span title="Banner" class="fa fa-icon fa-$icon"></span>
 							</div>
