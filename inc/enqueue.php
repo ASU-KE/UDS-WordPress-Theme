@@ -61,6 +61,9 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-list-block.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-scripts', get_template_directory_uri() . '/js/core-list-block.js', array(), $js_version );
+
+		$js_divider_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-divider.js' );
+		wp_enqueue_script( 'uds-wordpress-admin-divider-script', get_template_directory_uri() . '/js/core-divider.js', array(), $js_version );
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
