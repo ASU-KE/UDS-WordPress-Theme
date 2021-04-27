@@ -1,12 +1,15 @@
 <?php
 /**
- * UDS Program Card Block
+ * UDS Overlay Card Block
  *
  * @package UDS WordPress Theme
  * @author Zainab Alsidiki
  */
 
  $card_title = get_field( 'title' );
+ $card_description = get_field( 'description' );
+ $with_desc_class = $card_description ? 'with-desc' : '';
+
  $image = get_field( 'image' );
 if ( ! $image ) {
 	$image = array(
@@ -20,7 +23,7 @@ if ( ! $button ) {
 		'icon' => 'fas fa-arrow-right',
 		'button_size' => 'normal',
 		'button_link' => array(
-			'title' => '',
+			'title' => 'Add a button',
 			'url' => '/',
 			'target' => '_blank',
 		),
@@ -30,31 +33,41 @@ if ( ! $hover_image ) {
 	$hover_image = array(
 		'url' => 'https://thesundevils.com/common/controls/image_handler.aspx?thumb_id=0&image_path=/images/2020/4/27/ASU_Sun_Devil_Athetics_Video_Background_76.jpg',
 	);}
-
+$additional_classes = '';
+if ( ! empty( $block['className'] ) ) {
+	$additional_classes = $block['className'];
+}
 
 ?>
-<div class="home-program-card">
-	<?php if ( $image ) { ?>
-	<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
-<?php } ?>
-<?php if ( $hover_image ) { ?>
-<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo $hover_image['alt']; ?>" title="<?php echo $hover_image['title']; ?>" />
-<?php } ?>
 
-	<div class="card-content">
+<div class="home-overlay-card card <?php echo $with_desc_class . ' ' . $additional_classes; ?>">
+
+
+
+
+	<!-- <div class="card-content">-->
 		<?php
 		if ( $card_title ) {
-			echo '<p>' . $card_title . '</p>';}
+			// echo '<h3 class="' . $with_desc_class . '">' . $card_title . '</h3>'; .
+			echo '<div class="card-header ' . $with_desc_class . '">
+				<h3 class="card-title">' . $card_title . '</h3>
+			</div>';
+		}
+		if ( $card_description ) {
+			// echo '<p>' . $card_description . '</p>'; .
+			echo '<div class="card-body">
+				<p class="card-text">' . $card_description . '</p>
+			</div>';
+		}
 		?>
 		<?php if ( $button ) { ?>
-		<div class="card-button">
+		<div class="card-button <?php echo $with_desc_class; ?>">
 			<?php
 				// Get our ACF Field values.
 				$external_link = $button['external_link'];
 				$button_color  = $button['button_color'];
 				$button_size   = $button['button_size'];
 				$button_icon   = $button['icon'];
-				// These come in from the ACF cloned fields from the button group.
 
 				$button_link = $button['button_link'];
 			if ( $button_link ) {
@@ -102,5 +115,15 @@ if ( ! $hover_image ) {
 			<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
 		</div>
  <?php } //End of the button ?>
-	</div>
+	<!-- </div> -->
+
+
+	<?php if ( $image ) { ?>
+	<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
+<?php } ?>
+<?php if ( $hover_image ) { ?>
+<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo $hover_image['alt']; ?>" title="<?php echo $hover_image['title']; ?>" />
+<?php } ?>
+
+
 </div>
