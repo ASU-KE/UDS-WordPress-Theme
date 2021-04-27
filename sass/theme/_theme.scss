@@ -387,3 +387,24 @@ Dividers
 		opacity: 1;
 	}
 }
+
+/*--------------------------------------------------------------
+Page Wrapper [_global-header]
+--------------------------------------------------------------*/
+
+// Desktop
+@include media-breakpoint-down(lg) {
+
+  #asu-header+div,
+  #asu-header+main {
+    @include transition;
+    margin-top: 113px;
+		background: red;
+  }
+
+  #asu-header.scrolled+div,
+  #asu-header.scrolled+main {
+    @include transition;
+    margin-top: 81px;
+  }
+}
