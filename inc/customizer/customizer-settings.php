@@ -918,9 +918,9 @@ function show_alternate_footer_title_input() {
 
 	$footer_unit_name_type = get_theme_mod( 'footer_unit_name_type' );
 
-	if( 'default' === $footer_unit_name_type ){
+	if ( 'default' === $footer_unit_name_type ) {
 		return false;
-	}else{
+	} else {
 		return true;
 	}
 }

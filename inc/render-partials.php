@@ -355,7 +355,7 @@ function uds_wp_render_asu_footer_logo() {
 function uds_wp_render_footer_unit_name() {
 	$footer_unit_name_type = get_theme_mod( 'footer_unit_name_type' );
 
-	if( 'custom' === $footer_unit_name_type) {
+	if ( 'custom' === $footer_unit_name_type ) {
 		$footer_unit_name_text = get_theme_mod( 'footer_unit_name_text' );
 		echo $footer_unit_name_text;
 	} else {
