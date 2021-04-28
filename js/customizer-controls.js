@@ -51,7 +51,10 @@
 		var linkSettingValueToControl;
 
 		/**
-		 * Update other controls' states according to footer_logo_type's value
+		 * Show/hide footer text input based on value of radio controls.
+		 * When 'footer_unit_name_type' control is changed, we check to
+		 * see if it is set to 'default'. If so, we hide the text input.
+		 * If not, it must be 'custom', and we show the input.
 		 *
 		 * @param {api.Control} control the footer_unit_name_type control.
 		 */
