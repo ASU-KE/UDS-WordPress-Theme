@@ -525,6 +525,91 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
+		/**
+		* Footer Alternate Unit Name Text
+		*/
+		$wp_customize->add_setting(
+			'footer_unit_name_type',
+			array(
+				'default'           => 'default',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'footer_unit_name_type',
+			array(
+				'label'      => __( 'Footer Unit Name Type', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'<p>Choose between using the site name, or custom text, beneath the footer logo.</p>',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'footer_unit_name_type',
+				'type'       => 'radio',
+				'choices'    => array(
+					'default'  => 'Site Name',
+					'custom' => 'Custom Text',
+				),
+				'priority'   => 60,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'footer_unit_name_type',
+			array(
+				'selector'            => '#footer-unit-text',
+				'container_inclusive' => false,
+				'render_callback' => function() {
+					return (
+						uds_wp_render_footer_unit_name()
+					);
+				},
+			)
+		);
+
+		/**
+		 * Footer alternate unit name value
+		 */
+		$wp_customize->add_setting(
+			'footer_unit_name_text',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'footer_unit_name_text',
+			array(
+				'label'      => __( 'Alternate Text', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'Text to use, instead of the site name, beneath the footer logo',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'footer_unit_name_text',
+				'active_callback' => 'show_alternate_footer_title_input',
+				'priority'   => 70,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'footer_unit_name_text',
+			array(
+				'selector' => '#footer-unit-text',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_footer_unit_name',
+			)
+		);
+
 		/**
 		 * Contribute URL
 		 */
@@ -818,6 +903,24 @@ function show_custom_logo_fields() {
 	if ( 'asu' === $logo_type ) {
 		return false;
 	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or hide a text input for entering alternate text to replace the site
+ * name beneath the unit logo in the footer. If the user has selected 'custom',
+ * for the unit text type, we want to show this field.
+ */
+function show_alternate_footer_title_input() {
+
+	return true;
+
+	$footer_unit_name_type = get_theme_mod( 'footer_unit_name_type' );
+
+	if( 'default' === $footer_unit_name_type ){
+		return false;
+	}else{
 		return true;
 	}
 }
