@@ -315,7 +315,7 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><span class="footer-site-name"><?php echo get_bloginfo( 'name' ); ?></span></h5>
+						<h5><span class="footer-site-name" id="footer-unit-text"><?php uds_wp_render_footer_unit_name(); ?></span></h5>
 						<div class="contact-wrapper">
 							<?php uds_wp_render_contact_link(); ?>
 						</div>
@@ -347,4 +347,18 @@ function uds_wp_render_asu_footer_logo() {
 		),
 		wp_kses_allowed_html( 'post' )
 	);
+}
+
+/**
+ * Renders text below the footer logo: either the site name, or some custom text.
+ */
+function uds_wp_render_footer_unit_name() {
+	$footer_unit_name_type = get_theme_mod( 'footer_unit_name_type' );
+
+	if( 'custom' === $footer_unit_name_type) {
+		$footer_unit_name_text = get_theme_mod( 'footer_unit_name_text' );
+		echo $footer_unit_name_text;
+	} else {
+		echo get_bloginfo( 'name' );
+	}
 }
