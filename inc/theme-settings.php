@@ -39,6 +39,7 @@ if ( ! function_exists( 'uds_wp_get_theme_default_settings' ) ) {
 			'sitename_as_link'       => false, // default to the site title being plain text, NOT a link.
 			'footer_logo_type'       => 'asu', // default to the ASU logo. See img/unit-logos.json for options.
 			'logo_select'            => 'none', // default the endorsed logo drop-down to none.
+			'footer_unit_name_type'  => 'default', // default to setting the site name as the text below footer logo.
 			'footer_row_actions'     => 'enabled', // default to having the logo/social row in the footer enabled.
 			'footer_row_branding'    => 'enabled', // default to having the menu row in the footer enabled.
 			'header_navigation_menu' => 'enabled', // enable main nav menu by default.
