@@ -44,4 +44,35 @@
 		api.control( 'logo_url', linkSettingValueToControl );
 	} );
 
+	/**
+	 *
+	 */
+	 api( 'footer_unit_name_type', function( setting ) {
+		var linkSettingValueToControl;
+
+		/**
+		 * Update other controls' states according to footer_logo_type's value
+		 *
+		 * @param {api.Control} control the footer_unit_name_type control.
+		 */
+		linkSettingValueToControl = function( control ) {
+			var visibility = function() {
+				if ( 'default' === setting.get() ) {
+					control.container.slideUp( 180 );
+				} else {
+					control.container.slideDown( 180 );
+				}
+			};
+
+			// Set initial active state.
+			visibility();
+
+			//Update activate state whenever the setting is changed.
+			setting.bind( visibility );
+		};
+
+		// Call linkSettingValueToControl on our drop-down and URL fields.
+		api.control( 'footer_unit_name_text', linkSettingValueToControl );
+	} );
+
 }( wp.customize ) );
