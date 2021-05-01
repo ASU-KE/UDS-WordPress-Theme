@@ -187,6 +187,8 @@ gulp.task( 'scripts', function() {
 		paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
 		paths.dev + '/js/custom/skip-link-focus-fix.js',
 		paths.dev + '/js/bootstrap4-asu/global-header.js',
+		paths.dev + '/js/bootstrap4-asu/cookie-consent.min.js',
+		paths.dev + '/js/custom/init-cookie-consent.js',
 	];
 	gulp.src( scripts, { allowEmpty: true } )
 		.pipe( babel( { presets: ['@babel/preset-env'] } ) )
@@ -233,6 +235,11 @@ gulp.task( 'copy-assets', function( done ) {
 	// Copy UDS JS files
 	var stream = gulp
 		.src( paths.node + '/@asu-design-system/bootstrap4-theme/src/js/*.js' )
+		.pipe( gulp.dest( paths.dev + '/js/bootstrap4-asu' ) );
+
+	// Copy UDS cookie-consent JS files
+	var stream = gulp
+		.src( paths.node + '/@asu-design-system/cookie-consent/dist/*.js' )
 		.pipe( gulp.dest( paths.dev + '/js/bootstrap4-asu' ) );
 
 	// Copy UDS SCSS files
