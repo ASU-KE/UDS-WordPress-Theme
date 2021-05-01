@@ -50,3 +50,11 @@ if ( ! function_exists( 'news_post_type_thumbnail' ) ) {
 	add_action( 'after_setup_theme', 'news_post_type_thumbnail' );
 
 }
+
+
+add_filter( 'wpseo_breadcrumb_single_link' ,'wpseo_remove_breadcrumb_link', 10 ,2);
+
+function wpseo_remove_breadcrumb_link( $link_output , $link ){
+//$link_output=preg_replace('#</?span[^>]*>#is', '', $link_output);
+    return '<li class="breadcrumb-item">'.$link_output.'</li>';
+}

@@ -22,13 +22,13 @@ get_header();
 	while ( have_posts() ) {
 
 		the_post();
-
+echo '<div class="uds-hero uds-hero-md uds-news-hero">'.get_the_post_thumbnail( $post->ID, 'large' ).'</div>';
 		// Remove support for the global hero template part. Intended for pages, primarily.
 		// get_template_part( 'templates-global/hero' ); .
 
 		get_template_part( 'templates-global/global-banner' );
 
-		echo '<div class="container">';
+		echo '<div class="container single-news-post-container">';
 		echo '<div class="row">';
 		echo '<div class="col">';
 

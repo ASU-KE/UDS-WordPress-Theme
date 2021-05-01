@@ -387,3 +387,45 @@ Dividers
 		opacity: 1;
 	}
 }
+
+
+/*--------------------------------------------------------------
+News post type
+--------------------------------------------------------------*/
+.uds-hero.uds-news-hero{
+	&:after{
+		background: unset;
+	}
+	img{
+		object-position: 50% top;
+	}
+}
+
+.container.single-news-post-container{
+	background: white;
+	transform: translateY(-128px);
+	padding: 20px 150px;
+	.breadcrumb{
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.author_info{
+		margin-top: 3rem;
+		p{
+			max-width: 300px;
+		}
+		a{
+			svg{
+				margin-right: 0.25rem;
+			}
+		}
+	}
+}
+article.type-news_post{
+	.entry-header{
+		.entry-title{
+			margin-top: 2rem;
+		}
+
+	}
+}
