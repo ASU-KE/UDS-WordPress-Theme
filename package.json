@@ -29,6 +29,7 @@
     "@asu-design-system/design-tokens": "dev",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.14",
     "del": "^5.1.0",

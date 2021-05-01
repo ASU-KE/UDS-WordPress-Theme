@@ -220,7 +220,7 @@ gulp.task( 'copy-assets', function( done ) {
 	// Copy Font Awesome JS (Auto-replaces FA <i> & <span> tags with SVGs)
 	gulp.src(
 		paths.node +
-			'/@asu-design-system/bootstrap4-theme/dist/assets/fontawesome/js/*'
+			'/@fortawesome/fontawesome-free/js/*'
 	).pipe( gulp.dest( paths.js + '/fontawesome' ) );
 
 	////////////////// All UDS Assets /////////////////////////
