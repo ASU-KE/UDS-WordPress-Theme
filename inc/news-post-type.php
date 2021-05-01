@@ -51,10 +51,17 @@ if ( ! function_exists( 'news_post_type_thumbnail' ) ) {
 
 }
 
+if ( ! function_exists( 'wpseo_remove_breadcrumb_link' ) ) {
 
-add_filter( 'wpseo_breadcrumb_single_link' ,'wpseo_remove_breadcrumb_link', 10 ,2);
+	/**
+	 * A function to update the breadcrumb single link wrapper
+	 *
+	 * @param link_output $link_output displays the individual breadcrumb item.
+	 */
+	function wpseo_remove_breadcrumb_link( $link_output ) {
+		// $link_output=preg_replace('#</?span[^>]*>#is', '', $link_output);
+		return '<li class="breadcrumb-item">' . $link_output . '</li>';
+	}
 
-function wpseo_remove_breadcrumb_link( $link_output , $link ){
-//$link_output=preg_replace('#</?span[^>]*>#is', '', $link_output);
-    return '<li class="breadcrumb-item">'.$link_output.'</li>';
+	add_filter( 'wpseo_breadcrumb_single_link', 'wpseo_remove_breadcrumb_link', 10, 2 );
 }
