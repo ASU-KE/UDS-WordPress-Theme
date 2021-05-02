@@ -5,7 +5,7 @@
         {
             "key": "field_6007449f54b72",
             "label": "Hide  Page Title?",
-            "name": "hide_page_title",
+            "name": "uds_hide_page_title",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -46,5 +46,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Single field used on all pages to hide the page name that shows at the top of the page when there is no Hero image.",
-    "modified": 1616188683
+    "modified": 1619915407
 }
