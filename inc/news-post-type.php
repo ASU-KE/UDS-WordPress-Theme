@@ -27,14 +27,16 @@ if ( ! function_exists( 'create_news_post_type' ) ) {
 				'map_meta_cap'          => true,
 				'menu_position'         => 6,
 				'menu_icon'             => 'dashicons-welcome-widgets-menus',
-				'hierarchical'          => true,
-				'rewrite'               => true,
+				'hierarchical'          => false,
+				'rewrite' => true,
 				'query_var'             => false,
 				'delete_with_user'      => true,
 				'show_in_rest'          => true,
 				'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
 			)
 		);
+flush_rewrite_rules();
+
 	}
 	add_action( 'init', 'create_news_post_type' );
 }
