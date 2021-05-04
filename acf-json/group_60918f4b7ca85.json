@@ -32,7 +32,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -41,5 +41,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620152520
+    "modified": 1620152661
 }
