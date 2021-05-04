@@ -1,0 +1,45 @@
+{
+    "key": "group_60918f4b7ca85",
+    "title": "News excerpt",
+    "fields": [
+        {
+            "key": "field_6091907b6f22c",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 250,
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "news_post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "excerpt"
+    ],
+    "active": true,
+    "description": "",
+    "modified": 1620152520
+}
