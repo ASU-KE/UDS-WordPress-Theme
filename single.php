@@ -23,30 +23,36 @@ get_header();
 
 		the_post();
 
-		// Remove support for the global hero template part. Intended for pages, primarily.
-		// get_template_part( 'templates-global/hero' ); .
+		get_template_part( 'templates-global/story-hero' );
 
-		get_template_part( 'templates-global/global-banner' );
+		?>
 
-		echo '<div class="container">';
-		echo '<div class="row">';
-		echo '<div class="col">';
+		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-		get_template_part( 'templates-loop/content', 'single' );
+			<?php
+			// echo get_the_post_thumbnail( $post->ID, 'large' );
+			the_content();
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		}
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
+					'after'  => '</div>',
+				)
+			);
 
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
+			?>
 
+			<footer class="entry-footer">
+
+				<?php uds_wp_entry_footer(); ?>
+
+			</footer><!-- .entry-footer -->
+
+		</article><!-- #post-## -->
+
+	<?php
 	}
-	?>
 
-</main><!-- #main -->
+    echo '</main><!-- #main -->';
 
-<?php
 get_footer();
