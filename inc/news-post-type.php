@@ -28,7 +28,7 @@ if ( ! function_exists( 'create_news_post_type' ) ) {
 				'menu_position'         => 6,
 				'menu_icon'             => 'dashicons-welcome-widgets-menus',
 				'hierarchical'          => false,
-				'rewrite' => true,
+				'rewrite' => false,
 				'query_var'             => false,
 				'delete_with_user'      => true,
 				'show_in_rest'          => true,
