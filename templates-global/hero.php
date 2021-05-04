@@ -122,7 +122,14 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 	<img
 		srcset="<?php echo $hero_asset_data['url']; ?>"
 		src="<?php echo $hero_asset_data['url']; ?>"
-		alt="<?php echo $hero_asset_data['alt']; ?>"
+		alt="
+		<?php 
+		if ( 'image' == $media_type ) {
+			echo $hero_asset_data['alt'];
+		} else {
+			echo 'Hero image';} 
+		?>
+		"
 	/>
 	<?php } ?>
 	<div class="container uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
