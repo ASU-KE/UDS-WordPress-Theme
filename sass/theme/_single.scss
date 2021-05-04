@@ -1,0 +1,32 @@
+.single .uds-story-hero.no-image {
+	grid-template-rows: calc(#{$uds-size-spacing-16} - 4.5rem) 4.5rem auto;
+
+	.hero {
+		height:100%;
+		width:100%;
+	}
+}
+
+.single article {
+	padding: $uds-size-spacing-2;
+}
+
+.single article > * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (min-width: 950px) {
+	.single article > * {
+		margin-left: calc(8.34% + 1rem);
+		margin-right: calc(8.34% + 1rem);
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.single article > * {
+		max-width:995px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+}

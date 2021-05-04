@@ -27,21 +27,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "news_post"
             }
         ]
     ],
@@ -53,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Single field used on all pages to hide the page name that shows at the top of the page when there is no Hero image.",
-    "modified": 1619822701
+    "modified": 1620164760
 }
