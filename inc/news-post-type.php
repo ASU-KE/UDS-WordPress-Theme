@@ -67,3 +67,9 @@ if ( ! function_exists( 'wpseo_remove_breadcrumb_link' ) ) {
 
 	add_filter( 'wpseo_breadcrumb_single_link', 'wpseo_remove_breadcrumb_link', 10, 2 );
 }
+
+
+function wprocs_remove_excerpt_from_news() {
+    remove_post_type_support( 'news_post', 'excerpt' );
+}
+add_action( 'init', 'wprocs_remove_excerpt_from_news' );
