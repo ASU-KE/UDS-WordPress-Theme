@@ -57,9 +57,10 @@ if ( 'icon' == $header_style && '' != $icon_name ) {
 	$icon_name = sanitize_text_field( $icon_name );
 }
 
-// Retrieve additional classes from the 'advanced' field in the editor.
-if ( ! empty( $block['className'] ) ) {
-	$additional_classes = sanitize_text_field( $block['className'] );
+// If additional classes were requested, clean up the input and add them.
+$additional_classes = '';
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
 
 // Check for the 'hover' variant, and set the class if needed.
