@@ -15,6 +15,41 @@ function wprocs_remove_excerpt_from_news() {
 add_action( 'init', 'wprocs_remove_excerpt_from_news' );
 }
 
+function prefix_auto_featured_image() {
+    global $post;
+		$attached_image_id="";
+    if (!has_post_thumbnail($post->ID)) {
+
+			if ( has_blocks( $post->post_content ) ) {
+			    $blocks = parse_blocks( $post->post_content );
+			        foreach ( $blocks as $value ) {
+
+			          if($value['blockName']=='core/image'){
+
+									$attached_image_id= $value['attrs']['id'];
+									break;
+
+			          }
+
+			         }
+			      }
+
+      if ($attached_image_id) {
+
+                   set_post_thumbnail($post->ID, $attached_image_id);
+
+         }
+    }
+}
+add_action('the_post', 'prefix_auto_featured_image');
+add_action('save_post', 'prefix_auto_featured_image');
+add_action('draft_to_publish', 'prefix_auto_featured_image');
+add_action('new_to_publish', 'prefix_auto_featured_image');
+add_action('pending_to_publish', 'prefix_auto_featured_image');
+add_action('future_to_publish', 'prefix_auto_featured_image');
+
+
+
 
 
 /*
