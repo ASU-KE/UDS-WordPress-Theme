@@ -46,7 +46,7 @@ get_header();
 			</header><!-- .entry-header -->
 
 			<?php
-			// echo get_the_post_thumbnail( $post->ID, 'large' );
+
 			the_content();
 
 			$author_name = get_field( 'name' );
@@ -93,9 +93,9 @@ get_header();
 
 		</article><!-- #post-## -->
 
-	<?php
+		<?php
 	}
 
-    echo '</main><!-- #main -->';
+	echo '</main><!-- #main -->';
 
-get_footer();
+	get_footer();
