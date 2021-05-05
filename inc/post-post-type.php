@@ -18,13 +18,16 @@ if ( ! function_exists( 'wprocs_remove_excerpt_from_news' ) ) {
 	add_action( 'init', 'wprocs_remove_excerpt_from_news' );
 }
 
-if ( ! function_exists( 'assign_first_image_as_featured_image' ) ) {
+if ( ! function_exists( 'assign_featured_image_and_excerpt' ) ) {
 	/**
+	 * Assign default featured image an excerpt to each post
 	 * Get the first core/image block and assign it as a featured image if the field is empty
+	 * Get the ACF "excerpt" and assign the value to WP excerpt field if it was empty, or assign the excerpt field to ACF then make it empty.
 	 */
-	function assign_first_image_as_featured_image() {
+	function ssign_featured_image_and_excerpt() {
 		global $post;
 		$attached_image_id = '';
+		// To assign the featured image.
 		if ( ! has_post_thumbnail( $post->ID ) ) {
 			if ( has_blocks( $post->post_content ) ) {
 				$blocks = parse_blocks( $post->post_content );
@@ -40,7 +43,7 @@ if ( ! function_exists( 'assign_first_image_as_featured_image' ) ) {
 				   set_post_thumbnail( $post->ID, $attached_image_id );
 			}
 		}
-
+		// To assign the excerpt.
 		if ( ! $post->post_excerpt ) {
 			$post_excerpt_acf = get_field( 'excerpt', $post->ID );
 
@@ -52,11 +55,11 @@ if ( ! function_exists( 'assign_first_image_as_featured_image' ) ) {
 		}
 
 	}
-	add_action( 'the_post', 'assign_first_image_as_featured_image' );
-	add_action( 'save_post', 'assign_first_image_as_featured_image' );
-	add_action( 'draft_to_publish', 'assign_first_image_as_featured_image' );
-	add_action( 'new_to_publish', 'assign_first_image_as_featured_image' );
-	add_action( 'pending_to_publish', 'assign_first_image_as_featured_image' );
-	add_action( 'future_to_publish', 'assign_first_image_as_featured_image' );
+	add_action( 'the_post', 'ssign_featured_image_and_excerpt' );
+	add_action( 'save_post', 'ssign_featured_image_and_excerpt' );
+	add_action( 'draft_to_publish', 'ssign_featured_image_and_excerpt' );
+	add_action( 'new_to_publish', 'ssign_featured_image_and_excerpt' );
+	add_action( 'pending_to_publish', 'ssign_featured_image_and_excerpt' );
+	add_action( 'future_to_publish', 'ssign_featured_image_and_excerpt' );
 
 }
