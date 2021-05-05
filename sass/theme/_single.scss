@@ -21,6 +21,9 @@
 		margin-left: calc(8.34% + 1rem);
 		margin-right: calc(8.34% + 1rem);
 	}
+	.single article > figure{
+		display: block;
+	}
 }
 
 @include media-breakpoint-up(xl) {

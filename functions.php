@@ -36,7 +36,7 @@ $uds_wp_includes = array(
 	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
 	'/tiny-mce.php',                              // Create custom toolbars for the WYSIWYG editor in ACF.
 	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
-	'/news-post-type.php',                        // Create a custom post type for News.
+	//'/news-post-type.php',                        // Create a custom post type for News.
 );
 
 foreach ( $uds_wp_includes as $file ) {

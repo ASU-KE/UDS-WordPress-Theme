@@ -30,6 +30,7 @@ if ( 'image' === $bgchoice ) {
 	if( !empty( $bgcolor ) ) {
 		echo '<section class="uds-story-hero no-image ' . $bgcolor . ' entry-header">';
 	}
+	else echo '<section class="uds-story-hero no-image bg-gray-3 entry-header">';
 }
 
 // Return the rest of the section.
