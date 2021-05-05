@@ -146,8 +146,8 @@ function uds_sync_acf_fields_with_json() {
 		$modified = acf_maybe_get( $group, 'modified', 0 );
 		$private  = acf_maybe_get( $group, 'private', false );
 
-		if ( $local !== 'json' || $private ) {
-			// ignore DB / PHP / private field groups
+		if ( 'json' !== $local || $private ) {
+			// ignore DB / PHP / private field groups.
 			continue;
 		}
 
@@ -170,4 +170,4 @@ function uds_sync_acf_fields_with_json() {
 		acf_import_field_group( $sync[ $key ] );
 	}
 }
-add_action( 'admin_init', 'uds_sync_acf_fields_with_json');
+add_action( 'admin_init', 'uds_sync_acf_fields_with_json' );
