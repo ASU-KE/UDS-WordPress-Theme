@@ -19,6 +19,9 @@ var bso = require( './browserSyncOptions.json' );
 var cfg = require( './gulpconfig.json' );
 var paths = cfg.paths;
 
+// Use Dart Sass to avoid random compliation errors.
+sass.compiler = require('sass');
+
 /**
  * Compiles .scss to .css files.
  *
