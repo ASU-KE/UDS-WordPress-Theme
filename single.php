@@ -41,11 +41,7 @@ get_header();
 
 
 
-				<div class="entry-meta">
 
-					<p><?php echo get_the_date( 'F d, Y' ); ?></p>
-
-				</div><!-- .entry-meta -->
 
 			</header><!-- .entry-header -->
 

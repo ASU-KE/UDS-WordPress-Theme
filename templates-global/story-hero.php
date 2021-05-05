@@ -37,7 +37,7 @@ if ( 'image' === $bgchoice ) {
 ?>
 
 <div class="content">
-	<p class="meta entry-meta"><?php uds_wp_posted_on(); ?></p>
+	<p class="meta entry-meta"><?php echo get_the_date( 'F d, Y' ); ?></p>
 	<?php
 /*	if ( function_exists( 'yoast_breadcrumb' ) ) {
 		echo '<div class="bg-white"><nav aria-label="breadcrumbs">';
@@ -47,5 +47,6 @@ if ( 'image' === $bgchoice ) {
 	}*/
 	?>
 	<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
+
 </div>
 </section>
