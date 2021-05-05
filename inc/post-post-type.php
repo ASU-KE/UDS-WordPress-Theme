@@ -13,7 +13,7 @@ if ( ! function_exists( 'wprocs_remove_excerpt_from_news' ) ) {
 	 * Remove the original excerpt WP field from post
 	 */
 	function wprocs_remove_excerpt_from_news() {
-		remove_post_type_support( 'post', 'excerpt' );
+		 remove_post_type_support( 'post', 'excerpt' );
 	}
 	add_action( 'init', 'wprocs_remove_excerpt_from_news' );
 }
@@ -26,26 +26,31 @@ if ( ! function_exists( 'assign_first_image_as_featured_image' ) ) {
 		global $post;
 		$attached_image_id = '';
 		if ( ! has_post_thumbnail( $post->ID ) ) {
-
 			if ( has_blocks( $post->post_content ) ) {
 				$blocks = parse_blocks( $post->post_content );
 				foreach ( $blocks as $value ) {
-
 					if ( 'core/image' == $value['blockName'] ) {
-
 								  $attached_image_id = $value['attrs']['id'];
 								  break;
-
 					}
 				}
 			}
 
 			if ( $attached_image_id ) {
-
 				   set_post_thumbnail( $post->ID, $attached_image_id );
-
 			}
 		}
+
+		if ( ! $post->post_excerpt ) {
+			$post_excerpt_acf = get_field( 'excerpt', $post->ID );
+
+
+			$post->post_excerpt = $post_excerpt_acf;
+		} else {
+			update_field( 'excerpt', $post->post_excerpt, $post->ID );
+			$post->post_excerpt = '';
+		}
+
 	}
 	add_action( 'the_post', 'assign_first_image_as_featured_image' );
 	add_action( 'save_post', 'assign_first_image_as_featured_image' );

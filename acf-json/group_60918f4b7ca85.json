@@ -1,6 +1,6 @@
 {
     "key": "group_60918f4b7ca85",
-    "title": "News excerpt",
+    "title": "Posts excerpt",
     "fields": [
         {
             "key": "field_6091907b6f22c",
@@ -41,5 +41,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620248023
+    "modified": 1620255686
 }
