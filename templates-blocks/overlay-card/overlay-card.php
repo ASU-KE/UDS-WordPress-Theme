@@ -33,9 +33,11 @@ if ( ! $hover_image ) {
 	$hover_image = array(
 		'url' => 'https://thesundevils.com/common/controls/image_handler.aspx?thumb_id=0&image_path=/images/2020/4/27/ASU_Sun_Devil_Athetics_Video_Background_76.jpg',
 	);}
+
+// If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
-if ( ! empty( $block['className'] ) ) {
-	$additional_classes = $block['className'];
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
 
 ?>
