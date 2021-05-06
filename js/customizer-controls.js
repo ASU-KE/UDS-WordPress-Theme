@@ -44,4 +44,38 @@
 		api.control( 'logo_url', linkSettingValueToControl );
 	} );
 
+	/**
+	 *
+	 */
+	 api( 'footer_unit_name_type', function( setting ) {
+		var linkSettingValueToControl;
+
+		/**
+		 * Show/hide footer text input based on value of radio controls.
+		 * When 'footer_unit_name_type' control is changed, we check to
+		 * see if it is set to 'default'. If so, we hide the text input.
+		 * If not, it must be 'custom', and we show the input.
+		 *
+		 * @param {api.Control} control the footer_unit_name_type control.
+		 */
+		linkSettingValueToControl = function( control ) {
+			var visibility = function() {
+				if ( 'default' === setting.get() ) {
+					control.container.slideUp( 180 );
+				} else {
+					control.container.slideDown( 180 );
+				}
+			};
+
+			// Set initial active state.
+			visibility();
+
+			//Update activate state whenever the setting is changed.
+			setting.bind( visibility );
+		};
+
+		// Call linkSettingValueToControl on our drop-down and URL fields.
+		api.control( 'footer_unit_name_text', linkSettingValueToControl );
+	} );
+
 }( wp.customize ) );
