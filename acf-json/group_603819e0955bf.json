@@ -227,7 +227,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -254,7 +254,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -281,7 +281,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -313,15 +313,16 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
             "choices": {
+                "auto": "Auto",
                 "cover": "Cover",
                 "contain": "Contain"
             },
-            "default_value": "cover",
+            "default_value": "auto",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -346,6 +347,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1618952472
+    "description": "Field for creating a background <code><section><\/code> as a wrapper for other elements.",
+    "modified": 1620404517
 }
