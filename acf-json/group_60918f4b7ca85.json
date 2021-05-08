@@ -1,6 +1,6 @@
 {
     "key": "group_60918f4b7ca85",
-    "title": "Posts excerpt",
+    "title": "Post excerpt",
     "fields": [
         {
             "key": "field_6091907b6f22c",
@@ -41,5 +41,5 @@
     ],
     "active": true,
     "description": "Override the built-in WP post excerpt field",
-    "modified": 1620439579
+    "modified": 1620442725
 }
