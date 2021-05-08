@@ -18,13 +18,13 @@ if ( ! function_exists( 'wprocs_remove_excerpt_from_news' ) ) {
 	add_action( 'init', 'wprocs_remove_excerpt_from_news' );
 }
 
-if ( ! function_exists( 'assign_featured_image_and_excerpt' ) ) {
+if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
 	/**
 	 * Assign default featured image an excerpt to each post
 	 * Get the first core/image block and assign it as a featured image if the field is empty
 	 * Get the ACF "excerpt" and assign the value to WP excerpt field if it was empty, or assign the excerpt field to ACF then make it empty.
 	 */
-	function ssign_featured_image_and_excerpt() {
+	function uds_assign_featured_image_and_excerpt() {
 		global $post;
 		$attached_image_id = '';
 		// To assign the featured image.
@@ -55,11 +55,11 @@ if ( ! function_exists( 'assign_featured_image_and_excerpt' ) ) {
 		}
 
 	}
-	add_action( 'the_post', 'ssign_featured_image_and_excerpt' );
-	add_action( 'save_post', 'ssign_featured_image_and_excerpt' );
-	add_action( 'draft_to_publish', 'ssign_featured_image_and_excerpt' );
-	add_action( 'new_to_publish', 'ssign_featured_image_and_excerpt' );
-	add_action( 'pending_to_publish', 'ssign_featured_image_and_excerpt' );
-	add_action( 'future_to_publish', 'ssign_featured_image_and_excerpt' );
+	add_action( 'the_post', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'save_post', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'draft_to_publish', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'new_to_publish', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'pending_to_publish', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'future_to_publish', 'uds_assign_featured_image_and_excerpt' );
 
 }
