@@ -116,3 +116,43 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 
 	return apply_filters( 'uds_rest_api_featured_image', $featured_image, $image_id );
 }
+
+/**
+ * Register the ACF post excerpt field to add it to the /post API endpoint.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
+ * @uses array() https://www.php.net/manual/en/function.array.php
+ */
+function register_uds_post_excerpt_api_field()
+{
+    register_rest_field('post', 'uds-post-excerpt',
+        array(
+            'get_callback' => 'get_uds_post_excerpt_api_field',
+            'schema' => null,
+        )
+    );
+}
+
+/**
+ * Hook: after_setup_theme.
+ *
+ * @uses add_action() https://developer.wordpress.org/reference/functions/add_action/
+ * @uses rest_api_init https://developer.wordpress.org/reference/hooks/rest_api_init/
+ */
+add_action('rest_api_init', 'register_uds_post_excerpt_api_field');
+
+
+/**
+ * get_related_posts_api_field.
+ *
+ * Callback function for register_related_posts_api_field
+ * Fetch and return the value of a related_posts Acf field.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
+ */
+function get_uds_post_excerpt_api_field($post)
+{
+    return get_field('uds_post_excerpt', $post['id']);
+}
