@@ -128,7 +128,7 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 function register_uds_post_excerpt_api_field() {
 	register_rest_field(
 		'post',
-		'uds-post-excerpt',
+		'uds_post_excerpt',
 		array(
 			'get_callback' => 'get_uds_post_excerpt_api_field',
 			'schema' => null,
