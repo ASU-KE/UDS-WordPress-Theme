@@ -5,7 +5,7 @@
         {
             "key": "field_6091907b6f22c",
             "label": "Excerpt",
-            "name": "excerpt",
+            "name": "uds_post_excerpt",
             "type": "textarea",
             "instructions": "",
             "required": 1,
@@ -40,6 +40,6 @@
         "excerpt"
     ],
     "active": true,
-    "description": "",
-    "modified": 1620255686
+    "description": "Override the built-in WP post excerpt field",
+    "modified": 1620439579
 }

@@ -8,14 +8,14 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'wprocs_remove_excerpt_from_news' ) ) {
+if ( ! function_exists( 'uds_remove_excerpt_from_news' ) ) {
 	/**
 	 * Remove the original excerpt WP field from post
 	 */
-	function wprocs_remove_excerpt_from_news() {
-		 remove_post_type_support( 'post', 'excerpt' );
+	function uds_remove_excerpt_from_news() {
+		 remove_post_type_support( 'post', 'uds_post_excerpt' );
 	}
-	add_action( 'init', 'wprocs_remove_excerpt_from_news' );
+	add_action( 'init', 'uds_remove_excerpt_from_news' );
 }
 
 if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
@@ -33,8 +33,8 @@ if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
 				$blocks = parse_blocks( $post->post_content );
 				foreach ( $blocks as $value ) {
 					if ( 'core/image' == $value['blockName'] ) {
-								  $attached_image_id = $value['attrs']['id'];
-								  break;
+						$attached_image_id = $value['attrs']['id'];
+						break;
 					}
 				}
 			}
@@ -45,11 +45,11 @@ if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
 		}
 		// To assign the excerpt.
 		if ( ! $post->post_excerpt ) {
-			$post_excerpt_acf = get_field( 'excerpt', $post->ID );
+			$post_excerpt_acf = get_field( 'uds_post_excerpt', $post->ID );
 			// $post->post_excerpt = $post_excerpt_acf;
 
 		} else {
-			update_field( 'excerpt', $post->post_excerpt, $post->ID );
+			update_field( 'uds_post_excerpt', $post->post_excerpt, $post->ID );
 			$post->post_excerpt = '';
 		}
 
