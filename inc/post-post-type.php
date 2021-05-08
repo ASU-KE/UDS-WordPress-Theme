@@ -13,7 +13,7 @@ if ( ! function_exists( 'uds_remove_excerpt_from_news' ) ) {
 	 * Remove the original excerpt WP field from post
 	 */
 	function uds_remove_excerpt_from_news() {
-		 remove_post_type_support( 'post', 'uds_post_excerpt' );
+		 remove_post_type_support( 'post', 'excerpt' );
 	}
 	add_action( 'init', 'uds_remove_excerpt_from_news' );
 }
