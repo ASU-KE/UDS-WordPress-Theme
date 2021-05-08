@@ -10,7 +10,6 @@
   * @package uds-wordpress-theme
   */
 
-
 add_action( 'init', 'uds_rest_api_featured_images_init', 12 );
 
 /**
@@ -33,9 +32,10 @@ function uds_rest_api_featured_images_init() {
 		// and supports featured images.
 		if ( $show_in_rest && $supports_thumbnail ) {
 
-			// Compatibility with the REST API v2 beta 9+
+			// Compatibility with the REST API v2 beta 9+.
 			if ( function_exists( 'register_rest_field' ) ) {
-				register_rest_field( $post_type_name,
+				register_rest_field(
+					$post_type_name,
 					'uds_featured_image',
 					array(
 						'get_callback' => 'uds_rest_api_featured_images_get_field',
@@ -43,7 +43,8 @@ function uds_rest_api_featured_images_init() {
 					)
 				);
 			} elseif ( function_exists( 'register_api_field' ) ) {
-				register_api_field( $post_type_name,
+				register_api_field(
+					$post_type_name,
 					'uds_featured_image',
 					array(
 						'get_callback' => 'uds_rest_api_featured_images_get_field',
@@ -60,9 +61,9 @@ function uds_rest_api_featured_images_init() {
  *
  * @since   1.0.0
  *
- * @param   object  $object      The response object.
- * @param   string  $field_name  The name of the field to add.
- * @param   object  $request     The WP_REST_Request object.
+ * @param   object $object      The response object.
+ * @param   string $field_name  The name of the field to add.
+ * @param   object $request     The WP_REST_Request object.
  *
  * @return  object|null
  */
@@ -70,10 +71,10 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 
 	// Only proceed if the post has a featured image.
 	if ( ! empty( $object['featured_media'] ) ) {
-		$image_id = (int)$object['featured_media'];
+		$image_id = (int) $object['featured_media'];
 	} elseif ( ! empty( $object['featured_image'] ) ) {
 		// This was added for backwards compatibility with < WP REST API v2 Beta 11.
-		$image_id = (int)$object['featured_image'];
+		$image_id = (int) $object['featured_image'];
 	} else {
 		return null;
 	}
@@ -95,7 +96,7 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 	$featured_image['source_url']    = wp_get_attachment_url( $image_id );
 
 	if ( empty( $featured_image['media_details'] ) ) {
-		$featured_image['media_details'] = new stdClass;
+		$featured_image['media_details'] = new stdClass();
 	} elseif ( ! empty( $featured_image['media_details']['sizes'] ) ) {
 		$img_url_basename = wp_basename( $featured_image['source_url'] );
 		foreach ( $featured_image['media_details']['sizes'] as $size => &$size_data ) {
@@ -111,7 +112,7 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 		$featured_image['media_details'] = new stdClass();
 		$featured_image['media_details']->sizes = new stdClass();
 	} else {
-		$featured_image['media_details']['sizes'] = new stdClass;
+		$featured_image['media_details']['sizes'] = new stdClass();
 	}
 
 	return apply_filters( 'uds_rest_api_featured_image', $featured_image, $image_id );
@@ -124,14 +125,15 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
  * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
  * @uses array() https://www.php.net/manual/en/function.array.php
  */
-function register_uds_post_excerpt_api_field()
-{
-    register_rest_field('post', 'uds-post-excerpt',
-        array(
-            'get_callback' => 'get_uds_post_excerpt_api_field',
-            'schema' => null,
-        )
-    );
+function register_uds_post_excerpt_api_field() {
+	register_rest_field(
+		'post',
+		'uds-post-excerpt',
+		array(
+			'get_callback' => 'get_uds_post_excerpt_api_field',
+			'schema' => null,
+		)
+	);
 }
 
 /**
@@ -140,19 +142,17 @@ function register_uds_post_excerpt_api_field()
  * @uses add_action() https://developer.wordpress.org/reference/functions/add_action/
  * @uses rest_api_init https://developer.wordpress.org/reference/hooks/rest_api_init/
  */
-add_action('rest_api_init', 'register_uds_post_excerpt_api_field');
-
+add_action( 'rest_api_init', 'register_uds_post_excerpt_api_field' );
 
 /**
- * get_related_posts_api_field.
- *
  * Callback function for register_related_posts_api_field
  * Fetch and return the value of a related_posts Acf field.
+ *
+ * @param   object $post      The Post object.
  *
  * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
  * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
  */
-function get_uds_post_excerpt_api_field($post)
-{
-    return get_field('uds_post_excerpt', $post['id']);
+function get_uds_post_excerpt_api_field( $post ) {
+	return get_field( 'uds_post_excerpt', $post['id'] );
 }
