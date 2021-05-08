@@ -46,9 +46,8 @@ if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
 		// To assign the excerpt.
 		if ( ! $post->post_excerpt ) {
 			$post_excerpt_acf = get_field( 'excerpt', $post->ID );
+			// $post->post_excerpt = $post_excerpt_acf;
 
-
-			$post->post_excerpt = $post_excerpt_acf;
 		} else {
 			update_field( 'excerpt', $post->post_excerpt, $post->ID );
 			$post->post_excerpt = '';
