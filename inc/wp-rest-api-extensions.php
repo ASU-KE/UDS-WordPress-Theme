@@ -147,3 +147,53 @@ add_action( 'rest_api_init', 'uds_register_post_excerpt_api_field' );
 function uds_get_post_excerpt_api_field( $post ) {
 	return get_field( 'uds_post_excerpt', $post['id'] );
 }
+
+/**
+ * Register the ACF post author fields to add them to the /post API endpoint.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
+ * @uses array() https://www.php.net/manual/en/function.array.php
+ */
+function uds_register_news_author_api_fields() {
+	register_rest_field(
+		'post',
+		'uds_news_author',
+		array(
+			'get_callback' => 'uds_get_news_author_api_field',
+			'schema' => null,
+		)
+	);
+}
+add_action( 'rest_api_init', 'uds_register_news_author_api_fields' );
+
+/**
+ * Fetch and return the value of the uds_news_author ACF fields.
+ *
+ * @param   object $post      The Post object.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
+ */
+function uds_get_news_author_api_field( $post ) {
+	$uds_news_author_name =  get_field( 'uds_news_author_name', $post['id'] );
+	$uds_news_author_title =  get_field( 'uds_news_author_title', $post['id'] );
+	$uds_news_author_email =  get_field( 'uds_news_author_email', $post['id'] );
+	$uds_news_author_phone =  get_field( 'uds_news_author_phone', $post['id'] );
+
+	if (
+		empty($uds_news_author_name) &&
+		empty($uds_news_author_title) &&
+		empty($uds_news_author_email) &&
+		empty($uds_news_author_phone)
+	) {
+		return null;
+	}
+
+	return array(
+		'name' => $uds_news_author_name,
+		'title' => $uds_news_author_title,
+		'email' => $uds_news_author_email,
+		'phone' => $uds_news_author_phone,
+	);
+}
