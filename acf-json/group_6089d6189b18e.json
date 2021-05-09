@@ -5,7 +5,7 @@
         {
             "key": "field_6089d62743512",
             "label": "Name",
-            "name": "name",
+            "name": "uds_news_author_name",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -24,7 +24,7 @@
         {
             "key": "field_6089d71d4de0f",
             "label": "Title",
-            "name": "title",
+            "name": "uds_news_author_title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -43,7 +43,7 @@
         {
             "key": "field_6089d66b43513",
             "label": "Email",
-            "name": "email",
+            "name": "uds_news_author_email",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -61,7 +61,7 @@
         {
             "key": "field_6089d67c43514",
             "label": "Phone",
-            "name": "phone",
+            "name": "uds_news_author_phone",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -98,6 +98,6 @@
         "author"
     ],
     "active": true,
-    "description": "",
-    "modified": 1620442665
+    "description": "Article author fields for ASU News posts",
+    "modified": 1620599613
 }
