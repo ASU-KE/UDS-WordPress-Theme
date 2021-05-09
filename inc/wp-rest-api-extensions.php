@@ -10,8 +10,6 @@
   * @package uds-wordpress-theme
   */
 
-add_action( 'init', 'uds_rest_api_featured_images_init', 12 );
-
 /**
  * Register our featured_image field to all public post types
  * that support post thumbnails.
@@ -55,6 +53,7 @@ function uds_rest_api_featured_images_init() {
 		}
 	}
 }
+add_action( 'init', 'uds_rest_api_featured_images_init', 12 );
 
 /**
  * Return the featured_image field.
@@ -125,34 +124,26 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
  * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
  * @uses array() https://www.php.net/manual/en/function.array.php
  */
-function register_uds_post_excerpt_api_field() {
+function uds_register_post_excerpt_api_field() {
 	register_rest_field(
 		'post',
 		'uds_post_excerpt',
 		array(
-			'get_callback' => 'get_uds_post_excerpt_api_field',
+			'get_callback' => 'uds_get_post_excerpt_api_field',
 			'schema' => null,
 		)
 	);
 }
+add_action( 'rest_api_init', 'uds_register_post_excerpt_api_field' );
 
 /**
- * Hook: after_setup_theme.
- *
- * @uses add_action() https://developer.wordpress.org/reference/functions/add_action/
- * @uses rest_api_init https://developer.wordpress.org/reference/hooks/rest_api_init/
- */
-add_action( 'rest_api_init', 'register_uds_post_excerpt_api_field' );
-
-/**
- * Callback function for register_related_posts_api_field
- * Fetch and return the value of a related_posts Acf field.
+ * Fetch and return the value of the post_excerpt Acf field.
  *
  * @param   object $post      The Post object.
  *
  * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
  * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
  */
-function get_uds_post_excerpt_api_field( $post ) {
+function uds_get_post_excerpt_api_field( $post ) {
 	return get_field( 'uds_post_excerpt', $post['id'] );
 }
