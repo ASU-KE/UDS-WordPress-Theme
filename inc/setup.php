@@ -130,10 +130,11 @@ if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
 	 */
 	function uds_wp_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
+			/*$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
 				'uds-wordpress-theme'
-			) . '</a></p>';
+			) . '</a></p>';*/
+			$post_excerpt = $post_excerpt . ' ... ';
 		}
 		return $post_excerpt;
 	}

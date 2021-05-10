@@ -18,8 +18,10 @@ get_header();
 
 ?>
 
-	<main id="skip-to-content" <?php post_class(); ?>>
 
+	<main id="skip-to-content" <?php post_class(); ?>>
+		<div class="container py-6">
+			<div class="row">
 		<?php
 		if ( have_posts() ) {
 
@@ -34,17 +36,19 @@ get_header();
 				* If you want to override this in a child theme, then include a file
 				* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				*/
+
 				get_template_part( 'templates-loop/content', get_post_format() );
 
-			}       
+			}
 		} else {
 			get_template_part( 'templates-loop/content', 'none' );
 		}
 
 		?>
-
+	</div>
+	</div>
 	</main><!-- #main -->
+
 
 <?php
 get_footer();
-

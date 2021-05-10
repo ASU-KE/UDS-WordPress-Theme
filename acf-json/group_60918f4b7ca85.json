@@ -41,5 +41,6 @@
     ],
     "active": true,
     "description": "Override the built-in WP post excerpt field",
-    "modified": 1620442725
+    "modified": 1620659308,
+    "local_file": "\/app\/wp-content\/themes\/UDS-WordPress-Theme\/acf-json\/group_60918f4b7ca85.json"
 }

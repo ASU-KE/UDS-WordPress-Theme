@@ -56,10 +56,15 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'uds-wordpress-theme' ) );
+			//$categories_list = get_the_category_list( esc_html__( ' ', 'uds-wordpress-theme' ) );
+			$categories_list = preg_replace('/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( esc_html__( ' ', 'uds-wordpress-theme' ) ));
+if(!is_single())$wrapper_class="card-tags";
+else $wrapper_class="";
+			//$categories_list = get_the_category_list();
 			if ( $categories_list && uds_wp_categorized_blog() ) {
 				/* translators: %s: Categories of current post */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'uds-wordpress-theme' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+printf( '<div class="'.$wrapper_class.'">' . esc_html__( '%s', 'uds-wordpress-theme' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'uds-wordpress-theme' ) );
@@ -79,8 +84,8 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 				esc_html__( 'Edit %s', 'uds-wordpress-theme' ),
 				the_title( '<span class="sr-only">"', '"</span>', false )
 			),
-			'<span class="edit-link">',
-			'</span>'
+			'<div class="'.$wrapper_class.' edit-link my-1">',
+			'</div>'
 		);
 	}
 }
