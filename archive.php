@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-<?php get_template_part( 'templates-global/hero' );?>
+<?php get_template_part( 'templates-global/hero' ); ?>
 <main id="skip-to-content" <?php post_class( 'container' ); ?>>
 
 
