@@ -176,16 +176,16 @@ add_action( 'rest_api_init', 'uds_register_news_author_api_fields' );
  * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
  */
 function uds_get_news_author_api_field( $post ) {
-	$uds_news_author_name =  get_field( 'uds_news_author_name', $post['id'] );
-	$uds_news_author_title =  get_field( 'uds_news_author_title', $post['id'] );
-	$uds_news_author_email =  get_field( 'uds_news_author_email', $post['id'] );
-	$uds_news_author_phone =  get_field( 'uds_news_author_phone', $post['id'] );
+	$uds_news_author_name = get_field( 'uds_news_author_name', $post['id'] );
+	$uds_news_author_title = get_field( 'uds_news_author_title', $post['id'] );
+	$uds_news_author_email = get_field( 'uds_news_author_email', $post['id'] );
+	$uds_news_author_phone = get_field( 'uds_news_author_phone', $post['id'] );
 
 	if (
-		empty($uds_news_author_name) &&
-		empty($uds_news_author_title) &&
-		empty($uds_news_author_email) &&
-		empty($uds_news_author_phone)
+		empty( $uds_news_author_name ) &&
+		empty( $uds_news_author_title ) &&
+		empty( $uds_news_author_email ) &&
+		empty( $uds_news_author_phone )
 	) {
 		return null;
 	}
