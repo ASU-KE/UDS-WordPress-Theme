@@ -197,3 +197,53 @@ function uds_get_news_author_api_field( $post ) {
 		'phone' => $uds_news_author_phone,
 	);
 }
+
+/**
+ * Register the ACF Story Hero fields for the /post API endpoint.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
+ * @uses array() https://www.php.net/manual/en/function.array.php
+ */
+function uds_register_post_story_hero_api_fields() {
+	register_rest_field(
+		'post',
+		'uds_story_hero',
+		array(
+			'get_callback' => 'uds_get_post_story_hero_api_field',
+			'schema' => null,
+		)
+	);
+}
+add_action( 'rest_api_init', 'uds_register_post_story_hero_api_fields' );
+
+/**
+ * Fetch and return the value of the uds_news_author ACF fields.
+ *
+ * @param   object $post      The Post object.
+ *
+ * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
+ * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
+ */
+function uds_get_post_story_hero_api_field( $post ) {
+	$uds_story_hero_background_choice     = get_field( 'uds_story_hero_background_choice', $post['id'] );
+	$uds_story_hero_background_color      = get_field( 'uds_story_hero_background_color', $post['id'] );
+	$uds_story_hero_background_image      = get_field( 'uds_story_hero_background_image', $post['id'] );
+	$uds_story_hero_background_image_size = get_field( 'uds_story_hero_background_image_size', $post['id'] );
+
+	if (
+		empty( $uds_story_hero_background_choice ) &&
+		empty( $uds_story_hero_background_color ) &&
+		empty( $uds_story_hero_background_image ) &&
+		empty( $uds_story_hero_background_image_size )
+	) {
+		return null;
+	}
+
+	return array(
+		'background_choice'     => $uds_story_hero_background_choice,
+		'background_color'      => $uds_story_hero_background_color,
+		'background_image'      => $uds_story_hero_background_image,
+		'background_image_size' => $uds_story_hero_background_image_size,
+	);
+}
