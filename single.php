@@ -59,11 +59,11 @@ get_header();
 				if ( $author_email || $author_phone ) {
 					echo '<p>';
 					if ( $author_email ) {
-						echo '<a href="mailto:' . $author_email . '"><i class="fas fa-envelope-square"></i>' . $author_email . '</a>';
+						echo '<span class="fas fa-envelope-square"></span><a href="mailto:' . $author_email . '">' . $author_email . '</a>';
 					}
 					echo '</br>';
 					if ( $author_phone ) {
-						echo '<a href="tel:' . $author_phone . '"><i class="fas fa-phone-square"></i>' . $author_phone . '</a>';
+						echo '<span class="fas fa-phone-square"></span><a href="tel:' . $author_phone . '">' . $author_phone . '</a>';
 					}
 					echo '</p>';
 				}

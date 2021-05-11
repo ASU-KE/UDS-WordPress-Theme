@@ -50,3 +50,11 @@
 		margin-right:auto;
 	}
 }
+
+/*--------------------------------------------------------------
+5. Author information
+--------------------------------------------------------------*/
+.single .author_info svg {
+	margin-right: $uds-size-spacing-1;
+	color: $uds-color-base-maroon;
+}
