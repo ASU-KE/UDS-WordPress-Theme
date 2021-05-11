@@ -141,3 +141,17 @@ if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
 		return $post_excerpt;
 	}
 }
+
+add_filter( 'excerpt_length', 'uds_wp_custom_excerpt_length', 999 );
+
+if ( ! function_exists( 'uds_wp_custom_excerpt_length' ) ) {
+	/**
+	 * Set a max number of words for excerpt.
+	 *
+	 * @param int $length the number of words in excerpt.
+	 */
+	function uds_wp_custom_excerpt_length( $length ) {
+		return 50;
+	}
+
+}
