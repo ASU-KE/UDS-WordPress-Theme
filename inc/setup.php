@@ -118,30 +118,6 @@ if ( ! function_exists( 'uds_wp_custom_excerpt_more' ) ) {
 	}
 }
 
-add_filter( 'wp_trim_excerpt', 'uds_wp_all_excerpts_get_more_link' );
-
-if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
-	/**
-	 * Adds a custom read more link to all excerpts, manually or automatically generated
-	 *
-	 * @param string $post_excerpt Posts's excerpt.
-	 *
-	 * @return string
-	 */
-	function uds_wp_all_excerpts_get_more_link( $post_excerpt ) {
-		if ( ! is_admin() ) {
-			/*
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
-				'Read More...',
-				'uds-wordpress-theme'
-			) . '</a></p>';
-			*/
-			$post_excerpt = $post_excerpt . ' ... ';
-		}
-		return $post_excerpt;
-	}
-}
-
 add_filter( 'excerpt_length', 'uds_wp_custom_excerpt_length', 999 );
 
 if ( ! function_exists( 'uds_wp_custom_excerpt_length' ) ) {
