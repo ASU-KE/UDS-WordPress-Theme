@@ -118,37 +118,6 @@ function uds_rest_api_featured_images_get_field( $object, $field_name, $request 
 }
 
 /**
- * Register the ACF post excerpt field to add it to the /post API endpoint.
- *
- * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
- * @uses register_rest_field() https://developer.wordpress.org/reference/functions/register_rest_field/
- * @uses array() https://www.php.net/manual/en/function.array.php
- */
-function uds_register_post_excerpt_api_field() {
-	register_rest_field(
-		'post',
-		'uds_post_excerpt',
-		array(
-			'get_callback' => 'uds_get_post_excerpt_api_field',
-			'schema' => null,
-		)
-	);
-}
-add_action( 'rest_api_init', 'uds_register_post_excerpt_api_field' );
-
-/**
- * Fetch and return the value of the post_excerpt Acf field.
- *
- * @param   object $post      The Post object.
- *
- * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
- * @uses get_field() https://www.advancedcustomfields.com/resources/get_field/
- */
-function uds_get_post_excerpt_api_field( $post ) {
-	return get_field( 'uds_post_excerpt', $post['id'] );
-}
-
-/**
  * Register the ACF post author fields to add them to the /post API endpoint.
  *
  * @see https://since1979.dev/add-custom-acf-fields-to-the-wp-rest-api/
