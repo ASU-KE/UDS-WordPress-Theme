@@ -23,29 +23,24 @@ get_header();
 
 		the_post();
 
-		get_template_part( 'templates-global/story-hero' );
 		get_template_part( 'templates-global/global-banner' );
+		get_template_part( 'templates-global/story-hero' );
 
 		?>
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-			<header class="entry-header">
-
-				<div class="row" id="social-media">
-					<nav class="nav flaot-left" aria-label="Social Media">
-						<a class="nav-link text-maroon" href="#"><span title="Facebook" class="fab fa-facebook-square"></span></a>
-						<a class="nav-link text-maroon" href="#"><span title="Twitter" class="fab fa-twitter-square"></span></a>
-						<a class="nav-link text-maroon" href="#"><span title="LinkedIn" class="fab fa-linkedin"></span></a>
-					</ul>
-				</div>
-
-
-
-
-
-			</header><!-- .entry-header -->
 
 			<?php
+			// TODO: Identify how we will add and control the social media "intent to repost" icons. Sample markup follows.
+
+			// <header class="entry-header">
+			// 	<div class="row" id="social-media">
+			// 		<nav class="nav flaot-left" aria-label="Social Media">
+			// 			<a class="nav-link text-maroon" href="#"><span title="Facebook" class="fab fa-facebook-square"></span></a>
+			// 			<a class="nav-link text-maroon" href="#"><span title="Twitter" class="fab fa-twitter-square"></span></a>
+			// 			<a class="nav-link text-maroon" href="#"><span title="LinkedIn" class="fab fa-linkedin"></span></a>
+			// 		</ul>
+			// 	</div>
 
 			the_content();
 
