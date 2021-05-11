@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * Determine if the user has chosen a background color or an image.
  */
 $bgchoice = get_field( 'uds_story_hero_background_choice' );
-$hero_size = get_field ( 'uds_story_hero_background_image_size' );
+$hero_size = get_field( 'uds_story_hero_background_image_size' );
 
 // Build initial section tag with correct hero size.
 $section_open = '<section class="uds-story-hero entry-header';
@@ -31,7 +31,6 @@ if ( 'image' === $bgchoice ) {
 	if ( ! empty( $bgimage ) ) {
 		echo '<img class="hero" src="' . esc_url( $bgimage['url'] ) . '" alt="' . esc_attr( $bgimage['alt'] ) . '" />';
 	}
-
 } else {
 
 	// 'color' === $bgchoice

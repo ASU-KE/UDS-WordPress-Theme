@@ -129,10 +129,9 @@ if ( ! function_exists( 'uds_wp_custom_excerpt_length' ) ) {
 	function uds_wp_custom_excerpt_length( $length ) {
 		return 50;
 	}
-
 }
 
-add_filter( 'get_the_archive_title' , 'uds_wp_custom_archive_title' );
+add_filter( 'get_the_archive_title', 'uds_wp_custom_archive_title' );
 
 if ( ! function_exists( 'uds_wp_custom_archive_title' ) ) {
 
@@ -140,10 +139,9 @@ if ( ! function_exists( 'uds_wp_custom_archive_title' ) ) {
 	 * Remove the default WordPress object label from archive title pages.
 	 * https://developer.wordpress.org/reference/hooks/get_the_archive_title/#user-contributed-notes
 	 *
-	 * @param string
+	 * @param string $title archive title.
 	 * @return string
 	 */
-
 	function uds_wp_custom_archive_title( $title ) {
 		if ( is_category() ) {
 			$title = single_cat_title( '', false );
