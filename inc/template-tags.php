@@ -166,3 +166,37 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 		echo trim( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 }
+
+if ( ! function_exists( 'uds_assign_featured_image' ) ) {
+	/**
+	 * Assign default featured image an excerpt to each post
+	 * Get the first core/image block and assign it as a featured image if the field is empty
+	 */
+	function uds_assign_featured_image() {
+		global $post;
+		$attached_image_id = '';
+		// Scan the post content, identify the first core/image block found and assign to featured image.
+		if ( ! has_post_thumbnail( $post->ID ) ) {
+			if ( has_blocks( $post->post_content ) ) {
+				$blocks = parse_blocks( $post->post_content );
+				foreach ( $blocks as $value ) {
+					if ( 'core/image' == $value['blockName'] ) {
+						$attached_image_id = $value['attrs']['id'];
+						break;
+					}
+				}
+			}
+
+			if ( $attached_image_id ) {
+				set_post_thumbnail( $post->ID, $attached_image_id );
+			}
+		}
+
+	}
+	add_action( 'the_post', 'uds_assign_featured_image' );
+	add_action( 'save_post', 'uds_assign_featured_image' );
+	add_action( 'draft_to_publish', 'uds_assign_featured_image' );
+	add_action( 'new_to_publish', 'uds_assign_featured_image' );
+	add_action( 'pending_to_publish', 'uds_assign_featured_image' );
+	add_action( 'future_to_publish', 'uds_assign_featured_image' );
+}
