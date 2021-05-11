@@ -1,3 +1,8 @@
+/*--------------------------------------------------------------
+1. Single.php, story hero, no background image.
+--------------------------------------------------------------*/
+
+// Adjust height of the header to hero-small size if there's no actual image present.
 .single .uds-story-hero.no-image {
 	grid-template-rows: calc(#{$uds-size-spacing-16} - 4.5rem) 4.5rem auto;
 
@@ -6,6 +11,10 @@
 		width:100%;
 	}
 }
+
+/*--------------------------------------------------------------
+2. Content width, mobile
+--------------------------------------------------------------*/
 
 .single article {
 	padding: $uds-size-spacing-2;
@@ -16,6 +25,10 @@
 	margin-right: auto;
 }
 
+/*--------------------------------------------------------------
+3. Content width > 950px.
+--------------------------------------------------------------*/
+
 @media (min-width: 950px) {
 	.single article > * {
 		margin-left: calc(8.34% + 1rem);
@@ -25,6 +38,10 @@
 		display: block;
 	}
 }
+
+/*--------------------------------------------------------------
+4. Content width, desktop (xl)
+--------------------------------------------------------------*/
 
 @include media-breakpoint-up(xl) {
 	.single article > * {
