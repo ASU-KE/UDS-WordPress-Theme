@@ -20,16 +20,15 @@ if ( ! function_exists( 'custom_excerpt_length' ) ) {
 	add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 }
 
-if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
+if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
 	 * Assign default featured image an excerpt to each post
 	 * Get the first core/image block and assign it as a featured image if the field is empty
-	 * Get the ACF "excerpt" and assign the value to WP excerpt field if it was empty, or assign the excerpt field to ACF then make it empty.
 	 */
-	function uds_assign_featured_image_and_excerpt() {
+	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
-		// To assign the featured image.
+		// Scan the post content, identify the first core/image block found and assign to featured image.
 		if ( ! has_post_thumbnail( $post->ID ) ) {
 			if ( has_blocks( $post->post_content ) ) {
 				$blocks = parse_blocks( $post->post_content );
@@ -42,26 +41,17 @@ if ( ! function_exists( 'uds_assign_featured_image_and_excerpt' ) ) {
 			}
 
 			if ( $attached_image_id ) {
-				   set_post_thumbnail( $post->ID, $attached_image_id );
+				set_post_thumbnail( $post->ID, $attached_image_id );
 			}
-		}
-		// To assign the excerpt.
-		if ( ! $post->post_excerpt ) {
-			$post_excerpt_acf = get_field( 'uds_post_excerpt', $post->ID );
-			// $post->post_excerpt = $post_excerpt_acf;
-
-		} else {
-			update_field( 'uds_post_excerpt', $post->post_excerpt, $post->ID );
-			$post->post_excerpt = '';
 		}
 
 	}
-	add_action( 'the_post', 'uds_assign_featured_image_and_excerpt' );
-	add_action( 'save_post', 'uds_assign_featured_image_and_excerpt' );
-	add_action( 'draft_to_publish', 'uds_assign_featured_image_and_excerpt' );
-	add_action( 'new_to_publish', 'uds_assign_featured_image_and_excerpt' );
-	add_action( 'pending_to_publish', 'uds_assign_featured_image_and_excerpt' );
-	add_action( 'future_to_publish', 'uds_assign_featured_image_and_excerpt' );
+	add_action( 'the_post', 'uds_assign_featured_image' );
+	add_action( 'save_post', 'uds_assign_featured_image' );
+	add_action( 'draft_to_publish', 'uds_assign_featured_image' );
+	add_action( 'new_to_publish', 'uds_assign_featured_image' );
+	add_action( 'pending_to_publish', 'uds_assign_featured_image' );
+	add_action( 'future_to_publish', 'uds_assign_featured_image' );
 
 }
 
@@ -70,7 +60,7 @@ add_filter(
 	'get_the_archive_title',
 	function ( $title ) {
 		if ( is_category() ) {
-					$title = single_cat_title( '', false );
+			$title = single_cat_title( '', false );
 		} elseif ( is_tag() ) {
 			$title = single_tag_title( '', false );
 		} elseif ( is_author() ) {
