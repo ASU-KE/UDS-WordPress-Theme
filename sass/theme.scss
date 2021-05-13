@@ -1,12 +1,12 @@
 // Override image base path for theme css
-$image-assets-path: '/wp-content/themes/UDS-WordPress-Theme/img' !default;
+$image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/img" !default;
 
 @import "../src/sass/bootstrap-asu";
 
 // Any additional imported files //
-@import "theme/theme";            // Small rulesets for our theme. Bigger customizations go in separate files.
-@import "theme/color-picker";	  // Default rules for defined ASU color palette options. Works with default blocks.
-@import "theme/customizer";       // Tweaks to the customizer (mostly buttons).
+@import "theme/theme"; // Small rulesets for our theme. Bigger customizations go in separate files.
+@import "theme/color-picker"; // Default rules for defined ASU color palette options. Works with default blocks.
+@import "theme/customizer"; // Tweaks to the customizer (mostly buttons).
 //@import "theme/contact-form7";  // Contact Form 7 - Bootstrap 4 support
 @import "theme/responsive-borders"; //Add breakpoints to border-[side] classes
 
