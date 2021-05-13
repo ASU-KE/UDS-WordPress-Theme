@@ -176,8 +176,8 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 		global $post;
 		$attached_image_id = '';
 		// Scan the post content, identify the first core/image block found and assign to featured image.
-		if ( ! has_post_thumbnail( $post->ID ) ) {
-			if ( has_blocks( $post->post_content ) ) {
+		if ( ! has_post_thumbnail( $post['ID'] ) ) {
+			if ( has_blocks( $post['post_content'] ) ) {
 				$blocks = parse_blocks( $post->post_content );
 				foreach ( $blocks as $value ) {
 					if ( 'core/image' == $value['blockName'] ) {
