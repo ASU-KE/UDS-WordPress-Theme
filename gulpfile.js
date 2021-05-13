@@ -29,7 +29,11 @@ sass.compiler = require('sass');
  */
 gulp.task( 'sass', function() {
 	return gulp
-		.src( paths.sass + '/*.scss' )
+		.src([
+			paths.sass + "/admin.scss",
+			// paths.sass + "/theme.scss",
+			paths.sass + "/xx_custom-editor-style.scss",
+		])
 		.pipe(
 			plumber( {
 				errorHandler( err ) {
