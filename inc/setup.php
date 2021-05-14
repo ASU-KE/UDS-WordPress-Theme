@@ -127,7 +127,7 @@ if ( ! function_exists( 'uds_wp_custom_excerpt_length' ) ) {
 	 * @param int $length the number of words in excerpt.
 	 */
 	function uds_wp_custom_excerpt_length( $length ) {
-		return 50;
+		return 30;
 	}
 }
 
