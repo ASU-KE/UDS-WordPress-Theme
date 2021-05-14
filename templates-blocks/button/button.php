@@ -63,10 +63,12 @@ if ( get_field( 'icon' ) ) {
 	$icon_span = '';
 }
 
-// Retrieve additional classes from the 'advanced' field in the editor.
-if ( ! empty( $block['className'] ) ) {
-	$additional_classes = sanitize_text_field( $block['className'] );
+// If additional classes were requested, clean up the input and add them.
+$additional_classes = '';
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
+
 
 ?>
 
