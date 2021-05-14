@@ -16,7 +16,7 @@ if ( ! function_exists( 'uds_wp_posted_on' ) ) {
 	 */
 	function uds_wp_posted_on() {
 		$time_string = '<span class="fas fa-calendar-day"></span><time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if (is_user_logged_in()) {
+		if ( is_user_logged_in() ) {
 			// Modify the time stamp to include both sets of dates if there is a user logged in.
 			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 				$time_string = '<span class="fas fa-calendar-day"></span><time class="entry-date published" datetime="%1$s">%2$s</time>  <time class="updated text-gray-4 pl-1" datetime="%3$s"> (Last updated: %4$s) </time>';
