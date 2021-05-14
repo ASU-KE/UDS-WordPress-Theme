@@ -20,7 +20,8 @@ $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
 
 		<?php
 		if ( has_post_thumbnail() ) {
-			echo '<img class="card-img-top" src="' . get_the_post_thumbnail_url( $post->ID, 'large' ) . '" alt="' . $alt_text . '"/>';
+			echo get_the_post_thumbnail($post->ID, 'medium_large', array( 'class' => 'card-img-top' ));
+			// echo '<img class="card-img-top" src="' . get_the_post_thumbnail_url( $post->ID, 'medium_large' ) . '" alt="' . $alt_text . '"/>';
 		}
 		?>
 
