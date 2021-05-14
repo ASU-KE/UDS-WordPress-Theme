@@ -187,7 +187,7 @@ function uds_register_post_story_hero_api_fields() {
 add_action( 'rest_api_init', 'uds_register_post_story_hero_api_fields' );
 
 /**
- * Fetch and return the value of the uds_news_author ACF fields.
+ * Fetch and return the value of the uds_story_hero ACF fields.
  *
  * @param   object $post      The Post object.
  *
