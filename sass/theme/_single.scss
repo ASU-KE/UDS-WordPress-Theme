@@ -54,7 +54,17 @@
 /*--------------------------------------------------------------
 5. Author information
 --------------------------------------------------------------*/
-.single .author_info svg {
-	margin-right: $uds-size-spacing-1;
-	color: $uds-color-base-maroon;
+.single .author_info {
+	margin-top: $uds-size-spacing-6;
+	svg {
+		margin-right: $uds-size-spacing-1;
+		color: $uds-color-base-maroon;
+	}
+}
+
+/*--------------------------------------------------------------
+6. Story meta display, header/footer
+--------------------------------------------------------------*/
+.single .posted-on svg {
+	margin-right:$uds-size-spacing-1;
 }
