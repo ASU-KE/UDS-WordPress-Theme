@@ -157,3 +157,19 @@ if ( ! function_exists( 'uds_wp_custom_archive_title' ) ) {
 		return $title;
 	}
 }
+
+add_filter( 'post_thumbnail_html', 'uds_wp_remove_thumbnail_height_width_attr' );
+
+if ( ! function_exists( 'uds_wp_remove_thumbnail_height_width_attr' ) ) {
+	/**
+	 * Filters the returned HTML of a post_thumbnail call and removes
+	 * the embedded height and width attributes.
+	 *
+	 * @param string $html the inital returned result from the_post_thumbnail
+	 * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/#comment-1945
+	 */
+	function uds_wp_remove_thumbnail_height_width_attr($html) {
+		return preg_replace('/(width|height)="\d+"\s/', "", $html);
+	}
+}
+
