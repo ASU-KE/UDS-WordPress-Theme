@@ -52,22 +52,20 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 
 			 // Translators: used between list items, there is a space after the comma.
 			$categories_list = preg_replace( '/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( ' ' ) );
-			if ( ! is_single() ) {
-				$wrapper_class = 'card-tags';
-			} else {
-				$wrapper_class = '';
-			}
-			// $categories_list = get_the_category_list();
-			if ( $categories_list && uds_wp_categorized_blog() ) {
-				/* translators: %s: Categories of current post */
 
-				printf( '<div class="' . $wrapper_class . '">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			if ( $categories_list && uds_wp_categorized_blog() ) {
+				if ( ! is_single() ) {
+					printf( '<div class="card-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} else {
+					printf( '<div class="category-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
 			}
+
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'uds-wordpress-theme' ) );
 			if ( $tags_list ) {
 				/* translators: %s: Tags of current post */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %s', 'uds-wordpress-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<div class="tags-links"><span class="fas fa-tags" title="Tags"></span>%s</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
