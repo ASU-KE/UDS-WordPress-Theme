@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+1. Single.php, story hero, no background image.
+--------------------------------------------------------------*/
+
+// Adjust height of the header to hero-small size if there's no actual image present.
+.single .uds-story-hero.no-image {
+	grid-template-rows: calc(#{$uds-size-spacing-16} - 4.5rem) 4.5rem auto;
+
+	.hero {
+		height:100%;
+		width:100%;
+	}
+}
+
+/*--------------------------------------------------------------
+2. Content width, mobile
+--------------------------------------------------------------*/
+
+.single article {
+	padding: $uds-size-spacing-2;
+}
+
+.single article > * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+3. Content width > 950px.
+--------------------------------------------------------------*/
+
+@media (min-width: 950px) {
+	.single article > * {
+		margin-left: calc(8.34% + 1rem);
+		margin-right: calc(8.34% + 1rem);
+	}
+	.single article > figure{
+		display: block;
+	}
+}
+
+/*--------------------------------------------------------------
+4. Content width, desktop (xl)
+--------------------------------------------------------------*/
+
+@include media-breakpoint-up(xl) {
+	.single article > * {
+		max-width:995px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+}
+
+/*--------------------------------------------------------------
+5. Author information
+--------------------------------------------------------------*/
+.single .author_info {
+	margin-top: $uds-size-spacing-6;
+	margin-bottom: $uds-size-spacing-6;
+	svg {
+		margin-right: $uds-size-spacing-1;
+		color: $uds-color-base-maroon;
+	}
+}
+
+/*--------------------------------------------------------------
+6. Story meta display, header/footer
+--------------------------------------------------------------*/
+.single {
+	.posted-on svg,
+	.tags-links svg {
+		margin-right:$uds-size-spacing-1;
+	}
+
+	.category-tags,
+	.tags-links {
+		margin-bottom:$uds-size-spacing-2;
+	}
+}
+
+
