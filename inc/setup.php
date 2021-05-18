@@ -118,23 +118,58 @@ if ( ! function_exists( 'uds_wp_custom_excerpt_more' ) ) {
 	}
 }
 
-add_filter( 'wp_trim_excerpt', 'uds_wp_all_excerpts_get_more_link' );
+add_filter( 'excerpt_length', 'uds_wp_custom_excerpt_length', 999 );
 
-if ( ! function_exists( 'uds_wp_all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'uds_wp_custom_excerpt_length' ) ) {
 	/**
-	 * Adds a custom read more link to all excerpts, manually or automatically generated
+	 * Set a max number of words for excerpt.
 	 *
-	 * @param string $post_excerpt Posts's excerpt.
-	 *
-	 * @return string
+	 * @param int $length the number of words in excerpt.
 	 */
-	function uds_wp_all_excerpts_get_more_link( $post_excerpt ) {
-		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
-				'Read More...',
-				'uds-wordpress-theme'
-			) . '</a></p>';
-		}
-		return $post_excerpt;
+	function uds_wp_custom_excerpt_length( $length ) {
+		return 30;
 	}
 }
+
+add_filter( 'get_the_archive_title', 'uds_wp_custom_archive_title' );
+
+if ( ! function_exists( 'uds_wp_custom_archive_title' ) ) {
+
+	/**
+	 * Remove the default WordPress object label from archive title pages.
+	 * https://developer.wordpress.org/reference/hooks/get_the_archive_title/#user-contributed-notes
+	 *
+	 * @param string $title archive title.
+	 * @return string
+	 */
+	function uds_wp_custom_archive_title( $title ) {
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_tax() ) { // for custom post types.
+			$title = sprintf( '%1$s', single_term_title( '', false ) );
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		}
+		return $title;
+	}
+}
+
+add_filter( 'post_thumbnail_html', 'uds_wp_remove_thumbnail_height_width_attr' );
+
+if ( ! function_exists( 'uds_wp_remove_thumbnail_height_width_attr' ) ) {
+	/**
+	 * Filters the returned HTML of a post_thumbnail call and removes
+	 * the embedded height and width attributes.
+	 *
+	 * @param string $html the inital returned result from the_post_thumbnail.
+	 * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/#comment-1945
+	 */
+	function uds_wp_remove_thumbnail_height_width_attr( $html ) {
+		return preg_replace( '/(width|height)="\d+"\s/', '', $html );
+	}
+}
+

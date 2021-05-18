@@ -22368,6 +22368,76 @@ span.customize-partial-edit-shortcut-logo_url {
   }
 }
 /*--------------------------------------------------------------
+1. Single.php, story hero, no background image.
+--------------------------------------------------------------*/
+.single .uds-story-hero.no-image {
+  grid-template-rows: calc(8rem - 4.5rem) 4.5rem auto;
+}
+.single .uds-story-hero.no-image .hero {
+  height: 100%;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+2. Content width, mobile
+--------------------------------------------------------------*/
+.single article {
+  padding: 1rem;
+}
+
+.single article > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+3. Content width > 950px.
+--------------------------------------------------------------*/
+@media (min-width: 950px) {
+  .single article > * {
+    margin-left: calc(8.34% + 1rem);
+    margin-right: calc(8.34% + 1rem);
+  }
+
+  .single article > figure {
+    display: block;
+  }
+}
+/*--------------------------------------------------------------
+4. Content width, desktop (xl)
+--------------------------------------------------------------*/
+@media (min-width: 1260px) {
+  .single article > * {
+    max-width: 995px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*--------------------------------------------------------------
+5. Author information
+--------------------------------------------------------------*/
+.single .author_info {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.single .author_info svg {
+  margin-right: 0.5rem;
+  color: #8c1d40;
+}
+
+/*--------------------------------------------------------------
+6. Story meta display, header/footer
+--------------------------------------------------------------*/
+.single .posted-on svg,
+.single .tags-links svg {
+  margin-right: 0.5rem;
+}
+.single .category-tags,
+.single .tags-links {
+  margin-bottom: 1rem;
+}
+
+/*--------------------------------------------------------------
 # Blockquotes Alt
 
 1. Reset of original blockquote (_blockquotes.scss)
@@ -22675,5 +22745,68 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 /*------------------------------------------------------------------
 3. Desktop, XL
 --------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Heroes, sections 4 & 5, eventually will be included in UDS-Bootstrap
+
+4. Story Hero, Mobile
+5. Story Hero, Desktop
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+  4. Story Hero, Mobile
+  --------------------------------------------------------------*/
+.uds-story-hero {
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+  grid-template-rows: calc(16rem - 4.5rem) 4.5rem auto;
+  gap: 0px 0px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.uds-story-hero .hero {
+  grid-column: 1/span 3;
+  grid-row: 1/span 2;
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+.uds-story-hero .content {
+  grid-column: 2/span 1;
+  grid-row: 2/span 2;
+  background-color: #ffffff;
+  padding: 0 1rem;
+}
+.uds-story-hero .content .breadcrumb,
+.uds-story-hero .content p.meta {
+  padding: 0.75rem 0;
+  margin: 0.25rem 0;
+}
+.uds-story-hero .content h1 {
+  margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+  5. Story Hero, Desktop
+  --------------------------------------------------------------*/
+@media (min-width: 950px) {
+  .uds-story-hero {
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+    grid-template-rows: calc(32rem - 8rem) 8rem 1fr;
+  }
+  .uds-story-hero.uds-story-hero-lg {
+    grid-template-rows: calc(42.75rem - 8rem) 8rem 1fr;
+  }
+  .uds-story-hero .content {
+    padding: 0 calc(8.34% + 12px);
+  }
+  .uds-story-hero .content .breadcrumb,
+.uds-story-hero .content p.meta {
+    margin: 1.25rem 0 2.25rem;
+  }
+}
+@media (min-width: 1260px) {
+  .uds-story-hero {
+    grid-template-columns: 1fr calc(1200px + 12px + 12px) 1fr;
+  }
+}
 
 /*# sourceMappingURL=theme.css.map */

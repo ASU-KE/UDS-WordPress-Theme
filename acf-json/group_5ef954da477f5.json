@@ -388,29 +388,7 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Button",
-            "sub_fields": [
-                {
-                    "key": "field_605930ab6d34c",
-                    "label": "Hero Buttons",
-                    "name": "hero_buttons",
-                    "type": "clone",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_601db250e6c94"
-                    ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 1
-                }
-            ]
+            "sub_fields": []
         },
         {
             "key": "field_605e64882fb32",
@@ -477,6 +455,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
         ]
     ],
     "menu_order": 0,
@@ -487,5 +472,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1617731082
+    "modified": 1620712094,
+    "local_file": "\/var\/www\/html\/wp-content\/themes\/UDS-WordPress-Theme\/acf-json\/group_5ef954da477f5.json"
 }
