@@ -12,6 +12,8 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/img" !default;
 
 // Permanent files. Blocks and other items not directly indicated by UDS Bootstrap
 @import "theme/single";
+@import "blocks/background-section";
+
 
 // Temporary files. Expected to be incorporated into UDS-Bootstrap eventually.
 @import "blocks/blockquote-v2";
