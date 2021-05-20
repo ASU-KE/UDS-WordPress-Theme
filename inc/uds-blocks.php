@@ -55,7 +55,6 @@ function my_acf_blocks_init() {
 			'/headings', // A UDS Headings block.
 			'/overlay-card', // UDS Program Cards.
 			'/background-section', // UDS Background section.
-			'/program-card', // UDS Program Cards.
 			'/tabs', // UDS Tabs.
 		);
 
