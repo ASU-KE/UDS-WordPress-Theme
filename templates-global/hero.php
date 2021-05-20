@@ -14,7 +14,12 @@ defined( 'ABSPATH' ) || exit;
  * from a full URL, or a file from the site's Media Library. We check the user's choice,
  * then pull the value from the appropriate field.
  */
-$media_source = get_field( 'media_source' );
+$category = '';
+if ( is_category() ) {
+	$category = get_queried_object();
+}
+
+$media_source = get_field( 'media_source', $category );
 switch ( $media_source ) {
 	case 'url':
 		/**
@@ -24,16 +29,16 @@ switch ( $media_source ) {
 		 */
 		$media_type = 'url';
 		$hero_asset_data = array();
-		$hero_asset_data['url'] = esc_url( get_field( 'hero_asset_url' ) );
+		$hero_asset_data['url'] = esc_url( get_field( 'hero_asset_url', $category ) );
 		break;
 	case 'local_video':
 		$media_type = 'video';
-		$hero_asset_data = get_field( 'video' );
-		$hero_image_data = get_field( 'hero_asset_file' );
+		$hero_asset_data = get_field( 'video', $category );
+		$hero_image_data = get_field( 'hero_asset_file', $category );
 		break;
 	default:
 		$media_type = 'image';
-		$hero_asset_data = get_field( 'hero_asset_file' );
+		$hero_asset_data = get_field( 'hero_asset_file', $category );
 		break;
 }
 
@@ -55,13 +60,13 @@ $hero_allowed_tags = array(
  * retrieved later on when rendered, as they involve looping through a repeater
  * field.
  */
-$hero_size = get_field( 'hero_size' );
-$hero_title = wp_kses( get_field( 'hero_title' ), $hero_allowed_tags );
-$apply_highlighting = get_field( 'apply_highlighting' );
-$hero_highlight = get_field( 'hero_highlight' );
-$title_color = get_field( 'title_color' );
-$hero_text = wp_kses( get_field( 'hero_text' ), $hero_allowed_tags );
-$single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight' ) );
+$hero_size = get_field( 'hero_size', $category );
+$hero_title = wp_kses( get_field( 'hero_title', $category ), $hero_allowed_tags );
+$apply_highlighting = get_field( 'apply_highlighting', $category );
+$hero_highlight = get_field( 'hero_highlight', $category );
+$title_color = get_field( 'title_color', $category );
+$hero_text = wp_kses( get_field( 'hero_text', $category ), $hero_allowed_tags );
+$single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight', $category ) );
 
 // Determine the text color class. Default to white.
 switch ( $title_color ) {
@@ -92,7 +97,7 @@ switch ( $hero_size ) {
 // Check to see if we have buttons, in order to apply a specific class if so.
 // Note: this checks both the 'new' hero buttons, and the 'old' url field.
 $has_buttons_class = '';
-if ( have_rows( 'hero_cta_buttons' ) || get_field( 'hero_call_to_action_url' ) ) {
+if ( have_rows( 'hero_cta_buttons' ) || get_field( 'hero_call_to_action_url', $category ) ) {
 	$has_buttons_class = 'has-buttons';
 }
 
@@ -122,7 +127,14 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 	<img
 		srcset="<?php echo $hero_asset_data['url']; ?>"
 		src="<?php echo $hero_asset_data['url']; ?>"
-		alt="<?php echo $hero_asset_data['alt']; ?>"
+		alt="
+		<?php
+		if ( 'image' == $media_type ) {
+			echo $hero_asset_data['alt'];
+		} else {
+			echo 'Hero image';}
+		?>
+		"
 	/>
 	<?php } ?>
 	<div class="container uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
@@ -135,7 +147,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			// Determine if there is any kind of highlighting to apply.
 			if ( $apply_highlighting ) {
 				// Yes. Highlighting has been chosen.
-				$title_highlight_type = get_field( 'title_highlight_type' );
+				$title_highlight_type = get_field( 'title_highlight_type', $category );
 
 				switch ( $title_highlight_type ) {
 					case 'word':
@@ -225,9 +237,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			 * field, check for values in the older fields and draw a single button
 			 * if they're found.
 			 */
-			$cta_url = get_field( 'hero_call_to_action_url' );
-			$cta_text = get_field( 'hero_call_to_action_text' );
-			$cta_color = get_field( 'call_to_action_color' );
+			$cta_url = get_field( 'hero_call_to_action_url', $category );
+			$cta_text = get_field( 'hero_call_to_action_text', $category );
+			$cta_color = get_field( 'call_to_action_color', $category );
 
 			if ( ! empty( $cta_url ) && ! empty( $cta_text ) ) {
 				$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
@@ -257,7 +269,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 else :
 
 	echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
-	if ( ! get_field( 'hide_page_title' ) ) {
+	if ( ! get_field( 'hide_page_title', $category ) ) {
 		the_title( '<h1 class="entry-title">', '</h1>' ); }
 	echo '</div></div></div></section>';
 

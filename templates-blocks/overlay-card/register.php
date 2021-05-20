@@ -2,7 +2,7 @@
 /**
  * Block Registration
  *
- * Block name: Program Card
+ * Block name: Overlay Card
  * Author: Zainab
  * Version: 1.0
  *
@@ -18,12 +18,12 @@
 acf_register_block_type(
 	array(
 		'name'              => 'uds-program-card', // internal name, like a slug.
-		'title'             => __( 'UDS Program Card', 'uds-wordpress-theme' ), // name the user will see.
+		'title'             => __( 'UDS Overlay Card', 'uds-wordpress-theme' ), // name the user will see.
 		'description'       => __( 'A block for building program cards with gif image when hover over', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'admin-page', // Dashicon, or custom SVG code, for the icon.
-		'render_template'   => 'templates-blocks/program-card/program-card.php', // location of the block's template.
+		'render_template'   => 'templates-blocks/overlay-card/overlay-card.php', // location of the block's template.
 		'category'          => 'uds', // category this block appears in.
-		'keywords'          => array( 'card', 'cards', 'content', 'program', 'gif' ),
+		'keywords'          => array( 'card', 'cards', 'content', 'program', 'gif', 'overlay', 'uds' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.
 		),

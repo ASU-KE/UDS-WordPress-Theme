@@ -238,11 +238,12 @@ Footer - Table of Contents
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
-
-    img {
-      height: 100px;
-      width: auto;
+    .img-link {
       order: 2;
+      img {
+        height: 100px;
+        width: auto;
+      }
     }
 
     .nav-link {
@@ -252,13 +253,22 @@ Footer - Table of Contents
 }
 
 // #footer-innovation, Mobile
-
+@include media-breakpoint-down(lg) {
+  #footer-innovation {
+    .footer-innovation-links {
+      img {
+        height: 76px;
+      }
+    }
+  }
+}
 @include media-breakpoint-down(md) {
   #footer-innovation {
     padding: 0;
 
     .footer-innovation-links {
       flex-direction: column;
+      padding-left: 0;
       padding-bottom: $uds-size-spacing-3;
 
       img {

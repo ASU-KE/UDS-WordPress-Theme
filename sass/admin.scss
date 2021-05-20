@@ -6,6 +6,10 @@ Enqueued only within the admin screen. (Via enqueue.php)
 2. Font Awesome fixes for Gutenberg
 --------------------------------------------------------------*/
 
+section.bg {
+	min-height:90px;
+}
+
 /*-------------------------------------------------------------------
 1. Menus. Change color of draggable menu items that are too deep.
 --------------------------------------------------------------------*/

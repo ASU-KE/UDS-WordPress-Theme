@@ -2,6 +2,9 @@
 .btn {
   text-decoration: $uds-component-button-text-decoration;
   font-weight: $uds-component-button-font-weight;
+  & + & {
+    margin-left: 16px;
+  }
   &.btn-md {
     font-size: $uds-component-button-medium-font-size;
     padding: $uds-component-button-padding-y-medium
@@ -16,8 +19,8 @@
     font-size: $uds-component-button-small-font-size;
     padding: $uds-component-button-padding-y-small
       $uds-component-button-padding-x-small;
-      margin-top: 8px;
-      background: $gray-2;
+    margin-top: 8px;
+    background: $gray-2;
     &.btn-tag-alt-white {
       background: $gray-2;
       color: $body-color;
@@ -35,7 +38,7 @@
     padding: $uds-size-spacing-half $uds-size-spacing-half;
     width: $uds-size-spacing-4;
     height: $uds-size-spacing-4;
-    border:solid 1px $gray-3;
+    border: solid 1px $gray-3;
     &.btn-circle-alt-white {
       background: $gray-2;
       color: $body-color;
@@ -53,6 +56,11 @@
       height: $uds-size-spacing-8;
       font-size: 1.5rem;
     }
+    &.btn-circle-x-large {
+      width: 6.5rem;
+      height: 6.5rem;
+      font-size: 3rem;
+    }
   }
   &:hover {
     transform: none;
@@ -60,6 +68,10 @@
   &:active {
     transform: scale(0.95);
   }
+}
+
+.bg-light-gray {
+  background-color: $gray-1;
 }
 
 // Remove background changing hover effects from all buttons
@@ -76,14 +88,12 @@
   }
 }
 
-a.text-gold:hover, a.text-gold:focus {
+a.text-gold:hover,
+a.text-gold:focus {
   color: #ffc627 !important;
 }
 a.text-gold:visited:not(.btn) {
   color: #daa000 !important;
-}
-a:visited:not(.btn) {
-  color: $uds-color-base-darkmaroon;
 }
 
 @include media-breakpoint-up(lg) {
