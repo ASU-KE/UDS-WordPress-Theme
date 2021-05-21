@@ -183,13 +183,14 @@ function get_primary_category_id( $post_id, $category ) {
 
 if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
-	 * Assign default featured image an excerpt to each post
+	 * Assign default featured image to each post
 	 * Get the first core/image block and assign it as a featured image if the field is empty
+	 * if no core/image then get the featured image of the primary category and assign it to the post .
 	 */
 	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
-		$post_categories = get_primary_category_id($post->ID, 'category');
+		$primary_category = get_primary_category_id($post->ID, 'category');
 		// Scan the post content, identify the first core/image block found and assign to featured image.
 		if ( ! has_post_thumbnail( $post->ID ) ) {
 			if ( has_blocks( $post->post_content ) ) {
@@ -204,10 +205,14 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 
 			if ( $attached_image_id ) {
 				set_post_thumbnail( $post->ID, $attached_image_id );
-			}elseif ($post_categories){
+			}elseif ($primary_category){
 
-				$hero_asset_data = get_field( 'hero_asset_file', $post_categories);
-				//echo $hero_asset_data;
+$primary_category=get_category( $primary_category );
+
+				$hero_asset_data = get_field( 'hero_asset_file', $primary_category);
+
+				set_post_thumbnail( $post->ID, $hero_asset_data['ID']);
+
 			}
 		}
 
