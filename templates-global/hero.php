@@ -211,6 +211,13 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				the_row();
 				$size = get_sub_field( 'button_size' );
 				$color = get_sub_field( 'button_color' );
+				$external_link = get_sub_field( 'external_link' );
+
+				if( $external_link ) {
+					$rel_text = 'rel="noopener noreferrer"';
+				}else{
+					$rel_text = '';
+				}
 				/**
 				 * The label, URL and target values are inside an ACF 'Link' field.
 				 * They do not have default values, like the other button fields,
@@ -221,14 +228,22 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 					$button_label     = sanitize_text_field( $button_link_data['title'] );
 					$button_url       = esc_url( $button_link_data['url'] );
 					$button_target    = $button_link_data['target'];
+
+					// Button target is a checkbox. If it's checked, we want target to be '_blank'.
+					if( $button_target )  {
+						$target_text =  'target="_blank"';
+					}else{
+						$target_text = '';
+					}
 				} else {
+					// The link field was not filled out. Create some defaults.
 					$button_label  = 'Label Missing!';
 					$button_url    = '#';
-					$button_target = '_self';
+					$target_text   = '';
 				}
 
-				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" target="%4%s">%2$s</a>';
-				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $button_target ), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%2$s</a>';
+				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $target_text, $rel_text ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
 			echo '</div>';
 		} else {
