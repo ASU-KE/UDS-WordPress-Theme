@@ -108,10 +108,10 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 
 	<?php if ( 'video' === $media_type ) { ?>
 
-			  <video class="d-none d-sm-block" id="media-video" autoplay loop muted>
+			<video class="d-none d-sm-block" id="media-video" autoplay loop muted>
 				<source src="<?php echo $hero_asset_data['url']; ?>" type="video/mp4">
 				<?php echo $hero_asset_data['alt']; ?>
-			  </video>
+			</video>
 		<?php if ( $hero_image_data ) { ?>
 				<img
 				class="d-block d-sm-none"
