@@ -213,9 +213,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				$color = get_sub_field( 'button_color' );
 				$external_link = get_sub_field( 'external_link' );
 
-				if( $external_link ) {
+				if ( $external_link ) {
 					$rel_text = 'rel="noopener noreferrer"';
-				}else{
+				} else {
 					$rel_text = '';
 				}
 				/**
@@ -230,9 +230,9 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 					$button_target    = $button_link_data['target'];
 
 					// Button target is a checkbox. If it's checked, we want target to be '_blank'.
-					if( $button_target )  {
-						$target_text =  'target="_blank"';
-					}else{
+					if ( $button_target ) {
+						$target_text = 'target="_blank"';
+					} else {
 						$target_text = '';
 					}
 				} else {
