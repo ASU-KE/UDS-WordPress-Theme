@@ -1,0 +1,166 @@
+{
+    "key": "group_60906f953cd12",
+    "title": "UDS: Story Hero",
+    "fields": [
+        {
+            "key": "field_6090716ad2d36",
+            "label": "Instructions",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select a background color or image to use as the hero for this story. Hero images supplied here do NOT represent the featured image for the story. (Recommended featured image sizes and formatting are different than this story hero image.)",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_60906f9ecdba9",
+            "label": "Background color or image?",
+            "name": "uds_story_hero_background_choice",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "color": "Color",
+                "image": "Image"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "color",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60906fe7cdbaa",
+            "label": "Background color",
+            "name": "uds_story_hero_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60906f9ecdba9",
+                        "operator": "==",
+                        "value": "color"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bg-gray-1": "UDS Gray 1",
+                "bg-gray-2": "UDS Gray 2",
+                "bg-gray-5": "UDS Gray 5",
+                "bg-gray-7": "UDS Gray 7 (Black)",
+                "no-bg-color": "White"
+            },
+            "default_value": "bg-gray-2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60907de9a3ae0",
+            "label": "Background image size",
+            "name": "uds_story_hero_background_image_size",
+            "type": "radio",
+            "instructions": "Select the background image size.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60906f9ecdba9",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "medium": "Medium hero",
+                "large": "Large hero"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "medium",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60907047cdbab",
+            "label": "Select background image",
+            "name": "uds_story_hero_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60906f9ecdba9",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1620659308,
+    "local_file": "\/app\/wp-content\/themes\/UDS-WordPress-Theme\/acf-json\/group_60906f953cd12.json"
+}

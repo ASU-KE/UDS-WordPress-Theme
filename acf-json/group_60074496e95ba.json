@@ -1,10 +1,10 @@
 {
     "key": "group_60074496e95ba",
-    "title": "Page title",
+    "title": "Page Title",
     "fields": [
         {
             "key": "field_6007449f54b72",
-            "label": "Hide page title",
+            "label": "Hide  Page Title?",
             "name": "hide_page_title",
             "type": "true_false",
             "instructions": "",
@@ -17,19 +17,12 @@
             },
             "message": "",
             "default_value": 0,
-            "ui": 0,
+            "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
         }
     ],
     "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
         [
             {
                 "param": "post_type",
@@ -42,9 +35,9 @@
     "position": "side",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1611089113
+    "description": "Single field used on all pages to hide the page name that shows at the top of the page when there is no Hero image.",
+    "modified": 1620164760
 }

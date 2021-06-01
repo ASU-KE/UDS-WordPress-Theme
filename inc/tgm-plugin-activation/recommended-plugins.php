@@ -19,12 +19,18 @@ function uds_wp_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// The 'is_callable' setting in the array should check for ACF or ACF Pro.
+		// The 'is_callable' setting checks for the ability to register a block, specific for ACF Pro.
 		array(
-			'name'        => 'Advanced Custom Fields',
-			'slug'        => 'advanced-custom-fields',
-			'is_callable' => 'get_field',
-			'required'    => 'false',
+			'name'        => 'Advanced Custom Fields Pro',
+			'slug'        => 'advanced-custom-fields-pro',
+			'is_callable' => 'acf_register_block_type',
+			'required'    => 'true',
+		),
+
+		array(
+			'name'      => 'Bootstrap Blocks',
+			'slug'      => 'wp-bootstrap-blocks',
+			'required'  => 'true',
 		),
 
 	);

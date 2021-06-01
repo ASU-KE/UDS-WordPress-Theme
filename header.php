@@ -90,7 +90,10 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	?>
 </head>
 
-<body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?>>
+<body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?> id="back_to_top">
+	<div class="uds-back-to-top">
+		<a href="#back_to_top"> <span>Back<br>to top</span><i class="fas fa-chevron-right"></i> </a>
+	</div>
 
 	<?php
 	do_action( 'wp_body_open' );
@@ -113,7 +116,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 							<a class="nav-link" href="https://my.asu.edu">My ASU</a>
 							<a class="nav-link" href="https://asu.edu/about/colleges-and-schools">Colleges and Schools</a>
 							<div class="nav-link login-status">
-								<a class="signin" href="#">Sign In</a>
+								<a class="signin" href="https://my.asu.edu">Sign In</a>
 							</div>
 							<form class="form-inline" action="https://search.asu.edu/search" method="get" name="gs">
 								<input class="form-control" type="search" name="q" aria-labelledby="header-top-search" required>
@@ -138,7 +141,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 					<div id="header-main" class="col-12">
 						<nav class="navbar navbar-expand-xl" aria-label="Main">
 
-							<a class="navbar-brand" href="#">
+							<a class="navbar-brand" href="https://www.asu.edu">
 								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="Arizona State University" />
 								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_horiz_maroongold.png" alt="Arizona State University" />
 							</a>

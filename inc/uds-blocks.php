@@ -10,6 +10,30 @@
  */
 
 /**
+ * Register a custom block category for our blocks to live in.
+ */
+if ( ! function_exists( 'uds_custom_category' ) ) {
+	/**
+	 * Merges our custom category in with the others.
+	 *
+	 * @param array   $categories The existing block categories.
+	 * @param WP_Post $post The current Post.
+	 */
+	function uds_custom_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'uds',
+					'title' => __( 'UDS', 'uds-wordpress-theme' ),
+				),
+			)
+		);
+	}
+}
+add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
+
+/**
  * Loops through an array of block folder names and includes the 'register.php'
  * from within each one.
  *
@@ -23,8 +47,14 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
-			'/sample',              // A sample block to be deleted at some point.
-			'/sample-inner-blocks', // Sample block using the <InnerBlocks /> tag.
+			'/blockquote', // Combination of UDS block quote and testimonial.
+			'/alert',
+			'/button', // Button block for UDS theme.
+			'/cards', // UDS Cards.
+			'/content-sections', // Miscellaneous content sections.
+			'/headings', // A UDS Headings block.
+			'/overlay-card', // UDS Program Cards.
+			'/background-section', // UDS Background section.
 		);
 
 		// Loop through array items and include each register file.
@@ -60,6 +90,13 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 		unset( $registered_blocks['core/verse'] );
 		unset( $registered_blocks['core/pullquote'] );
 		unset( $registered_blocks['core/preformatted'] );
+		unset( $registered_blocks['core/cover'] );
+		unset( $registered_blocks['core/file'] );
+		unset( $registered_blocks['core/button'] );
+		unset( $registered_blocks['core/buttons'] );
+		unset( $registered_blocks['core/column'] );
+		unset( $registered_blocks['core/columns'] );
+
 
 		// Strip the array down to just the keys.
 		$registered_blocks = array_keys( $registered_blocks );
@@ -70,3 +107,68 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
 }
 
+// Deregister the core WordPress block patterns.
+if ( ! function_exists( 'remove_core_patterns' ) ) {
+	/**
+	 * Removes theme support for 'core-block-patterns', which removes
+	 * ALL core block patterns from the editor.
+	 */
+	function remove_core_patterns() {
+		remove_theme_support( 'core-block-patterns' );
+	}
+	add_action( 'after_setup_theme', 'remove_core_patterns' );
+}
+
+/**
+ * Automatically sync any JSON field configuration.
+ * Courtesy of Delicious Brains and a developer blog post:
+ * https://gist.github.com/polevaultweb/32056461d1e4b85426211d2e5f85a3eb
+ * https://deliciousbrains.com/advanced-custom-fields-wordpress/
+ */
+function uds_sync_acf_fields_with_json() {
+	if ( defined( 'DOING_AJAX' ) || defined( 'DOING_CRON' ) ) {
+		return;
+	}
+
+	if ( ! function_exists( 'acf_get_field_groups' ) ) {
+		return;
+	}
+
+	$groups = acf_get_field_groups();
+
+	if ( empty( $groups ) ) {
+		return;
+	}
+
+	$sync = array();
+
+	foreach ( $groups as $group ) {
+		$local    = acf_maybe_get( $group, 'local', false );
+		$modified = acf_maybe_get( $group, 'modified', 0 );
+		$private  = acf_maybe_get( $group, 'private', false );
+
+		if ( 'json' !== $local || $private ) {
+			// ignore DB / PHP / private field groups.
+			continue;
+		}
+
+		if ( ! $group['ID'] ) {
+			$sync[ $group['key'] ] = $group;
+		} elseif ( $modified && $modified > get_post_modified_time( 'U', true, $group['ID'], true ) ) {
+			$sync[ $group['key'] ] = $group;
+		}
+	}
+
+	if ( empty( $sync ) ) {
+		return;
+	}
+
+	foreach ( $sync as $key => $v ) {
+		if ( acf_have_local_fields( $key ) ) {
+			$sync[ $key ]['fields'] = acf_get_local_fields( $key );
+		}
+
+		acf_import_field_group( $sync[ $key ] );
+	}
+}
+add_action( 'admin_init', 'uds_sync_acf_fields_with_json' );

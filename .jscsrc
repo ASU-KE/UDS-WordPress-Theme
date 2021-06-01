@@ -7,6 +7,7 @@
     "js/popper.js",
     "js/theme.js",
     "gulpfile.js",
+    "dist/**",
     "vendor/**",
     "node_modules/**",
 		"js/bootstrap-asu/**",

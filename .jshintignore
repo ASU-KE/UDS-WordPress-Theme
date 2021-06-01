@@ -2,9 +2,10 @@ js/**.min.js
 src/**/*.js
 js/popper.js
 js/theme.js
+js/core-list-block.js
 gulpfile.js
+dist
 node_modules
 vendor
-js/bootstrap-asu
 js/fontawesome
 inc/acf/assets/**/*.js

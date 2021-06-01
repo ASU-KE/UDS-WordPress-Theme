@@ -15,10 +15,14 @@ if ( ! function_exists( 'uds_wp_posted_on' ) ) {
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function uds_wp_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> (%4$s) </time>';
+		$time_string = '<span class="fas fa-calendar-day"></span><time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( is_user_logged_in() ) {
+			// Modify the time stamp to include both sets of dates if there is a user logged in.
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<span class="fas fa-calendar-day"></span><time class="entry-date published" datetime="%1$s">%2$s</time>  <time class="updated text-gray-4 pl-1" datetime="%3$s"> (Last updated: %4$s) </time>';
+			}
 		}
+
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( 'c' ) ),
@@ -26,25 +30,15 @@ if ( ! function_exists( 'uds_wp_posted_on' ) ) {
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
+
 		$posted_on   = apply_filters(
 			'uds_wp_posted_on',
 			sprintf(
-				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
-				esc_html_x( 'Posted on', 'post date', 'uds-wordpress-theme' ),
-				esc_url( get_permalink() ),
+				'<span class="posted-on">%1$s</span>',
 				apply_filters( 'uds_wp_posted_on_time', $time_string )
 			)
 		);
-		$byline      = apply_filters(
-			'uds_wp_posted_by',
-			sprintf(
-				'<span class="byline"> %1$s<span class="author vcard"> <a class="url fn n" href="%2$s">%3$s</a></span></span>',
-				$posted_on ? esc_html_x( 'by', 'post author', 'uds-wordpress-theme' ) : esc_html_x( 'Posted by', 'post author', 'uds-wordpress-theme' ),
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_html( get_the_author() )
-			)
-		);
-		echo $posted_on . $byline; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -55,17 +49,23 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 	function uds_wp_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'uds-wordpress-theme' ) );
+
+			 // Translators: used between list items, there is a space after the comma.
+			$categories_list = preg_replace( '/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( ' ' ) );
+
 			if ( $categories_list && uds_wp_categorized_blog() ) {
-				/* translators: %s: Categories of current post */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'uds-wordpress-theme' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				if ( ! is_single() ) {
+					printf( '<div class="card-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} else {
+					printf( '<div class="category-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
 			}
+
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'uds-wordpress-theme' ) );
 			if ( $tags_list ) {
 				/* translators: %s: Tags of current post */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %s', 'uds-wordpress-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<div class="tags-links"><span class="fas fa-tags" title="Tags"></span>%s</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -79,8 +79,8 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 				esc_html__( 'Edit %s', 'uds-wordpress-theme' ),
 				the_title( '<span class="sr-only">"', '"</span>', false )
 			),
-			'<span class="edit-link">',
-			'</span>'
+			'<div class="' . $wrapper_class . ' edit-link my-1">',
+			'</div>'
 		);
 	}
 }
@@ -157,4 +157,38 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 		}
 		echo trim( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
+}
+
+if ( ! function_exists( 'uds_assign_featured_image' ) ) {
+	/**
+	 * Assign default featured image an excerpt to each post
+	 * Get the first core/image block and assign it as a featured image if the field is empty
+	 */
+	function uds_assign_featured_image() {
+		global $post;
+		$attached_image_id = '';
+		// Scan the post content, identify the first core/image block found and assign to featured image.
+		if ( ! has_post_thumbnail( $post->ID ) ) {
+			if ( has_blocks( $post->post_content ) ) {
+				$blocks = parse_blocks( $post->post_content );
+				foreach ( $blocks as $value ) {
+					if ( 'core/image' == $value['blockName'] ) {
+						$attached_image_id = $value['attrs']['id'];
+						break;
+					}
+				}
+			}
+
+			if ( $attached_image_id ) {
+				set_post_thumbnail( $post->ID, $attached_image_id );
+			}
+		}
+
+	}
+	add_action( 'the_post', 'uds_assign_featured_image' );
+	add_action( 'save_post', 'uds_assign_featured_image' );
+	add_action( 'draft_to_publish', 'uds_assign_featured_image' );
+	add_action( 'new_to_publish', 'uds_assign_featured_image' );
+	add_action( 'pending_to_publish', 'uds_assign_featured_image' );
+	add_action( 'future_to_publish', 'uds_assign_featured_image' );
 }

@@ -1,2 +1,53 @@
-@import "admin/sidebar-metabox";            // <-------- That's where you can add your own design to wp admin side. Thats your part!
-@import "admin/menu_builder"
+/*--------------------------------------------------------------
+# Admin CSS fixes.
+Enqueued only within the admin screen. (Via enqueue.php)
+
+1. Menus, draggable items
+2. Font Awesome fixes for Gutenberg
+--------------------------------------------------------------*/
+
+section.bg {
+	min-height:90px;
+}
+
+/*-------------------------------------------------------------------
+1. Menus. Change color of draggable menu items that are too deep.
+--------------------------------------------------------------------*/
+
+// default error color (in case we ever want to manipulate it within the loop).
+$warning-color: #F99;
+
+// create 10 classes to cover menu levels 3 through 13
+@for $i from 3 through 13 {
+
+	// target the .menu-item-handle, which is the draggable box.
+	.menu-item-depth-#{$i} .menu-item-bar .menu-item-handle {
+		// apply our warning color
+		background-color: $warning-color;
+
+		// the text 'sub-item' is a sibling span with the class .is-submenu
+		// We append some warning text using the ::after psuedo element.
+		.is-submenu::after {
+			content: ' - too deep!';
+		}
+
+			// the item title, by default, as a very wide right marging (13em!)
+			// to allow more room for our warning text, we reduce this margin
+			.item-title {
+				margin-right: 5em;
+			}
+	}
+}
+
+/*-------------------------------------------------------------------
+2. Font Awesome fixes for Gutenberg
+--------------------------------------------------------------------*/
+
+// The front-end contains a vertical-align rule that helps to align
+// icons with the text. Because of the '.editor-styles-wrapper' on the
+// editor side, it was not working. Added that same rule, specifically
+// targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
+// so that we get the same look while editing.
+.editor-styles-wrapper svg.svg-inline--fa {
+	vertical-align: -.125rem;
+}
