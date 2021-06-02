@@ -63,7 +63,7 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 		}
 		?>
 		<?php if ( $button ) { ?>
-		<div class="card-button <?php echo $with_desc_class; ?>">
+		<div class="overlay-card-button <?php echo $with_desc_class; ?>">
 			<?php
 				// Get our ACF Field values.
 				$external_link = $button['external_link'];
