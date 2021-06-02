@@ -18875,16 +18875,15 @@ a.page-link:visited {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  a.page-link {
-    font-size: 16px;
-  }
-}
 a.page-link:hover {
   color: #191919;
   text-decoration: none;
 }
 
+span.page-link {
+  padding-left: 0;
+  padding-right: 0;
+}
 span.page-link:hover {
   background-color: inherit;
   color: inherit;
@@ -18925,6 +18924,16 @@ span.page-link:hover {
   opacity: 50%;
 }
 
+.pagination.uds-bg-gray1 {
+  background-color: #fafafa;
+}
+.pagination.uds-bg-gray1 :not(.active) .page-link {
+  background-color: #fafafa;
+}
+.pagination.uds-bg-gray1 :not(.active) .page-link:hover {
+  background-color: #bfbfbf;
+  color: #191919;
+}
 .pagination.uds-bg-gray {
   background-color: #e8e8e8;
 }
@@ -18959,6 +18968,20 @@ span.page-link:hover {
   color: #fafafa;
 }
 
+@media (min-width: 768px) {
+  a.page-link {
+    font-size: 16px;
+  }
+}
+@media (max-width: 991.98px) {
+  .page-item {
+    margin: 0 0.2rem;
+  }
+
+  a.page-link {
+    font-size: 14px;
+  }
+}
 .uds-tabbed-panels {
   box-shadow: inset 0px -2px 0px 0px #bfbfbf;
   flex-wrap: inherit;
@@ -21166,14 +21189,14 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
 /*--------------------------------------------------------------
 1. Mobile
 --------------------------------------------------------------*/
-.ic-grid-links {
+.uds-grid-links {
   grid-template-columns: 1fr;
   display: grid;
   grid-template-rows: auto;
   column-gap: 1.5rem;
   row-gap: 1.5rem;
 }
-.ic-grid-links a {
+.uds-grid-links a {
   font-size: 1.25rem;
   letter-spacing: -0.025em;
   font-weight: 700;
@@ -21183,17 +21206,17 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
   padding: 1.5rem;
   text-decoration: none;
 }
-.ic-grid-links a svg {
+.uds-grid-links a svg {
   margin-right: 0.5rem;
 }
-.ic-grid-links a:hover {
+.uds-grid-links a:hover {
   text-decoration: underline;
 }
-.ic-grid-links.text-gold a {
+.uds-grid-links.text-gold a {
   color: #ffc627;
   background-color: #191919;
 }
-.ic-grid-links.text-white a {
+.uds-grid-links.text-white a {
   color: #ffffff;
   background-color: #191919;
 }
@@ -21202,41 +21225,41 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
 2. Desktop modifiers
 --------------------------------------------------------------*/
 @media (min-width: 768px) {
-  .ic-grid-links.mobile-at-md.two-columns {
+  .uds-grid-links.mobile-at-md.two-columns {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ic-grid-links.mobile-at-md.three-columns {
+  .uds-grid-links.mobile-at-md.three-columns {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .ic-grid-links.mobile-at-md.four-columns {
+  .uds-grid-links.mobile-at-md.four-columns {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 992px) {
-  .ic-grid-links.mobile-at-lg.two-columns {
+  .uds-grid-links.mobile-at-lg.two-columns {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ic-grid-links.mobile-at-lg.three-columns {
+  .uds-grid-links.mobile-at-lg.three-columns {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .ic-grid-links.mobile-at-lg.four-columns {
+  .uds-grid-links.mobile-at-lg.four-columns {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 1260px) {
-  .ic-grid-links.mobile-at-xl.two-columns {
+  .uds-grid-links.mobile-at-xl.two-columns {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ic-grid-links.mobile-at-xl.three-columns {
+  .uds-grid-links.mobile-at-xl.three-columns {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .ic-grid-links.mobile-at-xl.four-columns {
+  .uds-grid-links.mobile-at-xl.four-columns {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -21770,6 +21793,139 @@ canvas {
     font-size: 2rem;
     margin-bottom: 2rem;
     max-width: 512px;
+  }
+}
+.uds-table {
+  border: 1px solid #e8e8e8;
+  overflow-x: scroll;
+}
+.uds-table > table {
+  width: 100%;
+}
+.uds-table > table th,
+.uds-table > table td {
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: left;
+  padding: 1rem;
+}
+.uds-table > table tr :nth-child(n+1) {
+  box-sizing: border-box;
+  max-width: 92px;
+  width: 92px;
+  min-width: 92px;
+}
+.uds-table > table tr :first-child {
+  box-sizing: border-box;
+  min-width: 300px;
+}
+.uds-table > table > thead > tr:first-child th {
+  background-color: #d0d0d0;
+}
+.uds-table > table tbody tr th,
+.uds-table > table tbody tr td {
+  background-color: white;
+}
+.uds-table > table tbody tr:nth-child(2n) th,
+.uds-table > table tbody tr:nth-child(2n) td {
+  background-color: #fafafa;
+}
+.uds-table > table tbody tr:hover th,
+.uds-table > table tbody tr:hover td, .uds-table > table tbody tr:focus th,
+.uds-table > table tbody tr:focus td {
+  background-color: #e8e8e8;
+}
+.uds-table > table tbody tr > th.normal {
+  font-weight: normal;
+}
+.uds-table > table tbody tr > th.indent {
+  font-weight: normal;
+  padding-left: 4rem;
+}
+@media screen and (max-width: 576px) {
+  .uds-table > table tbody tr > th.indent {
+    padding-left: 2rem;
+  }
+}
+
+.uds-table-fixed {
+  overflow-x: scroll;
+  border: 1px solid #e8e8e8;
+}
+.uds-table-fixed-wrapper {
+  position: relative;
+}
+.uds-table-fixed-wrapper .scroll-control {
+  display: none;
+  position: absolute;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  z-index: 100;
+}
+.uds-table-fixed-wrapper .scroll-control.show {
+  display: block;
+}
+.uds-table-fixed-wrapper .scroll-control.previous {
+  background: linear-gradient(90deg, rgba(25, 25, 25, 0.25) 0%, rgba(25, 25, 25, 0) 100%);
+  left: 315px;
+}
+.uds-table-fixed-wrapper .scroll-control.next {
+  background: linear-gradient(90deg, rgba(25, 25, 25, 0) 0%, rgba(25, 25, 25, 0.25) 100%);
+  right: 0;
+}
+.uds-table-fixed-wrapper .scroll-control button {
+  pointer-events: all;
+  margin: 0 8px;
+  position: relative;
+  top: 50%;
+}
+.uds-table-fixed > table {
+  border: none;
+}
+.uds-table-fixed > table tr > *:first-child {
+  left: 0;
+  position: sticky;
+  width: 315px;
+  min-width: 315px;
+  max-width: 315px;
+}
+.uds-table-fixed > table tr > *:nth-child(n+2),
+.uds-table-fixed > table td {
+  box-sizing: border-box;
+  max-width: 100px;
+  width: 100px;
+  min-width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .uds-table {
+    overflow-x: scroll;
+  }
+
+  .uds-table-fixed {
+    overflow-x: scroll;
+  }
+  .uds-table-fixed-wrapper {
+    overflow-x: hidden;
+  }
+  .uds-table-fixed-wrapper .scroll-control {
+    pointer-events: none;
+    display: block;
+  }
+  .uds-table-fixed-wrapper .scroll-control.previous button, .uds-table-fixed-wrapper .scroll-control.next button {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 576px) {
+  .uds-table > table tr > *:first-child {
+    width: 128px;
+    min-width: 128px;
+    max-width: 128px;
+  }
+
+  .uds-table-fixed-wrapper .scroll-control.previous {
+    left: 128px;
   }
 }
 /*--------------------------------------------------------------
