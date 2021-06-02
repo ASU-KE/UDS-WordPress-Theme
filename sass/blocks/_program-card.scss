@@ -44,7 +44,7 @@
  .card-header{
 	 background-color: unset;
 	 margin-top: auto;
-flex-grow: initial;
+flex-grow: initial!important;
 padding-bottom: 15px;
 	 &:not(.with-desc){
 		 width: 50%;
