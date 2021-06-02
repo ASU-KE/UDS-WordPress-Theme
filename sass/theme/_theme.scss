@@ -387,3 +387,10 @@ Dividers
 		opacity: 1;
 	}
 }
+
+/*--------------------------------------------------------------
+Correct the button color on gray bg
+--------------------------------------------------------------*/
+.bg-gray-1 a.btn, .bg-gray-2 a.btn, .bg-white a.btn {
+	color: initial;
+}
