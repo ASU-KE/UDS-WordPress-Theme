@@ -391,6 +391,20 @@ Dividers
 /*--------------------------------------------------------------
 Correct the button color on gray bg
 --------------------------------------------------------------*/
-.bg-gray-1 a.btn, .bg-gray-2 a.btn, .bg-white a.btn {
-	color: initial;
+.bg-gray-1, .bg-gray-2, .bg-white{
+a.btn.btn-maroon {
+    color: white;
+}
+
+a.btn.btn-gold {
+    color: initial;
+}
+
+a.btn.btn-gray {
+    color: initial;
+}
+
+a.btn.btn-dark {
+    color: white;
+}
 }
