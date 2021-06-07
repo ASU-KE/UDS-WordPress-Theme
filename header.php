@@ -58,7 +58,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 		?>
 		<style type="text/css" media="screen">
 			#asu-header.fixed-top {
-				top: 32px !important;
+				top: 46px !important;
 			}
 
 			#wpadminbar {
