@@ -389,6 +389,27 @@ Dividers
 }
 
 /*--------------------------------------------------------------
+Correct the button color on gray bg
+--------------------------------------------------------------*/
+.bg-gray-1, .bg-gray-2, .bg-gray-7, .bg-white{
+a.btn.btn-maroon {
+    color: white;
+}
+
+a.btn.btn-gold {
+    color: initial;
+}
+
+a.btn.btn-gray {
+    color: initial;
+}
+
+a.btn.btn-dark {
+    color: white;
+}
+}
+
+/*--------------------------------------------------------------
 Video tabs
 --------------------------------------------------------------*/
 
