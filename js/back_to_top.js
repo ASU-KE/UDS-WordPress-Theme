@@ -5,6 +5,7 @@
  *
  */
 
+/*jshint esversion: 6 */
  (function() {
    window.addEventListener( 'DOMContentLoaded', function() {
      let hasScrolledToNecessaryDepth = false;
