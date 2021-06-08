@@ -25,11 +25,11 @@
     "bootstrap": "^4.6.0"
   },
   "devDependencies": {
-    "@asu-design-system/bootstrap4-theme": "dev",
+    "@asu-design-system/bootstrap4-theme": "^4.2.0",
     "@asu-design-system/cookie-consent": "dev",
     "@asu-design-system/design-tokens": "dev",
-    "@babel/core": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.14",
