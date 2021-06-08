@@ -504,4 +504,14 @@ a.scroll-control-prev,
 a.scroll-control-next{
 	display: none;
 }
+
+.card:not(.card.card-foldable)>div:first-of-type:not(.card-image-content){
+	padding-top: 0;
+}
+.tab-content{
+	padding: 0;
+}
+.card>div:last-child{
+	padding-bottom: 0;
+}
 }
