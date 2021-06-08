@@ -398,3 +398,27 @@ Override the desktop media query for header to fix the gap issue
 	top: 46px !important;
 }
 }
+
+main .container,
+footer .container{
+	padding-left: 0;
+	padding-right: 0;
+}
+footer .menu-social-media-container a.nav-link:last-of-type{
+	padding-right: 0;
+}
+footer #wrapper-footer-innovation .img-link{
+	margin-right: 0;
+}
+.uds-hero-container,
+.container {
+.highlight-gold, .highlight-white, .highlight-black{
+	   box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
+		 padding-left: 0.15em;
+		 padding-right: 0.15em;
+}
+}
+.container, .container-xl{
+	border-left: 2px solid red;
+	border-right: 2px solid red;
+}
