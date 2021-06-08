@@ -428,3 +428,11 @@ Override the desktop media query for header to fix the gap issue
     margin-top: 113px;
   }
 }
+#wpadminbar + #asu-header.fixed-top {
+	top: 32px !important;
+}
+@include media-breakpoint-down(sm) {
+#wpadminbar + #asu-header.fixed-top {
+	top: 46px !important;
+}
+}
