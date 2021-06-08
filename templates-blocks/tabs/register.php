@@ -27,7 +27,7 @@ acf_register_block_type(
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.
 		),
-		'mode'              => 'preview', // make this block default to preview mode when added to the page.
+		'mode'              => 'edit', // make this block default to preview mode when added to the page.
 		'example'           => array(
 			'attributes' => array(
 				'mode' => 'preview', // show the actual tabs view for the preview when adding this block.

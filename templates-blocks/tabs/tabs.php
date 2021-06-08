@@ -123,13 +123,13 @@ if ( have_rows( 'tabs' ) ) {
 
 </div>
 <a class="scroll-control-prev" href="#carouselExampleControls" role="button" data-scroll="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="scroll-control-next" href="#carouselExampleControls" role="button" data-scroll="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  <a class="scroll-control-next" href="#carouselExampleControls" role="button" data-scroll="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>
 </nav>
 <div class="tab-content <?php echo $tab_pane_classes; ?>" id="nav-tabContent-<?php echo str_replace( ' ', '_', $tab_title ); ?>">
 	<?php
