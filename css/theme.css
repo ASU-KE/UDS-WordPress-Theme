@@ -17538,6 +17538,9 @@ Cards - Table of Contents
   padding: 32px 32px 16px 32px;
   flex-grow: 1;
 }
+.card-header .card-icon {
+  margin-bottom: 1rem;
+}
 
 .card-body {
   padding: 0 32px 24px 32px;
@@ -19108,6 +19111,12 @@ span.page-link:hover {
 }
 .uds-hero .uds-hero-container h1 {
   margin-left: 0;
+  margin-top: 0;
+}
+.uds-hero .uds-hero-container h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 6px;
 }
 .uds-hero .uds-hero-container .uds-hero-text {
   margin-left: 0;
@@ -22189,6 +22198,32 @@ Correct the button color on gray bg
 }
 
 /*--------------------------------------------------------------
+Override the desktop media query for header to fix the gap issue
+--------------------------------------------------------------*/
+@media (min-width: 1260px) {
+  #asu-header + div,
+#asu-header + main {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 144px;
+  }
+}
+@media (max-width: 1259.98px) {
+  #asu-header + div,
+#asu-header + main {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 113px;
+  }
+}
+#wpadminbar + #asu-header.fixed-top {
+  top: 32px !important;
+}
+
+@media (max-width: 767.98px) {
+  #wpadminbar + #asu-header.fixed-top {
+    top: 46px !important;
+  }
+}
+/*--------------------------------------------------------------
 Color picker CSS rules
 
 Creates "has-color" and "has-background-color" style classes.
@@ -23016,13 +23051,15 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 .home-overlay-card .card-header {
   background-color: unset;
   margin-top: auto;
-  flex-grow: initial !important;
   padding-bottom: 15px;
 }
 .home-overlay-card .card-header:not(.with-desc) {
   width: 50%;
   overflow-wrap: normal;
   padding-bottom: 24px;
+}
+.home-overlay-card .card-header.with-desc {
+  flex-grow: initial !important;
 }
 .home-overlay-card .card-body {
   flex-grow: initial;
@@ -23036,7 +23073,7 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   width: 45%;
   position: absolute;
   right: 0;
-  bottom: 0;
+  /*bottom: 0;*/
 }
 .home-overlay-card .overlay-card-button:not(.with-desc) .btn, .home-overlay-card .overlay-card-button:not(.with-desc) .uds-modal-close-btn {
   float: right;
@@ -23098,17 +23135,20 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 }
 .home-overlay-card:after {
   content: "";
-  background: -webkit-gradient(linear, left top, left bottom, from(#19191900), to(#191919c9));
-  background: -webkit-linear-gradient(top, #19191900 60%, #191919c9 100%);
-  background: -moz-linear-gradient(top, #19191900 60%, #191919c9 100%);
-  background: -o-linear-gradient(top, #19191900 60%, #191919c9 100%);
-  background: linear-gradient(180deg, #19191900 60%, #191919c9 100%);
+  /*background: -webkit-gradient(linear,left top,left bottom,from(#19191900),to(#191919c9));
+  background: -webkit-linear-gradient(top,#19191900 60%,#191919c9 100%);
+  background: -moz-linear-gradient(top,#19191900 60%,#191919c9 100%);
+  background: -o-linear-gradient(top,#19191900 60%,#191919c9 100%);*/
+  background: linear-gradient(180deg, #19191900 12%, #191919c9 100%);
   height: 100%;
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 2;
+}
+.home-overlay-card:not(.with-desc):after {
+  background: linear-gradient(-180deg, #191919c9 2%, #19191900 37%, #19191900 90%);
 }
 .home-overlay-card:hover img.card-image {
   opacity: 0;
