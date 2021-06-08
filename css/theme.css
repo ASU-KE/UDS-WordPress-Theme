@@ -22139,43 +22139,12 @@ Hero video
 }
 
 @media (max-width: 991.98px) {
-  #footer-colophon, #footer-innovation {
+  #footer-colophon,
+#footer-innovation {
     padding-right: 12px;
     padding-left: 12px;
   }
 }
-/*--------------------------------------------------------------
-Back to top
---------------------------------------------------------------*/
-.uds-back-to-top {
-  z-index: 9;
-  display: none;
-  padding: 12px 16px;
-  background-color: #747474A3;
-  position: fixed;
-  bottom: 98px;
-  right: -26px;
-  transform: rotate(-90deg);
-}
-.uds-back-to-top a {
-  text-decoration: none;
-  color: #fff;
-}
-.uds-back-to-top a span {
-  font-size: 20px;
-  line-height: 19px;
-  padding-right: 10px;
-  display: inline-block;
-  text-align: right;
-}
-.uds-back-to-top a svg {
-  font-size: 40px;
-  transition: 0.3s;
-}
-.uds-back-to-top:hover a svg {
-  transform: translateX(3px);
-}
-
 /*--------------------------------------------------------------
 Dividers
 --------------------------------------------------------------*/
@@ -22191,16 +22160,40 @@ Dividers
 /*--------------------------------------------------------------
 Correct the button color on gray bg
 --------------------------------------------------------------*/
-.bg-gray-1 a.btn.btn-maroon, .bg-gray-1 a.btn-maroon.uds-modal-close-btn, .bg-gray-2 a.btn.btn-maroon, .bg-gray-2 a.btn-maroon.uds-modal-close-btn, .bg-gray-7 a.btn.btn-maroon, .bg-gray-7 a.btn-maroon.uds-modal-close-btn, .bg-white a.btn.btn-maroon, .bg-white a.btn-maroon.uds-modal-close-btn {
+.bg-gray-1 a.btn.btn-maroon, .bg-gray-1 a.btn-maroon.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-maroon,
+.bg-gray-2 a.btn-maroon.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-maroon,
+.bg-gray-7 a.btn-maroon.uds-modal-close-btn,
+.bg-white a.btn.btn-maroon,
+.bg-white a.btn-maroon.uds-modal-close-btn {
   color: white;
 }
-.bg-gray-1 a.btn.btn-gold, .bg-gray-1 a.btn-gold.uds-modal-close-btn, .bg-gray-2 a.btn.btn-gold, .bg-gray-2 a.btn-gold.uds-modal-close-btn, .bg-gray-7 a.btn.btn-gold, .bg-gray-7 a.btn-gold.uds-modal-close-btn, .bg-white a.btn.btn-gold, .bg-white a.btn-gold.uds-modal-close-btn {
+.bg-gray-1 a.btn.btn-gold, .bg-gray-1 a.btn-gold.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-gold,
+.bg-gray-2 a.btn-gold.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-gold,
+.bg-gray-7 a.btn-gold.uds-modal-close-btn,
+.bg-white a.btn.btn-gold,
+.bg-white a.btn-gold.uds-modal-close-btn {
   color: initial;
 }
-.bg-gray-1 a.btn.btn-gray, .bg-gray-1 a.btn-gray.uds-modal-close-btn, .bg-gray-2 a.btn.btn-gray, .bg-gray-2 a.btn-gray.uds-modal-close-btn, .bg-gray-7 a.btn.btn-gray, .bg-gray-7 a.btn-gray.uds-modal-close-btn, .bg-white a.btn.btn-gray, .bg-white a.btn-gray.uds-modal-close-btn {
+.bg-gray-1 a.btn.btn-gray, .bg-gray-1 a.btn-gray.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-gray,
+.bg-gray-2 a.btn-gray.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-gray,
+.bg-gray-7 a.btn-gray.uds-modal-close-btn,
+.bg-white a.btn.btn-gray,
+.bg-white a.btn-gray.uds-modal-close-btn {
   color: initial;
 }
-.bg-gray-1 a.btn.btn-dark, .bg-gray-1 a.btn-dark.uds-modal-close-btn, .bg-gray-2 a.btn.btn-dark, .bg-gray-2 a.btn-dark.uds-modal-close-btn, .bg-gray-7 a.btn.btn-dark, .bg-gray-7 a.btn-dark.uds-modal-close-btn, .bg-white a.btn.btn-dark, .bg-white a.btn-dark.uds-modal-close-btn {
+.bg-gray-1 a.btn.btn-dark, .bg-gray-1 a.btn-dark.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-dark,
+.bg-gray-2 a.btn-dark.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-dark,
+.bg-gray-7 a.btn-dark.uds-modal-close-btn,
+.bg-white a.btn.btn-dark,
+.bg-white a.btn-dark.uds-modal-close-btn {
   color: white;
 }
 
