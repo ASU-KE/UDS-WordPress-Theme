@@ -79,7 +79,7 @@ if ( ! function_exists( 'uds_wp_entry_footer' ) ) {
 				esc_html__( 'Edit %s', 'uds-wordpress-theme' ),
 				the_title( '<span class="sr-only">"', '"</span>', false )
 			),
-			'<div class="' . $wrapper_class . ' edit-link my-1">',
+			'<div class="edit-link my-1">',
 			'</div>'
 		);
 	}
@@ -159,14 +159,41 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 	}
 }
 
+if ( ! function_exists( 'get_primary_category_id' ) ) {
+	/**
+	 * Get the primary category id
+	 *
+	 * @param int $post_id the ID of the current post.
+	 * @param int $category the ID of the post categories.
+	 */
+	function get_primary_category_id( $post_id, $category ) {
+		$prm_term = '';
+		if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+				$wpseo_primary_term = new WPSEO_Primary_Term( $category, $post_id );
+				$prm_term = $wpseo_primary_term->get_primary_term();
+		}
+		if ( ! is_object( $wpseo_primary_term ) || empty( $prm_term ) ) {
+				$term = wp_get_post_terms( $post_id, $category );
+			if ( isset( $term ) && ! empty( $term ) ) {
+					return $term[0]->term_id;
+			} else {
+					return '';
+			}
+		}
+		return $wpseo_primary_term->get_primary_term();
+	}
+}
+
 if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
-	 * Assign default featured image an excerpt to each post
+	 * Assign default featured image to each post
 	 * Get the first core/image block and assign it as a featured image if the field is empty
+	 * if no core/image then get the featured image of the primary category and assign it to the post .
 	 */
 	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
+		$primary_category = get_primary_category_id( $post->ID, 'category' );
 		// Scan the post content, identify the first core/image block found and assign to featured image.
 		if ( ! has_post_thumbnail( $post->ID ) ) {
 			if ( has_blocks( $post->post_content ) ) {
@@ -181,6 +208,14 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 
 			if ( $attached_image_id ) {
 				set_post_thumbnail( $post->ID, $attached_image_id );
+			} elseif ( $primary_category ) {
+
+				$primary_category = get_category( $primary_category );
+
+				$hero_asset_data = get_field( 'hero_asset_file', $primary_category );
+
+				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
+
 			}
 		}
 
