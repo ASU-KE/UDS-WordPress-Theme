@@ -57,10 +57,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 		// shift page content below the WP Admin toolbar.
 		?>
 		<style type="text/css" media="screen">
-			#asu-header.fixed-top {
-				top: 32px !important;
-			}
-
 			#wpadminbar {
 				z-index: 999999 !important;
 			}

@@ -408,3 +408,31 @@ a.btn.btn-dark {
     color: white;
 }
 }
+
+/*--------------------------------------------------------------
+Override the desktop media query for header to fix the gap issue
+--------------------------------------------------------------*/
+// Desktop
+@include media-breakpoint-up(xl) {
+  #asu-header + div,
+  #asu-header + main {
+    @include transition;
+    margin-top: 144px;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  #asu-header + div,
+  #asu-header + main {
+    @include transition;
+    margin-top: 113px;
+  }
+}
+#wpadminbar + #asu-header.fixed-top {
+	top: 32px !important;
+}
+@include media-breakpoint-down(sm) {
+#wpadminbar + #asu-header.fixed-top {
+	top: 46px !important;
+}
+}
