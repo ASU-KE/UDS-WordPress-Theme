@@ -399,13 +399,41 @@ Override the desktop media query for header to fix the gap issue
 }
 }
 
-main .container,
-footer .container{
-	padding-left: 0;
-	padding-right: 0;
+/*--------------------------------------------------------------
+Fix the aligning issue
+--------------------------------------------------------------*/
+
+#header-main .navbar,
+#footer-columns.container{
+	padding-left: 12px;
+	padding-right: 12px;
 }
+
+@media (max-width: 991.98px){
+#footer-innovation .footer-innovation-links .nav {
+    padding: 0 ;
+		order:2;
+}
+#footer-innovation .footer-innovation-links .img-link{
+	order:1;
+}
+#footer-colophon .nav{
+	padding: 0;
+}
+}
+
+@media (max-width: 806px){
+	.container-fluid{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
 footer .menu-social-media-container a.nav-link:last-of-type{
 	padding-right: 0;
+}
+footer .menu-social-media-container a.nav-link:first-of-type{
+	padding-left: 0;
 }
 footer #wrapper-footer-innovation .img-link{
 	margin-right: 0;
@@ -418,7 +446,22 @@ footer #wrapper-footer-innovation .img-link{
 		 padding-right: 0.15em;
 }
 }
-.container, .container-xl{
-	border-left: 2px solid red;
-	border-right: 2px solid red;
+
+main > div > .container,
+main > .container,
+#header-top,
+.container-xl #header-main nav,
+#asu-footer .container{
+ position: relative;
+	&:after {
+  content: '';
+  position: absolute;
+    width: calc(100% - 24px);
+  height: 100%;
+	border-left: 2px solid lightgreen;
+	border-right: 2px solid lightgreen;
+  left: 12px;
+  top: 0px;
+
+}
 }
