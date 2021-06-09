@@ -7,7 +7,6 @@
  * Version: 0.1
  *
  * @package UDS WordPress Theme
- *
  */
 
 acf_register_block_type(

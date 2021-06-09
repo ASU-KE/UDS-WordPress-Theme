@@ -5,10 +5,10 @@
  * @package UDS WordPress Theme
  */
 
-$source = get_field('uds_grid_links_source');
-$columns = get_field('uds_grid_links_columns');
-$breakpoint = get_field('uds_grid_links_breakpoint');
-$color = get_field('uds_grid_links_color');
+$source = get_field( 'uds_grid_links_source' );
+$columns = get_field( 'uds_grid_links_columns' );
+$breakpoint = get_field( 'uds_grid_links_breakpoint' );
+$color = get_field( 'uds_grid_links_color' );
 
 
 // Retrieve additional classes from the 'advanced' field in the editor.
@@ -34,23 +34,24 @@ echo '<div class="uds-grid-links ' . $additional_classes . '">';
 if ( 'arbitrary' === $source ) {
 
 	// Check the rows of the repeater, build the links.
-	if( have_rows('uds_grid_links_created') ):
+	if ( have_rows( 'uds_grid_links_created' ) ) :
 
-		while( have_rows('uds_grid_links_created') ) : the_row();
+		while ( have_rows( 'uds_grid_links_created' ) ) :
+			the_row();
 
-			$icon = get_sub_field('uds_grid_links_created_icon');
-			$link = get_sub_field('uds_grid_links_created_link');
+			$icon = get_sub_field( 'uds_grid_links_created_icon' );
+			$gridlink = get_sub_field( 'uds_grid_links_created_link' );
 			$linkstring = '';
 
-			if (!empty($icon)) {
+			if ( ! empty( $icon ) ) {
 				$linkstring .= '<span class="fa-fw ' . $icon . '"></span>';
 			}
 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			$link_target = $link['target'] ? $link['target'] : '_self';
+			$link_url = $gridlink['url'];
+			$link_title = $gridlink['title'];
+			$link_target = $gridlink['target'] ? $gridlink['target'] : '_self';
 
-			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' .$linkstring . esc_html( $link_title ) . '</a>';
+			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . $linkstring . esc_html( $link_title ) . '</a>';
 			echo $linkstring;
 
 		endwhile;
@@ -62,20 +63,19 @@ if ( 'arbitrary' === $source ) {
 } else {
 
 	// $content is equal to either "tag" or "category"
-	if ('tag' === $source) {
-		$terms = get_field('uds_grid_links_tag');
+	if ( 'tag' === $source ) {
+		$terms = get_field( 'uds_grid_links_tag' );
 	} else {
-		$terms = get_field('uds_grid_links_category');
+		$terms = get_field( 'uds_grid_links_category' );
 	}
 
-	if( $terms ) {
-		foreach( $terms as $term ) {
-			echo '<a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a>';
+	if ( $terms ) {
+		foreach ( $terms as $gridterm ) {
+			echo '<a href="' . esc_url( get_term_link( $gridterm ) ) . '">' . esc_html( $gridterm->name ) . '</a>';
 		}
 	} else {
 		echo '<a href="#">No ' . $source . ' selected.</a>';
 	}
-
 }
 
 // Close out the block.
