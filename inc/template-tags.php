@@ -168,10 +168,19 @@ if ( ! function_exists( 'get_primary_category_id' ) ) {
 	 */
 	function get_primary_category_id( $post_id, $category ) {
 		$prm_term = '';
+		$the_category = get_the_category( $post_id );
+		if ( isset( $the_category ) ) {
+			$the_category = $the_category[0];
+			$the_category = $the_category->term_id;
+		}
 		if ( class_exists( 'WPSEO_Primary_Term' ) ) {
 				$wpseo_primary_term = new WPSEO_Primary_Term( $category, $post_id );
 				$prm_term = $wpseo_primary_term->get_primary_term();
+		} else {
+			return $the_category;
+			exit;
 		}
+
 		if ( ! is_object( $wpseo_primary_term ) || empty( $prm_term ) ) {
 				$term = wp_get_post_terms( $post_id, $category );
 			if ( isset( $term ) && ! empty( $term ) ) {
@@ -193,7 +202,9 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
+		$categories = get_the_category( $post->ID );
 		$primary_category = get_primary_category_id( $post->ID, 'category' );
+
 		// Scan the post content, identify the first core/image block found and assign to featured image.
 		if ( ! has_post_thumbnail( $post->ID ) ) {
 			if ( has_blocks( $post->post_content ) ) {
