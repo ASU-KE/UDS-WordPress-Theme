@@ -26,7 +26,7 @@
                 }
             }
         );
-    }
+    };
 
 		var WhiteHighlightButton = function( props ) {
         return wp.element.createElement(
@@ -36,14 +36,14 @@
                 title: 'UDS White Highlight',
                 onClick: function() {
                     props.onChange(
-                        wp.richText.toggleFormat(props.value, {
+                        wp.richText.toggleFormat( props.value, {
                             type: 'uds-wordpress-theme/white-highlight'
                         })
                     );
                 }
             }
         );
-    }
+    };
 
 		var BlackHighlightButton = function( props ) {
         return wp.element.createElement(
@@ -53,25 +53,25 @@
                 title: 'UDS Black Highlight',
                 onClick: function() {
                     props.onChange(
-                        wp.richText.toggleFormat(props.value, {
+                        wp.richText.toggleFormat( props.value, {
                             type: 'uds-wordpress-theme/black-highlight'
                         })
                     );
                 }
             }
         );
-    }
+    };
 
     var ConditionalGoldHighlightButton = compose(
         withSelect( function( select ) {
             return {
                 selectedBlock: select( 'core/editor' ).getSelectedBlock()
-            }
+            };
         } ),
         ifCondition( function( props ) {
             return (
                 props.selectedBlock &&
-                props.selectedBlock.name === 'core/heading'
+                'core/heading' === props.selectedBlock.name
             );
         } )
     )( GoldHighlightButton );
@@ -80,12 +80,12 @@
         withSelect( function( select ) {
             return {
                 selectedBlock: select( 'core/editor' ).getSelectedBlock()
-            }
+            };
         } ),
         ifCondition( function( props ) {
             return (
                 props.selectedBlock &&
-                props.selectedBlock.name === 'core/heading'
+                'core/heading' === props.selectedBlock.name
             );
         } )
     )( WhiteHighlightButton );
@@ -94,12 +94,12 @@
         withSelect( function( select ) {
             return {
                 selectedBlock: select( 'core/editor' ).getSelectedBlock()
-            }
+            };
         } ),
         ifCondition( function( props ) {
             return (
                 props.selectedBlock &&
-                props.selectedBlock.name === 'core/heading'
+                'core/heading' === props.selectedBlock.name
             );
         } )
     )( BlackHighlightButton );
@@ -109,17 +109,16 @@
             title: 'UDS Gold Highlight',
             tagName: 'span',
             className: 'highlight-gold',
-            edit: ConditionalGoldHighlightButton,
+            edit: ConditionalGoldHighlightButton
         }
     );
-
 
 		wp.richText.registerFormatType(
 				'uds-wordpress-theme/white-highlight', {
 						title: 'UDS White Highlight',
 						tagName: 'span',
 						className: 'highlight-white',
-						edit: ConditionalWhiteHighlightButton,
+						edit: ConditionalWhiteHighlightButton
 				}
 		);
 
@@ -128,10 +127,8 @@
 						title: 'UDS Black Highlight',
 						tagName: 'span',
 						className: 'highlight-black',
-						edit: ConditionalBlackHighlightButton,
+						edit: ConditionalBlackHighlightButton
 				}
 		);
-
-
 
 } )( window.wp );
