@@ -202,7 +202,6 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
-		$categories = get_the_category( $post->ID );
 		$primary_category = get_primary_category_id( $post->ID, 'category' );
 
 		// Scan the post content, identify the first core/image block found and assign to featured image.
@@ -225,8 +224,9 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 
 				$hero_asset_data = get_field( 'hero_asset_file', $primary_category );
 
-				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
-
+				if ( $hero_asset_data ) {
+					set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
+				}           
 			}
 		}
 
