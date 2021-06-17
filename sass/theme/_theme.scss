@@ -27,17 +27,35 @@ main > * {
 /* Prevent the hero content container (title, sub-title,
 buttons), from being moved down on mobile when there are no
 buttons. */
-.uds-hero {
+
+.uds-hero-lg, .uds-hero-sm {
 	.uds-hero-container {
-		// At mobile size, do not apply negative margin.
+		// At mobile size, do not apply the negative margin if no buttons exist
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 0 !important;
+			margin-left: 1rem;
+
+			&.has-buttons {
+				// With buttons, use -2rem bottom margin to pull the content down
+				margin-bottom: -2rem !important;
+			}
+		}
+	}
+}
+
+.uds-hero-md {
+	.uds-hero-container {
+		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist
 		// Also fix the left margin to match (?) the content area.
 		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
 			margin-bottom: 2rem !important;
 			margin-left: 1rem;
+			top: 0 !important;
 
-			// With buttons, apply negative margin as in the original styles.
 			&.has-buttons {
-				margin-bottom: -2rem !important;
+				// With buttons, we need to move down
+				top: 2rem !important;
 			}
 		}
 	}
