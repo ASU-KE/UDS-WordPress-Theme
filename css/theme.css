@@ -21965,12 +21965,23 @@ main > * {
 buttons), from being moved down on mobile when there are no
 buttons. */
 @media screen and (max-width: 576px) {
-  .uds-hero .uds-hero-container {
-    margin-bottom: 2rem !important;
+  .uds-hero-lg .uds-hero-container, .uds-hero-sm .uds-hero-container {
+    margin-bottom: 0 !important;
     margin-left: 1rem;
   }
-  .uds-hero .uds-hero-container.has-buttons {
+  .uds-hero-lg .uds-hero-container.has-buttons, .uds-hero-sm .uds-hero-container.has-buttons {
     margin-bottom: -2rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .uds-hero-md .uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .uds-hero-md .uds-hero-container.has-buttons {
+    top: 2rem !important;
   }
 }
 
