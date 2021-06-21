@@ -8,6 +8,7 @@
 
 ( function( wp ) {
 
+	// Some shortcuts for commonly used Gutenberg libraries/features.
 	var withSelect  = wp.data.withSelect;
 	var ifCondition = wp.compose.ifCondition;
 	var compose     = wp.compose.compose;
