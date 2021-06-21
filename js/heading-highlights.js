@@ -15,8 +15,8 @@
 	var el          = wp.element.createElement;
 
 	// Active state toolbar icons require an SVG, so we create one here.
-	const brushIcon = el('svg', { width: 20, height: 20, viewBox: '0 0 20 20' },
-	el('path', { d: "M18.33 3.57s.27-.8-.31-1.36c-.53-.52-1.22-.24-1.22-.24c-.61.3-5.76 3.47-7.67 5.57c-.86.96-2.06 3.79-1.09 4.82c.92.98 3.96-.17 4.79-1c2.06-2.06 5.21-7.17 5.5-7.79zM1.4 17.65c2.37-1.56 1.46-3.41 3.23-4.64c.93-.65 2.22-.62 3.08.29c.63.67.8 2.57-.16 3.46c-1.57 1.45-4 1.55-6.15.89z" } )
+	const brushIcon = el( 'svg', { width: 20, height: 20, viewBox: '0 0 20 20' },
+	el( 'path', { d: 'M18.33 3.57s.27-.8-.31-1.36c-.53-.52-1.22-.24-1.22-.24c-.61.3-5.76 3.47-7.67 5.57c-.86.96-2.06 3.79-1.09 4.82c.92.98 3.96-.17 4.79-1c2.06-2.06 5.21-7.17 5.5-7.79zM1.4 17.65c2.37-1.56 1.46-3.41 3.23-4.64c.93-.65 2.22-.62 3.08.29c.63.67.8 2.57-.16 3.46c-1.57 1.45-4 1.55-6.15.89z' } )
 	);
 
 	/**
@@ -37,7 +37,7 @@
 						})
 					);
 				},
-				isActive: props.isActive,
+				isActive: props.isActive
 			}
 		);
 	};
@@ -55,7 +55,7 @@
 						})
 					);
 				},
-				isActive: props.isActive,
+				isActive: props.isActive
 			}
 		);
 	};
@@ -73,7 +73,7 @@
 						})
 					);
 				},
-				isActive: props.isActive,
+				isActive: props.isActive
 			}
 		);
 	};
@@ -123,7 +123,6 @@
 			);
 		} )
 	)( BlackHighlightButton );
-
 
 	/**
 	 * Register our styles, passing in our conditional buttons
