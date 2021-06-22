@@ -87,10 +87,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 </head>
 
 <body <?php body_class(); ?> <?php uds_wp_body_attributes(); ?> id="back_to_top">
-	<button id="uds-back-to-top" class="uds-back-to-top-button" title="Go to top">
-		<span>Back to top</span>
-		<i class="fas fa-chevron-right"></i>
-	</button>
 
 	<?php
 	do_action( 'wp_body_open' );
