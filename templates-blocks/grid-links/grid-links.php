@@ -39,17 +39,27 @@ if ( 'arbitrary' === $source ) {
 		while ( have_rows( 'uds_grid_links_created' ) ) :
 			the_row();
 
+			// Reset all loop variables with each loop.
+			$icon = '';
+			$gridlink = '';
+			$linkstring = '';
+
 			$icon = get_sub_field( 'uds_grid_links_created_icon' );
 			$gridlink = get_sub_field( 'uds_grid_links_created_link' );
-			$linkstring = '';
 
 			if ( ! empty( $icon ) ) {
 				$linkstring .= '<span class="fa-fw ' . $icon . '"></span>';
 			}
 
-			$link_url = $gridlink['url'];
-			$link_title = $gridlink['title'];
-			$link_target = $gridlink['target'] ? $gridlink['target'] : '_self';
+			if ( ! empty( $gridlink )) {
+				$link_url = $gridlink['url'];
+				$link_title = $gridlink['title'];
+				$link_target = $gridlink['target'] ? $gridlink['target'] : '_self';
+			} else {
+				$link_url = '#';
+				$link_title = "No link defined.";
+				$link_target = '_self';
+			}
 
 			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . $linkstring . esc_html( $link_title ) . '</a>';
 			echo $linkstring;

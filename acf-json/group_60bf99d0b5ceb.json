@@ -124,10 +124,10 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_60bf9e0a86b17",
+            "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "layout": "row",
             "button_label": "Add Grid Link",
             "sub_fields": [
                 {
@@ -155,7 +155,7 @@
                     "name": "uds_grid_links_created_link",
                     "type": "link",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "50",
@@ -251,5 +251,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Creates the UDS Grid Links element based on a taxonomy selection or your own custom list.",
-    "modified": 1623350291
+    "modified": 1624404923
 }
