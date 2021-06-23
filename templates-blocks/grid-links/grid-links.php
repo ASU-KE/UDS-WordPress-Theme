@@ -51,13 +51,13 @@ if ( 'arbitrary' === $source ) {
 				$linkstring .= '<span class="fa-fw ' . $icon . '"></span>';
 			}
 
-			if ( ! empty( $gridlink )) {
+			if ( ! empty( $gridlink ) ) {
 				$link_url = $gridlink['url'];
 				$link_title = $gridlink['title'];
 				$link_target = $gridlink['target'] ? $gridlink['target'] : '_self';
 			} else {
 				$link_url = '#';
-				$link_title = "No link defined.";
+				$link_title = 'No link defined.';
 				$link_target = '_self';
 			}
 
