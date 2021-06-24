@@ -39,6 +39,11 @@ abbr {
   text-decoration-color: initial !important;
 }
 
+b,
+strong {
+  font-weight: 700 !important;
+}
+
 :root {
   --white: #ffffff;
   --gray: #6c757d;
@@ -18084,6 +18089,11 @@ Cards - Table of Contents
 .accordion .card.card-foldable {
   border-bottom: 1px solid #d0d0d0;
 }
+.accordion .card-header .card-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
 
 /*------------------------------------------------------------------
 8. Checkbox Stacked Cards
@@ -18779,7 +18789,6 @@ p:last-of-type + h6 {
 h1 {
   font-size: 4rem;
   letter-spacing: -0.035em;
-  line-height: normal;
 }
 h1.article {
   font-size: 3rem;
@@ -18816,6 +18825,14 @@ h4 {
 h5 {
   font-size: 1rem;
   letter-spacing: -0.015em;
+}
+
+h1 span[class^=highlight-],
+h2 span[class^=highlight-],
+h3 span[class^=highlight-],
+h4 span[class^=highlight-] {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 h1 span.highlight-gold,
@@ -19356,29 +19373,6 @@ Sidebar Navigation
   border-bottom: 0;
 }
 
-.bg-white a,
-.bg-gray-1 a,
-.bg-gray-2 a {
-  color: #8c1d40;
-}
-.bg-white a:visited,
-.bg-gray-1 a:visited,
-.bg-gray-2 a:visited {
-  color: #440e22;
-}
-
-.bg-gray-7 a {
-  color: #ffc627;
-}
-.bg-gray-7 a:visited {
-  color: #7f6227;
-}
-
-b,
-strong {
-  font-weight: 700;
-}
-
 /*------------------------------------------------------------------
 Footer - Table of Contents
 
@@ -19698,7 +19692,11 @@ blockquote:before {
 .uds-blockquote.with-image img {
   max-width: 40px;
   height: auto;
+  background-repeat: no-repeat;
+  background-position: 50%;
   border-radius: 50%;
+  width: 180px;
+  height: 180px;
 }
 .uds-blockquote.with-image blockquote p:first-of-type:before {
   content: "“";
@@ -19740,7 +19738,11 @@ blockquote:before {
   .uds-blockquote.no-cite.with-image img {
     max-width: 180px;
     height: auto;
+    background-repeat: no-repeat;
+    background-position: 50%;
     border-radius: 50%;
+    width: 180px;
+    height: 180px;
   }
 }
 /*------------------------------------------------------------------
@@ -19756,7 +19758,11 @@ blockquote:before {
   .uds-blockquote.with-image img {
     max-width: 180px;
     height: auto;
+    background-repeat: no-repeat;
+    background-position: 50%;
     border-radius: 50%;
+    width: 180px;
+    height: 180px;
   }
   .uds-blockquote.with-image.reversed img {
     grid-column: 2;
@@ -21013,26 +21019,76 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
   }
 }
 
-.uds-tooltip:hover .fa-stack .fa-circle {
-  color: #00b0f3;
+div.uds-tooltip-container {
+  display: inline-block;
+  position: relative;
 }
-.uds-tooltip:hover .uds-tooltip-text {
+
+button.uds-tooltip {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+button.uds-tooltip .fa-circle {
+  color: #d0d0d0;
+}
+button.uds-tooltip .fa-info {
+  color: #ffffff;
+}
+button.uds-tooltip .fa-stack > * {
+  font-size: 0.75rem;
+}
+button.uds-tooltip i {
+  vertical-align: middle;
+}
+button.uds-tooltip:hover + div[role=tooltip].uds-tooltip-description, button.uds-tooltip:focus + div[role=tooltip].uds-tooltip-description {
   visibility: visible;
 }
-.uds-tooltip-text {
+button.uds-tooltip:hover .fa-circle, button.uds-tooltip:focus .fa-circle {
+  color: #00b0f3;
+}
+
+button.uds-tooltip-gray-1 .fa-circle {
+  color: #bfbfbf;
+}
+button.uds-tooltip-gray-1 .fa-info {
+  color: #fafafa;
+}
+
+button.uds-tooltip-gray .fa-circle {
+  color: #bfbfbf;
+}
+button.uds-tooltip-gray .fa-info {
+  color: #e8e8e8;
+}
+
+button.uds-tooltip-dark .fa-circle {
+  color: #747474;
+}
+button.uds-tooltip-dark .fa-info {
+  color: #191919;
+}
+
+div[role=tooltip].uds-tooltip-description {
   background: #191919 0% 0% no-repeat padding-box;
-  backdrop-filter: blur(8px);
   color: #fafafa;
   font: normal normal normal 1rem Arial;
   line-height: 2rem;
   margin: 0px 5px;
   max-width: 353px;
+  min-width: 300px;
   padding: 2rem;
   position: absolute;
+  left: 40px;
+  top: 0;
   visibility: hidden;
   z-index: 1;
 }
-.uds-tooltip-text-heading {
+div[role=tooltip].uds-tooltip-description > span.uds-tooltip-heading {
   color: #fafafa;
   display: block;
   font: normal normal bold 1rem Arial;
@@ -21040,52 +21096,30 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
   margin-bottom: 1rem;
   text-align: left;
 }
-.uds-tooltip .fa-stack .fa-circle, .uds-tooltip-white .fa-stack .fa-circle {
-  color: #d0d0d0;
-}
-.uds-tooltip .fa-stack .fa-info, .uds-tooltip-white .fa-stack .fa-info {
-  color: #ffffff;
-}
-.uds-tooltip-base-gray .fa-stack .fa-circle {
-  color: #bfbfbf;
-}
-.uds-tooltip-base-gray .fa-stack .fa-info {
-  color: #fafafa;
-}
-.uds-tooltip-gray .fa-stack .fa-circle {
-  color: #bfbfbf;
-}
-.uds-tooltip-gray .fa-stack .fa-info {
-  color: #e8e8e8;
-}
-.uds-tooltip-dark .fa-stack .fa-circle {
-  color: #747474;
-}
-.uds-tooltip-dark .fa-stack .fa-info {
-  color: #191919;
-}
-.uds-tooltip .fa-stack > * {
-  font-size: 0.75rem;
-}
-.uds-tooltip i {
-  vertical-align: middle;
+
+span.uds-tooltip-visually-hidden {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.background {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-}
-.background.white {
+.uds-tooltip-bg-white {
   background-color: #ffffff;
 }
-.background.base-gray {
+
+.uds-tooltip-bg-gray-1 {
   background-color: #fafafa;
 }
-.background.gray {
+
+.uds-tooltip-bg-gray {
   background-color: #e8e8e8;
 }
-.background.dark {
+
+.uds-tooltip-bg-dark {
   background-color: #191919;
 }
 
@@ -21161,11 +21195,13 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
 
 .uds-card-and-image {
   background-position: top;
+  background-size: cover;
   display: flex;
   flex-direction: row;
   height: 466px;
   max-width: 1920px;
   padding: 48px 96px;
+  width: 100%;
 }
 .uds-card-and-image-right {
   flex-direction: row-reverse;
@@ -21190,10 +21226,10 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
 }
 
 /*--------------------------------------------------------------
-# Inner Circle Grid Links
+# UDS Grid Links
 
 1. Mobile
-2 Desktop modifiers
+2. Desktop modifiers
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1. Mobile
@@ -21234,79 +21270,23 @@ form.uds-form.uds-form-gray7 .input-group-trailing-icon svg {
 2. Desktop modifiers
 --------------------------------------------------------------*/
 @media (min-width: 768px) {
-  .uds-grid-links.mobile-at-md.two-columns {
+  .uds-grid-links.two-columns,
+.uds-grid-links.three-columns,
+.uds-grid-links.four-columns {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-md.three-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-md.four-columns {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 992px) {
-  .uds-grid-links.mobile-at-lg.two-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-lg.three-columns {
+  .uds-grid-links.three-columns,
+.uds-grid-links.four-columns {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-lg.four-columns {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 1260px) {
-  .uds-grid-links.mobile-at-xl.two-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-xl.three-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .uds-grid-links.mobile-at-xl.four-columns {
+  .uds-grid-links.four-columns {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.uds-back-to-top-button {
-  align-items: center;
-  background-color: #747474;
-  border: none;
-  bottom: 50%;
-  color: #ffffff;
-  cursor: pointer;
-  display: none;
-  font-size: 1rem;
-  height: 67px;
-  justify-content: center;
-  line-height: 1;
-  outline: none;
-  padding: 8px 40px 8px 8px;
-  position: fixed;
-  right: -26px;
-  text-align: right;
-  transform: rotate(-90deg);
-  width: 119px;
-  margin-bottom: -33.5px;
-  z-index: 99;
-}
-.uds-back-to-top-button-show {
-  display: inline-flex;
-}
-.uds-back-to-top-button:hover .fa-chevron-right {
-  right: 6px;
-}
-.uds-back-to-top-button .fa-chevron-right {
-  font-size: 2rem;
-  right: 12px;
-  position: absolute;
-  z-index: -1;
-}
-
 ul.uds-display-list {
   color: #191919;
   font-size: 1rem;
@@ -21322,6 +21302,7 @@ ul.uds-display-list li span {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 350px;
 }
 
 .uds-charts-and-graphs-overlay {
@@ -21392,9 +21373,15 @@ canvas {
 .uds-anchor-menu .nav-link {
   color: #191919;
   padding: 1.5rem 0;
-  border-bottom: 1px solid #d0d0d0;
   text-align: start;
   font-weight: 400;
+}
+.uds-anchor-menu .nav-link:not(:last-child) {
+  border-bottom: 1px solid #d0d0d0;
+}
+.uds-anchor-menu .nav-link:hover, .uds-anchor-menu .nav-link.active {
+  margin-bottom: 0;
+  border-bottom: 0.5rem solid #ffc627;
 }
 .uds-anchor-menu .nav-link:visited {
   color: #191919;
@@ -21530,6 +21517,12 @@ canvas {
     position: relative;
     height: unset !important;
     overflow: hidden;
+  }
+}
+@media (max-width: 1259.98px) {
+  .uds-anchor-menu h4 {
+    display: flex;
+    justify-content: space-between;
   }
 }
 @media (min-width: 1260px) {
@@ -21965,12 +21958,23 @@ main > * {
 buttons), from being moved down on mobile when there are no
 buttons. */
 @media screen and (max-width: 576px) {
-  .uds-hero .uds-hero-container {
-    margin-bottom: 2rem !important;
+  .uds-hero-lg .uds-hero-container, .uds-hero-sm .uds-hero-container {
+    margin-bottom: 0 !important;
     margin-left: 1rem;
   }
-  .uds-hero .uds-hero-container.has-buttons {
+  .uds-hero-lg .uds-hero-container.has-buttons, .uds-hero-sm .uds-hero-container.has-buttons {
     margin-bottom: -2rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .uds-hero-md .uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .uds-hero-md .uds-hero-container.has-buttons {
+    top: 2rem !important;
   }
 }
 
