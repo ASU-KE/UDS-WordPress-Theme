@@ -161,7 +161,7 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 
 if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
-	 * Assign default featured image to each post
+	 * Assign default featured image to each post.
 	 * Get the first core/image block and assign it as a featured image if the field is empty
 	 * if no core/image then get the featured image of the primary category and assign it to the post .
 	 */
