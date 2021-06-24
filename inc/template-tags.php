@@ -159,31 +159,6 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'get_primary_category_id' ) ) {
-	/**
-	 * Get the primary category id
-	 *
-	 * @param int $post_id the ID of the current post.
-	 * @param int $category the ID of the post categories.
-	 */
-	function get_primary_category_id( $post_id, $category ) {
-		$prm_term = '';
-		if ( class_exists( 'WPSEO_Primary_Term' ) ) {
-				$wpseo_primary_term = new WPSEO_Primary_Term( $category, $post_id );
-				$prm_term = $wpseo_primary_term->get_primary_term();
-		}
-		if ( ! is_object( $wpseo_primary_term ) || empty( $prm_term ) ) {
-				$term = wp_get_post_terms( $post_id, $category );
-			if ( isset( $term ) && ! empty( $term ) ) {
-					return $term[0]->term_id;
-			} else {
-					return '';
-			}
-		}
-		return $wpseo_primary_term->get_primary_term();
-	}
-}
-
 if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
 	 * Assign default featured image to each post
@@ -193,10 +168,14 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	function uds_assign_featured_image() {
 		global $post;
 		$attached_image_id = '';
-		$primary_category = get_primary_category_id( $post->ID, 'category' );
-		// Scan the post content, identify the first core/image block found and assign to featured image.
-		if ( ! has_post_thumbnail( $post->ID ) ) {
+
+		// Check to see if the post object exists and if there is a featured image.
+		// Post object won't exist at all until the first save.
+		if ( ( is_object( $post ) ) && ( ! has_post_thumbnail( $post->ID ) ) ) {
+
+			// Scan the post content, identify the first core/image block found and assign to featured image.
 			if ( has_blocks( $post->post_content ) ) {
+
 				$blocks = parse_blocks( $post->post_content );
 				foreach ( $blocks as $value ) {
 					if ( 'core/image' == $value['blockName'] ) {
@@ -206,21 +185,36 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 				}
 			}
 
-			if ( $attached_image_id ) {
+			// If we found a suitable image, assign it as the featured image.
+			// Then bail early.
+			if ( ! empty( $attached_image_id ) ) {
 				set_post_thumbnail( $post->ID, $attached_image_id );
-			} elseif ( $primary_category ) {
-
-				$primary_category = get_category( $primary_category );
-
-				$hero_asset_data = get_field( 'hero_asset_file', $primary_category );
-
-				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
-
+				return;
 			}
+
+			// Still here. Next, let's look for a featured category.
+			// That's a specific feature from Yoast SEO, so we'll look for the function first.
+
+			if ( function_exists( 'yoast_get_primary_term_id' ) ) {
+
+				// Returns false if there is no primary category set.
+				$primary_category_id = yoast_get_primary_term_id( 'category', $post->ID );
+
+				// Get the ACF image field assigned to the featured category and assign it to the post.
+				if ( $primary_category_id ) {
+
+					$primary_category_term = get_term( $primary_category_id );
+					$hero_asset_data = get_field( 'hero_asset_file', $primary_category_term );
+
+					// Check to see if there is an image in the field from ACF.
+					if ( ! empty( $hero_asset_data ) ) {
+						set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
+					}               
+				}           
+			}       
 		}
 
 	}
-	add_action( 'the_post', 'uds_assign_featured_image' );
 	add_action( 'save_post', 'uds_assign_featured_image' );
 	add_action( 'draft_to_publish', 'uds_assign_featured_image' );
 	add_action( 'new_to_publish', 'uds_assign_featured_image' );
