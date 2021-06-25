@@ -124,7 +124,7 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_60bf9e0a86b17",
             "min": 0,
             "max": 0,
             "layout": "row",
@@ -251,5 +251,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Creates the UDS Grid Links element based on a taxonomy selection or your own custom list.",
-    "modified": 1624404923
+    "modified": 1624643876
 }
