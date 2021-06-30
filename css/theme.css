@@ -40,6 +40,11 @@ abbr {
      -moz-text-decoration-color: initial !important;
           text-decoration-color: initial !important; }
 
+b,
+strong {
+  font-weight: 700 !important;
+}
+
 :root {
   --white: #ffffff;
   --gray: #6c757d;
@@ -15625,7 +15630,17 @@ Cards - Table of Contents
 7. Accordion
 --------------------------------------------------------------------*/
 .accordion .card.card-foldable {
+<<<<<<< HEAD
   border-bottom: 1px solid #d0d0d0; }
+=======
+  border-bottom: 1px solid #d0d0d0;
+}
+.accordion .card-header .card-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+>>>>>>> develop
 
 /*------------------------------------------------------------------
 8. Checkbox Stacked Cards
@@ -16227,7 +16242,18 @@ p:last-of-type + h6 {
 h1 {
   font-size: 4rem;
   letter-spacing: -0.035em;
+<<<<<<< HEAD
   line-height: normal; }
+=======
+}
+h1.article {
+  font-size: 3rem;
+}
+@media (max-width: 577px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+>>>>>>> develop
   h1.article {
     font-size: 3rem; }
   @media (max-width: 577px) {
@@ -16254,6 +16280,14 @@ h4 {
 h5 {
   font-size: 1rem;
   letter-spacing: -0.015em; }
+
+h1 span[class^=highlight-],
+h2 span[class^=highlight-],
+h3 span[class^=highlight-],
+h4 span[class^=highlight-] {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 
 h1 span.highlight-gold,
 h2 span.highlight-gold {
@@ -16769,6 +16803,7 @@ Sidebar Navigation
   .sidebar .card-foldable:not(:last-child) {
     border-bottom: 0; }
 
+<<<<<<< HEAD
 .bg-white a,
 .bg-gray-1 a,
 .bg-gray-2 a {
@@ -16789,6 +16824,8 @@ b,
 strong {
   font-weight: 700; }
 
+=======
+>>>>>>> develop
 /*------------------------------------------------------------------
 Footer - Table of Contents
 
@@ -17049,6 +17086,7 @@ blockquote:before {
   grid-template-columns: auto 1fr;
   gap: 1.5rem;
   font-size: 1.25rem;
+<<<<<<< HEAD
   font-weight: 700; }
   .uds-blockquote svg {
     grid-column: 1;
@@ -17110,6 +17148,75 @@ blockquote:before {
     fill: #ffc627; }
   .uds-blockquote.accent-maroon svg {
     fill: #8c1d40; }
+=======
+  font-weight: 700;
+}
+.uds-blockquote svg {
+  grid-column: 1;
+  fill: #191919;
+  width: 2.5rem;
+  height: auto;
+}
+.uds-blockquote blockquote {
+  grid-column: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.uds-blockquote blockquote p:last-child {
+  margin-bottom: 0;
+}
+.uds-blockquote blockquote p:last-of-type:after {
+  content: "”";
+}
+.uds-blockquote .citation cite {
+  display: block;
+  font-size: 1rem;
+  font-style: normal;
+}
+.uds-blockquote .citation cite.name {
+  font-weight: 700;
+}
+.uds-blockquote .citation cite.name:before {
+  padding-right: 0.5em;
+  content: "—";
+}
+.uds-blockquote .citation cite.description {
+  font-weight: 400;
+  padding-left: 1.5rem;
+}
+.uds-blockquote.with-image img {
+  max-width: 40px;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+.uds-blockquote.with-image blockquote p:first-of-type:before {
+  content: "“";
+}
+.uds-blockquote.no-citation blockquote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.uds-blockquote.no-citation blockquote p:first-of-type:before {
+  content: "“";
+}
+.uds-blockquote.no-citation blockquote h3 {
+  margin-bottom: 0;
+}
+.uds-blockquote.no-citation blockquote h3 + p {
+  margin-top: 1.5rem;
+}
+.uds-blockquote.accent-gold svg {
+  fill: #ffc627;
+}
+.uds-blockquote.accent-maroon svg {
+  fill: #8c1d40;
+}
+>>>>>>> develop
 
 /*------------------------------------------------------------------
 3. Blockquote, mobile only
@@ -17121,6 +17228,7 @@ blockquote:before {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+<<<<<<< HEAD
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -17142,6 +17250,25 @@ blockquote:before {
       -moz-border-radius: 50%;
            border-radius: 50%; } }
 
+=======
+    flex-direction: column;
+    align-items: center;
+  }
+  .uds-blockquote.no-cite.with-image blockquote,
+.uds-blockquote.no-cite.with-image h3 {
+    text-align: center;
+  }
+  .uds-blockquote.no-cite.with-image img {
+    max-width: 180px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+  }
+}
+>>>>>>> develop
 /*------------------------------------------------------------------
 4. Blockquote, desktop
 ------------------------------------------------------------------- */
@@ -17153,12 +17280,26 @@ blockquote:before {
         -ms-flex-align: center;
             align-items: center; }
   .uds-blockquote.with-image {
+<<<<<<< HEAD
     gap: 2rem; }
     .uds-blockquote.with-image img {
       max-width: 180px;
       height: auto;
       -moz-border-radius: 50%;
            border-radius: 50%; }
+=======
+    gap: 2rem;
+  }
+  .uds-blockquote.with-image img {
+    max-width: 180px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+  }
+>>>>>>> develop
   .uds-blockquote.with-image.reversed img {
     grid-column: 2; }
   .uds-blockquote.with-image.reversed blockquote {
@@ -18418,6 +18559,7 @@ form.uds-form {
         .uds-quote-image-background-container .uds-blockquote {
           font-size: 1rem; } }
 
+<<<<<<< HEAD
 .uds-tooltip:hover .fa-stack .fa-circle {
   color: #00b0f3; }
 
@@ -18428,14 +18570,76 @@ form.uds-form {
   background: #191919 0% 0% no-repeat padding-box;
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
+=======
+div.uds-tooltip-container {
+  display: inline-block;
+  position: relative;
+}
+
+button.uds-tooltip {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+button.uds-tooltip .fa-circle {
+  color: #d0d0d0;
+}
+button.uds-tooltip .fa-info {
+  color: #ffffff;
+}
+button.uds-tooltip .fa-stack > * {
+  font-size: 0.75rem;
+}
+button.uds-tooltip i {
+  vertical-align: middle;
+}
+button.uds-tooltip:hover + div[role=tooltip].uds-tooltip-description, button.uds-tooltip:focus + div[role=tooltip].uds-tooltip-description {
+  visibility: visible;
+}
+button.uds-tooltip:hover .fa-circle, button.uds-tooltip:focus .fa-circle {
+  color: #00b0f3;
+}
+
+button.uds-tooltip-gray-1 .fa-circle {
+  color: #bfbfbf;
+}
+button.uds-tooltip-gray-1 .fa-info {
+  color: #fafafa;
+}
+
+button.uds-tooltip-gray .fa-circle {
+  color: #bfbfbf;
+}
+button.uds-tooltip-gray .fa-info {
+  color: #e8e8e8;
+}
+
+button.uds-tooltip-dark .fa-circle {
+  color: #747474;
+}
+button.uds-tooltip-dark .fa-info {
+  color: #191919;
+}
+
+div[role=tooltip].uds-tooltip-description {
+  background: #191919 0% 0% no-repeat padding-box;
+>>>>>>> develop
   color: #fafafa;
   font: normal normal normal 1rem Arial;
   line-height: 2rem;
   margin: 0px 5px;
   max-width: 353px;
+  min-width: 300px;
   padding: 2rem;
   position: absolute;
+  left: 40px;
+  top: 0;
   visibility: hidden;
+<<<<<<< HEAD
   z-index: 1; }
   .uds-tooltip-text-heading {
     color: #fafafa;
@@ -18499,6 +18703,44 @@ form.uds-form {
     background-color: #e8e8e8; }
   .background.dark {
     background-color: #191919; }
+=======
+  z-index: 1;
+}
+div[role=tooltip].uds-tooltip-description > span.uds-tooltip-heading {
+  color: #fafafa;
+  display: block;
+  font: normal normal bold 1rem Arial;
+  letter-spacing: 0px;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+span.uds-tooltip-visually-hidden {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.uds-tooltip-bg-white {
+  background-color: #ffffff;
+}
+
+.uds-tooltip-bg-gray-1 {
+  background-color: #fafafa;
+}
+
+.uds-tooltip-bg-gray {
+  background-color: #e8e8e8;
+}
+
+.uds-tooltip-bg-dark {
+  background-color: #191919;
+}
+>>>>>>> develop
 
 .uds-video-with-caption {
   border: 1px solid #d0d0d0; }
@@ -18594,10 +18836,14 @@ form.uds-form {
 
 .uds-card-and-image {
   background-position: top;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
+=======
+  background-size: cover;
+>>>>>>> develop
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -18608,6 +18854,7 @@ form.uds-form {
           flex-direction: row;
   height: 466px;
   max-width: 1920px;
+<<<<<<< HEAD
   padding: 48px 96px; }
   .uds-card-and-image-right {
     -webkit-box-orient: horizontal;
@@ -18635,6 +18882,28 @@ form.uds-form {
       min-height: 720px;
       padding: 24px;
       width: 100%; } }
+=======
+  padding: 48px 96px;
+  width: 100%;
+}
+.uds-card-and-image-right {
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 576px) {
+  .uds-card-and-image {
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-end;
+    min-height: 720px;
+    padding: 24px;
+    width: 100%;
+  }
+}
+.uds-card-and-image-container {
+  max-width: 384px;
+}
+@media screen and (max-width: 576px) {
+>>>>>>> develop
   .uds-card-and-image-container {
     max-width: 384px; }
     @media screen and (max-width: 576px) {
@@ -18642,10 +18911,10 @@ form.uds-form {
         width: 100%; } }
 
 /*--------------------------------------------------------------
-# Inner Circle Grid Links
+# UDS Grid Links
 
 1. Mobile
-2 Desktop modifiers
+2. Desktop modifiers
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1. Mobile
@@ -18682,6 +18951,7 @@ form.uds-form {
 2. Desktop modifiers
 --------------------------------------------------------------*/
 @media (min-width: 768px) {
+<<<<<<< HEAD
   .uds-grid-links.mobile-at-md.two-columns {
     grid-template-columns: repeat(2, 1fr); }
   .uds-grid-links.mobile-at-md.three-columns {
@@ -18752,6 +19022,25 @@ form.uds-form {
     position: absolute;
     z-index: -1; }
 
+=======
+  .uds-grid-links.two-columns,
+.uds-grid-links.three-columns,
+.uds-grid-links.four-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .uds-grid-links.three-columns,
+.uds-grid-links.four-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1260px) {
+  .uds-grid-links.four-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+>>>>>>> develop
 ul.uds-display-list {
   color: #191919;
   font-size: 1rem; }
@@ -18767,6 +19056,7 @@ ul.uds-display-list {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
   -webkit-box-pack: center;
   -webkit-justify-content: center;
      -moz-box-pack: center;
@@ -18777,6 +19067,12 @@ ul.uds-display-list {
      -moz-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+=======
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+}
+>>>>>>> develop
 
 .uds-charts-and-graphs-overlay {
   display: -webkit-box;
@@ -18818,6 +19114,7 @@ canvas {
 .uds-anchor-menu {
   background-color: white;
   border-bottom: 1px solid #d0d0d0;
+<<<<<<< HEAD
   z-index: 100; }
   .uds-anchor-menu-wrapper {
     display: -webkit-box;
@@ -18879,6 +19176,59 @@ canvas {
       color: #191919; }
     .uds-anchor-menu .nav-link svg {
       margin-right: 0.5rem; }
+=======
+  z-index: 100;
+}
+.uds-anchor-menu-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.uds-anchor-menu-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.uds-anchor-menu h4 {
+  font-size: 1rem;
+  padding: 0 !important;
+}
+.uds-anchor-menu h4:hover {
+  transform: none;
+}
+.uds-anchor-menu h4 svg {
+  margin-left: 0.5rem;
+  transform: rotate(0deg);
+}
+.uds-anchor-menu h4[aria-expanded=true] svg {
+  transform: rotate(180deg);
+}
+.uds-anchor-menu .card-body {
+  padding-top: 1.5rem;
+}
+.uds-anchor-menu nav {
+  flex-direction: column;
+}
+.uds-anchor-menu .nav-link {
+  color: #191919;
+  padding: 1.5rem 0;
+  text-align: start;
+  font-weight: 400;
+}
+.uds-anchor-menu .nav-link:not(:last-child) {
+  border-bottom: 1px solid #d0d0d0;
+}
+.uds-anchor-menu .nav-link:hover, .uds-anchor-menu .nav-link.active {
+  margin-bottom: 0;
+  border-bottom: 0.5rem solid #ffc627;
+}
+.uds-anchor-menu .nav-link:visited {
+  color: #191919;
+}
+.uds-anchor-menu .nav-link svg {
+  margin-right: 0.5rem;
+}
+>>>>>>> develop
 
 @media (min-width: 576px) {
   .uds-anchor-menu.uds-anchor-menu-expanded-sm {
@@ -18970,6 +19320,7 @@ canvas {
 
 @media (min-width: 992px) {
   .uds-anchor-menu.uds-anchor-menu-expanded-lg {
+<<<<<<< HEAD
     border-bottom: 1px solid #d0d0d0; }
     .uds-anchor-menu.uds-anchor-menu-expanded-lg .uds-anchor-menu-wrapper {
       -webkit-box-orient: horizontal;
@@ -19012,6 +19363,55 @@ canvas {
       height: unset !important;
       overflow: hidden; } }
 
+=======
+    border-bottom: 1px solid #d0d0d0;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .uds-anchor-menu-wrapper {
+    flex-direction: row;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg h4 {
+    margin: auto 0;
+    font-size: 1.25rem;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg h4 svg {
+    display: none;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg nav {
+    flex-direction: row;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .nav-link {
+    border-bottom: 0.5rem solid transparent;
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .nav-link:hover, .uds-anchor-menu.uds-anchor-menu-expanded-lg .nav-link.active {
+    margin-bottom: 0;
+    border-bottom: 0.5rem solid #ffc627;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .card {
+    border: 0;
+    padding: 0;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .collapse {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .collapse:not(.show) {
+    display: block;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg .collapsing {
+    position: relative;
+    height: unset !important;
+    overflow: hidden;
+  }
+}
+@media (max-width: 1259.98px) {
+  .uds-anchor-menu h4 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+>>>>>>> develop
 @media (min-width: 1260px) {
   .uds-anchor-menu.uds-anchor-menu-expanded-xl {
     border-bottom: 1px solid #d0d0d0; }
@@ -19585,11 +19985,33 @@ main > * {
 buttons), from being moved down on mobile when there are no
 buttons. */
 @media screen and (max-width: 576px) {
+<<<<<<< HEAD
   .uds-hero .uds-hero-container {
     margin-bottom: 2rem !important;
     margin-left: 1rem; }
     .uds-hero .uds-hero-container.has-buttons {
       margin-bottom: -2rem !important; } }
+=======
+  .uds-hero-lg .uds-hero-container, .uds-hero-sm .uds-hero-container {
+    margin-bottom: 0 !important;
+    margin-left: 1rem;
+  }
+  .uds-hero-lg .uds-hero-container.has-buttons, .uds-hero-sm .uds-hero-container.has-buttons {
+    margin-bottom: -2rem !important;
+  }
+}
+>>>>>>> develop
+
+@media screen and (max-width: 576px) {
+  .uds-hero-md .uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .uds-hero-md .uds-hero-container.has-buttons {
+    top: 2rem !important;
+  }
+}
 
 /*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
