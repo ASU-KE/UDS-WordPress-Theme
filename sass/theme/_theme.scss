@@ -469,3 +469,11 @@ footer #wrapper-footer-innovation .img-link{
 			padding-right: 0.15em;
 	}
 }
+
+
+/*--------------------------------------------------------------
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img{
+	height: auto!important;
+}
