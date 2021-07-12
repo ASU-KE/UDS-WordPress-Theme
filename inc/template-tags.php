@@ -216,7 +216,7 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 
 			// Still here. Next, let's look in the assigned categories for a suitable image.
 			$all_categories = '';
-			$all_categories = get_the_category($post->ID);
+			$all_categories = get_the_category( $post->ID );
 
 			$primary_category_id = '';
 
@@ -229,7 +229,7 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 			}
 
 			// No category determined as of yet. Go ahead and pick the first one in the array.
-			if ( empty ($primary_category_id) ) {
+			if ( empty( $primary_category_id ) ) {
 				$primary_category_id = $all_categories[0]->term_id;
 			}
 
