@@ -162,10 +162,19 @@ if ( ! function_exists( 'uds_wp_body_attributes' ) ) {
 if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	/**
 	 * Assign default featured image to each post.
-	 * Get the first core/image block and assign it as a featured image if the field is empty
-	 * if no core/image then get the featured image of the primary category and assign it to the post .
+	 *
+	 * We are looking for suitable images in the following locations in this specific order.
+	 *  1. The first example of a core/image block in the post.
+	 *  2. A hero image from the post.
+	 *  3. A hero image assigned to the primary category if Yoast is present.
+	 *  4. A hero image from the first category from get_the_categories.
+	 *
+	 * Note: There is always a category assigned to each post, so by assigning one hero image
+	 * to the default category for your WP install, you can ensure that all posts have featured images.
+	 * The "default" category setting can be found in Settings-->Writing
 	 */
 	function uds_assign_featured_image() {
+
 		global $post;
 		$attached_image_id = '';
 
@@ -185,33 +194,58 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 				}
 			}
 
-			// If we found a suitable image, assign it as the featured image.
+			// If we found a suitable image from within the post, assign it as the featured image.
 			// Then bail early.
 			if ( ! empty( $attached_image_id ) ) {
 				set_post_thumbnail( $post->ID, $attached_image_id );
 				return;
 			}
 
-			// Still here. Next, let's look for a featured category.
-			// That's a specific feature from Yoast SEO, so we'll look for the function first.
+			// Still here. Let's look at the ACF hero to see if there's a hero image.
+			$hero_asset_data = '';
+			$hero_asset_data = get_field( 'uds_story_hero_background_image', $post->ID );
 
+			// If we found a suitable image as the post's hero, assign it as the featured image.
+			// Then bail early.
+			if ( ! empty( $hero_asset_data ) ) {
+				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
+				return;
+			}
+
+			// Still here. Next, let's look in the assigned categories for a suitable image.
+			$all_categories = '';
+			$all_categories = get_the_category($post->ID);
+
+			$primary_category_id = '';
+
+			// Look for a "primary" category from Yoast SEO in case there is one selected.
+			// If Yoast is active and there are multiple categories, there will always be one selected.
 			if ( function_exists( 'yoast_get_primary_term_id' ) ) {
 
-				// Returns false if there is no primary category set.
+				// Returns false if the function is available, but there is only one category.
 				$primary_category_id = yoast_get_primary_term_id( 'category', $post->ID );
+			}
 
-				// Get the ACF image field assigned to the featured category and assign it to the post.
-				if ( $primary_category_id ) {
+			// No category determined as of yet. Go ahead and pick the first one in the array.
+			if ( empty ($primary_category_id) ) {
+				$primary_category_id = $all_categories[0]->term_id;
+			}
 
-					$primary_category_term = get_term( $primary_category_id );
-					$hero_asset_data = get_field( 'hero_asset_file', $primary_category_term );
+			// Get the ACF image field assigned to the selected category and assign it to the post.
+			if ( $primary_category_id ) {
+				$primary_category_term = get_term( $primary_category_id );
+				$hero_asset_data = get_field( 'hero_asset_file', $primary_category_term );
+			}
 
-					// Check to see if there is an image in the field from ACF.
-					if ( ! empty( $hero_asset_data ) ) {
-						set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
-					}               
-				}           
-			}       
+			// Assign the hero image from the category page.
+			if ( ! empty( $hero_asset_data ) ) {
+				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
+			}
+
+			// OK, fine... there's really no suitable image here.
+
+			// TODO: Check the post for an image assigned to a non-image block like a card, the content-overlap block, etc.
+			// TODO: Develop a way for there to be a default image set as a theme option.
 		}
 
 	}
