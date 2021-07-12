@@ -172,6 +172,8 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 	 * Note: There is always a category assigned to each post, so by assigning one hero image
 	 * to the default category for your WP install, you can ensure that all posts have featured images.
 	 * The "default" category setting can be found in Settings-->Writing
+	 *
+	 * TODO: Check the post for an image assigned to a non-image block like a card, the content-overlap block, etc.
 	 */
 	function uds_assign_featured_image() {
 
@@ -242,10 +244,8 @@ if ( ! function_exists( 'uds_assign_featured_image' ) ) {
 				set_post_thumbnail( $post->ID, $hero_asset_data['ID'] );
 			}
 
-			// OK, fine... there's really no suitable image here.
+			// OK, fine... there's really no suitable image found here.
 
-			// TODO: Check the post for an image assigned to a non-image block like a card, the content-overlap block, etc.
-			// TODO: Develop a way for there to be a default image set as a theme option.
 		}
 
 	}
