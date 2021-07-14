@@ -227,6 +227,7 @@ function uds_wp_render_footer_logo() {
  *
  * Takes the contribute_url setting and coditionally renders the button.
  */
+  if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
 function uds_wp_render_contribute_button() {
 	$contribute_url = get_theme_mod( 'contribute_url' );
 	$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
@@ -236,7 +237,7 @@ function uds_wp_render_contribute_button() {
 		echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
 	}
 }
-
+}
 /**
  * Render Footer branding row (logo and social media icons together)
  *
