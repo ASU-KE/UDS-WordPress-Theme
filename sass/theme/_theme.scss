@@ -477,3 +477,11 @@ Always set the image height in core/image to auto
 .wp-block-image img{
 	height: auto!important;
 }
+
+/*--------------------------------------------------------------
+usd modal windows
+--------------------------------------------------------------*/
+
+.uds-modal{
+	z-index: 1050;
+}
