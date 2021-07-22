@@ -47,7 +47,7 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 }
 
 
-	$window_content =get_field( 'content' )? get_field( 'content' ):''
+	$window_content = get_field( 'content' ) ? get_field( 'content' ) : ''
 
 
 
@@ -58,11 +58,11 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 <button class="openModalButton btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>"><?php echo $icon_span; ?><?php echo $button_label; ?></button>
 
   <div class="uds-modal">
-    <div class="uds-modal-container">
-      <button class="uds-modal-close-btn closeModalButton">
-        <i class="fas fa-times fa-stack-1x"></i>
-        <span class="sr-only">Close</span>
-      </button>
-      <?php echo $window_content ?>
-    </div>
+	<div class="uds-modal-container">
+	  <button class="uds-modal-close-btn closeModalButton">
+		<i class="fas fa-times fa-stack-1x"></i>
+		<span class="sr-only">Close</span>
+	  </button>
+	  <?php echo $window_content; ?>
+	</div>
   </div>

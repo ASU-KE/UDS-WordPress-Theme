@@ -9,14 +9,13 @@
 ( function( $ ) {
 $( document ).ready(function() {
 
-$('.openModalButton').click(function(){
-	$(this).next().addClass('open');
+$( '.openModalButton' ).click(function() {
+	$( this ).next().addClass( 'open' );
 });
 
-$('.closeModalButton').click(function(){
-	$(this).closest('.uds-modal').removeClass('open');
+$( '.closeModalButton' ).click(function() {
+	$( this ).closest( '.uds-modal' ).removeClass( 'open' );
 });
-
 
 });
 } )( jQuery );
