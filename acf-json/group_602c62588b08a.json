@@ -33,7 +33,7 @@
             },
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "placeholder": "",
-            "maxlength": 400,
+            "maxlength": "",
             "rows": 6,
             "new_lines": "br"
         },
@@ -389,5 +389,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a UDS compliant block quote, with options for adding an image and customizing colors",
-    "modified": 1616188110
+    "modified": 1626984658
 }
