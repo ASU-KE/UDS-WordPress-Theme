@@ -22329,33 +22329,6 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2.5 Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-@media screen and (max-width: 576px) {
-  .uds-hero-lg .uds-hero-container, .uds-hero-sm .uds-hero-container {
-    margin-bottom: 0 !important;
-    margin-left: 1rem;
-  }
-  .uds-hero-lg .uds-hero-container.has-buttons, .uds-hero-sm .uds-hero-container.has-buttons {
-    margin-bottom: -2rem !important;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .uds-hero-md .uds-hero-container {
-    margin-bottom: 2rem !important;
-    margin-left: 1rem;
-    top: 0 !important;
-  }
-  .uds-hero-md .uds-hero-container.has-buttons {
-    top: 2rem !important;
-  }
-}
-
-/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 /* The included JS file for the global header accidently applies the .dropdown-pinned
@@ -22385,30 +22358,6 @@ X. Misc. styles
  */
 #wp-toolbar {
   display: block;
-}
-
-/*--------------------------------------------------------------
- Hero img
---------------------------------------------------------------*/
-.uds-hero {
-  position: relative;
-}
-.uds-hero:after {
-  content: "";
-  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-.uds-hero .uds-hero-container {
-  z-index: 999;
-}
-.uds-hero img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
 }
 
 /*--------------------------------------------------------------
@@ -22490,54 +22439,6 @@ ul.uds-list, .uds-list ul {
   padding: 0 5rem 0 2rem;
 }
 
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-  position: relative;
-  overflow: hidden;
-}
-@media (max-width: 575.98px) {
-  .hero-video {
-    overflow: unset;
-  }
-}
-.hero-video video {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero-video .hero-video-controls {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
-  z-index: 9;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: 0.3s;
-  opacity: 0.4;
-}
-.hero-video .hero-video-controls #playHeroVid {
-  padding-left: 8px;
-  display: none;
-}
-.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
-  opacity: 1;
-}
-
-@media (max-width: 991.98px) {
-  #footer-colophon,
-#footer-innovation {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
 /*--------------------------------------------------------------
 Dividers
 --------------------------------------------------------------*/
@@ -23682,6 +23583,214 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 @media (min-width: 1260px) {
   .uds-story-hero {
     grid-template-columns: 1fr calc(1200px + 12px + 12px) 1fr;
+  }
+}
+/*--------------------------------------------------------------
+# Markup for UDS Hero
+Obsolete with update of UDS-Boostrap > v.5.0
+
+1. Hero, Desktop
+2. Hero, Mobile
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2. Hero, Desktop
+--------------------------------------------------------------*/
+.v1-uds-hero {
+  background-size: cover;
+  background-position: top;
+  width: 100%;
+  height: 42.75rem;
+  display: flex;
+  max-width: 1920px;
+}
+.v1-uds-hero .v1-uds-hero-container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto auto 2rem auto;
+}
+.v1-uds-hero .v1-uds-hero-container h1 {
+  margin-left: 0;
+  margin-top: 0;
+}
+.v1-uds-hero .v1-uds-hero-container h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 6px;
+}
+.v1-uds-hero .v1-uds-hero-container .v1-uds-hero-text {
+  margin-left: 0;
+}
+.v1-uds-hero .v1-uds-hero-container p {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.v1-uds-hero.uds-hero-sm {
+  height: 16rem;
+}
+.v1-uds-hero.uds-hero-sm .container.uds-hero-container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-md {
+  height: 32rem;
+}
+.v1-uds-hero.uds-hero-md .container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-md .container .v1-uds-hero-text {
+  line-height: 2rem;
+}
+.v1-uds-hero.uds-hero-lg {
+  height: 42.75rem;
+}
+.v1-uds-hero.uds-hero-lg .container.uds-hero-container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-lg .container.uds-hero-container .v1-uds-hero-text {
+  line-height: 2rem;
+}
+
+/*--------------------------------------------------------------
+3. Hero, Mobile
+--------------------------------------------------------------*/
+@media screen and (max-width: 576px) {
+  .v1-uds-hero .v1-uds-hero-container {
+    margin-bottom: -2rem;
+  }
+  .v1-uds-hero .v1-uds-hero-container h1 {
+    max-width: 100%;
+  }
+  .v1-uds-hero .v1-uds-hero-container p {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-sm {
+    padding-bottom: 2rem;
+  }
+  .v1-uds-hero.uds-hero-sm .highlight {
+    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
+    background-color: #fafafa;
+  }
+}
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-md {
+    height: 16rem;
+  }
+  .v1-uds-hero.uds-hero-md .container {
+    position: relative;
+    top: 2rem;
+  }
+  .v1-uds-hero.uds-hero-md .container .highlight {
+    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
+    background-color: #fafafa;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .v1-uds-hero.uds-hero-lg {
+    height: 32rem;
+  }
+}
+
+/*--------------------------------------------------------------
+Additional rules from theme.scss
+--------------------------------------------------------------*/
+.v1-uds-hero {
+  position: relative;
+}
+.v1-uds-hero:after {
+  content: "";
+  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.v1-uds-hero .v1-uds-hero-container {
+  z-index: 999;
+}
+.v1-uds-hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/*--------------------------------------------------------------
+Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container {
+    margin-bottom: 0 !important;
+    margin-left: 1rem;
+  }
+  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container.has-buttons, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container.has-buttons {
+    margin-bottom: -2rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-md .v1-uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .v1-uds-hero.uds-hero-md .v1-uds-hero-container.has-buttons {
+    top: 2rem !important;
+  }
+}
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 575.98px) {
+  .hero-video {
+    overflow: unset;
+  }
+}
+.hero-video video {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero-video .hero-video-controls {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
+  z-index: 9;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  opacity: 0.4;
+}
+.hero-video .hero-video-controls #playHeroVid {
+  padding-left: 8px;
+  display: none;
+}
+.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  #footer-colophon,
+#footer-innovation {
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }
 
