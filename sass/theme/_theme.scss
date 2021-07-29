@@ -517,3 +517,12 @@ UDS Grid Links
 		margin-top: $uds-size-spacing-half;
 	}
 }
+
+/*--------------------------------------------------------------
+usd modal windows
+--------------------------------------------------------------*/
+
+.uds-modal{
+	z-index: 1050;
+	position: fixed;
+}
