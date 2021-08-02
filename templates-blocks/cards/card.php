@@ -96,7 +96,7 @@ if ( ! empty( $image_data ) ) {
 			</div>
 		<?php if ( '' !== get_field( 'body_text' ) ) : ?>
 			<div class="card-body">
-				<p class="card-text"><?php echo wp_kses( get_field( 'body_text' ), '' ); ?></p>
+				<p class="card-text"><?php echo wp_kses_post( get_field( 'body_text' ), '' ); ?></p>
 			</div>
 		<?php endif; ?>
 
