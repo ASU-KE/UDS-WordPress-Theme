@@ -27,13 +27,11 @@
     flex-direction: row;
 
     .content {
-      width: 55%;
       padding: $uds-size-spacing-4;
     }
 
     .card {
-      width: 35%;
-      margin: -201px 5% 0 10%;
+      margin: -201px 96px 0 96px;
     }
   }
 }
@@ -42,8 +40,7 @@
   .uds-card-image-and-content {
     &-content-container {
       .card {
-        width: 40%;
-        margin: -161px 2% 0 8%;
+        margin: -161px 48px 0 48px;
       }
     }
   }
@@ -51,19 +48,10 @@
 
 @media only screen and (max-width: $uds-breakpoint-md) {
   .uds-card-image-and-content {
-    &-image-container {
-      & > &-headline {
-        max-width: 100%;
-      }
-    }
     &-content-container {
       flex-direction: column;
-      .content {
-        width: 100%;
-      }
       .card {
-        width: auto;
-        margin: 0 $uds-size-spacing-4;
+        margin: 0 24px 24px 24px;
       }
     }
   }
