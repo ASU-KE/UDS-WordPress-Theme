@@ -92,8 +92,8 @@
             "choices": {
                 "morse-code-white": "Morse code - White",
                 "morse-code-black": "Morse code - Dark",
-                "topo-black": "Topographic map - White",
-                "topo-white": "Topographic map - Dark",
+                "topo-white": "Topographic map - White",
+                "topo-black": "Topographic map - Dark",
                 "network-white": "Network map - White",
                 "network-black": "Network map - Dark"
             },
@@ -348,5 +348,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Field for creating a background <code><section><\/code> as a wrapper for other elements.",
-    "modified": 1620404517
+    "modified": 1627501683
 }
