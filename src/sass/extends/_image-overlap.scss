@@ -19,11 +19,6 @@
     left:$uds-size-spacing-4;
     top:0;
   }
-
-  .content-wrapper {
-    background-color: $uds-color-base-white;
-    padding: $uds-size-spacing-4;
-  }
 }
 
 
@@ -53,6 +48,8 @@
     .content-wrapper {
       grid-column: 5 / span 3;
       grid-row: 3 / 4;
+      background-color: $uds-color-base-white;
+      padding:$uds-size-spacing-4;
     }
 
     &:after {
