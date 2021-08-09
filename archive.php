@@ -12,8 +12,13 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+// Check for v1 Hero option. Load page template if option enabled.
+// Keeps the layout of the deprecated field group in tact - above the global banner.
+if ( get_field( 'uds-depreciation-panel-v1-hero', 'options') ) {
+	get_template_part( 'templates-depreciated/hero' );
+}
 ?>
-<?php get_template_part( 'templates-global/hero' ); ?>
+
 <main id="skip-to-content" <?php post_class( 'container' ); ?>>
 
 
