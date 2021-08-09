@@ -24,6 +24,12 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 	 * as indicating support for post thumbnails.
 	 */
 	function uds_wp_setup() {
+
+		/**
+		 * Remove support for the Block-based widget editor introduced in WP v5.8
+		 */
+		remove_theme_support( 'widgets-block-editor' );
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -172,4 +178,3 @@ if ( ! function_exists( 'uds_wp_remove_thumbnail_height_width_attr' ) ) {
 		return preg_replace( '/(width|height)="\d+"\s/', '', $html );
 	}
 }
-
