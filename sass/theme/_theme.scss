@@ -27,17 +27,35 @@ main > * {
 /* Prevent the hero content container (title, sub-title,
 buttons), from being moved down on mobile when there are no
 buttons. */
-.uds-hero {
+
+.uds-hero-lg, .uds-hero-sm {
 	.uds-hero-container {
-		// At mobile size, do not apply negative margin.
+		// At mobile size, do not apply the negative margin if no buttons exist.
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 0 !important;
+			margin-left: 1rem;
+
+			&.has-buttons {
+				// With buttons, use -2rem bottom margin to pull the content down.
+				margin-bottom: -2rem !important;
+			}
+		}
+	}
+}
+
+.uds-hero-md {
+	.uds-hero-container {
+		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist.
 		// Also fix the left margin to match (?) the content area.
 		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
 			margin-bottom: 2rem !important;
 			margin-left: 1rem;
+			top: 0 !important;
 
-			// With buttons, apply negative margin as in the original styles.
 			&.has-buttons {
-				margin-bottom: -2rem !important;
+				// With buttons, we need to move down
+				top: 2rem !important;
 			}
 		}
 	}
@@ -376,19 +394,19 @@ Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
 // Desktop
 @include media-breakpoint-up(xl) {
-  #asu-header + div,
-  #asu-header + main {
-    @include transition;
-    margin-top: 144px;
-  }
+	#asu-header + div,
+	#asu-header + main {
+	@include transition;
+	margin-top: 144px;
+	}
 }
 
 @include media-breakpoint-down(lg) {
-  #asu-header + div,
-  #asu-header + main {
-    @include transition;
-    margin-top: 113px;
-  }
+	#asu-header + div,
+	#asu-header + main {
+		@include transition;
+		margin-top: 113px;
+	}
 }
 #wpadminbar + #asu-header.fixed-top {
 	top: 32px !important;
@@ -397,6 +415,76 @@ Override the desktop media query for header to fix the gap issue
 #wpadminbar + #asu-header.fixed-top {
 	top: 46px !important;
 }
+}
+
+/*--------------------------------------------------------------
+Fix content alignment issues between header/content/footer
+--------------------------------------------------------------*/
+
+#header-main .navbar,
+#footer-columns.container {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+@media (max-width: 991.98px) {
+	#footer-innovation .footer-innovation-links .nav {
+		order:2;
+		padding: 0 ;
+	}
+
+	#footer-innovation .footer-innovation-links .img-link{
+		order:1;
+	}
+
+	#footer-colophon .nav{
+		padding: 0;
+	}
+}
+
+@media (max-width: 806px) {
+	.container-fluid{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+footer .menu-social-media-container a.nav-link:last-of-type{
+	padding-right: 0;
+}
+
+footer .menu-social-media-container a.nav-link:first-of-type{
+	padding-left: 0;
+}
+
+footer #wrapper-footer-innovation .img-link{
+	margin-right: 0;
+}
+
+.uds-hero-container,
+.container {
+	.highlight-gold, .highlight-white, .highlight-black{
+		box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
+			padding-left: 0.15em;
+			padding-right: 0.15em;
+	}
+}
+
+
+/*--------------------------------------------------------------
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img{
+	height: auto!important;
+}
+
+/*--------------------------------------------------------------
+usd modal windows
+--------------------------------------------------------------*/
+
+.uds-modal{
+	z-index: 1050;
+	position: fixed;
 }
 
 /*--------------------------------------------------------------
