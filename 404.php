@@ -15,45 +15,36 @@ get_header();
 
 <div class="wrapper" id="404-wrapper">
 
-	<div class="uds-hero uds-hero-lg" style="background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%), url('<?php echo wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>'); width: 100vw; margin-left: calc(50% - 50vw); max-width: 100vw !important;">
+	<div class="uds-hero uds-hero-lg hero-image " title="">
+<?php $image_404 = wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>
 
-		<div class="container uds-hero-container" id="content" tabindex="-1">
+<img
+	src="<?php echo $image_404; ?>"
+	alt="404 - Not Found"
+/>
 
-			<div class="row">
+<div class="container uds-hero-container has-buttons ">
+		<div class="container px-0 error-404 not-found" title="">
+		<div class="row " title="">
+			<div class="col col-lg-8 " title="">
+				<h1 class="heading heading-one col-md-12 px-0">
+					<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e( '404 - Not Found', 'uds-wordpress-theme' ); ?></span>
+				</h1>
+			</div>
+		</div>
+		<div class="row " title="">
+				<div class="page-content uds-hero-text col col-lg-8 ">
 
-				<div class="col-md-12 content-area" id="primary">
+					<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></p>
 
-					<main class="site-main" id="main">
+					<?php get_search_form(); ?>
 
-						<section class="error-404 not-found">
+				</div><!-- .page-content -->
+			</div>
 
-							<header class="page-header">
-
-								<h1 class="heading heading-one col-md-12">
-									<span class="highlight highlight-gold highlight-heading-one"><?php esc_html_e( '404 - Not Found', 'uds-wordpress-theme' ); ?></span>
-								</h1>
-
-							</header><!-- .page-header -->
-
-							<div class="page-content uds-hero-text">
-
-								<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></p>
-
-								<?php get_search_form(); ?>
-
-							</div><!-- .page-content -->
-
-						</section><!-- .error-404 -->
-
-					</main><!-- #main -->
-
-				</div><!-- #primary -->
-
-			</div><!-- .row -->
-
-		</div><!-- #content -->
-
+		</div>
 	</div>
+
 
 </div><!-- #error-404-wrapper -->
 

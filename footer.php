@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="col">
 					<div class="d-flex footer-innovation-links">
 						<a class="img-link" href="https://www.asu.edu/rankings">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/innovation-lockup/on-gold/Number-1-in-the-us-for-innovation.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 6 years, 2016-2021">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/innovation-lockup/on-gold/Number-1-in-the-us-for-innovation-prl-0.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 6 years, 2016-2021">
 					</a>
 						<nav class="nav" aria-label="University Services">
 							<a class="nav-link" href="https://asu.edu/map/">Maps and Locations</a>

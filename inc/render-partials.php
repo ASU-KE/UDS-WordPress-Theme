@@ -222,21 +222,22 @@ function uds_wp_render_footer_logo() {
 	}
 }
 
-/**
- * Render the 'Contribute' button
- *
- * Takes the contribute_url setting and coditionally renders the button.
- */
-function uds_wp_render_contribute_button() {
-	$contribute_url = get_theme_mod( 'contribute_url' );
-	$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
+if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
+	/**
+	 * Render the 'Contribute' button
+	 *
+	 * Takes the contribute_url setting and coditionally renders the button.
+	 */
+	function uds_wp_render_contribute_button() {
+		$contribute_url = get_theme_mod( 'contribute_url' );
+		$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
 
-	// Do we have a contribute?
-	if ( $contribute_url && '' !== $contribute_url ) {
-		echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
+		// Do we have a contribute?
+		if ( $contribute_url && '' !== $contribute_url ) {
+			echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
+		}
 	}
 }
-
 /**
  * Render Footer branding row (logo and social media icons together)
  *
