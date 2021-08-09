@@ -22,7 +22,11 @@ get_header();
 
 			the_post();
 
-			get_template_part( 'templates-global/hero' );
+			// Check for v1 Hero option. Load page template if option enabled.
+			// Keeps the layout of the deprecated field group in tact - above the global banner.
+			if ( get_field( 'uds-depreciation-panel-v1-hero', 'options') ) {
+				get_template_part( 'templates-depreciated/hero' );
+			}
 
 			get_template_part( 'templates-global/global-banner' );
 
