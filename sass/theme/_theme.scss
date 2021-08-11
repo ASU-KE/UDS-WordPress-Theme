@@ -593,3 +593,15 @@ a.scroll-control-next{
 	padding-bottom: 0;
 }
 }
+.tab-pane{
+overflow: hidden;
+}
+/*--------------------------------------------------------------
+This has to be updated on tabbed-panels.scss
+--------------------------------------------------------------*/
+
+.scroll-control-prev{
+background: linear-gradient(
+270deg
+,rgba(25,25,25,0) 0,rgba(25,25,25,.25) 100%);
+}

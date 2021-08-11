@@ -74,4 +74,31 @@
  setControlVisibility( clicked );
 }
 
+
+$( '.uds-tabbed-panels' ).each( function() {
+//$( this ).css('background','red');
+	 var parentWidth = $( this ).innerWidth();
+	 var navWidth = $( this ).find( '.nav.nav-tabs' ).innerWidth();
+	 if ( parentWidth > navWidth ) {
+		 $( this ).find( '.scroll-control-next' ).hide();
+	 }else{
+		 $( this ).find( '.scroll-control-next' ).show();
+	 }
+});
+
+$( window ).resize(function() {
+	$( '.uds-tabbed-panels' ).each( function() {
+	//$( this ).css('background','red');
+		 var parentWidth = $( this ).innerWidth();
+		 var navWidth = $( this ).find( '.nav.nav-tabs' ).innerWidth();
+		 if ( parentWidth > navWidth ) {
+			 $( this ).find( '.scroll-control-next' ).hide();
+		 }else{
+			 $( this ).find( '.scroll-control-next' ).show();
+		 }
+	});
+
+});
+
+
 })( jQuery );

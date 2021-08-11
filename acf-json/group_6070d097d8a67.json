@@ -40,7 +40,7 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_6070d59c9cdc2",
             "min": 0,
             "max": 0,
             "layout": "row",
@@ -177,5 +177,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1618331440
+    "modified": 1628701362
 }
