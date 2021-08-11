@@ -79,10 +79,14 @@ if ( have_rows( 'tabs' ) ) {
 			$tab_title = $tab_content->post_title;
 		}
 		if ( 'post_content' == $tab_content_type ) {
-			$tab_content_id = $tab_content->ID;
+			$current_time=gettimeofday(true);
+			$current_time=str_replace('.', '', $current_time);
+			$tab_content_id = $tab_content->ID.'_'.$current_time;
 			$tab_content = $tab_content->post_content;
 		} else {
-			$tab_content_id = 'order' . $tab_order;
+      $current_time=gettimeofday(true);
+			$current_time=str_replace('.', '', $current_time);
+			$tab_content_id = 'order'. $tab_order.'_'.$current_time;
 		}
 
 
