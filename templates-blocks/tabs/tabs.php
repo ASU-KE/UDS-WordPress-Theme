@@ -22,18 +22,19 @@ switch ( $tabs_style ) {
 		$tab_pane_classes = 'col-md-9 col-sm-12 float-left card';
 		break;
 
-	case 'dark_background':
+	/*case 'dark_background':
 		$style_class = 'background-darkmode';
 		$child_style_class = 'darkmode';
 		$tab_pane_classes = '';
 		break;
+
 
 	case 'gray_background':
 		$style_class = 'background-smokemode';
 		$child_style_class = 'smokemode';
 		$tab_pane_classes = '';
 		break;
-
+*/
 	default:
 		$style_class = '';
 		$child_style_class = '';
@@ -88,6 +89,29 @@ if ( have_rows( 'tabs' ) ) {
 			$current_time=str_replace('.', '', $current_time);
 			$tab_content_id = 'order'. $tab_order.'_'.$current_time;
 		}
+$accordion_card_style = get_sub_field( 'accordion_card_style' );
+		switch ( $accordion_card_style ) {
+			case 'card_gold':
+				$accordion_card_class = '';
+				break;
+
+				case 'card_maroon':
+					$accordion_card_class = 'card-maroon';
+					break;
+
+				case 'card_gray':
+					$accordion_card_class = 'card-gray';
+					break;
+
+				case 'card_dark':
+					$accordion_card_class = 'card-dark';
+					break;
+
+			default:
+				$accordion_card_class = '';
+				break;
+		}
+
 
 
 				   $tab_header[] = '<a class="nav-item nav-link ' . $is_active . '" id="tab-header-' . $tab_content_id . '" data-toggle="tab" href="#tab-content-' . $tab_content_id . '" role="tab" aria-controls="tab-content-' . $tab_content_id . '" aria-selected="' . $aria_selected . '">' . $tab_title . '</a>';
@@ -95,7 +119,7 @@ if ( have_rows( 'tabs' ) ) {
 
 
 		if ( 'accordion' == $tabs_style ) {
-			$accordion_tab[] = '<div class="card card-foldable mt-3"><div class="card-header"><h4><a id="tab-header-' . $tab_content_id . '" class="collapsed" href="#tab-content-' . $tab_content_id . '" data-toggle="collapse" data-target="#tab-content-' . $tab_content_id . '" role="button" aria-expanded="false" aria-controls="tab-content-' . $tab_content_id . '">' . $tab_title . '<i class="fas fa-chevron-up"></i></a></h4></div><!-- end .card-header --><div id="tab-content-' . $tab_content_id . '" class="collapse card-body" aria-labelledby="tab-header-' . $tab_content_id . '" data-parent="#' . $accordion_id . '">' . $tab_content . '</div><!-- end .card-body --></div><!-- end .card -->';
+			$accordion_tab[] = '<div class="card card-foldable mt-3 '.$accordion_card_class.'"><div class="card-header"><h4><a id="tab-header-' . $tab_content_id . '" class="collapsed" href="#tab-content-' . $tab_content_id . '" data-toggle="collapse" data-target="#tab-content-' . $tab_content_id . '" role="button" aria-expanded="false" aria-controls="tab-content-' . $tab_content_id . '">' . $tab_title . '<i class="fas fa-chevron-up"></i></a></h4></div><!-- end .card-header --><div id="tab-content-' . $tab_content_id . '" class="collapse card-body" aria-labelledby="tab-header-' . $tab_content_id . '" data-parent="#' . $accordion_id . '">' . $tab_content . '</div><!-- end .card-body --></div><!-- end .card -->';
 		}
 
 

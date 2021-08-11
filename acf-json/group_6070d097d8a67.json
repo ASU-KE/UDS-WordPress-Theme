@@ -18,8 +18,6 @@
             "choices": {
                 "regular_horizonal": "Regular tabs",
                 "video_tabs": "Video tabs",
-                "dark_background": "Dark background",
-                "gray_background": "Gray background",
                 "accordion": "Accordion"
             },
             "allow_null": 0,
@@ -156,6 +154,38 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 0
+                },
+                {
+                    "key": "field_61140669de29f",
+                    "label": "Accordion card style",
+                    "name": "accordion_card_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60749266d6b60",
+                                "operator": "==",
+                                "value": "accordion"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "card_gold": "Gold",
+                        "card_maroon": "Maroon",
+                        "card_gray": "Gray",
+                        "card_dark": "Dark"
+                    },
+                    "allow_null": 0,
+                    "default_value": "card-gold",
+                    "layout": "horizontal",
+                    "return_format": "value"
                 }
             ]
         }
@@ -177,5 +207,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628701362
+    "modified": 1628703038
 }
