@@ -195,3 +195,12 @@ Add scope for modal window block.
 	z-index: 1050;
 	position: fixed;
 }
+
+
+/*--------------------------------------------------------------
+BUG: Story hero layout breaks with oversized images.
+--------------------------------------------------------------*/
+.uds-story-hero .hero {
+	width: 100%;
+    max-height: 100%;
+}
