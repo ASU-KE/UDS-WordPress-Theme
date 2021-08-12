@@ -22385,33 +22385,6 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2.5 Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-@media screen and (max-width: 576px) {
-  .uds-hero-lg .uds-hero-container, .uds-hero-sm .uds-hero-container {
-    margin-bottom: 0 !important;
-    margin-left: 1rem;
-  }
-  .uds-hero-lg .uds-hero-container.has-buttons, .uds-hero-sm .uds-hero-container.has-buttons {
-    margin-bottom: -2rem !important;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .uds-hero-md .uds-hero-container {
-    margin-bottom: 2rem !important;
-    margin-left: 1rem;
-    top: 0 !important;
-  }
-  .uds-hero-md .uds-hero-container.has-buttons {
-    top: 2rem !important;
-  }
-}
-
-/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 /* The included JS file for the global header accidently applies the .dropdown-pinned
@@ -22426,58 +22399,11 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
   }
 }
 /*--------------------------------------------------------------
-X. Misc. styles
---------------------------------------------------------------*/
-/**
- * The UDS 'quicklinks' class was causing a conflict with the WP
- * admin bar, which also uses the class 'quicklinks'. The UDS styles
- * were applying 'display: flex', where the admin bar needs 'display: block'.
- *
- * To __temporarily__ fix this, I'm applying the display block to the area.
- * It turns out that the section that has the class of 'quicklinks' also has an
- * ID of 'wp-toolbar'. Since ID's are more specific, I'm targeting that.
- *
- *
- */
-#wp-toolbar {
-  display: block;
-}
-
-/*--------------------------------------------------------------
- Hero img
---------------------------------------------------------------*/
-.uds-hero {
-  position: relative;
-}
-.uds-hero:after {
-  content: "";
-  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-.uds-hero .uds-hero-container {
-  z-index: 999;
-}
-.uds-hero img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
-
-/*--------------------------------------------------------------
- ACF Button block
+4. Prevent blocks which contain links from firing during editing.
 --------------------------------------------------------------*/
 .acf-block-preview .uds-button a,
 .acf-block-preview .card-button a {
   pointer-events: none;
-}
-
-.is-style-steplist-darkmode li:before {
-  background-color: #fafafa !important;
-  color: #191919 !important;
 }
 
 /*---------------------------------------------------------------
@@ -22532,120 +22458,6 @@ X. Misc. styles
     margin-right: 0;
   }
 }
-/*--------------------------------------------------------------
-Override UDS scss
---------------------------------------------------------------*/
-@media screen and (max-width: 576px) {
-  .uds-hero.uds-hero-sm {
-    margin: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
-}
-ul.uds-list, .uds-list ul {
-  padding: 0 5rem 0 2rem;
-}
-
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-  position: relative;
-  overflow: hidden;
-}
-@media (max-width: 575.98px) {
-  .hero-video {
-    overflow: unset;
-  }
-}
-.hero-video video {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero-video .hero-video-controls {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
-  z-index: 9;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: 0.3s;
-  opacity: 0.4;
-}
-.hero-video .hero-video-controls #playHeroVid {
-  padding-left: 8px;
-  display: none;
-}
-.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
-  opacity: 1;
-}
-
-@media (max-width: 991.98px) {
-  #footer-colophon,
-#footer-innovation {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
-/*--------------------------------------------------------------
-Dividers
---------------------------------------------------------------*/
-.block-editor-block-list__layout .wp-block.is-style-copy-divider {
-  margin-right: 0;
-  margin-left: 0;
-  max-width: 16rem !important;
-}
-.block-editor-block-list__layout .wp-block.is-style-copy-divider.wp-block-separator {
-  opacity: 1;
-}
-
-/*--------------------------------------------------------------
-Correct the button color on gray bg
---------------------------------------------------------------*/
-.bg-gray-1 a.btn.btn-maroon, .bg-gray-1 a.btn-maroon.uds-modal-close-btn,
-.bg-gray-2 a.btn.btn-maroon,
-.bg-gray-2 a.btn-maroon.uds-modal-close-btn,
-.bg-gray-7 a.btn.btn-maroon,
-.bg-gray-7 a.btn-maroon.uds-modal-close-btn,
-.bg-white a.btn.btn-maroon,
-.bg-white a.btn-maroon.uds-modal-close-btn {
-  color: white;
-}
-.bg-gray-1 a.btn.btn-gold, .bg-gray-1 a.btn-gold.uds-modal-close-btn,
-.bg-gray-2 a.btn.btn-gold,
-.bg-gray-2 a.btn-gold.uds-modal-close-btn,
-.bg-gray-7 a.btn.btn-gold,
-.bg-gray-7 a.btn-gold.uds-modal-close-btn,
-.bg-white a.btn.btn-gold,
-.bg-white a.btn-gold.uds-modal-close-btn {
-  color: initial;
-}
-.bg-gray-1 a.btn.btn-gray, .bg-gray-1 a.btn-gray.uds-modal-close-btn,
-.bg-gray-2 a.btn.btn-gray,
-.bg-gray-2 a.btn-gray.uds-modal-close-btn,
-.bg-gray-7 a.btn.btn-gray,
-.bg-gray-7 a.btn-gray.uds-modal-close-btn,
-.bg-white a.btn.btn-gray,
-.bg-white a.btn-gray.uds-modal-close-btn {
-  color: initial;
-}
-.bg-gray-1 a.btn.btn-dark, .bg-gray-1 a.btn-dark.uds-modal-close-btn,
-.bg-gray-2 a.btn.btn-dark,
-.bg-gray-2 a.btn-dark.uds-modal-close-btn,
-.bg-gray-7 a.btn.btn-dark,
-.bg-gray-7 a.btn-dark.uds-modal-close-btn,
-.bg-white a.btn.btn-dark,
-.bg-white a.btn-dark.uds-modal-close-btn {
-  color: white;
-}
-
 /*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
@@ -22723,14 +22535,7 @@ footer #wrapper-footer-innovation .img-link {
 }
 
 /*--------------------------------------------------------------
-Always set the image height in core/image to auto
---------------------------------------------------------------*/
-.wp-block-image img {
-  height: auto !important;
-}
-
-/*--------------------------------------------------------------
-usd modal windows
+Add scope for modal window block.
 --------------------------------------------------------------*/
 .uds-modal {
   z-index: 1050;
@@ -23177,6 +22982,43 @@ span.customize-partial-edit-shortcut-logo_url {
   }
 }
 /*--------------------------------------------------------------
+Additional styles for core blocks.
+These block may contain additional block styles that require 
+mapping back to specific classes within UDS-Boostrap.
+
+1. Separator block
+2. List block
+3. Image block
+--------------------------------------------------------------*/
+.block-editor-block-list__layout .wp-block.is-style-copy-divider {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 16rem !important;
+}
+.block-editor-block-list__layout .wp-block.is-style-copy-divider.wp-block-separator {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+2. core/list
+--------------------------------------------------------------*/
+.is-style-steplist-darkmode li:before {
+  background-color: #fafafa !important;
+  color: #191919 !important;
+}
+
+ul.uds-list, .uds-list ul {
+  padding: 0 5rem 0 2rem;
+}
+
+/*--------------------------------------------------------------
+3. core/image
+--------------------------------------------------------------*/
+.wp-block-image img {
+  height: auto !important;
+}
+
+/*--------------------------------------------------------------
 1. Single.php, story hero, no background image.
 --------------------------------------------------------------*/
 .single .uds-story-hero.no-image {
@@ -23267,10 +23109,10 @@ div.container + .uds-section,
 .uds-section.bg [class*=container] {
   padding: 2rem;
 }
-.uds-section.bg.morse-code-black [class*=container], .uds-section.bg.topo-white [class*=container], .uds-section.bg.network-black [class*=container] {
+.uds-section.bg.morse-code-black [class*=container], .uds-section.bg.topo-black [class*=container], .uds-section.bg.network-black [class*=container] {
   background-color: #191919;
 }
-.uds-section.bg.morse-code-white [class*=container], .uds-section.bg.topo-black [class*=container], .uds-section.bg.network-white [class*=container] {
+.uds-section.bg.morse-code-white [class*=container], .uds-section.bg.topo-white [class*=container], .uds-section.bg.network-white [class*=container] {
   background-color: #ffffff;
 }
 
@@ -23317,10 +23159,10 @@ need to use the full name of the block. */
 .uds-section.bg .wp-block-wp-bootstrap-blocks-container {
   padding: 2rem;
 }
-.uds-section.bg.morse-code-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-black .wp-block-wp-bootstrap-blocks-container {
+.uds-section.bg.morse-code-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-black .wp-block-wp-bootstrap-blocks-container {
   background-color: #191919;
 }
-.uds-section.bg.morse-code-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-white .wp-block-wp-bootstrap-blocks-container {
+.uds-section.bg.morse-code-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-white .wp-block-wp-bootstrap-blocks-container {
   background-color: #ffffff;
 }
 
@@ -23678,66 +23520,218 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 3. Desktop, XL
 --------------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Heroes, sections 4 & 5, eventually will be included in UDS-Bootstrap
+# Markup for UDS Hero
+Obsolete with update of UDS-Boostrap > v.5.0
 
-4. Story Hero, Mobile
-5. Story Hero, Desktop
+1. Hero, Desktop
+2. Hero, Mobile
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-  4. Story Hero, Mobile
-  --------------------------------------------------------------*/
-.uds-story-hero {
-  display: grid;
-  grid-template-columns: 1rem 1fr 1rem;
-  grid-template-rows: calc(16rem - 4.5rem) 4.5rem auto;
-  gap: 0px 0px;
-  max-width: 1920px;
-  margin: 0 auto;
-}
-.uds-story-hero .hero {
-  grid-column: 1/span 3;
-  grid-row: 1/span 2;
-  object-fit: cover;
+2. Hero, Desktop
+--------------------------------------------------------------*/
+.v1-uds-hero {
+  background-size: cover;
+  background-position: top;
   width: 100%;
-  max-height: 100%;
+  height: 42.75rem;
+  display: flex;
+  max-width: 1920px;
 }
-.uds-story-hero .content {
-  grid-column: 2/span 1;
-  grid-row: 2/span 2;
-  background-color: #ffffff;
-  padding: 0 1rem;
+.v1-uds-hero .v1-uds-hero-container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto auto 2rem auto;
 }
-.uds-story-hero .content .breadcrumb,
-.uds-story-hero .content p.meta {
-  padding: 0.75rem 0;
-  margin: 0.25rem 0;
-}
-.uds-story-hero .content h1 {
+.v1-uds-hero .v1-uds-hero-container h1 {
+  margin-left: 0;
   margin-top: 0;
+}
+.v1-uds-hero .v1-uds-hero-container h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 6px;
+}
+.v1-uds-hero .v1-uds-hero-container .v1-uds-hero-text {
+  margin-left: 0;
+}
+.v1-uds-hero .v1-uds-hero-container p {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.v1-uds-hero.uds-hero-sm {
+  height: 16rem;
+}
+.v1-uds-hero.uds-hero-sm .container.uds-hero-container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-md {
+  height: 32rem;
+}
+.v1-uds-hero.uds-hero-md .container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-md .container .v1-uds-hero-text {
+  line-height: 2rem;
+}
+.v1-uds-hero.uds-hero-lg {
+  height: 42.75rem;
+}
+.v1-uds-hero.uds-hero-lg .container.uds-hero-container {
+  width: 100%;
+}
+.v1-uds-hero.uds-hero-lg .container.uds-hero-container .v1-uds-hero-text {
+  line-height: 2rem;
 }
 
 /*--------------------------------------------------------------
-  5. Story Hero, Desktop
-  --------------------------------------------------------------*/
-@media (min-width: 950px) {
-  .uds-story-hero {
-    grid-template-columns: 1.5rem 1fr 1.5rem;
-    grid-template-rows: calc(32rem - 8rem) 8rem 1fr;
+3. Hero, Mobile
+--------------------------------------------------------------*/
+@media screen and (max-width: 576px) {
+  .v1-uds-hero .v1-uds-hero-container {
+    margin-bottom: -2rem;
   }
-  .uds-story-hero.uds-story-hero-lg {
-    grid-template-rows: calc(42.75rem - 8rem) 8rem 1fr;
+  .v1-uds-hero .v1-uds-hero-container h1 {
+    max-width: 100%;
   }
-  .uds-story-hero .content {
-    padding: 0 calc(8.34% + 12px);
-  }
-  .uds-story-hero .content .breadcrumb,
-.uds-story-hero .content p.meta {
-    margin: 1.25rem 0 2.25rem;
+  .v1-uds-hero .v1-uds-hero-container p {
+    display: none;
   }
 }
-@media (min-width: 1260px) {
-  .uds-story-hero {
-    grid-template-columns: 1fr calc(1200px + 12px + 12px) 1fr;
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-sm {
+    padding-bottom: 2rem;
+  }
+  .v1-uds-hero.uds-hero-sm .highlight {
+    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
+    background-color: #fafafa;
+  }
+}
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-md {
+    height: 16rem;
+  }
+  .v1-uds-hero.uds-hero-md .container {
+    position: relative;
+    top: 2rem;
+  }
+  .v1-uds-hero.uds-hero-md .container .highlight {
+    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
+    background-color: #fafafa;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .v1-uds-hero.uds-hero-lg {
+    height: 32rem;
+  }
+}
+
+/*--------------------------------------------------------------
+Additional rules from theme.scss
+--------------------------------------------------------------*/
+.v1-uds-hero {
+  position: relative;
+}
+.v1-uds-hero:after {
+  content: "";
+  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.v1-uds-hero .v1-uds-hero-container {
+  z-index: 999;
+}
+.v1-uds-hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media screen and (max-width: 576px) {
+  .uds-hero.uds-hero-sm {
+    margin: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+}
+/*--------------------------------------------------------------
+Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container {
+    margin-bottom: 0 !important;
+    margin-left: 1rem;
+  }
+  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container.has-buttons, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container.has-buttons {
+    margin-bottom: -2rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .v1-uds-hero.uds-hero-md .v1-uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .v1-uds-hero.uds-hero-md .v1-uds-hero-container.has-buttons {
+    top: 2rem !important;
+  }
+}
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 575.98px) {
+  .hero-video {
+    overflow: unset;
+  }
+}
+.hero-video video {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero-video .hero-video-controls {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
+  z-index: 9;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  opacity: 0.4;
+}
+.hero-video .hero-video-controls #playHeroVid {
+  padding-left: 8px;
+  display: none;
+}
+.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  #footer-colophon,
+#footer-innovation {
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }
 
