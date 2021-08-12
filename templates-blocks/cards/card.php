@@ -92,7 +92,7 @@ if ( ! empty( $image_data ) ) {
 			<div class="card-content-wrapper" />
 		<?php endif; ?>
 			<div class="card-header">
-				<h3 class="card-title"><?php echo sanitize_text_field( get_field( 'title' ), '' ); ?></h3>
+				<h3 class="card-title"><?php echo wp_kses_post( get_field( 'title' ), '' ); ?></h3>
 			</div>
 		<?php if ( '' !== get_field( 'body_text' ) ) : ?>
 			<div class="card-body">
