@@ -1,7 +1,8 @@
 .uds-card-arrangement {
   display: flex;
   flex-direction: column;
-  max-width: 1920px;
+  max-width: 1400px;
+  margin: 0 12px;
 
   & > &-content-container {
     display: flex;
@@ -27,6 +28,18 @@
     grid-auto-flow: column;
     grid-template-columns: repeat(auto-fill, 1fr);
     margin-top: $uds-size-spacing-3;
+
+    &.auto-arrangement {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: row;
+      row-gap: $uds-size-spacing-3;
+      &.three-columns {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      &.four-columns {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
 
     @media screen and (max-width: $uds-breakpoint-sm) {
       grid-auto-flow: row;
@@ -58,7 +71,43 @@
     }
   }
 
+  @media screen and (max-width: $uds-breakpoint-xl) {
+    & > &-card-container {
+      &.auto-arrangement {
+        &.four-columns {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $uds-breakpoint-lg) {
+    & > &-card-container {
+      &.auto-arrangement {
+        &.four-columns,
+        &.three-columns {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: $uds-breakpoint-sm) {
     flex-direction: column;
+    margin: 0 $uds-size-spacing-4;
+    & > &-card-container {
+      &.auto-arrangement {
+        grid-template-columns: 1fr;
+        &.four-columns,
+        &.three-columns {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+    &-vertical {
+      & > .uds-card-arrangement-card-container {
+        margin-left: 0;
+      }
+    }
   }
 }
