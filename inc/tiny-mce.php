@@ -34,19 +34,36 @@ function uds_wp_toolbars( $toolbars ) {
 
 	/**
 	 * Uncomment these lines to see how the default toolbars are built.
-	 * echo '< pre >';
-	 * print_r($toolbars);
-	 * echo '< /pre >';
-	 * die;
 	 */
+	//  echo '< pre >';
+	//  print_r($toolbars);
+	//  echo '< /pre >';
+	//  die;
 
-	// Add a 'Simple' toolbar for use with our Alert box, which includes links.
+	/**
+	 * Add a 'simple' toolbar, initially designed for use in UDS Alert boxes.
+	 */
 	$toolbars['UDS-WP Simple'] = array();
-	$toolbars['UDS-WP Simple'][1] = array( 'bold', 'italic', 'underline', 'link' );
+	$toolbars['UDS-WP Simple'][1] = array( 'bold', 'italic', 'underline', 'link');
 
-	// Add a 'Minimal' toolbar for use with our Cards, without links.
+	/**
+	 * Add a modified version of the 'simple' toolbar, without support for creating
+	 * links. This was meant for basic content in Cards to prevent adding markup that
+	 * did not align with the standard, but is useful in any case where you want to
+	 * limit users to simple text decorations.
+	 */
 	$toolbars['UDS-WP Minimal'] = array();
 	$toolbars['UDS-WP Minimal'][1] = array( 'bold', 'italic', 'underline' );
+
+	/**
+	 * Toolbar to allow easy access to special characters and formatting within Card
+	 * titles and content. We ended up needing to be a little less restrictive when
+	 * it came to cards, and allow for special characters, etc. However, we still
+	 * don't want underlines in card titles or content, since there should not be
+	 * links in either of those, IIRC.
+	 */
+	$toolbars['UDS-WP Cards'] = array();
+	$toolbars['UDS-WP Cards'][1] = array( 'bold', 'italic', 'superscript', 'subscript', 'charmap');
 
 	// return $toolbars - IMPORTANT!
 	return $toolbars;
