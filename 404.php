@@ -14,10 +14,10 @@ get_header();
 ?>
 
 <div class="wrapper" id="404-wrapper">
-	<div class="uds-hero uds-hero-lg hero-image " title="">
+	<div class="v1-uds-hero uds-hero-lg hero-image " title="">
 		<?php $image_404 = wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>
 		<img src="<?php echo $image_404; ?>" alt="404 - Not Found" />
-		<div class="container uds-hero-container has-buttons ">
+		<div class="container v1-uds-hero-container has-buttons ">
 			<div class="container px-0 error-404 not-found" title="">
 				<div class="row " title="">
 					<div class="col col-lg-8 " title="">
