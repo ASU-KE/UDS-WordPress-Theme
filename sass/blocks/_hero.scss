@@ -30,7 +30,8 @@ Obsolete with update of UDS-Boostrap > v.5.0
 	max-width: 1920px;
 
 	.v1-uds-hero-container {
-		width: 800px;
+		/* width: 800px; */
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
