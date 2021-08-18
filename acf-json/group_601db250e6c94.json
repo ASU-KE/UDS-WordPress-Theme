@@ -107,6 +107,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_611d94a71a497",
+            "label": "Full Width",
+            "name": "full_width",
+            "type": "true_false",
+            "instructions": "Make button the full width of its parent container?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -126,5 +145,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
-    "modified": 1616619261
+    "modified": 1629328647
 }
