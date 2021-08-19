@@ -63,7 +63,8 @@ if ( $button_count ) {
 }
 ?>
 
-	<div class="container banner-<?php echo $color; ?> <?php echo $additional_classes; ?>">
+<div class="container-fluid banner-<?php echo $color; ?> <?php echo $additional_classes; ?>">
+	<div class="container">
 		<div class="row">
 			<div class="col">
 				<div class="banner" role="banner">
@@ -84,3 +85,4 @@ if ( $button_count ) {
 			</div>
 		</div>
 	</div>
+</div>
