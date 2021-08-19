@@ -20,6 +20,12 @@ $button_two_data = get_field( 'uds_button_2_settings' );
 $button_two_text = $button_two_data['button_two_text'];
 $button_two_url = $button_two_data['button_two_url'];
 
+// If additional classes were requested, clean up the input and add them.
+$additional_classes = '';
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
+}
+
 /**
  * There are conditions for rendering buttons: the number
  * of buttons, and which button color to use based on the background,
@@ -57,8 +63,7 @@ if ( $button_count ) {
 }
 ?>
 
-<div class="container-fluid banner-<?php echo $color; ?>">
-	<div class="container">
+	<div class="container banner-<?php echo $color; ?> <?php echo $additional_classes; ?>">
 		<div class="row">
 			<div class="col">
 				<div class="banner" role="banner">
@@ -79,4 +84,3 @@ if ( $button_count ) {
 			</div>
 		</div>
 	</div>
-</div>
