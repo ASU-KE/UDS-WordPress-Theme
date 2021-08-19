@@ -1,6 +1,6 @@
 {
     "key": "group_611ec0462e2e5",
-    "title": "UDS: Banner Block",
+    "title": "UDS Block: Banner",
     "fields": [
         {
             "key": "field_611ec04631bc0",
@@ -49,7 +49,7 @@
                 "bell": "Bell",
                 "info-circle": "Information Circle"
             },
-            "default_value": false,
+            "default_value": "info-circle",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -277,5 +277,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a global banner across all pages, using the Banner widget area in the theme.",
-    "modified": 1629405337
+    "modified": 1629417180
 }
