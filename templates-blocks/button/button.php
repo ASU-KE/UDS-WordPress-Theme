@@ -55,6 +55,14 @@ if ( 'default' !== $button_size ) {
 	$button_size = '';
 }
 
+// Create classname for full-width buttons, if selected.
+
+if ( get_field( 'full_width' ) ) {
+	$button_full_width = 'btn-block';
+}else{
+	$button_full_width = '';
+}
+
 // If user has chosen an icon construct the markup span.
 if ( get_field( 'icon' ) ) {
 	$button_icon = sanitize_text_field( get_field( 'icon' ) );
@@ -73,5 +81,5 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 ?>
 
 <div class="uds-button <?php echo $additional_classes; ?>">
-	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
+	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $button_full_width; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
 </div>
