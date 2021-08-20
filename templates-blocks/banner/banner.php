@@ -69,7 +69,7 @@ if ( $button_count ) {
 			<div class="col">
 				<div class="banner" role="banner">
 					<div class="banner-icon">
-						<span title="Banner" class="fa fa-icon fa-<?php echo $icon; ?>"></span>
+						<span title="Banner" class="fas fa-<?php echo $icon; ?>"></span>
 					</div>
 					<div class="banner-content">
 						<h3><?php echo $title; ?></h3>
