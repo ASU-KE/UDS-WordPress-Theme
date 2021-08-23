@@ -10,7 +10,7 @@ $tabs_style = get_field( 'tabs_style' );
 $accordion_id = '';
 switch ( $tabs_style ) {
 	case 'accordion':
-		$accordion_id = 'Accodion' . date( 'hisa' );
+		$accordion_id = 'Accordion' . date( 'hisa' );
 		$style_class = '';
 		$child_style_class = '';
 		$tab_pane_classes = '';
