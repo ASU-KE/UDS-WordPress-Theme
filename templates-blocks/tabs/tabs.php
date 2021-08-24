@@ -62,8 +62,7 @@ if ( have_rows( 'tabs' ) ) {
 			$aria_selected = 'true';}
 		$tab_title = get_sub_field( 'tab_title' );
 				$tab_content_type = get_sub_field( 'tab_content' );
-		if ( ! $tab_content_type ) {
-			$tab_content_type = 'post_content';}
+		if ( ! $tab_content_type ) {$tab_content_type = 'post_content';}
 				$tab_content = get_sub_field( $tab_content_type );
 		$video_poster_on_content = '';
 		if ( 'video_tabs' == $tabs_style ) {
@@ -83,7 +82,15 @@ if ( have_rows( 'tabs' ) ) {
 			$current_time=gettimeofday(true);
 			$current_time=str_replace('.', '', $current_time);
 			$tab_content_id = $tab_content->ID.'_'.$current_time;
-			$tab_content = $tab_content->post_content;
+			$tab_ID=$tab_content->ID;
+			$this_tab_content='<div class="zainab">';
+			$tab_content1 = $tab_content->post_content;
+			$this_tab_content .= apply_filters('the_content', $tab_content1);
+			$this_tab_content .='</div>';
+			$tab_content = $this_tab_content;
+			//$tab_content = str_replace(']]>', ']]&gt;', $tab_content);
+		  //$tab_content=get_post_field('post_content', $tab_ID);
+			$tab_content .='<span class="edit-link"><a class="post-edit-link btn btn-md btn-maroon" href="'.get_edit_post_link($tab_ID).'">Edit</a></span>';
 		} else {
       $current_time=gettimeofday(true);
 			$current_time=str_replace('.', '', $current_time);
@@ -119,7 +126,8 @@ $accordion_card_style = get_sub_field( 'accordion_card_style' );
 
 
 		if ( 'accordion' == $tabs_style ) {
-			$accordion_tab[] = '<div class="card card-foldable mt-3 '.$accordion_card_class.'"><div class="card-header"><h4><a id="tab-header-' . $tab_content_id . '" class="collapsed" href="#tab-content-' . $tab_content_id . '" data-toggle="collapse" data-target="#tab-content-' . $tab_content_id . '" role="button" aria-expanded="false" aria-controls="tab-content-' . $tab_content_id . '">' . $tab_title . '<i class="fas fa-chevron-up"></i></a></h4></div><!-- end .card-header --><div id="tab-content-' . $tab_content_id . '" class="collapse card-body" aria-labelledby="tab-header-' . $tab_content_id . '" data-parent="#' . $accordion_id . '">' . $tab_content . '</div><!-- end .card-body --></div><!-- end .card -->';
+			$accordion_tab[] = '<div class="card card-foldable mt-3 '.$accordion_card_class.'"><div class="card-header"><h4><a id="tab-header-' . $tab_content_id . '" class="collapsed" href="#tab-content-' . $tab_content_id . '" data-toggle="collapse" data-target="#tab-content-' . $tab_content_id . '" role="button" aria-expanded="false" aria-controls="tab-content-' . $tab_content_id . '">' . $tab_title . '<i class="fas fa-chevron-up"></i></a></h4></div><!-- end .card-header --><div id="tab-content-' . $tab_content_id . '" class="collapse card-body" aria-labelledby="tab-header-' . $tab_content_id . '" data-parent="#' . $accordion_id
+			. '">' . $tab_content . '</div></div>';
 		}
 
 

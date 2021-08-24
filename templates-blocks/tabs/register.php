@@ -2,13 +2,13 @@
 /**
  * Block Registration
  *
- * Block name: Tabs and Accodion block
+ * Block name: Tabs and Accordion block
  * Author: Zainab
  * Version: 1.0
  *
  * @package UDS WordPress Theme
  *
- * Notes: UDS Tabs and Accodion block
+ * Notes: UDS Tabs and Accordion block
  *
  * Note: for the icon, you can use any Dashicon:
  * https://developer.wordpress.org/resource/dashicons, OR an actual <SVG></SVG> tag

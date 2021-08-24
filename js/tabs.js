@@ -76,24 +76,28 @@
 
 
 $( '.uds-tabbed-panels' ).each( function() {
-//$( this ).css('background','red');
 	 var parentWidth = $( this ).innerWidth();
-	 var navWidth = $( this ).find( '.nav.nav-tabs' ).innerWidth();
+	 var navWidth = 0;
+	 $( this ).find( '.nav.nav-tabs a' ).each( function() {
+		  navWidth += $( this ).innerWidth();
+	 });
 	 if ( parentWidth > navWidth ) {
 		 $( this ).find( '.scroll-control-next' ).hide();
-	 }else{
+	 } else {
 		 $( this ).find( '.scroll-control-next' ).show();
 	 }
 });
 
 $( window ).resize(function() {
 	$( '.uds-tabbed-panels' ).each( function() {
-	//$( this ).css('background','red');
 		 var parentWidth = $( this ).innerWidth();
-		 var navWidth = $( this ).find( '.nav.nav-tabs' ).innerWidth();
+		 var navWidth = 0;
+		 $( this ).find( '.nav.nav-tabs a' ).each( function() {
+			  navWidth += $( this ).innerWidth();
+		 });
 		 if ( parentWidth > navWidth ) {
 			 $( this ).find( '.scroll-control-next' ).hide();
-		 }else{
+		 } else {
 			 $( this ).find( '.scroll-control-next' ).show();
 		 }
 	});

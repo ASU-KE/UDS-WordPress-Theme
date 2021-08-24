@@ -323,3 +323,7 @@ background: linear-gradient(
 270deg
 ,rgba(25,25,25,0) 0,rgba(25,25,25,.25) 100%);
 }
+
+.uds-tabbed-panels .nav-tabs{
+	overflow-x: initial;
+}
