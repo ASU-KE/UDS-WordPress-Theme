@@ -3,15 +3,31 @@
     "title": "UDS Block: Banner",
     "fields": [
         {
-            "key": "field_611ec04631bc0",
-            "label": "Color",
-            "name": "uds_banner_color",
-            "type": "select",
+            "key": "field_612565018a765",
+            "label": "Style",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_611ec04631bc0",
+            "label": "Color",
+            "name": "uds_banner_color",
+            "type": "select",
+            "instructions": "UDS banner background color",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -35,11 +51,11 @@
             "label": "Icon",
             "name": "uds_banner_icon",
             "type": "select",
-            "instructions": "",
+            "instructions": "Icon shown to the left of the title",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -52,16 +68,35 @@
             "default_value": "info-circle",
             "allow_null": 0,
             "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
+            "ui": 1,
             "ajax": 0,
+            "return_format": "value",
             "placeholder": ""
         },
         {
-            "key": "field_611ec04631bcd",
-            "label": "Title",
-            "name": "uds_banner_title",
-            "type": "text",
+            "key": "field_611ec0673f7b4",
+            "label": "Show Close Button?",
+            "name": "show_close_button",
+            "type": "true_false",
+            "instructions": "Show a button to allow users to dismiss the banner?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_612565148a766",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -70,11 +105,27 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "Banner Title",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_611ec04631bcd",
+            "label": "Title",
+            "name": "uds_banner_title",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Banner title here",
+            "tabs": "all",
+            "toolbar": "uds_wp_cards",
+            "media_upload": 0,
+            "delay": 1
         },
         {
             "key": "field_611ec04631bd4",
@@ -239,25 +290,6 @@
                     "placeholder": ""
                 }
             ]
-        },
-        {
-            "key": "field_611ec0673f7b4",
-            "label": "Show Close Button?",
-            "name": "show_close_button",
-            "type": "true_false",
-            "instructions": "Show a button to hide the banner?",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
         }
     ],
     "location": [
@@ -276,6 +308,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Fields for creating a global banner across all pages, using the Banner widget area in the theme.",
-    "modified": 1629417180
+    "description": "Field group used by our UDS Banner block (not the widget)",
+    "modified": 1629842424
 }
