@@ -144,7 +144,7 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
-            "delay": 0
+            "delay": 1
         },
         {
             "key": "field_611ec04631bd9",
@@ -309,5 +309,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Field group used by our UDS Banner block (not the widget)",
-    "modified": 1629842424
+    "modified": 1629843475
 }
