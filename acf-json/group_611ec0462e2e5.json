@@ -207,8 +207,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "Button Text",
+                    "default_value": "Button One",
+                    "placeholder": "Button One",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
@@ -267,8 +267,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
+                    "default_value": "Button Two",
+                    "placeholder": "Button Two",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
@@ -309,5 +309,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Field group used by our UDS Banner block (not the widget)",
-    "modified": 1629843475
+    "modified": 1629908637
 }
