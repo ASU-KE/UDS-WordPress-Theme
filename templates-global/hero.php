@@ -48,6 +48,8 @@ switch ( $media_source ) {
  * classes via <span> tags.
  */
 $hero_allowed_tags = array(
+	'sub'  => array(),
+	'sup'  => array(),
 	'br'   => array(),
 	'p'    => array(),
 	'span' => array(
@@ -61,11 +63,11 @@ $hero_allowed_tags = array(
  * field.
  */
 $hero_size = get_field( 'hero_size', $category );
-$hero_title = wp_kses( get_field( 'hero_title', $category ), $hero_allowed_tags );
+$hero_title = wptexturize( wp_kses( get_field( 'hero_title', $category, false ), $hero_allowed_tags ) );
 $apply_highlighting = get_field( 'apply_highlighting', $category );
 $hero_highlight = get_field( 'hero_highlight', $category );
 $title_color = get_field( 'title_color', $category );
-$hero_text = wp_kses( get_field( 'hero_text', $category ), $hero_allowed_tags );
+$hero_text = wptexturize( wp_kses( get_field( 'hero_text', $category, false ), $hero_allowed_tags ) );
 $single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight', $category ) );
 
 // Determine the text color class. Default to white.
