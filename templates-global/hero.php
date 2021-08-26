@@ -63,11 +63,11 @@ $hero_allowed_tags = array(
  * field.
  */
 $hero_size = get_field( 'hero_size', $category );
-$hero_title = wptexturize( wp_kses( get_field( 'hero_title', $category, false ), $hero_allowed_tags ) );
+$hero_title = wptexturize( wp_kses_post( get_field( 'hero_title', $category, false ) ) );
 $apply_highlighting = get_field( 'apply_highlighting', $category );
 $hero_highlight = get_field( 'hero_highlight', $category );
 $title_color = get_field( 'title_color', $category );
-$hero_text = wptexturize( wp_kses( get_field( 'hero_text', $category, false ), $hero_allowed_tags ) );
+$hero_text = wptexturize( wp_kses_post( get_field( 'hero_text', $category, false ) ) );
 $single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight', $category ) );
 
 // Determine the text color class. Default to white.
