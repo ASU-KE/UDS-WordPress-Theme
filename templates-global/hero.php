@@ -209,12 +209,22 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				$size = get_sub_field( 'button_size' );
 				$color = get_sub_field( 'button_color' );
 				$external_link = get_sub_field( 'external_link' );
+				$icon = get_sub_field( 'icon' );
 
+				// Get and format the output for an external link
 				if ( $external_link ) {
 					$rel_text = 'rel="noopener noreferrer"';
 				} else {
 					$rel_text = '';
 				}
+
+				// Get the output for a button icon
+				if  ( $icon ) {
+					$icon_text = '<span class="fas fa-' . $icon . '"></span>&nbsp;';
+				}else{
+					$icon_text = '';
+				}
+
 				/**
 				 * The label, URL and target values are inside an ACF 'Link' field.
 				 * They do not have default values, like the other button fields,
@@ -239,8 +249,8 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 					$target_text   = '';
 				}
 
-				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%2$s</a>';
-				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $target_text, $rel_text ), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%7$s %2$s</a>';
+				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $target_text, $rel_text, $icon_text ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
 			echo '</div>';
 		} else {
