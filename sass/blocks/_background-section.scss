@@ -11,6 +11,7 @@
 .uds-section {
 	padding-top: $uds-size-spacing-6;
 	padding-bottom: $uds-size-spacing-6;
+	overflow: hidden;
 }
 
 // Adjusting the margins of the surrounding area.
@@ -23,15 +24,16 @@ div.container + .uds-section,
 // needs padding and a background color.
 .uds-section.bg {
 
-	[class*="container"] {
+	[class*="wp-block-group__inner-container"] {
 		padding: $uds-size-spacing-4;
+
 	}
 
 	&.morse-code-black,
 	&.topo-black,
 	&.network-black {
 
-		[class*="container"]{
+		[class*="wp-block-group__inner-container"]{
 			background-color:$uds-color-base-gray-7;
 		}
 	}
@@ -40,7 +42,7 @@ div.container + .uds-section,
 	&.topo-white,
 	&.network-white{
 
-		[class*="container"]{
+		[class*="wp-block-group__inner-container"]{
 			background-color:$uds-color-base-white;
 		}
 	}
@@ -53,23 +55,24 @@ div.container + .uds-section,
 	background-position:center;
 	background-repeat: repeat;
 
-	[class*="container"] {
-		padding: $uds-size-spacing-4;
+	[class*="wp-block-group__inner-container"] {
+		padding-top: $uds-size-spacing-4;
+		padding-bottom: $uds-size-spacing-4;
 	}
 
-	&.inner-bg-gray-7 [class*="container"] {
+	&.inner-bg-gray-7 [class*="wp-block-group__inner-container"] {
 		background-color: $uds-color-base-gray-7;
 	}
 
-	&.inner-bg-gray-2 [class*="container"] {
+	&.inner-bg-gray-2 [class*="wp-block-group__inner-container"] {
 		background-color: $uds-color-base-gray-2;
 	}
 
-	&.inner-bg-gray-1 [class*="container"] {
+	&.inner-bg-gray-1 [class*="wp-block-group__inner-container"] {
 		background-color: $uds-color-base-gray-1;
 	}
 
-	&.inner-bg-white [class*="container"] {
+	&.inner-bg-white [class*="wp-block-group__inner-container"] {
 		background-color: $uds-color-base-white;
 	}
 }
