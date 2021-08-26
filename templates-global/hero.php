@@ -192,12 +192,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			?>
 		<div class="row">
 			<div class="v1-uds-hero-text col col-lg-8">
-				<?php
-				if ( ! empty( $hero_text ) ) {
-					$text = '<p>%1$s</p>';
-					echo wp_kses( sprintf( $text, $hero_text ), $hero_allowed_tags );
-				}
-				?>
+				<p><?php echo $hero_text; ?></p>
 			</div>
 		</div>
 			<?php
