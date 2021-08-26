@@ -1,7 +1,7 @@
 
 /*--------------------------------------------------------------
 Additional styles for core blocks.
-These block may contain additional block styles that require 
+These block may contain additional block styles that require
 mapping back to specific classes within UDS-Boostrap.
 
 1. Separator block
@@ -122,8 +122,9 @@ mapping back to specific classes within UDS-Boostrap.
 
 
 //Override the UDS padding on uds-list class on list.scss
-ul.uds-list {
-	padding: 0 5rem 0 2rem;
+ul.uds-list,
+ol.uds-list {
+	padding: 0 $uds-size-spacing-10 0 $uds-size-spacing-4;
 }
 
 /*--------------------------------------------------------------
