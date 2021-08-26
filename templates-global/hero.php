@@ -47,15 +47,15 @@ switch ( $media_source ) {
  * set of tags to support forcing line breaks when appropriate, and applying highlight
  * classes via <span> tags.
  */
-$hero_allowed_tags = array(
-	'sub'  => array(),
-	'sup'  => array(),
-	'br'   => array(),
-	'p'    => array(),
-	'span' => array(
-		'class' => array(),
-	),
-);
+// $hero_allowed_tags = array(
+// 	'sub'  => array(),
+// 	'sup'  => array(),
+// 	'br'   => array(),
+// 	'p'    => array(),
+// 	'span' => array(
+// 		'class' => array(),
+// 	),
+// );
 
 /**
  * Retrieve our field values. Note, we do not get button values here, as they are
