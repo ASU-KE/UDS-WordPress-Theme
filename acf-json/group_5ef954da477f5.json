@@ -434,7 +434,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "The original version of the theme allowed for only one button in the hero. We have since added support for multiple buttons, and you should add new buttons  - even when you want a single button - by using the 'Buttons' tab.\r\n\r\nThese fields are being left here for sites that may have used them, but these fields may be removed at a future point. Again, use the 'Buttons' tab to add any buttons you need in the hero.",
+            "message": "The original version of the theme allowed for only one CTA button in the hero. We have since added support for multiple buttons. These legacy fields are being left here for sites that may have used them, but these fields may be removed at a future date.\r\n\r\nPlease add new buttons  - even when you want a single button - on the 'Buttons' tab.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -520,5 +520,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1630001137
+    "modified": 1630002253
 }
