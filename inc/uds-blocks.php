@@ -56,6 +56,7 @@ function my_acf_blocks_init() {
 			'/overlay-card', // UDS Program Cards.
 			'/background-section', // UDS Background section.
 			'/modals', // UDS windows modal block.
+			'/banner', // UDS banner block.
 		);
 
 		// Loop through array items and include each register file.
