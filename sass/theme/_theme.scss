@@ -204,3 +204,12 @@ BUG: Story hero layout breaks with oversized images.
 	width: 100%;
     max-height: 100%;
 }
+
+/*--------------------------------------------------------------
+BUG: Upstream Content-Image Overlap block image height is 100%!
+--------------------------------------------------------------*/
+@include media-breakpoint-up(lg) {
+    .uds-image-overlap img {
+        height: auto;
+    }
+}
