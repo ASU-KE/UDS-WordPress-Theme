@@ -23,13 +23,26 @@ get_header();
 
 		the_post();
 
-		get_template_part( 'templates-global/global-banner' );
+
 		get_template_part( 'templates-global/story-hero' );
+		get_template_part( 'templates-global/global-banner' );
 
 		?>
+		<div class="container single-news-post-container pt-md-4">
+		<div class="row">
+		<div class="col">
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+			<header class="entry-header">
+				<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
+				<?php
+				if ( ! get_field( 'hide_page_title' ) ) {
+					the_title( '<h1 class="article entry-title">', '</h1>' );}
+				?>
 
+				</header><!-- .entry-header -->
+
+     <div class="entry-content">
 			<?php
 			// TODO: Identify how we will add and control the social media "intent to repost" icons. Sample markup follows.
 
@@ -79,7 +92,7 @@ get_header();
 			);
 
 			?>
-
+</div>
 			<footer class="entry-footer">
 
 				<?php uds_wp_entry_footer(); ?>
@@ -87,7 +100,9 @@ get_header();
 			</footer><!-- .entry-footer -->
 
 		</article><!-- #post-## -->
-
+	</div>
+	</div>
+	</div>
 		<?php
 	}
 
