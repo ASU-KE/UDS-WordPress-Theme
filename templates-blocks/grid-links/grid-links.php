@@ -41,10 +41,12 @@ if ( 'arbitrary' === $source ) {
 
 			// Reset all loop variables with each loop.
 			$icon = '';
+			$bg_image = '';
 			$gridlink = '';
 			$linkstring = '';
 
 			$icon = get_sub_field( 'uds_grid_links_created_icon' );
+			$bg_image = get_sub_field( 'uds_grid_links_created_bg' );
 			$gridlink = get_sub_field( 'uds_grid_links_created_link' );
 
 			if ( ! empty( $icon ) ) {
@@ -61,7 +63,21 @@ if ( 'arbitrary' === $source ) {
 				$link_target = '_self';
 			}
 
-			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . $linkstring . esc_html( $link_title ) . '</a>';
+
+			if ( ! empty( $bg_image ) ) {
+				$bg_image_url = $bg_image['url'];
+				$bg_image_title = $bg_image['title'];
+				$bg_image_alt = $bg_image['alt'];
+				$bg_image='<img src="'.$bg_image_url.'" title="'.$bg_image_title.'" alt="'.$bg_image_alt.'" />';
+				$bg_image_class='grid-link-bg-img';
+			} else {
+				$bg_image_url = '';
+				$bg_image_title = '';
+				$bg_image_alt = '';
+				$bg_image_class='';
+			}
+
+			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'"><p>'. $linkstring . esc_html( $link_title ) .'</p>'. $bg_image  .'</a>';
 			echo $linkstring;
 
 		endwhile;
@@ -90,4 +106,3 @@ if ( 'arbitrary' === $source ) {
 
 // Close out the block.
 echo '</div><!-- end .uds-grid-links -->';
-
