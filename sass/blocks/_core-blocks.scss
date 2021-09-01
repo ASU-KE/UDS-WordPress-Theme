@@ -133,3 +133,22 @@ ol.uds-list {
 .wp-block-image img{
 	height: auto!important;
 }
+
+
+.wp-block-image.is-style-text-overlay{
+	margin: 0;
+	z-index: 1;
+	a{
+		z-index: 9;
+		display: block;
+	}
+	figcaption{
+		z-index: 2;
+		position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+margin: 0;
+@extend .text-white;
+	}
+}
