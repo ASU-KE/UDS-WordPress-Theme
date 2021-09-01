@@ -222,3 +222,17 @@ background: linear-gradient(
 .uds-tabbed-panels .nav-tabs{
 	overflow-x: initial;
 }
+
+/*--------------------------------------------------------------
+if bg-dark was added to the tabs container, then add this to the tabs nav
+--------------------------------------------------------------*/
+.bg-dark{
+	nav.uds-tabbed-panels{
+		@extend .uds-tabbed-panels-dark;
+	}
+	>.tab-content{
+		.tab-pane{
+			@extend .text-white;
+		}
+	}
+}
