@@ -49,12 +49,14 @@ function my_acf_blocks_init() {
 		$block_includes = array(
 			'/blockquote',              // Combination of UDS block quote and testimonial.
 			'/alert',
-			'/button',                  // Button block for UDS theme.
-			'/cards',                   // UDS Cards.
-			'/content-sections',        // Miscellaneous content sections.
-			'/headings',                // A UDS Headings block.
-			'/overlay-card',            // UDS Program Cards.
-			'/background-section',      // UDS Background section.
+			'/button', // Button block for UDS theme.
+			'/cards', // UDS Cards.
+			'/content-sections', // Miscellaneous content sections.
+			'/headings', // A UDS Headings block.
+			'/overlay-card', // UDS Program Cards.
+			'/background-section', // UDS Background section.
+			'/modals', // UDS windows modal block.
+			'/banner', // UDS banner block.
 			'/grid-links',              // UDS Grid Links.
 		);
 

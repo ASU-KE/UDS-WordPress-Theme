@@ -23,8 +23,8 @@
             "key": "field_602f0c315bfc0",
             "label": "Title",
             "name": "title",
-            "type": "text",
-            "instructions": "",
+            "type": "wysiwyg",
+            "instructions": "For advanced HTML, use the text tab.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -33,10 +33,10 @@
                 "id": ""
             },
             "default_value": "Lorem Ipsum",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "tabs": "all",
+            "toolbar": "uds_wp_cards",
+            "media_upload": 0,
+            "delay": 1
         },
         {
             "key": "field_602f0c412559a",
@@ -53,7 +53,7 @@
             },
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "tabs": "all",
-            "toolbar": "uds_wp_minimal",
+            "toolbar": "uds_wp_cards",
             "media_upload": 0,
             "delay": 1
         },
@@ -585,5 +585,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating static, but customizable, versions of all UDS card types: standard, story, degree, and event.",
-    "modified": 1621986860
+    "modified": 1628103564
 }
