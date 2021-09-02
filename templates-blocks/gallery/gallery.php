@@ -58,19 +58,23 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 
 
   </div>
-	<ol class="carousel-indicators border">
+	<div class="uds-gallery-controls border">
+	<a class="carousel-control-prev" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<ol class="carousel-indicators">
     <?php
 		foreach ($uds_gallery_slide_indicators as $uds_gallery_slide_indicator) {
 			echo $uds_gallery_slide_indicator;
 		}
 		?>
   </ol>
-  <a class="carousel-control-prev" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+	<a class="carousel-control-next" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+
+
 </div>

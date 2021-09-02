@@ -2,6 +2,8 @@
 # UDS media gallery Block
 --------------------------------------------------------------*/
 .uds-gallery-block.carousel{
+	.uds-gallery-controls{
+		position: relative;
 		.carousel-indicators{
 	  position: relative;
 		margin: 0;
@@ -23,7 +25,20 @@
 				border: 5px solid $uds-color-base-gold;
 			}
 		}
+
 		}
+		.carousel-control-next, .carousel-control-prev{
+			width: 5%;
+			z-index: 99;
+			background: linear-gradient(90deg,rgba(25,25,25,0) 0,rgba(25,25,25,.35) 100%);
+		}
+		.carousel-control-next{
+			background: linear-gradient(90deg,rgba(25,25,25,0) 0,rgba(25,25,25,.35) 100%);
+		}
+		.carousel-control-prev{
+			background: linear-gradient(270deg,rgba(25,25,25,0) 0,rgba(25,25,25,.35) 100%);
+		}
+	}
 }
 
 
