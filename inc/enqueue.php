@@ -37,9 +37,6 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		$js_modals_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/modals.js' );
 		wp_enqueue_script( 'uds-wordpress-modals-scripts', get_template_directory_uri() . '/js/modals.js', array(), $js_modals_version, true );
 
-		$js_play_button_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/play-button.js' );
-		wp_enqueue_script( 'uds-wordpress-play-button-scripts', get_template_directory_uri() . '/js/play-button.js', array(), $js_play_button_version, true );
-
 		$js_play_button_version2 = $theme_version . '.' . filemtime( get_template_directory() . '/js/tabs.js' );
 		wp_enqueue_script( 'uds-wordpress-play-button-scripts2', get_template_directory_uri() . '/js/tabs.js', array(), $js_play_button_version2, true );
 
