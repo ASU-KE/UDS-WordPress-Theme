@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_60749266d6b60",
-            "label": "Tabs style",
+            "label": "Display as:",
             "name": "tabs_style",
             "type": "button_group",
             "instructions": "",
@@ -16,17 +16,17 @@
                 "id": ""
             },
             "choices": {
-                "regular_horizonal": "Regular tabs",
+                "regular_horizonal": "Tabs",
                 "accordion": "Accordion"
             },
             "allow_null": 0,
             "default_value": "",
-            "layout": "vertical",
+            "layout": "horizontal",
             "return_format": "value"
         },
         {
             "key": "field_6070d5759cdc1",
-            "label": "Tabs",
+            "label": "Items",
             "name": "tabs",
             "type": "repeater",
             "instructions": "",
@@ -40,15 +40,97 @@
             "collapsed": "field_6070d59c9cdc2",
             "min": 0,
             "max": 0,
-            "layout": "row",
-            "button_label": "",
+            "layout": "block",
+            "button_label": "New Item",
             "sub_fields": [
                 {
+                    "key": "field_60747127e7e10",
+                    "label": "Content source",
+                    "name": "tab_content",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "post_content": "Existing Post",
+                        "text_content": "Basic Text"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_6070d5ea9cdc3",
+                    "label": "Choose a post",
+                    "name": "post_content",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60747127e7e10",
+                                "operator": "==",
+                                "value": "post_content"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_60749266d6b60",
+                                "operator": "==",
+                                "value": "regular_horizonal"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_61311aff6face",
+                    "label": "About titles",
+                    "name": "",
+                    "type": "message",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60747127e7e10",
+                                "operator": "==",
+                                "value": "post_content"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "When using a post as your content, the post's title will also be used as the tab\/card title. You can change this by entering your own title in the 'Title' field.",
+                    "new_lines": "wpautop",
+                    "esc_html": 0
+                },
+                {
                     "key": "field_6070d59c9cdc2",
-                    "label": "Tab title",
+                    "label": "Title",
                     "name": "tab_title",
                     "type": "text",
-                    "instructions": "You can override the post title to show here as tab's title. \r\nIf you leave this empty, the original post's title will show as a title for this tab",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -63,65 +145,8 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_60747127e7e10",
-                    "label": "Tab content",
-                    "name": "tab_content",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "post_content": "Select a Pre-published post",
-                        "text_content": "Create a text content"
-                    },
-                    "allow_null": 0,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                },
-                {
-                    "key": "field_6070d5ea9cdc3",
-                    "label": "Post",
-                    "name": "post_content",
-                    "type": "post_object",
-                    "instructions": "You have to have a pre-created post to add it here as a tab content",
-                    "required": 1,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_60747127e7e10",
-                                "operator": "==",
-                                "value": "post_content"
-                            }
-                        ],
-                        [
-                            {
-                                "field": "field_60749266d6b60",
-                                "operator": "==",
-                                "value": "video_tabs"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": "",
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "return_format": "object",
-                    "ui": 1
-                },
-                {
                     "key": "field_607470e1e7e0f",
-                    "label": "Text",
+                    "label": "Your text",
                     "name": "text_content",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -148,7 +173,7 @@
                 },
                 {
                     "key": "field_61140669de29f",
-                    "label": "Accordion card style",
+                    "label": "Accent color",
                     "name": "accordion_card_style",
                     "type": "button_group",
                     "instructions": "",
@@ -198,5 +223,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630452942
+    "modified": 1630609339
 }
