@@ -1,0 +1,44 @@
+/*--------------------------------------------------------------
+# UDS media gallery Block
+--------------------------------------------------------------*/
+.uds-gallery-block.carousel{
+		.carousel-indicators{
+	  position: relative;
+		margin: 0;
+		padding: 0 $uds-size-spacing-1;
+		align-items: center;
+		justify-content: left;
+		li{
+			width: 80px;
+			height: 48px;
+			border: 0;
+			opacity: 1;
+			margin: $uds-size-spacing-2 $uds-size-spacing-1;
+			img{
+				object-fit: cover;
+				object-position: center;
+				height: 100%;
+			}
+			&.active{
+				border: 5px solid $uds-color-base-gold;
+			}
+		}
+		}
+}
+
+
+/* ------------------------------------------------------------------
+2. Desktop, large
+------------------------------------------------------------------- */
+@include media-breakpoint-up(lg) {
+
+}
+
+
+/*------------------------------------------------------------------
+3. Desktop, XL
+--------------------------------------------------------------------*/
+@include media-breakpoint-up(xl) {
+
+
+}

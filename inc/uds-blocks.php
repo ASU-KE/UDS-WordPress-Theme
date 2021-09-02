@@ -57,6 +57,7 @@ function my_acf_blocks_init() {
 			'/background-section', // UDS Background section.
 			'/modals', // UDS windows modal block.
 			'/banner', // UDS banner block.
+			'/gallery', // UDS media gallery block.
 		);
 
 		// Loop through array items and include each register file.
