@@ -25,10 +25,11 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	$menu = $args['menu'];
 	$title = $args['title'];
 
-	$wrapper = '<nav class="sidebar accordion" aria-label="Secondary">';
+	$wrapper = '<div aria-controls="sidebar-left" aria-expanded="false" class="sidebar-toggler" data-target="#sidebar-menu" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
+	$wrapper .= '<nav class="sidebar collapse" id="sidebar-menu" aria-label="Secondary">';
 
 	if ( ! empty( $title ) ) {
-		$sidebar_title = '<div class="nav-text">' . $title . '</div>';
+		$sidebar_title = '<h3>' . $title . '</h3>';
 	} else {
 		$sidebar_title = '';
 	}
