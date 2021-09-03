@@ -117,7 +117,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			// Add the drop down arrow to the parent menu item if the item level is 0 and has children.
 			if ( 0 === $depth && $has_children > 0 ) {
-				$item_output .= '<span class="fas fa-chevron-up"></span>';
+				$item_output .= '<span class="fas fa-chevron-down"></span>';
 			}
 
 			// Add external link icon if it has been requested. Using extra-small size here.
