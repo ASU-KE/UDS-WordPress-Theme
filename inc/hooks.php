@@ -49,3 +49,24 @@ if ( ! function_exists( 'uds_wp_add_site_info' ) ) {
 		echo apply_filters( 'uds_wp_site_info_content', $site_info ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
+
+/**
+ * In Sept. 2010, The upstream Bootstrap replaced 'active' with 'is-active', but
+ * ONLY in sidebar menus. This filter searches the classes of a menu item, and
+ * replaces 'active' with 'is-active' - but only after checking to make sure this
+ * is a sidebar nav walker that is running.
+ */
+if ( ! function_exists( 'uds_wp_replace_active' ) ) {
+	function uds_wp_replace_active( $classes, $items, $args = '' ) {
+		if ( is_a( $args->walker, 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
+			foreach( $classes as $key => &$val ) {
+				if ( 'active' === trim($val) ) {
+					$classes[$key] = 'is-active';
+				}
+			}
+		}
+
+		return $classes;
+	}
+}
+add_filter( 'nav_menu_css_class', 'uds_wp_replace_active', 20, 4);
