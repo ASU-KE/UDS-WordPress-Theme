@@ -212,21 +212,21 @@ always have the correct link colors, regardless of background.
 
 Note: The upstream changes only broke the default link color, but
 the :hover colors were not affected, and were correct. We're only
-fixing the standard color here.
+fixing the standard color here.$uds-color-base-white
 --------------------------------------------------------------*/
 
 a.btn.btn-maroon {
-	color: white;
+	color:$uds-color-base-white;
 }
 
 a.btn.btn-gold {
-	color: black;
+	color: $uds-color-base-gray-7;
 }
 
 a.btn.btn-dark {
-	color: white;
+	color: $uds-color-base-white;
 }
 
 a.btn.btn-gray {
-	color: black;
+	color: $uds-color-base-gray-7;
 }
