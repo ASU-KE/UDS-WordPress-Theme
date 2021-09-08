@@ -209,6 +209,10 @@ BUG: Story hero layout breaks with oversized images.
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
 always have the correct link colors, regardless of background.
+
+Note: The upstream changes only broke the default link color, but
+the :hover colors were not affected, and were correct. We're only
+fixing the standard color here.
 --------------------------------------------------------------*/
 
 a.btn.btn-maroon {
