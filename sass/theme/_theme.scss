@@ -204,3 +204,25 @@ BUG: Story hero layout breaks with oversized images.
 	width: 100%;
     max-height: 100%;
 }
+
+/*--------------------------------------------------------------
+BUG: Upstream changes broke button text on particular backgrounds.
+We override them here with more specific rules so that our buttons
+always have the correct link colors, regardless of background.
+--------------------------------------------------------------*/
+
+a.btn.btn-maroon {
+	color: white;
+}
+
+a.btn.btn-gold {
+	color: black;
+}
+
+a.btn.btn-dark {
+	color: white;
+}
+
+a.btn.btn-gray {
+	color: black;
+}
