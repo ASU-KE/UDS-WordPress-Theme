@@ -20,7 +20,7 @@ var cfg = require("./gulpconfig.json");
 var paths = cfg.paths;
 
 // Use Dart Sass to avoid random compliation errors.
-sass.compiler = require("sass");
+//sass.compiler = require("sass");
 
 /**
  * Compiles .scss to .css files.
@@ -29,11 +29,12 @@ sass.compiler = require("sass");
  */
 gulp.task("sass", function () {
 	return gulp
-		.src([
+	.src( paths.sass + '/*.scss' )
+		/*.src([
 			paths.sass + "/admin.scss",
 			// paths.sass + "/theme.scss",
 			paths.sass + "/xx_custom-editor-style.scss",
-		])
+		])*/
 		.pipe(
 			plumber({
 				errorHandler(err) {
