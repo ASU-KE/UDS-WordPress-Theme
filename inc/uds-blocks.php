@@ -120,3 +120,39 @@ if ( ! function_exists( 'remove_core_patterns' ) ) {
 	}
 	add_action( 'after_setup_theme', 'remove_core_patterns' );
 }
+
+
+add_filter( 'render_block', 'wrap_table_block', 10, 2 );
+function wrap_table_block( $block_content, $block ) {
+  if ( 'core/image' === $block['blockName'] ) {
+		$block_content = str_replace('wp-block-image', 'uds-figure figure', $block_content);
+		$block_content = str_replace('<figcaption>', '<figcaption class="uds-figure-caption figure-caption"><span class="uds-caption-text">', $block_content);
+		$block_content = str_replace('</figcaption>', '</span></figcaption>', $block_content);
+		$block_content = str_replace('wp-image-', 'uds-img figure-img img-fluid wp-image-', $block_content);
+    $block_content = '<div class="uds-img uds-img-drop-shadow">' . $block_content . '</div>';
+  }
+  return $block_content;
+}
+
+/*add_action('init', function() {
+    register_block_type('core/image', array(
+      'render_callback' => function($attributes, $content) {
+
+        $new_content = "<div class='uds-img uds-img-drop-shadow'><figure class='uds-figure figure'>";
+
+        if ($attributes['ids']) {
+
+
+          //$src    = wp_get_attachment_url($attachment_id);
+          //$srcset = wp_get_attachment_image_srcset($attachment_id, $attributes['sizeSlug'], null);
+          //$sizes  = wp_get_attachment_image_sizes($attachment_id, $attributes['sizeSlug'], null);
+
+        //  $new_content .= "<li class='blocks-gallery-item'><figure><input type='checkbox' name='wp-image-{$attachment_id}' id='wp-image-{$attachment_id}' /><div class='gallery-item-modal'><label for='wp-image-{$attachment_id}'><img src='{$src}' alt='' /></label></div><label for='wp-image-{$attachment_id}'><img src='{$src}' data-id='{$attachment_id}' data-full-url='{$src}' data-link='' srcset='{$srcset}' sizes='{$sizes}' class='wp-image-{$attachment_id}' alt='' /></label></figure></li>";
+        }
+
+        $new_content .= '</figure>';
+
+        return $new_content;
+      },
+    ));
+  }, 10, 1);*/
