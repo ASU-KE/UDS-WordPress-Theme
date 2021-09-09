@@ -22588,6 +22588,15 @@ a.btn.btn-gray, a.btn-gray.uds-modal-close-btn {
 }
 
 /*--------------------------------------------------------------
+Temporary fix: Push down sidebar current item highlighting. We
+are adjusting the gold underline to match what will be coming in
+a future update.
+--------------------------------------------------------------*/
+.sidebar .nav-link.is-active::after {
+  top: 0.5rem;
+}
+
+/*--------------------------------------------------------------
 Color picker CSS rules
 
 Creates "has-color" and "has-background-color" style classes.
