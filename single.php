@@ -57,10 +57,11 @@ get_header();
 
 			the_content();
 
-			$author_name = get_field( 'name' );
-			$author_title = get_field( 'title' );
-			$author_email = get_field( 'email' );
-			$author_phone = get_field( 'phone' );
+			$author_name = get_field( 'uds_news_author_name' );
+			$author_title = get_field( 'uds_news_author_title' );
+			$author_email = get_field( 'uds_news_author_email' );
+			$author_phone = get_field( 'uds_news_author_phone' );
+
 			if ( $author_name || $author_title || $author_email || $author_phone ) {
 				echo '<div class="author_info">';
 				if ( $author_name ) {
