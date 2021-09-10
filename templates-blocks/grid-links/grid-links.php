@@ -70,14 +70,17 @@ if ( 'arbitrary' === $source ) {
 				$bg_image_alt = $bg_image['alt'];
 				$bg_image='<img src="'.$bg_image_url.'" title="'.$bg_image_title.'" alt="'.$bg_image_alt.'" />';
 				$bg_image_class='grid-link-bg-img';
+				// Image BG, so put a <p> tag around the link content
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'"><p>'. $linkstring . esc_html( $link_title ) .'</p>'. $bg_image  .'</a>';
 			} else {
 				$bg_image_url = '';
 				$bg_image_title = '';
 				$bg_image_alt = '';
 				$bg_image_class='';
+				// No Image, so no <p> tag around the link content!
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'">'. $linkstring . esc_html( $link_title ) . $bg_image  .'</a>';
 			}
 
-			$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'"><p>'. $linkstring . esc_html( $link_title ) .'</p>'. $bg_image  .'</a>';
 			echo $linkstring;
 
 		endwhile;
