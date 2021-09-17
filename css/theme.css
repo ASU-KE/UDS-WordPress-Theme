@@ -22567,7 +22567,7 @@ BUG: Upstream Content-Image Overlap block image height is 100%!
 --------------------------------------------------------------*/
 @media (min-width: 992px) {
   .uds-image-overlap img {
-    height: auto;
+    height: auto !important;
   }
 }
 /*--------------------------------------------------------------
