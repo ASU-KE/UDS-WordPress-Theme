@@ -57,9 +57,7 @@ function my_acf_blocks_init() {
 			'/background-section', // UDS Background section.
 			'/modals', // UDS windows modal block.
 			'/banner', // UDS banner block.
-			'/tabs-accordions-container', // UDS Tabs and accordions container block.
-			'/single-accordion', // UDS single accordion block.
-			'/single-tab', // UDS single tab block.
+			'/foldable-card', // UDS Foldable card block.
 		);
 
 		// Loop through array items and include each register file.

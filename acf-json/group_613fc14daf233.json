@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_6143d81a230b1",
+            "label": "Icon",
+            "name": "uds_single_accordion_title_icon",
+            "type": "text",
+            "instructions": "Enter the base name of a FontAwesome icon (ex. for 'fa-info', just enter the word 'info')",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_613fc3aafae27",
             "label": "Collapsed",
             "name": "uds_single_accordion_collapsed",
@@ -73,7 +92,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/uds-single-accordion"
+                "value": "acf\/uds-foldable-card"
             }
         ]
     ],
@@ -85,5 +104,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631569380
+    "modified": 1631836460
 }
