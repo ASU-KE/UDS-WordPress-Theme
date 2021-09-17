@@ -22395,6 +22395,38 @@ main > * {
 .title .subdomain-name a:hover {
   text-decoration: underline;
 }
+<<<<<<< HEAD
+=======
+
+/*--------------------------------------------------------------
+2.5 Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+@media screen and (max-width: 576px) {
+  .uds-hero-lg .uds-hero-container,
+.uds-hero-sm .uds-hero-container {
+    margin-bottom: 0 !important;
+    margin-left: 1rem;
+  }
+  .uds-hero-lg .uds-hero-container.has-buttons,
+.uds-hero-sm .uds-hero-container.has-buttons {
+    margin-bottom: -2rem !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .uds-hero-md .uds-hero-container {
+    margin-bottom: 2rem !important;
+    margin-left: 1rem;
+    top: 0 !important;
+  }
+  .uds-hero-md .uds-hero-container.has-buttons {
+    top: 2rem !important;
+  }
+}
+>>>>>>> develop
 
 /*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
@@ -22410,13 +22442,66 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
     position: static;
   }
 }
+<<<<<<< HEAD
+=======
 /*--------------------------------------------------------------
-4. Prevent blocks which contain links from firing during editing.
+X. Misc. styles
+--------------------------------------------------------------*/
+/**
+ * The UDS 'quicklinks' class was causing a conflict with the WP
+ * admin bar, which also uses the class 'quicklinks'. The UDS styles
+ * were applying 'display: flex', where the admin bar needs 'display: block'.
+ *
+ * To __temporarily__ fix this, I'm applying the display block to the area.
+ * It turns out that the section that has the class of 'quicklinks' also has an
+ * ID of 'wp-toolbar'. Since ID's are more specific, I'm targeting that.
+ *
+ *
+ */
+#wp-toolbar {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+ Hero img
+--------------------------------------------------------------*/
+.uds-hero {
+  position: relative;
+}
+.uds-hero:after {
+  content: "";
+  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.uds-hero .uds-hero-container {
+  z-index: 999;
+}
+.uds-hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+>>>>>>> develop
+/*--------------------------------------------------------------
+ ACF Button block
 --------------------------------------------------------------*/
 .acf-block-preview .uds-button a,
 .acf-block-preview .card-button a {
   pointer-events: none;
 }
+<<<<<<< HEAD
+=======
+
+.is-style-steplist-darkmode li:before {
+  background-color: #fafafa !important;
+  color: #191919 !important;
+}
+>>>>>>> develop
 
 /*---------------------------------------------------------------
  Fix Alert Close button
@@ -22470,6 +22555,123 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
     margin-right: 0;
   }
 }
+<<<<<<< HEAD
+=======
+/*--------------------------------------------------------------
+Override UDS scss
+--------------------------------------------------------------*/
+@media screen and (max-width: 576px) {
+  .uds-hero.uds-hero-sm {
+    margin: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+}
+ul.uds-list, .uds-list ul {
+  padding: 0 5rem 0 2rem;
+}
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 575.98px) {
+  .hero-video {
+    overflow: unset;
+  }
+}
+.hero-video video {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero-video .hero-video-controls {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
+  z-index: 9;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  opacity: 0.4;
+}
+.hero-video .hero-video-controls #playHeroVid {
+  padding-left: 8px;
+  display: none;
+}
+.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  #footer-colophon,
+#footer-innovation {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+/*--------------------------------------------------------------
+Dividers
+--------------------------------------------------------------*/
+.block-editor-block-list__layout .wp-block.is-style-copy-divider {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 16rem !important;
+}
+.block-editor-block-list__layout .wp-block.is-style-copy-divider.wp-block-separator {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+Correct the button color on gray bg
+--------------------------------------------------------------*/
+.bg-gray-1 a.btn.btn-maroon, .bg-gray-1 a.btn-maroon.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-maroon,
+.bg-gray-2 a.btn-maroon.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-maroon,
+.bg-gray-7 a.btn-maroon.uds-modal-close-btn,
+.bg-white a.btn.btn-maroon,
+.bg-white a.btn-maroon.uds-modal-close-btn {
+  color: white;
+}
+.bg-gray-1 a.btn.btn-gold, .bg-gray-1 a.btn-gold.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-gold,
+.bg-gray-2 a.btn-gold.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-gold,
+.bg-gray-7 a.btn-gold.uds-modal-close-btn,
+.bg-white a.btn.btn-gold,
+.bg-white a.btn-gold.uds-modal-close-btn {
+  color: initial;
+}
+.bg-gray-1 a.btn.btn-gray, .bg-gray-1 a.btn-gray.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-gray,
+.bg-gray-2 a.btn-gray.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-gray,
+.bg-gray-7 a.btn-gray.uds-modal-close-btn,
+.bg-white a.btn.btn-gray,
+.bg-white a.btn-gray.uds-modal-close-btn {
+  color: initial;
+}
+.bg-gray-1 a.btn.btn-dark, .bg-gray-1 a.btn-dark.uds-modal-close-btn,
+.bg-gray-2 a.btn.btn-dark,
+.bg-gray-2 a.btn-dark.uds-modal-close-btn,
+.bg-gray-7 a.btn.btn-dark,
+.bg-gray-7 a.btn-dark.uds-modal-close-btn,
+.bg-white a.btn.btn-dark,
+.bg-white a.btn-dark.uds-modal-close-btn {
+  color: white;
+}
+
+>>>>>>> develop
 /*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
@@ -22496,6 +22698,14 @@ Override the desktop media query for header to fix the gap issue
     top: 46px !important;
   }
 }
+<<<<<<< HEAD
+=======
+#wpadminbar + #asu-header.scrolled {
+  top: 0px !important;
+  transition: all 0.3s ease-out;
+}
+
+>>>>>>> develop
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
 --------------------------------------------------------------*/
@@ -22537,7 +22747,9 @@ footer #wrapper-footer-innovation .img-link {
   margin-right: 0;
 }
 
-.uds-hero-container .highlight-gold, .uds-hero-container .highlight-white, .uds-hero-container .highlight-black,
+.uds-hero-container .highlight-gold,
+.uds-hero-container .highlight-white,
+.uds-hero-container .highlight-black,
 .container .highlight-gold,
 .container .highlight-white,
 .container .highlight-black {
@@ -22545,9 +22757,55 @@ footer #wrapper-footer-innovation .img-link {
   padding-left: 0.15em;
   padding-right: 0.15em;
 }
+<<<<<<< HEAD
+=======
 
 /*--------------------------------------------------------------
-Add scope for modal window block.
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img {
+  height: auto !important;
+}
+
+/*--------------------------------------------------------------
+UDS Grid Links
+--------------------------------------------------------------*/
+.uds-grid-links a {
+  display: flex;
+  justify-content: flex-start;
+}
+.uds-grid-links a.grid-link-bg-img {
+  position: relative;
+  height: 150px;
+  padding: 0;
+}
+.uds-grid-links a.grid-link-bg-img:after {
+  content: "";
+  background: linear-gradient(180deg, #19191900 0, #191919c9 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.uds-grid-links a.grid-link-bg-img p {
+  z-index: 2;
+  margin: auto;
+}
+.uds-grid-links a svg {
+  margin-top: 0.25rem;
+}
+.uds-grid-links a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+>>>>>>> develop
+
+/*--------------------------------------------------------------
+usd modal windows
 --------------------------------------------------------------*/
 .uds-modal {
   z-index: 1050;
