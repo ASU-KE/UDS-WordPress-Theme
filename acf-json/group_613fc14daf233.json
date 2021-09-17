@@ -1,10 +1,10 @@
 {
     "key": "group_613fc14daf233",
-    "title": "UDS Single Accordion",
+    "title": "UDS Foldable Card",
     "fields": [
         {
             "key": "field_613fc348fae26",
-            "label": "Accordion title",
+            "label": "Card title",
             "name": "uds_single_accordion_title",
             "type": "text",
             "instructions": "",
@@ -63,7 +63,7 @@
             "key": "field_613fc3defae28",
             "label": "Color",
             "name": "uds_single_accordion_color",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -78,13 +78,10 @@
                 "card-gray": "Light Gray",
                 "card-dark": "Dark Gray"
             },
-            "default_value": false,
             "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
         }
     ],
     "location": [
@@ -104,5 +101,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631836460
+    "modified": 1631896154
 }
