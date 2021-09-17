@@ -65,20 +65,16 @@ if ( 'arbitrary' === $source ) {
 
 
 			if ( ! empty( $bg_image ) ) {
+				// If using an image background, configure the appropriate values and structure.
 				$bg_image_url = $bg_image['url'];
 				$bg_image_title = $bg_image['title'];
 				$bg_image_alt = $bg_image['alt'];
 				$bg_image='<img src="'.$bg_image_url.'" title="'.$bg_image_title.'" alt="'.$bg_image_alt.'" />';
 				$bg_image_class='grid-link-bg-img';
-				// Image BG, so put a <p> tag around the link content
 				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'"><p>'. $linkstring . esc_html( $link_title ) .'</p>'. $bg_image  .'</a>';
 			} else {
-				$bg_image_url = '';
-				$bg_image_title = '';
-				$bg_image_alt = '';
-				$bg_image_class='';
-				// No Image, so no <p> tag around the link content!
-				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'">'. $linkstring . esc_html( $link_title ) . $bg_image  .'</a>';
+				// With no image, our $linkstring can be much simpler.
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">'. $linkstring . esc_html( $link_title ) .'</a>';
 			}
 
 			echo $linkstring;
