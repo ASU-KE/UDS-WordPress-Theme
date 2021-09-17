@@ -441,6 +441,12 @@ Override the desktop media query for header to fix the gap issue
 		top: 46px !important;
 	}
 }
+#wpadminbar + #asu-header.scrolled{
+	top: 0px !important;
+	transition: all 0.3s ease-out;
+}
+}
+
 
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
@@ -551,4 +557,13 @@ usd modal windows
 .uds-modal{
 	z-index: 1050;
 	position: fixed;
+}
+
+
+/*--------------------------------------------------------------
+BUG: Story hero layout breaks with oversized images.
+--------------------------------------------------------------*/
+.uds-story-hero .hero {
+	width: 100%;
+    max-height: 100%;
 }
