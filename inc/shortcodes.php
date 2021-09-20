@@ -24,15 +24,16 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 		$atts
 	);
 
+	// Make local variables out of our shortcode args.
 	$menu = $args['menu'];
 	$title = $args['title'];
 
-	if( ! empty( $args[ 'id' ] ) ) {
-		wp_die( var_dump( $args['menu'] ) );
-	}
+	// Create a slug version of the menu name for use as an ID.
+	$slug = sanitize_title( $menu );
 
-	$wrapper = '<div aria-controls="' . $menu . '" aria-expanded="false" class="sidebar-toggler" data-target="#' . $menu . '" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
-	$wrapper .= '<nav class="sidebar collapse" id="' . $menu . '" aria-label="Secondary">';
+	// Create the wrapper around the sidebar menu, with an <h3> title if provided.
+	$wrapper = '<div aria-controls="' . $slug . '" aria-expanded="false" class="sidebar-toggler" data-target="#' . $slug . '" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
+	$wrapper .= '<nav class="sidebar collapse" id="' . $slug . '" aria-label="Secondary">';
 
 	if ( ! empty( $title ) ) {
 		$sidebar_title = '<h3>' . $title . '</h3>';
@@ -40,6 +41,7 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 		$sidebar_title = '';
 	}
 
+	// Build the menu with our nav walker.
 	$sidebar = wp_nav_menu(
 		array(
 			'menu'            => $menu,
@@ -49,6 +51,7 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 		)
 	);
 
+	// Return the menu inside the wrapper.
 	return $wrapper . $sidebar . '</nav>';
 }
 
