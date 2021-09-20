@@ -13,22 +13,26 @@
  *
  * @param array $atts Shortcode attributes.
  */
+
+
 function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	$args = shortcode_atts(
 		array(
 			'menu'            => '',
 			'title'           => '',
-			'id'              => 'sidebar-menu',
 		),
 		$atts
 	);
 
 	$menu = $args['menu'];
 	$title = $args['title'];
-	$id = $args['id'];
 
-	$wrapper = '<div aria-controls="' . $id . '" aria-expanded="false" class="sidebar-toggler" data-target="#' . $id . '" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
-	$wrapper .= '<nav class="sidebar collapse" id="' . $id . '" aria-label="Secondary">';
+	if( ! empty( $args[ 'id' ] ) ) {
+		wp_die( var_dump( $args['menu'] ) );
+	}
+
+	$wrapper = '<div aria-controls="' . $menu . '" aria-expanded="false" class="sidebar-toggler" data-target="#' . $menu . '" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
+	$wrapper .= '<nav class="sidebar collapse" id="' . $menu . '" aria-label="Secondary">';
 
 	if ( ! empty( $title ) ) {
 		$sidebar_title = '<h3>' . $title . '</h3>';
