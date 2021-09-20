@@ -44,7 +44,7 @@ if ( ! function_exists( 'uds_wp_theme_special_nav_class' ) ) {
 			$classes[] = 'is-active ';
 		} else if ( in_array( 'current_page_item', $classes ) ) {
 			$classes = array_diff( $classes, array( 'current_page_item', 'active' ) );
-			$classes[] = 'is-active ';
+			$classes[] = 'active ';
 		}
 		return $classes;
 	}
