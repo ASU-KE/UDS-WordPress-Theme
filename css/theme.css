@@ -22395,8 +22395,6 @@ main > * {
 .title .subdomain-name a:hover {
   text-decoration: underline;
 }
-<<<<<<< HEAD
-=======
 
 /*--------------------------------------------------------------
 2.5 Hero title bottom-margin-fix
@@ -22426,7 +22424,6 @@ buttons. */
     top: 2rem !important;
   }
 }
->>>>>>> develop
 
 /*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
@@ -22442,8 +22439,6 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
     position: static;
   }
 }
-<<<<<<< HEAD
-=======
 /*--------------------------------------------------------------
 X. Misc. styles
 --------------------------------------------------------------*/
@@ -22486,7 +22481,6 @@ X. Misc. styles
   object-position: top;
 }
 
->>>>>>> develop
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
@@ -22494,14 +22488,11 @@ X. Misc. styles
 .acf-block-preview .card-button a {
   pointer-events: none;
 }
-<<<<<<< HEAD
-=======
 
 .is-style-steplist-darkmode li:before {
   background-color: #fafafa !important;
   color: #191919 !important;
 }
->>>>>>> develop
 
 /*---------------------------------------------------------------
  Fix Alert Close button
@@ -22555,8 +22546,6 @@ X. Misc. styles
     margin-right: 0;
   }
 }
-<<<<<<< HEAD
-=======
 /*--------------------------------------------------------------
 Override UDS scss
 --------------------------------------------------------------*/
@@ -22671,7 +22660,6 @@ Correct the button color on gray bg
   color: white;
 }
 
->>>>>>> develop
 /*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
@@ -22698,14 +22686,11 @@ Override the desktop media query for header to fix the gap issue
     top: 46px !important;
   }
 }
-<<<<<<< HEAD
-=======
 #wpadminbar + #asu-header.scrolled {
   top: 0px !important;
   transition: all 0.3s ease-out;
 }
 
->>>>>>> develop
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
 --------------------------------------------------------------*/
@@ -22757,8 +22742,6 @@ footer #wrapper-footer-innovation .img-link {
   padding-left: 0.15em;
   padding-right: 0.15em;
 }
-<<<<<<< HEAD
-=======
 
 /*--------------------------------------------------------------
 Always set the image height in core/image to auto
@@ -22802,7 +22785,6 @@ UDS Grid Links
   object-fit: cover;
   object-position: center;
 }
->>>>>>> develop
 
 /*--------------------------------------------------------------
 usd modal windows
@@ -22819,7 +22801,6 @@ BUG: Story hero layout breaks with oversized images.
   width: 100%;
   max-height: 100%;
 }
-<<<<<<< HEAD
 
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
@@ -22860,8 +22841,6 @@ way to handle the underlines.
 .card-foldable .card-body .nav-link-container:last-child .is-active::after {
   top: 1rem;
 }
-=======
->>>>>>> develop
 
 /*--------------------------------------------------------------
 Color picker CSS rules
