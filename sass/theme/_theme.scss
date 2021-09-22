@@ -568,6 +568,48 @@ BUG: Story hero layout breaks with oversized images.
 }
 
 /*--------------------------------------------------------------
+BUG: Upstream changes broke button text on particular backgrounds.
+We override them here with more specific rules so that our buttons
+always have the correct link colors, regardless of background.
+
+Note: The upstream changes only broke the default link color, but
+the :hover colors were not affected, and were correct. We're only
+fixing the standard color here.$uds-color-base-white
+--------------------------------------------------------------*/
+
+a.btn.btn-maroon {
+	color:$uds-color-base-white;
+}
+
+a.btn.btn-gold {
+	color: $uds-color-base-gray-7;
+}
+
+a.btn.btn-dark {
+	color: $uds-color-base-white;
+}
+
+a.btn.btn-gray {
+	color: $uds-color-base-gray-7;
+}
+
+/*--------------------------------------------------------------
+Temporary fix: Adjust the position of the gold underline on
+active sidebar items. This matches a change on Storybook that
+we have not pulled from upstream yet, but looks to be the correct
+way to handle the underlines.
+--------------------------------------------------------------*/
+// Position the is-active underline for most cases
+.sidebar .nav-link.is-active::after {
+	top: 0.5rem;
+	margin-top: 0.5rem;
+}
+// Position the is-active underline for the last item of a sub-menu
+.card-foldable .card-body .nav-link-container:last-child .is-active::after {
+	top: 1rem;
+}
+
+/*--------------------------------------------------------------
 BUG: Upstream Content-Image Overlap block image height is 100%!
 --------------------------------------------------------------*/
 @include media-breakpoint-up(lg) {
