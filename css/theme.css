@@ -22803,6 +22803,46 @@ BUG: Story hero layout breaks with oversized images.
 }
 
 /*--------------------------------------------------------------
+BUG: Upstream changes broke button text on particular backgrounds.
+We override them here with more specific rules so that our buttons
+always have the correct link colors, regardless of background.
+
+Note: The upstream changes only broke the default link color, but
+the :hover colors were not affected, and were correct. We're only
+fixing the standard color here.$uds-color-base-white
+--------------------------------------------------------------*/
+a.btn.btn-maroon, a.btn-maroon.uds-modal-close-btn {
+  color: #ffffff;
+}
+
+a.btn.btn-gold, a.btn-gold.uds-modal-close-btn {
+  color: #191919;
+}
+
+a.btn.btn-dark, a.btn-dark.uds-modal-close-btn {
+  color: #ffffff;
+}
+
+a.btn.btn-gray, a.btn-gray.uds-modal-close-btn {
+  color: #191919;
+}
+
+/*--------------------------------------------------------------
+Temporary fix: Adjust the position of the gold underline on
+active sidebar items. This matches a change on Storybook that
+we have not pulled from upstream yet, but looks to be the correct
+way to handle the underlines.
+--------------------------------------------------------------*/
+.sidebar .nav-link.is-active::after {
+  top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.card-foldable .card-body .nav-link-container:last-child .is-active::after {
+  top: 1rem;
+}
+
+/*--------------------------------------------------------------
 Color picker CSS rules
 
 Creates "has-color" and "has-background-color" style classes.
