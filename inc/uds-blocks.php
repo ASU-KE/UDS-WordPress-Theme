@@ -58,6 +58,7 @@ function my_acf_blocks_init() {
 			'/modals', // UDS windows modal block.
 			'/banner', // UDS banner block.
 			'/grid-links',              // UDS Grid Links.
+			'/foldable-card', // UDS Foldable card block.
 		);
 
 		// Loop through array items and include each register file.
