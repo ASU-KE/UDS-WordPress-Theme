@@ -22803,15 +22803,6 @@ BUG: Story hero layout breaks with oversized images.
 }
 
 /*--------------------------------------------------------------
-<<<<<<< HEAD
-BUG: Upstream Content-Image Overlap block image height is 100%!
---------------------------------------------------------------*/
-@media (min-width: 992px) {
-  .uds-image-overlap img {
-    height: auto !important;
-  }
-}
-=======
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
 always have the correct link colors, regardless of background.
@@ -22851,7 +22842,14 @@ way to handle the underlines.
   top: 1rem;
 }
 
->>>>>>> develop
+/*--------------------------------------------------------------
+BUG: Upstream Content-Image Overlap block image height is 100%!
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  .uds-image-overlap img {
+    height: auto !important;
+  }
+}
 /*--------------------------------------------------------------
 Color picker CSS rules
 
