@@ -64,7 +64,7 @@
             "label": "Color",
             "name": "uds_single_accordion_color",
             "type": "button_group",
-            "instructions": "",
+            "instructions": "To create an accordion block of multiple foldable cards:<br>\r\n1- Select all foldable cards that you want to include in the accordion and group them into a group block (from the 3 dots at the right top corner, select \"Group\" option).<br>\r\n2- Then from the side panel of the group block, add \"<b>accordion<\/b>\" class to the additional CSS classes field, and add a <b>unique id<\/b> to the HTML anchor field.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -101,5 +101,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632347482
+    "modified": 1632867705
 }
