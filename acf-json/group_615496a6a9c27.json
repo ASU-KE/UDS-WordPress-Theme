@@ -1,0 +1,62 @@
+{
+    "key": "group_615496a6a9c27",
+    "title": "UDS Tabbed Panels",
+    "fields": [
+        {
+            "key": "field_615496a6ae434",
+            "label": "Tab title",
+            "name": "uds_single_tab_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_615496a6ae4b2",
+            "label": "Icon",
+            "name": "uds_single_tab_title_icon",
+            "type": "text",
+            "instructions": "Enter all required FA classes. Example: <code>fas fa-external-link-alt<\/code>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-tabbed-panels"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1632951686
+}
