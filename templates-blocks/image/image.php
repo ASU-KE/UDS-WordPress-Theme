@@ -10,7 +10,7 @@
  $image_url = $image_data['url'];
  $image_alt = $image_data['alt'];
  $image_title = $image_data['title'];
- $image_caption = get_field( 'uds_image_caption' );
+ $image_caption = $image_data['caption']? $image_data['caption']:get_field( 'uds_image_caption' );
  $image_shadow = get_field( 'uds_image_shadow_effect' );
  $image_small_size = get_field( 'uds_image_small_size' );
 
