@@ -620,3 +620,15 @@ usd Tabbed panels
 		}
 	}
 }
+
+.bg-dark{
+.uds-tabbed-panels{
+	@extend .uds-tabbed-panels-dark;
+}
+.tab-content{
+	.tab-pane{
+		@extend .text-white;
+	}
+}
+
+}
