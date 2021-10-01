@@ -40,13 +40,12 @@
                 "id": ""
             },
             "choices": {
-                "none": "None",
                 "library": "Use Media Library caption",
                 "custom": "Write my own"
             },
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "none",
+            "default_value": "custom",
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
@@ -166,5 +165,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633035549
+    "modified": 1633048465
 }
