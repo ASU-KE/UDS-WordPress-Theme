@@ -27,13 +27,46 @@
             "mime_types": ""
         },
         {
+            "key": "field_6154f646c3554",
+            "label": "Caption Type",
+            "name": "uds_image_caption_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "library": "Use Media Library caption",
+                "custom": "Write my own"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "none",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_615259909cf57",
             "label": "Caption",
             "name": "uds_image_caption",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f646c3554",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -65,11 +98,11 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_61525a169cf59",
-            "label": "Small size",
-            "name": "uds_image_small_size",
-            "type": "true_false",
-            "instructions": "",
+            "key": "field_6154f5cdc3553",
+            "label": "Image Scale",
+            "name": "uds_image_image_scale",
+            "type": "range",
+            "instructions": "Choose a relative size for the image, between 25% and 100%",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -77,11 +110,43 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": 100,
+            "min": 25,
+            "max": "",
+            "step": 5,
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_615624368284e",
+            "label": "Resized Image Alignment",
+            "name": "uds_image_resized_image_alignment",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f5cdc3553",
+                        "operator": "<",
+                        "value": "100"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "Left",
+                "center": "Center",
+                "end": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "start",
+            "layout": "horizontal",
+            "return_format": "value"
         }
     ],
     "location": [
@@ -101,5 +166,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632787619
+    "modified": 1633035549
 }
