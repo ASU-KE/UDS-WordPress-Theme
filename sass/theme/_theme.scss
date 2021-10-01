@@ -608,3 +608,15 @@ way to handle the underlines.
 .card-foldable .card-body .nav-link-container:last-child .is-active::after {
 	top: 1rem;
 }
+
+
+/*--------------------------------------------------------------
+usd Tabbed panels
+--------------------------------------------------------------*/
+.uds-tabbed-panels{
+	a.nav-item {
+		svg {
+			margin-right: $uds-size-spacing-half;
+		}
+	}
+}
