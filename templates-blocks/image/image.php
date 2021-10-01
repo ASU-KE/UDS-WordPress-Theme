@@ -10,49 +10,59 @@
  * @package UDS WordPress Theme
  */
 
- // Basic Image data.
- $image_id = 'uds_image_' . $block['id'];
- $image_data = get_field( 'uds_image_image_file' );
- $image_url = $image_data['url'];
- $image_alt = $image_data['alt'];
- $image_title = $image_data['title'];
+// Basic Image data.
+$image_id = 'uds_image_' . $block['id'];
+$image_data = get_field( 'uds_image_image_file' );
+$image_url = $image_data['url'];
+$image_alt = $image_data['alt'];
+$image_title = $image_data['title'];
 
- // Image scale value.
- $image_scale = get_field( 'uds_image_image_scale' );
+// Image scale value.
+$image_scale = get_field( 'uds_image_image_scale' );
 
- // If any scaling was provided, set $resized_image to TRUE.
- $resized_image = false;
- if( 100 != $image_scale ) {
-	 $resized_image = true;
- }
+/**
+ * If any scaling was applied (i.e. the image size is not 100%), then we
+ * wrap the image in a div for aligning the smaller image as desired, and
+ * another div with the width (as a percentage) the user selected to do the
+ * actual scaling.
+ */
+$resized_image = false;
+$resized_image_start = '';
+$resized_image_end = '';
 
- // Caption data.
- $caption_type = get_field( 'uds_image_caption_type' );
- $user_caption = get_field( 'uds_image_caption', false, false );
- $media_library_caption = $image_data['caption'];
+if( 100 != $image_scale ) {
+	$resized_image = true;
+	$resized_image_start = '<div class="uds-img-align-wrapper d-flex justify-content-' . get_field( 'uds_image_resized_image_alignment' ) . '">';
+	$resized_image_start .= '<div style="width: ' . $image_scale . '%">';
+	$resized_image_end = '</div></div>';
+}
 
- // Image effects.
- $image_shadow = get_field( 'uds_image_shadow_effect' );
+// Caption data.
+$caption_type = get_field( 'uds_image_caption_type' );
+$user_caption = get_field( 'uds_image_caption', false, false );
+$media_library_caption = $image_data['caption'];
+
+// Image effects.
+$image_shadow = get_field( 'uds_image_shadow_effect' );
 
 // Create a CSS class for the drop-shadow if selected.
- if ($image_shadow){
-	 $image_shadow_class = ' uds-img-drop-shadow';
- }
- else {
-	 $image_shadow_class = '';
- }
+if ($image_shadow){
+	$image_shadow_class = ' uds-img-drop-shadow';
+}
+else {
+	$image_shadow_class = '';
+}
 
-// Set the image caption based on the user's choice. Default to no caption.
+// Set the image caption based on the user's choice, or default to none.
 switch ($caption_type) {
-	case 'library':
-		$image_caption_text = $media_library_caption;
-		break;
-
 	case 'custom':
 		$image_caption_text = $user_caption;
 		break;
 
-	case 'none':
+	case 'library':
+		$image_caption_text = $media_library_caption;
+		break;
+
 	default:
 		$image_caption_text = '';
 }
@@ -75,9 +85,9 @@ if ( ! empty( $block['className'] ) ) {
 	$additional_classes = $block['className'];
 }
 
-// Render the block...
+// Render the block.
 ?>
-<?php if ( $resized_image ) echo '<div class="uds-img-align-wrapper d-flex justify-content-' . get_field( 'uds_image_resized_image_alignment' ) . '"><div style="width: ' . $image_scale . '%">'; ?>
+<?php echo $resized_image_start; ?>
 <div class="uds-img <?php echo $additional_classes . $image_shadow_class; ?>">
 	<figure class="figure uds-figure">
 		<img
@@ -89,4 +99,4 @@ if ( ! empty( $block['className'] ) ) {
 		<?php echo $image_caption_markup; ?>
 	</figure>
 </div>
-<?php if ( $resized_image ) echo '</div></div>'; ?>
+<?php echo $resized_image_end; ?>
