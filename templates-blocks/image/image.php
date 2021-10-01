@@ -30,7 +30,7 @@ $resized_image = false;
 $resized_image_start = '';
 $resized_image_end = '';
 
-if( 100 != $image_scale ) {
+if ( 100 != $image_scale ) {
 	$resized_image = true;
 	$resized_image_start = '<div class="uds-img-align-wrapper d-flex justify-content-' . get_field( 'uds_image_resized_image_alignment' ) . '">';
 	$resized_image_start .= '<div style="width: ' . $image_scale . '%">';
@@ -46,15 +46,14 @@ $media_library_caption = $image_data['caption'];
 $image_shadow = get_field( 'uds_image_shadow_effect' );
 
 // Create a CSS class for the drop-shadow if selected.
-if ($image_shadow){
+if ( $image_shadow ) {
 	$image_shadow_class = ' uds-img-drop-shadow';
-}
-else {
+} else {
 	$image_shadow_class = '';
 }
 
 // Set the image caption based on the user's choice, or default to none.
-switch ($caption_type) {
+switch ( $caption_type ) {
 	case 'custom':
 		$image_caption_text = $user_caption;
 		break;
@@ -72,10 +71,10 @@ if ( ! empty( $image_caption_text ) ) {
 	$image_caption_markup = '
 	<figcaption class="figure-caption uds-figure-caption">
 		<span class="uds-caption-text">
-			'. $image_caption_text .'
+			' . $image_caption_text . '
 		</span>
 	</figcaption>';
-}else{
+} else {
 	$image_caption_markup = '';
 }
 
