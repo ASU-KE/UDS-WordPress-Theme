@@ -23,7 +23,6 @@ get_header();
 
 		the_post();
 
-
 		get_template_part( 'templates-global/story-hero' );
 		get_template_part( 'templates-global/global-banner' );
 
@@ -36,13 +35,11 @@ get_header();
 			<header class="entry-header">
 				<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
 				<?php
-				if ( ! get_field( 'hide_page_title' ) ) {
-					the_title( '<h1 class="article entry-title">', '</h1>' );}
+					the_title( '<h1 class="article entry-title">', '</h1>' );
 				?>
+			</header><!-- .entry-header -->
 
-				</header><!-- .entry-header -->
-
-	 <div class="entry-content">
+	<div class="entry-content">
 			<?php
 			// TODO: Identify how we will add and control the social media "intent to repost" icons. Sample markup follows.
 
