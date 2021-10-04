@@ -567,6 +567,34 @@ BUG: Story hero layout breaks with oversized images.
     max-height: 100%;
 }
 
+
+
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+	background: white;
+	transform: translateY(0px);
+	margin-top: -128px;
+}
+
+article.type-news_post {
+	.entry-header {
+		.entry-title {
+			margin-top: 2rem;
+		}
+
+	}
+}
+
+.uds-story-hero {
+	picture {
+		@extend .hero;
+	}
+}
+
+
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
