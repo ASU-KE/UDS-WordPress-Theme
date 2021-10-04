@@ -62,17 +62,18 @@ if ( $choice ) {
 	// Sets InnerBlocks with a Bootstrap blocks container as default content.
 	$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
 	$template = array(
-		array( 'wp-bootstrap-blocks/container',
-		       array('marginAfter' => 'mb-0',),
-					 array(
-
 		array(
-			'core/group',
-			array(),
-		),
+			'wp-bootstrap-blocks/container',
+			array( 'marginAfter' => 'mb-0' ),
+			array(
 
-	),
-	)
+				array(
+					'core/group',
+					array(),
+				),
+
+			),
+		),
 	);
 
 
