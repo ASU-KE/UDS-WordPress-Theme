@@ -573,35 +573,23 @@ BUG: Story hero layout breaks with oversized images.
 /*--------------------------------------------------------------
 Correct the single page issues
 --------------------------------------------------------------*/
-.uds-story-hero{
-  //transform: translateY(128px);
-  @media (max-width: $uds-breakpoint-xl) {
-    //transform: translateY(113px);
-  }
-  @media (max-width: $uds-breakpoint-lg) {
-
-  }
-}
-.container.single-news-post-container{
+.container.single-news-post-container {
 	background: white;
 	transform: translateY(0px);
-	    margin-top: -128px;
+	margin-top: -128px;
 }
 
-.uds-story-hero.entry-header.no-image{
-  //margin-top: 128px;
-}
-article.type-news_post{
-	.entry-header{
-		.entry-title{
+article.type-news_post {
+	.entry-header {
+		.entry-title {
 			margin-top: 2rem;
 		}
 
 	}
 }
 
-.uds-story-hero{
-	picture{
+.uds-story-hero {
+	picture {
 		@extend .hero;
 	}
 }

@@ -42,7 +42,7 @@ get_header();
 
 				</header><!-- .entry-header -->
 
-     <div class="entry-content">
+	 <div class="entry-content">
 			<?php
 			// TODO: Identify how we will add and control the social media "intent to repost" icons. Sample markup follows.
 
