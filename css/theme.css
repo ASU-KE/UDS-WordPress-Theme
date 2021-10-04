@@ -16637,6 +16637,7 @@ div[class^='uds-hero'] {
   max-width: 1920px;
   margin: 0 auto;
   justify-items: left;
+<<<<<<< HEAD
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
      -moz-box-align: end;
@@ -16707,6 +16708,86 @@ div[class^='uds-hero'] {
       grid-row: 5; }
   div[class^='uds-hero'].hide-content .content {
     display: none; }
+=======
+  align-items: flex-end;
+}
+div[class^=uds-hero] h1,
+div[class^=uds-hero] [role=doc-subtitle],
+div[class^=uds-hero] a.btn,
+div[class^=uds-hero] a.uds-modal-close-btn,
+div[class^=uds-hero] .content,
+div[class^=uds-hero] .btn-row {
+  grid-column: 2;
+}
+div[class^=uds-hero] .hero, div[class^=uds-hero] .uds-story-hero picture, .uds-story-hero div[class^=uds-hero] picture {
+  grid-column: 1/span 3;
+  grid-row: 1/span 4;
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+div[class^=uds-hero] [role=doc-subtitle] {
+  font-size: 1.5rem;
+  letter-spacing: -0.0525rem;
+  font-weight: 700;
+  display: inline-block;
+  grid-row: 2;
+  line-height: 1;
+}
+div[class^=uds-hero] [role=doc-subtitle] .highlight-white {
+  box-shadow: -0.15em 0 0 #ffffff, 0.15em 0 0 #ffffff;
+  background: #ffffff;
+  color: #191919;
+}
+div[class^=uds-hero] [role=doc-subtitle] .highlight-black {
+  box-shadow: -0.15em 0 0 #191919, 0.15em 0 0 #191919;
+  background: #191919;
+  color: #fafafa;
+}
+div[class^=uds-hero] [role=doc-subtitle] .highlight-gold {
+  box-shadow: -0.15em 0 0 #ffc627, 0.15em 0 0 #ffc627;
+  background: #ffc627;
+  color: #191919;
+}
+div[class^=uds-hero] [role=doc-subtitle] span {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  margin-left: 0.15em;
+}
+div[class^=uds-hero] h1 {
+  grid-row: 3;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+div[class^=uds-hero] h1 span {
+  margin-left: 0.15em;
+}
+div[class^=uds-hero] a.btn, div[class^=uds-hero] a.uds-modal-close-btn {
+  grid-row: 4/span 2;
+}
+div[class^=uds-hero] .content {
+  margin-top: 1.5rem;
+  grid-row: 6;
+}
+div[class^=uds-hero].has-btn-row {
+  grid-template-rows: 1fr repeat(4, auto);
+}
+div[class^=uds-hero].has-btn-row .btn-row {
+  grid-row: 4;
+}
+div[class^=uds-hero].has-btn-row .btn-row .btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn {
+  margin-bottom: 1rem;
+}
+div[class^=uds-hero].has-btn-row .btn-row .btn + .btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn + .btn, div[class^=uds-hero].has-btn-row .btn-row .btn + .uds-modal-close-btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn + .uds-modal-close-btn {
+  margin-left: 0;
+}
+div[class^=uds-hero].has-btn-row .content {
+  grid-row: 5;
+}
+div[class^=uds-hero].hide-content .content {
+  display: none;
+}
+>>>>>>> develop
 
 div.uds-hero-sm,
 div.uds-hero-md {
@@ -16729,6 +16810,7 @@ div.uds-hero-lg {
 @media (min-width: 768px) {
   div[class^='uds-hero'] {
     grid-template-columns: 1fr minmax(0, 700px) 1fr;
+<<<<<<< HEAD
     grid-template-rows: 1fr repeat(4, auto) 3rem; }
     div[class^='uds-hero'] h1,
     div[class^='uds-hero'] [role='doc-subtitle'],
@@ -16785,6 +16867,74 @@ div.uds-hero-lg {
       grid-column: 1 / span 3;
       grid-row: 1 / span 6;
       z-index: 20; }
+=======
+    grid-template-rows: 1fr repeat(4, auto) 3rem;
+  }
+  div[class^=uds-hero] h1,
+div[class^=uds-hero] [role=doc-subtitle],
+div[class^=uds-hero] a.btn,
+div[class^=uds-hero] a.uds-modal-close-btn,
+div[class^=uds-hero] .content,
+div[class^=uds-hero] .btn-row {
+    grid-column: 2;
+    max-width: 700px;
+    z-index: 30;
+  }
+  div[class^=uds-hero] .hero, div[class^=uds-hero] .uds-story-hero picture, .uds-story-hero div[class^=uds-hero] picture {
+    grid-column: 1/span 3;
+    grid-row: 1/span 6;
+    z-index: 10;
+  }
+  div[class^=uds-hero] .content {
+    grid-row: 4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  div[class^=uds-hero] .content p:last-child {
+    margin-bottom: 0;
+  }
+  div[class^=uds-hero] h1 {
+    margin-bottom: 0;
+  }
+  div[class^=uds-hero] a.btn, div[class^=uds-hero] a.uds-modal-close-btn {
+    grid-row: 5;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  div[class^=uds-hero] a.btn + a.btn, div[class^=uds-hero] a.uds-modal-close-btn + a.btn, div[class^=uds-hero] a.btn + a.uds-modal-close-btn, div[class^=uds-hero] a.uds-modal-close-btn + a.uds-modal-close-btn {
+    margin-left: 1rem;
+  }
+  div[class^=uds-hero].has-btn-row {
+    grid-template-rows: 1fr repeat(4, auto) 3rem;
+  }
+  div[class^=uds-hero].has-btn-row .content {
+    grid-row: 4;
+  }
+  div[class^=uds-hero].has-btn-row .btn-row {
+    grid-row: 5;
+  }
+  div[class^=uds-hero].has-btn-row .btn-row .btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  div[class^=uds-hero].has-btn-row .btn-row .btn + .btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn + .btn, div[class^=uds-hero].has-btn-row .btn-row .btn + .uds-modal-close-btn, div[class^=uds-hero].has-btn-row .btn-row .uds-modal-close-btn + .uds-modal-close-btn {
+    margin-left: 1rem;
+  }
+  div[class^=uds-hero].hide-content .content {
+    display: block;
+  }
+  div[class^=uds-hero]:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+    grid-column: 1/span 3;
+    grid-row: 1/span 6;
+    z-index: 20;
+  }
+
+>>>>>>> develop
   div.uds-hero-sm {
     height: 16rem; }
   div.uds-hero-md {
@@ -16832,6 +16982,7 @@ div.uds-hero-lg {
   grid-template-rows: calc(16rem - 4.5rem) 4.5rem auto;
   gap: 0px 0px;
   max-width: 1920px;
+<<<<<<< HEAD
   margin: 0 auto; }
   .uds-story-hero .hero {
     grid-column: 1 / span 3;
@@ -16851,6 +17002,31 @@ div.uds-hero-lg {
       margin: 0.25rem 0; }
     .uds-story-hero .content h1 {
       margin-top: 0; }
+=======
+  margin: 0 auto;
+}
+.uds-story-hero .hero, .uds-story-hero picture {
+  grid-column: 1/span 3;
+  grid-row: 1/span 2;
+  object-fit: cover;
+  height: 100%;
+  max-width: 100%;
+}
+.uds-story-hero .content {
+  grid-column: 2/span 1;
+  grid-row: 2/span 2;
+  background-color: #ffffff;
+  padding: 0 1rem;
+}
+.uds-story-hero .content .breadcrumb,
+.uds-story-hero .content p.meta {
+  padding: 0.75rem 0;
+  margin: 0.25rem 0;
+}
+.uds-story-hero .content h1 {
+  margin-top: 0;
+}
+>>>>>>> develop
 
 /*--------------------------------------------------------------
 6. Story Hero, Desktop
@@ -20440,9 +20616,22 @@ usd modal windows
 /*--------------------------------------------------------------
 BUG: Story hero layout breaks with oversized images.
 --------------------------------------------------------------*/
-.uds-story-hero .hero {
+.uds-story-hero .hero, .uds-story-hero picture {
   width: 100%;
   max-height: 100%; }
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+  background: white;
+  transform: translateY(0px);
+  margin-top: -128px;
+}
+
+article.type-news_post .entry-header .entry-title {
+  margin-top: 2rem;
+}
 
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
@@ -20477,6 +20666,14 @@ way to handle the underlines.
 
 .card-foldable .card-body .nav-link-container:last-child .is-active::after {
   top: 1rem; }
+
+/*--------------------------------------------------------------
+wp-block-separator
+--------------------------------------------------------------*/
+.wp-block-separator {
+  border-top: 0;
+  border-bottom: 0;
+}
 
 /*--------------------------------------------------------------
 Color picker CSS rules
@@ -20811,12 +21008,21 @@ ul.uds-list, .uds-list ul, ol.uds-list,
 1. Single.php, story hero, no background image.
 --------------------------------------------------------------*/
 .single .uds-story-hero.no-image {
+<<<<<<< HEAD
   grid-template-rows: -webkit-calc(8rem - 4.5rem) 4.5rem auto;
   grid-template-rows: -moz-calc(8rem - 4.5rem) 4.5rem auto;
   grid-template-rows: calc(8rem - 4.5rem) 4.5rem auto; }
   .single .uds-story-hero.no-image .hero {
     height: 100%;
     width: 100%; }
+=======
+  grid-template-rows: calc(8rem - 4.5rem) 4.5rem auto;
+}
+.single .uds-story-hero.no-image .hero, .single .uds-story-hero.no-image picture {
+  height: 100%;
+  width: 100%;
+}
+>>>>>>> develop
 
 /*--------------------------------------------------------------
 2. Content width, mobile
