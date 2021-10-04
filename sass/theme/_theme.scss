@@ -2,7 +2,7 @@
 1. Max width 1920px, align center
 --------------------------------------------------------------*/
 
-main > * {
+main>* {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1920px;
@@ -19,6 +19,49 @@ main > * {
 
 .title .subdomain-name a:hover {
 	text-decoration: underline;
+}
+
+/*--------------------------------------------------------------
+2.5 Hero title bottom-margin-fix
+--------------------------------------------------------------*/
+/* Prevent the hero content container (title, sub-title,
+buttons), from being moved down on mobile when there are no
+buttons. */
+
+.uds-hero-lg,
+.uds-hero-sm {
+	.uds-hero-container {
+
+		// At mobile size, do not apply the negative margin if no buttons exist.
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 0 !important;
+			margin-left: 1rem;
+
+			&.has-buttons {
+				// With buttons, use -2rem bottom margin to pull the content down.
+				margin-bottom: -2rem !important;
+			}
+		}
+	}
+}
+
+.uds-hero-md {
+	.uds-hero-container {
+
+		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist.
+		// Also fix the left margin to match (?) the content area.
+		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+			margin-bottom: 2rem !important;
+			margin-left: 1rem;
+			top: 0 !important;
+
+			&.has-buttons {
+				// With buttons, we need to move down
+				top: 2rem !important;
+			}
+		}
+	}
 }
 
 /*--------------------------------------------------------------
@@ -40,12 +83,155 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 }
 
 /*--------------------------------------------------------------
-4. Prevent blocks which contain links from firing during editing.
+X. Misc. styles
 --------------------------------------------------------------*/
 
+/**
+ * The UDS 'quicklinks' class was causing a conflict with the WP
+ * admin bar, which also uses the class 'quicklinks'. The UDS styles
+ * were applying 'display: flex', where the admin bar needs 'display: block'.
+ *
+ * To __temporarily__ fix this, I'm applying the display block to the area.
+ * It turns out that the section that has the class of 'quicklinks' also has an
+ * ID of 'wp-toolbar'. Since ID's are more specific, I'm targeting that.
+ *
+ *
+ */
+#wp-toolbar {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+ Hero img
+--------------------------------------------------------------*/
+.uds-hero {
+	position: relative;
+
+	&:after {
+		content: "";
+		background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+	.uds-hero-container {
+		z-index: 999;
+	}
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+/*--------------------------------------------------------------
+ ACF Button block
+--------------------------------------------------------------*/
 .acf-block-preview .uds-button a,
 .acf-block-preview .card-button a {
 	pointer-events: none;
+}
+
+.is-style-maroon {
+	@extend .maroon;
+}
+
+.is-style-smokemode {
+	@extend .smokemode;
+}
+
+.is-style-light-smokemode {
+	@extend .light-smokemode;
+}
+
+.is-style-darkmode {
+	@extend .darkmode;
+}
+
+.is-style-darkmode-gold {
+	@extend .darkmode;
+	@extend .gold;
+}
+
+.uds-list ul,
+.uds-list ol {
+	@extend .uds-list;
+}
+
+.is-style-steplist {
+	@extend .uds-steplist;
+}
+
+.is-style-steplist-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+}
+
+.is-style-steplist-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+}
+
+.is-style-steplist-smokemode {
+	@extend .uds-steplist;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .smokemode;
+}
+
+.is-style-steplist-light-smokemode {
+	@extend .uds-steplist;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-darkmode {
+	@extend .uds-steplist;
+	@extend .darkmode;
+
+	li {
+		&:before {
+			background-color: #fafafa !important;
+			color: #191919 !important;
+		}
+	}
+}
+
+.is-style-steplist-darkmode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .darkmode;
+}
+
+.is-style-steplist-darkmode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .darkmode;
 }
 
 /*---------------------------------------------------------------
@@ -58,6 +244,7 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 .alert-dismissible {
 	//Remove alert-dismissible's 4rem right padding in favor of UDS 1rem.
 	padding-right: $uds-size-spacing-2;
+
 	& .close {
 		//Remove alert-dismissible's absolute button positioning.
 		position: relative;
@@ -87,10 +274,12 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
 @media screen and (max-width: $uds-breakpoint-lg) {
+
 	// Ensure some extra space between the content and the close button
 	.alert .alert-content {
 		margin-right: $uds-size-spacing-2;
 	}
+
 	// remove the 1rem top margin that is added to the icon on mobile.
 	.alert .alert-icon svg {
 		margin-top: 0 !important;
@@ -107,32 +296,156 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 }
 
 /*--------------------------------------------------------------
+Override UDS scss
+--------------------------------------------------------------*/
+
+//Override the UDS hero class on heroes.scss
+@media screen and (max-width: $uds-breakpoint-sm) {
+	.uds-hero.uds-hero-sm {
+		margin: 0;
+		padding-left: 0;
+		padding-bottom: 0;
+	}
+}
+
+//Override the UDS padding on uds-list class on list.scss
+ul.uds-list {
+	padding: 0 5rem 0 2rem;
+}
+
+/*--------------------------------------------------------------
+Hero video
+--------------------------------------------------------------*/
+.hero-video {
+	position: relative;
+	overflow: hidden;
+
+	@include media-breakpoint-down(xs) {
+		overflow: unset;
+	}
+
+	video {
+		height: 100%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.hero-video-controls {
+		position: relative;
+		width: 100%;
+		display: block;
+
+		.btn.btn-circle.btn-circle-large {
+			z-index: 9;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			transition: 0.3s;
+			opacity: 0.4;
+		}
+
+		#playHeroVid {
+			padding-left: 8px;
+			display: none;
+		}
+	}
+
+	&:hover {
+		.btn.btn-circle.btn-circle-large {
+			opacity: 1;
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+
+	#footer-colophon,
+	#footer-innovation {
+		padding-right: 12px;
+		padding-left: 12px;
+	}
+}
+
+/*--------------------------------------------------------------
+Dividers
+--------------------------------------------------------------*/
+.is-style-copy-divider {
+	@extend .copy-divider;
+}
+
+.block-editor-block-list__layout .wp-block.is-style-copy-divider {
+	margin-right: 0;
+	margin-left: 0;
+	max-width: $uds-size-spacing-32 !important;
+
+	&.wp-block-separator {
+		opacity: 1;
+	}
+}
+
+/*--------------------------------------------------------------
+Correct the button color on gray bg
+--------------------------------------------------------------*/
+.bg-gray-1,
+.bg-gray-2,
+.bg-gray-7,
+.bg-white {
+	a.btn.btn-maroon {
+		color: white;
+	}
+
+	a.btn.btn-gold {
+		color: initial;
+	}
+
+	a.btn.btn-gray {
+		color: initial;
+	}
+
+	a.btn.btn-dark {
+		color: white;
+	}
+}
+
+/*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
 // Desktop
 @include media-breakpoint-up(xl) {
-	#asu-header + div,
-	#asu-header + main {
-	@include transition;
-	margin-top: 144px;
+
+	#asu-header+div,
+	#asu-header+main {
+		@include transition;
+		margin-top: 144px;
 	}
 }
 
 @include media-breakpoint-down(lg) {
-	#asu-header + div,
-	#asu-header + main {
+
+	#asu-header+div,
+	#asu-header+main {
 		@include transition;
 		margin-top: 113px;
 	}
 }
-#wpadminbar + #asu-header.fixed-top {
+
+#wpadminbar+#asu-header.fixed-top {
 	top: 32px !important;
 }
+
 @include media-breakpoint-down(sm) {
-#wpadminbar + #asu-header.fixed-top {
-	top: 46px !important;
+	#wpadminbar+#asu-header.fixed-top {
+		top: 46px !important;
+	}
 }
+#wpadminbar + #asu-header.scrolled{
+	top: 0px !important;
+	transition: all 0.3s ease-out;
 }
+
 
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
@@ -146,49 +459,98 @@ Fix content alignment issues between header/content/footer
 
 @media (max-width: 991.98px) {
 	#footer-innovation .footer-innovation-links .nav {
-		order:2;
-		padding: 0 ;
+		order: 2;
+		padding: 0;
 	}
 
-	#footer-innovation .footer-innovation-links .img-link{
-		order:1;
+	#footer-innovation .footer-innovation-links .img-link {
+		order: 1;
 	}
 
-	#footer-colophon .nav{
+	#footer-colophon .nav {
 		padding: 0;
 	}
 }
 
 @media (max-width: 806px) {
-	.container-fluid{
+	.container-fluid {
 		padding-left: 0;
 		padding-right: 0;
 	}
 }
 
-footer .menu-social-media-container a.nav-link:last-of-type{
+footer .menu-social-media-container a.nav-link:last-of-type {
 	padding-right: 0;
 }
 
-footer .menu-social-media-container a.nav-link:first-of-type{
+footer .menu-social-media-container a.nav-link:first-of-type {
 	padding-left: 0;
 }
 
-footer #wrapper-footer-innovation .img-link{
+footer #wrapper-footer-innovation .img-link {
 	margin-right: 0;
 }
 
 .uds-hero-container,
 .container {
-	.highlight-gold, .highlight-white, .highlight-black{
+
+	.highlight-gold,
+	.highlight-white,
+	.highlight-black {
 		box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
-			padding-left: 0.15em;
-			padding-right: 0.15em;
+		padding-left: 0.15em;
+		padding-right: 0.15em;
+	}
+}
+
+
+/*--------------------------------------------------------------
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img {
+	height: auto !important;
+}
+
+/*--------------------------------------------------------------
+UDS Grid Links
+--------------------------------------------------------------*/
+.uds-grid-links a {
+	display: flex;
+	justify-content: flex-start;
+	&.grid-link-bg-img{
+	    position: relative;
+			height: 150px;
+			padding: 0;
+			&:after{
+				content: "";
+background: linear-gradient(
+180deg
+,#19191900 0,#191919c9 100%);
+height: 100%;
+width: 100%;
+position: absolute;
+			}
+			p{
+				z-index: 2;
+    margin: auto;
+			}
+}
+	svg {
+		margin-top: $uds-size-spacing-half;
+	}
+	img{
+		position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
 	}
 }
 
 /*--------------------------------------------------------------
-Add scope for modal window block.
+usd modal windows
 --------------------------------------------------------------*/
 
 .uds-modal{
@@ -242,4 +604,57 @@ article.type-news_post{
 	picture{
 		@extend .hero;
 	}
+}
+
+
+/*--------------------------------------------------------------
+BUG: Upstream changes broke button text on particular backgrounds.
+We override them here with more specific rules so that our buttons
+always have the correct link colors, regardless of background.
+
+Note: The upstream changes only broke the default link color, but
+the :hover colors were not affected, and were correct. We're only
+fixing the standard color here.$uds-color-base-white
+--------------------------------------------------------------*/
+
+a.btn.btn-maroon {
+	color:$uds-color-base-white;
+}
+
+a.btn.btn-gold {
+	color: $uds-color-base-gray-7;
+}
+
+a.btn.btn-dark {
+	color: $uds-color-base-white;
+}
+
+a.btn.btn-gray {
+	color: $uds-color-base-gray-7;
+}
+
+/*--------------------------------------------------------------
+Temporary fix: Adjust the position of the gold underline on
+active sidebar items. This matches a change on Storybook that
+we have not pulled from upstream yet, but looks to be the correct
+way to handle the underlines.
+--------------------------------------------------------------*/
+// Position the is-active underline for most cases
+.sidebar .nav-link.is-active::after {
+	top: 0.5rem;
+	margin-top: 0.5rem;
+}
+// Position the is-active underline for the last item of a sub-menu
+.card-foldable .card-body .nav-link-container:last-child .is-active::after {
+	top: 1rem;
+}
+
+
+/*--------------------------------------------------------------
+wp-block-separator
+--------------------------------------------------------------*/
+
+.wp-block-separator{
+	border-top:0;
+	border-bottom:0;
 }
