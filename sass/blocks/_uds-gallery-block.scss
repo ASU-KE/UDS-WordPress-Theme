@@ -28,7 +28,10 @@
 
 		}
 		.carousel-control-next, .carousel-control-prev{
-			width: 5%;
+			width: 10%;
+				@include media-breakpoint-up(lg) {
+					width: 5%;
+				}
 			z-index: 99;
 			background: linear-gradient(90deg,rgba(25,25,25,0) 0,rgba(25,25,25,.35) 100%);
 		}
