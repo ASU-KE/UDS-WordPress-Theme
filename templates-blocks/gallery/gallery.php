@@ -60,7 +60,10 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
   </div>
 	<div class="uds-gallery-controls border">
 	<a class="carousel-control-prev" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="fa-stack">
+			<i class="fas fa-circle fa-stack-2x" style="color: #fff;"></i>
+			<i class="fas fa-chevron-left fa-stack-1x" style="color: black;"></i>
+		</span>
 		<span class="sr-only">Previous</span>
 	</a>
 	<ol class="carousel-indicators">
@@ -71,7 +74,10 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 		?>
   </ol>
 	<a class="carousel-control-next" href="#<?php echo $uds_gallery_slider_id;?>" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="fa-stack" aria-hidden="true">
+			<i class="fas fa-circle fa-stack-2x" style="color: #fff;"></i>
+			<i class="fas fa-chevron-right fa-stack-1x" style="color: black;"></i>
+		</span>
 		<span class="sr-only">Next</span>
 	</a>
 </div>
