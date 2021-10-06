@@ -24087,9 +24087,14 @@ Hero video
   border: 5px solid #ffc627;
 }
 .uds-gallery-block.carousel .uds-gallery-controls .carousel-control-next, .uds-gallery-block.carousel .uds-gallery-controls .carousel-control-prev {
-  width: 5%;
+  width: 10%;
   z-index: 99;
   background: linear-gradient(90deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.35) 100%);
+}
+@media (min-width: 992px) {
+  .uds-gallery-block.carousel .uds-gallery-controls .carousel-control-next, .uds-gallery-block.carousel .uds-gallery-controls .carousel-control-prev {
+    width: 5%;
+  }
 }
 .uds-gallery-block.carousel .uds-gallery-controls .carousel-control-next {
   background: linear-gradient(90deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.35) 100%);
