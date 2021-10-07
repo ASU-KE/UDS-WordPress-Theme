@@ -215,7 +215,8 @@ gulp.task("scripts", function () {
 
 // Run:
 // gulp copy-assets.
-// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder. Run this task after npm update
+// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder.
+// Run this task after npm update
 
 ////////////////// All Bootstrap SASS  Assets /////////////////////////
 gulp.task("copy-assets", function (done) {
@@ -349,7 +350,7 @@ gulp.task("reset-assets", gulp.series("clean-vendor-assets", "copy-assets"));
 // Compiles the styles and scripts and runs the dist task
 gulp.task(
 	"compile",
-	gulp.series("reset-assets", "styles", "scripts", "imagemin", "dist")
+	gulp.series("styles", "scripts", "imagemin", "dist")
 );
 
 // Run:
