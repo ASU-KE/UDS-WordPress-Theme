@@ -30,24 +30,19 @@ var paths = cfg.paths;
 gulp.task("sass", function () {
 	return gulp
 	.src( paths.sass + '/*.scss' )
-		/*.src([
-			paths.sass + "/admin.scss",
-			// paths.sass + "/theme.scss",
-			paths.sass + "/xx_custom-editor-style.scss",
-		])*/
-		.pipe(
-			plumber({
-				errorHandler(err) {
-					console.log(err);
-					this.emit("end");
-				},
-			})
-		)
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(sass({ errLogToConsole: true }))
-		.pipe(postcss([autoprefixer()]))
-		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
-		.pipe(gulp.dest(paths.css));
+	.pipe(
+		plumber({
+			errorHandler(err) {
+				console.log(err);
+				this.emit("end");
+			},
+		})
+	)
+	.pipe(sourcemaps.init({ loadMaps: true }))
+	.pipe(sass({ errLogToConsole: true }))
+	.pipe(postcss([autoprefixer()]))
+	.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+	.pipe(gulp.dest(paths.css));
 });
 
 /**
