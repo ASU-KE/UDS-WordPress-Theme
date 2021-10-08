@@ -100,6 +100,7 @@ $( '.uds_single_tab_show_more_button' ).click(function() {
 		$( this ).parent( '.tab-pane' ).removeClass( 'uds-show-all-tab-content' );
 	  $( this ).find( 'button' ).html( buttonText + '<i class="fas fa-chevron-down"></i>' );
 	}
+});
 
 $( document ).on( 'click', function( e ) {
       setButtonsCompatibility( e );
