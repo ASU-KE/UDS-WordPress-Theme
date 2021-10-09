@@ -608,3 +608,17 @@ way to handle the underlines.
 .card-foldable .card-body .nav-link-container:last-child .is-active::after {
 	top: 1rem;
 }
+
+
+/*--------------------------------------------------------------
+usd image
+--------------------------------------------------------------*/
+
+.uds-img-with-text-wrap{
+	&.float-left{
+		margin: $uds-size-spacing-1 $uds-size-spacing-2 $uds-size-spacing-1 0;
+	}
+	&.float-right{
+		margin: $uds-size-spacing-1 0 $uds-size-spacing-1 $uds-size-spacing-2;
+	}
+}

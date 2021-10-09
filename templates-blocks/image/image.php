@@ -37,6 +37,12 @@ if ( 100 != $image_scale ) {
 	$resized_image_end = '</div></div>';
 }
 
+$image_with_text_wrap = get_field( 'uds_image_wrap_text_around_image' );
+if ( $image_with_text_wrap ) {
+	$resized_image_start = '<div style="width: ' . $image_scale . '%" class="uds-img-with-text-wrap float-' . get_field( 'uds_image_alignment_when_text_wrapped_around' ) . '">';
+	$resized_image_end = '</div>';
+}
+
 // Caption data.
 $caption_type = get_field( 'uds_image_caption_type' );
 $user_caption = get_field( 'uds_image_caption', false, false );

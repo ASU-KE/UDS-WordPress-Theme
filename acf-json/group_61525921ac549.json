@@ -117,10 +117,10 @@
             "append": "%"
         },
         {
-            "key": "field_615624368284e",
-            "label": "Resized Image Alignment",
-            "name": "uds_image_resized_image_alignment",
-            "type": "button_group",
+            "key": "field_6160d64a17b6f",
+            "label": "Wrap text around image?",
+            "name": "uds_image_wrap_text_around_image",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -137,10 +137,72 @@
                 "class": "",
                 "id": ""
             },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_615624368284e",
+            "label": "Resized Image Alignment",
+            "name": "uds_image_resized_image_alignment",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f5cdc3553",
+                        "operator": "<",
+                        "value": "100"
+                    },
+                    {
+                        "field": "field_6160d64a17b6f",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "choices": {
                 "start": "Left",
                 "center": "Center",
                 "end": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "start",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6160d78043946",
+            "label": "Resized Image Alignment",
+            "name": "uds_image_alignment_when_text_wrapped_around",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6160d64a17b6f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
             },
             "allow_null": 0,
             "default_value": "start",
@@ -165,5 +227,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633048465
+    "modified": 1633736886
 }
