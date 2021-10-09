@@ -567,6 +567,34 @@ BUG: Story hero layout breaks with oversized images.
     max-height: 100%;
 }
 
+
+
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+	background: white;
+	transform: translateY(0px);
+	margin-top: -128px;
+}
+
+article.type-news_post {
+	.entry-header {
+		.entry-title {
+			margin-top: 2rem;
+		}
+
+	}
+}
+
+.uds-story-hero {
+	picture {
+		@extend .hero;
+	}
+}
+
+
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
@@ -607,6 +635,16 @@ way to handle the underlines.
 // Position the is-active underline for the last item of a sub-menu
 .card-foldable .card-body .nav-link-container:last-child .is-active::after {
 	top: 1rem;
+}
+
+
+/*--------------------------------------------------------------
+wp-block-separator
+--------------------------------------------------------------*/
+
+.wp-block-separator{
+	border-top:0;
+	border-bottom:0;
 }
 
 
