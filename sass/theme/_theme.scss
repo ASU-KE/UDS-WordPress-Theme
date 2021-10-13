@@ -666,7 +666,7 @@ z-index: 1;
 	& ~ span,
 	& ~ ul,
 	& ~ figure{
-	display: none;
+	display: none!important;
 }
 &:after{
 	content: "";
