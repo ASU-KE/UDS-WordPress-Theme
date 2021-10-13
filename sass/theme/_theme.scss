@@ -654,7 +654,18 @@ show more button
 position: relative;
 z-index: 1;
 
-	&+ div{
+	& ~ div,
+	& ~ p,
+	& ~ h1,
+	& ~ h1,
+	& ~ h2,
+	& ~ h3,
+	& ~ h4,
+	& ~ h5,
+	& ~ h6,
+	& ~ span,
+	& ~ ul,
+	& ~ figure{
 	display: none;
 }
 &:after{
@@ -675,6 +686,33 @@ a{
 
 }
 
+}
+
+.wp-block-acf-uds-button{
+	.uds-show-btn{
+		z-index: 0;
+   &:before{
+		 content: "";
+background: linear-gradient(
+0deg,#ffffff08 30%,#ed86a67a 100%);
+width: 100%;
+position: absolute;
+left: 0;
+top: 0;
+z-index: -1;
+transition: .3s;
+height: 500px;
+display: block;
+	 }
+
+	 &:after{
+height: 80px;
+background: linear-gradient(
+180deg,#ffffff6e 10%,#fff 100%);
+
+
+	}
+	}
 }
 
 .uds-show-less-container{

@@ -80,6 +80,7 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
 		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
+
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );
