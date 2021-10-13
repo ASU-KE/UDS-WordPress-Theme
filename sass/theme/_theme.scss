@@ -646,3 +646,36 @@ wp-block-separator
 	border-top:0;
 	border-bottom:0;
 }
+
+/*--------------------------------------------------------------
+show more button
+--------------------------------------------------------------*/
+.uds-show-more-btn{
+position: relative;
+z-index: 1;
+	&+ div{
+	display: none;
+}
+&:after{
+	content: "";
+			background: linear-gradient(
+180deg,#ffffff08 30%,#fff 100%);
+width: 100%;
+position: absolute;
+left: 0;
+bottom: 20px;
+z-index: -1;
+transition: .3s;
+height: 300px;
+display: block;
+}
+a{
+	display: initial;
+
+}
+
+}
+
+.uds-show-less-btn{
+
+}

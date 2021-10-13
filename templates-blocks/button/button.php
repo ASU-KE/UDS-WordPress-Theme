@@ -25,6 +25,7 @@ if ( $button_link ) {
 	$target = '';
 }
 
+$show_more_button= get_field('uds_button_show_more_button');
 $button_color = get_field( 'button_color' );
 $button_size = get_field( 'button_size' );
 $external_link = get_field( 'external_link' );
@@ -72,6 +73,6 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 
 ?>
 
-<div class="uds-button <?php echo $additional_classes; ?>">
-	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
+<div class="uds-button <?php echo $additional_classes; ?> <?php if($show_more_button)echo 'text-center uds-show-more-btn'; ?>" title="<?php echo $button_label;?>">
+	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label;?><?php if($show_more_button) echo ' <i class="fas fa-chevron-down"></i>';?> </a>
 </div>
