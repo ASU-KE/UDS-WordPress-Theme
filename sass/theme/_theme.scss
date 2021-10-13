@@ -653,6 +653,7 @@ show more button
 .uds-show-more-btn{
 position: relative;
 z-index: 1;
+
 	&+ div{
 	display: none;
 }
@@ -676,6 +677,20 @@ a{
 
 }
 
-.uds-show-less-btn{
+.uds-show-less-container{
+	position: relative;
+padding-bottom: 80px;
 
+		.uds-show-less-btn{
+			//transition: 0.3s;
+			position: absolute;
+bottom: 0px;
+left: 50%;
+transform: translateX(-50%);
+
+		}
+}
+
+.uds-show-btn{
+	//transition: all 0.5s ease;
 }
