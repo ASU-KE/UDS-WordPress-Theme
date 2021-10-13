@@ -20,7 +20,7 @@ var cfg = require("./gulpconfig.json");
 var paths = cfg.paths;
 
 // Use Dart Sass to avoid random compliation errors.
-sass.compiler = require("sass");
+//sass.compiler = require("sass");
 
 /**
  * Compiles .scss to .css files.
@@ -29,24 +29,20 @@ sass.compiler = require("sass");
  */
 gulp.task("sass", function () {
 	return gulp
-		.src([
-			paths.sass + "/admin.scss",
-			// paths.sass + "/theme.scss",
-			paths.sass + "/xx_custom-editor-style.scss",
-		])
-		.pipe(
-			plumber({
-				errorHandler(err) {
-					console.log(err);
-					this.emit("end");
-				},
-			})
-		)
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(sass({ errLogToConsole: true }))
-		.pipe(postcss([autoprefixer()]))
-		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
-		.pipe(gulp.dest(paths.css));
+	.src( paths.sass + '/*.scss' )
+	.pipe(
+		plumber({
+			errorHandler(err) {
+				console.log(err);
+				this.emit("end");
+			},
+		})
+	)
+	.pipe(sourcemaps.init({ loadMaps: true }))
+	.pipe(sass({ errLogToConsole: true }))
+	.pipe(postcss([autoprefixer()]))
+	.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+	.pipe(gulp.dest(paths.css));
 });
 
 /**
@@ -214,7 +210,8 @@ gulp.task("scripts", function () {
 
 // Run:
 // gulp copy-assets.
-// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder. Run this task after npm update
+// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder.
+// Run this task after npm update
 
 ////////////////// All Bootstrap SASS  Assets /////////////////////////
 gulp.task("copy-assets", function (done) {
@@ -348,7 +345,7 @@ gulp.task("reset-assets", gulp.series("clean-vendor-assets", "copy-assets"));
 // Compiles the styles and scripts and runs the dist task
 gulp.task(
 	"compile",
-	gulp.series("reset-assets", "styles", "scripts", "imagemin", "dist")
+	gulp.series("styles", "scripts", "imagemin", "dist")
 );
 
 // Run:

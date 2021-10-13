@@ -56,10 +56,9 @@
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
 		- [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
 	- [Contributing to the Theme](#contributing-to-the-theme)
-		- [Coding Standards](#coding-standards)
-		- [Code Linting](#code-linting)
-			- [Composer Scripts](#composer-scripts)
-			- [PHPCS](#phpcs)
+		- [PHP Coding Standards](#php-coding-standards)
+				- [Composer Scripts](#composer-scripts)
+		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
 		- [BroswerSync](#broswersync)
 		- [Travis CI](#travis-ci)
@@ -240,13 +239,31 @@ Once you have successfully signed-in, npm will automatically save a new line to 
 
 Welcoming paragraph here with general contribution notes
 
-#### Coding Standards
+#### PHP Coding Standards
+The theme is set up with tools to help you write PHP that conforms to the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/). After initially cloning the theme repo, run `composer install` to install these tools in the `/vendor` directory.
 
-#### Code Linting
+###### Composer Scripts
+The theme contains two composer scripts to help you write code that conforms to the WordPress standards:
 
-##### Composer Scripts
+- **`composer check:cs`** will process _all_ `.php` files in the theme and check them for compliance with the WordPress standards. Any code that does not meet the standard will be indicated, and you can fix **most** of them with another script...
+- **`composer fix:cs`** will fix errors marked with an `[x]` in the output of `composer check:cs`. You will need to correct any other issues manually.
 
-##### PHPCS
+It is important to run the `composer check:cs` command and fix any issues **before pushing your code to Github**, as these commands will run on _every single .php file_ in the theme. If you don't check your work, any issues with your code will surface when another developer checks their code, making it more difficult for any developer to know if it is their code causing the errors.
+
+If needed, you can manually run these commands and target a specific file, or files. From the **root folder** of the theme:
+
+- To check files:`./vendor/bin/phpcs {path-to-the-php-file}`
+- To fix errors: `./vendor/bin/phpcbf {path-to-the-php-file}`
+
+
+#### NPM and Gulp Scripts
+We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks directly from the command line,  we have created some NPM aliases for common tasks.
+
+
+- **`npm run build`** will compile theme assets from the files in the `/src` directories and copy them to `/css`, `/js`, and `/img` directories. This includes minifying CSS, uglifying and concating JS files, and running all images through `imageoptim`. If you are not using the `watch` option, this is the command to run after you have made any changes to Javascript or CSS files. This step also cleans out and replaces all files in the `\dist` directory. This is equivalent to directly running `gulp compile`.
+- **`npm run images`** does only the image optimization step of the build process. It will optimize all images in `/src/img` and copying the optimized images to `/img`. This is equivalent to directly running `gulp imagemin`.
+- **`npm run sync`** starts BrowserSync and watches SCSS and JS files for changes, automatically processing those files when they are saved (using a subset of the tasks that would run with `npm run build`). This is equivalent to directly running `gulp watch-bs` or just `gulp`, as it is the default Gulp task. **See the BrowserSync section below to help you set up BrowserSync before running any of these commands.**
+- **`npm run assets`** will delete the files in the `/src/image`, `/src/js`, `/src/sass` and `/src/fontawesome` directories and replace them with the current files in the appropriate`/node-modules` sub-directories. This is equivalent to directly running `gulp reset-assets`. This command was formerly known as `postinstall`.
 
 #### Working with Styles
 
@@ -268,7 +285,7 @@ Or, to run with Browser-Sync:
 };
 ```
 - Change the browser-sync options to reflect your environment in the file `/browserSyncOptions.json` in the beginning of the file:
-- then run: `$ gulp watch-bs`
+- then run: `$ gulp watch-bs` or `npm run sync`
 
 #### Travis CI
 

@@ -567,6 +567,34 @@ BUG: Story hero layout breaks with oversized images.
     max-height: 100%;
 }
 
+
+
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+	background: white;
+	transform: translateY(0px);
+	margin-top: -128px;
+}
+
+article.type-news_post {
+	.entry-header {
+		.entry-title {
+			margin-top: 2rem;
+		}
+
+	}
+}
+
+.uds-story-hero {
+	picture {
+		@extend .hero;
+	}
+}
+
+
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
@@ -611,6 +639,15 @@ way to handle the underlines.
 
 
 /*--------------------------------------------------------------
+wp-block-separator
+--------------------------------------------------------------*/
+
+.wp-block-separator{
+	border-top:0;
+	border-bottom:0;
+}
+
+/*--------------------------------------------------------------
 usd Tabbed panels
 --------------------------------------------------------------*/
 .uds-tabbed-panels{
@@ -628,50 +665,6 @@ usd Tabbed panels
 .tab-content{
 	.tab-pane{
 		@extend .text-white;
-	}
-}
-
-}
-.tab-content{
-	.tab-pane{
-		.wp-bootstrap-blocks-container{
-		transition: max-height 0.5s;
-		overflow: hidden;
-		position: relative;
-		&:after{
-			content: "";
-			background: linear-gradient(
-180deg,#ffffff08 30%,#ffffff 100%);
-width: 100%;
-position: absolute;
-left: 0;
-bottom: 0;
-z-index: 2;
-			transition: 0.3s;
-		}
-	}
-	.uds_single_tab_show_more_button button{
-transition: 0.3s;
-
-	}
-	&.uds-show-less-tab-content{
-		.wp-bootstrap-blocks-container{
-         max-height: 900px;
-
-				 &:after{
-height: 25%;
-				 }
-		}
-
-	}
-	&.uds-show-all-tab-content{
-		.wp-bootstrap-blocks-container{
-			max-height: none;
-			&:after{
-height: 0;
-			}
-
-		}
 	}
 }
 

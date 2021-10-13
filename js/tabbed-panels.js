@@ -89,19 +89,6 @@ $( '.wp-block-group.uds-tabs-wrapper' ).each(function() {
 });
 
 
-$( '.uds_single_tab_show_more_button' ).click(function() {
-	if ($( this ).parent( '.tab-pane' ).hasClass('uds-show-less-tab-content')){
-		$( this ).parent( '.tab-pane' ).removeClass( 'uds-show-less-tab-content' );
-		$( this ).parent( '.tab-pane' ).addClass( 'uds-show-all-tab-content' );
-		$( this ).find( 'button' ).html( '<i class="fas fa-chevron-up"></i>' );
-	}else{
-		var buttonText = $( this ).find( 'button' ).attr( 'button_text' );
-		$( this ).parent( '.tab-pane' ).addClass( 'uds-show-less-tab-content' );
-		$( this ).parent( '.tab-pane' ).removeClass( 'uds-show-all-tab-content' );
-	  $( this ).find( 'button' ).html( buttonText + '<i class="fas fa-chevron-down"></i>' );
-	}
-});
-
 $( document ).on( 'click', function( e ) {
       setButtonsCompatibility( e );
     });

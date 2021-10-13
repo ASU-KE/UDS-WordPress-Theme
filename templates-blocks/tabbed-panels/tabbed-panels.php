@@ -8,17 +8,12 @@
  $tab_id = 'tab_' . $block['id'];
  $tab_title = get_field( 'uds_single_tab_title' );
  $tab_icon = get_field( 'uds_single_tab_title_icon' );
- $show_more = get_field( 'uds_single_tab_show_more_button' );
- $show_less_content='';
+
 
 
 
  if($tab_icon){
 	 $tab_icon='<i class="'. $tab_icon .'"></i>';
- }
- if ($show_more){
-	 $show_more= '<div class="d-flex justify-content-center uds_single_tab_show_more_button pt-2"><button class="btn btn-maroon" type="button" button_text="'.$show_more.'">'.$show_more.' <i class="fas fa-chevron-down"></i></button></div>';
-   $show_less_content=' uds-show-less-tab-content';
  }
 
 $additional_classes = '';
@@ -88,14 +83,14 @@ echo '
 <div class="tab-content" id="nav_'.$tab_id.'Content">
   <div
 	aria-labelledby="'. $tab_id .'-nav"
-	class="tab-pane fade show active '. $additional_classes . $show_less_content.'"
+	class="tab-pane fade show active '. $additional_classes . '"
 	id="'. $tab_id .'"
 	role="tabpanel"
 >
 ';
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 
-echo $show_more.'</div>
+echo '</div>
 </div>';
 
 ?>
