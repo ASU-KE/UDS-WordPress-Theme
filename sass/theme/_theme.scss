@@ -646,3 +646,26 @@ wp-block-separator
 	border-top:0;
 	border-bottom:0;
 }
+
+/*--------------------------------------------------------------
+usd Tabbed panels
+--------------------------------------------------------------*/
+.uds-tabbed-panels{
+	a.nav-item {
+		svg {
+			margin-right: $uds-size-spacing-half;
+		}
+	}
+}
+
+.bg-dark{
+.uds-tabbed-panels{
+	@extend .uds-tabbed-panels-dark;
+}
+.tab-content{
+	.tab-pane{
+		@extend .text-white;
+	}
+}
+
+}
