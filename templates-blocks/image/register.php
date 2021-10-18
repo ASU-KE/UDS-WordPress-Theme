@@ -18,7 +18,7 @@ acf_register_block_type(
 		'description'       => __( 'A block for UDS images with caption and shadow options', 'uds-wordpress-theme' ),
 		'icon'              => 'cover-image',
 		'render_template'   => 'templates-blocks/image/image.php',
-		'category'          => 'layout',
+		'category'          => 'uds',
 		'keywords'          => array( 'image', 'images', 'caption', 'uds'),
 		'supports'          => array(
 			'align' => false,
