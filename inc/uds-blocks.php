@@ -59,6 +59,7 @@ function my_acf_blocks_init() {
 			'/banner', // UDS banner block.
 			'/grid-links',              // UDS Grid Links.
 			'/foldable-card', // UDS Foldable card block.
+			'/tabbed-panels', // UDS Tabbed panels block.
 			'/image', // UDS Image block.
 		);
 

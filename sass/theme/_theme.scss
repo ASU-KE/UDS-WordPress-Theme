@@ -660,3 +660,26 @@ usd image
 		margin: $uds-size-spacing-1 0 $uds-size-spacing-1 $uds-size-spacing-2;
 	}
 }
+
+/*--------------------------------------------------------------
+usd Tabbed panels
+--------------------------------------------------------------*/
+.uds-tabbed-panels{
+	a.nav-item {
+		svg {
+			margin-right: $uds-size-spacing-half;
+		}
+	}
+}
+
+.bg-dark{
+.uds-tabbed-panels{
+	@extend .uds-tabbed-panels-dark;
+}
+.tab-content{
+	.tab-pane{
+		@extend .text-white;
+	}
+}
+
+}
