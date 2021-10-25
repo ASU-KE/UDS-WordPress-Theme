@@ -91,15 +91,14 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 				$attributes = ' href="#menu-content-of-' . $parent_menu_item_id . '" ';
 				$attributes .= ' data-toggle="collapse" role="button" aria-expanded="false" role="button" aria-controls="menu-content-of-' . $parent_menu_item_id . '"';
 				$wrapper = '<div class="card card-foldable">
-					<div class="card-header">
-						<h4>';
-						$end_wrapper = '</h4></div>';
-						$classes[] = 'collapsed';
+					<div class="card-header">';
+						$end_wrapper = '</div>';
+						$classes[] = 'collapsed nav-link';
 			} else {
 				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 				$classes[] = 'nav-link';
-				$wrapper = '';
-				$end_wrapper = '';
+				$wrapper = '<div class="nav-link-container">';
+				$end_wrapper = '</div>';
 			}
 			$is_external_link = get_field( 'menu_external_link', $item->ID );
 			if ( $is_external_link ) {
@@ -117,7 +116,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			// Add the drop down arrow to the parent menu item if the item level is 0 and has children.
 			if ( 0 === $depth && $has_children > 0 ) {
-				$item_output .= '<span class="fas fa-chevron-up"></span>';
+				$item_output .= '<span class="fas fa-chevron-down"></span>';
 			}
 
 			// Add external link icon if it has been requested. Using extra-small size here.

@@ -37,6 +37,9 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		$js_modals_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/modals.js' );
 		wp_enqueue_script( 'uds-wordpress-modals-scripts', get_template_directory_uri() . '/js/modals.js', array(), $js_modals_version, true );
 
+		$js_tabbed_panels_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/tabbed-panels.js' );
+		wp_enqueue_script( 'uds-wordpress-tabbed_panels-scripts', get_template_directory_uri() . '/js/tabbed-panels.js', array(), $js_tabbed_panels_version, true );
+
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -62,8 +65,8 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 		$fa_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/fontawesome/all.min.js' );
 		wp_enqueue_script( 'uds-wordpress-fa-scripts', get_template_directory_uri() . '/js/fontawesome/all.min.js', array(), $fa_js_version, true );
 
-		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-list-block.js' );
-		wp_enqueue_script( 'uds-wordpress-admin-scripts', get_template_directory_uri() . '/js/core-list-block.js', array(), $js_version );
+		$js_core_list_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-list-block.js' );
+		wp_enqueue_script( 'uds-wordpress-admin-scripts', get_template_directory_uri() . '/js/core-list-block.js', array(), $js_core_list_version );
 
 		$js_divider_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/core-divider.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-divider-script', get_template_directory_uri() . '/js/core-divider.js', array(), $js_divider_version );
@@ -73,6 +76,10 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 
 		$js_admin_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/admin.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-admin-script', get_template_directory_uri() . '/js/admin.js', array(), $js_admin_version );
+
+		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
+		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
+
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'admin_enqueue_scripts', 'uds_wp_admin_scripts' );

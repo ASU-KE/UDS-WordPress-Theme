@@ -16,7 +16,7 @@ $bgchoice = get_field( 'uds_story_hero_background_choice' );
 $hero_size = get_field( 'uds_story_hero_background_image_size' );
 
 // Build initial section tag with correct hero size.
-$section_open = '<section class="uds-story-hero entry-header';
+$section_open = '<section class="uds-story-hero';
 $section_close = '">';
 
 if ( 'large' === $hero_size ) {
@@ -51,21 +51,4 @@ if ( 'image' === $bgchoice ) {
 // Return the rest of the section.
 ?>
 
-	<div class="content">
-		<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
-		<?php
-		/*
-		If ( function_exists( 'yoast_breadcrumb' ) ) {
-			echo '<div class="bg-white"><nav aria-label="breadcrumbs">';
-			$breadcrumb_output = yoast_breadcrumb( '<ol class="breadcrumb">', '</ol>', false );
-			echo preg_replace( '#</?span[^>]*>#is', '', $breadcrumb_output );
-			echo '</div></nav>';
-			*
-		}
-		*/
-
-		?>
-		<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
-
-	</div>
 </section>

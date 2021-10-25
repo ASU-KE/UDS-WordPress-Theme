@@ -1,0 +1,154 @@
+{
+    "key": "group_613fc14daf233",
+    "title": "UDS Foldable Card",
+    "fields": [
+        {
+            "key": "field_6154aece6b8f4",
+            "label": "Foldable Card",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_613fc348fae26",
+            "label": "Card title",
+            "name": "uds_single_accordion_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6143d81a230b1",
+            "label": "Icon",
+            "name": "uds_single_accordion_title_icon",
+            "type": "text",
+            "instructions": "Enter all required FA classes. Example: <code>fas fa-external-link-alt<\/code>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_613fc3aafae27",
+            "label": "Collapsed",
+            "name": "uds_single_accordion_collapsed",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_613fc3defae28",
+            "label": "Color",
+            "name": "uds_single_accordion_color",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "card-gold": "Gold",
+                "card-maroon": "Maroon",
+                "card-gray": "Light",
+                "card-dark": "Dark"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6154aedf6b8f5",
+            "label": "Accordion",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6154aeef6b8f6",
+            "label": "Creating an Accordion",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "An accordion is a collection of foldable cards that have been grouped together, allowing only one card to be open at a time. To create an accordion:\r\n\r\n1. <b>Create your foldable cards<\/b>. You can make an accordion before or after you place content in the cards.\r\n\r\n2. <b>Select the foldable cards<\/b> that you want to include in the accordion, <b>and place them inside a group block<\/b>: with the cards selected, use the Options button on the right side of the toolbar (the one with 3 vertical dots) to select \"Group\".\r\n\r\n3. You should now have a Group block with your cards inside. <b>With the group block selected<\/b>, use the controls on the side panel to add \"<b>accordion<\/b>\" as class to the additional CSS classes field, and then add a <b>unique id<\/b> to the HTML anchor field for the group.\r\n\r\nYour foldable cards should now function as an accordion.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-foldable-card"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1632941364
+}
