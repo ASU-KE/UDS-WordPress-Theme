@@ -1,0 +1,50 @@
+/**
+ * SCSS styling for individual, static, profile block.
+ */
+
+ .profile-row {
+	display: flex;
+    border-bottom: 2px #e0e0e0 solid;
+    padding-bottom: 32px;
+    padding-top: 32px;
+}
+
+.profile-name a {
+    color: #000;
+    text-decoration: none;
+
+	&:hover {
+		color: #8c1d40;
+		text-decoration: none;
+		opacity: 0.7;
+	}
+}
+
+.profile-photo-column {
+    padding: 24px 24px 24px 0;
+
+	> a:hover {
+		text-decoration: underline;
+		opacity: 0.7;
+	}
+}
+
+.profile-type-standard .pictureOriginal {
+    width: 180px;
+    height: 180px;
+    border-radius: 500px;
+    margin-top: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.profile-bio-column {
+    max-width: 700px;
+}
+
+.profile-contact-row {
+	display: flex;
+		> div {
+			margin-right: 32px;
+	}
+}
