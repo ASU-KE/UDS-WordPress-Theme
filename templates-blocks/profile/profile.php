@@ -4,29 +4,36 @@
  * Do some stuff here.
  */
 
+/**
+ * Image data returns an array, so we can't use the normal get_field() or
+ * the_field() functions. We grab the image data array here, and echo out
+ * the parts we want later.
+ */
+$image_data = get_field('uds_profile_image');
+
 ?>
 
 <div class="profile profile-type-standard">
 	<div class="profile-row">
 		<div class="profile-photo-column">
-			<a href="/profile/hbreetz">
-				<img class="pictureOriginal" src="https://webapp4.asu.edu/photo-ws/directory_photo/1180093" alt="profile picture for Hanna Breetz">
+			<a href="<?php the_field('uds_profile_url'); ?>">
+				<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="<?php echo $image_data['alt']; ?>">
 			</a>
 		</div>
 		<div class="profile-bio-column">
-			<h3 class="profile-name"><a href="/profile/hbreetz">Hanna Breetz</a></h3>
+			<h3 class="profile-name"><a href="<?php the_field('uds_profile_url'); ?>"><?php the_field('uds_profile_name'); ?></a></h3>
 			<div class="profile-title">
-				<p class="titleOriginal">Assistant Professor</p>
+				<p class="titleOriginal"><?php the_field('uds_profile_title'); ?></p>
 			</div>
 			<div class="profile-contact-row">
 				<div class="">
 					<p>
-						<a class="linkOriginal" href="mailto:Hanna.Breetz@asu.edu">Hanna.Breetz@asu.edu</a>
+						<a class="linkOriginal" href="mailto:<?php the_field('uds_profile_email'); ?>"><?php the_field('uds_profile_email'); ?></a>
 					</p>
 				</div>
 				<div class="">
 					<p>
-						<a class="" href="tel:480-727-0408">480-727-0408</a>
+						<a class="" href="tel:<?php the_field('uds_profile_phone'); ?>"><?php the_field('uds_profile_phone'); ?></a>
 					</p>
 				</div>
 				<!--
@@ -37,9 +44,9 @@
 						</div>
 					</p>
 				</div>
--->
+				-->
 			</div>
-			<p>Hanna Breetz is a political scientist who studies the political economy of energy transitions.</p>
+			<p><?php the_field('uds_profile_text'); ?></p>
 		</div>
 	</div>
 </div>
