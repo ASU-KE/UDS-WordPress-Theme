@@ -2,7 +2,11 @@
  * SCSS styling for individual, static, profile block.
  */
 
- .profile-row {
+.titleOriginal {
+    font-weight: bold;
+}
+
+.profile-row {
 	display: flex;
     border-bottom: 2px #e0e0e0 solid;
     padding-bottom: 32px;
@@ -30,7 +34,8 @@
 }
 
 .profile-type-standard .pictureOriginal {
-    width: 180px;
+    min-width: 180px;
+	width: 180px;
     height: 180px;
     border-radius: 500px;
     margin-top: 0;
