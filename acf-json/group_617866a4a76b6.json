@@ -19,6 +19,30 @@
             "endpoint": 0
         },
         {
+            "key": "field_617869ae747b1",
+            "label": "Image",
+            "name": "uds_profile_image",
+            "type": "image",
+            "instructions": "Profile image. For best results, use a square image that is 180x180 pixels.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_617866ad1d4a0",
             "label": "Name",
             "name": "uds_profile_name",
@@ -79,7 +103,7 @@
             "label": "Phone",
             "name": "uds_profile_phone",
             "type": "text",
-            "instructions": "Phone number, formatted as you want it displayed",
+            "instructions": "Phone number in the format: xxx-xxx-xxxx",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -184,5 +208,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635281053
+    "modified": 1635283040
 }
