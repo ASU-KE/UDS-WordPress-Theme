@@ -11,6 +11,34 @@
     border-bottom: 2px #e0e0e0 solid;
     padding-bottom: 32px;
     padding-top: 32px;
+
+	&.vertical {
+		padding: 1rem;
+		flex-direction: column;
+		background-color: aliceblue;
+		text-align: center;
+
+		h3 {
+			text-align: center;
+		}
+
+		.profile-photo-column {
+			padding: 1.5rem;
+		}
+
+		.profile-contact-row {
+			flex-direction: column;
+
+			div {
+				margin-right: 0;
+			}
+		}
+
+		.profile-text {
+			text-align: left;
+			margin: 0 auto;
+		}
+	}
 }
 
 .profile-name a {
@@ -51,5 +79,14 @@
 	display: flex;
 		> div {
 			margin-right: 32px;
+	}
+}
+
+.acf-block-preview {
+	.profile {
+		a {
+			pointer-events: none;
+			cursor:auto;
+		}
 	}
 }

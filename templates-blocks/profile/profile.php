@@ -11,10 +11,17 @@
  */
 $image_data = get_field('uds_profile_image');
 
+// Get the orientation value and set a class if needed.
+$orientation = get_field( 'uds_profile_orientation' );
+$orientation_class = '';
+if ( 'vertical' === $orientation ) {
+	$orientation_class = 'vertical';
+}
+
 ?>
 
 <div class="profile profile-type-standard">
-	<div class="profile-row">
+	<div class="profile-row  <?php echo $orientation_class; ?>">
 		<div class="profile-photo-column">
 			<a href="<?php the_field('uds_profile_url'); ?>">
 				<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="<?php echo $image_data['alt']; ?>">
@@ -33,7 +40,7 @@ $image_data = get_field('uds_profile_image');
 				</div>
 				<div class="">
 					<p>
-						<a class="" href="tel:<?php the_field('uds_profile_phone'); ?>"><?php the_field('uds_profile_phone'); ?></a>
+						<a class="phoneOriginal" href="tel:<?php the_field('uds_profile_phone'); ?>"><?php the_field('uds_profile_phone'); ?></a>
 					</p>
 				</div>
 				<!--
@@ -46,7 +53,7 @@ $image_data = get_field('uds_profile_image');
 				</div>
 				-->
 			</div>
-			<p><?php the_field('uds_profile_text'); ?></p>
+			<p class="profile-text"><?php the_field('uds_profile_text'); ?></p>
 		</div>
 	</div>
 </div>
