@@ -23,11 +23,11 @@
             "label": "Image",
             "name": "uds_profile_image",
             "type": "image",
-            "instructions": "Profile image. For best results, use a square image that is 180x180 pixels.",
+            "instructions": "For best results, use a square image that is 180x180 pixels.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -55,7 +55,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Person Name",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -65,8 +65,8 @@
             "key": "field_617866da1d4a1",
             "label": "Title",
             "name": "uds_profile_title",
-            "type": "text",
-            "instructions": "Full title as you want it displayed",
+            "type": "textarea",
+            "instructions": "For more than one title, use the Enter\/Return key to create a new line.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -74,11 +74,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Person Title, Company or Organization",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
         },
         {
             "key": "field_617866f81d4a2",
@@ -146,10 +146,10 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "placeholder": "",
-            "maxlength": 200,
-            "rows": 4,
+            "maxlength": 300,
+            "rows": 6,
             "new_lines": "br"
         },
         {
@@ -189,6 +189,58 @@
             "default_value": "Horizontal",
             "layout": "horizontal",
             "return_format": "value"
+        },
+        {
+            "key": "field_617b1cb7687dd",
+            "label": "Elements",
+            "name": "uds_profile_elements",
+            "type": "checkbox",
+            "instructions": "Turn any element of the profile on or off with these controls.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "show_image": "Image",
+                "show_name": "Name",
+                "show_title": "Title",
+                "show_contact_row": "Contact Row",
+                "show_profile_text": "Profile Text"
+            },
+            "allow_custom": 0,
+            "default_value": [
+                "show_image",
+                "show_name",
+                "show_title",
+                "show_contact_row",
+                "show_profile_text"
+            ],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_617b3ac9e2b9f",
+            "label": "Bottom Border",
+            "name": "uds_profile_bottom_border",
+            "type": "true_false",
+            "instructions": "Show bottom border on this profile?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -208,5 +260,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635283040
+    "modified": 1635529422
 }
