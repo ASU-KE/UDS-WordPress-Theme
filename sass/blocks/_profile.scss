@@ -12,10 +12,13 @@
     padding-bottom: 32px;
     padding-top: 32px;
 
+	&.no-border {
+		border-bottom: none;;
+	}
+
 	&.vertical {
 		padding: 1rem;
 		flex-direction: column;
-		background-color: aliceblue;
 		text-align: center;
 
 		h3 {
@@ -72,7 +75,7 @@
 }
 
 .profile-bio-column {
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .profile-contact-row {
