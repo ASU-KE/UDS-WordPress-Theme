@@ -625,6 +625,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
 		$wp_customize->add_control(
 			'contribute_url',
 			array(
@@ -645,6 +646,40 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+
+		/**
+		 * Contribute Button Text
+		 */
+		$wp_customize->add_setting(
+			'contribute_text',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'contribute_text',
+			array(
+				'label'      => __( 'Contribute button Text', 'uds-wordpress-theme' ),
+				'description' => __( 'Enter a text here to show the Gold button in the footer', 'uds-wordpress-theme' ),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'contribute_text',
+				'priority'   => 101,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'contribute_text',
+			array(
+				'selector' => '.contribute-wrapper',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_contribute_button',
+			)
+		);
 
 		/**
 		 * Contact Us URL
