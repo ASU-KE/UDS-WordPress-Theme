@@ -156,13 +156,13 @@ function uds_wp_render_main_nav_menu() {
 		?>
 
 		</div>
-    <form class="navbar-site-buttons form-inline">
+	<form class="navbar-site-buttons form-inline">
 				<?php
-				if ($cta_menu_btns){
-				foreach ($cta_menu_btns as $cta_menu_btn){
-					echo $cta_menu_btn;
+				if ( $cta_menu_btns ) {
+					foreach ( $cta_menu_btns as $cta_menu_btn ) {
+						echo $cta_menu_btn;
+					}
 				}
-			}
 				?>
 		</form>
 		<?php
@@ -239,11 +239,12 @@ if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
 	 */
 	function uds_wp_render_contribute_button() {
 		$contribute_url = get_theme_mod( 'contribute_url' );
-		$contribute_template = '<p class="contribute-button"><a href="%s" type="button" class="btn btn-gold">Contribute</a></p>';
+		$contribute_text = get_theme_mod( 'contribute_text' ) ? get_theme_mod( 'contribute_text' ) : 'Contribute';
+		$contribute_template = '<p class="contribute-button"><a href="%1$s" type="button" class="btn btn-gold">%2$s</a></p>';
 
 		// Do we have a contribute?
 		if ( $contribute_url && '' !== $contribute_url ) {
-			echo wp_kses( sprintf( $contribute_template, $contribute_url ), wp_kses_allowed_html( 'post' ) );
+			echo wp_kses( sprintf( $contribute_template, $contribute_url, $contribute_text ), wp_kses_allowed_html( 'post' ) );
 		}
 	}
 }
