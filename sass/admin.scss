@@ -66,3 +66,10 @@ $warning-color: #F99;
 .card{
 	max-width: none;
 }
+
+.acf-block-preview .uds-tabbed-panels{
+	a.scroll-control-prev,
+	a.scroll-control-next{
+		display: none;
+	}
+}

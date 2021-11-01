@@ -131,7 +131,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -389,5 +389,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a UDS compliant block quote, with options for adding an image and customizing colors",
-    "modified": 1626984658
+    "modified": 1635528980
 }
