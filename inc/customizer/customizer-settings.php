@@ -665,7 +665,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			'contribute_text',
 			array(
 				'label'      => __( 'Contribute button Text', 'uds-wordpress-theme' ),
-				'description' => __( 'Enter a text here to show the Gold button in the footer', 'uds-wordpress-theme' ),
+				'description' => __( 'Enter custom text here to replace the default text of \'Contribute\'', 'uds-wordpress-theme' ),
 				'section'    => 'uds_wp_theme_section_footer',
 				'settings'   => 'contribute_text',
 				'priority'   => 101,
