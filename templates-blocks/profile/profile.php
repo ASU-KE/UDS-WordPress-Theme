@@ -66,52 +66,67 @@ if( $show_bottom_border ) {
 }
 
 ?>
-
-<div class="profile profile-type-standard">
-	<div class="profile-row  <?php echo $orientation_class; ?> <?php echo $bottom_border_class; ?>">
-		<?php if( $show_image ): ?>
-			<div class="profile-photo-column">
-				<?php if( $link_image_and_name ): ?>
-					<a href="<?php the_field('uds_profile_url'); ?>">
-						<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="<?php echo $image_data['alt']; ?>">
-					</a>
-				<?php else: ?>
-					<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="<?php echo $image_data['alt']; ?>">
-				<?php endif; ?>
-			</div>
-		<?php endif; ?>
-		<div class="profile-bio-column">
-			<?php if( $show_name ): ?>
-				<h3 class="profile-name">
-					<?php if( $link_image_and_name ): ?>
-						<a href="<?php echo( esc_url( $person_url ) ); ?>"><?php echo $person_name; ?></a>
-					<?php else: ?>
-						<?php echo $person_name; ?>
-					<?php endif; ?>
-				</h3>
-			<?php endif; ?>
-			<?php if( $show_title ): ?>
-				<div class="profile-title">
-					<p class="titleOriginal"><?php echo $person_title; ?></p>
-				</div>
-			<?php endif; ?>
-			<?php if( $show_contact_row ): ?>
-				<div class="profile-contact-row">
-					<div class="">
-						<p>
-							<a class="linkOriginal" href="mailto:<?php echo $person_email; ?>"><?php echo $person_email; ?></a>
-						</p>
-					</div>
-					<div class="">
-						<p>
-							<a class="phoneOriginal" href="tel:<?php echo $person_phone; ?>"><?php echo $person_phone; ?></a>
-						</p>
-					</div>
-				</div>
-			<?php endif; ?>
-			<?php if( $show_profile_text ): ?>
-				<p class="profile-text"><?php echo $person_text; ?></p>
-			<?php endif; ?>
-		</div>
+<div class="uds-person-profile">
+	<img
+	alt="John Smith"
+	class="profile-img"
+	src="https://placeimg.com/300/300/people"
+	/>
+	<div class="person">
+		<h3 class="person-name">John Smith</h3>
+		<h4 class="person-profession">Regents Professor</h4>
+		<ul class="person-contact-info">
+			<li>
+				<a
+				aria-label="Email user"
+				href="mailto:email@asu.edu"
+				>email@asu.edu
+				</a>
+			</li>
+			<li>
+				<a
+				aria-label="Call user"
+				href="tel:555-555-5555">
+				555-555-5555
+				</a>
+			</li>
+			<li>
+				<a aria-label="See user address" href="#" >
+					<address className="person-address">
+						<span className="person-street">1234 Address St.</span>
+						<span className="person-city">Tempe AZ 12345</span>
+					</address>
+				</a>
+			</li>
+		</ul>
+		<p class="person-description">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ultrices nisl, at vestibulum tortor. Phasellus ut interdum turpis, et dignissim nisi. In sed volutpat lectus. Lorem ipsum dolor sit amet.
+		</p>
+		<ul class="person-social-medias">
+			<li>
+				<a
+				aria-label="Go to user Facebook profile"
+				href="#"
+				>
+					<span class="fab fa-facebook-square" />
+				</a>
+			</li>
+			<li>
+				<a
+				aria-label="Go to user Linkedin profile"
+				href="#"
+				>
+					<span class="fab fa-linkedin" />
+				</a>
+			</li>
+			<li>
+				<a
+				aria-label="Go to user Twitter profile"
+				href="#"
+				>
+					<span class="fab fa-twitter-square" />
+				</a>
+			</li>
+		</ul>
 	</div>
 </div>
