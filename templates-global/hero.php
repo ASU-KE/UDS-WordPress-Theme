@@ -47,13 +47,15 @@ switch ( $media_source ) {
  * set of tags to support forcing line breaks when appropriate, and applying highlight
  * classes via <span> tags.
  */
-$hero_allowed_tags = array(
-	'br'   => array(),
-	'p'    => array(),
-	'span' => array(
-		'class' => array(),
-	),
-);
+// $hero_allowed_tags = array(
+// 	'sub'  => array(),
+// 	'sup'  => array(),
+// 	'br'   => array(),
+// 	'p'    => array(),
+// 	'span' => array(
+// 		'class' => array(),
+// 	),
+// );
 
 /**
  * Retrieve our field values. Note, we do not get button values here, as they are
@@ -61,11 +63,11 @@ $hero_allowed_tags = array(
  * field.
  */
 $hero_size = get_field( 'hero_size', $category );
-$hero_title = wp_kses( get_field( 'hero_title', $category ), $hero_allowed_tags );
+$hero_title = wptexturize( wp_kses_post( get_field( 'hero_title', $category, false ) ) );
 $apply_highlighting = get_field( 'apply_highlighting', $category );
 $hero_highlight = get_field( 'hero_highlight', $category );
 $title_color = get_field( 'title_color', $category );
-$hero_text = wp_kses( get_field( 'hero_text', $category ), $hero_allowed_tags );
+$hero_text = wptexturize( wp_kses_post( get_field( 'hero_text', $category, false ) ) );
 $single_word_highlight = sanitize_text_field( get_field( 'single_word_highlight', $category ) );
 
 // Determine the text color class. Default to white.
@@ -190,12 +192,7 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 			?>
 		<div class="row">
 			<div class="v1-uds-hero-text col col-lg-8">
-				<?php
-				if ( ! empty( $hero_text ) ) {
-					$text = '<p>%1$s</p>';
-					echo wp_kses( sprintf( $text, $hero_text ), $hero_allowed_tags );
-				}
-				?>
+				<p><?php echo $hero_text; ?></p>
 			</div>
 		</div>
 			<?php
@@ -212,12 +209,22 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				$size = get_sub_field( 'button_size' );
 				$color = get_sub_field( 'button_color' );
 				$external_link = get_sub_field( 'external_link' );
+				$icon = get_sub_field( 'icon' );
 
+				// Get and format the output for an external link
 				if ( $external_link ) {
 					$rel_text = 'rel="noopener noreferrer"';
 				} else {
 					$rel_text = '';
 				}
+
+				// Get the output for a button icon
+				if  ( $icon ) {
+					$icon_text = '<span class="fas fa-' . $icon . '"></span>&nbsp;';
+				}else{
+					$icon_text = '';
+				}
+
 				/**
 				 * The label, URL and target values are inside an ACF 'Link' field.
 				 * They do not have default values, like the other button fields,
@@ -242,8 +249,8 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 					$target_text   = '';
 				}
 
-				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%2$s</a>';
-				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $target_text, $rel_text ), wp_kses_allowed_html( 'post' ) );
+				$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%7$s %2$s</a>';
+				echo wp_kses( sprintf( $text, $button_url, $button_label, $size, $color, $target_text, $rel_text, $icon_text ), wp_kses_allowed_html( 'post' ) );
 				endwhile;
 			echo '</div>';
 		} else {
