@@ -19,6 +19,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_617b1cf1687de",
+            "label": "Show Picture",
+            "name": "uds_profile_option_show_picture",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_617869ae747b1",
             "label": "Image",
             "name": "uds_profile_image",
@@ -43,6 +62,25 @@
             "mime_types": ""
         },
         {
+            "key": "field_617b1dfa9c44c",
+            "label": "Show Name",
+            "name": "uds_profile_option_show_name",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_617866ad1d4a0",
             "label": "Name",
             "name": "uds_profile_name",
@@ -60,6 +98,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_617b1e0f9c44d",
+            "label": "Show Title",
+            "name": "uds_profile_option_show_title",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_617866da1d4a1",
@@ -104,6 +161,44 @@
             "name": "uds_profile_phone",
             "type": "text",
             "instructions": "Phone number in the format: xxx-xxx-xxxx",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6181b6136171c",
+            "label": "Street Address",
+            "name": "uds_profile_street_address",
+            "type": "text",
+            "instructions": "Just the street address, as in: 123 E. Central Ave.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6181b65e6171d",
+            "label": "City, State, ZIP",
+            "name": "uds_profile_city_state_zip",
+            "type": "text",
+            "instructions": "Example: Springfield, MO 12345",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -260,5 +355,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635529422
+    "modified": 1635891191
 }
