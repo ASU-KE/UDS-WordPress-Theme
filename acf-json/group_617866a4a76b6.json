@@ -284,58 +284,6 @@
             "default_value": "Horizontal",
             "layout": "horizontal",
             "return_format": "value"
-        },
-        {
-            "key": "field_617b1cb7687dd",
-            "label": "Elements",
-            "name": "uds_profile_elements",
-            "type": "checkbox",
-            "instructions": "Turn any element of the profile on or off with these controls.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "show_image": "Image",
-                "show_name": "Name",
-                "show_title": "Title",
-                "show_contact_row": "Contact Row",
-                "show_profile_text": "Profile Text"
-            },
-            "allow_custom": 0,
-            "default_value": [
-                "show_image",
-                "show_name",
-                "show_title",
-                "show_contact_row",
-                "show_profile_text"
-            ],
-            "layout": "vertical",
-            "toggle": 0,
-            "return_format": "value",
-            "save_custom": 0
-        },
-        {
-            "key": "field_617b3ac9e2b9f",
-            "label": "Bottom Border",
-            "name": "uds_profile_bottom_border",
-            "type": "true_false",
-            "instructions": "Show bottom border on this profile?",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
         }
     ],
     "location": [
