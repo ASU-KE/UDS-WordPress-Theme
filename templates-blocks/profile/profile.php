@@ -34,38 +34,11 @@ if ( 'vertical' === $orientation ) {
 }
 
 /**
- * Element toggle values. Set a local variable based on whether an element is
- * set to be shown or hidden. The way ACF does this with our Checkbox field is
- * to return an array of ONLY the selected values (i.e. boxes that were checked).
- *
- * To know if we want to display something, we need to check to see if the array
- * contains the value for any possible checkbox, and create a local variable.
- */
-
-// 1. Get the actual array of checked items.
-$elements = get_field('uds_profile_elements');
-
-// 2. Look for each possible value, and set a local variable.
-$show_image        = $elements && in_array( 'show_image', $elements ) ? true : false;
-$show_name         = $elements && in_array( 'show_name', $elements ) ? true : false;
-$show_title        = $elements && in_array( 'show_title', $elements ) ? true : false;
-$show_contact_row  = $elements && in_array( 'show_contact_row', $elements ) ? true : false;
-$show_profile_text = $elements && in_array( 'show_profile_text', $elements ) ? true : false;
-
-/**
  * Other variables
  */
 
 // If no URL was provided, do not make the image or name an actual link
 $link_image_and_name = $person_url && '' !== $person_url ? true : false;
-
-// Add class to remove the bottom border when it's been turned off.
-$show_bottom_border  = get_field( 'uds_profile_bottom_border' );
-if( $show_bottom_border ) {
-	$bottom_border_class = '';
-}else{
-	$bottom_border_class = 'no-border';
-}
 
 ?>
 <div class="uds-person-profile">
