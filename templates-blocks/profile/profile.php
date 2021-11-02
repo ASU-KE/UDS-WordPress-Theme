@@ -68,26 +68,27 @@ if( $show_bottom_border ) {
 ?>
 <div class="uds-person-profile">
 	<img
-	alt="John Smith"
+	alt="<?php echo $image_data['alt'];?>"
 	class="profile-img"
-	src="https://placeimg.com/300/300/people"
+	src="<?php echo $image_data['url'];?>"
 	/>
 	<div class="person">
-		<h3 class="person-name">John Smith</h3>
-		<h4 class="person-profession">Regents Professor</h4>
+		<h3 class="person-name"><?php echo $person_name; ?></h3>
+		<h4 class="person-profession"><?php echo $person_title; ?></h4>
 		<ul class="person-contact-info">
 			<li>
 				<a
 				aria-label="Email user"
 				href="mailto:email@asu.edu"
-				>email@asu.edu
+				>
+					<?php echo $person_email; ?>
 				</a>
 			</li>
 			<li>
 				<a
 				aria-label="Call user"
-				href="tel:555-555-5555">
-				555-555-5555
+				href="tel:<?php echo $person_phone; ?>">
+				<?php echo $person_phone; ?>
 				</a>
 			</li>
 			<li>
