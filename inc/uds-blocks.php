@@ -61,6 +61,7 @@ function my_acf_blocks_init() {
 			'/foldable-card', // UDS Foldable card block.
 			'/tabbed-panels', // UDS Tabbed panels block.
 			'/image', // UDS Image block.
+			'/full-width-container',
 		);
 
 		// Loop through array items and include each register file.
