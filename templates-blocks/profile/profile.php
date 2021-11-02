@@ -9,13 +9,15 @@
 /**
  * Person Data
  */
-$image_data   = get_field( 'uds_profile_image');
-$person_name  = get_field( 'uds_profile_name' );
-$person_title = get_field( 'uds_profile_title' );
-$person_email = get_field( 'uds_profile_email' );
-$person_phone = get_field( 'uds_profile_phone' );
-$person_url   = get_field( 'uds_profile_url' );
-$person_text  = get_field( 'uds_profile_text' );
+$image_data            = get_field( 'uds_profile_image');
+$person_name           = get_field( 'uds_profile_name' );
+$person_title          = get_field( 'uds_profile_title' );
+$person_email          = get_field( 'uds_profile_email' );
+$person_phone          = get_field( 'uds_profile_phone' );
+$person_url            = get_field( 'uds_profile_url' );
+$person_text           = get_field( 'uds_profile_text' );
+$person_street_address = get_field( 'uds_profile_street_address' );
+$person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 
 /**
  * Settings Data
@@ -94,14 +96,14 @@ if( $show_bottom_border ) {
 			<li>
 				<a aria-label="See user address" href="#" >
 					<address className="person-address">
-						<span className="person-street">1234 Address St.</span>
-						<span className="person-city">Tempe AZ 12345</span>
+						<span className="person-street"><?php echo $person_street_address; ?></span>
+						<span className="person-city"><?php echo $person_city_state_zip; ?></span>
 					</address>
 				</a>
 			</li>
 		</ul>
 		<p class="person-description">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ultrices nisl, at vestibulum tortor. Phasellus ut interdum turpis, et dignissim nisi. In sed volutpat lectus. Lorem ipsum dolor sit amet.
+			<?php echo $person_text; ?>
 		</p>
 		<ul class="person-social-medias">
 			<li>
