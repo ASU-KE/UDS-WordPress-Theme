@@ -20,11 +20,32 @@ $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 
 /**
- * Settings Data
+ * Social Media Data
  *
- * Values associated with the Display Options tab. Controls the orientation
- * of the profile, and allows users to turn elements on and off.
+ * An array to hold values for our base set of social media networks.
  */
+$base_social_media = array(
+	'facebook' => array(
+		'name' => 'Facebook', // used to create the ARIA label
+		'icon' => 'fab fa-facebook-square' // Fontawesome brand icon
+	),
+	'twitter' => array(
+		'name' => 'Twitter',
+		'icon' => 'fab fa-twitter-square'
+	),
+	'linkedin' => array(
+		'name' => 'LinkedIn',
+		'icon' => 'fab fa-linkedin'
+	),
+	'instagram' => array(
+		'name' => 'Instagram',
+		'icon' => 'fab fa-instagram-square'
+	),
+	'youtube' => array(
+		'name' => 'YouTube',
+		'icon' => 'fab fa-youtube-square'
+	)
+	);
 
 // Get orientation value and set a class if we want a vertical profile.
 $orientation = get_field( 'uds_profile_orientation' );
@@ -78,31 +99,33 @@ $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 		<p class="person-description">
 			<?php echo $person_text; ?>
 		</p>
-		<ul class="person-social-medias">
-			<li>
-				<a
-				aria-label="Go to user Facebook profile"
-				href="#"
-				>
-					<span class="fab fa-facebook-square" />
-				</a>
-			</li>
-			<li>
-				<a
-				aria-label="Go to user Linkedin profile"
-				href="#"
-				>
-					<span class="fab fa-linkedin" />
-				</a>
-			</li>
-			<li>
-				<a
-				aria-label="Go to user Twitter profile"
-				href="#"
-				>
-					<span class="fab fa-twitter-square" />
-				</a>
-			</li>
-		</ul>
+		<?php if( have_rows( 'uds_profile_social_media_icons' ) ): ?>
+			<ul class="person-social-medias">
+			<?php while( have_rows( 'uds_profile_social_media_icons' ) ): the_row(); ?>
+				<?php
+					/**
+					 * See if the chosen value is in our base array of social media sites.
+					 * If not, use the hand-entered values
+					 */
+					$current_social_network = get_sub_field( 'uds_profile_network_name' );
+					if( array_key_exists( $current_social_network, $base_social_media ) ) {
+						$network_name = $base_social_media[$current_social_network]['name'];
+						$network_icon = $base_social_media[$current_social_network]['icon'];
+					}else{
+						$network_name = get_sub_field( 'uds_profile_custom_network_name');
+						$network_icon = get_sub_field( 'uds_profile_social_icon' );
+					}
+				?>
+				<li>
+					<a
+					aria-label="Go to user <?php $network_name; ?> profile"
+					href="<?php echo get_sub_field('uds_profile_social_url')?>"
+					>
+						<span class="<?php echo $network_icon; ?>" />
+					</a>
+				</li>
+			<?php endwhile; ?>
+			</ul>
+		<?php endif; ?>
 	</div>
 </div>

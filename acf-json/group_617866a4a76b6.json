@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_6178682a1d4a6",
-            "label": "Person Data",
+            "label": "Person",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -51,7 +51,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -89,7 +89,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -107,7 +107,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -126,7 +126,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -145,7 +145,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -191,8 +191,144 @@
             "new_lines": "br"
         },
         {
+            "key": "field_6182f36320e69",
+            "label": "Social",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6182ee910fefd",
+            "label": "Social Media Icons",
+            "name": "uds_profile_social_media_icons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_6182eed30fefe",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Social Icon",
+            "sub_fields": [
+                {
+                    "key": "field_6182f8abbbc36",
+                    "label": "Network Name",
+                    "name": "uds_profile_network_name",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "twitter": "Twitter",
+                        "linkedin": "LinkedIn",
+                        "instagram": "Instagram",
+                        "youtube": "YouTube",
+                        "other": "Other"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6182fd55e47f2",
+                    "label": "Custom Network Name",
+                    "name": "uds_profile_custom_network_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6182f8abbbc36",
+                                "operator": "==",
+                                "value": "other"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Ex: Facebook",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6182ef1b0feff",
+                    "label": "Icon",
+                    "name": "uds_profile_social_icon",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6182f8abbbc36",
+                                "operator": "==",
+                                "value": "other"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "fab fa-facebook-square",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6182eed30fefe",
+                    "label": "URL",
+                    "name": "uds_profile_social_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/facebook.com\/joe-smith"
+                }
+            ]
+        },
+        {
             "key": "field_6178683c1d4a7",
-            "label": "Display Options",
+            "label": "Display",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -246,5 +382,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635963796
+    "modified": 1635976813
 }
