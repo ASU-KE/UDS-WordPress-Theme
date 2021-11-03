@@ -19,6 +19,7 @@ $person_text           = get_field( 'uds_profile_text' );
 $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
+$profile_link_type     = get_field( 'uds_profile_link_type' );
 
 /**
  * Social Media Data
@@ -64,13 +65,27 @@ $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 
 ?>
 <div class="uds-person-profile <?php echo $orientation_class; ?>">
+	<?php if( 'image' === $profile_link_type ): ?>
+		<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+	<?php endif; ?>
 	<img
 	alt="<?php echo $image_data['alt'];?>"
 	class="profile-img"
 	src="<?php echo $image_data['url'];?>"
 	/>
+	<?php if( 'image' === $profile_link_type ): ?>
+		</a>
+	<?php endif; ?>
 	<div class="person  <?php echo $orientation_class; ?>">
-		<h3 class="person-name"><?php echo $person_name; ?></h3>
+		<h3 class="person-name">
+			<?php if( 'image' === $profile_link_type ): ?>
+				<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+			<?php endif; ?>
+			<?php echo $person_name; ?>
+			<?php if( 'image' === $profile_link_type ): ?>
+				</a>
+			<?php endif; ?>
+		</h3>
 		<h4 class="person-profession"><?php echo $person_title; ?></h4>
 		<ul class="person-contact-info">
 			<li>
@@ -100,6 +115,9 @@ $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 		<p class="person-description">
 			<?php echo $person_text; ?>
 		</p>
+		<?php if( 'link' === $profile_link_type ): ?>
+			<p><a href="<?php echo $person_url;?>"><?php echo $person_url; ?></a></p>
+		<?php endif; ?>
 		<?php if( have_rows( 'uds_profile_social_media_icons' ) ): ?>
 			<ul class="person-social-medias">
 			<?php while( have_rows( 'uds_profile_social_media_icons' ) ): the_row(); ?>

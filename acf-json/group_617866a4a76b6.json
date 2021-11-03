@@ -390,6 +390,37 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_618319d1890c9",
+            "label": "Profile Link Type",
+            "name": "uds_profile_link_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6178673f1d4a4",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Link image and name",
+                "link": "Show text link"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "image",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -409,5 +440,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635979933
+    "modified": 1635981891
 }
