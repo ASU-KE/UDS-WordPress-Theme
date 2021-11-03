@@ -363,6 +363,33 @@
             "default_value": "Horizontal",
             "layout": "horizontal",
             "return_format": "value"
+        },
+        {
+            "key": "field_618311450b702",
+            "label": "Horizontal Rule at Bottom?",
+            "name": "uds_profile_horizontal_rule",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6178684e1d4a8",
+                        "operator": "==",
+                        "value": "horizontal"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -382,5 +409,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635976813
+    "modified": 1635979933
 }

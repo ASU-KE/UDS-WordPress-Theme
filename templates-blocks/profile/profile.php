@@ -18,6 +18,7 @@ $person_url            = get_field( 'uds_profile_url' );
 $person_text           = get_field( 'uds_profile_text' );
 $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
+$horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 
 /**
  * Social Media Data
@@ -129,3 +130,6 @@ $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 		<?php endif; ?>
 	</div>
 </div>
+<?php if( $horizontal_rule && 'horizontal' === $orientation ): ?>
+	<hr />
+<?php endif; ?>
