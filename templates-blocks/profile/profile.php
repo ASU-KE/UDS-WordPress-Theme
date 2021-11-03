@@ -41,13 +41,13 @@ if ( 'vertical' === $orientation ) {
 $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 
 ?>
-<div class="uds-person-profile">
+<div class="uds-person-profile <?php echo $orientation_class; ?>">
 	<img
 	alt="<?php echo $image_data['alt'];?>"
 	class="profile-img"
 	src="<?php echo $image_data['url'];?>"
 	/>
-	<div class="person">
+	<div class="person  <?php echo $orientation_class; ?>">
 		<h3 class="person-name"><?php echo $person_name; ?></h3>
 		<h4 class="person-profession"><?php echo $person_title; ?></h4>
 		<ul class="person-contact-info">
