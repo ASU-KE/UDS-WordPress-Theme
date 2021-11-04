@@ -3,16 +3,60 @@
  */
 
 /**
- * Styles applied to the entire profile container.
- * - flex vertically
- * - global padding
- * - increase max width
- * - center the image and/or image link
+ * General styles
+ */
+
+// Hover effects on names that are links.
+h3.person-name {
+	a {
+		text-decoration: none;
+		color: $uds-color-font-dark-base;
+
+		&:hover {
+			color: $uds-color-brand-maroon;
+			opacity: 0.7;
+			text-decoration: underline;
+		}
+	}
+}
+
+// Hover effect on profile images that are links.
+a.img-link > .profile-img {
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+/**
+ * Editor styles
+ */
+.acf-block-preview {
+	// block clicks on the links inside the block.
+	.uds-person-profile {
+		a {
+			pointer-events: none;
+			cursor: auto;
+
+			// keep images inside of <a> tags full-size.
+			& img {
+				min-width: 180px;
+				width: 180px
+			}
+		}
+	}
+}
+
+
+/**
+ * Vertical profile styles
+ */
+
+/**
+ * Styles applied to the wrapping profile container.
  */
 .uds-person-profile.vertical {
 	flex-direction: column;
 	padding: 1rem;
-	background-color: aliceblue;
 
 	.img-link {
 		text-align: center;
@@ -23,19 +67,17 @@
 		align-self: center;
 	}
 
-	@media screen and (max-width: $uds-breakpoint-sm) {
+	@media screen and (max-width: $uds-breakpoint-md) {
 		max-width: 100%;
-		// border-bottom: 1px solid $uds-color-base-gray-3;
-		// padding-bottom: $uds-size-spacing-2;
-		// padding-top: $uds-size-spacing-2;
 	}
 }
 
 /**
  * Styles applied to the inner 'person' container.
- * - mostly centering the various elements
  */
 .person.vertical {
+
+	margin-left: 0;
 
 	h3.person-name, h4.person-profession {
 		text-align: center;
@@ -48,5 +90,10 @@
 		li {
 			margin: .25rem 0 !important;
 		}
+	}
+
+	ul.person-social-medias {
+		display: flex;
+		justify-content: center;
 	}
 }
