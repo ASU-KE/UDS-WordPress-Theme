@@ -57,25 +57,33 @@ if ( 'vertical' === $orientation ) {
 }
 
 /**
- * Other variables
+ * Determine if we should render the 'contact row' that has email, phone
+ * and address. We default to rendering this row, but turn it off if ALL
+ * items in it were left empty by the user.
  */
+$render_contact_row = true;
+if( empty( $person_email) && empty( $person_phone) && empty( $person_street_address ) && empty( $person_city_state_zip ) ) {
+	$render_contact_row = false;
+}
 
-// If no URL was provided, do not make the image or name an actual link
-$link_image_and_name = $person_url && '' !== $person_url ? true : false;
 
+// Render the block.
 ?>
 <div class="uds-person-profile <?php echo $orientation_class; ?>">
-	<?php if( 'image' === $profile_link_type ): ?>
-		<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+	<?php if( ! empty( $image_data ) ): ?>
+		<?php if( 'image' === $profile_link_type ): ?>
+			<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+		<?php endif; ?>
+		<img
+		alt="<?php echo $image_data['alt'];?>"
+		class="profile-img"
+		src="<?php echo $image_data['url'];?>"
+		/>
+		<?php if( 'image' === $profile_link_type ): ?>
+			</a>
+		<?php endif; ?>
 	<?php endif; ?>
-	<img
-	alt="<?php echo $image_data['alt'];?>"
-	class="profile-img"
-	src="<?php echo $image_data['url'];?>"
-	/>
-	<?php if( 'image' === $profile_link_type ): ?>
-		</a>
-	<?php endif; ?>
+
 	<div class="person  <?php echo $orientation_class; ?>">
 		<h3 class="person-name">
 			<?php if( 'image' === $profile_link_type ): ?>
@@ -86,35 +94,43 @@ $link_image_and_name = $person_url && '' !== $person_url ? true : false;
 				</a>
 			<?php endif; ?>
 		</h3>
-		<h4 class="person-profession"><?php echo $person_title; ?></h4>
-		<ul class="person-contact-info">
-			<li>
-				<a
-				aria-label="Email user"
-				href="mailto:email@asu.edu"
-				>
-					<?php echo $person_email; ?>
-				</a>
-			</li>
-			<li>
-				<a
-				aria-label="Call user"
-				href="tel:<?php echo $person_phone; ?>">
-				<?php echo $person_phone; ?>
-				</a>
-			</li>
-			<li>
-				<a aria-label="See user address" href="#" >
-					<address className="person-address">
-						<span className="person-street"><?php echo $person_street_address; ?></span>
-						<span className="person-city"><?php echo $person_city_state_zip; ?></span>
-					</address>
-				</a>
-			</li>
-		</ul>
-		<p class="person-description">
-			<?php echo $person_text; ?>
-		</p>
+		<?php if( ! empty( $person_title ) ): ?>
+			<h4 class="person-profession"><?php echo $person_title; ?></h4>
+		<?php endif; ?>
+
+		<?php if( $render_contact_row ): ?>
+			<ul class="person-contact-info">
+				<li>
+					<a
+					aria-label="Email user"
+					href="mailto:email@asu.edu"
+					>
+						<?php echo $person_email; ?>
+					</a>
+				</li>
+				<li>
+					<a
+					aria-label="Call user"
+					href="tel:<?php echo $person_phone; ?>">
+					<?php echo $person_phone; ?>
+					</a>
+				</li>
+				<li>
+					<a aria-label="See user address" href="#" >
+						<address className="person-address">
+							<span className="person-street"><?php echo $person_street_address; ?></span>
+							<span className="person-city"><?php echo $person_city_state_zip; ?></span>
+						</address>
+					</a>
+				</li>
+			</ul>
+		<?php endif; ?>
+
+		<?php if( ! empty( $person_text ) ): ?>
+			<p class="person-description">
+				<?php echo $person_text; ?>
+			</p>
+		<?php endif; ?>
 		<?php if( 'link' === $profile_link_type ): ?>
 			<p><a href="<?php echo $person_url;?>"><?php echo $person_url; ?></a></p>
 		<?php endif; ?>
