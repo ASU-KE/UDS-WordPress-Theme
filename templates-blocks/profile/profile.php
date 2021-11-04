@@ -72,7 +72,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 <div class="uds-person-profile <?php echo $orientation_class; ?>">
 	<?php if( ! empty( $image_data ) ): ?>
 		<?php if( 'image' === $profile_link_type ): ?>
-			<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+			<a class="img-link" href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
 		<?php endif; ?>
 		<img
 		alt="<?php echo $image_data['alt'];?>"
