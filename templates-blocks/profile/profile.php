@@ -21,6 +21,13 @@ $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 $profile_link_type     = get_field( 'uds_profile_link_type' );
 
+
+// If additional classes were requested, clean up the input and add them.
+$additional_classes = '';
+if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
+}
+
 /**
  * Social Media Data
  *
@@ -69,7 +76,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 
 // Render the block.
 ?>
-<div class="uds-person-profile <?php echo $orientation_class; ?>">
+<div class="uds-person-profile <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
 	<?php if( ! empty( $image_data ) ): ?>
 		<?php if( 'image' === $profile_link_type ): ?>
 			<a class="img-link" href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
