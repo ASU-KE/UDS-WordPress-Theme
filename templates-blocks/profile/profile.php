@@ -107,6 +107,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 
 		<?php if( $render_contact_row ): ?>
 			<ul class="person-contact-info">
+				<?php if( ! empty( $person_email ) ): ?>
 				<li>
 					<a
 					aria-label="Email user"
@@ -115,6 +116,9 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 						<?php echo $person_email; ?>
 					</a>
 				</li>
+				<?php endif; ?>
+
+				<?php if( ! empty( $person_phone ) ): ?>
 				<li>
 					<a
 					aria-label="Call user"
@@ -122,6 +126,9 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 					<?php echo $person_phone; ?>
 					</a>
 				</li>
+				<?php endif; ?>
+
+				<?php if( ! empty( $person_street_address ) && ! empty( $person_city_state_zip ) ): ?>
 				<li>
 					<a aria-label="See user address" href="#" >
 						<address className="person-address">
@@ -130,6 +137,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 						</address>
 					</a>
 				</li>
+				<?php endif; ?>
 			</ul>
 		<?php endif; ?>
 
