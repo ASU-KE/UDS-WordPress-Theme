@@ -2,6 +2,51 @@
  * SCSS styling for individual, static, profile block.
  */
 
- .vertical {
+/**
+ * Styles applied to the entire profile container.
+ * - flex vertically
+ * - global padding
+ * - increase max width
+ * - center the image and/or image link
+ */
+.uds-person-profile.vertical {
 	flex-direction: column;
- }
+	padding: 1rem;
+	background-color: aliceblue;
+
+	.img-link {
+		text-align: center;
+	}
+
+	img.profile-img {
+		margin-bottom: 2rem;
+		align-self: center;
+	}
+
+	@media screen and (max-width: $uds-breakpoint-sm) {
+		max-width: 100%;
+		// border-bottom: 1px solid $uds-color-base-gray-3;
+		// padding-bottom: $uds-size-spacing-2;
+		// padding-top: $uds-size-spacing-2;
+	}
+}
+
+/**
+ * Styles applied to the inner 'person' container.
+ * - mostly centering the various elements
+ */
+.person.vertical {
+
+	h3.person-name, h4.person-profession {
+		text-align: center;
+	}
+
+	ul.person-contact-info {
+		flex-direction: column;
+		text-align: center;
+
+		li {
+			margin: .25rem 0 !important;
+		}
+	}
+}
