@@ -28,6 +28,11 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
 
+// Add our bottom-border class when requested.
+if ( $horizontal_rule ) {
+	$additional_classes .= ' profile-bottom-border';
+}
+
 /**
  * Social Media Data
  *
@@ -179,6 +184,3 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 		<?php endif; ?>
 	</div>
 </div>
-<?php if( $horizontal_rule && 'horizontal' === $orientation ): ?>
-	<hr />
-<?php endif; ?>
