@@ -5,6 +5,13 @@
 /**
  * General styles
  */
+// sizing on XS and SM (overriding upstream max of 300px)
+.uds-person-profile {
+	@media screen and ( max-width: $uds-breakpoint-md ) {
+		max-width: 100%;
+	}
+}
+
 
 // Hover effects on names that are links.
 h3.person-name {
@@ -27,6 +34,12 @@ a.img-link > .profile-img {
 	}
 }
 
+// Bottom border.
+.profile-bottom-border {
+    border-bottom: 1px solid $uds-color-border-base;
+    padding-bottom: $uds-size-spacing-4;
+    margin-bottom: $uds-size-spacing-4;
+}
 /**
  * Editor styles
  */
@@ -58,17 +71,16 @@ a.img-link > .profile-img {
 	flex-direction: column;
 	padding: 1rem;
 
-	.img-link {
-		text-align: center;
-	}
+	// Desktop Sizes for vertical profiles.
+	@media screen and (min-width: $uds-breakpoint-lg) {
+		.img-link {
+			text-align: center;
+		}
 
-	img.profile-img {
-		margin-bottom: 2rem;
-		align-self: center;
-	}
-
-	@media screen and (max-width: $uds-breakpoint-md) {
-		max-width: 100%;
+		img.profile-img {
+			margin-bottom: 2rem;
+			align-self: center;
+		}
 	}
 }
 
@@ -77,23 +89,25 @@ a.img-link > .profile-img {
  */
 .person.vertical {
 
-	margin-left: 0;
+	@media screen and (min-width: $uds-breakpoint-lg) {
+		margin-left: 0;
 
-	h3.person-name, h4.person-profession {
-		text-align: center;
-	}
-
-	ul.person-contact-info {
-		flex-direction: column;
-		text-align: center;
-
-		li {
-			margin: .25rem 0 !important;
+		h3.person-name, h4.person-profession {
+			text-align: center;
 		}
-	}
 
-	ul.person-social-medias {
-		display: flex;
-		justify-content: center;
+		ul.person-contact-info {
+			flex-direction: column;
+			text-align: center;
+
+			li {
+				margin: .25rem 0 !important;
+			}
+		}
+
+		ul.person-social-medias {
+			display: flex;
+			justify-content: center;
+		}
 	}
 }
