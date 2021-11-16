@@ -31,7 +31,7 @@ if ( ! function_exists( 'uds_custom_category' ) ) {
 		);
 	}
 }
-add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
+add_filter( 'block_categories_all', 'uds_custom_category', 10, 2 );
 
 /**
  * Loops through an array of block folder names and includes the 'register.php'
