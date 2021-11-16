@@ -17,7 +17,7 @@ acf_register_block_type(
 		'name'              => 'uds-alert', // internal name, like a slug.
 		'title'             => __( 'UDS Alert', 'uds-wordpress-theme' ), // name the user will see.
 		'description'       => __( 'A UDS compliant alert banner, with customizable text and styles.', 'uds-wordpress-theme' ), // description the user will see.
-		'icon'              => 'info-outline', // Dashicon, or custom SVG code, for the icon.
+		'icon'              => 'warning', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/alert/alert.php', // location of the block's template.
 		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'alert', 'message', 'text' ),
