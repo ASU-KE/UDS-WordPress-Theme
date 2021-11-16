@@ -85,7 +85,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 					$item->ID
 				)
 			);
-
+echo $has_children;
 			$output .= $indent . ' ';
 			if ( 0 === $depth && $has_children > 0 ) {
 				$attributes = ' href="#menu-content-of-' . $parent_menu_item_id . '" ';
