@@ -10,16 +10,17 @@
  */
 
 /**
- * Register a custom block category for our blocks to live in.
+ * Register a custom block category for our blocks to live in. We hook into
+ * the block_categories_all() filter to do this.
  */
 if ( ! function_exists( 'uds_custom_category' ) ) {
 	/**
 	 * Merges our custom category in with the others.
 	 *
-	 * @param array   $categories The existing block categories.
-	 * @param WP_Post $post The current Post.
+	 * @param array $categories The existing block categories.
+	 * @param WP_Block_Editor_Context $editor_context Editor context.
 	 */
-	function uds_custom_category( $categories, $post ) {
+	function uds_custom_category( $categories, $editor_context ) {
 		return array_merge(
 			$categories,
 			array(
@@ -40,6 +41,9 @@ add_filter( 'block_categories_all', 'uds_custom_category', 10, 2 );
  * When creating a new block, add the folder name to the $block_includes array
  * below. The folder should contain a 'register.php' file that does the actual
  * block registration, along with your block template(s).
+ *
+ * Note: Blocks appear in the block picker IN THE ORDER THEY ARE LISTED HERE.
+ * When adding a new block, please make sure to insert it an alphabetical order.
  */
 function my_acf_blocks_init() {
 	// Check to see if we have ACF Pro for block support.
