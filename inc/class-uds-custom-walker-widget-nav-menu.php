@@ -94,7 +94,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 					<div class="card-header">';
 						$end_wrapper = '</div>';
 						$classes[] = 'collapsed nav-link';
-			} elseif (0 === $depth) {
+			} elseif ($has_children > 0) {
 				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 				$classes[] = 'nav-link';
 				$wrapper = '<div class="test-zainab">';
