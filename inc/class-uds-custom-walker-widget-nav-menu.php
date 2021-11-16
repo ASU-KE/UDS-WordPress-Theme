@@ -94,7 +94,12 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 					<div class="card-header">';
 						$end_wrapper = '</div>';
 						$classes[] = 'collapsed nav-link';
-			} else {
+			} elseif (0 === $depth) {
+				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+				$classes[] = 'nav-link';
+				$wrapper = '<div class="test-zainab">';
+				$end_wrapper = '</div>';
+			}else {
 				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 				$classes[] = 'nav-link';
 				$wrapper = '<div class="nav-link-container">';
