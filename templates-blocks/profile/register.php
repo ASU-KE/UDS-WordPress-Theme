@@ -20,7 +20,7 @@ acf_register_block_type(
 		'name'              => 'uds-person-profile', // internal name, like a slug.
 		'title'             => __( 'UDS Person Profile', 'uds-wordpress-theme' ), // name the user will see.
 		'description'       => __( 'A block for building a single UDS profile', 'uds-wordpress-theme' ), // description the user will see.
-		'icon'              => 'users', // Dashicon, or custom SVG code, for the icon.
+		'icon'              => 'admin-users', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/profile/profile.php', // location of the block's template.
 		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'person', 'profile', 'uds' ),
