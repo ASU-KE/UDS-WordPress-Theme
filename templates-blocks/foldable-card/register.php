@@ -26,5 +26,15 @@ acf_register_block_type(
 			'jsx' => true,
 		),
 		'mode'              => 'edit',
-	)
+		'example'           => array(
+			'attributes' => array(
+				'mode' => 'preview', // show the actual card view for the preview when adding this block.
+				'data' => array(
+					'uds_single_accordion_title'      => 'Foldable card title',
+					'uds_single_accordion_title_icon' => 'fas fa-calendar-alt',
+					'uds_single_accordion_collapsed'  => true,
+				),
+			),
+		),
+	),
 );

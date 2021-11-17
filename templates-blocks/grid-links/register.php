@@ -26,5 +26,16 @@ acf_register_block_type(
 			'jsx' => true,
 		),
 		'mode'              => 'edit',
+		'example'           => array(
+			'attributes' => array(
+				'mode' => 'preview', // show the actual card view for the preview when adding this block.
+				'data' => array(
+					'uds_grid_links_source'  => 'arbitrary',
+					'uds_grid_links_columns' => 'three-columns',
+					'uds_grid_links_color'   => 'none',
+					'uds_grid_links_created' => '',
+				),
+			),
+		),
 	)
 );
