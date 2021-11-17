@@ -76,8 +76,6 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 			$parent_menu_item_id = esc_attr( $id );
 			$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
-
-
 			$has_children = $wpdb->get_var(
 				$wpdb->prepare(
 					"SELECT COUNT(meta_id)
@@ -90,15 +88,13 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 
 			$output .= $indent . ' ';
 			if ( 0 === $depth && $has_children > 0 ) {
-
 				$attributes = ' href="#menu-content-of-' . $parent_menu_item_id . '" ';
 				$attributes .= ' data-toggle="collapse" role="button" aria-expanded="false" role="button" aria-controls="menu-content-of-' . $parent_menu_item_id . '"';
 				$wrapper = '<div class="card card-foldable">
 					<div class="card-header">';
 						$end_wrapper = '</div>';
 						$classes[] = 'collapsed nav-link';
-			}else {
-
+			} else {
 				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 				$classes[] = 'nav-link';
 				$wrapper = '<div class="nav-link-container">';
