@@ -1,113 +1,50 @@
-/**
- * SCSS styling for individual, static, profile block.
- */
 
-/**
- * General styles
- */
-// sizing on XS and SM (overriding upstream max of 300px)
-.uds-person-profile {
-	@media screen and ( max-width: $uds-breakpoint-md ) {
-		max-width: 100%;
-	}
-}
+// .profile-type-standard .pictureOriginal {
+// 	width: 180px;
+// 	height: 180px;
+// 	border-radius: 500px;
+// 	margin-top: 0;
+// 	object-fit: cover;
+//   }
+//   .profile-name a {
+// 	color: #000;
+// 	text-decoration: none;
+//   }
+//   .profile-name {
+// 	margin-top: 24px;
+//   }
+//   .profile-row {
+// 	border-bottom: 2px #e0e0e0 solid;
+// 	padding-bottom: 32px;
+// 	padding-top: 32px;
+//   }
 
+//   .no-bottom-border {
+// 	  border-bottom: none !important;
+//   }
 
-// Hover effects on names that are links.
-h3.person-name {
-	a {
-		text-decoration: none;
-		color: $uds-color-font-dark-base;
+//   .profile-bio-column {
+// 	max-width: 700px;
+//   }
+//   .profile-contact-row {
+// 	display: flex;
+//   }
+//   .profile-contact-row > div {
+// 	margin-right: 32px;
+//   }
 
-		&:hover {
-			color: $uds-color-brand-maroon;
-			opacity: 0.7;
-			text-decoration: underline;
-		}
-	}
-}
+//   .profile-row {
+// 	display: flex;
+//   }
+//   .profile-photo-column {
+// 	padding: 24px 24px 24px 0;
+//   }
 
-// Hover effect on profile images that are links.
-a.img-link > .profile-img {
-	&:hover {
-		opacity: 0.7;
-	}
-}
+//   .loader {
+// 	text-align: center;
+// 	margin-top: 100px;
+//   }
 
-// Bottom border.
-.profile-bottom-border {
-    border-bottom: 1px solid $uds-color-border-base;
-    padding-bottom: $uds-size-spacing-4;
-    margin-bottom: $uds-size-spacing-4;
-}
-/**
- * Editor styles
- */
-.acf-block-preview {
-	// block clicks on the links inside the block.
-	.uds-person-profile {
-		a {
-			pointer-events: none;
-			cursor: auto;
-
-			// keep images inside of <a> tags full-size.
-			& img {
-				min-width: 180px;
-				width: 180px
-			}
-		}
-	}
-}
-
-
-/**
- * Vertical profile styles
- */
-
-/**
- * Styles applied to the wrapping profile container.
- */
-.uds-person-profile.vertical {
-	flex-direction: column;
-	padding: 1rem;
-
-	// Desktop Sizes for vertical profiles.
-	@media screen and (min-width: $uds-breakpoint-lg) {
-		.img-link {
-			text-align: center;
-		}
-
-		img.profile-img {
-			margin-bottom: 2rem;
-			align-self: center;
-		}
-	}
-}
-
-/**
- * Styles applied to the inner 'person' container.
- */
-.person.vertical {
-
-	@media screen and (min-width: $uds-breakpoint-lg) {
-		margin-left: 0;
-
-		h3.person-name, h4.person-profession {
-			text-align: center;
-		}
-
-		ul.person-contact-info {
-			flex-direction: column;
-			text-align: center;
-
-			li {
-				margin: .25rem 0 !important;
-			}
-		}
-
-		ul.person-social-medias {
-			display: flex;
-			justify-content: center;
-		}
-	}
-}
+//   .titleOriginal {
+// 	font-weight: bold;
+//   }
