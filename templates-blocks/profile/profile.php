@@ -19,7 +19,7 @@ $person_text           = get_field( 'uds_profile_text' );
 $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
-$profile_link_type     = get_field( 'uds_profile_link_type' );
+
 
 
 // If additional classes were requested, clean up the input and add them.
@@ -62,13 +62,6 @@ $base_social_media = array(
 	)
 	);
 
-// Get orientation value and set a class if we want a vertical profile.
-$orientation = get_field( 'uds_profile_orientation' );
-$orientation_class = '';
-if ( 'vertical' === $orientation ) {
-	$orientation_class = 'vertical';
-}
-
 /**
  * Determine if we should render the 'contact row' that has email, phone
  * and address. We default to rendering this row, but turn it off if ALL
@@ -86,50 +79,68 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 <!-- Actually Render the Block (compatible version) -->
 <div class="profile profile-type-standard <?php echo $additional_classes; ?>">
 	<div class="profile-row <?php echo $border_override_class; ?>">
-		<div class="profile-photo-column">
-			<a href="" target="_blank" rel="noopener noreferrer">
-				<img class="pictureOriginal" src="<?php echo $image_data['url'];?>" alt="profile picture for <?php echo $person_name; ?>">
-			</a>
-		</div>
+		<?php if( ! empty( $image_data ) && ! empty( $person_url ) ): ?>
+			<div class="profile-photo-column">
+				<a href="" target="_blank" rel="noopener noreferrer">
+					<img class="pictureOriginal" src="<?php echo $image_data['url'];?>" alt="profile picture for <?php echo $person_name; ?>">
+				</a>
+			</div>
+		<?php endif; ?>
 		<div class="profile-bio-column">
 			<h3 class="profile-name">
-				<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+				<?php if( ! empty( $person_url ) ): ?>
+					<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
+				<?php endif; ?>
 					<?php echo $person_name; ?>
-				</a>
+				<?php if( ! empty( $person_url ) ): ?>
+					</a>
+				<?php endif; ?>
 			</h3>
-			<div class="profile-title">
-				<p class="titleOriginal">
-					<?php echo $person_title; ?>
-				</p>
-			</div>
-			<div class="profile-contact-row">
-				<div class="">
-					<p>
-						<a class="linkOriginal" href="mailto:BRENDA.DAY@asu.edu">
-							<?php echo $person_email; ?>
-						</a>
+			<?php if( ! empty( $person_title ) ): ?>
+				<div class="profile-title">
+					<p class="titleOriginal">
+						<?php echo $person_title; ?>
 					</p>
 				</div>
-				<div class="">
-					<p>
-						<a class="" href="tel:<?php echo $person_phone;?>">
-							<?php echo $person_phone; ?>
-						</a>
-					</p>
-				</div>
-				<div class="">
-						<div>
+			<?php endif; ?>
+			<?php if( $render_contact_row ): ?>
+				<div class="profile-contact-row">
+					<?php if( ! empty( $person_email ) ): ?>
+						<div class="">
 							<p>
-								<?php echo $person_street_address; ?>
-								<br>
-								<?php echo $person_city_state_zip; ?>
+								<a class="linkOriginal" href="mailto:BRENDA.DAY@asu.edu">
+									<?php echo $person_email; ?>
+								</a>
 							</p>
 						</div>
+					<?php endif; ?>
+					<?php if( ! empty( $person_phone ) ): ?>
+						<div class="">
+							<p>
+								<a class="" href="tel:<?php echo $person_phone;?>">
+									<?php echo $person_phone; ?>
+								</a>
+							</p>
+						</div>
+					<?php endif; ?>
+					<?php if( $person_street_address && $person_city_state_zip ): ?>
+					<div class="">
+							<div>
+								<p>
+									<?php echo $person_street_address; ?>
+									<br>
+									<?php echo $person_city_state_zip; ?>
+								</p>
+							</div>
+					</div>
+					<?php endif; ?>
 				</div>
-			</div>
-			<p>
-				<?php echo $person_text; ?>
-			</p>
+			<?php endif; ?>
+			<?php if( ! empty( $person_text ) ): ?>
+				<p>
+					<?php echo $person_text; ?>
+				</p>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
