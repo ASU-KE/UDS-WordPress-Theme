@@ -18,6 +18,7 @@ acf_register_block_type(
 		'description'       => __( 'A Tabbed panels block', 'uds-wordpress-theme' ),
 		'icon'              => 'table-row-after',
 		'render_template'   => 'templates-blocks/tabbed-panels/tabbed-panels.php',
+		'enqueue_script'    => get_template_directory_uri() . '/js/tabbed-panels.js',
 		'category'          => 'layout',
 		'keywords'          => array( 'tabs', 'tab', 'tabbed', 'panel', 'panels', 'nav'),
 		'supports'          => array(
