@@ -343,28 +343,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_6178684e1d4a8",
-            "label": "Orientation",
-            "name": "uds_profile_orientation",
-            "type": "button_group",
-            "instructions": "Display profile with image on the left (horizontal), or image on top (vertical).",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "horizontal": "Horizontal",
-                "vertical": "Vertical"
-            },
-            "allow_null": 0,
-            "default_value": "Horizontal",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
             "key": "field_618311450b702",
             "label": "Horizontal Rule at Bottom?",
             "name": "uds_profile_horizontal_rule",
@@ -390,37 +368,6 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
-        },
-        {
-            "key": "field_618319d1890c9",
-            "label": "Profile Link Type",
-            "name": "uds_profile_link_type",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6178673f1d4a4",
-                        "operator": "!=empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "image": "Link image and name",
-                "link": "Show text link"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "image",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
         }
     ],
     "location": [
@@ -440,5 +387,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635981891
+    "show_in_rest": 0,
+    "modified": 1637280479
 }
