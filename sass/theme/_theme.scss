@@ -685,8 +685,10 @@ usd Tabbed panels
 }
 
 /*--------------------------------------------------------------
-UDS Card tags
+UDS Card tags and hero buttons
 --------------------------------------------------------------*/
-.card-tags .btn+.btn{
-	margin-left: 0;
+.v1-uds-hero-container, .card-tags{
+	.btn+.btn{
+		margin-left: 0;
+	}
 }
