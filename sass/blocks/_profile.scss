@@ -1,50 +1,68 @@
+// Profile Block SCSS
+// This SCSS is based on the CSS from our iSearch plugin.
+// We've used SCSS nesting here for more specific rules.
 
-.profile-type-standard .pictureOriginal {
-	width: 180px;
-	height: 180px;
-	border-radius: 500px;
-	margin-top: 0;
-	object-fit: cover;
-  }
-  .profile-name a {
-	color: #000;
-	text-decoration: none;
-  }
-  .profile-name {
-	margin-top: 24px;
-  }
-  .profile-row {
-	border-bottom: 2px #e0e0e0 solid;
-	padding-bottom: 32px;
-	padding-top: 32px;
-  }
+// Our base profile class.
+.profile .profile-type-standard {
 
-  .no-bottom-border {
-	  border-bottom: none !important;
-  }
+	// The actual content row.
+	.profile-row {
+		border-bottom: 2px #e0e0e0 solid;
+		padding-bottom: 32px;
+		padding-top: 32px;
+		display: flex;
 
-  .profile-bio-column {
-	max-width: 700px;
-  }
-  .profile-contact-row {
-	display: flex;
-  }
-  .profile-contact-row > div {
-	margin-right: 32px;
-  }
+		// Column containing the profile image.
+		.profile-photo-column {
+			padding: 24px 24px 24px 0;
 
-  .profile-row {
-	display: flex;
-  }
-  .profile-photo-column {
-	padding: 24px 24px 24px 0;
-  }
+			// Image style: fixed dimensions and object-fit rule for consistency.
+			img.pictureOriginal {
+				width: 180px;
+				height: 180px;
+				border-radius: 500px;
+				margin-top: 0;
+				object-fit: cover;
+			}
+		}
 
-  .loader {
-	text-align: center;
-	margin-top: 100px;
-  }
+		// A class to undo the default bottom border when needed.
+		.no-bottom-border {
+			border-bottom: none !important;
+		}
 
-  .titleOriginal {
-	font-weight: bold;
-  }
+		// Column with everything but the image.
+		.profile-bio-column {
+			max-width: 700px;
+
+			// Row with email/phone/address.
+			.profile-contact-row {
+				display: flex;
+
+				// Adds right margin to the <div> containing all contact info.
+				&> div {
+					margin-right: 32px;
+					}
+			}
+
+			// Styles for the person's name and title.
+			.profile-name {
+				margin-top: 24px;
+
+				a {
+					color: #000;
+					text-decoration: none;
+
+					&:hover {
+						color: blue !important;
+						// color: $uds-color-brand-maroon;
+					}
+				}
+
+				.titleOriginal {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
