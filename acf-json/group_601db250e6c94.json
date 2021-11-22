@@ -18,40 +18,13 @@
             "return_format": "array"
         },
         {
-            "key": "field_616614d2ec4c4",
-            "label": "Show more button?",
-            "name": "uds_button_show_more_button",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_601e39a0afff2",
             "label": "External Link?",
             "name": "external_link",
             "type": "true_false",
             "instructions": "Adds appropriate \"rel\" values for links that leave the 'asu.edu' domain.",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_616614d2ec4c4",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -153,5 +126,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
-    "modified": 1634080066
+    "modified": 1616619261
 }

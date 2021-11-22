@@ -665,7 +665,9 @@ z-index: 1;
 	& ~ h6,
 	& ~ span,
 	& ~ ul,
-	& ~ figure{
+	& ~ figure,
+	& ~ blockquote,
+	& ~ img{
 	display: none!important;
 }
 &:after{
@@ -688,31 +690,22 @@ a{
 
 }
 
-.wp-block-acf-uds-button{
-	.uds-show-btn{
+
+
+.wp-block-acf-uds-show-more{
+
+.uds-show-more-btn{
 		z-index: 0;
-   &:before{
-		 content: "";
-background: linear-gradient(
-0deg,#ffffff08 30%,#ed86a67a 100%);
-width: 100%;
-position: absolute;
-left: 0;
-top: 0;
-z-index: -1;
-transition: .3s;
-height: 500px;
-display: block;
+	 &:after{
+		 content: none;
+
+	}
+}
+
+	& ~ .wp-block {
+ background: #ff00004d;
 	 }
 
-	 &:after{
-height: 80px;
-background: linear-gradient(
-180deg,#ffffff6e 10%,#fff 100%);
-
-
-	}
-	}
 }
 
 .uds-show-less-container{
@@ -727,8 +720,4 @@ left: 50%;
 transform: translateX(-50%);
 
 		}
-}
-
-.uds-show-btn{
-	//transition: all 0.5s ease;
 }
