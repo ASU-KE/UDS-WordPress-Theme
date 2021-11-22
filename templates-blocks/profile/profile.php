@@ -108,7 +108,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 					<?php if( ! empty( $person_email ) ): ?>
 						<div class="">
 							<p>
-								<a class="linkOriginal" href="mailto:BRENDA.DAY@asu.edu">
+								<a class="linkOriginal" href="mailto:<?php echo $person_email;?>">
 									<?php echo $person_email; ?>
 								</a>
 							</p>
