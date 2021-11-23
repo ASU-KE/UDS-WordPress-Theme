@@ -23,11 +23,11 @@
             "label": "Hero Size",
             "name": "hero_size",
             "type": "select",
-            "instructions": "Choose",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -53,7 +53,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "60",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -84,7 +84,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -105,17 +105,10 @@
                         "operator": "==",
                         "value": "local_image"
                     }
-                ],
-                [
-                    {
-                        "field": "field_60527e8bb6c34",
-                        "operator": "==",
-                        "value": "local_video"
-                    }
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -135,7 +128,7 @@
             "label": "Video",
             "name": "video",
             "type": "file",
-            "instructions": "Choose a video from the media library. (only mp4 is allowed)",
+            "instructions": "Choose an MP4 video from the media library",
             "required": 0,
             "conditional_logic": [
                 [
@@ -147,7 +140,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -178,7 +171,7 @@
             "label": "Title Text",
             "name": "hero_title",
             "type": "text",
-            "instructions": "",
+            "instructions": "The large title portion of the hero",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -201,7 +194,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -212,9 +205,9 @@
             "default_value": "black",
             "allow_null": 0,
             "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
+            "ui": 1,
             "ajax": 0,
+            "return_format": "value",
             "placeholder": ""
         },
         {
@@ -226,7 +219,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -253,7 +246,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "30",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -287,7 +280,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -325,7 +318,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -344,7 +337,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -386,7 +379,7 @@
             "collapsed": "field_60be99f040bae",
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "layout": "row",
             "button_label": "Add Button",
             "sub_fields": [
                 {
@@ -413,6 +406,39 @@
             ]
         },
         {
+            "key": "field_6127d5560dd21",
+            "label": "Legacy Button",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6127d57a0dd22",
+            "label": "About Legacy Buttons",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "message": "The original version of the theme allowed for only one CTA button in the hero. We have since added support for multiple buttons. These legacy fields are being left here for sites that may have used them, but these fields may be removed at a future date.\r\n\r\nPlease add new buttons  - even when you want a single button - on the 'Buttons' tab.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_605e64882fb32",
             "label": "Call to Action URL",
             "name": "hero_call_to_action_url",
@@ -421,7 +447,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -437,7 +463,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -456,7 +482,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -494,5 +520,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1623104128
+    "modified": 1630002253
 }

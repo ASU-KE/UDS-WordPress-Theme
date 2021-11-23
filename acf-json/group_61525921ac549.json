@@ -1,0 +1,231 @@
+{
+    "key": "group_61525921ac549",
+    "title": "UDS Image",
+    "fields": [
+        {
+            "key": "field_615259489cf56",
+            "label": "Image file",
+            "name": "uds_image_image_file",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6154f646c3554",
+            "label": "Caption Type",
+            "name": "uds_image_caption_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "library": "Use Media Library caption",
+                "custom": "Write my own"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "custom",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_615259909cf57",
+            "label": "Caption",
+            "name": "uds_image_caption",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f646c3554",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Add image caption here",
+            "tabs": "all",
+            "toolbar": "uds_wp_cards",
+            "media_upload": 0,
+            "delay": 1
+        },
+        {
+            "key": "field_615259df9cf58",
+            "label": "Shadow effect",
+            "name": "uds_image_shadow_effect",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6154f5cdc3553",
+            "label": "Image Scale",
+            "name": "uds_image_image_scale",
+            "type": "range",
+            "instructions": "Choose a relative size for the image, between 25% and 100%",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "min": 25,
+            "max": "",
+            "step": 5,
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_6160d64a17b6f",
+            "label": "Wrap text around image?",
+            "name": "uds_image_wrap_text_around_image",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f5cdc3553",
+                        "operator": "<",
+                        "value": "100"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_615624368284e",
+            "label": "Resized Image Alignment",
+            "name": "uds_image_resized_image_alignment",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6154f5cdc3553",
+                        "operator": "<",
+                        "value": "100"
+                    },
+                    {
+                        "field": "field_6160d64a17b6f",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "Left",
+                "center": "Center",
+                "end": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "start",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6160d78043946",
+            "label": "Resized Image Alignment",
+            "name": "uds_image_alignment_when_text_wrapped_around",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6160d64a17b6f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "start",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1633736886
+}
