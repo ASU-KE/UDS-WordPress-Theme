@@ -21,6 +21,7 @@ acf_register_block_type(
 		'description'       => __( 'A wrapper to apply a background color or texture to a container.', 'uds-wordpress-theme' ),
 		'icon'              => 'star-filled',
 		'render_template'   => 'templates-blocks/background-section/background-section.php',
+		'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/background-section/background-section.js',
 		'category'          => 'layout',
 		'keywords'          => array( 'background', 'section' ),
 		'supports'          => array(
