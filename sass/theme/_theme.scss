@@ -758,3 +758,12 @@ transform: translateX(-50%);
 
 		}
 }
+
+/*--------------------------------------------------------------
+UDS Card tags and hero buttons
+--------------------------------------------------------------*/
+.v1-uds-hero-container, .card-tags{
+	.btn+.btn{
+		margin-left: 0;
+	}
+}
