@@ -37,8 +37,6 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		$js_modals_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/modals.js' );
 		wp_enqueue_script( 'uds-wordpress-modals-scripts', get_template_directory_uri() . '/js/modals.js', array(), $js_modals_version, true );
 
-
-
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}

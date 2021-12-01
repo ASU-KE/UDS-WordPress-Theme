@@ -1,0 +1,49 @@
+{
+    "key": "group_619be278429b8",
+    "title": "UDS Block: Show more",
+    "fields": [
+        {
+            "key": "field_619be28c79f0e",
+            "label": "Show more button",
+            "name": "uds_block_show_more_button",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_60522a8361f39",
+                "field_601f031d80f7e",
+                "field_601f61b7ff690",
+                "field_602c30da61fbb"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-show-more"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1637607756
+}
