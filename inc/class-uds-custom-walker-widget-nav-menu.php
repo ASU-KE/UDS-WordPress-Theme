@@ -79,7 +79,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			$has_children = $wpdb->get_var(
 				$wpdb->prepare(
 					"SELECT COUNT(meta_id)
-                            FROM wp_postmeta
+                            FROM $wpdb->postmeta
                             WHERE meta_key='_menu_item_menu_item_parent'
                             AND meta_value=%s", // '" . $item->ID . "'"
 					$item->ID
