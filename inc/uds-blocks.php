@@ -114,7 +114,7 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 		return $registered_blocks;
 	}
 
-	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
+	add_filter( 'allowed_block_types_all', 'uds_wordpress_unregister_native_blocks' );
 }
 
 // Deregister the core WordPress block patterns.
