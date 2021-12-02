@@ -683,3 +683,20 @@ usd Tabbed panels
 }
 
 }
+
+
+.breadcrumb.yoast,
+.yoast-breadcrumbs{
+	span span span{
+		&:before{
+			padding-right: 0.5rem;
+			color: #bfbfbf;
+			content: "/";
+
+		}
+	}
+}
+
+.yoast-breadcrumbs{
+@extend .breadcrumb;
+}
