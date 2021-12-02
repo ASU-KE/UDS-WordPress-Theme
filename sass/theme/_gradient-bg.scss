@@ -1,15 +1,15 @@
 /*--------------------------------------------------------------
-. Add breakpoints and colors to gr[side]-[breakpoint]-[color] classes
+. Add breakpoints and colors to g[side]-[breakpoint]-[color] classes
 --------------------------------------------------------------*/
 /**
  * This will allow us to use gradient-[breakpoint]-[side]-[color] classes with bootstrap breackpoints and UDS colors:
- * .gr[side]-[breakpoint]-[color]
- * .grt-lg-gold
- * .grb-md-maroon
- * .grl-sm-gray-7
- * .grr-xs-white
- * .grc-gray-5
- * .grc-xl-gray-1
+ * .g[side]-[breakpoint]-[color]
+ * .gt-lg-gold
+ * .gb-md-maroon
+ * .gl-sm-gray-7
+ * .gr-xs-white
+ * .ov-gray-5
+ * .ov-xl-gray-1
  * And so on ...
  *
  */
@@ -36,20 +36,20 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-$gr-color: rgba($value, 0.79);
+$g-color: rgba($value, 0.79);
 			@if ($name=='none'){
-				$gr-color: $value;
+				$g-color: $value;
 			}
 		//	} @else{
-		//	$gr-color: rgba($value, 0.79);
+		//	$g-color: rgba($value, 0.79);
 //}
 
 		//@each $name, $value in $colors {
-			.grt#{$infix}-#{$name},
-			.grr#{$infix}-#{$name},
-			.grb#{$infix}-#{$name},
-			.grl#{$infix}-#{$name},
-			.grc#{$infix}-#{$name} {
+			.gt#{$infix}-#{$name},
+			.gr#{$infix}-#{$name},
+			.gb#{$infix}-#{$name},
+			.gl#{$infix}-#{$name},
+			.ov#{$infix}-#{$name} {
 				position: relative;
 				z-index: 0;
 				&:before {
@@ -62,30 +62,30 @@ $gr-color: rgba($value, 0.79);
 				z-index: -1;
 				}
 			}
-			.grt#{$infix}-#{$name}{
+			.gt#{$infix}-#{$name}{
 				&:before {
-					background-image: linear-gradient(0deg, rgba($value, 0) 0%, $gr-color 100%);
+					background-image: linear-gradient(0deg, rgba($value, 0) 0%, $g-color 100%);
 				}
 			}
-			.grr#{$infix}-#{$name}{
+			.gr#{$infix}-#{$name}{
 				&:before {
-					background-image: linear-gradient(90deg, rgba($value, 0) 0%, $gr-color 100%);
+					background-image: linear-gradient(90deg, rgba($value, 0) 0%, $g-color 100%);
 				}
 			}
-			.grb#{$infix}-#{$name}{
+			.gb#{$infix}-#{$name}{
 				&:before {
-					background-image: linear-gradient(180deg, rgba($value, 0) 0%, $gr-color 100%);
+					background-image: linear-gradient(180deg, rgba($value, 0) 0%, $g-color 100%);
 				}
 			}
-			.grl#{$infix}-#{$name}{
+			.gl#{$infix}-#{$name}{
 				&:before {
-					background-image: linear-gradient(270deg, rgba($value, 0) 0%, $gr-color 100%);
+					background-image: linear-gradient(270deg, rgba($value, 0) 0%, $g-color 100%);
 				}
 			}
 
-			.grc#{$infix}-#{$name}{
+			.ov#{$infix}-#{$name}{
 				&:before {
-					background-color: $gr-color;
+					background-color: $g-color;
 				}
 			}
 
