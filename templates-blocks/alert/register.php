@@ -20,7 +20,7 @@ acf_register_block_type(
 		'icon'              => 'warning', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/alert/alert.php', // location of the block's template.
 		'category'          => 'uds', // category this block appears in.
-		'keywords'          => array( 'alert', 'message', 'text' ),
+		'keywords'          => array( 'alert', 'message', 'banner' ),
 		'supports'          => array(
 			'align' => false, // Remove the align button in the editor toolbar.
 		),
