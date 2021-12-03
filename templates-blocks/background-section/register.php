@@ -18,15 +18,24 @@ acf_register_block_type(
 	array(
 		'name'              => 'background-section',
 		'title'             => __( 'UDS Background Section', 'uds-wordpress-theme' ),
-		'description'       => __( 'A wrapper to apply a background color or texture to a container.', 'uds-wordpress-theme' ),
+		'description'       => __( 'Creates a container that can have a background image, pattern, or color, and uses Inner Blocks for content.', 'uds-wordpress-theme' ),
 		'icon'              => 'star-filled',
 		'render_template'   => 'templates-blocks/background-section/background-section.php',
 		'category'          => 'uds',
-		'keywords'          => array( 'background', 'section' ),
+		'keywords'          => array( 'background', 'section', 'image' ),
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,
 		),
 		'mode'              => 'edit',
+		'example'  => array(
+			'attributes' => array(
+				'mode' => 'preview',
+				'data' => array(
+					'uds_background_section_choice'    => 'pattern',
+					'uds_background_section_pattern'   => 'network-white',
+				),
+			),
+		),
 	)
 );
