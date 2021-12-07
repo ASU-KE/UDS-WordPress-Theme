@@ -23,6 +23,7 @@ acf_register_block_type(
 		'render_template'   => 'templates-blocks/background-section/background-section.php',
 		'category'          => 'uds',
 		'keywords'          => array( 'background', 'section', 'image' ),
+		'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/background-section/background-section.js',
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,
