@@ -776,6 +776,7 @@ UDS Breadcrumb - Yoast
 .yoast-breadcrumbs{
 	span span span{
 		&:before{
+			padding-left: 0.5rem;
 			padding-right: 0.5rem;
 			color: #bfbfbf;
 			content: "/";
