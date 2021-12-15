@@ -48,6 +48,8 @@ if ( ! function_exists( 'uds_wp_get_theme_default_settings' ) ) {
 				'primary'      => 3,
 				'social-media' => 4,
 			),
+			'404_page_type'          => 'default',
+			'404_page_name'          => '404',
 		);
 
 		/**
