@@ -8,18 +8,21 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// Get theme mods from the Customizer.
 $image_404 = get_theme_mod( 'image_404' );
+$page_type = get_theme_mod( '404_page_type' );
+$custom_page_name = get_theme_mod( '404_page_name' );
 
 get_header();
-
-// get the 404 page.
-$not_found_page = get_page_by_title( '404' );
 
 ?>
 <main id="skip-to-content" <?php post_class(); ?>>
 		<?php
-		// if we have a 404 page.
-		if ( null !== $not_found_page ) {
+		// if we have chosen a custom page type.
+		if ( 'custom' === $page_type ) {
+
+			// get the 404 page name from the customizer.
+			$not_found_page = get_page_by_title( $custom_page_name );
 
 			// get the blocks for the 404 page.
 			$blocks = parse_blocks( $not_found_page->post_content );
@@ -39,7 +42,7 @@ $not_found_page = get_page_by_title( '404' );
 			echo $content;
 
 		} else {
-
+			// If we have chosen 'default' from the customizer.
 			?>
 			<div class="v1-uds-hero uds-hero-lg hero-image">
 				<?php $image_404 = wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>
