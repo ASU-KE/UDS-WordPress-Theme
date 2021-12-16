@@ -766,7 +766,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * 404 Page name: shows if 'custom' is set. Name of standard page to use for 404 content.
 		 */
 		$wp_customize->add_setting(
-			'404_page_name',
+			'404_page_id',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -777,15 +777,16 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		$wp_customize->add_control(
-			'404_page_name_control',
+			'404_page_id_control',
 			array(
-				'label'      => __( '404 Page Name', 'uds-wordpress-theme' ),
+				'label'      => __( '404 Page', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Name of custom 404 page you would like to use.',
+					'Choose an existing page containing the content you would like to use on your custom 404 page.',
 					'uds-wordpress-theme'
 				),
+				'type'       => 'dropdown-pages',
 				'section'    => 'uds_wp_theme_section_404',
-				'settings'   => '404_page_name',
+				'settings'   => '404_page_id',
 				'active_callback' => 'show_404_page_name',
 				),
 		);
