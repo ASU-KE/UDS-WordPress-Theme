@@ -34,9 +34,18 @@ get_header();
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<header class="entry-header">
 				<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
+
+
+
 				<?php
 					the_title( '<h1 class="article entry-title">', '</h1>' );
 				?>
+
+				<?php
+							if ( function_exists('yoast_breadcrumb') ) {
+								yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs" class="breadcrumb yoast">','</nav>' );
+							}
+							?>
 			</header><!-- .entry-header -->
 
 	<div class="entry-content">
