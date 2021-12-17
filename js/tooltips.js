@@ -97,7 +97,6 @@
 
 ( function( $ ) {
 $( document ).ready(function() {
-alert ('this is me!');
 
   $('[data-toggle="tooltip"]').tooltip();
 
