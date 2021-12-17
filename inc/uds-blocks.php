@@ -64,9 +64,9 @@ function my_acf_blocks_init() {
 			'/image',              // UDS Image block with caption and shadow options.
 			'/modals',             // UDS windows modal block.
 			'/overlay-card',       // UDS Program Cards.
+			'/profile', // Individual person profile (non-iSearch)
 			'/show-more',          // Show more button.
 			'/tabbed-panels',      // UDS Tabbed panels block.
-			'/profile', // Individual person profile (non-iSearch)
 		);
 
 		// Loop through array items and include each register file.
