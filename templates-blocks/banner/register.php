@@ -28,8 +28,11 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview',
 				'data' => array(
-					'alert_style'   => 'info',
-					'alert_content' => 'Your alert text here.',
+					'uds_banner_color' => 'blue',
+					'uds_banner_icon' => 'info-circle',
+					'show_close_button' => true,
+					'uds_banner_title' => 'Your title here',
+					'uds_banner_text' => 'Your banner text goes here.',
 				),
 			),
 		),

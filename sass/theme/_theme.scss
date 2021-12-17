@@ -767,3 +767,24 @@ UDS Card tags and hero buttons
 		margin-left: 0;
 	}
 }
+
+
+/*--------------------------------------------------------------
+UDS Breadcrumb - Yoast
+--------------------------------------------------------------*/
+.breadcrumb.yoast,
+.yoast-breadcrumbs{
+	span span span{
+		&:before{
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			color: #bfbfbf;
+			content: "/";
+
+		}
+	}
+}
+
+.yoast-breadcrumbs{
+@extend .breadcrumb;
+}
