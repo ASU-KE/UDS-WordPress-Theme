@@ -112,7 +112,7 @@ foreach ( $menu_items as $item ) :
 								foreach ( $item['children'] as $child ) :
 									// if $child is flagged as a CTA button, it is a mega-menu CTA button, outside of columns.
 									if ( $child['cta_button'] ) {
-										$mega_cta_buttons .= uds_wp_render_nav_cta_button( $child['cta_color'], $item );
+										$mega_cta_buttons .= uds_wp_render_nav_cta_button( $child['cta_color'], $child );
 										continue;
 									}
 

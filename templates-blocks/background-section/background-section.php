@@ -42,7 +42,7 @@ if ( $choice ) {
 		} else {
 			// Background colors via utility BS4 classes.
 			echo '<section class="uds-section bg-color ' . $preset . ' ' . $additional_classes . '" >';
-		}   
+		}
 	} else if ( 'pattern' === $choice ) {
 
 		// UDS Background patterns.
@@ -64,11 +64,19 @@ if ( $choice ) {
 	$template = array(
 		array(
 			'wp-bootstrap-blocks/container',
+			array( 'marginAfter' => 'mb-0' ),
 			array(
-				'marginAfter' => 'mb-0',
+
+				array(
+					'core/group',
+					array(),
+				),
+
 			),
 		),
 	);
+
+
 
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 	echo '</section>';

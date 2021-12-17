@@ -35,11 +35,13 @@ acf_register_block_type(
 			'attributes' => array(
 				'mode' => 'preview', // show the actual card view for the preview when adding this block.
 				'data' => array(
-					'title'        => 'A Sample Block',
-					'body_text'    => 'Lorem ipsum sit dolor amet.',
+					'title'        => 'UDS Card Block',
+					'body_text'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec enim nunc. Morbi vitae viverra enim, nec elementum nulla. Cras varius turpis posuere tortor feugiat, a mattis ligula ornare. Aliquam in rhoncus elit. Aliquam at elementum ligula, nec egestas massa.',
 					'card_style'   => 'basic',
 					'header_style' => 'image',
-					'image'        => 'https://via.placeholder.com/240x120?text=Placeholder+Image',
+					'image'        => array(
+						'url' => 'https://picsum.photos/480/240',
+					),
 				),
 			),
 		),

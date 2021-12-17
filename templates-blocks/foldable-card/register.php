@@ -19,12 +19,22 @@ acf_register_block_type(
 		'icon'              => 'archive',
 		'render_template'   => 'templates-blocks/foldable-card/foldable-card.php',
 		'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/foldable-card/foldable-card.js',
-		'category'          => 'layout',
+		'category'          => 'uds',
 		'keywords'          => array( 'accordions', 'accordion', 'foldable', 'card'),
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,
 		),
 		'mode'              => 'edit',
-	)
+		'example'           => array(
+			'attributes' => array(
+				'mode' => 'preview', // show the actual card view for the preview when adding this block.
+				'data' => array(
+					'uds_single_accordion_title'      => 'Foldable card title',
+					'uds_single_accordion_title_icon' => 'fas fa-calendar-alt',
+					'uds_single_accordion_collapsed'  => true,
+				),
+			),
+		),
+	),
 );

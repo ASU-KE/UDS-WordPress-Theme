@@ -10,16 +10,17 @@
  */
 
 /**
- * Register a custom block category for our blocks to live in.
+ * Register a custom block category for our blocks to live in. We hook into
+ * the block_categories_all() filter to do this.
  */
 if ( ! function_exists( 'uds_custom_category' ) ) {
 	/**
 	 * Merges our custom category in with the others.
 	 *
-	 * @param array   $categories The existing block categories.
-	 * @param WP_Post $post The current Post.
+	 * @param array $categories The existing block categories.
+	 * @param WP_Block_Editor_Context $editor_context Editor context.
 	 */
-	function uds_custom_category( $categories, $post ) {
+	function uds_custom_category( $categories, $editor_context ) {
 		return array_merge(
 			$categories,
 			array(
@@ -31,7 +32,7 @@ if ( ! function_exists( 'uds_custom_category' ) ) {
 		);
 	}
 }
-add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
+add_filter( 'block_categories_all', 'uds_custom_category', 10, 2 );
 
 /**
  * Loops through an array of block folder names and includes the 'register.php'
@@ -40,6 +41,9 @@ add_filter( 'block_categories', 'uds_custom_category', 10, 2 );
  * When creating a new block, add the folder name to the $block_includes array
  * below. The folder should contain a 'register.php' file that does the actual
  * block registration, along with your block template(s).
+ *
+ * Note: Blocks appear in the block picker IN THE ORDER THEY ARE LISTED HERE.
+ * When adding a new block, please make sure to insert it an alphabetical order.
  */
 function my_acf_blocks_init() {
 	// Check to see if we have ACF Pro for block support.
@@ -47,20 +51,21 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
-			'/blockquote',              // Combination of UDS block quote and testimonial.
 			'/alert',
-			'/button', // Button block for UDS theme.
-			'/cards', // UDS Cards.
-			'/content-sections', // Miscellaneous content sections.
-			'/headings', // A UDS Headings block.
-			'/overlay-card', // UDS Program Cards.
 			'/background-section', // UDS Background section.
-			'/modals', // UDS windows modal block.
-			'/banner', // UDS banner block.
-			'/grid-links',              // UDS Grid Links.
-			'/foldable-card', // UDS Foldable card block.
-			'/tabbed-panels', // UDS Tabbed panels block.
-			'/image', // UDS Image block.
+			'/banner',             // UDS banner block.
+			'/blockquote',         // Combination of UDS block quote and testimonial.
+			'/button',             // Button block for UDS theme.
+			'/cards',              // UDS Cards.
+			'/content-sections',   // Miscellaneous content sections.
+			'/foldable-card',      // UDS Foldable card block.
+			'/grid-links',         // UDS Grid Links.
+			'/headings',           // A UDS Headings block.
+			'/image',              // UDS Image block with caption and shadow options.
+			'/modals',             // UDS windows modal block.
+			'/overlay-card',       // UDS Program Cards.
+			'/show-more',          // Show more button.
+			'/tabbed-panels',      // UDS Tabbed panels block.
 			'/profile', // Individual person profile (non-iSearch)
 		);
 
@@ -111,7 +116,7 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 		return $registered_blocks;
 	}
 
-	add_filter( 'allowed_block_types', 'uds_wordpress_unregister_native_blocks' );
+	add_filter( 'allowed_block_types_all', 'uds_wordpress_unregister_native_blocks' );
 }
 
 // Deregister the core WordPress block patterns.
