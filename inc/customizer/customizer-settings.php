@@ -718,17 +718,82 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/***********************************************************************
 		 * 404 Image Section
 		 *
-		 * Contains: button to show 404 page, 404 image
+		 * Contains: button to show 404 page, 404 image, 404 page type.
 		 */
 
 		$wp_customize->add_section(
 			'uds_wp_theme_section_404',
 			array(
-				'title'      => __( '404 Image', 'uds-wordpress-theme' ),
+				'title'      => __( '404 Page Settings', 'uds-wordpress-theme' ),
 				'priority'   => 30,
 			)
 		);
 
+
+		/**
+		 * 404 page type selection: choose default or custom 404 page.
+		 */
+		$wp_customize->add_setting(
+			'404_page_type',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			'404_page_type_control',
+			array(
+				'label'      => __( '404 Page Type', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'You can use the default 404 page content (and choose an image here), or create a custom page on the website for your 404 content.',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_404',
+				'settings'   => '404_page_type',
+				'type'       => 'radio',
+				'choices'    => array(
+					'default'  => 'Default',
+					'custom' => 'Custom',
+				),
+			)
+		);
+
+		/**
+		 * 404 Page name: shows if 'custom' is set. Name of standard page to use for 404 content.
+		 */
+		$wp_customize->add_setting(
+			'404_page_id',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			'404_page_id_control',
+			array(
+				'label'      => __( '404 Page', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'Choose an existing page containing the content you would like to use on your custom 404 page.',
+					'uds-wordpress-theme'
+				),
+				'type'       => 'dropdown-pages',
+				'section'    => 'uds_wp_theme_section_404',
+				'settings'   => '404_page_id',
+				'active_callback' => 'show_404_page_name',
+				),
+		);
+
+		/**
+		 * 404 Image: used only when page type is 'default'.
+		 */
 		$wp_customize->add_setting(
 			'image_404',
 			array(
@@ -737,6 +802,24 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
 				'transport'         => 'refresh',
+			)
+		);
+
+		// Image picker control (created differently, via an instance of a class).
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'image_404',
+				array(
+					'label'      => __( 'Default 404 Image', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'Background image only used on the default 404 page. For best results, use a 1200x500 pixel image',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_404',
+					'settings'   => 'image_404',
+					'active_callback' => 'show_404_image_field',
+				)
 			)
 		);
 
@@ -761,22 +844,6 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'onclick' => 'wp.customize.previewer.previewUrl.set( "/oranges" );',
 				),
 				'active_callback' => 'show_404_callback',
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'image_404',
-				array(
-					'label'      => __( '404 Image', 'uds-wordpress-theme' ),
-					'description'       => __(
-						'Resize and crop your desired image to approximately 1200px x 500px',
-						'uds-wordpress-theme'
-					),
-					'section'    => 'uds_wp_theme_section_404',
-					'settings'   => 'image_404',
-				)
 			)
 		);
 
@@ -924,6 +991,36 @@ add_action( 'customize_register', 'uds_wp_register_theme_customizer_settings' );
  */
 function show_404_callback() {
 	return ! is_404();
+}
+
+/**
+ * Show or hide the 404 image selector based on the 404 page type value.
+ * If the current value is 'custom', we don't show the image chooser.
+ */
+function show_404_image_field() {
+
+	$page_type = get_theme_mod( '404_page_type' );
+
+	if ( 'custom' === $page_type) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or hide the 404 page name input based on the 404 page type value.
+ * If the current value is 'default', we don't show the image chooser.
+ */
+function show_404_page_name() {
+
+	$page_type = get_theme_mod( '404_page_type' );
+
+	if ( 'default' === $page_type) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 /**
