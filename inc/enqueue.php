@@ -70,6 +70,9 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 		$js_heading_highlights = $theme_version . '.' . filemtime( get_template_directory() . '/js/heading-highlights.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-js-heading-highlights', get_template_directory_uri() . '/js/heading-highlights.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_heading_highlights );
 
+		$js_tooltips = $theme_version . '.' . filemtime( get_template_directory() . '/js/tooltips.js' );
+		wp_enqueue_script( 'uds-wordpress-admin-js-tooltips', get_template_directory_uri() . '/js/tooltips.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_tooltips );
+
 		$js_admin_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/admin.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-admin-script', get_template_directory_uri() . '/js/admin.js', array(), $js_admin_version );
 
