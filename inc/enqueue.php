@@ -73,11 +73,12 @@ if ( ! function_exists( 'uds_wp_admin_scripts' ) ) {
 		$js_tooltips = $theme_version . '.' . filemtime( get_template_directory() . '/js/tooltips.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-js-tooltips', get_template_directory_uri() . '/js/tooltips.js', array( 'wp-rich-text', 'wp-element', 'wp-editor' ), $js_tooltips );
 
+		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
+		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
+
 		$js_admin_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/admin.js' );
 		wp_enqueue_script( 'uds-wordpress-admin-admin-script', get_template_directory_uri() . '/js/admin.js', array(), $js_admin_version );
 
-		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
-		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
 
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).

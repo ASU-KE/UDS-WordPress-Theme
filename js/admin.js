@@ -20,5 +20,7 @@ $('ul.menu.ui-sortable li.menu-item-depth-0').each(function(){
 	}
 });
 
+  $('[data-toggle="tooltip"]').tooltip();
+
 });
 } )( jQuery );

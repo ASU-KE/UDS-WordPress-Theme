@@ -17,5 +17,13 @@ $( '.closeModalButton' ).click(function() {
 	$( this ).closest( '.uds-modal' ).removeClass( 'open' );
 });
 
+
+
+
+  $('[data-toggle="tooltip"]').tooltip();
+
+
+
+
 });
 } )( jQuery );
