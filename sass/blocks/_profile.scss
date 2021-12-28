@@ -2,8 +2,13 @@
 // This SCSS is based on the CSS from our iSearch plugin.
 // We've used SCSS nesting here for more specific rules.
 
-// Our base profile class.
-.profile .profile-type-standard {
+// Our base profile DIV has these two classes
+.profile.profile-type-standard {
+
+	// Turn off bottom border if the row has both these classes.
+	.profile-row.no-bottom-border {
+		border-bottom: none !important;
+	}
 
 	// The actual content row.
 	.profile-row {
@@ -24,11 +29,6 @@
 				margin-top: 0;
 				object-fit: cover;
 			}
-		}
-
-		// A class to undo the default bottom border when needed.
-		.no-bottom-border {
-			border-bottom: none !important;
 		}
 
 		// Column with everything but the image.
