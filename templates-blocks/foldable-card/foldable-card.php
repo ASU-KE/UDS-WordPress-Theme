@@ -11,14 +11,13 @@
  $collapsed = get_field( 'uds_single_accordion_collapsed' );
  $accordion_color = get_field( 'uds_single_accordion_color' );
 
- if ($collapsed){
-	 $collapsed= 'aria-expanded="false" class="collapsed"';
-	 $show_body_area='';
- }
- else {
-	 $collapsed= 'aria-expanded="true"';
-	 $show_body_area='show';
- }
+if ( $collapsed ) {
+	$collapsed = 'aria-expanded="false" class="collapsed"';
+	$show_body_area = '';
+} else {
+	$collapsed = 'aria-expanded="true"';
+	$show_body_area = 'show';
+}
 
 $additional_classes = '';
 if ( ! empty( $block['className'] ) ) {
@@ -38,34 +37,34 @@ if ( ! empty( $block['className'] ) ) {
 		),
 	);
 
-echo '<div class="card card-foldable mt-3 '. $accordion_color .' '. $additional_classes .'">
+	echo '<div class="card card-foldable mt-3 ' . $accordion_color . ' ' . $additional_classes . '">
 			<div class="card-header">
 				<h4>
 					<a
-						aria-controls="Body_'. $accordion_id .'"
-						'. $collapsed .'
-						data-target="#Body_'. $accordion_id .'"
+						aria-controls="Body_' . $accordion_id . '"
+						' . $collapsed . '
+						data-target="#Body_' . $accordion_id . '"
 						data-toggle="collapse"
-						href="#Body_'. $accordion_id .'"
-						id="Header_'. $accordion_id .'"
+						href="#Body_' . $accordion_id . '"
+						id="Header_' . $accordion_id . '"
 						role="button"
 					>
 					<span class="card-icon mb-0">
-					<i class="'. $accordion_icon .' mr-2"></i>
-						'. $accordion_title .'
+					<i class="' . $accordion_icon . ' mr-2"></i>
+						' . $accordion_title . '
         </span>
 						<span class="fas fa-chevron-up" />
 					</a>
 				</h4>
 			</div>
 							<div
-								aria-labelledby="Header_'. $accordion_id .'"
-								class="collapse card-body '. $show_body_area .'"
-								id="Body_'. $accordion_id .'"
+								aria-labelledby="Header_' . $accordion_id . '"
+								class="collapse card-body ' . $show_body_area . '"
+								id="Body_' . $accordion_id . '"
 							>';
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 
-echo '</div>
+	echo '</div>
 </div>';
 
-?>
+	?>

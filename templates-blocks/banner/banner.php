@@ -76,7 +76,7 @@ if ( $button_count ) {
 						<?php echo $body; ?>
 					</div>
 					<?php echo $button_block; ?>
-					<?php if( $show_close_button ): ?>
+					<?php if ( $show_close_button ) : ?>
 						<div class="banner-close">
 							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
 						</div>

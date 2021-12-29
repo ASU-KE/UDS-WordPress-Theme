@@ -788,7 +788,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'section'    => 'uds_wp_theme_section_404',
 				'settings'   => '404_page_id',
 				'active_callback' => 'show_404_page_name',
-				),
+			),
 		);
 
 		/**
@@ -1001,7 +1001,7 @@ function show_404_image_field() {
 
 	$page_type = get_theme_mod( '404_page_type' );
 
-	if ( 'custom' === $page_type) {
+	if ( 'custom' === $page_type ) {
 		return false;
 	} else {
 		return true;
@@ -1016,7 +1016,7 @@ function show_404_page_name() {
 
 	$page_type = get_theme_mod( '404_page_type' );
 
-	if ( 'default' === $page_type) {
+	if ( 'default' === $page_type ) {
 		return false;
 	} else {
 		return true;

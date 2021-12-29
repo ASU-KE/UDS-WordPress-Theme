@@ -19,7 +19,7 @@ acf_register_block_type(
 		'icon'              => 'cover-image',
 		'render_template'   => 'templates-blocks/image/image.php',
 		'category'          => 'uds',
-		'keywords'          => array( 'image', 'images', 'caption', 'uds'),
+		'keywords'          => array( 'image', 'images', 'caption', 'uds' ),
 		'supports'          => array(
 			'align' => false,
 		),

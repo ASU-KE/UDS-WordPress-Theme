@@ -20,7 +20,7 @@ acf_register_block_type(
 		'render_template'   => 'templates-blocks/foldable-card/foldable-card.php',
 		'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/foldable-card/foldable-card.js',
 		'category'          => 'uds',
-		'keywords'          => array( 'accordions', 'accordion', 'foldable', 'card'),
+		'keywords'          => array( 'accordions', 'accordion', 'foldable', 'card' ),
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,

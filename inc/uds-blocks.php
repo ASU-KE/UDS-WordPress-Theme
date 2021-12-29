@@ -17,7 +17,7 @@ if ( ! function_exists( 'uds_custom_category' ) ) {
 	/**
 	 * Merges our custom category in with the others.
 	 *
-	 * @param array $categories The existing block categories.
+	 * @param array                   $categories The existing block categories.
 	 * @param WP_Block_Editor_Context $editor_context Editor context.
 	 */
 	function uds_custom_category( $categories, $editor_context ) {

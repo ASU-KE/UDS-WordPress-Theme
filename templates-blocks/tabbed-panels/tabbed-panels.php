@@ -12,9 +12,9 @@
 
 
 
- if($tab_icon){
-	 $tab_icon='<i class="'. $tab_icon .'"></i>';
- }
+if ( $tab_icon ) {
+	$tab_icon = '<i class="' . $tab_icon . '"></i>';
+}
 
 $additional_classes = '';
 if ( ! empty( $block['className'] ) ) {
@@ -34,19 +34,19 @@ if ( ! empty( $block['className'] ) ) {
 		),
 	);
 
-echo '
+	echo '
 <nav class="uds-tabbed-panels">
-            <div class="nav nav-tabs" data-scroll-position="0" id="nav_'.$tab_id.'" role="tablist" >
+            <div class="nav nav-tabs" data-scroll-position="0" id="nav_' . $tab_id . '" role="tablist" >
               <a
-                aria-controls="'. $tab_id .'"
+                aria-controls="' . $tab_id . '"
                 aria-selected="true"
                 class="nav-item nav-link active"
                 data-toggle="tab"
-                href="#'. $tab_id .'"
-                id="'. $tab_id .'-nav"
+                href="#' . $tab_id . '"
+                id="' . $tab_id . '-nav"
                 role="tab"
               >
-              '. $tab_icon . $tab_title .'
+              ' . $tab_icon . $tab_title . '
               </a>
 							</div>
 							<a
@@ -80,17 +80,17 @@ echo '
               </span>
             </a>
 							</nav>
-<div class="tab-content" id="nav_'.$tab_id.'Content">
+<div class="tab-content" id="nav_' . $tab_id . 'Content">
   <div
-	aria-labelledby="'. $tab_id .'-nav"
-	class="tab-pane fade show active '. $additional_classes . '"
-	id="'. $tab_id .'"
+	aria-labelledby="' . $tab_id . '-nav"
+	class="tab-pane fade show active ' . $additional_classes . '"
+	id="' . $tab_id . '"
 	role="tabpanel"
 >
 ';
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 
-echo '</div>
+	echo '</div>
 </div>';
 
-?>
+	?>
