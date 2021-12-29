@@ -286,6 +286,16 @@ $fa-search: url($image-assets-path + '/font-awesome-svg/search.svg');
 #wrapper-header-main {
   border-bottom: 1px solid $uds-color-base-gray-3;
   background-color: #ffffff;
+
+  .container,
+  .container-fluid,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 #header-main {
@@ -614,6 +624,15 @@ $fa-search: url($image-assets-path + '/font-awesome-svg/search.svg');
       margin-bottom: 0;
     }
 
+    .btns-row {
+      position: absolute;
+      bottom: 0;
+      .col-btn {
+        margin-left: 0 !important;
+        margin-top: 0;
+      }
+    }
+
     .col-btn {
       margin-top: 1.5rem;
     }
@@ -645,11 +664,6 @@ $fa-search: url($image-assets-path + '/font-awesome-svg/search.svg');
 /*--------------------------------------------------------------
 6. Main Menu, Mobile Only
 --------------------------------------------------------------*/
-@include media-breakpoint-down(xl) {
-  #wrapper-header-main .container-lg {
-    padding: 0;
-  }
-}
 
 @media (max-width: 370px) {
   #header-main {
@@ -684,6 +698,9 @@ $fa-search: url($image-assets-path + '/font-awesome-svg/search.svg');
   }
 
   #header-main {
+    padding-left: 12px;
+    padding-right: 12px;
+
     .navbar {
       padding: 0;
       align-items: flex-start;
@@ -1043,5 +1060,31 @@ $fa-search: url($image-assets-path + '/font-awesome-svg/search.svg');
   #asu-header + main {
     @include transition;
     margin-top: 110px;
+  }
+}
+
+/*
+We need to easily and consistently align
+the content of full width components with
+the content of the header
+*/
+.uds-full-width {
+  .uds-content-align {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 $uds-size-spacing-2;
+
+    @include media-breakpoint-up(md) {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 940px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 1200px;
+    }
   }
 }

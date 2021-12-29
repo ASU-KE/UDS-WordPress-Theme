@@ -31,12 +31,6 @@
   }
 
   &-container {
-    margin: 48px;
-
-    @media screen and (max-width: $uds-breakpoint-md) {
-      margin: 24px;
-    }
-
     video {
       height: auto;
       width: 100%;
@@ -55,8 +49,10 @@
 
   &-player {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
+    height: fit-content;
+    &.youtube-video {
+      padding-bottom: 56.25%; /* 16:9 */
+    }
   }
 
   &-overlay {
@@ -71,7 +67,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: $uds-size-spacing-1;
     z-index: 1;
 
     &:hover button.uds-video-btn-play {
