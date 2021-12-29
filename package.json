@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@asu-design-system/bootstrap4-theme": "^6.3.3",
-    "@asu-design-system/cookie-consent": "dev",
-    "@asu-design-system/design-tokens": "dev",
+    "@asu-design-system/component-header": "^1.4.1",
+    "@asu-design-system/design-tokens": "^1.1.8",
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@fortawesome/fontawesome-free": "^5.15.3",
