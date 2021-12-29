@@ -79,11 +79,15 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 <!-- Actually Render the Block (compatible version) -->
 <div class="profile profile-type-standard <?php echo $additional_classes; ?>">
 	<div class="profile-row <?php echo $border_override_class; ?>">
-		<?php if( ! empty( $image_data ) && ! empty( $person_url ) ): ?>
+		<?php if( ! empty( $image_data ) ): ?>
 			<div class="profile-photo-column">
-				<a href="" target="_blank" rel="noopener noreferrer">
+				<?php if( ! empty( $person_url ) ): ?>
+					<a href="" target="_blank" rel="noopener noreferrer">
+				<?php endif; ?>
 					<img class="pictureOriginal" src="<?php echo $image_data['url'];?>" alt="profile picture for <?php echo $person_name; ?>">
-				</a>
+				<?php if( ! empty( $person_url ) ): ?>
+					</a>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 		<div class="profile-bio-column">
