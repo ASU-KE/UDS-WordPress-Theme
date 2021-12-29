@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@asu-design-system/bootstrap4-theme": "^6.3.3",
+    "@asu-design-system/component-cookie-consent": "^1.1.0",
     "@asu-design-system/component-header": "^1.4.1",
     "@asu-design-system/design-tokens": "^1.1.8",
     "@babel/core": "^7.14.3",
