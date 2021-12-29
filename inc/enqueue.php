@@ -40,6 +40,78 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/vendor.umd.js' );
+		wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/assets/uds-header/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
+
+		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/asuHeader.umd.js' );
+		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/assets/uds-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
+
+		$uds_header_init_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/initAsuHeader.js' );
+		wp_enqueue_script( 'uds-header-init', get_template_directory_uri() . '/assets/uds-header/initAsuHeader.js', array( 'wp-element', 'wp-components' ), $uds_header_init_version, true );
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+
+		$parent_org_name = get_theme_mod( 'parent_unit_name' );
+		$parent_org_link = get_theme_mod( 'parent_unit_link' );
+
+		// load current user status
+		global $current_user;
+
+		$menu_name   = 'primary';
+		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
+
+		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
+		// These variables are props for the header React component
+		wp_localize_script(
+			'uds-header-init', // the handle of the script to pass our variables
+			'udsHeaderVars', // object name to access our PHP variables from in our script
+			// register an array of variables we would like to use in our script
+			array(
+				'loggedIn' => is_user_logged_in(),
+				'loginLink' => site_url() . '/wp-admin',
+				// 'onLoginClick' => fn(),
+				'logoutLink' => wp_logout_url(),
+				// 'onLogoutClick' => fn(),
+				'userName' => $current_user->user_login,
+				'navTree' => $menu_items,
+				// 'mobileNavTree' => $mobile_menu_items,
+				'expandOnHover' => false,
+				'baseUrl' => '/',
+				// 'logo' => [
+						// 'alt' => '',        // default: 'Arizona State University'
+						// 'src' => '',        // default: 'arizona-state-university-logo-vertical.png'
+						// 'mobileSrc' => '',  // default: 'arizona-state-university-logo.png'
+						// 'brandLink' => '',  // default: 'https://asu.edu'
+						// ],
+				'isPartner' => false,
+				// 'partnerLogo' => [
+						// 'alt' => '',
+						// 'src' => '',
+						// 'mobileSrc' => '',
+						// 'brandLink' => '',
+						// ],
+				'title' => get_bloginfo(),
+				'animateTitle' => true,
+				'parentOrg' => $parent_org_name,
+				'parentOrgUrl' => $parent_org_link,
+				'breakpoint' => 'Lg',
+			// 'buttons' => [
+			// {
+			// 'href' => '/',
+			// 'text' => 'CTA Button 1',
+			// 'color' => 'gold',
+			// },
+			// {
+			// 'text' => 'CTA Button 2',
+			// 'href' => '#',
+			// 'color' => 'maroon',
+			// },
+			// ],
+			)
+		);
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action( 'wp_enqueue_scripts', 'uds_wp_scripts' );
