@@ -73,14 +73,12 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 			array(
 				'loggedIn' => is_user_logged_in(),
 				'loginLink' => site_url() . '/wp-admin',
-				// 'onLoginClick' => fn(),
 				'logoutLink' => wp_logout_url(),
-				// 'onLogoutClick' => fn(),
 				'userName' => $current_user->user_login,
 				'navTree' => $menu_items,
-				// 'mobileNavTree' => $mobile_menu_items,
+				// 'mobileNavTree' => $mobile_menu_items, // define an alternate navigation menu for mobile view
 				'expandOnHover' => false,
-				'baseUrl' => '/',
+				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
 				// 'logo' => [
 				// 	'alt' => '',        // default: 'Arizona State University'
 				// 	'src' => '',        // default: 'arizona-state-university-logo-vertical.png'
