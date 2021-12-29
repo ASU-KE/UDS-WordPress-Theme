@@ -189,9 +189,8 @@ gulp.task("scripts", function () {
 	var scripts = [
 		paths.dev + "/js/bootstrap4/bootstrap.bundle.js",
 		paths.dev + "/js/custom/skip-link-focus-fix.js",
-		paths.dev + "/js/bootstrap4-asu/global-header.js",
-		paths.dev + "/js/bootstrap4-asu/cookie-consent.min.js",
-		paths.dev + "/js/custom/init-cookie-consent.js",
+		// paths.dev + "/js/custom/init-cookie-consent.js",
+		paths.dev + "/js/custom/init-uds-header.js",
 	];
 	gulp
 		.src(scripts, { allowEmpty: true })
@@ -239,15 +238,20 @@ gulp.task("copy-assets", function (done) {
 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/js/*.js")
 		.pipe(gulp.dest(paths.dev + "/js/bootstrap4-asu"));
 
-	// Copy UDS cookie-consent JS files
-	var stream = gulp
-		.src(paths.node + "/@asu-design-system/cookie-consent/dist/*.js")
-		.pipe(gulp.dest(paths.dev + "/js/bootstrap4-asu"));
-
 	// Copy UDS SCSS files
 	var stream = gulp
 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss")
 		.pipe(gulp.dest(paths.dev + "/sass"));
+
+	// Copy UDS Header JS files
+	var stream = gulp
+		.src(paths.node + "/@asu-design-system/component-header/dist/**/*")
+		.pipe(gulp.dest(paths.js + "/uds-header"));
+
+	// Copy UDS Cookie Consent JS files
+	var stream = gulp
+		.src(paths.node + "/@asu-design-system/component-cookie-consent/dist/*.*")
+		.pipe(gulp.dest(paths.js + "/uds-cookie-consent"));
 
 	done();
 });

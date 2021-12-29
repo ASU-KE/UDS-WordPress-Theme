@@ -22,8 +22,18 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 		wp_enqueue_script( 'jquery' );
 
+		$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-header/vendor.umd.js' );
+		wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/js/uds-header/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
+
+		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-header/asuHeader.umd.js' );
+		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/js/uds-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
+
+		// TODO: disabled until UDS build setup is fixed
+		// $uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-cookie-consent/cookieConsent.production.js' );
+		// wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/js/uds-cookie-consent/cookieConsent.production.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
-		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
+		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array( 'wp-element', 'wp-components' ), $js_version, true );
 
 		$fa_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/fontawesome/all.min.js' );
 		wp_enqueue_script( 'uds-wordpress-fa-scripts', get_template_directory_uri() . '/js/fontawesome/all.min.js', array(), $fa_js_version, true );
@@ -41,15 +51,6 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/vendor.umd.js' );
-		wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/assets/uds-header/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
-
-		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/asuHeader.umd.js' );
-		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/assets/uds-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
-
-		$uds_header_init_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/uds-header/initAsuHeader.js' );
-		wp_enqueue_script( 'uds-header-init', get_template_directory_uri() . '/assets/uds-header/initAsuHeader.js', array( 'wp-element', 'wp-components' ), $uds_header_init_version, true );
-
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
@@ -66,7 +67,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
 		wp_localize_script(
-			'uds-header-init', // the handle of the script to pass our variables
+			'uds-wordpress-scripts', // the handle of the script to pass our variables
 			'udsHeaderVars', // object name to access our PHP variables from in our script
 			// register an array of variables we would like to use in our script
 			array(
@@ -81,11 +82,11 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'expandOnHover' => false,
 				'baseUrl' => '/',
 				// 'logo' => [
-						// 'alt' => '',        // default: 'Arizona State University'
-						// 'src' => '',        // default: 'arizona-state-university-logo-vertical.png'
-						// 'mobileSrc' => '',  // default: 'arizona-state-university-logo.png'
-						// 'brandLink' => '',  // default: 'https://asu.edu'
-						// ],
+				// 	'alt' => '',        // default: 'Arizona State University'
+				// 	'src' => '',        // default: 'arizona-state-university-logo-vertical.png'
+				// 	'mobileSrc' => '',  // default: 'arizona-state-university-logo.png'
+				// 	'brandLink' => '',  // default: 'https://asu.edu'
+				// ],
 				'isPartner' => false,
 				// 'partnerLogo' => [
 						// 'alt' => '',

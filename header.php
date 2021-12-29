@@ -98,5 +98,6 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 	?>
 
 	<div id="header-container"></div>
+	<div id="cookie-consent-container"></div>
 
 	<?php do_action( 'uds_wp_after_global_header' ); ?>
