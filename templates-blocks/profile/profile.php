@@ -1,9 +1,10 @@
 <?php
-
 /**
  * Retrieve values from ACF. To make cleaner, easier to read logic in the
  * output area below, we're grabbing all of our values first to allow us
  * to manipulate them if needed before we present them.
+ *
+ * @package UDS-WordPress-Theme
  */
 
 /**
@@ -41,8 +42,8 @@ if ( ! $horizontal_rule ) {
  */
 $base_social_media = array(
 	'facebook' => array(
-		'name' => 'Facebook', // used to create the ARIA label
-		'icon' => 'fab fa-facebook-square', // Fontawesome brand icon
+		'name' => 'Facebook', // used to create the ARIA label.
+		'icon' => 'fab fa-facebook-square', // Fontawesome brand icon.
 	),
 	'twitter' => array(
 		'name' => 'Twitter',

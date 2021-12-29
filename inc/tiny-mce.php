@@ -29,16 +29,9 @@ function uds_wp_toolbars( $toolbars ) {
 	 * field group.
 	 *
 	 * Note: each toolbar is an array, whose first element is another array,
-	 * which actually holds the button strings.
+	 * which actually holds the button strings. To see this array, you can
+	 * echo the $toolbars variable.
 	 */
-
-	/**
-	 * Uncomment these lines to see how the default toolbars are built.
-	 */
-	// echo '< pre >';
-	// print_r($toolbars);
-	// echo '< /pre >';
-	// die;
 
 	/**
 	 * Add a 'simple' toolbar, initially designed for use in UDS Alert boxes.

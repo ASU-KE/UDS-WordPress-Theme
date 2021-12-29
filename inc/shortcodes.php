@@ -13,8 +13,6 @@
  *
  * @param array $atts Shortcode attributes.
  */
-
-
 function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	$args = shortcode_atts(
 		array(

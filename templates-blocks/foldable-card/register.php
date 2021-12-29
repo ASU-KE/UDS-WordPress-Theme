@@ -36,5 +36,5 @@ acf_register_block_type(
 				),
 			),
 		),
-	),
+	)
 );
