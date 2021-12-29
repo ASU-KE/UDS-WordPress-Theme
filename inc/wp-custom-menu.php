@@ -61,13 +61,13 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					// The menu link can be relative or absolute.
 					// Format menu link and remove absolute base url from link
 					$prefix = get_home_url();
-					$menu_url = rtrim($m->url,'/').'/';
-					if (0 === strpos($menu_url, $prefix)) {
-							$menu_url = substr($menu_url, strlen($prefix));
+					$menu_url = rtrim( $m->url, '/' ) . '/';
+					if ( 0 === strpos( $menu_url, $prefix ) ) {
+							$menu_url = substr( $menu_url, strlen( $prefix ) );
 					}
 					$menu_url = $subsite_base_folder . $menu_url;
 
-					if ($current_uri === $menu_url) {
+					if ( $current_uri === $menu_url ) {
 						$pre_menu[ $m->ID ]['has_current'] = true;
 					}
 				}
@@ -86,7 +86,7 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
 					$dropdown[ $m->ID ]                = array();
 					$dropdown[ $m->ID ]['ID']          = $m->ID;
-					$dropdown[ $m->ID ]['type']        = get_field('uds_menu_item_type', $m);
+					$dropdown[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
 					$dropdown[ $m->ID ]['text']        = $m->title;
 					$dropdown[ $m->ID ]['href']        = $m->url;
 					$dropdown[ $m->ID ]['has_current'] = false;
@@ -96,13 +96,13 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					// The menu link can be relative or absolute.
 					// Format menu link and remove absolute base url from link
 					$prefix = get_home_url();
-					$menu_url = rtrim($m->url,'/').'/';
-					if (0 === strpos($menu_url, $prefix)) {
-							$menu_url = substr($menu_url, strlen($prefix));
+					$menu_url = rtrim( $m->url, '/' ) . '/';
+					if ( 0 === strpos( $menu_url, $prefix ) ) {
+							$menu_url = substr( $menu_url, strlen( $prefix ) );
 					}
 					$menu_url = $subsite_base_folder . $menu_url;
 
-					if ($current_uri === $menu_url) {
+					if ( $current_uri === $menu_url ) {
 						$pre_menu[ $m->menu_item_parent ]['has_current'] = true;
 					}
 
@@ -125,7 +125,7 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
 					$column[ $m->ID ]                = array();
 					$column[ $m->ID ]['ID']          = $m->ID;
-					$column[ $m->ID ]['type']        = get_field('uds_menu_item_type', $m);
+					$column[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
 					$column[ $m->ID ]['text']        = $m->title;
 					$column[ $m->ID ]['href']        = $m->url;
 					$column[ $m->ID ]['has_current'] = false;
@@ -147,13 +147,13 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 						// The menu link can be relative or absolute.
 						// Format menu link and remove absolute base url from link
 						$prefix = get_home_url();
-						$menu_url = rtrim($m->url,'/').'/';
-						if (0 === strpos($menu_url, $prefix)) {
-								$menu_url = substr($menu_url, strlen($prefix));
+						$menu_url = rtrim( $m->url, '/' ) . '/';
+						if ( 0 === strpos( $menu_url, $prefix ) ) {
+								$menu_url = substr( $menu_url, strlen( $prefix ) );
 						}
 						$menu_url = $subsite_base_folder . $menu_url;
 
-						if ($current_uri === $menu_url) {
+						if ( $current_uri === $menu_url ) {
 							$pre_menu[ $top_menu ]['has_current'] = true;
 						}
 
@@ -166,32 +166,32 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			// We must reset the menu IDs from the array keys to sequential array keys, 0 to x.
 			// And the items[] nested arrays must be wrapped in an additional array.
 			$menu = array();
-			$menu[] = [
-				'href'     => $subsite_base_folder . "/",
-				'text'     => "Home",
+			$menu[] = array(
+				'href'     => $subsite_base_folder . '/',
+				'text'     => 'Home',
 				'selected' => false,
-				'type'     => "icon",
-				'class'    => "home",
-			];
-			if ($current_uri === $subsite_base_folder . "/") {
+				'type'     => 'icon',
+				'class'    => 'home',
+			);
+			if ( $current_uri === $subsite_base_folder . '/' ) {
 				$menu[0]['selected'] = true;
 			}
 
 			foreach ( $pre_menu as $m1 ) {
-				$items = [];
-				if (!empty($m1['items'])) {
-					$items2 = [];
-					foreach ($m1['items'] as $m2) {
+				$items = array();
+				if ( ! empty( $m1['items'] ) ) {
+					$items2 = array();
+					foreach ( $m1['items'] as $m2 ) {
 
-						$items3 = [];
-						if (!empty($m2['items'])) {
-							foreach ($m2['items'] as $m3) {
-								$temp = [
+						$items3 = array();
+						if ( ! empty( $m2['items'] ) ) {
+							foreach ( $m2['items'] as $m3 ) {
+								$temp = array(
 									'text'     => $m3['text'],
 									'href'     => $m3['href'],
 									'selected' => $m3['has_current'],
-								];
-								if ($m3['type']) {
+								);
+								if ( $m3['type'] ) {
 									$temp['type'] = $m3['type'];
 
 								}
@@ -200,30 +200,30 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 							$items[] = (array) $items3;
 
 						} else {
-							$items2[] = [
+							$items2[] = array(
 								'text'     => $m2['text'],
 								'href'     => $m2['href'],
 								'selected' => $m2['has_current'],
-							];
+							);
 						}
 					}
-					if (!empty($items2)) {
+					if ( ! empty( $items2 ) ) {
 						$items[] = (array) $items2;
 					}
 
-					$menu[] = [
+					$menu[] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
 						'selected' => $m1['has_current'],
 						'items'    => $items,
-					];
+					);
 
 				} else {
-					$menu[] = [
+					$menu[] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
 						'selected' => $m1['has_current'],
-					];
+					);
 				}
 			}
 			return $menu;
@@ -487,7 +487,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 * @param array  $item_data Array of information about the current top-level nav link.
 	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data) {
+	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data ) {
 		$link = '';
 		$is_cta_button    = $item['cta_button'];
 		$cta_button_color = $item['cta_color'];
@@ -525,7 +525,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s">%3$s%4$s</a>';
 				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'], $external_link_text, $new_tab_text ), wp_kses_allowed_html( 'post' ) );
 				if ( $is_cta_button ) {
-					$link= uds_wp_render_nav_cta_button( $cta_button_color, $item );
+					$link = uds_wp_render_nav_cta_button( $cta_button_color, $item );
 
 				}
 				return $link;
