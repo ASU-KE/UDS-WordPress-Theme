@@ -89,28 +89,28 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				// ],
 				'isPartner' => false,
 				// 'partnerLogo' => [
-						// 'alt' => '',
-						// 'src' => '',
-						// 'mobileSrc' => '',
-						// 'brandLink' => '',
-						// ],
+				// 	'alt' => '',
+				// 	'src' => '',
+				// 	'mobileSrc' => '',
+				// 	'brandLink' => '',
+				// ],
 				'title' => get_bloginfo(),
 				'animateTitle' => true,
 				'parentOrg' => $parent_org_name,
 				'parentOrgUrl' => $parent_org_link,
 				'breakpoint' => 'Lg',
-			// 'buttons' => [
-			// {
-			// 'href' => '/',
-			// 'text' => 'CTA Button 1',
-			// 'color' => 'gold',
-			// },
-			// {
-			// 'text' => 'CTA Button 2',
-			// 'href' => '#',
-			// 'color' => 'maroon',
-			// },
-			// ],
+				// 'buttons' => [
+				// 	[
+				// 	'href' => '/',
+				// 	'text' => 'CTA Button 1',
+				// 	'color' => 'gold',
+				// 	],
+				// 	[
+				// 	'text' => 'CTA Button 2',
+				// 	'href' => '#',
+				// 	'color' => 'maroon',
+				// 	],
+				// ],
 			)
 		);
 	}

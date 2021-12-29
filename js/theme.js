@@ -7009,15 +7009,7 @@ window.addEventListener("DOMContentLoaded", event => {
       parentOrg: udsHeaderVars.parentOrg,
       parentOrgUrl: udsHeaderVars.parentOrgUrl,
       breakpoint: udsHeaderVars.breakpoint,
-      buttons: [{
-        href: "/",
-        text: "CTA Button 1",
-        color: "gold"
-      }, {
-        text: "CTA Button 2",
-        href: "#",
-        color: "maroon"
-      }]
+      buttons: udsHeaderVars.buttons
     }
   });
 });
