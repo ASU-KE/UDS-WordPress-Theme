@@ -352,9 +352,8 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_6178684e1d4a8",
-                        "operator": "==",
-                        "value": "horizontal"
+                        "field": "field_617869ae747b1",
+                        "operator": "!=empty"
                     }
                 ]
             ],
@@ -364,7 +363,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0,
+            "default_value": 1,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -388,5 +387,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1637280479
+    "modified": 1640733547
 }
