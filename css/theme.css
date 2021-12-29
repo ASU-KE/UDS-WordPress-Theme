@@ -23230,64 +23230,6 @@ blockquote:before {
 }
 
 /*--------------------------------------------------------------
-3. Scrolled, Mobile
---------------------------------------------------------------*/
-#asu-header .navbar,
-#asu-header .navbar-brand .horiz,
-#asu-header .navbar-brand .vert,
-#asu-header .title {
-  -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-}
-
-#asu-header.scrolled #wrapper-header-top {
-  height: 0;
-  overflow: hidden;
-}
-#asu-header.scrolled #header-top {
-  height: 0;
-  overflow: hidden;
-}
-#asu-header.scrolled #header-main .navbar-brand .horiz {
-  margin-bottom: 0.5rem;
-}
-#asu-header.scrolled #header-main .navbar-brand .vert {
-  margin: 12px 1rem 12px 0;
-  padding: 0.25rem 0;
-  height: 64px;
-}
-#asu-header.scrolled #header-main .title {
-  padding-bottom: 1rem;
-}
-#asu-header.scrolled #header-main .title .unit-name {
-  display: none;
-}
-
-/*--------------------------------------------------------------
-4. Scrolled, Desktop
---------------------------------------------------------------*/
-@media (min-width: 1260px) {
-  #asu-header.scrolled .navbar-container.no-links {
-    margin-top: 2rem;
-  }
-  #asu-header.scrolled .navbar-nav .nav-link,
-#asu-header.scrolled .navbar-nav .dropdown .nav-link {
-    padding-top: 0;
-  }
-  #asu-header.scrolled #header-main .navbar-brand .vert {
-    padding: 0;
-  }
-  #asu-header.scrolled #header-main .title {
-    padding-bottom: 0;
-    margin: 16px 0;
-  }
-  #asu-header.scrolled #header-main .title.subdomain-name {
-    font-size: 1.5rem;
-  }
-}
-/*--------------------------------------------------------------
 5. Main Menu, Mobile
 --------------------------------------------------------------*/
 #wrapper-header-top {
@@ -24054,34 +23996,6 @@ blockquote:before {
 /*--------------------------------------------------------------
 8. Page Wrapper
 --------------------------------------------------------------*/
-#asu-header + div,
-#asu-header + main {
-  -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  margin-top: 145px;
-}
-
-#asu-header.scrolled + div,
-#asu-header.scrolled + main {
-  -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-  margin-top: 97px;
-}
-
-@media (max-width: 1259.98px) {
-  #asu-header + div,
-#asu-header + main {
-    -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 110px;
-  }
-}
 form.uds-form {
   /* Labels */
   /* Helper text */
@@ -26415,41 +26329,14 @@ Correct the button color on gray bg
 /*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
-@media (min-width: 1260px) {
-  #asu-header + div,
-#asu-header + main {
-    -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 144px;
-  }
-}
-@media (max-width: 1259.98px) {
-  #asu-header + div,
-#asu-header + main {
-    -webkit-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -o-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    -moz-transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 113px;
-  }
-}
-#wpadminbar + #asu-header.fixed-top {
+#wpadminbar + #header-container > #asuHeader {
   top: 32px !important;
 }
 
 @media (max-width: 767.98px) {
-  #wpadminbar + #asu-header.fixed-top {
+  #wpadminbar + #header-container > #asuHeader {
     top: 46px !important;
   }
-}
-#wpadminbar + #asu-header.scrolled {
-  top: 0px !important;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
 }
 
 /*--------------------------------------------------------------

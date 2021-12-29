@@ -413,39 +413,16 @@ Correct the button color on gray bg
 /*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
-// Desktop
-@include media-breakpoint-up(xl) {
 
-	#asu-header+div,
-	#asu-header+main {
-		@include transition;
-		margin-top: 144px;
-	}
-}
-
-@include media-breakpoint-down(lg) {
-
-	#asu-header+div,
-	#asu-header+main {
-		@include transition;
-		margin-top: 113px;
-	}
-}
-
-#wpadminbar+#asu-header.fixed-top {
+#wpadminbar + #header-container > #asuHeader {
 	top: 32px !important;
 }
 
 @include media-breakpoint-down(sm) {
-	#wpadminbar+#asu-header.fixed-top {
+	#wpadminbar + #header-container > #asuHeader {
 		top: 46px !important;
 	}
 }
-#wpadminbar + #asu-header.scrolled{
-	top: 0px !important;
-	transition: all 0.3s ease-out;
-}
-
 
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
