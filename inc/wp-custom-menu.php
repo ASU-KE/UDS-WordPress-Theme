@@ -8,6 +8,232 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
+	/**
+	 * Load requested menu object and format into hierarchical array
+	 * for the custom WP nav menu builders.
+	 *
+	 * @param string $menu_name Slug name of desired menu.
+	 */
+	function uds_react_get_menu_formatted_array( $menu_name ) {
+		$current_uri = null;
+
+		// attempt to retrieve the current page's URL.
+		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+			$current_uri = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		}
+
+		$subsite_base_folder = '';
+		if ( get_theme_mod( 'subsite_base_folder' ) > '' ) {
+			$subsite_base_folder = '/' . get_theme_mod( 'subsite_base_folder' );
+		}
+
+		$locations = get_nav_menu_locations();
+		if ( isset( $locations[ $menu_name ] ) ) {
+			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
+			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
+
+			// array_menu will return false if there are no menu options.
+			if ( ! $array_menu ) {
+				$array_menu = array();
+			}
+
+			/**
+			 * Construct a preliminary menu array
+			 */
+
+			/**
+			 * Step 1: Loop through ALL source menu items we retreived from WordPress,
+			 * and add any that DO NOT HAVE a parent item. These would then be
+			 * the top-level menu items. We call our menu holding array $menu.
+			 */
+			$pre_menu = array();
+			foreach ( $array_menu as $m ) {
+				if ( empty( $m->menu_item_parent ) ) {
+					$pre_menu[ $m->ID ]                = array();
+					$pre_menu[ $m->ID ]['ID']          = $m->ID;
+					$pre_menu[ $m->ID ]['text']        = $m->title;
+					$pre_menu[ $m->ID ]['href']        = $m->url;
+					$pre_menu[ $m->ID ]['has_current'] = false;
+					$pre_menu[ $m->ID ]['parent']      = $m->menu_item_parent;
+					$pre_menu[ $m->ID ]['items']       = array();
+
+					// The menu link can be relative or absolute.
+					// Format menu link and remove absolute base url from link
+					$prefix = get_home_url();
+					$menu_url = rtrim($m->url,'/').'/';
+					if (0 === strpos($menu_url, $prefix)) {
+							$menu_url = substr($menu_url, strlen($prefix));
+					}
+					$menu_url = $subsite_base_folder . $menu_url;
+
+					if ($current_uri === $menu_url) {
+						$pre_menu[ $m->ID ]['has_current'] = true;
+					}
+				}
+			}
+
+			/**
+			 * Step 2: Loop through ALL source menu items again. If an item has a parent, AND
+			 * that parent is in the array we just made in step 1, it is a child item of
+			 * a top-level menu item. We place that item's information as a new element in
+			 * the $dropdown array.
+			 *
+			 * The item's information will have the id of the parent item as well.
+			 */
+			$dropdown = array();
+			foreach ( $array_menu as $m ) {
+				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
+					$dropdown[ $m->ID ]                = array();
+					$dropdown[ $m->ID ]['ID']          = $m->ID;
+					$dropdown[ $m->ID ]['type']        = get_field('uds_menu_item_type', $m);
+					$dropdown[ $m->ID ]['text']        = $m->title;
+					$dropdown[ $m->ID ]['href']        = $m->url;
+					$dropdown[ $m->ID ]['has_current'] = false;
+					$dropdown[ $m->ID ]['parent']      = $m->menu_item_parent;
+					$dropdown[ $m->ID ]['items']       = array();
+
+					// The menu link can be relative or absolute.
+					// Format menu link and remove absolute base url from link
+					$prefix = get_home_url();
+					$menu_url = rtrim($m->url,'/').'/';
+					if (0 === strpos($menu_url, $prefix)) {
+							$menu_url = substr($menu_url, strlen($prefix));
+					}
+					$menu_url = $subsite_base_folder . $menu_url;
+
+					if ($current_uri === $menu_url) {
+						$pre_menu[ $m->menu_item_parent ]['has_current'] = true;
+					}
+
+					/**
+					 * Add the current child's data to the existing $pre_menu array under 'items',
+					 * and then under this item's ID, for that parent ID
+					 */
+					$pre_menu[ $m->menu_item_parent ]['items'][ $m->ID ] = $dropdown[ $m->ID ];
+				}
+			}
+
+			/**
+			 * Step 3: Loop through every source menu item a third time. If this item has a
+			 * parent value, but that value IS NOT IN the top-level menu array, build an array
+			 * of data for this menu item
+			 */
+			$column = array();
+
+			foreach ( $array_menu as $m ) {
+				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
+					$column[ $m->ID ]                = array();
+					$column[ $m->ID ]['ID']          = $m->ID;
+					$column[ $m->ID ]['type']        = get_field('uds_menu_item_type', $m);
+					$column[ $m->ID ]['text']        = $m->title;
+					$column[ $m->ID ]['href']        = $m->url;
+					$column[ $m->ID ]['has_current'] = false;
+
+					/**
+					 * Add this item's data as a child to the $dropdown array we created in step 2.
+					 * Place it under the parent, then under 'items', in a new array with ID of this item's ID.
+					 */
+					$dropdown[ $m->menu_item_parent ]['items'][ $m->ID ] = $column[ $m->ID ];
+
+					/**
+					 * Determine this item's top-menu item (grandparent) by getting the parent ID of this item's parent.
+					 * Adding a check here to ensure that there is a parent array in the parent of this item for us to
+					 * add anything to.
+					 */
+					if ( array_key_exists( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
+						$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
+
+						// The menu link can be relative or absolute.
+						// Format menu link and remove absolute base url from link
+						$prefix = get_home_url();
+						$menu_url = rtrim($m->url,'/').'/';
+						if (0 === strpos($menu_url, $prefix)) {
+								$menu_url = substr($menu_url, strlen($prefix));
+						}
+						$menu_url = $subsite_base_folder . $menu_url;
+
+						if ($current_uri === $menu_url) {
+							$pre_menu[ $top_menu ]['has_current'] = true;
+						}
+
+						$pre_menu[ $top_menu ]['items'][ $m->menu_item_parent ]['items'][ $m->ID ] = $column[ $m->ID ];
+					}
+				}
+			}
+
+			// The UDS nav menu requires that we re-format our menu.
+			// We must reset the menu IDs from the array keys to sequential array keys, 0 to x.
+			// And the items[] nested arrays must be wrapped in an additional array.
+			$menu = array();
+			$menu[] = [
+				'href'     => $subsite_base_folder . "/",
+				'text'     => "Home",
+				'selected' => false,
+				'type'     => "icon",
+				'class'    => "home",
+			];
+			if ($current_uri === $subsite_base_folder . "/") {
+				$menu[0]['selected'] = true;
+			}
+
+			foreach ( $pre_menu as $m1 ) {
+				$items = [];
+				if (!empty($m1['items'])) {
+					$items2 = [];
+					foreach ($m1['items'] as $m2) {
+
+						$items3 = [];
+						if (!empty($m2['items'])) {
+							foreach ($m2['items'] as $m3) {
+								$temp = [
+									'text'     => $m3['text'],
+									'href'     => $m3['href'],
+									'selected' => $m3['has_current'],
+								];
+								if ($m3['type']) {
+									$temp['type'] = $m3['type'];
+
+								}
+								$items3[] = $temp;
+							}
+							$items[] = (array) $items3;
+
+						} else {
+							$items2[] = [
+								'text'     => $m2['text'],
+								'href'     => $m2['href'],
+								'selected' => $m2['has_current'],
+							];
+						}
+					}
+					if (!empty($items2)) {
+						$items[] = (array) $items2;
+					}
+
+					$menu[] = [
+						'text'     => $m1['text'],
+						'href'     => $m1['href'],
+						'selected' => $m1['has_current'],
+						'items'    => $items,
+					];
+
+				} else {
+					$menu[] = [
+						'text'     => $m1['text'],
+						'href'     => $m1['href'],
+						'selected' => $m1['has_current'],
+					];
+				}
+			}
+			return $menu;
+
+		} else {
+			return;
+		}
+	}
+}
+
 if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 	/**
 	 * Load requested menu object and format into hierarchical array
