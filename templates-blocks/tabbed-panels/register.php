@@ -20,7 +20,7 @@ acf_register_block_type(
 		'render_template'   => 'templates-blocks/tabbed-panels/tabbed-panels.php',
 		'enqueue_script'    => get_template_directory_uri() . '/js/tabbed-panels.js',
 		'category'          => 'uds',
-		'keywords'          => array( 'tabs', 'tab', 'tabbed', 'panel', 'panels', 'nav'),
+		'keywords'          => array( 'tabs', 'tab', 'tabbed', 'panel', 'panels', 'nav' ),
 		'supports'          => array(
 			'align' => false,
 			'jsx' => true,

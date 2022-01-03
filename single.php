@@ -42,10 +42,10 @@ get_header();
 				?>
 
 				<?php
-							if ( function_exists('yoast_breadcrumb') ) {
-								yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs" class="breadcrumb yoast">','</nav>' );
-							}
-							?>
+				if ( function_exists( 'yoast_breadcrumb' ) ) {
+					yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs" class="breadcrumb yoast">', '</nav>' );
+				}
+				?>
 			</header><!-- .entry-header -->
 
 	<div class="entry-content">

@@ -17,7 +17,7 @@ if ( ! function_exists( 'uds_custom_category' ) ) {
 	/**
 	 * Merges our custom category in with the others.
 	 *
-	 * @param array $categories The existing block categories.
+	 * @param array                   $categories The existing block categories.
 	 * @param WP_Block_Editor_Context $editor_context Editor context.
 	 */
 	function uds_custom_category( $categories, $editor_context ) {
@@ -64,7 +64,7 @@ function my_acf_blocks_init() {
 			'/image',              // UDS Image block with caption and shadow options.
 			'/modals',             // UDS windows modal block.
 			'/overlay-card',       // UDS Program Cards.
-			'/profile', // Individual person profile (non-iSearch)
+			'/profile', // Individual person profile (non-iSearch).
 			'/show-more',          // Show more button.
 			'/tabbed-panels',      // UDS Tabbed panels block.
 		);

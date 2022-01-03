@@ -261,7 +261,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 * @param array  $item_data Array of information about the current top-level nav link.
 	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data) {
+	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data ) {
 		$link = '';
 		$is_cta_button    = $item['cta_button'];
 		$cta_button_color = $item['cta_color'];
@@ -299,7 +299,7 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 				$template = '<a class="nav-link %1$s" %5$s href="%2$s" title="%3$s">%3$s%4$s</a>';
 				$link     = wp_kses( sprintf( $template, $active_classname, $item['url'], $item['title'], $external_link_text, $new_tab_text ), wp_kses_allowed_html( 'post' ) );
 				if ( $is_cta_button ) {
-					$link= uds_wp_render_nav_cta_button( $cta_button_color, $item );
+					$link = uds_wp_render_nav_cta_button( $cta_button_color, $item );
 
 				}
 				return $link;

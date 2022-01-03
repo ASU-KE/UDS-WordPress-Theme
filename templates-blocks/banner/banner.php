@@ -1,9 +1,16 @@
 <?php
+/**
+ * UDS Banner Block
+ *
+ * Provides an ACF block for creating UDS-compliant banners.
+ *
+ * @package UDS-WordPress-Theme
+ */
 
 // I had to force lower-case on the Fontawesome icon names for them to work.
 $color = get_field( 'uds_banner_color' );
 $icon = strtolower( get_field( 'uds_banner_icon' ) );
-$title = get_field( 'uds_banner_title' );
+$banner_title = get_field( 'uds_banner_title' );
 $body = get_field( 'uds_banner_text' );
 $button_count = get_field( 'uds_banner_button_count' );
 $show_close_button = get_field( 'show_close_button' );
@@ -72,11 +79,11 @@ if ( $button_count ) {
 						<span title="Banner" class="fas fa-<?php echo $icon; ?>"></span>
 					</div>
 					<div class="banner-content">
-						<h3><?php echo $title; ?></h3>
+						<h3><?php echo $banner_title; ?></h3>
 						<?php echo $body; ?>
 					</div>
 					<?php echo $button_block; ?>
-					<?php if( $show_close_button ): ?>
+					<?php if ( $show_close_button ) : ?>
 						<div class="banner-close">
 							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
 						</div>

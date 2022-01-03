@@ -1,15 +1,16 @@
 <?php
-
 /**
  * Retrieve values from ACF. To make cleaner, easier to read logic in the
  * output area below, we're grabbing all of our values first to allow us
  * to manipulate them if needed before we present them.
+ *
+ * @package UDS-WordPress-Theme
  */
 
 /**
  * Person Data
  */
-$image_data            = get_field( 'uds_profile_image');
+$image_data            = get_field( 'uds_profile_image' );
 $person_name           = get_field( 'uds_profile_name' );
 $person_title          = get_field( 'uds_profile_title' );
 $person_email          = get_field( 'uds_profile_email' );
@@ -41,26 +42,26 @@ if ( ! $horizontal_rule ) {
  */
 $base_social_media = array(
 	'facebook' => array(
-		'name' => 'Facebook', // used to create the ARIA label
-		'icon' => 'fab fa-facebook-square' // Fontawesome brand icon
+		'name' => 'Facebook', // used to create the ARIA label.
+		'icon' => 'fab fa-facebook-square', // Fontawesome brand icon.
 	),
 	'twitter' => array(
 		'name' => 'Twitter',
-		'icon' => 'fab fa-twitter-square'
+		'icon' => 'fab fa-twitter-square',
 	),
 	'linkedin' => array(
 		'name' => 'LinkedIn',
-		'icon' => 'fab fa-linkedin'
+		'icon' => 'fab fa-linkedin',
 	),
 	'instagram' => array(
 		'name' => 'Instagram',
-		'icon' => 'fab fa-instagram-square'
+		'icon' => 'fab fa-instagram-square',
 	),
 	'youtube' => array(
 		'name' => 'YouTube',
-		'icon' => 'fab fa-youtube-square'
-	)
-	);
+		'icon' => 'fab fa-youtube-square',
+	),
+);
 
 /**
  * Determine if we should render the 'contact row' that has email, phone
@@ -68,7 +69,7 @@ $base_social_media = array(
  * items in it were left empty by the user.
  */
 $render_contact_row = true;
-if( empty( $person_email) && empty( $person_phone) && empty( $person_street_address ) && empty( $person_city_state_zip ) ) {
+if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_address ) && empty( $person_city_state_zip ) ) {
 	$render_contact_row = false;
 }
 
@@ -79,55 +80,55 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 <!-- Actually Render the Block (compatible version) -->
 <div class="profile profile-type-standard <?php echo $additional_classes; ?>">
 	<div class="profile-row <?php echo $border_override_class; ?>">
-		<?php if( ! empty( $image_data ) ): ?>
+		<?php if ( ! empty( $image_data ) ) : ?>
 			<div class="profile-photo-column">
-				<?php if( ! empty( $person_url ) ): ?>
+				<?php if ( ! empty( $person_url ) ) : ?>
 					<a href="" target="_blank" rel="noopener noreferrer">
 				<?php endif; ?>
-					<img class="pictureOriginal" src="<?php echo $image_data['url'];?>" alt="profile picture for <?php echo $person_name; ?>">
-				<?php if( ! empty( $person_url ) ): ?>
+					<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="profile picture for <?php echo $person_name; ?>">
+				<?php if ( ! empty( $person_url ) ) : ?>
 					</a>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 		<div class="profile-bio-column">
 			<h3 class="profile-name">
-				<?php if( ! empty( $person_url ) ): ?>
+				<?php if ( ! empty( $person_url ) ) : ?>
 					<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
 				<?php endif; ?>
 					<?php echo $person_name; ?>
-				<?php if( ! empty( $person_url ) ): ?>
+				<?php if ( ! empty( $person_url ) ) : ?>
 					</a>
 				<?php endif; ?>
 			</h3>
-			<?php if( ! empty( $person_title ) ): ?>
+			<?php if ( ! empty( $person_title ) ) : ?>
 				<div class="profile-title">
 					<p class="titleOriginal">
 						<?php echo $person_title; ?>
 					</p>
 				</div>
 			<?php endif; ?>
-			<?php if( $render_contact_row ): ?>
+			<?php if ( $render_contact_row ) : ?>
 				<div class="profile-contact-row">
-					<?php if( ! empty( $person_email ) ): ?>
+					<?php if ( ! empty( $person_email ) ) : ?>
 						<div class="">
 							<p>
-								<a class="linkOriginal" href="mailto:<?php echo $person_email;?>">
+								<a class="linkOriginal" href="mailto:<?php echo $person_email; ?>">
 									<?php echo $person_email; ?>
 								</a>
 							</p>
 						</div>
 					<?php endif; ?>
-					<?php if( ! empty( $person_phone ) ): ?>
+					<?php if ( ! empty( $person_phone ) ) : ?>
 						<div class="">
 							<p>
-								<a class="" href="tel:<?php echo $person_phone;?>">
+								<a class="" href="tel:<?php echo $person_phone; ?>">
 									<?php echo $person_phone; ?>
 								</a>
 							</p>
 						</div>
 					<?php endif; ?>
-					<?php if( $person_street_address && $person_city_state_zip ): ?>
+					<?php if ( $person_street_address && $person_city_state_zip ) : ?>
 					<div class="">
 							<div>
 								<p>
@@ -140,7 +141,7 @@ if( empty( $person_email) && empty( $person_phone) && empty( $person_street_addr
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
-			<?php if( ! empty( $person_text ) ): ?>
+			<?php if ( ! empty( $person_text ) ) : ?>
 				<p>
 					<?php echo $person_text; ?>
 				</p>

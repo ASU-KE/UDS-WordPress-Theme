@@ -16,14 +16,14 @@
 $button_link = get_field( 'uds_block_show_more_button_button_link' );
 if ( $button_link ) {
 	$button_label = sanitize_text_field( $button_link['title'] );
-	$button_url = "#";
+	$button_url = '#';
 } else {
 	$button_label = 'Read more';
 	$button_url = '#';
 }
 
 
-$button_color = get_field( 'uds_block_show_more_button_button_color' )? get_field( 'uds_block_show_more_button_button_color' ): 'mroon';
+$button_color = get_field( 'uds_block_show_more_button_button_color' ) ? get_field( 'uds_block_show_more_button_button_color' ) : 'mroon';
 $button_size = get_field( 'uds_block_show_more_button_button_size' );
 
 

@@ -41,7 +41,7 @@ acf_register_block_type(
 					'profile'     => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum, nunc finibus porttitor eleifend, ligula orci ultricies felis, cursus convallis nibh quam in odio. Vivamus quis mauris velit. Sed vel massa commodo lacus sollicitudin vulputate. Cras eget consequat sapien. ',
 					'email'       => 'janeq@science.edu',
 					'phone'       => '(555) 555-1212',
-					'url'         => 'https://science.edu/faculty/jqpublic'
+					'url'         => 'https://science.edu/faculty/jqpublic',
 				),
 			),
 		),

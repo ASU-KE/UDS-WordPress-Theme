@@ -48,13 +48,13 @@ switch ( $media_source ) {
  * classes via <span> tags.
  */
 // $hero_allowed_tags = array(
-// 	'sub'  => array(),
-// 	'sup'  => array(),
-// 	'br'   => array(),
-// 	'p'    => array(),
-// 	'span' => array(
-// 		'class' => array(),
-// 	),
+// 'sub'  => array(),
+// 'sup'  => array(),
+// 'br'   => array(),
+// 'p'    => array(),
+// 'span' => array(
+// 'class' => array(),
+// ),
 // );
 
 /**
@@ -211,17 +211,17 @@ if ( ! empty( $hero_asset_data['url'] ) ) :
 				$external_link = get_sub_field( 'external_link' );
 				$icon = get_sub_field( 'icon' );
 
-				// Get and format the output for an external link
+				// Get and format the output for an external link.
 				if ( $external_link ) {
 					$rel_text = 'rel="noopener noreferrer"';
 				} else {
 					$rel_text = '';
 				}
 
-				// Get the output for a button icon
-				if  ( $icon ) {
+				// Get the output for a button icon.
+				if ( $icon ) {
 					$icon_text = '<span class="fas fa-' . $icon . '"></span>&nbsp;';
-				}else{
+				} else {
 					$icon_text = '';
 				}
 
