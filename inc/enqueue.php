@@ -63,6 +63,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 		$menu_name   = 'primary';
 		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
+		// wp_die( var_dump( $menu_items ) );
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
@@ -75,7 +76,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'loginLink' => site_url() . '/wp-admin',
 				'logoutLink' => wp_logout_url(),
 				'userName' => $current_user->user_login,
-				'navTree' => $menu_items,
+				'navTree' => $menu_items['nav-items'],
 				// 'mobileNavTree' => $mobile_menu_items, // define an alternate navigation menu for mobile view
 				'expandOnHover' => false,
 				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
@@ -97,6 +98,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'parentOrg' => $parent_org_name,
 				'parentOrgUrl' => $parent_org_link,
 				'breakpoint' => 'Lg',
+				'buttons' => $menu_items['cta-buttons'],
 				// 'buttons' => [
 				// 	[
 				// 	'href' => '/',

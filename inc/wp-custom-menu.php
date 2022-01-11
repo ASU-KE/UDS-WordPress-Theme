@@ -48,30 +48,55 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			 * the top-level menu items. We call our menu holding array $menu.
 			 */
 			$pre_menu = array();
+			$cta_buttons = array();
+
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
-					$pre_menu[ $m->ID ]                = array();
-					$pre_menu[ $m->ID ]['ID']          = $m->ID;
-					$pre_menu[ $m->ID ]['text']        = $m->title;
-					$pre_menu[ $m->ID ]['href']        = $m->url;
-					$pre_menu[ $m->ID ]['has_current'] = false;
-					$pre_menu[ $m->ID ]['parent']      = $m->menu_item_parent;
-					$pre_menu[ $m->ID ]['items']       = array();
 
-					// The menu link can be relative or absolute.
-					// Format menu link and remove absolute base url from link
-					$prefix = get_home_url();
-					$menu_url = rtrim( $m->url, '/' ) . '/';
-					if ( 0 === strpos( $menu_url, $prefix ) ) {
-							$menu_url = substr( $menu_url, strlen( $prefix ) );
-					}
-					$menu_url = $subsite_base_folder . $menu_url;
+					$pre_menu[ $m->ID ]                  = array();
+					$pre_menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
+					$pre_menu[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
+					$pre_menu[ $m->ID ]['text']          = $m->title;
 
-					if ( $current_uri === $menu_url ) {
-						$pre_menu[ $m->ID ]['has_current'] = true;
+					// If this is a CTA button, push it onto our top-level CTA button array.
+					// Remove it from this array and skip any further processing of this item.
+					if ( $pre_menu[ $m->ID ]['cta_button'] ) {
+						do_action( 'qm/debug', 'Item: ' . $pre_menu[ $m->ID ]['text'] . ' was a CTA button. Pushing and deleting.' );
+						do_action( 'qm/debug', 'Color was: ' . $pre_menu[ $m->ID ]['cta_color'] );
+						$temp_cta = array();
+						$temp_cta['href']  = '#';
+						$temp_cta['text']  = $pre_menu[ $m->ID]['text'];
+						$temp_cta['color'] = $pre_menu[ $m->ID ]['cta_color'];
+						array_push( $cta_buttons, $temp_cta ); // pushing all items. Could be fewer.
+						unset( $pre_menu[ $m->ID ] );
+					} else {
+
+						do_action( 'qm/debug', 'Found menu item: ' . $pre_menu[ $m->ID ]['text'] );
+						$pre_menu[ $m->ID ]['ID']          = $m->ID;
+						$pre_menu[ $m->ID ]['href']        = $m->url;
+						$pre_menu[ $m->ID ]['has_current'] = false;
+						$pre_menu[ $m->ID ]['parent']      = $m->menu_item_parent;
+						$pre_menu[ $m->ID ]['items']       = array();
+
+						// The menu link can be relative or absolute.
+						// Format menu link and remove absolute base url from link
+						$prefix = get_home_url();
+						$menu_url = rtrim( $m->url, '/' ) . '/';
+						if ( 0 === strpos( $menu_url, $prefix ) ) {
+								$menu_url = substr( $menu_url, strlen( $prefix ) );
+						}
+						$menu_url = $subsite_base_folder . $menu_url;
+
+						if ( $current_uri === $menu_url ) {
+							$pre_menu[ $m->ID ]['has_current'] = true;
+						}
 					}
 				}
+
 			}
+
+			/** See what we got */
+			// wp_die( var_dump( $cta_buttons ) );
 
 			/**
 			 * Step 2: Loop through ALL source menu items again. If an item has a parent, AND
@@ -165,16 +190,17 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			// The UDS nav menu requires that we re-format our menu.
 			// We must reset the menu IDs from the array keys to sequential array keys, 0 to x.
 			// And the items[] nested arrays must be wrapped in an additional array.
-			$menu = array();
-			$menu[] = array(
+			$menu['nav-items'] = array();
+			$menu['cta-buttons'] = $cta_buttons;
+			$menu['nav-items'][] = array(
 				'href'     => $subsite_base_folder . '/',
 				'text'     => 'Home',
 				'selected' => false,
-				'type'     => 'icon',
+				'type'     => 'icon-home',
 				'class'    => 'home',
 			);
 			if ( $current_uri === $subsite_base_folder . '/' ) {
-				$menu[0]['selected'] = true;
+				$menu['nav-items'][0]['selected'] = true;
 			}
 
 			foreach ( $pre_menu as $m1 ) {
@@ -211,7 +237,7 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 						$items[] = (array) $items2;
 					}
 
-					$menu[] = array(
+					$menu['nav-items'][] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
 						'selected' => $m1['has_current'],
@@ -219,13 +245,14 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					);
 
 				} else {
-					$menu[] = array(
+					$menu['nav-items'][] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
 						'selected' => $m1['has_current'],
 					);
 				}
 			}
+			// wp_die( var_dump( $menu ) );
 			return $menu;
 
 		} else {
