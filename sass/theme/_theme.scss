@@ -442,7 +442,7 @@ Override the desktop media query for header to fix the gap issue
 	}
 }
 #wpadminbar + #asu-header.scrolled{
-	top: 0px !important;
+	top: 32px !important;
 	transition: all 0.3s ease-out;
 }
 
