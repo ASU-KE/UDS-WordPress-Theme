@@ -134,7 +134,7 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 					<div id="header-main" class="col-12">
 						<nav class="navbar navbar-expand-xl" aria-label="Main">
 
-							<a class="navbar-brand" href="https://www.asu.edu">
+							<a class="navbar-brand" href="https://www.asu.edu" title="ASU home">
 								<img class="vert" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_vert_maroongold.png" alt="Arizona State University" />
 								<img class="horiz" src="<?php echo get_template_directory_uri(); ?>/img/logo/asu_university_horiz_maroongold.png" alt="Arizona State University" />
 							</a>
