@@ -29,7 +29,8 @@
     }
 
     &[aria-expanded='true'] {
-      svg {
+      svg,
+      i {
         transform: rotate(180deg);
       }
     }
@@ -64,6 +65,7 @@
     }
 
     svg {
+      width: 2rem !important;
       margin-right: $uds-size-spacing-1;
     }
   }

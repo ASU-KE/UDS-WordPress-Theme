@@ -8,7 +8,7 @@ Sidebar Navigation
 @mixin like-an-h4 {
   font-size: 1rem;
   line-height: 1.5rem;
-  letter-spacing: -0.037rem;
+  letter-spacing: 0;
 }
 
 @mixin like-an-h5 {
@@ -45,9 +45,6 @@ Sidebar Navigation
   @include media-breakpoint-up(md) {
     display: none;
   }
-  @include media-breakpoint-down(md) {
-    margin: 0 $uds-size-spacing-4;
-  }
 }
 
 .sidebar {
@@ -69,7 +66,8 @@ Sidebar Navigation
   }
 
   .nav-link {
-    padding: $uds-size-spacing-2 $uds-size-spacing-1;
+    position: relative;
+    padding: 0 $uds-size-spacing-1;
     color: $uds-color-base-gray-7;
     @include like-an-h4;
 
@@ -89,18 +87,19 @@ Sidebar Navigation
 
     &.is-active {
       text-decoration: none;
-      padding-bottom: 0;
     }
 
     &.is-active:after {
       content: '';
-      position: relative;
+      position: absolute;
       display: block;
-      margin-top: $uds-size-spacing-2;
       height: $uds-size-spacing-1;
       width: 100%;
       background-color: $uds-color-base-gold;
       text-decoration: none;
+      bottom: -0.7rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &[aria-expanded='true'] svg {
@@ -109,9 +108,13 @@ Sidebar Navigation
   }
 
   > .nav-link-container {
-    padding: $uds-size-spacing-1;
+    padding: 0 $uds-size-spacing-1;
     overflow: hidden;
     color: $uds-color-base-gray-7;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     &:not(:first-child) {
       border-top: 1px solid $uds-color-base-gray-3;
     }
@@ -151,8 +154,12 @@ Sidebar Navigation
     .card-body > .nav-link {
       padding: 0 $uds-size-spacing-5 0 $uds-size-spacing-3;
 
-      &:after {
-        margin-top: $uds-size-spacing-1;
+      &.is-active {
+        &:after {
+          bottom: -1rem;
+          width: calc(100% - #{$uds-size-spacing-5 + $uds-size-spacing-3});
+          transform: translateX(calc(-50% - #{$uds-size-spacing-1}));
+        }
       }
 
       + .nav-link {
@@ -175,6 +182,5 @@ Sidebar Navigation
 
   @include media-breakpoint-down(md) {
     border-top: 0;
-    margin: 0 $uds-size-spacing-4;
   }
 }

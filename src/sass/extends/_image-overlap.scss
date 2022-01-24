@@ -23,8 +23,12 @@
 
   .content-wrapper {
     background-color: $uds-color-base-white;
-    padding: 40px;
+    padding: 32px;
     overflow: hidden;
+
+    h1, h2, h3, h4, h5 {
+      margin-top: 0;
+    }
   }
 }
 
@@ -34,7 +38,6 @@
 @include media-breakpoint-up(lg) {
   .uds-image-overlap {
     max-height: 100%;
-    margin: 0 12px;
 
     &:before {
       display: none;
@@ -54,6 +57,7 @@
     }
 
     .content-wrapper {
+      padding: 40px;
       grid-column: 3 / span 2;
       grid-row: 2 / span 1;
     }

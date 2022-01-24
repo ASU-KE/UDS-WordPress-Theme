@@ -2,11 +2,12 @@
 Footer - Table of Contents
 
 1. Component Level Mixins
-2. Wrapper Base Colors
-3. Endorsed Footer (#endorsed-footer)
-4. Footer Columns (#footer-columns)
-5. Footer Innovation (#footer-innovation)
-6. Footer Colophon (#footer-colophon)
+2. Global Footer Rules
+3. Wrapper Base Colors
+4. Endorsed Footer (#endorsed-footer)
+5. Footer Columns (#footer-columns)
+6. Footer Innovation (#footer-innovation)
+7. Footer Colophon (#footer-colophon)
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
@@ -44,15 +45,15 @@ Footer - Table of Contents
 }
 
 /*------------------------------------------------------------------
-2. Wrapper Base Colors
+2. Global Footer Rules
 --------------------------------------------------------------------*/
-.wrapper {
-  padding: 0 $uds-size-spacing-4;
-  .col-md {
-    padding-left: 0;
-    padding-right: 0;
-  }
+
+footer {
 }
+
+/*------------------------------------------------------------------
+3. Wrapper Base Colors
+--------------------------------------------------------------------*/
 
 #wrapper-endorsed-footer,
 #wrapper-footer-columns {
@@ -91,17 +92,8 @@ Footer - Table of Contents
   }
 }
 
-@include media-breakpoint-up(lg) {
-  .wrapper {
-    .col {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
 /*------------------------------------------------------------------
-3. Endorsed Footer (#endorsed-footer)
+4. Endorsed Footer (#endorsed-footer)
 --------------------------------------------------------------------*/
 
 // #endorsed-footer, mobile first design
@@ -109,26 +101,41 @@ Footer - Table of Contents
 #endorsed-logo img {
   width: 100%;
   height: auto;
-  padding: $uds-size-spacing-3 0 $uds-size-spacing-2 0;
+
+  /* Transform here scales an image which has embedded padding so that
+  it aligns with the Bootstrap grid. */
+  transform: scale(1.13);
+
+  /* Once transformed, the endorsed logo will have approx 20px of vertical
+  "padding" between the top of the logo and black section border. Adding
+  12px provides an approximate 2rem top/bottom margin. */
+
+  margin: 12px 0;
 }
 
 #endorsed-footer {
   #social-media {
-    padding-right: 0;
-    padding-left: 0;
     .nav {
       padding-bottom: $uds-size-spacing-3;
     }
+
     .nav-link {
       font-size: $uds-size-icon-base;
       color: $uds-color-base-gray-4;
       line-height: 1;
-      padding-top: 7px; // Magic number and a hack. Reducing the padding by 1px to make the height = 48px.
+      padding-top: 7px; // Magic number. Reducing the padding by 1px to make the height = 48px.
     }
   }
 }
-// #endorsed-footer, up to desktop
 
+// #endorsed-footer, only on mobile
+@include media-breakpoint-down(sm) {
+  #endorsed-footer #social-media .nav-link:first-child {
+    padding-left: 0;
+  }
+}
+
+// #endorsed-footer, up to desktop
 @include media-breakpoint-up(md) {
   #endorsed-logo {
     display: flex;
@@ -145,21 +152,19 @@ Footer - Table of Contents
     padding: $uds-size-spacing-5 0;
     justify-content: flex-end;
 
-    .nav-item:last-child .nav-link {
+    .nav-link:last-child {
       padding-right: 0;
     }
   }
 }
 
 /*------------------------------------------------------------------
-4. Footer Columns (#footer-columns)
+5. Footer Columns (#footer-columns)
 --------------------------------------------------------------------*/
 
 // #footer-columns, mobile first design
 
 #footer-columns {
-  padding: 0;
-
   #info-column {
     .contact-link {
       margin-bottom: $uds-size-spacing-4;
@@ -182,6 +187,10 @@ Footer - Table of Contents
       background: $uds-color-divider-darker;
       color: #ffffff;
       border: 0;
+    }
+
+    .card-foldable {
+      margin: 0;
     }
 
     .card-header {
@@ -215,7 +224,8 @@ Footer - Table of Contents
 
 @include media-breakpoint-up(xl) {
   #footer-columns {
-    padding: $uds-size-spacing-6 0;
+    padding-top: $uds-size-spacing-6;
+    padding-bottom: $uds-size-spacing-6;
 
     h5 {
       margin: 0 0 $uds-size-spacing-3 0;
@@ -250,7 +260,7 @@ Footer - Table of Contents
 }
 
 /*------------------------------------------------------------------
-5. Footer Innovation (#footer-innovation)
+6. Footer Innovation (#footer-innovation)
 --------------------------------------------------------------------*/
 
 // #footer-innovtion, uses desktop first design for accessibility reasons.
@@ -262,6 +272,8 @@ Footer - Table of Contents
     font-weight: 700;
     .img-link {
       order: 2;
+      margin-right: 0;
+      transform: translate(1.5rem, 0);
       img {
         height: 100px;
         width: auto;
@@ -274,27 +286,14 @@ Footer - Table of Contents
   }
 }
 
-// #footer-innovation, Mobile
-@include media-breakpoint-down(lg) {
-  #footer-innovation {
-    .footer-innovation-links {
-      .img-link {
-        img {
-          height: 76px;
-        }
-      }
-    }
-  }
-}
 @include media-breakpoint-down(md) {
   #footer-innovation {
-    padding: 0;
-
     .footer-innovation-links {
       flex-direction: column;
       padding: $uds-size-spacing-1 0 $uds-size-spacing-1 0;
       .img-link {
         margin-right: 0;
+        transform: none;
         img {
           width: 100%;
           height: auto;
@@ -307,7 +306,7 @@ Footer - Table of Contents
 }
 
 /*------------------------------------------------------------------
-6. Footer Colophon (#footer-colophon)
+7. Footer Colophon (#footer-colophon)
 --------------------------------------------------------------------*/
 
 // #footer-colophon, uses desktop first design to mirror #footer-innovation
@@ -324,7 +323,6 @@ Footer - Table of Contents
 
 @include media-breakpoint-down(md) {
   #footer-colophon {
-    padding: 0;
     @include nav-to-grid;
   }
 }

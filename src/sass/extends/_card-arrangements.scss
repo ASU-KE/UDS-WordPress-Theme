@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   max-width: 1400px;
-  margin: 0 12px;
 
   & > &-content-container {
     display: flex;
@@ -11,14 +10,23 @@
 
     & > h2 {
       font: normal normal bold 2.5rem Arial;
+      padding-right: $uds-size-spacing-6;
     }
 
     & > button {
       margin-left: auto;
     }
 
-    @media screen and (max-width: $uds-breakpoint-sm) {
+    @media screen and (max-width: $uds-breakpoint-md) {
       flex-direction: column;
+      align-items: flex-start;
+      & > h2 {
+        padding-right: 0;
+      }
+      & > button {
+        margin-left: unset;
+        margin-right: auto;
+      }
     }
   }
 
@@ -94,7 +102,6 @@
 
   @media screen and (max-width: $uds-breakpoint-sm) {
     flex-direction: column;
-    margin: 0 $uds-size-spacing-4;
     & > &-card-container {
       &.auto-arrangement {
         grid-template-columns: 1fr;

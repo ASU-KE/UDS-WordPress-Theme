@@ -10,15 +10,19 @@
       figcaption {
         color: $uds-color-base-gray-5;
         font-size: $uds-size-font-tiny;
-        margin: 1rem;
+        margin: $uds-size-spacing-1 $uds-size-spacing-2 $uds-size-spacing-2
+          $uds-size-spacing-2;
       }
     }
   }
 
-  &-btn-play {
+  &-btn-play.btn.btn-circle.btn-circle-large {
     background-color: white !important;
     z-index: 2;
     opacity: 0.7;
+    width: 104px !important;
+    height: 104px !important;
+    font-size: $uds-size-spacing-5 !important;
 
     &:hover {
       opacity: 1;
@@ -28,15 +32,15 @@
     .svg-inline--fa.fa-w-14 {
       margin-left: 5px; // magic number to make play button appear more centered
     }
+
+    @media (max-width: $uds-breakpoint-sm) {
+      width: 64px !important;
+      height: 64px !important;
+      font-size: $uds-size-spacing-4 !important;
+    }
   }
 
   &-container {
-    margin: 48px;
-
-    @media screen and (max-width: $uds-breakpoint-md) {
-      margin: 24px;
-    }
-
     video {
       height: auto;
       width: 100%;
@@ -55,8 +59,10 @@
 
   &-player {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
+    height: fit-content;
+    &.youtube-video {
+      padding-bottom: 56.25%; /* 16:9 */
+    }
   }
 
   &-overlay {
@@ -71,7 +77,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: $uds-size-spacing-1;
     z-index: 1;
 
     &:hover button.uds-video-btn-play {

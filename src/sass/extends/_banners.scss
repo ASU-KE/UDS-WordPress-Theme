@@ -1,9 +1,11 @@
 // ASU Design System Banner styles without Bootstrap variables to override.
-
+.hidden-banner {
+  display: none;
+}
 .banner {
   position: relative;
   display: flex;
-  padding: $uds-size-spacing-4 12px;
+  padding: $uds-size-spacing-4 0;
 
   .banner-icon {
     text-align: left;
@@ -97,7 +99,6 @@
 .banner {
   // Mobile tweaks. 576px
   @media screen and (max-width: $uds-breakpoint-sm) {
-    padding: $uds-size-spacing-4;
     flex-direction: column;
     .banner-icon {
       flex: 1;

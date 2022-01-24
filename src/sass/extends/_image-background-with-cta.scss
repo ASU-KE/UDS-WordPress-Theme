@@ -8,14 +8,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 0 12px;
+  margin: auto;
 
   &-container {
     align-items: baseline;
     display: inline-flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    margin: 0 $uds-size-spacing-8;
 
     & > span {
       color: $uds-color-font-light-base;
@@ -55,5 +56,8 @@
 @media screen and (max-width: $uds-breakpoint-sm) {
   .uds-image-background-with-cta {
     margin: 0;
+    .container {
+      padding: 0;
+    }
   }
 }
