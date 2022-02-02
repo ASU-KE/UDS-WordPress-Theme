@@ -134,27 +134,28 @@ function uds_wp_render_main_nav_menu() {
 
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
+		<div class="header-content-container">
+			<div class="navbar-nav">
 
-		<div class="navbar-nav">
+			<?php
+			// draw the home icon, and set it active if we are on the home page.
+			if ( $we_are_on_the_homepage ) {
+				$home_icon_class .= ' active';
+			}
+			?>
 
-		<?php
-		// draw the home icon, and set it active if we are on the home page.
-		if ( $we_are_on_the_homepage ) {
-			$home_icon_class .= ' active';
-		}
-		?>
-
-		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-			<span class="d-xl-none">Home</span>
-			<span title="<?php echo get_bloginfo( 'name' ) . ' home'; ?>" class="fas fa-fw fa-home"></span>
-		</a>
+			<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
+				<span class="d-xl-none">Home</span>
+				<span title="<?php echo get_bloginfo( 'name' ) . ' home'; ?>" class="fas fa-fw fa-home"></span>
+			</a>
 
 
-		<?php
-		// render the actual menu items.
-		include get_template_directory() . '/asu-navigation-menu.php';
-		?>
+			<?php
+			// render the actual menu items.
+			include get_template_directory() . '/asu-navigation-menu.php';
+			?>
 
+			</div>
 		</div>
 	<form class="navbar-site-buttons form-inline">
 				<?php
