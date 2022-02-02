@@ -83,6 +83,23 @@ the desktop viewport. (The breakpoint for the header is the XL breakpoint.) */
 }
 
 /*--------------------------------------------------------------
+4. BUG-FIX: Mobile drop-downs do not scroll, and can fill up the
+entire screen, medium and below.
+--------------------------------------------------------------*/
+// @media (max-width: $uds-breakpoint-md) {
+// 	#header-main {
+// 			width: 100%;
+// 			padding-left: 0;
+// 			padding-right: 0;
+
+// 		#menubar {
+// 			overflow-x: hidden;
+// 			overflow-y: scroll;
+// 		}
+// 	}
+// }
+
+/*--------------------------------------------------------------
 X. Misc. styles
 --------------------------------------------------------------*/
 
@@ -450,12 +467,6 @@ Override the desktop media query for header to fix the gap issue
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
 --------------------------------------------------------------*/
-
-#header-main .navbar,
-#footer-columns.container {
-	padding-left: 12px;
-	padding-right: 12px;
-}
 
 @media (max-width: 991.98px) {
 	#footer-innovation .footer-innovation-links .nav {
