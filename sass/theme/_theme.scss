@@ -633,20 +633,43 @@ a.btn.btn-gray {
 }
 
 /*--------------------------------------------------------------
-Temporary fix: Adjust the position of the gold underline on
-active sidebar items. This matches a change on Storybook that
-we have not pulled from upstream yet, but looks to be the correct
-way to handle the underlines.
+Sidebar fixes for:
+* no background color on sidebar single links;
+* indentation of sub-items in a sidebar drop-down;
+* placement of the gold underline for active items
 --------------------------------------------------------------*/
-// Position the is-active underline for most cases
-.sidebar .nav-link.is-active::after {
-	top: 0.5rem;
-	margin-top: 0.5rem;
+.sidebar {
+
+	.nav-link-container {
+		// Set white as the background color of individual items
+		background-color: white !important;
+
+		.nav-link.is-active::after {
+			bottom: -.7rem;
+		}
+	}
+
+	// Spacing for nav items in cards (i.e. drop-downs)
+	.card-foldable .card-body > .nav-link-container {
+		padding: 0 2.5rem 0 1rem;
+
+		+.nav-link-container {
+		padding-top: 1rem;
+		}
+
+		// Position the gold bar for active items in a drop-down.
+		.nav-link.is-active::after {
+			bottom: -1rem;
+		}
+	}
+
+	// Position the is-active underline on top-level items.
+	.nav-link.is-active::after {
+		bottom: -1rem;
+	}
 }
-// Position the is-active underline for the last item of a sub-menu
-.card-foldable .card-body .nav-link-container:last-child .is-active::after {
-	top: 1rem;
-}
+
+
 
 
 /*--------------------------------------------------------------
