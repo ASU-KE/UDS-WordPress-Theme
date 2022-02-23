@@ -822,3 +822,20 @@ UDS Breadcrumb - Yoast
 .yoast-breadcrumbs{
 @extend .breadcrumb;
 }
+
+/*--------------------------------------------------------------
+Fix Innovation Badge causing side-scroll.
+This only happens right as we leave the mobile layout, and 
+only until the window is wide enough to accomodate both the 
+links and the innovation graphic, but it's noticeable and may
+manifest on tablet sizes. The fix is to remove the default
+translation of 1.5rem to the right, which was pushing the 
+innovation graphic outside of our content area.
+--------------------------------------------------------------*/
+#footer-innovation .footer-innovation-links .img-link {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
