@@ -127,6 +127,7 @@ function uds_wp_render_main_nav_menu() {
 
 	// If we are not the main site, and we want to use a parent menu,
 	if( ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+		// Switch our database context to the 'main' blog of our multisite.
 		switch_to_blog( 1 );
 	}
 
@@ -172,6 +173,7 @@ function uds_wp_render_main_nav_menu() {
 		<?php
 	}
 
+	// If we switched the context before building the menu, switch it back.
 	if( ! is_main_site() && true === get_theme_mod( 'use_parent_site_menu' ) ) {
 		restore_current_blog();
 	}
