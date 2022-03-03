@@ -257,6 +257,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Parent menu?
+		 */
+		if( ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_header',
+					'settings'   => 'use_main_site_menu',
+					'type'       => 'checkbox',
+					'priority'   => 50,
+				)
+			);
+		}
+
 		$wp_customize->selective_refresh->add_partial(
 			'header_navigation_menu',
 			array(
