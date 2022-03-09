@@ -556,6 +556,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Main site footer menu?
+		 */
+		if( ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_footer_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_footer_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Footer Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the footer menu from the main site of this multi-site network, and not its own footer menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_footer_menu',
+					'type'       => 'checkbox',
+					'priority'   => 50,
+				)
+			);
+		}
+
 
 		/**
 		* Footer Alternate Unit Name Text
