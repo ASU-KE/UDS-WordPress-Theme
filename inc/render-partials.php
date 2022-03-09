@@ -330,6 +330,12 @@ function uds_wp_render_contact_link() {
 function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 
+	// If we are not the main site, and we want to use a parent menu,
+	if( ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
+		// Switch our database context to the 'main' blog of our multisite.
+		switch_to_blog( get_main_site_id() );
+	}
+
 	if ( 'enabled' === $action_row_status ) {
 		?>
 		<nav aria-label="Footer">
@@ -352,6 +358,13 @@ function uds_wp_render_footer_action_row() {
 		</nav>
 		<?php
 	}
+
+	/**
+	 * Because we may have switched blog IDs earlier, switch back to the current
+	 * blog, just in case. 
+	 */
+	restore_current_blog();
+	
 }
 
 /**
