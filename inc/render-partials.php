@@ -173,10 +173,11 @@ function uds_wp_render_main_nav_menu() {
 		<?php
 	}
 
-	// If we switched the context before building the menu, switch it back.
-	if( ! is_main_site() && true === get_theme_mod( 'use_parent_site_menu' ) ) {
-		restore_current_blog();
-	}
+	/**
+	 * Because we may have switched blog IDs earlier, switch back to the current
+	 * blog, just in case. 
+	 */
+	restore_current_blog();
 }
 
 /**
