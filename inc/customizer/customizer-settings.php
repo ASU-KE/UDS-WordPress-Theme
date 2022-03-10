@@ -349,6 +349,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Main site social media menu?
+		 */
+		if( ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_social_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_social_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_social_menu',
+					'type'       => 'checkbox',
+					'priority'   => 10,
+				)
+			);
+		}
+
 		$wp_customize->selective_refresh->add_partial(
 			'footer_row_branding',
 			array(
