@@ -126,10 +126,11 @@ function uds_wp_render_main_nav_menu() {
 	global $wp;
 
 	// If we are not the main site, and we want to use a parent menu,
-	if( ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
 		// Switch our database context to the 'main' blog of our multisite.
 		switch_to_blog( get_main_site_id() );
 	}
+
 
 	// get our setting and initialize some variables.
 	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
@@ -177,7 +178,9 @@ function uds_wp_render_main_nav_menu() {
 	 * Because we may have switched blog IDs earlier, switch back to the current
 	 * blog, just in case. 
 	 */
-	restore_current_blog();
+	if( is_multisite() && ms_is_switched() ) {
+		restore_current_blog();
+	}
 }
 
 /**
@@ -284,7 +287,7 @@ function uds_wp_render_footer_branding_row() {
 						if ( has_nav_menu( 'social-media' ) ) {
 
 							// If we are not the main site, and we want to use a parent menu,
-							if( ! is_main_site() && true === get_theme_mod( 'use_main_site_social_menu' ) ) {
+							if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_social_menu' ) ) {
 								// Switch our database context to the 'main' blog of our multisite.
 								switch_to_blog( get_main_site_id() );
 							}
@@ -302,7 +305,13 @@ function uds_wp_render_footer_branding_row() {
 							);
 						}
 
-						restore_current_blog();
+							/**
+							 * Because we may have switched blog IDs earlier, switch back to the current
+							 * blog, just in case. 
+							 */
+							if( is_multisite() && ms_is_switched() ) {
+								restore_current_blog();
+							}
 						?>
 					</div>
 				</div>
@@ -340,7 +349,7 @@ function uds_wp_render_footer_action_row() {
 	$action_row_status = get_theme_mod( 'footer_row_actions' );
 
 	// If we are not the main site, and we want to use a parent menu,
-	if( ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
+	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
 		// Switch our database context to the 'main' blog of our multisite.
 		switch_to_blog( get_main_site_id() );
 	}
@@ -372,7 +381,9 @@ function uds_wp_render_footer_action_row() {
 	 * Because we may have switched blog IDs earlier, switch back to the current
 	 * blog, just in case. 
 	 */
-	restore_current_blog();
+	if( is_multisite() && ms_is_switched() ) {
+		restore_current_blog();
+	}
 
 }
 

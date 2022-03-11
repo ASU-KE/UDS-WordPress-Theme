@@ -260,7 +260,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/**
 		 * Use Parent menu?
 		 */
-		if( ! is_main_site() ) {
+		if( is_multisite() && ! is_main_site() ) {
 			$wp_customize->add_setting(
 				'use_main_site_menu',
 				array(
@@ -352,7 +352,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/**
 		 * Use Main site social media menu?
 		 */
-		if( ! is_main_site() ) {
+		if( is_multisite() && ! is_main_site() ) {
 			$wp_customize->add_setting(
 				'use_main_site_social_menu',
 				array(
@@ -590,7 +590,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		/**
 		 * Use Main site footer menu?
 		 */
-		if( ! is_main_site() ) {
+		if( is_multisite() && ! is_main_site() ) {
 			$wp_customize->add_setting(
 				'use_main_site_footer_menu',
 				array(
