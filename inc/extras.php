@@ -317,3 +317,14 @@ function uds_filter_default_page_template_name( $label ) {
 	return __( 'Sidebar (Default)', 'uds-wordpress-theme' );
 }
 add_filter( 'default_page_template_title', 'uds_filter_default_page_template_name', 10, 2 );
+
+/**
+ * WordPress 5.9 is injecting <SVG> tags between the WPAdmin Bar and our ASU global header,
+ * and this is breaking our CSS that determines the margins on our content area, leaving a
+ * gap between the main menu and the hero. This code, from a WordPress github conversation,
+ * will remove those SVGs.
+ * 
+ * This shold only be a temporary solution, as it looks like WordPress may fix this in an
+ * upcoming release.
+ */
+ remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
