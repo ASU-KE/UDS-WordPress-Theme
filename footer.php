@@ -54,6 +54,7 @@ defined( 'ABSPATH' ) || exit;
 						<a class="nav-link" href="https://asu.edu/privacy/">Privacy</a>
 						<a class="nav-link" href="https://asu.edu/tou/">Terms of Use</a>
 						<a class="nav-link" href="https://asu.edu/emergency/">Emergency</a>
+						<a class="nav-link" href="https://eoss.asu.edu/health/announcements/coronavirus">COVID-19 Information</a>
 					</nav>
 				</div>
 			</div>
