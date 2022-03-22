@@ -156,14 +156,14 @@ function uds_wp_render_main_nav_menu() {
 		?>
 
 		</div>
-	<form class="navbar-site-buttons form-inline">
-				<?php
-				if ( $cta_menu_btns ) {
-					foreach ( $cta_menu_btns as $cta_menu_btn ) {
-						echo $cta_menu_btn;
-					}
+		<form class="navbar-site-buttons form-inline">
+			<?php
+			if ( isset( $cta_menu_btns ) && ! empty( $cta_menu_btns ) ) {
+				foreach ( $cta_menu_btns as $cta_menu_btn ) {
+					echo $cta_menu_btn;
 				}
-				?>
+			}
+			?>
 		</form>
 		<?php
 	}
