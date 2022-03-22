@@ -23,13 +23,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function uds_wp_setup() {
-
-		/**
-		 * Remove support for the Block-based widget editor introduced in WP v5.8
-		 */
-		remove_theme_support( 'widgets-block-editor' );
-
+	function uds_wp_setup() {		
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.

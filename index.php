@@ -16,6 +16,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+get_template_part( 'templates-global/global-banner' );
 ?>
 
 
@@ -23,13 +24,12 @@ get_header();
 		<div class="container py-6">
 			<div class="row">
 		<?php
+
 		if ( have_posts() ) {
 
 			while ( have_posts() ) {
 
 				the_post();
-
-				get_template_part( 'templates-global/global-banner' );
 
 				/*
 				* Include the Post-Format-specific template for the content.
