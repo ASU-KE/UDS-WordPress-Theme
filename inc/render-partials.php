@@ -125,11 +125,7 @@ function uds_wp_render_main_nav_menu() {
 	// We need access to the $wp object. Standard warning about using 'global'!
 	global $wp;
 
-	// If we are not the main site, and we want to use a parent menu,
-	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
-		// Switch our database context to the 'main' blog of our multisite.
-		switch_to_blog( get_main_site_id() );
-	}
+	
 
 
 	// get our setting and initialize some variables.
@@ -158,6 +154,13 @@ function uds_wp_render_main_nav_menu() {
 
 		<?php
 		// render the actual menu items.
+
+		// If we are not the main site, and we want to use a parent menu,
+		if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+			// Switch our database context to the 'main' blog of our multisite.
+			switch_to_blog( get_main_site_id() );
+		}
+		
 		include get_template_directory() . '/asu-navigation-menu.php';
 		?>
 
