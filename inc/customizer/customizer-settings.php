@@ -234,7 +234,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
+				'transport'         => 'refresh',
 			)
 		);
 
@@ -268,7 +268,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'capability'        => 'edit_theme_options',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -283,11 +283,20 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'section'    => 'uds_wp_theme_section_header',
 					'settings'   => 'use_main_site_menu',
 					'type'       => 'checkbox',
+					'active_callback' => 'show_use_main_site_nav_input',
 					'priority'   => 50,
 				)
 			);
 		}
 
+		/**
+		 * Re-render the page area when the navigation visibility is toggled on or off.
+		 * We had to use an inline 'render_callback' here in order to use the && operator
+		 * to activate both partial functions. Calling both of those render functions also
+		 * seems to make WordPress use 'refresh' (render the whole page again) no matter
+		 * what setting we use for 'transport' up above - so I set it to refresh.
+		 * 
+		 */
 		$wp_customize->selective_refresh->add_partial(
 			'header_navigation_menu',
 			array(
@@ -302,6 +311,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				},
 			)
 		);
+
 
 		/***********************************************************************
 		 * ASU Global Footer Section
@@ -360,21 +370,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'capability'        => 'edit_theme_options',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 				)
 			);
 
 			$wp_customize->add_control(
 				'use_main_site_social_menu_control',
 				array(
-					'label'      => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
-					'description'       => __(
+					'label'       => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
+					'description' => __(
 						'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
 						'uds-wordpress-theme'
 					),
 					'section'    => 'uds_wp_theme_section_footer',
 					'settings'   => 'use_main_site_social_menu',
 					'type'       => 'checkbox',
+					'active_callback' => 'show_use_main_site_social_input',
 					'priority'   => 10,
 				)
 			);
@@ -598,7 +609,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'capability'        => 'edit_theme_options',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'uds_wp_sanitize_nothing',
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -1146,6 +1157,21 @@ function show_alternate_footer_title_input() {
 	if ( 'default' === $footer_unit_name_type ) {
 		return false;
 	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or Hide the 'Use Main Site Main Menu' checkbox only when the main
+ * menu itself is set to show. We get the value of 'header_navigation_menu'
+ * and show our 'menu thief' checkbox only if the main menu is visible.
+ */
+function show_use_main_site_nav_input() {
+	$main_nav_visible = get_theme_mod( 'header_navigation_menu' );
+
+	if( "disabled" == $main_nav_visible ) {
+		return false;
+	}else{
 		return true;
 	}
 }
