@@ -313,6 +313,40 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 
+		/**
+		 * Alternate Home Icon URL
+		 * 
+		 * The default Home URL is taken from WordPress's home_url() function,
+		 * and is not created as a normal WordPress menu item. This textbox
+		 * allows users to override that home URL, if they need a different one.
+		 * This is most useful with sub-sites that want to point back up to a
+		 * main set in a network.
+		 */
+		$wp_customize->add_setting(
+			'alternate_home_url',
+			array(
+				'default'           => 'https://',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_url_control',
+			array(
+				'type'			=> 'url',
+				'description'   => __( '<p>Enter a custom URL here to replace the default Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
+				'label'      => __( 'Alternate Home URL', 'uds-wordpress-theme' ),
+				'section'    => 'uds_wp_theme_section_header',
+				'settings'   => 'alternate_home_url',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   => 50,
+			)
+		);
+
+
 		/***********************************************************************
 		 * ASU Global Footer Section
 		 *
@@ -385,7 +419,6 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 					'section'    => 'uds_wp_theme_section_footer',
 					'settings'   => 'use_main_site_social_menu',
 					'type'       => 'checkbox',
-					'active_callback' => 'show_use_main_site_social_input',
 					'priority'   => 10,
 				)
 			);

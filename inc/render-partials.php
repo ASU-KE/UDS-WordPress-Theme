@@ -146,7 +146,20 @@ function uds_wp_render_main_nav_menu() {
 		}
 		?>
 
-		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
+		<?php
+			// Determine which URL to use for the Home icon.
+			$home_url = home_url();
+			do_action('qm/debug', 'Home URL is: {home_url}', [ 'home_url' => $home_url ] );
+			$alt_home_url = trim( get_theme_mod( 'alternate_home_url' ) );
+
+			if( ! empty( $alt_home_url ) ) {
+				// If we have a value in the box, set $home_url to that value.
+				do_action( 'qm/debug', 'Found alternate home URL: {the_url}', [ 'the_url' => $alt_home_url ] );
+				$home_url = $alt_home_url;
+			}
+		?>
+
+		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( $home_url ); ?>">
 			<span class="d-xl-none">Home</span>
 			<span title="<?php echo get_bloginfo( 'name' ) . ' home'; ?>" class="fas fa-fw fa-home"></span>
 		</a>
