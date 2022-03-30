@@ -342,9 +342,6 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'section'   	 	=> 'uds_wp_theme_section_header',
 				'settings'  		=> 'alternate_home_url',
 				'active_callback'	=> 'show_use_main_site_nav_input',
-				'input_attrs'	=> array(
-					'placeholder'	=> __( 'https://example.com', 'uds-wordpress-theme' ),
-				),
 				'priority'   		=> 50,
 			)
 		);
