@@ -325,7 +325,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_setting(
 			'alternate_home_url',
 			array(
-				'default'           => 'https://',
+				'default'           => '',
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
@@ -336,13 +336,40 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'alternate_home_url_control',
 			array(
-				'type'			=> 'url',
-				'description'   => __( '<p>Enter a custom URL here to replace the default Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
-				'label'      => __( 'Alternate Home URL', 'uds-wordpress-theme' ),
-				'section'    => 'uds_wp_theme_section_header',
-				'settings'   => 'alternate_home_url',
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home URL', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_url',
 				'active_callback'	=> 'show_use_main_site_nav_input',
-				'priority'   => 50,
+				'input_attrs'	=> array(
+					'placeholder'	=> __( 'https://example.com', 'uds-wordpress-theme' ),
+				),
+				'priority'   		=> 50,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'alternate_home_title',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_title_control',
+			array(
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the title for the home icon, which appears when hovering over the Home icon.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home Title (tooltip)', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_title',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   		=> 50,
 			)
 		);
 

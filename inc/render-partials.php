@@ -155,11 +155,21 @@ function uds_wp_render_main_nav_menu() {
 				// If we have a value in the box, set $home_url to that value.
 				$home_url = $alt_home_url;
 			}
+
+			// Determine which title attribute to use for the Home title (aka 'tooltip').
+			// Default to the UDS 2.0 standard using the 'Site Name' value from Wordpress settings.
+			$home_title = get_bloginfo( 'name' ) . ' home';
+			$alt_home_title = trim( get_theme_mod( 'alternate_home_title' ) );
+
+			if( ! empty( $alt_home_title ) ) {
+				// If we have a value in the box, set $home_title to that value.
+				$home_title = $alt_home_title;
+			}
 		?>
 
 		<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( $home_url ); ?>">
 			<span class="d-xl-none">Home</span>
-			<span title="<?php echo get_bloginfo( 'name' ) . ' home'; ?>" class="fas fa-fw fa-home"></span>
+			<span title="<?php echo $home_title; ?>" class="fas fa-fw fa-home"></span>
 		</a>
 
 
