@@ -131,6 +131,31 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * Parent unit name
 		 */
 		$wp_customize->add_setting(
+			'site_display_name',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'site_display_name_control',
+			array(
+				'description' => __( '<p>If you would like to display a site name <b>other than</b> the normal site title, enter it here.</p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
+				'section'     => 'title_tagline',
+				'settings'    => 'site_display_name',
+				'priority'    => 20,
+			)
+		);
+
+		/**
+		 * Parent unit name
+		 */
+		$wp_customize->add_setting(
 			'parent_unit_name',
 			array(
 				'default'           => '',
