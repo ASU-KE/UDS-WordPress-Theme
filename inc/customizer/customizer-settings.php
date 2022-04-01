@@ -144,7 +144,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		$wp_customize->add_control(
 			'site_display_name_control',
 			array(
-				'description' => __( '<p>If you would like to display a site name <b>other than</b> the normal site title, enter it here.</p>', 'uds-wordpress-theme' ),
+				'description' => __( '<p>To display a site title other than the one listed above, enter an alternate title here.</p>', 'uds-wordpress-theme' ),
 				'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
 				'section'     => 'title_tagline',
 				'settings'    => 'site_display_name',
