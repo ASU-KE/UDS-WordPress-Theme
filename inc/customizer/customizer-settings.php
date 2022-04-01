@@ -128,7 +128,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		/**
-		 * Parent unit name
+		 * Alternate 'Display' Name for the Site
 		 */
 		$wp_customize->add_setting(
 			'site_display_name',
@@ -149,6 +149,21 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'section'     => 'title_tagline',
 				'settings'    => 'site_display_name',
 				'priority'    => 20,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'site_display_name',
+			array(
+				'selector'        => '.navbar-container',
+				'container_inclusive' => false,
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
 			)
 		);
 
