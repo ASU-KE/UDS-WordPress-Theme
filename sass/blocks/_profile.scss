@@ -23,7 +23,7 @@
 
 			// Image style: fixed dimensions and object-fit rule for consistency.
 			img.pictureOriginal {
-				width: 180px;
+				min-width: 180px;
 				height: 180px;
 				border-radius: 500px;
 				margin-top: 0;
