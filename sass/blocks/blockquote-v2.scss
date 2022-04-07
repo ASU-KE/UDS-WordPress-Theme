@@ -87,6 +87,8 @@ figure.uds-blockquote {
 			border-radius: 50%;
 			height: 180px;
 			width: 180px;
+			max-width: 180px;
+			min-width: 180px;
 			object-fit: cover;
 		}
 
