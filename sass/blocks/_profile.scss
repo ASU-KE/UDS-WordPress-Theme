@@ -22,12 +22,17 @@
 			padding: 24px 24px 24px 0;
 
 			// Image style: fixed dimensions and object-fit rule for consistency.
+			// April 2022: Added additional width rules to fix image size CSS from WordPress.
 			img.pictureOriginal {
-				width: 180px;
-				height: 180px;
 				border-radius: 500px;
+				height: 180px;
 				margin-top: 0;
+				max-height: 180px;		
+				max-width: 180px;
+				min-height: 180px;		
+				min-width: 180px;
 				object-fit: cover;
+				width: 180px;
 			}
 		}
 
