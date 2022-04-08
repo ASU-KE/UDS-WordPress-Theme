@@ -71,25 +71,30 @@ function uds_wp_render_parent_unit_name() {
  * Renders the default blog name setting in a span.
  */
 function uds_wp_render_subdomain_name() {
-	// TODO: Need to check the parent name status here as well as the link status.
-	// If no parent, produce link + name or just the name, no CSS class required.
-	// If a parent, produce span.subdomain-name + either a link or not.
 
 	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
 	$sitename_is_linked = get_theme_mod( 'sitename_as_link' );
+	$site_display_name = get_theme_mod( 'site_display_name' );
+	$site_name = get_bloginfo( 'name' );
+
+	// Determine the site name to display.
+	if( ! empty( trim( $site_display_name ) ) ) {
+		// An alternate 'display' title has been provided.
+		$site_name = $site_display_name;
+	}
 
 	$title_string = '';
-	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">' . get_bloginfo( 'name' ) . '</a>';
+	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">' . $site_name . '</a>';
 
 	// If a link is indicated, include the markup. Otherwise, just the site name.
 	if ( $sitename_is_linked ) {
 		$title_string .= $title_link;
 	} else {
-		$title_string .= get_bloginfo( 'name' );
+		$title_string .= $site_name;
 	}
 
 	if ( ! empty( $parent_unit_name ) ) {
-		// There's a parent, so we need to a span wrapper.
+		// There's a parent, so we need to add a span wrapper.
 		$title_string = '<span class="subdomain-name">' . $title_string . '</span>';
 	}
 
