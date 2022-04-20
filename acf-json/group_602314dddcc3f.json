@@ -27,6 +27,26 @@
             "mime_types": ""
         },
         {
+            "key": "field_6260546dfc1ec",
+            "label": "Image size",
+            "name": "uds_image_overlap_image_size",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "min": 65,
+            "max": "",
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6023169c15df8",
             "label": "Position of the content section",
             "name": "uds_image_overlap_orientation",
@@ -68,5 +88,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating block that features a prominent image, with a smaller content area overlapped. The content area can contain other blocks, and comes with placeholder content.",
-    "modified": 1616188293
+    "show_in_rest": 0,
+    "modified": 1650481859
 }
