@@ -49,14 +49,9 @@ $allowed_blocks = array(
 // Pre-populate the InnerBlocks area with some content.
 $template = array(
 	array(
-		'acf/headings',
+		'core/heading',
 		array(
 			'mode' => 'preview',
-			'data' => array(
-				'text' => 'Placeholder title',
-				'level' => '3',
-				'text_highlight' => 'highlight-gold',
-			),
 		),
 	),
 	array(
