@@ -264,6 +264,65 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_626b104524e2a",
+            "label": "Attributes",
+            "name": "button_attributes",
+            "type": "repeater",
+            "instructions": "Add attributes to a link or button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Attribute",
+            "sub_fields": [
+                {
+                    "key": "field_626b107324e2b",
+                    "label": "Attribute Name",
+                    "name": "attribute_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_626b108324e2c",
+                    "label": "Attribute Value",
+                    "name": "attribute_value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -284,5 +343,5 @@
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
     "show_in_rest": 0,
-    "modified": 1651168340
+    "modified": 1651184476
 }
