@@ -80,6 +80,27 @@ $additional_classes = '';
 if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
+
+// Get our attributes and add them as one big string.
+$attribute_string = '';
+
+// Check rows exists.
+if( have_rows('button_attributes') ):
+
+    // Loop through rows.
+    while( have_rows('button_attributes') ) : the_row();
+
+        // Load sub field values.
+        $attrName = trim( get_sub_field('attribute_name') );
+		$attrValue = trim( get_sub_field('attribute_value') );
+
+        // Append to our string
+		$attribute_string .= $attrName . '="' . $attrValue . '" ';
+
+    // End loop.
+    endwhile;
+endif;
+
 ?>
 
 <?php if( false === $remove_outer_div ): ?>
@@ -95,9 +116,9 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	?>
 
 	<?php if( 'button' !== $button_tag_type ): // default to links unless specified ?>
-		<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+		<a href="<?php echo esc_url( $button_url );?>" class="btn <?php echo $button_size;?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?> <?php echo $target_text; ?> <?php echo $rel; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
 	<?php else: ?>
-		<button type="button" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>"><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
+		<button type="button" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
 	<?php endif; ?>
 
 <?php if( false === $remove_outer_div ): ?>
