@@ -3,13 +3,84 @@
     "title": "UDS Block: Button",
     "fields": [
         {
+            "key": "field_626ac888bca0f",
+            "label": "Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6269c6c11bb7d",
+            "label": "Tag Type",
+            "name": "tag_type",
+            "type": "button_group",
+            "instructions": "Render button as a link (default), or an actual button tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "link": "Link",
+                "button": "Button"
+            },
+            "allow_null": 0,
+            "default_value": "link",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_626acf772ad60",
+            "label": "About Buttons",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6269c6c11bb7d",
+                        "operator": "==",
+                        "value": "button"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "* This block only makes buttons of <code>type=\"button\"<\/code>, and is not intended for use on forms\r\n* Button tags do not have HREF values, and cannot be used as links",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_60522a8361f39",
             "label": "Label and Link",
             "name": "button_link",
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6269c6c11bb7d",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "-collapsed-target",
@@ -18,13 +89,48 @@
             "return_format": "array"
         },
         {
+            "key": "field_626ac983bca12",
+            "label": "Button Text",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "Text to appear on the button.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6269c6c11bb7d",
+                        "operator": "==",
+                        "value": "button"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_601e39a0afff2",
             "label": "External Link?",
             "name": "external_link",
             "type": "true_false",
             "instructions": "Adds appropriate \"rel\" values for links that leave the 'asu.edu' domain.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6269c6c11bb7d",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -35,6 +141,22 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_626aca0dbca13",
+            "label": "Style",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_601f031d80f7e",
@@ -94,7 +216,7 @@
             "label": "Button Icon",
             "name": "icon",
             "type": "text",
-            "instructions": "Enter the base name of a FontAwesome icon (ex. for 'fa-info', just enter the word 'info')",
+            "instructions": "Enter the full name of a FontAwesome icon (ex. for a rocket icon \"fas fa-rocket\")",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -107,6 +229,41 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_626ac8cdbca10",
+            "label": "Advanced",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6269bd7ae75f4",
+            "label": "Remove Outer Div?",
+            "name": "remove_outer_div",
+            "type": "true_false",
+            "instructions": "Selecting 'Yes' will remove the DIV around the button or link tag, and additional CSS you enter in Gutenberg will be applied directly to the button or link.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -126,5 +283,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
-    "modified": 1616619261
+    "show_in_rest": 0,
+    "modified": 1651168340
 }
