@@ -93,7 +93,7 @@
             "label": "Button Text",
             "name": "button_text",
             "type": "text",
-            "instructions": "Text to appear on the button.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -343,5 +343,5 @@
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
     "show_in_rest": 0,
-    "modified": 1651184476
+    "modified": 1651188169
 }
