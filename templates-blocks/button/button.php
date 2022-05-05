@@ -105,15 +105,15 @@ endif;
 
 <?php if( empty( $remove_outer_div ) ): ?>
 	<div class="uds-button <?php echo $additional_classes; ?>">
-<?php endif; ?>
 
 	<?php
-		// If we are NOT removing the outer div, then we have already applied $additional_classes above.
-		// In that case, we empty out the string here, since it will also be applied to the <a> or <button> tag in the code below.
-		if( ! $remove_outer_div  ) {
-			$additional_classes = '';
-		}		
+		// Since we just applied the $additional_classes to the outer DIV, empty that string.
+		// This way, we are not also adding it to the button/link below.
+		$additional_classes = '';	
 	?>
+<?php endif; ?>
+
+	
 
 	<?php if( 'button' !== $button_tag_type ): // default to links unless specified ?>
 		<a href="<?php echo esc_url( $button_url );?>" class="btn <?php echo $button_size;?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?> <?php echo $target_text; ?> <?php echo $rel; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
