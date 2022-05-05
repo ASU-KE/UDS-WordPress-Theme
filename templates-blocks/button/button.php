@@ -103,14 +103,14 @@ endif;
 
 ?>
 
-<?php if( false === $remove_outer_div ): ?>
+<?php if( empty( $remove_outer_div ) ): ?>
 	<div class="uds-button <?php echo $additional_classes; ?>">
 <?php endif; ?>
 
 	<?php
 		// If we are NOT removing the outer div, then we have already applied $additional_classes above.
 		// In that case, we empty out the string here, since it will also be applied to the <a> or <button> tag in the code below.
-		if( false === $remove_outer_div ) {
+		if( ! $remove_outer_div  ) {
 			$additional_classes = '';
 		}		
 	?>
@@ -121,6 +121,6 @@ endif;
 		<button type="button" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
 	<?php endif; ?>
 
-<?php if( false === $remove_outer_div ): ?>
+<?php if( empty ( $remove_outer_div ) ): ?>
 	</div>
 <?php endif; ?>
