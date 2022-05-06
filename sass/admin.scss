@@ -1,3 +1,5 @@
+@import "../src/sass/bootstrap-asu";
+
 /*--------------------------------------------------------------
 # Admin CSS fixes.
 Enqueued only within the admin screen. (Via enqueue.php)
@@ -7,7 +9,7 @@ Enqueued only within the admin screen. (Via enqueue.php)
 --------------------------------------------------------------*/
 
 section.bg {
-	min-height:90px;
+	min-height: 90px;
 }
 
 /*-------------------------------------------------------------------
@@ -15,11 +17,10 @@ section.bg {
 --------------------------------------------------------------------*/
 
 // default error color (in case we ever want to manipulate it within the loop).
-$warning-color: #F99;
+$warning-color: #f99;
 
 // create 10 classes to cover menu levels 3 through 13
 @for $i from 3 through 13 {
-
 	// target the .menu-item-handle, which is the draggable box.
 	.menu-item-depth-#{$i} .menu-item-bar .menu-item-handle {
 		// apply our warning color
@@ -28,14 +29,14 @@ $warning-color: #F99;
 		// the text 'sub-item' is a sibling span with the class .is-submenu
 		// We append some warning text using the ::after psuedo element.
 		.is-submenu::after {
-			content: ' - too deep!';
+			content: " - too deep!";
 		}
 
-			// the item title, by default, as a very wide right marging (13em!)
-			// to allow more room for our warning text, we reduce this margin
-			.item-title {
-				margin-right: 5em;
-			}
+		// the item title, by default, as a very wide right marging (13em!)
+		// to allow more room for our warning text, we reduce this margin
+		.item-title {
+			margin-right: 5em;
+		}
 	}
 }
 
@@ -49,7 +50,7 @@ $warning-color: #F99;
 // targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
 // so that we get the same look while editing.
 .editor-styles-wrapper svg.svg-inline--fa {
-	vertical-align: -.125rem;
+	vertical-align: -0.125rem;
 }
 
 /*-------------------------------------------------------------------
@@ -62,14 +63,13 @@ $warning-color: #F99;
 	pointer-events: none;
 }
 
-
-.card{
+.card {
 	max-width: none;
 }
 
-.acf-block-preview .uds-tabbed-panels{
+.acf-block-preview .uds-tabbed-panels {
 	a.scroll-control-prev,
-	a.scroll-control-next{
+	a.scroll-control-next {
 		display: none;
 	}
 }
@@ -82,7 +82,6 @@ $warning-color: #F99;
 // This avoids accidentally clicking images, links, etc. by accident.
 .acf-block-preview {
 	.profile.profile-type-standard {
-
 		// The actual content row.
 		.profile-row {
 			border-bottom: 2px #e0e0e0 solid;
@@ -90,7 +89,6 @@ $warning-color: #F99;
 			padding-bottom: 32px;
 			padding-top: 32px;
 			pointer-events: none;
-
 
 			// Column containing the profile image.
 			.profile-photo-column {
@@ -120,9 +118,9 @@ $warning-color: #F99;
 					display: flex;
 
 					// Adds right margin to the <div> containing all contact info.
-					&> div {
+					& > div {
 						margin-right: 32px;
-						}
+					}
 				}
 
 				// Styles for the person's name and title.
@@ -144,6 +142,25 @@ $warning-color: #F99;
 					}
 				}
 			}
+		}
+	}
+}
+
+/*-------------------------------------------------------------------
+5. UDS List Block, Admin
+--------------------------------------------------------------------*/
+.editor-styles-wrapper {
+	ul:not(.ude-list),
+	ol:not(.ude-list),
+	ul.wp-block-list:not(.ude-list),
+	ol.wp-block-list:not(.ude-list) {
+		@extend .uds-list;
+	}
+	ul.wp-block-list,
+	ol.wp-block-list {
+		&.has-asu-maroon-color {
+			color: $uds-color-base-gray-6 !important;
+			@extend .maroon;
 		}
 	}
 }

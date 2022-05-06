@@ -160,6 +160,22 @@ X. Misc. styles
 	@extend .uds-list;
 }
 
+main {
+	ul:not(.ude-list),
+	ol:not(.ude-list),
+	ul.wp-block-list:not(.ude-list),
+	ol.wp-block-list:not(.ude-list) {
+		@extend .uds-list;
+	}
+	ul,
+	ol {
+		&.has-asu-maroon-color {
+			color: $uds-color-base-gray-6 !important;
+			@extend .maroon;
+		}
+	}
+}
+
 .is-style-steplist {
 	@extend .uds-steplist;
 }
