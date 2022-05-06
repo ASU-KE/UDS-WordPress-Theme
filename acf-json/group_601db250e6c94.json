@@ -251,7 +251,7 @@
             "label": "Remove Outer Div?",
             "name": "remove_outer_div",
             "type": "true_false",
-            "instructions": "Selecting 'Yes' will remove the DIV around the button or link tag, and additional CSS you enter in Gutenberg will be applied directly to the button or link.",
+            "instructions": "Remove the default wrapping DIV from this button? If the DIV is removed, any additional classes you add will be applied directly to the button.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -343,5 +343,5 @@
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
     "show_in_rest": 0,
-    "modified": 1651188169
+    "modified": 1651854794
 }
