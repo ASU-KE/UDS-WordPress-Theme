@@ -261,12 +261,12 @@ if ( ! function_exists( 'uds_wp_render_nav_item_link' ) ) {
 	 * @param array  $item_data Array of information about the current top-level nav link.
 	 * @return string            The rendered navigation link
 	 */
-	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data ) {
+	function uds_wp_render_nav_item_link( $menu_type, $item, $item_data = NULL ) {
 		$link = '';
 		$is_cta_button    = $item['cta_button'];
 		$cta_button_color = $item['cta_color'];
 
-		if ( true === $item_data['has_current'] ) {
+		if ( ! is_null( $item_data ) && true === $item_data['has_current'] ) {
 			$active_classname = 'active';
 		} else {
 			$active_classname = '';
