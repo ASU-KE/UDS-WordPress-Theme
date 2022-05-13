@@ -2,7 +2,7 @@
 1. Max width 1920px, align center
 --------------------------------------------------------------*/
 
-main>* {
+main > * {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1920px;
@@ -31,7 +31,6 @@ buttons. */
 .uds-hero-lg,
 .uds-hero-sm {
 	.uds-hero-container {
-
 		// At mobile size, do not apply the negative margin if no buttons exist.
 		// Also fix the left margin to match (?) the content area.
 		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
@@ -48,7 +47,6 @@ buttons. */
 
 .uds-hero-md {
 	.uds-hero-container {
-
 		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist.
 		// Also fix the left margin to match (?) the content area.
 		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
@@ -148,7 +146,11 @@ X. Misc. styles
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
-.acf-block-preview .uds-button a,
+// Prevent our buttons from behaving as actual links in the editor.
+.acf-block-preview .uds-button a, // Links inside an outer DIV
+.acf-block-preview > a.btn, // Links with no outer DIV
+.acf-block-preview .uds-button button, // buttons with outer div,
+.acf-block-preview > button.btn, // buttons with no outer div
 .acf-block-preview .card-button a {
 	pointer-events: none;
 }
@@ -291,7 +293,6 @@ X. Misc. styles
  different lines - nothing was aligned at all.
 ---------------------------------------------------------------*/
 @media screen and (max-width: $uds-breakpoint-lg) {
-
 	// Ensure some extra space between the content and the close button
 	.alert .alert-content {
 		margin-right: $uds-size-spacing-2;
@@ -378,7 +379,6 @@ Hero video
 }
 
 @include media-breakpoint-down(md) {
-
 	#footer-colophon,
 	#footer-innovation {
 		padding-right: 12px;
@@ -432,37 +432,34 @@ Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
 // Desktop
 @include media-breakpoint-up(xl) {
-
-	#asu-header+div,
-	#asu-header+main {
+	#asu-header + div,
+	#asu-header + main {
 		@include transition;
 		margin-top: 144px;
 	}
 }
 
 @include media-breakpoint-down(lg) {
-
-	#asu-header+div,
-	#asu-header+main {
+	#asu-header + div,
+	#asu-header + main {
 		@include transition;
 		margin-top: 113px;
 	}
 }
 
-#wpadminbar+#asu-header.fixed-top {
+#wpadminbar + #asu-header.fixed-top {
 	top: 32px !important;
 }
 
 @include media-breakpoint-down(sm) {
-	#wpadminbar+#asu-header.fixed-top {
+	#wpadminbar + #asu-header.fixed-top {
 		top: 46px !important;
 	}
 }
-#wpadminbar + #asu-header.scrolled{
+#wpadminbar + #asu-header.scrolled {
 	top: 32px !important;
 	transition: all 0.3s ease-out;
 }
-
 
 /*--------------------------------------------------------------
 Fix content alignment issues between header/content/footer
@@ -504,7 +501,6 @@ footer #wrapper-footer-innovation .img-link {
 
 .uds-hero-container,
 .container {
-
 	.highlight-gold,
 	.highlight-white,
 	.highlight-black {
@@ -513,7 +509,6 @@ footer #wrapper-footer-innovation .img-link {
 		padding-right: 0.15em;
 	}
 }
-
 
 /*--------------------------------------------------------------
 Always set the image height in core/image to auto
@@ -528,35 +523,33 @@ UDS Grid Links
 .uds-grid-links a {
 	display: flex;
 	justify-content: flex-start;
-	&.grid-link-bg-img{
-	    position: relative;
-			height: 150px;
-			padding: 0;
-			&:after{
-				content: "";
-background: linear-gradient(
-180deg
-,#19191900 0,#191919c9 100%);
-height: 100%;
-width: 100%;
-position: absolute;
-			}
-			p{
-				z-index: 2;
-    margin: auto;
-			}
-}
+	&.grid-link-bg-img {
+		position: relative;
+		height: 150px;
+		padding: 0;
+		&:after {
+			content: "";
+			background: linear-gradient(180deg, #19191900 0, #191919c9 100%);
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+		p {
+			z-index: 2;
+			margin: auto;
+		}
+	}
 	svg {
 		margin-top: $uds-size-spacing-half;
 	}
-	img{
+	img {
 		position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-object-position: center;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
 	}
 }
 
@@ -564,22 +557,18 @@ object-position: center;
 usd modal windows
 --------------------------------------------------------------*/
 
-.uds-modal{
+.uds-modal {
 	z-index: 1050;
 	position: fixed;
 }
-
 
 /*--------------------------------------------------------------
 BUG: Story hero layout breaks with oversized images.
 --------------------------------------------------------------*/
 .uds-story-hero .hero {
 	width: 100%;
-    max-height: 100%;
+	max-height: 100%;
 }
-
-
-
 
 /*--------------------------------------------------------------
 Correct the single page issues
@@ -595,7 +584,6 @@ article.type-news_post {
 		.entry-title {
 			margin-top: 2rem;
 		}
-
 	}
 }
 
@@ -604,7 +592,6 @@ article.type-news_post {
 		@extend .hero;
 	}
 }
-
 
 /*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
@@ -617,7 +604,7 @@ fixing the standard color here.$uds-color-base-white
 --------------------------------------------------------------*/
 
 a.btn.btn-maroon {
-	color:$uds-color-base-white;
+	color: $uds-color-base-white;
 }
 
 a.btn.btn-gold {
@@ -669,28 +656,30 @@ Sidebar fixes for:
 	}
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> develop
 /*--------------------------------------------------------------
 wp-block-separator
 --------------------------------------------------------------*/
 
-.wp-block-separator{
-	border-top:0;
-	border-bottom:0;
+.wp-block-separator {
+	border-top: 0;
+	border-bottom: 0;
 }
-
 
 /*--------------------------------------------------------------
 usd image
 --------------------------------------------------------------*/
 
-.uds-img-with-text-wrap{
-	&.float-left{
+.uds-img-with-text-wrap {
+	&.float-left {
 		margin: $uds-size-spacing-1 $uds-size-spacing-2 $uds-size-spacing-1 0;
 	}
-	&.float-right{
+	&.float-right {
 		margin: $uds-size-spacing-1 0 $uds-size-spacing-1 $uds-size-spacing-2;
 	}
 }
@@ -698,7 +687,7 @@ usd image
 /*--------------------------------------------------------------
 usd Tabbed panels
 --------------------------------------------------------------*/
-.uds-tabbed-panels{
+.uds-tabbed-panels {
 	a.nav-item {
 		svg {
 			margin-right: $uds-size-spacing-half;
@@ -706,24 +695,23 @@ usd Tabbed panels
 	}
 }
 
-.bg-dark{
-.uds-tabbed-panels{
-	@extend .uds-tabbed-panels-dark;
-}
-.tab-content{
-	.tab-pane{
-		@extend .text-white;
+.bg-dark {
+	.uds-tabbed-panels {
+		@extend .uds-tabbed-panels-dark;
 	}
-}
-
+	.tab-content {
+		.tab-pane {
+			@extend .text-white;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
 show more button
 --------------------------------------------------------------*/
-.uds-show-more-btn{
-position: relative;
-z-index: 1;
+.uds-show-more-btn {
+	position: relative;
+	z-index: 1;
 
 	& ~ div,
 	& ~ p,
@@ -738,89 +726,106 @@ z-index: 1;
 	& ~ ul,
 	& ~ figure,
 	& ~ blockquote,
-	& ~ img{
-	display: none!important;
-}
-&:after{
-	content: "";
-			background: linear-gradient(
-180deg,#ffffff08 30%,#fff 100%);
-width: 100%;
-position: absolute;
-left: 0;
-bottom: 20px;
-z-index: -1;
-transition: .3s;
-height: 300px;
-display: block;
-}
-a{
-	display: initial;
-
-}
-
-}
-
-
-
-.wp-block-acf-uds-show-more{
-
-.uds-show-more-btn{
-		z-index: 0;
-	 &:after{
-		 content: none;
-
+	& ~ img {
+		display: none !important;
+	}
+	&:after {
+		content: "";
+		background: linear-gradient(180deg, #ffffff08 30%, #fff 100%);
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 20px;
+		z-index: -1;
+		transition: 0.3s;
+		height: 300px;
+		display: block;
+	}
+	a {
+		display: initial;
 	}
 }
 
-	& ~ .wp-block {
- background: #ff00004d;
-	 }
+.wp-block-acf-uds-show-more {
+	.uds-show-more-btn {
+		z-index: 0;
+		&:after {
+			content: none;
+		}
+	}
 
+	& ~ .wp-block {
+		background: #ff00004d;
+	}
 }
 
-.uds-show-less-container{
+.uds-show-less-container {
 	position: relative;
-padding-bottom: 80px;
+	padding-bottom: 80px;
 
-		.uds-show-less-btn{
-			//transition: 0.3s;
-			position: absolute;
-bottom: 0px;
-left: 50%;
-transform: translateX(-50%);
-
-		}
+	.uds-show-less-btn {
+		//transition: 0.3s;
+		position: absolute;
+		bottom: 0px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 /*--------------------------------------------------------------
 UDS Card tags and hero buttons
 --------------------------------------------------------------*/
-.v1-uds-hero-container, .card-tags{
-	.btn+.btn{
+.v1-uds-hero-container,
+.card-tags {
+	.btn + .btn {
 		margin-left: 0;
 	}
 }
-
 
 /*--------------------------------------------------------------
 UDS Breadcrumb - Yoast
 --------------------------------------------------------------*/
 .breadcrumb.yoast,
-.yoast-breadcrumbs{
-	span span span{
-		&:before{
+.yoast-breadcrumbs {
+	span span span {
+		&:before {
 			padding-left: 0.5rem;
 			padding-right: 0.5rem;
 			color: #bfbfbf;
 			content: "/";
-
 		}
 	}
 }
 
-.yoast-breadcrumbs{
-@extend .breadcrumb;
+.yoast-breadcrumbs {
+	@extend .breadcrumb;
+}
+
+/*--------------------------------------------------------------
+UDS image overlap
+--------------------------------------------------------------*/
+$overlap_image_size: (
+	"95": 95%,
+	"90": 90%,
+	"85": 85%,
+	"80": 80%,
+	"75": 75%,
+	"70": 70%,
+	"65": 65%,
+);
+
+.uds-image-overlap {
+	.content-wrapper {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	@media (min-width: 992px) {
+		@for $i from 65 through 99 {
+			img.uds_image_overlap_image_size_#{$i} {
+				width: (1% * $i);
+			}
+		}
+	}
 }
 
 /*--------------------------------------------------------------

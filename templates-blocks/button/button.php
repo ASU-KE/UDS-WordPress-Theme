@@ -12,23 +12,35 @@
  * Get values from ACF fields
  */
 
-// Multiple values are taken from the 'button_link' field.
-$button_link = get_field( 'button_link' );
-if ( $button_link ) {
-	$button_label = sanitize_text_field( $button_link['title'] );
-	$button_url = $button_link['url'];
-	$target = $button_link['target'];
-} else {
-	// no link provided!
-	$button_label = 'Button';
-	$button_url = '#';
-	$target = '';
+// Get the button type (link or actual button tag)
+$button_tag_type = get_field( 'tag_type' );
+
+// If button is not specifically selected, get the link and text from the button_link field
+if ( 'button' !== $button_tag_type ) {
+	// Multiple values are taken from the 'button_link' field.
+	$button_link = get_field( 'button_link' );
+	if ( $button_link ) {
+		$button_label = trim( sanitize_text_field( $button_link['title'] ) );
+		$button_url = $button_link['url'];
+		$target = $button_link['target'];
+	} else {
+		// no link provided!
+		$button_label = 'Button';
+		$button_url = '#';
+		$target = '';
+	}
+}else{
+	// This is an actual button tag, so there is no URL - just a text label.
+	$button_text = get_field( 'button_text' );
 }
 
 $button_color = get_field( 'button_color' );
 $button_size = get_field( 'button_size' );
 $external_link = get_field( 'external_link' );
 $new_tab = get_field( 'new_tab' );
+$remove_outer_div = get_field( 'remove_outer_div' );
+$full_width = get_field( 'full_width' );
+
 
 /**
  * Check to see if this is opening in a new tab, and add target attrribute if so.
@@ -69,9 +81,44 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
 
+// Get our attributes and add them as one big string.
+$attribute_string = '';
+
+// Check rows exists.
+if( have_rows('button_attributes') ):
+
+    // Loop through rows.
+    while( have_rows('button_attributes') ) : the_row();
+
+        // Load sub field values.
+        $attrName = trim( get_sub_field('attribute_name') );
+		$attrValue = trim( get_sub_field('attribute_value') );
+
+        // Append to our string
+		$attribute_string .= $attrName . '="' . $attrValue . '" ';
+
+    // End loop.
+    endwhile;
+endif;
 
 ?>
 
-<div class="uds-button <?php echo $additional_classes; ?>">
-	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $target_text; ?> <?php echo $rel; ?>> <?php echo $icon_span; ?><?php echo $button_label; ?></a>
-</div>
+<?php if( ! $remove_outer_div ): ?>
+	<div class="uds-button <?php echo $additional_classes; ?>">
+
+	<?php
+		// Since we just applied the $additional_classes to the outer DIV, empty that string.
+		// This way, we are not also adding it to the button/link below.
+		$additional_classes = '';	
+	?>
+<?php endif; ?>
+
+	<?php if( 'button' !== $button_tag_type ): // default to links unless specified ?>
+		<a href="<?php echo esc_url( $button_url );?>" class="btn <?php echo $button_size;?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?> <?php echo $target_text; ?> <?php echo $rel; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+	<?php else: ?>
+		<button type="button" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color;?> <?php echo $additional_classes;?>" <?php echo $attribute_string;?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
+	<?php endif; ?>
+
+<?php if( ! $remove_outer_div ): ?>
+	</div>
+<?php endif; ?>

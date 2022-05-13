@@ -128,6 +128,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		/**
+		 * Alternate 'Display' Name for the Site
+		 */
+		$wp_customize->add_setting(
+			'site_display_name',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'site_display_name_control',
+			array(
+				'description' => __( '<p>To display a site title other than the one listed above, enter an alternate title here.</p>', 'uds-wordpress-theme' ),
+				'label'       => __( 'Site Display Name', 'uds-wordpress-theme' ),
+				'section'     => 'title_tagline',
+				'settings'    => 'site_display_name',
+				'priority'    => 20,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'site_display_name',
+			array(
+				'selector'        => '.navbar-container',
+				'container_inclusive' => false,
+				'render_callback' => function() {
+					return (
+						uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
+			)
+		);
+
+		/**
 		 * Parent unit name
 		 */
 		$wp_customize->add_setting(
@@ -234,7 +274,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
-				'transport'         => 'postMessage',
+				'transport'         => 'refresh',
 			)
 		);
 
@@ -257,6 +297,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			)
 		);
 
+		/**
+		 * Use Parent menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_header',
+					'settings'   => 'use_main_site_menu',
+					'type'       => 'checkbox',
+					'active_callback' => 'show_use_main_site_nav_input',
+					'priority'   => 50,
+				)
+			);
+		}
+
+		/**
+		 * Re-render the page area when the navigation visibility is toggled on or off.
+		 * We had to use an inline 'render_callback' here in order to use the && operator
+		 * to activate both partial functions. Calling both of those render functions also
+		 * seems to make WordPress use 'refresh' (render the whole page again) no matter
+		 * what setting we use for 'transport' up above - so I set it to refresh.
+		 * 
+		 */
 		$wp_customize->selective_refresh->add_partial(
 			'header_navigation_menu',
 			array(
@@ -271,6 +351,65 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				},
 			)
 		);
+
+
+		/**
+		 * Alternate Home Icon URL
+		 * 
+		 * The default Home URL is taken from WordPress's home_url() function,
+		 * and is not created as a normal WordPress menu item. This textbox
+		 * allows users to override that home URL, if they need a different one.
+		 * This is most useful with sub-sites that want to point back up to a
+		 * main set in a network.
+		 */
+		$wp_customize->add_setting(
+			'alternate_home_url',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_url_control',
+			array(
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the Home icon\'s URL.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home URL', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_url',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   		=> 50,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'alternate_home_title',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'alternate_home_title_control',
+			array(
+				'type'				=> 'url',
+				'description'   	=> __( '<p>Customize the title for the home icon, which appears when hovering over the Home icon.</p>', 'uds-wordpress-theme' ),
+				'label'      		=> __( 'Alternate Home Title (tooltip)', 'uds-wordpress-theme' ),
+				'section'   	 	=> 'uds_wp_theme_section_header',
+				'settings'  		=> 'alternate_home_title',
+				'active_callback'	=> 'show_use_main_site_nav_input',
+				'priority'   		=> 50,
+			)
+		);
+
 
 		/***********************************************************************
 		 * ASU Global Footer Section
@@ -317,6 +456,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'priority'   => 10,
 			)
 		);
+
+		/**
+		 * Use Main site social media menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_social_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_social_menu_control',
+				array(
+					'label'       => __( 'Use Main Site Social Media Menu', 'uds-wordpress-theme' ),
+					'description' => __(
+						'<p>If selected, this sub-site will display the social media menu from the main site of this multi-site network, and not its own social media menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_social_menu',
+					'type'       => 'checkbox',
+					'priority'   => 10,
+				)
+			);
+		}
 
 		$wp_customize->selective_refresh->add_partial(
 			'footer_row_branding',
@@ -524,6 +694,37 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'render_callback' => 'uds_wp_render_footer_action_row',
 			)
 		);
+
+		/**
+		 * Use Main site footer menu?
+		 */
+		if( is_multisite() && ! is_main_site() ) {
+			$wp_customize->add_setting(
+				'use_main_site_footer_menu',
+				array(
+					'default'           => false,
+					'capability'        => 'edit_theme_options',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'uds_wp_sanitize_nothing',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'use_main_site_footer_menu_control',
+				array(
+					'label'      => __( 'Use Main Site Footer Menu', 'uds-wordpress-theme' ),
+					'description'       => __(
+						'<p>If selected, this sub-site will display the footer menu from the main site of this multi-site network, and not its own footer menu.</p>',
+						'uds-wordpress-theme'
+					),
+					'section'    => 'uds_wp_theme_section_footer',
+					'settings'   => 'use_main_site_footer_menu',
+					'type'       => 'checkbox',
+					'priority'   => 50,
+				)
+			);
+		}
 
 
 		/**
@@ -1053,6 +1254,21 @@ function show_alternate_footer_title_input() {
 	if ( 'default' === $footer_unit_name_type ) {
 		return false;
 	} else {
+		return true;
+	}
+}
+
+/**
+ * Show or Hide the 'Use Main Site Main Menu' checkbox only when the main
+ * menu itself is set to show. We get the value of 'header_navigation_menu'
+ * and show our 'menu thief' checkbox only if the main menu is visible.
+ */
+function show_use_main_site_nav_input() {
+	$main_nav_visible = get_theme_mod( 'header_navigation_menu' );
+
+	if( "disabled" == $main_nav_visible ) {
+		return false;
+	}else{
 		return true;
 	}
 }
