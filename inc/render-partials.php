@@ -131,8 +131,6 @@ function uds_wp_render_main_nav_menu() {
 	global $wp;
 
 	
-
-
 	// get our setting and initialize some variables.
 	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
 	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
@@ -141,7 +139,6 @@ function uds_wp_render_main_nav_menu() {
 
 	// if nav menu is enabled, render it.
 	if ( 'enabled' === $nav_menu_enabled ) { ?>
-		<div class="header-content-container">
 			<div class="navbar-nav">
 
 			<?php
@@ -150,11 +147,6 @@ function uds_wp_render_main_nav_menu() {
 				$home_icon_class .= ' active';
 			}
 			?>
-
-			<a class="nav-link <?php echo $home_icon_class; ?>" href="<?php echo esc_url( home_url() ); ?>">
-				<span class="d-xl-none">Home</span>
-				<span title="<?php echo get_bloginfo( 'name' ) . ' home'; ?>" class="fas fa-fw fa-home"></span>
-			</a>
 
 		<?php
 			// Determine which URL to use for the Home icon.
@@ -181,11 +173,6 @@ function uds_wp_render_main_nav_menu() {
 			<span class="d-xl-none">Home</span>
 			<span title="<?php echo $home_title; ?>" class="fas fa-fw fa-home"></span>
 		</a>
-
-			<?php
-			// render the actual menu items.
-			include get_template_directory() . '/asu-navigation-menu.php';
-			?>
 
 		<?php
 		// render the actual menu items.
