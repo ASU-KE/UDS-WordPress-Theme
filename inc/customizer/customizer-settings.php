@@ -638,7 +638,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * Alternate URL for footer logo.
 		 */
 		$wp_customize->add_setting(
-			'logo_link',
+			'footer_logo_link',
 			array(
 				'default'           => '',
 				'capability'        => 'edit_theme_options',
@@ -649,22 +649,22 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		$wp_customize->add_control(
-			'logo_link',
+			'footer_logo_link_control',
 			array(
 				'label'      => __( 'External URL', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'By default the logo links to the home page of this website, you can link it to a different website by adding a link here:',
+					'By default the logo links to the home page of the current website. You can link it to a different website by adding a URL here:',
 					'uds-wordpress-theme'
 				),
 				'section'    => 'uds_wp_theme_section_footer',
-				'settings'   => 'logo_link',
+				'settings'   => 'footer_logo_link',
 				'active_callback' => 'show_custom_logo_fields',
 				'priority'   => 31,
 			)
 		);
 
 		$wp_customize->selective_refresh->add_partial(
-			'logo_link',
+			'footer_logo_link',
 			array(
 				'selector' => '#endorsed-logo',
 				'container_inclusive' => false,

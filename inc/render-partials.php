@@ -223,7 +223,7 @@ function uds_wp_render_footer_logo() {
 	$logo_type = get_theme_mod( 'footer_logo_type' );
 	$logo_select = get_theme_mod( 'logo_select' );
 	$logo_url = get_theme_mod( 'logo_url' );
-    $logo_link = get_theme_mod( 'logo_link' )? get_theme_mod( 'logo_link' ):home_url( '/' );
+    $logo_link = get_theme_mod( 'footer_logo_link' )? get_theme_mod( 'footer_logo_link' ):home_url( '/' );
 	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
 
 	if ( $logo_type && 'asu' === $logo_type ) {
