@@ -335,7 +335,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		 * to activate both partial functions. Calling both of those render functions also
 		 * seems to make WordPress use 'refresh' (render the whole page again) no matter
 		 * what setting we use for 'transport' up above - so I set it to refresh.
-		 * 
+		 *
 		 */
 		$wp_customize->selective_refresh->add_partial(
 			'header_navigation_menu',
@@ -355,7 +355,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 
 		/**
 		 * Alternate Home Icon URL
-		 * 
+		 *
 		 * The default Home URL is taken from WordPress's home_url() function,
 		 * and is not created as a normal WordPress menu item. This textbox
 		 * allows users to override that home URL, if they need a different one.
@@ -632,6 +632,46 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 				'render_callback' => 'uds_wp_render_footer_logo',
 			)
 		);
+
+
+		/**
+		 * Alternate URL for footer logo.
+		 */
+		$wp_customize->add_setting(
+			'logo_link',
+			array(
+				'default'           => '',
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'logo_link',
+			array(
+				'label'      => __( 'External URL', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'By default the logo links to the home page of this website, you can link it to a different website by adding a link here:',
+					'uds-wordpress-theme'
+				),
+				'section'    => 'uds_wp_theme_section_footer',
+				'settings'   => 'logo_link',
+				'active_callback' => 'show_custom_logo_fields',
+				'priority'   => 31,
+			)
+		);
+
+		$wp_customize->selective_refresh->add_partial(
+			'logo_link',
+			array(
+				'selector' => '#endorsed-logo',
+				'container_inclusive' => false,
+				'render_callback' => 'uds_wp_render_footer_logo',
+			)
+		);
+
 
 		/**
 		 * Section Separator

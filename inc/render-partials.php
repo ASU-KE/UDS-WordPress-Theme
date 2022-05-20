@@ -130,7 +130,7 @@ function uds_wp_render_main_nav_menu() {
 	// We need access to the $wp object. Standard warning about using 'global'!
 	global $wp;
 
-	
+
 
 
 	// get our setting and initialize some variables.
@@ -186,7 +186,7 @@ function uds_wp_render_main_nav_menu() {
 			// Switch our database context to the 'main' blog of our multisite.
 			switch_to_blog( get_main_site_id() );
 		}
-		
+
 		include get_template_directory() . '/asu-navigation-menu.php';
 		?>
 
@@ -205,7 +205,7 @@ function uds_wp_render_main_nav_menu() {
 
 	/**
 	 * Because we may have switched blog IDs earlier, switch back to the current
-	 * blog, just in case. 
+	 * blog, just in case.
 	 */
 	if( is_multisite() && ms_is_switched() ) {
 		restore_current_blog();
@@ -223,6 +223,7 @@ function uds_wp_render_footer_logo() {
 	$logo_type = get_theme_mod( 'footer_logo_type' );
 	$logo_select = get_theme_mod( 'logo_select' );
 	$logo_url = get_theme_mod( 'logo_url' );
+    $logo_link = get_theme_mod( 'logo_link' )? get_theme_mod( 'logo_link' ):home_url( '/' );
 	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
 
 	if ( $logo_type && 'asu' === $logo_type ) {
@@ -250,7 +251,7 @@ function uds_wp_render_footer_logo() {
 					$logo_template,
 					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
-					home_url( '/' )
+					$logo_link
 				),
 				wp_kses_allowed_html( 'post' )
 			);
@@ -336,7 +337,7 @@ function uds_wp_render_footer_branding_row() {
 
 							/**
 							 * Because we may have switched blog IDs earlier, switch back to the current
-							 * blog, just in case. 
+							 * blog, just in case.
 							 */
 							if( is_multisite() && ms_is_switched() ) {
 								restore_current_blog();
@@ -408,7 +409,7 @@ function uds_wp_render_footer_action_row() {
 
 	/**
 	 * Because we may have switched blog IDs earlier, switch back to the current
-	 * blog, just in case. 
+	 * blog, just in case.
 	 */
 	if( is_multisite() && ms_is_switched() ) {
 		restore_current_blog();
