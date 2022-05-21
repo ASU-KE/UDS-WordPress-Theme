@@ -129,7 +129,11 @@ X. Misc. styles
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
-.acf-block-preview .uds-button a,
+// Prevent our buttons from behaving as actual links in the editor.
+.acf-block-preview .uds-button a, // Links inside an outer DIV
+.acf-block-preview > a.btn, // Links with no outer DIV
+.acf-block-preview .uds-button button, // buttons with outer div,
+.acf-block-preview > button.btn, // buttons with no outer div
 .acf-block-preview .card-button a {
 	pointer-events: none;
 }
