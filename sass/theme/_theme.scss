@@ -106,7 +106,8 @@ X. Misc. styles
 	position: relative;
 
 	.uds-hero-container {
-		z-index: 999;
+		// setting this to match the Unity hero z-index, avoiding conflict with the anchor menu.
+		z-index: 30;
 	}
 
 	img {
@@ -116,6 +117,7 @@ X. Misc. styles
 		object-fit: cover;
 		object-position: top;
 
+		// Apply gradient overlay to the image only.
 		&:after {
 			content: "";
 			background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
@@ -125,6 +127,25 @@ X. Misc. styles
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+Unity Hero Block Title/Subtitle Z-index
+
+The unity hero block loses the z-index setting on the title and
+subtitle when it drops below 768px (don't know why). Adding it
+back.
+---------------------------------------------------------------*/
+@media (max-width: $uds-grid-container-max-width-md ) {
+	div[class^=uds-hero] .btn-row,
+	div[class^=uds-hero] .content,
+	div[class^=uds-hero] [role=doc-subtitle],
+	div[class^=uds-hero] a.btn,
+	div[class^=uds-hero] a.uds-modal-close-btn,
+	div[class^=uds-hero] h1 {
+		z-index: 30;
+	}
+}
+
 
 /*--------------------------------------------------------------
  ACF Button block
