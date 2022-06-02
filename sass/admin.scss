@@ -1,4 +1,5 @@
-@import "../src/sass/bootstrap-asu";
+@import "../src/sass/design-tokens/variables";
+@import "../src/sass/extends/list";
 
 /*--------------------------------------------------------------
 # Admin CSS fixes.
@@ -150,16 +151,16 @@ $warning-color: #f99;
 5. UDS List Block, Admin
 --------------------------------------------------------------------*/
 .editor-styles-wrapper {
-	ul:not(.ude-list),
-	ol:not(.ude-list),
-	ul.wp-block-list:not(.ude-list),
-	ol.wp-block-list:not(.ude-list) {
+	ul:not(.uds-list),
+	ol:not(.uds-list),
+	ul.wp-block-list:not(.uds-list),
+	ol.wp-block-list:not(.uds-list) {
 		@extend .uds-list;
 	}
 	ul.wp-block-list,
 	ol.wp-block-list {
 		&.has-asu-maroon-color {
-			color: $uds-color-base-gray-6 !important;
+			color: $uds-color-base-gray-7 !important;
 			@extend .maroon;
 		}
 	}
