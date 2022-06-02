@@ -177,6 +177,11 @@ main {
 			color: $uds-color-base-gray-7 !important;
 			@extend .maroon;
 		}
+		&.has-asu-gold-color {
+			color: $uds-color-base-white !important;
+			@extend .gold;
+			@extend .darkmode;
+		}
 	}
 }
 
