@@ -789,3 +789,22 @@ $overlap_image_size: (
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+isearch-list last child
+--------------------------------------------------------------*/
+.isearch-list {
+	//background-color: red;
+	.profile:last-of-type:not(:first-of-type) {
+		.profile-row:last-of-type {
+			border-bottom: 0;
+		}
+	}
+}
+.isearch-list:last-of-type {
+	.profile:last-of-type {
+		.profile-row:last-of-type {
+			border-bottom: 0;
+		}
+	}
+}
