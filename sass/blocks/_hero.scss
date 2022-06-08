@@ -218,11 +218,6 @@ buttons. */
 				margin-bottom: 2rem !important;
 				margin-left: 1rem;
 				top: 0 !important;
-
-				&.has-buttons {
-					// With buttons, we need to move down
-					top: 2rem !important;
-				}
 			}
 		}
 	}
