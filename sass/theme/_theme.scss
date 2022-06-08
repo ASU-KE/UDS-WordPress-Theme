@@ -789,3 +789,14 @@ $overlap_image_size: (
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+UDS Pagination - active page
+--------------------------------------------------------------*/
+.pagination {
+	.page-item.active {
+		span.page-link.current {
+			padding: 0.5rem 0.75rem;
+		}
+	}
+}
