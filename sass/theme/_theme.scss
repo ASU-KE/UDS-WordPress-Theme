@@ -115,16 +115,7 @@ X. Misc. styles
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: top;
-
-		// Apply gradient overlay to the image only.
-		&:after {
-			content: "";
-			background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
-			height: 100%;
-			width: 100%;
-			position: absolute;
-		}
+		object-position: top;		
 	}
 }
 
@@ -166,6 +157,25 @@ back.
 	div[class^=uds-hero] h1 {
 		z-index: 30;
 	}
+
+	/* Unity hero also decides to drop the background gradient
+	at this size. Adding it back. Style rule copied directly from
+	the inspector at larger screen size. */
+	
+	div[class^="uds-hero"]::after {
+		content: "";
+		height: 100%;
+		width: 100%;
+		background-image: -webkit-gradient(linear,left top,left bottom,from(#19191900),to(#191919c9));
+		background-image: -webkit-linear-gradient(top,#19191900 0,#191919c9 100%);
+		background-image: -moz-linear-gradient(top,#19191900 0,#191919c9 100%);
+		background-image: -o-linear-gradient(top,#19191900 0,#191919c9 100%);
+		background-image: linear-gradient(180deg,#19191900 0,#191919c9 100%);
+		grid-column: 1/span 3;
+		grid-row: 1/span 4;
+		z-index: 20;
+	}
+
 
 	/* The unity hero bock only scaled the font size down at the
 	smallest mobile size (XSmall). Adding these rules to this
