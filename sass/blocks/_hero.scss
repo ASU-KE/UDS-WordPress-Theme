@@ -161,7 +161,8 @@ Additional rules from theme.scss
 		position: absolute;
 	}
 	.v1-uds-hero-container {
-		z-index: 999;
+		// Adjusting to match the Unity hero setting, avoiding conflicts with the anchor menu.
+		z-index: 30;
 	}
 	img {
 		position: absolute;
@@ -217,11 +218,6 @@ buttons. */
 				margin-bottom: 2rem !important;
 				margin-left: 1rem;
 				top: 0 !important;
-
-				&.has-buttons {
-					// With buttons, we need to move down
-					top: 2rem !important;
-				}
 			}
 		}
 	}

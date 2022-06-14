@@ -1,0 +1,72 @@
+// Profile Block SCSS
+// This SCSS is based on the CSS from our iSearch plugin.
+// We've used SCSS nesting here for more specific rules.
+
+// Our base profile DIV has these two classes
+.profile.profile-type-standard {
+
+	// Turn off bottom border if the row has both these classes.
+	.profile-row.no-bottom-border {
+		border-bottom: none !important;
+	}
+
+	// The actual content row.
+	.profile-row {
+		border-bottom: 2px #e0e0e0 solid;
+		padding-bottom: 32px;
+		padding-top: 32px;
+		display: flex;
+
+		// Column containing the profile image.
+		.profile-photo-column {
+			padding: 24px 24px 24px 0;
+
+			// Image style: fixed dimensions and object-fit rule for consistency.
+			// April 2022: Added additional width rules to fix image size CSS from WordPress.
+			img.pictureOriginal {
+				border-radius: 500px;
+				height: 180px;
+				margin-top: 0;
+				max-height: 180px;		
+				max-width: 180px;
+				min-height: 180px;		
+				min-width: 180px;
+				object-fit: cover;
+				width: 180px;
+			}
+		}
+
+		// Column with everything but the image.
+		.profile-bio-column {
+			max-width: 700px;
+
+			// Row with email/phone/address.
+			.profile-contact-row {
+				display: flex;
+
+				// Adds right margin to the <div> containing all contact info.
+				&> div {
+					margin-right: 32px;
+					}
+			}
+
+			// Styles for the person's name and title.
+			.profile-name {
+				margin-top: 24px;
+
+				a {
+					color: #000;
+					text-decoration: none;
+
+					&:hover {
+						color: $uds-color-brand-maroon;
+					}
+				}
+
+				.titleOriginal {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}

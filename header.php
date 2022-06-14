@@ -66,8 +66,33 @@ if ( ! empty( $c_options['hotjar_site_id'] ) ) {
 
 	// ASU Hub Analytics.
 	if ( ! empty( $asu_hub_analytics ) && 'enabled' === $asu_hub_analytics ) {
-		include get_template_directory() . '/inc/analytics/asu-hub-analytics-tracking-code.php';
+		include get_template_directory() . '/inc/analytics/asu-gtm-analytics-tracking-code.php';
 	}
+
+	// Lavidge Adwords tracking code. 
+	if ( ! function_exists( 'uds_wp_include_lavidge_script' ) ) {
+		
+		/**
+		 * Include Lavidge Adword script.
+		 */
+		function uds_wp_include_lavidge_script() {
+			$lav_c_options = array();
+			$lav_c_options = get_theme_mods();
+
+			// Do we have an asu_hub_analytics setting?
+			if ( ! empty( $lav_c_options['asu_hub_analytics'] ) ) {
+				$lav_asu_hub_analytics = $lav_c_options['asu_hub_analytics'];
+			}
+
+			// If the setting is "enabled", turn on the tracking code.
+			if ( ! empty( $lav_asu_hub_analytics ) && 'enabled' === $lav_asu_hub_analytics ) {
+				include get_template_directory() . '/inc/analytics/asu-lavidge-analytics-tracking-code.php';
+			}
+		}
+	}
+	add_action( 'include_lavidge_script', 'uds_wp_include_lavidge_script', 10, 2);
+	do_action( 'include_lavidge_script' );
+
 
 	// Site Google Tag Manager.
 	if ( ! empty( $site_gtm_container_id ) ) {

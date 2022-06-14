@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -12,42 +13,50 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 
+get_template_part('templates-global/global-banner');
 ?>
 
 
-	<main id="skip-to-content" <?php post_class(); ?>>
-		<div class="container py-6">
-			<div class="row">
-		<?php
-		if ( have_posts() ) {
+<main id="skip-to-content" <?php post_class(); ?>>
+	<div class="container py-6">
+		<div class="row">
+			<?php
 
-			while ( have_posts() ) {
+			if (have_posts()) {
 
-				the_post();
+				while (have_posts()) {
 
-				get_template_part( 'templates-global/global-banner' );
+					the_post();
 
-				/*
+					/*
 				* Include the Post-Format-specific template for the content.
 				* If you want to override this in a child theme, then include a file
 				* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				*/
 
-				get_template_part( 'templates-loop/content', 'card' );
-
+					get_template_part('templates-loop/content', 'card');
+				}
+			?>
+				<div class="container py-6">
+					<div class="row">
+						<div class="col">
+							<?php uds_wp_pagination(); ?>
+						</div>
+					</div>
+				</div>
+			<?php
+			} else {
+				get_template_part('templates-loop/content', 'none');
 			}
-		} else {
-			get_template_part( 'templates-loop/content', 'none' );
-		}
 
-		?>
+			?>
+		</div>
 	</div>
-	</div>
-	</main><!-- #main -->
+</main><!-- #main -->
 
 
 <?php

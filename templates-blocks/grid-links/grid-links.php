@@ -69,12 +69,12 @@ if ( 'arbitrary' === $source ) {
 				$bg_image_url = $bg_image['url'];
 				$bg_image_title = $bg_image['title'];
 				$bg_image_alt = $bg_image['alt'];
-				$bg_image='<img src="'.$bg_image_url.'" title="'.$bg_image_title.'" alt="'.$bg_image_alt.'" />';
-				$bg_image_class='grid-link-bg-img';
-				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="'.$bg_image_class.'"><p>'. $linkstring . esc_html( $link_title ) .'</p>'. $bg_image  .'</a>';
+				$bg_image = '<img src="' . $bg_image_url . '" title="' . $bg_image_title . '" alt="' . $bg_image_alt . '" />';
+				$bg_image_class = 'grid-link-bg-img';
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="' . $bg_image_class . '"><p>' . $linkstring . esc_html( $link_title ) . '</p>' . $bg_image . '</a>';
 			} else {
 				// With no image, our $linkstring can be much simpler.
-				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">'. $linkstring . esc_html( $link_title ) .'</a>';
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . $linkstring . esc_html( $link_title ) . '</a>';
 			}
 
 			echo $linkstring;

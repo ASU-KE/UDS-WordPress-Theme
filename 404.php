@@ -70,7 +70,7 @@ get_header();
 			<?php
 
 		}
-?>
+		?>
 
 
 </main>

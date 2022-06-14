@@ -49,6 +49,7 @@ if ( ! function_exists( 'uds_wp_get_theme_default_settings' ) ) {
 				'social-media' => 4,
 			),
 			'404_page_type'          => 'default',
+			'use_main_site_menu'   => false,
 		);
 
 		/**

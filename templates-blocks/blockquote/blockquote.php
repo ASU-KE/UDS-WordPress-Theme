@@ -91,12 +91,12 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 		<div class="feature-wrapper">
 			<?php
 				$image_data = get_field( 'image_source' );
-				if ( ! empty( $image_data ) ) :
+			if ( ! empty( $image_data ) ) :
 				$image_url = $image_data['url'];
 				$image_alt = $image_data['alt'];
 				$image_title = $image_data['title'];
 				?>
-				<img src="<?php echo $image_url ?>" alt="<?php echo $image_alt ?>" title="<?php echo $image_title ?>" />
+				<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>" />
 			<?php else : ?>
 				<img src="https://via.placeholder.com/180/8C1D40/FFFFFF/?text=Placeholder" />
 			<?php endif; ?>

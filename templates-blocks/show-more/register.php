@@ -16,7 +16,7 @@ acf_register_block_type(
 		'description'       => __( 'Button to show/hide content. Configurable size, color, and icon.', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'editor-insertmore', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/show-more/show-more.php', // location of the block's template.
-		'enqueue_script'    => get_template_directory_uri() . '/js/show-more-btn.js', // Load javascript
+		'enqueue_script'    => get_template_directory_uri() . '/js/show-more-btn.js', // Load javascript.
 		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'button', 'show', 'more' ),
 		'supports'          => array(

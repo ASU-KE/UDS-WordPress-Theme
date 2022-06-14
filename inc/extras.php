@@ -43,50 +43,20 @@ add_filter( 'edit_post_link', 'uds_wp_custom_edit_post_link' );
 
 
 /**
- * Prevent iframing except when we are in the WordPress Admin interface.
- */
-function uds_wp_prevent_iframes() {
-	/*
-	 * Verify the page is not being rendered in the customizer,
-	 * which is a legitimate iframe for viewing the site
-	 */
-	if ( ! is_customize_preview() ) {
-		// Prevent pages from being iframed.
-		?>
-		<style id="antiClickjack">
-			body {
-				display: none !important;
-			}
-		</style>
-		<script type="text/javascript">
-			if (self === top) {
-				var antiClickjack = document.getElementById("antiClickjack");
-				antiClickjack.parentNode.removeChild(antiClickjack);
-			} else {
-				top.location = self.location;
-			}
-		</script>
-		<?php
-	}
-}
-add_action( 'wp_head', 'uds_wp_prevent_iframes' );
-
-
-/**
- * Prevent iframes by adding response header
- * This is a recommended primary layer of protection, with the anti-clickjack script
- * used as a reliable failback for legacy browsers.
- *
- * TODO: Review in future to replace X-Frame-Options header with
- * frame-ancestors directive (https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet)
+ * Only allow iframing of our content when the request for an iFrame is coming from
+ * the same domain as the content to be put inside the iFrame. WordPress is using
+ * iFrames to insert the block editor in various places now.
+ * 
+ * Update March, 2022: removed a conditional that only sent these headers if we
+ * WERE NOT in the customizer. They are now sent on all requests. The same
+ * domain policy should allow the customizer, widget editor, and other Gutenberg
+ * enabled areas, while preventing outside sites from iFraming our content.
  */
 function uds_wp_add_x_frame_options_header() {
-	if ( ! is_customize_preview() ) {
-		// Prevent pages from being iframed.
-		header( 'X-Frame-Options: DENY' );
-		// Add CSP frame ancestors for browsers that support this.
-		header( "Content-Security-Policy: frame-ancestors 'none'" );
-	}
+	// Prevent pages from being iframed.
+	header( 'X-Frame-Options: SAMEORIGIN always' );
+	// Add CSP frame ancestors for browsers that support this.
+	header( "Content-Security-Policy: frame-ancestors 'self'" );
 }
 add_action( 'send_headers', 'uds_wp_add_x_frame_options_header' );
 
@@ -317,3 +287,14 @@ function uds_filter_default_page_template_name( $label ) {
 	return __( 'Sidebar (Default)', 'uds-wordpress-theme' );
 }
 add_filter( 'default_page_template_title', 'uds_filter_default_page_template_name', 10, 2 );
+
+/**
+ * WordPress 5.9 is injecting <SVG> tags between the WPAdmin Bar and our ASU global header,
+ * and this is breaking our CSS that determines the margins on our content area, leaving a
+ * gap between the main menu and the hero. This code, from a WordPress github conversation,
+ * will remove those SVGs.
+ * 
+ * This shold only be a temporary solution, as it looks like WordPress may fix this in an
+ * upcoming release.
+ */
+ remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );

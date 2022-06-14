@@ -19,7 +19,8 @@ get_header();
 	<div class="container py-6">
 		<?php the_archive_title( '<h2 class="page-title mb-6">', '</h2>' ); ?>
 		<div class="row">
-			<?php if ( have_posts() ) {
+			<?php 
+			if ( have_posts() ) {
 				// Start the loop.
 				while ( have_posts() ) {
 					the_post();
