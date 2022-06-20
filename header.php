@@ -143,7 +143,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 								if (is_user_logged_in()) {
 									echo $current_user->display_name . '<a class="signout" href="' . wp_logout_url(home_url()) . '">Sign Out</a>';
 								} else {
-									echo '<a class="signin" href="<?php echo get_home_url(); ?>/wp-admin">Sign In</a>';
+									echo '<a class="signin" href="' . get_home_url() . '/wp-admin">Sign In</a>';
 								}
 								?>
 
@@ -223,7 +223,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 									if (is_user_logged_in()) {
 										echo $current_user->display_name . '<a class="signout" href="' . wp_logout_url(home_url()) . '">Sign Out</a>';
 									} else {
-										echo '<a class="signin" href="<?php echo get_home_url(); ?>/wp-admin">Sign In</a>';
+										echo '<a class="signin" href="' . get_home_url() . '/wp-admin">Sign In</a>';
 									}
 									?>
 
