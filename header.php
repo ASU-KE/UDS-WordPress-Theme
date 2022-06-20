@@ -141,7 +141,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 							<div class="nav-link login-status">
 								<?php
 								if (is_user_logged_in()) {
-									echo $current_user->display_name . '<a class="signout" href="https://webapp4.asu.edu/myasu/Signout">Sign Out</a>';
+									echo $current_user->display_name . '<a class="signout" href="' . wp_logout_url(home_url()) . '">Sign Out</a>';
 								} else {
 									echo '<a class="signin" href="<?php echo get_home_url(); ?>/wp-admin">Sign In</a>';
 								}
@@ -221,7 +221,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 								<div class="nav-link login-status">
 									<?php
 									if (is_user_logged_in()) {
-										echo $current_user->display_name . '<a class="signout" href="https://webapp4.asu.edu/myasu/Signout">Sign Out</a>';
+										echo $current_user->display_name . '<a class="signout" href="' . wp_logout_url(home_url()) . '">Sign Out</a>';
 									} else {
 										echo '<a class="signin" href="<?php echo get_home_url(); ?>/wp-admin">Sign In</a>';
 									}
