@@ -115,7 +115,7 @@ X. Misc. styles
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: top;		
+		object-position: top;
 	}
 }
 
@@ -136,10 +136,8 @@ div[class^="uds-hero"] h1 {
 
 // For the sub-title, which does not change size on mobile, btw.
 div[class^="uds-hero"] [role="doc-subtitle"] {
-    line-height: 1.7rem;
+	line-height: 1.7rem;
 }
-
-
 
 /*--------------------------------------------------------------
 Unity Hero Block Title/Subtitle Z-index
@@ -148,34 +146,39 @@ The unity hero block loses the z-index setting on the title and
 subtitle when it drops below 768px (don't know why). Adding it
 back.
 ---------------------------------------------------------------*/
-@media (max-width: $uds-grid-container-max-width-md ) {
-	div[class^=uds-hero] .btn-row,
-	div[class^=uds-hero] .content,
-	div[class^=uds-hero] [role=doc-subtitle],
-	div[class^=uds-hero] a.btn,
-	div[class^=uds-hero] a.uds-modal-close-btn,
-	div[class^=uds-hero] h1 {
+@media (max-width: $uds-grid-container-max-width-md) {
+	div[class^="uds-hero"] .btn-row,
+	div[class^="uds-hero"] .content,
+	div[class^="uds-hero"] [role="doc-subtitle"],
+	div[class^="uds-hero"] a.btn,
+	div[class^="uds-hero"] a.uds-modal-close-btn,
+	div[class^="uds-hero"] h1 {
 		z-index: 30;
 	}
 
 	/* Unity hero also decides to drop the background gradient
 	at this size. Adding it back. Style rule copied directly from
 	the inspector at larger screen size. */
-	
+
 	div[class^="uds-hero"]::after {
 		content: "";
 		height: 100%;
 		width: 100%;
-		background-image: -webkit-gradient(linear,left top,left bottom,from(#19191900),to(#191919c9));
-		background-image: -webkit-linear-gradient(top,#19191900 0,#191919c9 100%);
-		background-image: -moz-linear-gradient(top,#19191900 0,#191919c9 100%);
-		background-image: -o-linear-gradient(top,#19191900 0,#191919c9 100%);
-		background-image: linear-gradient(180deg,#19191900 0,#191919c9 100%);
-		grid-column: 1/span 3;
-		grid-row: 1/span 4;
+		background-image: -webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(#19191900),
+			to(#191919c9)
+		);
+		background-image: -webkit-linear-gradient(top, #19191900 0, #191919c9 100%);
+		background-image: -moz-linear-gradient(top, #19191900 0, #191919c9 100%);
+		background-image: -o-linear-gradient(top, #19191900 0, #191919c9 100%);
+		background-image: linear-gradient(180deg, #19191900 0, #191919c9 100%);
+		grid-column: 1 / span 3;
+		grid-row: 1 / span 4;
 		z-index: 20;
 	}
-
 
 	/* The unity hero bock only scaled the font size down at the
 	smallest mobile size (XSmall). Adding these rules to this
@@ -183,12 +186,12 @@ back.
 
 	Note: because we had an issue with highlighted text and line
 	height, we set the line height manually here, and did not use
-	a unity theme variable. 
-	
+	a unity theme variable.
+
 	Note: We're also using slightly smaller than standard text for our
 	hero H1's here, only because it looks a little better IMO.
 	*/
-	div[class^=uds-hero] h1 {
+	div[class^="uds-hero"] h1 {
 		font-size: $uds-component-heading-two-mobile-font-size; /* 2 rem */
 		line-height: 2.25rem;
 	}
@@ -878,6 +881,89 @@ UDS Pagination - active page
 	.page-item.active {
 		span.page-link.current {
 			padding: 0.5rem 0.75rem;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+UDS Form - contact form 7
+--------------------------------------------------------------*/
+.wpcf7-form {
+	@extend .uds-form;
+	input:not([type="submit"]),
+	textarea,
+	select {
+		@extend .form-control;
+	}
+
+	input[type="submit"] {
+		padding-left: 32px !important;
+		@extend .btn;
+		@extend .btn-maroon;
+	}
+	.wpcf7-radio .wpcf7-list-item {
+		margin-left: 3rem !important;
+	}
+	.wpcf7-checkbox .wpcf7-list-item {
+		margin-left: 3rem !important;
+	}
+	.wpcf7-list-item {
+		//margin: 0;
+		label {
+			@extend .form-check;
+			margin-bottom: 1rem !important;
+			padding-left: 0.25rem;
+			input {
+				@extend .form-check-input;
+				&[type="radio"] + span.wpcf7-list-item-label {
+					&:before,
+					&:after {
+						border-radius: 50%;
+					}
+				}
+				&[type="radio"]:checked + span.wpcf7-list-item-label:after {
+					background: #000;
+				}
+
+				&[type="checkbox"] + span.wpcf7-list-item-label {
+					&:before {
+						left: -2.25rem;
+						top: 0.1rem;
+					}
+					&:after {
+						left: -2rem;
+					}
+				}
+
+				&[type="checkbox"]:checked + span.wpcf7-list-item-label:after {
+					background: transparent;
+					background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' class='svg-inline--fa fa-check fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'%3E%3C/path%3E%3C/svg%3E");
+					height: 1rem;
+					width: 1rem;
+				}
+			}
+			span.wpcf7-list-item-label {
+				//@extend .form-check-label;
+				&:before {
+					content: "";
+					position: absolute;
+					display: inline-block;
+					left: -2.25rem;
+					border: 1px solid #747474;
+					width: 1.5rem;
+					height: 1.5rem;
+					background: #fff;
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					display: inline-block;
+					left: -1.875rem;
+					top: 0.375rem;
+					width: 0.75rem;
+					height: 0.75rem;
+				}
+			}
 		}
 	}
 }
