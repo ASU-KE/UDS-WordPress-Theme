@@ -5,12 +5,14 @@
  * @package UDS WordPress Theme
  */
 
- $accordion_id = 'Accordion_' . $block['id'];
- $accordion_title = get_field( 'uds_single_accordion_title' );
- $accordion_icon = get_field( 'uds_single_accordion_title_icon' );
- $collapsed = get_field( 'uds_single_accordion_collapsed' );
- $accordion_color = get_field( 'uds_single_accordion_color' );
 
+$accordion_id = 'Accordion_' . $block['id'];
+$accordion_title = get_field( 'uds_single_accordion_title' );
+$accordion_icon = get_field( 'uds_single_accordion_title_icon' );
+$collapsed = get_field( 'uds_single_accordion_collapsed' );
+$accordion_color = get_field( 'uds_single_accordion_color' );
+
+// Set collapsed classes based on checkbox setting.
 if ( $collapsed ) {
 	$collapsed = 'aria-expanded="false" class="collapsed"';
 	$show_body_area = '';
@@ -18,6 +20,15 @@ if ( $collapsed ) {
 	$collapsed = 'aria-expanded="true"';
 	$show_body_area = 'show';
 }
+
+// Set icon text only if there is an icon.
+$icon_markup = '';
+if ( ! empty( $accordion_icon ) ) {
+	$icon_markup = '<span class="card-icon mb-0"> <i class="' . $accordion_icon . ' mr-2"></i>' . $accordion_title . '</span>';
+}else{
+	$icon_markup = '<span class-="card-icon mb-0">' . $accordion_title . '</span>';
+}
+
 
 $additional_classes = '';
 if ( ! empty( $block['className'] ) ) {
@@ -48,20 +59,17 @@ if ( ! empty( $block['className'] ) ) {
 						href="#Body_' . $accordion_id . '"
 						id="Header_' . $accordion_id . '"
 						role="button"
-					>
-					<span class="card-icon mb-0">
-					<i class="' . $accordion_icon . ' mr-2"></i>
-						' . $accordion_title . '
-        </span>
-						<span class="fas fa-chevron-up" />
+					>'
+					. $icon_markup .
+					'<span class="fas fa-chevron-up" />
 					</a>
 				</h4>
 			</div>
-							<div
-								aria-labelledby="Header_' . $accordion_id . '"
-								class="collapse card-body ' . $show_body_area . '"
-								id="Body_' . $accordion_id . '"
-							>';
+			<div
+				aria-labelledby="Header_' . $accordion_id . '"
+				class="collapse card-body ' . $show_body_area . '"
+				id="Body_' . $accordion_id . '"
+			>';
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 
 	echo '</div>
