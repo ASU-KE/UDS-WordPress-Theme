@@ -21,21 +21,22 @@ if ( $collapsed ) {
 	$show_body_area = 'show';
 }
 
-// Set icon text only if there is an icon.
-$icon_markup = '';
-if ( ! empty( $accordion_icon ) ) {
-	$icon_markup = '<span class="card-icon mb-0"> <i class="' . $accordion_icon . ' mr-2"></i>' . $accordion_title . '</span>';
-}else{
-	$icon_markup = '<span class-="card-icon mb-0">' . $accordion_title . '</span>';
-}
-
-
 $additional_classes = '';
 if ( ! empty( $block['className'] ) ) {
 	$additional_classes = $block['className'];
 }
 
-
+/**
+ * Remove right margin in title if there is no icon.
+ * Note: attempting to remove the actual icon <span> tag when there was no icon
+ * resulted in a block that would not render in the editor if you removed the
+ * icon name from the ACF input field. I settled, then, for simply changing the
+ * margin class to one that has no actual margin.
+ */
+$accordion_spacing = "mr-2";
+if( empty ( $accordion_icon ) ) {
+	$accordion_spacing = "mr-0";
+}
 
 	// Sets InnerBlocks with a Bootstrap blocks container as default content.
 	$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
@@ -59,9 +60,7 @@ if ( ! empty( $block['className'] ) ) {
 						href="#Body_' . $accordion_id . '"
 						id="Header_' . $accordion_id . '"
 						role="button"
-					>'
-					. $icon_markup .
-					'<span class="fas fa-chevron-up" />
+					><span class="card-icon mb-0"> <i class="' . $accordion_icon . ' ' . $accordion_spacing . '"></i>' . $accordion_title . '</span><span class="fas fa-chevron-up" />
 					</a>
 				</h4>
 			</div>
