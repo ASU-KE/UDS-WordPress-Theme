@@ -881,3 +881,16 @@ UDS Pagination - active page
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+Foldable cards - fix padding on top when there is no heading
+to provide spacing. Also, remove margin from any header that
+is first to avoid extra space
+--------------------------------------------------------------*/
+.card.card-foldable .card-body {
+	padding: 1.25rem; // 20px
+
+	h1, h2, h3, h4, h5 {
+		margin-top: 0;
+	}
+}
