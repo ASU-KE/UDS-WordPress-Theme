@@ -20,6 +20,7 @@ $person_text           = get_field( 'uds_profile_text' );
 $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
+$is_featured		   = get_field( 'uds_profile_is_feature');
 
 
 
@@ -33,6 +34,12 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 $border_override_class = '';
 if ( ! $horizontal_rule ) {
 	$border_override_class .= 'no-bottom-border';
+}
+
+// If this is a feature profile, we'll add an extra class to the block.
+$feature_class = '';
+if ( $is_featured ) {
+	$feature_class = 'feature-profile';
 }
 
 /**
@@ -85,7 +92,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 				<?php if ( ! empty( $person_url ) ) : ?>
 					<a href="" target="_blank" rel="noopener noreferrer">
 				<?php endif; ?>
-					<img class="pictureOriginal" src="<?php echo $image_data['url']; ?>" alt="profile picture for <?php echo $person_name; ?>">
+					<img class="pictureOriginal <?php echo $feature_class;?>" src="<?php echo $image_data['url']; ?>" alt="profile picture for <?php echo $person_name; ?>">
 				<?php if ( ! empty( $person_url ) ) : ?>
 					</a>
 				<?php endif; ?>
