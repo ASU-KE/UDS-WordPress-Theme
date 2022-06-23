@@ -34,6 +34,15 @@
 				object-fit: cover;
 				width: 180px;
 			}
+
+			img.pictureOriginal.feature-profile {
+				height: 270px;
+				min-height: 270px;
+				max-height: 270px;
+				width: 270px;
+				min-width: 270px;
+				max-width: 270px;
+			}
 		}
 
 		// Column with everything but the image.
