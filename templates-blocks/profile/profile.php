@@ -90,7 +90,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 		<?php if ( ! empty( $image_data ) ) : ?>
 			<div class="profile-photo-column">
 				<?php if ( ! empty( $person_url ) ) : ?>
-					<a href="" target="_blank" rel="noopener noreferrer">
+					<a href=<?php echo $person_url; ?> target="_blank" rel="noopener noreferrer">
 				<?php endif; ?>
 					<img class="pictureOriginal <?php echo $feature_class;?>" src="<?php echo $image_data['url']; ?>" alt="profile picture for <?php echo $person_name; ?>">
 				<?php if ( ! empty( $person_url ) ) : ?>
