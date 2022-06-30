@@ -187,7 +187,7 @@ if (!empty($image_data)) {
 					$external_link = get_sub_field('external_link');
 
 					if ($external_link) {
-						$rel = 'rel="noopener noreferrer"';
+						$rel = 'target="_blank" rel="noopener noreferrer"';
 					} else {
 						$rel = '';
 					}
