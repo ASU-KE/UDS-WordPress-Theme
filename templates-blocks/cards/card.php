@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UDS Card Block
  *
@@ -22,8 +23,8 @@
  * in the ACF field group, we have it give us basic values and determine the
  * class names here
  */
-$style = get_field( 'card_style' );
-switch ( $style ) {
+$style = get_field('card_style');
+switch ($style) {
 	case 'degree':
 		$style_class = 'card-degree';
 		break;
@@ -42,150 +43,150 @@ switch ( $style ) {
 }
 
 // Get the header style: none, image, or icon.
-$header_style = get_field( 'header_style' );
+$header_style = get_field('header_style');
 
 // Get the orientation value and set a class if horizontal.
-if ( 'horizontal' == get_field( 'card_orientation' ) ) {
+if ('horizontal' == get_field('card_orientation')) {
 	$orientation_class = 'card-horizontal';
 } else {
 	$orientation_class = '';
 }
 
 // If there's an icon, clean it up for use.
-$icon_name = get_field( 'header_icon' );
-if ( 'icon' == $header_style && '' != $icon_name ) {
-	$icon_name = sanitize_text_field( $icon_name );
+$icon_name = get_field('header_icon');
+if ('icon' == $header_style && '' != $icon_name) {
+	$icon_name = sanitize_text_field($icon_name);
 }
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
-if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
-	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
+if (isset($block['className']) && !empty($block['className'])) {
+	$additional_classes = trim(sanitize_text_field($block['className']));
 }
 
 // Get our image data from the array provided by ACF.
 $image_url = '';
 $image_alt = '';
 
-$image_data = get_field( 'image' );
+$image_data = get_field('image');
 
-if ( ! empty( $image_data ) ) {
+if (!empty($image_data)) {
 	$image_url = $image_data['url'];
 	$image_alt = $image_data['alt'];
 }
 ?>
 
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
-	<?php if ( 'image' == $header_style ) : ?>
+	<?php if ('image' == $header_style) : ?>
 		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
 	<?php endif; ?>
-	<?php if ( 'icon' == $header_style ) : ?>
+	<?php if ('icon' == $header_style) : ?>
 		<i class="fas fa-<?php echo $icon_name; ?> fa-2x card-icon-top"></i>
 	<?php endif; ?>
-		<?php if ( 'card-horizontal' == $orientation_class ) : ?>
-			<div class="card-content-wrapper" />
-		<?php endif; ?>
-			<div class="card-header">
-				<h3 class="card-title"><?php the_field( 'title', false, false ); ?></h3>
-			</div>
-		<?php if ( '' !== get_field( 'body_text' ) ) : ?>
-			<div class="card-body">
-				<p class="card-text"><?php the_field( 'body_text', false, false ); ?></p>
-			</div>
-		<?php endif; ?>
+	<?php if ('card-horizontal' == $orientation_class) : ?>
+		<div class="card-content-wrapper" />
+	<?php endif; ?>
+	<div class="card-header">
+		<h3 class="card-title"><?php the_field('title', false, false); ?></h3>
+	</div>
+	<?php if ('' !== get_field('body_text')) : ?>
+		<div class="card-body">
+			<p class="card-text"><?php the_field('body_text', false, false); ?></p>
+		</div>
+	<?php endif; ?>
 
-		<?php if ( 'event' === get_field( 'card_style' ) ) : ?>
-			<?php if ( get_field( 'start_date' ) || get_field( 'start_time' ) ) : ?>
-				<div class="card-event-details">
-					<div class="card-event-icons">
-							<div><i class="fas fa-calendar"></i></div>
-							<div>
-								<?php the_field( 'start_date' ); ?><br>
-								<?php the_field( 'start_time' ); ?>
-								<?php if ( get_field( 'end_time' ) ) : ?>
-									&nbsp;&ndash;&nbsp;<?php the_field( 'end_time' ); ?>
-								<?php endif; ?>
-							</div>
+	<?php if ('event' === get_field('card_style')) : ?>
+		<?php if (get_field('start_date') || get_field('start_time')) : ?>
+			<div class="card-event-details">
+				<div class="card-event-icons">
+					<div><i class="fas fa-calendar"></i></div>
+					<div>
+						<?php the_field('start_date'); ?><br>
+						<?php the_field('start_time'); ?>
+						<?php if (get_field('end_time')) : ?>
+							&nbsp;&ndash;&nbsp;<?php the_field('end_time'); ?>
+						<?php endif; ?>
 					</div>
 				</div>
-			<?php endif; ?>
-			<?php if ( get_field( 'location' ) ) : ?>
-				<div class="card-event-details">
-					<div class="card-event-icons">
-						<div><i class="fas fa-map-marker-alt"></i></div>
-						<div><?php echo sanitize_text_field( get_field( 'location' ) ); ?></div>
-					</div>
+			</div>
+		<?php endif; ?>
+		<?php if (get_field('location')) : ?>
+			<div class="card-event-details">
+				<div class="card-event-icons">
+					<div><i class="fas fa-map-marker-alt"></i></div>
+					<div><?php echo sanitize_text_field(get_field('location')); ?></div>
 				</div>
-			<?php endif; ?>
+			</div>
 		<?php endif; ?>
+	<?php endif; ?>
 
-		<?php if ( get_field( 'buttons' ) ) : ?>
-			<?php if ( have_rows( 'buttons' ) ) : ?>
-				<?php
-				while ( have_rows( 'buttons' ) ) :
-					the_row();
-					?>
-					<div class="card-button">
-						<?php
-							// Get our ACF Field values.
-							$external_link = get_sub_field( 'card_buttons_external_link' );
-							$button_color  = get_sub_field( 'card_buttons_button_color' );
-							$button_size   = get_sub_field( 'card_buttons_button_size' );
-							$button_icon   = get_sub_field( 'card_buttons_icon' );
-							// These come in from the ACF cloned fields from the button group.
-							$link_values   = get_sub_field( 'card_buttons_button_link' );
-							$button_label  = sanitize_text_field( $link_values['title'] );
-							$button_url    = esc_url( $link_values['url'] );
-							$button_target = $link_values['target'];
-
-						// Set "rel" text if requested.
-						if ( $external_link ) {
-							$rel = 'rel="noopener noreferrer"';
-						} else {
-							$rel = '';
-						}
-
-						// Set the text for the button size class.
-						if ( 'default' !== $button_size ) {
-							$button_size = 'btn-' . $button_size;
-						} else {
-							$button_size = '';
-						}
-
-						// Set the text for the icon, if requested.
-						if ( $button_icon ) {
-							$button_icon = sanitize_text_field( $button_icon );
-							$icon_span = '<span class="fas fa-' . $button_icon . '"></span>&nbsp;&nbsp;';
-						} else {
-							$icon_span = '';
-						}
-
-						// Set the text for a target of "_blank" if opening in a new tab.
-						if ( $button_target ) {
-							$target_text = 'target="' . $button_target . '"';
-						} else {
-							$target_text = '';
-						}
-						?>
-						<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
-					</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
-		<?php endif; ?>
-
-		<?php if ( get_field( 'links' ) ) : ?>
-			<?php if ( have_rows( 'links' ) ) : ?>
-				<div class="card-link">
-				<?php
-				while ( have_rows( 'links' ) ) :
-					the_row();
-					?>
+	<?php if (get_field('buttons')) : ?>
+		<?php if (have_rows('buttons')) : ?>
+			<?php
+			while (have_rows('buttons')) :
+				the_row();
+			?>
+				<div class="card-button">
 					<?php
-						$link_label = sanitize_text_field( get_sub_field( 'link_text' ) );
-						$link_url = esc_url( get_sub_field( 'link_url' ) );
-						$external_link = get_sub_field( 'external_link' );
+					// Get our ACF Field values.
+					$external_link = get_sub_field('card_buttons_external_link');
+					$button_color  = get_sub_field('card_buttons_button_color');
+					$button_size   = get_sub_field('card_buttons_button_size');
+					$button_icon   = get_sub_field('card_buttons_icon');
+					// These come in from the ACF cloned fields from the button group.
+					$link_values   = get_sub_field('card_buttons_button_link');
+					$button_label  = sanitize_text_field($link_values['title']);
+					$button_url    = esc_url($link_values['url']);
+					$button_target = $link_values['target'];
 
-					if ( $external_link ) {
+					// Set "rel" text if requested.
+					if ($external_link) {
+						$rel = 'target="_blank" rel="noopener noreferrer"';
+					} else {
+						$rel = '';
+					}
+
+					// Set the text for the button size class.
+					if ('default' !== $button_size) {
+						$button_size = 'btn-' . $button_size;
+					} else {
+						$button_size = '';
+					}
+
+					// Set the text for the icon, if requested.
+					if ($button_icon) {
+						$button_icon = sanitize_text_field($button_icon);
+						$icon_span = '<span class="fas fa-' . $button_icon . '"></span>&nbsp;&nbsp;';
+					} else {
+						$icon_span = '';
+					}
+
+					// Set the text for a target of "_blank" if opening in a new tab.
+					if ($button_target) {
+						$target_text = 'target="' . $button_target . '"';
+					} else {
+						$target_text = '';
+					}
+					?>
+					<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	<?php endif; ?>
+
+	<?php if (get_field('links')) : ?>
+		<?php if (have_rows('links')) : ?>
+			<div class="card-link">
+				<?php
+				while (have_rows('links')) :
+					the_row();
+				?>
+					<?php
+					$link_label = sanitize_text_field(get_sub_field('link_text'));
+					$link_url = esc_url(get_sub_field('link_url'));
+					$external_link = get_sub_field('external_link');
+
+					if ($external_link) {
 						$rel = 'rel="noopener noreferrer"';
 					} else {
 						$rel = '';
@@ -193,27 +194,27 @@ if ( ! empty( $image_data ) ) {
 					?>
 					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_label; ?></a>
 				<?php endwhile; ?>
-				</div>
-			<?php endif; ?>
+			</div>
 		<?php endif; ?>
+	<?php endif; ?>
 
-		<?php if ( get_field( 'tags' ) ) : ?>
-			<?php if ( have_rows( 'tags' ) ) : ?>
-				<div class="card-tags">
+	<?php if (get_field('tags')) : ?>
+		<?php if (have_rows('tags')) : ?>
+			<div class="card-tags">
 				<?php
-				while ( have_rows( 'tags' ) ) :
+				while (have_rows('tags')) :
 					the_row();
-					?>
+				?>
 					<?php
-						$tag_label = sanitize_text_field( get_sub_field( 'tag_text' ) );
-						$tag_url = esc_url( get_sub_field( 'tag_url' ) );
+					$tag_label = sanitize_text_field(get_sub_field('tag_text'));
+					$tag_url = esc_url(get_sub_field('tag_url'));
 					?>
-					<a class="btn btn-tag btn-tag-alt-white" href="<?php echo $tag_url; ?>" ><?php echo $tag_label; ?></a>
+					<a class="btn btn-tag btn-tag-alt-white" href="<?php echo $tag_url; ?>"><?php echo $tag_label; ?></a>
 				<?php endwhile; ?>
-				</div>
-			<?php endif; ?>
+			</div>
 		<?php endif; ?>
-		<?php if ( 'card-horizontal' == $orientation_class ) : ?>
-			</div> <!-- close horizontal content -->
-		<?php endif; ?>
+	<?php endif; ?>
+	<?php if ('card-horizontal' == $orientation_class) : ?>
+</div> <!-- close horizontal content -->
+<?php endif; ?>
 </div>
