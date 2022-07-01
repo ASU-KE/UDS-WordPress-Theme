@@ -176,7 +176,7 @@
             "label": "Profile",
             "name": "uds_profile_text",
             "type": "textarea",
-            "instructions": "Brief profile description. Max 500 characters!",
+            "instructions": "Brief profile description. Max 600 characters!",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -186,7 +186,7 @@
             },
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "placeholder": "",
-            "maxlength": 500,
+            "maxlength": 600,
             "rows": 6,
             "new_lines": "br"
         },
@@ -406,5 +406,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1656009435
+    "modified": 1656715083
 }
