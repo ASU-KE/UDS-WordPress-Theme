@@ -279,15 +279,18 @@ if (!empty($hero_asset_data['url'])) :
 			</div>
 		</div>
 	</div>
+
 <?php
 
 else :
 
-	echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
-	if (!get_field('hide_page_title', $category)) {
-		the_title('<h1 class="entry-title">', '</h1>');
+	if (!is_category()) {
+		echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
+		if (!get_field('hide_page_title', $category)) {
+			the_title('<h1 class="entry-title">', '</h1>');
+		}
+		echo '</div></div></div></section>';
 	}
-	echo '</div></div></div></section>';
 
 endif;
 ?>
