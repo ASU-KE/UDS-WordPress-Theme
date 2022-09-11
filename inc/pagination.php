@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pagination layout
  *
@@ -6,9 +7,9 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( ! function_exists( 'uds_wp_pagination' ) ) {
+if (!function_exists('uds_wp_pagination')) {
 	/**
 	 * Displays the navigation to next/previous set of posts.
 	 *
@@ -39,9 +40,10 @@ if ( ! function_exists( 'uds_wp_pagination' ) ) {
 	 * }
 	 * @param string       $class           (Optional) Classes to be added to the <ul> element. Default 'pagination'.
 	 */
-	function uds_wp_pagination( $args = array(), $class = 'pagination' ) {
+	function uds_wp_pagination($args = array(), $class = 'pagination')
+	{
 
-		if ( ! isset( $args['total'] ) && $GLOBALS['wp_query']->max_num_pages <= 1 ) {
+		if (!isset($args['total']) && $GLOBALS['wp_query']->max_num_pages <= 1) {
 			return;
 		}
 
@@ -50,43 +52,49 @@ if ( ! function_exists( 'uds_wp_pagination' ) ) {
 			array(
 				'mid_size'           => 2,
 				'prev_next'          => true,
-				'prev_text'          => __( '&laquo;', 'uds-wordpress-theme' ),
-				'next_text'          => __( '&raquo;', 'uds-wordpress-theme' ),
+				'prev_text'          => __('&laquo; Prev', 'uds-wordpress-theme'),
+				'next_text'          => __('Next &raquo;', 'uds-wordpress-theme'),
 				'type'               => 'array',
-				'current'            => max( 1, get_query_var( 'paged' ) ),
-				'screen_reader_text' => __( 'Posts navigation', 'uds-wordpress-theme' ),
+				'current'            => max(1, get_query_var('paged')),
+				'screen_reader_text' => __('Posts navigation', 'uds-wordpress-theme'),
 			)
 		);
 
-		$links = paginate_links( $args );
-		if ( ! $links ) {
+		$links = paginate_links($args);
+		if (!$links) {
 			return;
 		}
 
-		?>
+?>
 
 		<nav aria-labelledby="posts-nav-label">
 
 			<h2 id="posts-nav-label" class="sr-only">
-				<?php echo esc_html( $args['screen_reader_text'] ); ?>
+				<?php echo esc_html($args['screen_reader_text']); ?>
 			</h2>
 
-			<ul class="<?php echo esc_attr( $class ); ?>">
+			<ul class="<?php echo esc_attr($class); ?> justify-content-center">
+				<?php if (0 != get_query_var('paged')) { ?>
+					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/1/">First</a></li>
 
 				<?php
-				foreach ( $links as $key => $link ) {
-					?>
-					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : ''; ?>">
-						<?php echo str_replace( 'page-numbers', 'page-link', $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</li>
-					<?php
 				}
+				foreach ($links as $key => $link) {
 				?>
-
+					<li class="page-item <?php echo strpos($link, 'current') ? 'active' : ''; ?>">
+						<?php echo str_replace('page-numbers', 'page-link', $link); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						?>
+					</li>
+				<?php
+				}
+				if ($GLOBALS['wp_query']->max_num_pages != get_query_var('paged')) {
+				?>
+					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/<?php echo $GLOBALS['wp_query']->max_num_pages; ?>">Last</a></li>
+				<?php } ?>
 			</ul>
 
 		</nav>
 
-		<?php
+<?php
 	}
 }

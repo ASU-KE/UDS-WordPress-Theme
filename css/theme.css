@@ -30390,24 +30390,13 @@ X. Misc. styles
 }
 
 /*--------------------------------------------------------------
- Hero img
+ Hero adjustments
 --------------------------------------------------------------*/
 .uds-hero {
   position: relative;
 }
-.uds-hero:after {
-  content: "";
-  background: -webkit-gradient(linear, left top, left bottom, from(#19191900), to(#191919c9));
-  background: -webkit-linear-gradient(top, #19191900 0%, #191919c9 100%);
-  background: -moz-linear-gradient(top, #19191900 0%, #191919c9 100%);
-  background: -o-linear-gradient(top, #19191900 0%, #191919c9 100%);
-  background: linear-gradient(180deg, #19191900 0%, #191919c9 100%);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
 .uds-hero .uds-hero-container {
-  z-index: 999;
+  z-index: 30;
 }
 .uds-hero img {
   position: absolute;
@@ -30419,6 +30408,87 @@ X. Misc. styles
      object-position: top;
 }
 
+/*--------------------------------------------------------------
+Unity hero: highlight/subtitle covers up letters fix
+
+The line height on hero H1's was not large enough to accomodate
+highlighted text, leading to letters with descenders ('g', 'y',
+etc.) being clipped. Upping the line height here to the mimimum
+size that will prevent clipping.
+
+Note: This is for all sizes except extra small and small, which
+are handled with the media query below
+---------------------------------------------------------------*/
+div[class^=uds-hero] h1 {
+  line-height: 4.5rem;
+}
+
+div[class^=uds-hero] [role=doc-subtitle] {
+  line-height: 1.7rem;
+}
+
+/*--------------------------------------------------------------
+Unity Hero Block Title/Subtitle Z-index
+
+The unity hero block loses the z-index setting on the title and
+subtitle when it drops below 768px (don't know why). Adding it
+back.
+---------------------------------------------------------------*/
+@media (max-width: 768px) {
+  div[class^=uds-hero] .btn-row,
+div[class^=uds-hero] .content,
+div[class^=uds-hero] [role=doc-subtitle],
+div[class^=uds-hero] a.btn,
+div[class^=uds-hero] a.uds-modal-close-btn,
+div[class^=uds-hero] h1 {
+    z-index: 30;
+  }
+
+  /* Unity hero also decides to drop the background gradient
+  at this size. Adding it back. Style rule copied directly from
+  the inspector at larger screen size. */
+  div[class^=uds-hero]::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#19191900), to(#191919c9));
+    background-image: -webkit-linear-gradient(top, #19191900 0, #191919c9 100%);
+    background-image: -moz-linear-gradient(top, #19191900 0, #191919c9 100%);
+    background-image: -o-linear-gradient(top, #19191900 0, #191919c9 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #19191900), to(#191919c9));
+    background-image: linear-gradient(180deg, #19191900 0, #191919c9 100%);
+    grid-column: 1/span 3;
+    grid-row: 1/span 4;
+    z-index: 20;
+  }
+
+  /* The unity hero bock only scaled the font size down at the
+  smallest mobile size (XSmall). Adding these rules to this
+  media query so we will scale down the font size at XS and Small.
+
+  Note: because we had an issue with highlighted text and line
+  height, we set the line height manually here, and did not use
+  a unity theme variable.
+
+  Note: We're also using slightly smaller than standard text for our
+  hero H1's here, only because it looks a little better IMO.
+  */
+  div[class^=uds-hero] h1 {
+    font-size: 2rem;
+    /* 2 rem */
+    line-height: 2.25rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 768px) and (max-width: 768px) {
+  div[class^=uds-hero] .content {
+    width: 100%;
+    max-width: 560px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
@@ -31118,6 +31188,85 @@ UDS image overlap
   }
 }
 
+/*--------------------------------------------------------------
+UDS Pagination - active page
+--------------------------------------------------------------*/
+.pagination .page-item.active span.page-link.current {
+  padding: 0.5rem 0.75rem;
+}
+
+/*--------------------------------------------------------------
+Foldable cards - fix padding on top when there is no heading
+to provide spacing. Also, remove margin from any header that
+is first to avoid extra space
+--------------------------------------------------------------*/
+.card.card-foldable .card-body {
+  padding: 1.25rem;
+}
+.card.card-foldable .card-body h1:first-child,
+.card.card-foldable .card-body h2:first-child,
+.card.card-foldable .card-body h3:first-child,
+.card.card-foldable .card-body h4:first-child,
+.card.card-foldable .card-body h5:first-child {
+  margin-top: 0;
+}
+
+span.card-icon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+/*--------------------------------------------------------------
+iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
+--------------------------------------------------------------*/
+.three-col .isearch-default-list .profile.profile-type-standard {
+  width: 33%;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.four-col .isearch-default-list .profile.profile-type-standard {
+  width: 25%;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row {
+  display: grid;
+  border-bottom: 0;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p {
+  display: none;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column {
+  padding: 24px 24px 5px 0;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column {
+  width: 90%;
+}
+
+@media (max-width: 992px) {
+  .three-col .isearch-default-list .profile.profile-type-standard,
+.four-col .isearch-default-list .profile.profile-type-standard {
+    width: 100%;
+    display: inline-block;
+  }
+}
 /*--------------------------------------------------------------
 Color picker CSS rules
 
@@ -36479,7 +36628,7 @@ Additional rules from theme.scss
   position: absolute;
 }
 .v1-uds-hero .v1-uds-hero-container {
-  z-index: 999;
+  z-index: 30;
 }
 .v1-uds-hero img {
   position: absolute;
@@ -36519,9 +36668,6 @@ buttons. */
     margin-bottom: 2rem !important;
     margin-left: 1rem;
     top: 0 !important;
-  }
-  .v1-uds-hero.uds-hero-md .v1-uds-hero-container.has-buttons {
-    top: 2rem !important;
   }
 }
 
@@ -36608,6 +36754,24 @@ Hero video
   -o-object-fit: cover;
      object-fit: cover;
   width: 180px;
+}
+.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
+  height: 270px;
+  min-height: 270px;
+  max-height: 270px;
+  width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+}
+@media only screen and (max-width: 768px) {
+  .profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
+    height: 180px;
+    min-height: 180px;
+    max-height: 180px;
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+  }
 }
 .profile.profile-type-standard .profile-row .profile-bio-column {
   max-width: 700px;
