@@ -248,6 +248,27 @@ back.
 	@extend .uds-list;
 }
 
+main {
+	ul:not(.uds-list),
+	ol:not(.uds-list),
+	ul.wp-block-list:not(.uds-list),
+	ol.wp-block-list:not(.uds-list) {
+		@extend .uds-list;
+	}
+	ul,
+	ol {
+		&.has-asu-maroon-color {
+			color: $uds-color-base-gray-7 !important;
+			@extend .maroon;
+		}
+		&.has-asu-gold-color {
+			color: $uds-color-base-white !important;
+			@extend .gold;
+			@extend .darkmode;
+		}
+	}
+}
+
 .is-style-steplist {
 	@extend .uds-steplist;
 }
@@ -882,6 +903,98 @@ UDS Pagination - active page
 		span.page-link.current {
 			padding: 0.5rem 0.75rem;
 		}
+	}
+}
+
+/*--------------------------------------------------------------
+Foldable cards - fix padding on top when there is no heading
+to provide spacing. Also, remove margin from any header that
+is first to avoid extra space
+--------------------------------------------------------------*/
+.card.card-foldable .card-body {
+	padding: 1.25rem; // 20px
+
+	h1:first-child,
+	h2:first-child,
+	h3:first-child,
+	h4:first-child,
+	h5:first-child {
+		margin-top: 0;
+	}
+}
+
+// Use flexbox to keep the icon from overlapping a second line in the title.
+span.card-icon {
+	display: flex;
+	align-items: flex-start;
+}
+
+/*--------------------------------------------------------------
+iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
+--------------------------------------------------------------*/
+
+.three-col .isearch-default-list .profile.profile-type-standard {
+	width: 33%;
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+.four-col .isearch-default-list .profile.profile-type-standard {
+	width: 25%;
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row {
+	display: grid;
+	border-bottom: 0;
+}
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column
+	> p,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column
+	> p {
+	display: none;
+}
+
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-photo-column,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-photo-column {
+	padding: 24px 24px 5px 0;
+}
+
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column {
+	width: 90%;
+}
+
+@media (max-width: 992px) {
+	.three-col .isearch-default-list .profile.profile-type-standard,
+	.four-col .isearch-default-list .profile.profile-type-standard {
+		width: 100%;
+		display: inline-block;
 	}
 }
 

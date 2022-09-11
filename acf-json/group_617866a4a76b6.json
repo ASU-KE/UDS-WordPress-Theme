@@ -176,7 +176,7 @@
             "label": "Profile",
             "name": "uds_profile_text",
             "type": "textarea",
-            "instructions": "Brief profile description. Max 200 characters.",
+            "instructions": "Brief profile description. Max 600 characters!",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -186,7 +186,7 @@
             },
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "placeholder": "",
-            "maxlength": 300,
+            "maxlength": 600,
             "rows": 6,
             "new_lines": "br"
         },
@@ -367,6 +367,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_62b4a8c42d58d",
+            "label": "Feature Profile?",
+            "name": "uds_profile_is_feature",
+            "type": "true_false",
+            "instructions": "Use the Featured profile style, with a larger image?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -387,5 +406,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640733547
+    "modified": 1656715083
 }

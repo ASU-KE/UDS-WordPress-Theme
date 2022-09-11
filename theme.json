@@ -1,0 +1,115 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"text": false,
+			"background": true,
+			"link": false,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"slug": "asu-maroon",
+					"color": "#8C1D40",
+					"name": "ASU Maroon"
+				},
+				{
+					"slug": "asu-gold",
+					"color": "#FFC627",
+					"name": "ASU Gold"
+				},
+				{
+					"slug": "asu-blue",
+					"color": "#00A3E0",
+					"name": "ASU Blue"
+				},
+				{
+					"slug": "asu-green",
+					"color": "#78BE20",
+					"name": "ASU Green"
+				},
+				{
+					"slug": "asu-orange",
+					"color": "#FF7F32",
+					"name": "ASU Orange"
+				},
+				{
+					"slug": "white",
+					"color": "#FFFFFF",
+					"name": "White"
+				},
+				{
+					"slug": "gray-1",
+					"color": "#FAFAFA",
+					"name": "ASU Gray 1"
+				},
+				{
+					"slug": "gray-2",
+					"color": "#E8E8E8",
+					"name": "ASU Gray 2"
+				},
+				{
+					"slug": "gray-3",
+					"color": "#D0D0D0",
+					"name": "ASU Gray 3"
+				},
+				{
+					"slug": "gray-4",
+					"color": "#BFBFBF",
+					"name": "ASU Gray 4"
+				},
+				{
+					"slug": "gray-5",
+					"color": "#747474",
+					"name": "ASU Gray 5"
+				},
+				{
+					"slug": "gray-6",
+					"color": "#484848",
+					"name": "ASU Gray 6"
+				},
+				{
+					"slug": "gray-7",
+					"color": "#191919",
+					"name": "ASU Gray 7"
+				}
+			]
+		},
+		"blocks": {
+			"core/list": {
+				"color": {
+					"background": false,
+					"text": true,
+					"link": true,
+					"palette": [
+						{
+							"slug": "gray-7",
+							"color": "#191919",
+							"name": "ASU Gray 7"
+						},
+						{
+							"slug": "asu-maroon",
+							"color": "#8C1D40",
+							"name": "ASU Maroon"
+						},
+						{
+							"slug": "asu-gold",
+							"color": "#FFC627",
+							"name": "ASU Gold"
+						},
+						{
+							"slug": "white",
+							"color": "#FFFFFF",
+							"name": "White"
+						}
+					]
+				}
+			}
+		}
+	}
+}
