@@ -1081,3 +1081,57 @@ UDS Form - contact form 7
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+core/image
+--------------------------------------------------------------*/
+.wp-block-image {
+	img:nth-last-child(3) {
+		border: 1px solid $uds-color-base-gray-3;
+	}
+
+	figcaption {
+		border: 1px solid $uds-color-base-gray-3;
+		border-top: none;
+		opacity: 1;
+		background: #fff 0% 0% no-repeat padding-box;
+		padding: 0.75rem;
+		font-size: 0.75rem;
+
+		// Default WP figcaption adds margin.
+		margin-top: 0;
+		margin-bottom: 0;
+		box-shadow: inherit;
+	}
+	&.is-style-drop-shadow {
+		figure {
+			box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+		}
+	}
+
+	&.is-style-circular {
+		img {
+			border: none;
+			border-radius: 100%;
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
+		}
+
+		figcaption {
+			border: none;
+			text-align: center;
+		}
+	}
+}
+
+figure.wp-block-image {
+	display: inline-table;
+	figcaption {
+		display: table-caption;
+		caption-side: bottom;
+		box-shadow: inherit;
+	}
+	&.is-style-drop-shadow {
+		box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+	}
+}
