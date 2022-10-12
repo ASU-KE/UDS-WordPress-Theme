@@ -13,8 +13,8 @@ wp.domReady(() => {
 
 	wp.blocks.registerBlockStyle("core/image", [
 		{
-			name: "uds-figure",
-			label: "USD image",
+			name: "uds-image",
+			label: "Default",
 			isDefault: true,
 		},
 	]);
@@ -22,7 +22,7 @@ wp.domReady(() => {
 	wp.blocks.registerBlockStyle("core/image", [
 		{
 			name: "drop-shadow",
-			label: "Figure w/drop shadow",
+			label: "Drop shadow",
 			isDefault: false,
 		},
 	]);
