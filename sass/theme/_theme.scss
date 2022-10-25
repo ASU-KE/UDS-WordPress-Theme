@@ -536,16 +536,19 @@ Override the desktop media query for header to fix the gap issue
 	}
 }
 
-#wpadminbar + #asu-header.fixed-top {
+#wpadminbar + #asu-header.fixed-top,
+body.logged-in.admin-bar #asu-header.fixed-top {
 	top: 32px !important;
 }
 
 @include media-breakpoint-down(sm) {
-	#wpadminbar + #asu-header.fixed-top {
+	#wpadminbar + #asu-header.fixed-top,
+	body.logged-in.admin-bar #asu-header.fixed-top {
 		top: 46px !important;
 	}
 }
-#wpadminbar + #asu-header.scrolled {
+#wpadminbar + #asu-header.scrolled,
+body.logged-in.admin-bar #asu-header.scrolled {
 	top: 32px !important;
 	transition: all 0.3s ease-out;
 }
