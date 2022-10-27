@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
+if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 	/**
 	 * Load requested menu object and format into hierarchical array
 	 * for the custom WP nav menu builders.
@@ -31,8 +31,11 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
+			//wp_die(var_dump($menu_object));
 			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
-
+			echo '<script>console.log("first step array menu")</script>';
+			 echo '<script>console.log('.json_encode($array_menu).')</script>';
+			//wp_die(var_dump($array_menu));
 			// array_menu will return false if there are no menu options.
 			if ( ! $array_menu ) {
 				$array_menu = array();
@@ -52,7 +55,9 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
-
+			 echo '<script>console.log("top level menu items")</script>';
+			 echo '<script>console.log('.json_encode($m).')</script>';
+			
 					$pre_menu[ $m->ID ]                  = array();
 					$pre_menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
 					$pre_menu[ $m->ID ]['cta_color']     = get_field( 'menu_cta_button_color', $m );
@@ -61,16 +66,20 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					// If this is a CTA button, push it onto our top-level CTA button array.
 					// Remove it from this array and skip any further processing of this item.
 					if ( $pre_menu[ $m->ID ]['cta_button'] ) {
+						dump($m);
+						echo '<script>console.log("cta button if")</script>';
+			 echo '<script>console.log('.json_encode($m).')</script>';
 						do_action( 'qm/debug', 'Item: ' . $pre_menu[ $m->ID ]['text'] . ' was a CTA button. Pushing and deleting.' );
 						do_action( 'qm/debug', 'Color was: ' . $pre_menu[ $m->ID ]['cta_color'] );
 						$temp_cta = array();
-						$temp_cta['href']  = '#';
+						$temp_cta['href']  = $m->url;
 						$temp_cta['text']  = $pre_menu[ $m->ID]['text'];
 						$temp_cta['color'] = $pre_menu[ $m->ID ]['cta_color'];
 						array_push( $cta_buttons, $temp_cta ); // pushing all items. Could be fewer.
 						unset( $pre_menu[ $m->ID ] );
 					} else {
-
+						echo '<script>console.log("not a cta button")</script>';
+			 echo '<script>console.log('.json_encode($m).')</script>';
 						do_action( 'qm/debug', 'Found menu item: ' . $pre_menu[ $m->ID ]['text'] );
 						$pre_menu[ $m->ID ]['ID']          = $m->ID;
 						$pre_menu[ $m->ID ]['href']        = $m->url;
@@ -109,6 +118,8 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			$dropdown = array();
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
+					echo '<script>console.log("1st level of children")</script>';
+			 echo '<script>console.log('.json_encode($m).')</script>';
 					$dropdown[ $m->ID ]                = array();
 					$dropdown[ $m->ID ]['ID']          = $m->ID;
 					$dropdown[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
@@ -145,9 +156,11 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			 * of data for this menu item
 			 */
 			$column = array();
-
+			$our_array_menu = array();
 			foreach ( $array_menu as $m ) {
 				if ( $m->menu_item_parent && ! array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
+					echo '<script>console.log("step 3 m menu item parent and NOT array key exists - grandchildren")</script>';
+			 echo '<script>console.log('.json_encode($m).')</script>';
 					$column[ $m->ID ]                = array();
 					$column[ $m->ID ]['ID']          = $m->ID;
 					$column[ $m->ID ]['type']        = get_field( 'uds_menu_item_type', $m );
@@ -168,7 +181,32 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					 */
 					if ( array_key_exists( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
 						$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
+						echo '<script>console.log("grandchildren top menu")</script>';
+			 echo '<script>console.log('.json_encode($top_menu).')</script>';
+						$middle_menu = $dropdown[ $m->menu_item_parent ];
+						echo '<script>console.log("middle menu")</script>';
+			 echo '<script>console.log('.json_encode($middle_menu).')</script>';
+			 //$our_array_menu = array();
+			 //$our_array_menu = $pre_menu[ $top_menu ]['items'][ $middle_menu->menu_item_parent ]['items'];
+			 echo '<script>console.log("array menu")</script>';
+			 echo '<script>console.log('.json_encode($our_array_menu).')</script>';
+			 echo '<script>console.log('.gettype($our_array_menu).')</script>';
 
+			 if( ! in_array([ $middle_menu->ID ]['ID'], $our_array_menu) ) {
+				$middle_menu_column = array();
+				$middle_menu_column[ $middle_menu->ID ]                = array();
+			   $middle_menu_column[ $middle_menu->ID ]['ID']          = $middle_menu['ID'];
+			   $middle_menu_column[ $middle_menu->ID ]['type']        = "heading";
+			   $middle_menu_column[ $middle_menu->ID ]['text']        = $middle_menu['text'];
+			   //$middle_menu_column[ $middle_menu->ID ]['href']        = "#";
+			   $middle_menu_column[ $middle_menu->ID ]['has_current'] = false;
+
+			   $pre_menu[ $top_menu ]['items'][ $m->menu_item_parent ]['items'][ $middle_menu->ID ] = $middle_menu_column[ $middle_menu->ID ];
+			   echo '<script>console.log("middle menu column built")</script>';
+		echo '<script>console.log('.json_encode($pre_menu[ $top_menu ]['items'][ $middle_menu->menu_item_parent ]['items'][ $middle_menu->ID ]).')</script>';
+
+			 }
+					
 						// The menu link can be relative or absolute.
 						// Format menu link and remove absolute base url from link
 						$prefix = get_home_url();
@@ -186,7 +224,8 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					}
 				}
 			}
-
+			//echo '<script>console.log("Step 3 end view premenu")</script>';
+			// echo '<script>console.log('.json_encode($pre_menu).')</script>';
 			// The UDS nav menu requires that we re-format our menu.
 			// We must reset the menu IDs from the array keys to sequential array keys, 0 to x.
 			// And the items[] nested arrays must be wrapped in an additional array.
@@ -202,22 +241,33 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 			if ( $current_uri === $subsite_base_folder . '/' ) {
 				$menu['nav-items'][0]['selected'] = true;
 			}
-
+			echo '<script>console.log("our pre menu")</script>';
+			 echo '<script>console.log('.json_encode($pre_menu).')</script>';
 			foreach ( $pre_menu as $m1 ) {
 				$items = array();
 				if ( ! empty( $m1['items'] ) ) {
 					$items2 = array();
 					foreach ( $m1['items'] as $m2 ) {
-
+						echo '<script>console.log("premenu item")</script>';
+			 echo '<script>console.log('.json_encode($m2).')</script>';
 						$items3 = array();
 						if ( ! empty( $m2['items'] ) ) {
 							foreach ( $m2['items'] as $m3 ) {
+								echo '<script>console.log("loop over items again")</script>';
+			 echo '<script>console.log('.json_encode($m3).')</script>';
+			 //column headers are an inbetween array, need to detect when there is an array above and below
+			 //then we know we have column headers, apply type=heading to format correctly into menu
+			 //for each item in array, check for parents
+			 //if parent has a parent, add type: "heading", so it will be in menu
+			 //add to beginning of children array
 								$temp = array(
 									'text'     => $m3['text'],
 									'href'     => $m3['href'],
 									'selected' => $m3['has_current'],
 								);
 								if ( $m3['type'] ) {
+									echo '<script>console.log("m3 type exists")</script>';
+									echo '<script>console.log('.json_encode($m3).')</script>';
 									$temp['type'] = $m3['type'];
 
 								}
@@ -226,6 +276,8 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 							$items[] = (array) $items3;
 
 						} else {
+							echo '<script>console.log("m2 items empty")</script>';
+			 echo '<script>console.log('.json_encode($m2).')</script>';
 							$items2[] = array(
 								'text'     => $m2['text'],
 								'href'     => $m2['href'],
@@ -245,6 +297,8 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					);
 
 				} else {
+					echo '<script>console.log("m1 items empty")</script>';
+			 echo '<script>console.log('.json_encode($m1).')</script>';
 					$menu['nav-items'][] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
@@ -252,7 +306,10 @@ if ( ! function_exists( 'uds_react_get_menu_array' ) ) {
 					);
 				}
 			}
-			// wp_die( var_dump( $menu ) );
+			 //wp_die( var_dump( $menu ) );
+			 echo '<script>console.log("this is our final menu")</script>';
+			 echo '<script>console.log('.json_encode($menu).')</script>';
+
 			return $menu;
 
 		} else {
