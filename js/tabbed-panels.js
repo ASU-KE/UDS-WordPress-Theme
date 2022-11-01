@@ -89,7 +89,7 @@ $( '.wp-block-group.uds-tabs-wrapper' ).each(function() {
 });
 
 
-$( document ).on( 'click', function( e ) {
+$( '.uds-tabbed-panels' ).on( 'click', function( e ) {
       setButtonsCompatibility( e );
     });
 
