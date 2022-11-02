@@ -1153,7 +1153,7 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 			array(
 				'label'             => __( 'Google Search Console Ownership Verification ID', 'uds-wordpress-theme' ),
 				'description'       => __(
-					'Ownership verification means proving to Search Console that you own a specific website. Choose the HTML tag method on the Ownership verification page for your property. In the HTML snippet provided, copy the "content" value: <meta name="google-site-verification" content="COPY_AND_PASTE_THIS_VALUE" />.',
+					'In Search Console, choose the HTML tag method on the Ownership verification page. In the provided HTML snippet, copy the content value: content="COPY_AND_PASTE_THIS_VALUE".',
 					'uds-wordpress-theme'
 				),
 				'section'           => 'uds_wp_theme_section_asu_analytics',
