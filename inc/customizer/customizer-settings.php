@@ -1136,6 +1136,34 @@ if ( ! function_exists( 'uds_wp_register_theme_customizer_settings' ) ) {
 		);
 
 		/**
+		 * Site Google Search Console (GCS) ownership verification id
+		 */
+		$wp_customize->add_setting(
+			'site_gcs_ownership_verification_id',
+			array(
+				'capability'        => 'edit_theme_options',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			'site_gcs_ownership_verification_id',
+			array(
+				'label'             => __( 'Google Search Console Ownership Verification ID', 'uds-wordpress-theme' ),
+				'description'       => __(
+					'In Search Console, choose the HTML tag method on the Ownership verification page. In the provided HTML snippet, copy the content value: content="COPY_AND_PASTE_THIS_VALUE".',
+					'uds-wordpress-theme'
+				),
+				'section'           => 'uds_wp_theme_section_asu_analytics',
+				'settings'          => 'site_gcs_ownership_verification_id',
+				'type'              => 'input',
+				'sanitize_callback' => 'uds_wp_sanitize_nothing',
+			)
+		);
+
+		/**
 		 * Site Google Tag Manager
 		 */
 		$wp_customize->add_setting(

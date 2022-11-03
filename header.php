@@ -13,6 +13,7 @@ defined('ABSPATH') || exit;
 
 $c_options              = array();
 $asu_hub_analytics     = 'disabled';
+$site_gcs_ownership_verification_id = '';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
@@ -29,6 +30,10 @@ if (!empty($c_options['header_navigation_menu'])) {
 // Do we have an asu_hub_analytics setting?
 if (!empty($c_options['asu_hub_analytics'])) {
 	$asu_hub_analytics = $c_options['asu_hub_analytics'];
+}
+// Do we have a site_gcs_ownership_verification_id setting?
+if (!empty($c_options['site_gcs_ownership_verification_id'])) {
+	$site_gcs_ownership_verification_id = $c_options['site_gcs_ownership_verification_id'];
 }
 // Do we have a site_gtm_container_id setting?
 if (!empty($c_options['site_gtm_container_id'])) {
@@ -95,6 +100,12 @@ if (!empty($c_options['hotjar_site_id'])) {
 	add_action('include_lavidge_script', 'uds_wp_include_lavidge_script', 10, 2);
 	do_action('include_lavidge_script');
 
+
+	// Google Search Console Ownership Verification.
+	// Only add the Ownership Verification meta tag on the site homepage
+	if (!empty($site_gcs_ownership_verification_id) && is_front_page() ) {
+		echo '<meta name="google-site-verification" content="' . esc_html( trim( $site_gcs_ownership_verification_id ) )  . '" />';
+	}
 
 	// Site Google Tag Manager.
 	if (!empty($site_gtm_container_id)) {
