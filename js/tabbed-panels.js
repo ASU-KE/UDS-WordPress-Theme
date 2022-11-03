@@ -89,7 +89,7 @@ $( '.wp-block-group.uds-tabs-wrapper' ).each(function() {
 });
 
 
-$( document ).on( 'click', function( e ) {
+$( '.uds-tabbed-panels' ).on( 'click', function( e ) {
       setButtonsCompatibility( e );
     });
 
@@ -107,8 +107,10 @@ $( document ).on( 'click', function( e ) {
 
     $( '.uds-tabbed-panels .scroll-control-prev' ).hide();
 
-    if ( $( '.nav.nav-tabs' )[0].scrollWidth <= $( '.uds-tabbed-panels' ).width() ) {
-      $( '.uds-tabbed-panels .scroll-control-next' ).hide();
-    }
+	if ( $('.nav.nav-tabs').length > 0 ) {
+		if ( $( '.nav.nav-tabs' )[0].scrollWidth <= $( '.uds-tabbed-panels' ).width() ) {
+		$( '.uds-tabbed-panels .scroll-control-next' ).hide();
+		}
+	}
 
 } )( jQuery );
