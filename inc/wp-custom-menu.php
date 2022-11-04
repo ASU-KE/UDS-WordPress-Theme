@@ -59,6 +59,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			 //echo '<script>console.log('.json_encode($m).')</script>';
 			
 					$pre_menu[ $m->ID ]                  = array();
+					//CTA boolean from ACF. Buttons need cta_button=TRUE and type=button. Set in WP admin menu area
 					$pre_menu[ $m->ID ]['cta_button']    = get_field( 'menu_cta_button', $m );
 					$pre_menu[ $m->ID ]['text']          = $m->title;
 
@@ -71,6 +72,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 						//dump($m);
 						//echo '<script>console.log("cta button if")</script>';
 			 			//echo '<script>console.log('.json_encode($m).')</script>';
+						//button color from WP admin menu builder - dropdown field
 			 			$pre_menu[ $m->ID ]['cta_color'] = get_field( 'menu_cta_button_color', $m );
 						$cta_target_link = get_field('menu_target_blank', $m);
 						
@@ -92,6 +94,8 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 						$pre_menu[ $m->ID ]['has_current'] = false;
 						$pre_menu[ $m->ID ]['parent']      = $m->menu_item_parent;
 						$pre_menu[ $m->ID ]['items']       = array();
+						$pre_menu[ $m->ID ]['cta-buttons']       = array();
+
 
 						// The menu link can be relative or absolute.
 						// Format menu link and remove absolute base url from link
@@ -134,7 +138,6 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 					$dropdown[ $m->ID ]['has_current'] = false;
 					$dropdown[ $m->ID ]['parent']      = $m->menu_item_parent;
 					$dropdown[ $m->ID ]['items']       = array();
-					$dropdown['cta-buttons'] = array();
 					$dropdown[ $m->ID ]['cta_button']  = get_field( 'menu_cta_button', $m );
 					$dropdown[ $m->ID ]['cta_color'] = get_field( 'menu_cta_button_color', $m );
 
@@ -158,11 +161,16 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 					 * and then under this item's ID, for that parent ID
 					 */
 					if($dropdown[ $m->ID ]['type'] == 'button'){
-					
-						dump($dropdown[ $m->ID ]);
-					}
+						
+						$pre_menu[ $m->menu_item_parent ]['cta-buttons'][ $m->ID ] = $dropdown[ $m->ID ];
+						
+						echo '<script>console.log('.json_encode($pre_menu[ $m->menu_item_parent ]['cta-buttons']).')</script>';
+						
+					} else {
 						$pre_menu[ $m->menu_item_parent ]['items'][ $m->ID ] = $dropdown[ $m->ID ];
-						echo '<script>console.log("NOT a CTA button")</script>';
+						
+					}
+						
 
 					
 				}
@@ -272,9 +280,27 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			//echo '<script>console.log('.json_encode($pre_menu).')</script>';
 			foreach ( $pre_menu as $m1 ) {
 				$items = array();
-				$second_level_cta_buttons = array();
+				$m1['buttons'] = array();
+
+				//$second_level_cta_buttons = array();
 				
 				if ( ! empty( $m1['items'] ) ) {
+					if ( ! empty( $m1['cta-buttons'] ) ) { 
+						echo '<script>console.log("m1 items CTA buttons!")</script>';
+						
+						foreach ( $m1['cta-buttons'] as $level2_button ) { 
+							$temp = array(
+								'text'     => $level2_button['text'],
+								'href'     => $level2_button['href'],
+								'selected' => $level2_button['has_current'],
+								'color' => $level2_button['cta_color'],
+								'type' => $level2_button['type'],
+
+							);
+							array_push($m1['buttons'], $temp);
+							echo '<script>console.log('.json_encode($temp).')</script>';
+						}
+					}
 					$items2 = array();
 					foreach ( $m1['items'] as $m2 ) {
 						// if($m2['cta_button'] ){
@@ -331,11 +357,12 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 						'href'     => $m1['href'],
 						'selected' => $m1['has_current'],
 						'items'    => $items,
+						'buttons'  => $m1['buttons'],
 					);
 
 				} else {
-					//echo '<script>console.log("m1 items empty")</script>';
-			 		//echo '<script>console.log('.json_encode($m1).')</script>';
+					echo '<script>console.log("m1 items empty")</script>';
+			 		echo '<script>console.log('.json_encode($m1).')</script>';
 					$menu['nav-items'][] = array(
 						'text'     => $m1['text'],
 						'href'     => $m1['href'],
