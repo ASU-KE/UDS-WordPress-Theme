@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UDS WordPress Theme functions and definitions
  *
@@ -6,7 +7,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 $uds_wp_includes = array(
 	'/theme-settings.php',                       // Initialize theme default settings.
@@ -35,10 +36,9 @@ $uds_wp_includes = array(
 	'/deprecated.php',                           // Load deprecated functions.
 	'/uds-contextual-help.php',                  // theme-specific context-senstive help tabs.
 	'/tiny-mce.php',                             // Create custom toolbars for the WYSIWYG editor in ACF.
-	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
 	'/wp-rest-api-extensions.php',               // Extend WP-REST API.
 );
 
-foreach ( $uds_wp_includes as $file ) {
+foreach ($uds_wp_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }
