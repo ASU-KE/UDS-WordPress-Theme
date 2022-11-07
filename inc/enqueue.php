@@ -77,7 +77,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'logoutLink' => wp_logout_url(),
 				'userName' => $current_user->user_login,
 				'navTree' => $menu_items['nav-items'],
-				// 'mobileNavTree' => $mobile_menu_items, // define an alternate navigation menu for mobile view
+				'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
 				'expandOnHover' => false,
 				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
 				// 'logo' => [
