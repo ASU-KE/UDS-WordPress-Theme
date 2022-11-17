@@ -33,6 +33,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
 			dump($menu_object);
 			$animate_title = get_field("animate_title", $menu_object);
+			$mobile_menu_breakpoint = get_field("mobile_menu_breakpoint", $menu_object);
 			echo '<script>console.log("get field")</script>';
 			 echo '<script>console.log('.json_encode($test_get_fields).')</script>';
 			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
@@ -277,6 +278,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			$menu['nav-items'] = array();
 			$menu['cta-buttons'] = $cta_buttons;
 			$menu['animate-title'] = $animate_title;
+			$menu['mobile-menu-breakpoint'] = $mobile_menu_breakpoint;
 			$menu['nav-items'][] = array(
 				'href'     => $subsite_base_folder . '/',
 				'text'     => 'Home',

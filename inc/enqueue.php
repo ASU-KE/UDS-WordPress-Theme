@@ -63,6 +63,8 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 		$menu_name   = 'primary';
 		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
+		echo '<script>console.log("enqueue animate title")</script>';
+		echo '<script>console.log('.json_encode($menu_items['animate-title']).')</script>';
 		
 		// wp_die( var_dump( $menu_items ) );
 
@@ -98,7 +100,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'animateTitle' => $menu_items['animate-title'],
 				'parentOrg' => $parent_org_name,
 				'parentOrgUrl' => $parent_org_link,
-				'breakpoint' => 'Lg',
+				'breakpoint' => $menu_items['mobile-menu-breakpoint'],
 				'buttons' => $menu_items['cta-buttons'],
 				// 'buttons' => [
 				// 	[
