@@ -63,6 +63,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 		$menu_name   = 'primary';
 		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
+		
 		// wp_die( var_dump( $menu_items ) );
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
@@ -94,7 +95,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				// 	'brandLink' => '',
 				// ],
 				'title' => get_bloginfo(),
-				'animateTitle' => true,
+				'animateTitle' => $menu_items['animate-title'],
 				'parentOrg' => $parent_org_name,
 				'parentOrgUrl' => $parent_org_link,
 				'breakpoint' => 'Lg',

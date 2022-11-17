@@ -1,0 +1,44 @@
+{
+    "key": "group_637677713cbf6",
+    "title": "UDS: Site title",
+    "fields": [
+        {
+            "key": "field_63767771955c5",
+            "label": "Animate title?",
+            "name": "animate_title",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu",
+                "operator": "==",
+                "value": "location\/primary"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Field to animate main site title",
+    "show_in_rest": 0,
+    "modified": 1668708386
+}

@@ -31,7 +31,10 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
-			//wp_die(var_dump($menu_object));
+			dump($menu_object);
+			$animate_title = get_field("animate_title", $menu_object);
+			echo '<script>console.log("get field")</script>';
+			 echo '<script>console.log('.json_encode($test_get_fields).')</script>';
 			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
 			echo '<script>console.log("first step array menu")</script>';
 			 echo '<script>console.log('.json_encode($array_menu).')</script>';
@@ -52,6 +55,14 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			 */
 			$pre_menu = array();
 			$cta_buttons = array();
+			// foreach ($menu_object as $m) {
+			// $animate_title = get_fields($m);
+			// dump($animate_title);
+			// }
+			
+			echo '<script>console.log("term")</script>';
+
+			echo '<script>console.log('.json_encode($animate_title).')</script>';
 
 			foreach ( $array_menu as $m ) {
 				if ( empty( $m->menu_item_parent ) ) {
@@ -265,6 +276,7 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			// And the items[] nested arrays must be wrapped in an additional array.
 			$menu['nav-items'] = array();
 			$menu['cta-buttons'] = $cta_buttons;
+			$menu['animate-title'] = $animate_title;
 			$menu['nav-items'][] = array(
 				'href'     => $subsite_base_folder . '/',
 				'text'     => 'Home',
