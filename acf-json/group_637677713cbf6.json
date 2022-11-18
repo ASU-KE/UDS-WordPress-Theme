@@ -44,6 +44,25 @@
             "other_choice": 0,
             "layout": "vertical",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_637804e0dfb23",
+            "label": "Expand on hover",
+            "name": "expand_on_hover",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Mouse hover vs click to open the header menu.",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
         }
     ],
     "location": [
@@ -64,5 +83,5 @@
     "active": true,
     "description": "Field to animate main site title",
     "show_in_rest": 0,
-    "modified": 1668725709
+    "modified": 1668811312
 }

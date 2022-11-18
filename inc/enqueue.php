@@ -81,7 +81,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'userName' => $current_user->user_login,
 				'navTree' => $menu_items['nav-items'],
 				'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
-				'expandOnHover' => true,
+				'expandOnHover' => $menu_items['expand-on-hover'],
 				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
 				'logo' => [
 					'alt' => 'alt text',        // default: 'Arizona State University'
