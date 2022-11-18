@@ -32,8 +32,8 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 		// $uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-cookie-consent/cookieConsent.production.js' );
 		// wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/js/uds-cookie-consent/cookieConsent.production.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
 
-		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
-		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array( 'wp-element', 'wp-components' ), $js_version, true );
+		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.js' );
+		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.js', array( 'wp-element', 'wp-components' ), $js_version, true );
 
 		$fa_js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/fontawesome/all.min.js' );
 		wp_enqueue_script( 'uds-wordpress-fa-scripts', get_template_directory_uri() . '/js/fontawesome/all.min.js', array(), $fa_js_version, true );
@@ -81,39 +81,27 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'userName' => $current_user->user_login,
 				'navTree' => $menu_items['nav-items'],
 				'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
-				'expandOnHover' => false,
+				'expandOnHover' => true,
 				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
-				// 'logo' => [
-				// 	'alt' => '',        // default: 'Arizona State University'
-				// 	'src' => '',        // default: 'arizona-state-university-logo-vertical.png'
-				// 	'mobileSrc' => '',  // default: 'arizona-state-university-logo.png'
-				// 	'brandLink' => '',  // default: 'https://asu.edu'
-				// ],
-				'isPartner' => false,
-				// 'partnerLogo' => [
-				// 	'alt' => '',
-				// 	'src' => '',
-				// 	'mobileSrc' => '',
-				// 	'brandLink' => '',
-				// ],
+				'logo' => [
+					'alt' => 'alt text',        // default: 'Arizona State University'
+					'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
+					'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
+					'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
+				],
+				'isPartner' => true,
+				'partnerLogo' => [
+					'alt' => 'alt text',
+					'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',
+					'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',
+					'brandLink' => 'https://asu.edu',
+				],
 				'title' => get_bloginfo(),
 				'animateTitle' => $menu_items['animate-title'],
 				'parentOrg' => $parent_org_name,
 				'parentOrgUrl' => $parent_org_link,
 				'breakpoint' => $menu_items['mobile-menu-breakpoint'],
 				'buttons' => $menu_items['cta-buttons'],
-				// 'buttons' => [
-				// 	[
-				// 	'href' => '/',
-				// 	'text' => 'CTA Button 1',
-				// 	'color' => 'gold',
-				// 	],
-				// 	[
-				// 	'text' => 'CTA Button 2',
-				// 	'href' => '#',
-				// 	'color' => 'maroon',
-				// 	],
-				// ],
 			)
 		);
 	}
