@@ -21,7 +21,9 @@ $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 $is_featured		   = get_field( 'uds_profile_is_feature');
+$vertical_layout       = get_field( 'uds_profile_vertical_layout' );
 
+do_action('qm/debug', $vertical_layout);
 
 
 // If additional classes were requested, clean up the input and add them.
@@ -42,6 +44,11 @@ if ( $is_featured ) {
 	$feature_class = 'feature-profile';
 }
 
+$vertical_classes = '';
+if( $vertical_layout ) {
+	$vertical_classes = 'd-flex flex-column';
+}
+do_action('qm/debug', $vertical_class);
 /**
  * Social Media Data
  *
@@ -86,7 +93,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 
 <!-- Actually Render the Block (compatible version) -->
 <div class="profile profile-type-standard <?php echo $additional_classes; ?>">
-	<div class="profile-row <?php echo $border_override_class; ?>">
+	<div class="profile-row <?php echo $border_override_class; ?> <?php echo $vertical_classes; ?>">
 		<?php if ( ! empty( $image_data ) ) : ?>
 			<div class="profile-photo-column">
 				<?php if ( ! empty( $person_url ) ) : ?>
