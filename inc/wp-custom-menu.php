@@ -35,6 +35,29 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			$animate_title = get_field("animate_title", $menu_object);
 			$expand_on_hover = get_field("expand_on_hover", $menu_object);
 			$mobile_menu_breakpoint = get_field("mobile_menu_breakpoint", $menu_object);
+			//Get each logo field
+			//If checked, build formatted array, add to object - in enqueue, pull in from object
+			if(get_field("asu_logo_override", $menu_object)) {
+				$asu_logo_override_array = 
+				[
+					'alt' => get_field("asu_logo_override_alt_text", $menu_object),        // default: 'Arizona State University'
+					'src' => get_field("asu_logo_override_url", $menu_object),        // default: 'arizona-state-university-logo-vertical.png'
+					'mobileSrc' => get_field("asu_logo_override_mobile_logo_url", $menu_object),  // default: 'arizona-state-university-logo.png'
+					'brandLink' => get_field("asu_logo_override_link", $menu_object),  // default: 'https://asu.edu'
+				];
+				echo '<script>console.log('.json_encode($asu_logo_override_array).')</script>';
+			}
+			$show_partner_logo = get_field("add_partner_logo", $menu_object);
+			if(get_field("add_partner_logo", $menu_object)) {
+				$add_partner_logo_array = 
+				[
+					'alt' => get_field("partner_logo_alt_text", $menu_object),        // default: 'Arizona State University'
+					'src' => get_field("partner_logo_url", $menu_object),        // default: 'arizona-state-university-logo-vertical.png'
+					'mobileSrc' => get_field("partner_logo_mobile_url", $menu_object),  // default: 'arizona-state-university-logo.png'
+					'brandLink' => get_field("partner_logo_link", $menu_object),  // default: 'https://asu.edu'
+				];
+				
+			}
 			echo '<script>console.log("get field")</script>';
 			 echo '<script>console.log('.json_encode($test_get_fields).')</script>';
 			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
@@ -278,6 +301,9 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 			// And the items[] nested arrays must be wrapped in an additional array.
 			$menu['nav-items'] = array();
 			$menu['cta-buttons'] = $cta_buttons;
+			$menu['logo-override'] = $asu_logo_override_array;
+			$menu['show-partner-logo'] = $show_partner_logo;
+			$menu['partner-logo'] = $add_partner_logo_array;
 			$menu['animate-title'] = $animate_title;
 			$menu['expand-on-hover'] = $expand_on_hover;
 			$menu['mobile-menu-breakpoint'] = $mobile_menu_breakpoint;

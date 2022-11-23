@@ -83,19 +83,15 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 				'mobileNavTree' => $menu_items['nav-items'], // define an alternate navigation menu for mobile view
 				'expandOnHover' => $menu_items['expand-on-hover'],
 				'baseUrl' => '/', // this could be very important for subfolder multisites where the menu base url (e.g. Home) must point to the current subsite, not the root.
-				'logo' => [
-					'alt' => 'alt text',        // default: 'Arizona State University'
-					'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
-					'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
-					'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
-				],
-				'isPartner' => true,
-				'partnerLogo' => [
-					'alt' => 'alt text',
-					'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',
-					'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',
-					'brandLink' => 'https://asu.edu',
-				],
+				'logo' => $menu_items['logo-override'],
+				// [
+				// 	'alt' => 'alt text',        // default: 'Arizona State University'
+				// 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
+				// 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
+				// 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
+				// ],
+				'isPartner' => $menu_items['show-partner-logo'],
+				'partnerLogo' => $menu_items['partner-logo'],
 				'title' => get_bloginfo(),
 				'animateTitle' => $menu_items['animate-title'],
 				'parentOrg' => $parent_org_name,
