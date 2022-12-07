@@ -5,6 +5,23 @@
 // Our base profile DIV has these two classes
 .profile.profile-type-standard {
 
+	// Vertical style gets a column flex and some spacing adjustments.
+	&.vertical {
+
+		.profile-row {
+			display: flex;
+			flex-direction: column;
+
+			.profile-photo-column {
+				padding: $uds-size-spacing-3 $uds-size-spacing-3 $uds-size-spacing-2 0;
+			}
+
+			.profile-bio-column .profile-name {
+				margin-top: $uds-size-spacing-2;
+			}
+		}
+	}
+
 	// Turn off bottom border if the row has both these classes.
 	.profile-row.no-bottom-border {
 		border-bottom: none !important;
@@ -13,13 +30,13 @@
 	// The actual content row.
 	.profile-row {
 		border-bottom: 2px #e0e0e0 solid;
-		padding-bottom: 32px;
-		padding-top: 32px;
+		padding-bottom: $uds-size-spacing-4;
+		padding-top: $uds-size-spacing-4;
 		display: flex;
 
 		// Column containing the profile image.
 		.profile-photo-column {
-			padding: 24px 24px 24px 0;
+			padding: $uds-size-spacing-3 $uds-size-spacing-3 $uds-size-spacing-3 0;
 
 			// Image style: fixed dimensions and object-fit rule for consistency.
 			// April 2022: Added additional width rules to fix image size CSS from WordPress.
@@ -27,9 +44,9 @@
 				border-radius: 500px;
 				height: 180px;
 				margin-top: 0;
-				max-height: 180px;		
+				max-height: 180px;
 				max-width: 180px;
-				min-height: 180px;		
+				min-height: 180px;
 				min-width: 180px;
 				object-fit: cover;
 				width: 180px;
