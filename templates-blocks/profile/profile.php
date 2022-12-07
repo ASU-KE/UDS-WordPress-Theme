@@ -23,8 +23,6 @@ $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 $is_featured		   = get_field( 'uds_profile_is_feature');
 $vertical_layout       = get_field( 'uds_profile_vertical_layout' );
 
-do_action('qm/debug', $vertical_layout);
-
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -48,7 +46,7 @@ $vertical_classes = '';
 if( $vertical_layout ) {
 	$vertical_classes = 'd-flex flex-column';
 }
-do_action('qm/debug', $vertical_class);
+
 /**
  * Social Media Data
  *
