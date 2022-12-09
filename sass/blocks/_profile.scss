@@ -84,7 +84,7 @@
 
 				// Adds right margin to the <div> containing all contact info.
 				&> div {
-					margin-right: 32px;
+					margin-right: $uds-size-spacing-4;
 					}
 			}
 
@@ -103,6 +103,30 @@
 
 				.titleOriginal {
 					font-weight: bold;
+				}
+			}
+
+			// Social media icons.
+			ul.person_social_medias {
+
+				// Make the list horizontal and add margin at the bottom.
+				list-style-type: none;
+				display: flex;
+				padding-left: 0;
+				margin-bottom: $uds-size-spacing-2;
+
+				li {
+
+					a {
+						// Override UDS desire to make these maroon and set font size.
+						color: #191919;
+						font-size: $uds-component-heading-three-font-size;
+					}
+				}
+
+				li + li {
+					// Add left margin to any <li> following another <li>.
+					margin-left: $uds-component-heading-three-font-size;
 				}
 			}
 		}

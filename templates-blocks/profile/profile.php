@@ -22,7 +22,7 @@ $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
 $horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 $is_featured		   = get_field( 'uds_profile_is_feature');
 $vertical_layout       = get_field( 'uds_profile_vertical_layout' );
-
+$social_media_icons    = get_field( 'uds_profile_social_media_icons');
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -157,6 +157,17 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 				<p>
 					<?php echo $person_text; ?>
 				</p>
+			<?php endif; ?>
+			<?php if (have_rows('uds_profile_social_media_icons')) : ?>
+					<ul class="person_social_medias">
+					<?php while (have_rows('uds_profile_social_media_icons')) : the_row(); ?>
+						<?php $network_name = get_sub_field('uds_profile_network_name'); ?>
+						<li>
+						<a href="<?php echo get_sub_field('uds_profile_social_url'); ?>" ><span class="<?php echo $base_social_media[$network_name]['icon']; ?>"></span></a>
+					<?php endwhile; ?>
+			</li>
+			</ul>
+				</ul>
 			<?php endif; ?>
 		</div>
 	</div>
