@@ -169,7 +169,7 @@
             "name": "header_icon",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "ex. 'fas fa-user'",
             "required": 0,
             "conditional_logic": [
                 [
@@ -186,10 +186,10 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "Icon Name Here",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_63754c77a4df3",
@@ -613,5 +613,5 @@
     "active": true,
     "description": "Fields for creating static, but customizable, versions of all UDS card types: standard, story, degree, and event.",
     "show_in_rest": 0,
-    "modified": 1668632087
+    "modified": 1670542731
 }
