@@ -1084,3 +1084,10 @@ UDS Form - contact form 7
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+Add a smooth scroll behavior for the a[href="#"]
+--------------------------------------------------------------*/
+html {
+	scroll-behavior: smooth;
+}
