@@ -24,13 +24,15 @@
 				display: flex;
 				flex-direction: column;
 				height: 100%;
-				// justify-content: space-between;
-				max-width: 90%;
+				max-width: 85%;
 
 				.profile-name {
 					margin-top: $uds-size-spacing-2;
 				}
 
+				.profile-email-link {
+					word-break: break-all;
+				}
 			}
 		}
 	}

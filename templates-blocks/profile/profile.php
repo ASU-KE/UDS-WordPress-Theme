@@ -125,7 +125,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 					<div class="profile-contact-row">
 						<?php if ( ! empty( $person_email ) ) : ?>
 							<p>
-								<a class="linkOriginal" href="mailto:<?php echo $person_email; ?>">
+								<a class="linkOriginal profile-email-link" href="mailto:<?php echo $person_email; ?>">
 									<?php echo $person_email; ?>
 								</a>
 							</p>
