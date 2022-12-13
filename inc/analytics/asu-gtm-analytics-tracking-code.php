@@ -11,7 +11,7 @@
 // @codingStandardsIgnoreStart
 ?>
 <!-- Google Tag Manager ASU Universal-->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDWN8Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDWN8Z" title="Google Tag Manager" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
 <script>
 	(function(w, d, s, l, i) {
 		w[l] = w[l] || [];
