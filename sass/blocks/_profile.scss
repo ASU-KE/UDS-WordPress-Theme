@@ -8,16 +8,29 @@
 	// Vertical style gets a column flex and some spacing adjustments.
 	&.vertical {
 
+		height: 100%;
+
 		.profile-row {
 			display: flex;
 			flex-direction: column;
+			padding: 0;
+			height: 100%;
 
 			.profile-photo-column {
-				padding: $uds-size-spacing-3 $uds-size-spacing-3 $uds-size-spacing-2 0;
+				padding: 0;
 			}
 
-			.profile-bio-column .profile-name {
-				margin-top: $uds-size-spacing-2;
+			.profile-bio-column  {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				// justify-content: space-between;
+				max-width: 90%;
+
+				.profile-name {
+					margin-top: $uds-size-spacing-2;
+				}
+
 			}
 		}
 	}
@@ -113,14 +126,14 @@
 				list-style-type: none;
 				display: flex;
 				padding-left: 0;
-				margin-bottom: $uds-size-spacing-2;
+				margin-bottom: 0;
 
 				li {
 
 					a {
 						// Override UDS desire to make these maroon and set font size.
 						color: #191919;
-						font-size: $uds-component-heading-three-font-size;
+						font-size: 1.75rem;
 					}
 				}
 
