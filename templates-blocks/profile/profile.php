@@ -124,14 +124,16 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 				<?php if ( $render_contact_row ) : ?>
 					<div class="profile-contact-row">
 						<?php if ( ! empty( $person_email ) ) : ?>
-							<p>
-								<a class="linkOriginal profile-email-link" href="mailto:<?php echo $person_email; ?>">
-									<?php echo $person_email; ?>
-								</a>
-							</p>
+							<div class="profile-contact-email">
+								<p>
+									<a class="linkOriginal profile-email-link" href="mailto:<?php echo $person_email; ?>">
+										<?php echo $person_email; ?>
+									</a>
+								</p>
+							</div>
 						<?php endif; ?>
 						<?php if ( ! empty( $person_phone ) ) : ?>
-							<div class="">
+							<div class="profile-contact-phone">
 								<p>
 									<a class="" href="tel:<?php echo $person_phone; ?>">
 										<?php echo $person_phone; ?>
@@ -140,7 +142,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 							</div>
 						<?php endif; ?>
 						<?php if ( $person_street_address && $person_city_state_zip ) : ?>
-						<div class="">
+						<div class="profile-contact-address">
 								<div>
 									<p>
 										<?php echo $person_street_address; ?>
