@@ -36,6 +36,11 @@
 				}
 
 				.profile-contact-row {
+					p {
+						margin-bottom: 0.5rem;
+					}
+					display: flex;
+					flex-direction: column;
 					// Remove right margin used on the desktop version
 					&> div {
 						margin-right: 0;
