@@ -127,9 +127,11 @@
 						color: $uds-color-brand-maroon;
 					}
 				}
+			}
 
-				.titleOriginal {
-					font-weight: bold;
+			.profile-bio-details {
+				.profile-title {
+					font-weight: $uds-font-weight-bold;
 				}
 			}
 
