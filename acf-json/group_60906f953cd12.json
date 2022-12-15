@@ -152,9 +152,9 @@
     "location": [
         [
             {
-                "param": "post_format",
+                "param": "post_type",
                 "operator": "==",
-                "value": "image"
+                "value": "post"
             }
         ]
     ],
@@ -167,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671043952
+    "modified": 1671135304
 }
