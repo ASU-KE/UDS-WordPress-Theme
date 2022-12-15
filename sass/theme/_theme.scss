@@ -1145,3 +1145,13 @@ Add a smooth scroll behavior for the a[href="#"]
 html {
 	scroll-behavior: smooth;
 }
+
+/*--------------------------------------------------------------
+btn+btn
+--------------------------------------------------------------*/
+.btn + .btn {
+	margin-left: 0 !important;
+}
+.btn:not(:last-of-type) {
+	margin-right: $uds-size-spacing-half;
+}
