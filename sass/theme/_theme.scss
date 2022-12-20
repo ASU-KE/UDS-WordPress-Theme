@@ -1089,6 +1089,7 @@ UDS Form - contact form 7
 core/image
 --------------------------------------------------------------*/
 .wp-block-image {
+	margin-bottom: $uds-size-spacing-4;
 	img:nth-last-child(3) {
 		border: 1px solid $uds-color-base-gray-3;
 	}
@@ -1143,4 +1144,14 @@ Add a smooth scroll behavior for the a[href="#"]
 --------------------------------------------------------------*/
 html {
 	scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+btn+btn
+--------------------------------------------------------------*/
+.btn + .btn {
+	margin-left: 0 !important;
+}
+.btn:not(:last-of-type) {
+	margin-right: $uds-size-spacing-half;
 }
