@@ -365,33 +365,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_618311450b702",
-            "label": "Horizontal Rule at Bottom?",
-            "name": "uds_profile_horizontal_rule",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_617869ae747b1",
-                        "operator": "!=empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_62b4a8c42d58d",
             "label": "Feature Profile?",
             "name": "uds_profile_is_feature",
@@ -450,5 +423,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668807174
+    "modified": 1676323548
 }

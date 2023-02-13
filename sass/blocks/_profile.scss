@@ -51,14 +51,8 @@
 		}
 	}
 
-	// Turn off bottom border if the row has both these classes.
-	.profile-row.no-bottom-border {
-		border-bottom: none !important;
-	}
-
 	// The actual content row.
 	.profile-row {
-		border-bottom: 2px #e0e0e0 solid;
 		padding-bottom: $uds-size-spacing-4;
 		padding-top: $uds-size-spacing-4;
 		display: flex;

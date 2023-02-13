@@ -19,7 +19,6 @@ $person_url            = get_field( 'uds_profile_url' );
 $person_text           = get_field( 'uds_profile_text' );
 $person_street_address = get_field( 'uds_profile_street_address' );
 $person_city_state_zip = get_field( 'uds_profile_city_state_zip' );
-$horizontal_rule       = get_field( 'uds_profile_horizontal_rule' );
 $is_featured		   = get_field( 'uds_profile_is_feature');
 $vertical_layout       = get_field( 'uds_profile_vertical_layout' );
 $social_media_icons    = get_field( 'uds_profile_social_media_icons');
@@ -28,12 +27,6 @@ $social_media_icons    = get_field( 'uds_profile_social_media_icons');
 $additional_classes = '';
 if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
-}
-
-// Add our bottom-border class when requested.
-$border_override_class = '';
-if ( ! $horizontal_rule ) {
-	$border_override_class .= 'no-bottom-border';
 }
 
 // If this is a feature profile, we'll add an extra class to the block.
@@ -89,7 +82,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 // Render the block.
 ?>
 <div class="profile profile-type-standard <?php echo $additional_classes; ?> <?php echo $vertical_classes; ?>">
-	<div class="profile-row <?php echo $border_override_class; ?>">
+	<div class="profile-row">
 		<?php if ( ! empty( $image_data ) ) : ?>
 			<div class="profile-photo-column">
 				<?php if ( ! empty( $person_url ) ) : ?>
