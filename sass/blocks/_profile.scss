@@ -18,6 +18,19 @@
 
 			.profile-photo-column {
 				padding: 0;
+
+				/**
+				 * Limit vertical layout image size to avoid issues when we have
+				 * profiles in multiple columns (especially 3 and 4)
+				 */
+				img.pictureOriginal.feature-profile {
+					height: 180px;
+					min-height: 180px;
+					max-height: 180px;
+					width: 180px;
+					min-width: 180px;
+					max-width: 180px;
+				}
 			}
 
 			.profile-bio-column  {
@@ -82,18 +95,6 @@
 				width: 270px;
 				min-width: 270px;
 				max-width: 270px;
-			}
-
-			// Feature profile image size is too big on mobile. Make it the same as normal profiles.
-			@media only screen and (max-width: $uds-breakpoint-md) {
-				img.pictureOriginal.feature-profile {
-					height: 180px;
-					min-height: 180px;
-					max-height: 180px;
-					width: 180px;
-					min-width: 180px;
-					max-width: 180px;
-				}
 			}
 		}
 
