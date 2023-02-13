@@ -88,8 +88,6 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 
 // Render the block.
 ?>
-
-<!-- Actually Render the Block (compatible version) -->
 <div class="profile profile-type-standard <?php echo $additional_classes; ?> <?php echo $vertical_classes; ?>">
 	<div class="profile-row <?php echo $border_override_class; ?>">
 		<?php if ( ! empty( $image_data ) ) : ?>
