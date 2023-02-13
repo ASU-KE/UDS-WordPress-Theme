@@ -119,15 +119,6 @@
 			// Styles for the person's name and title.
 			.profile-name {
 				margin-top: 24px;
-
-				a {
-					color: #000;
-					text-decoration: none;
-
-					&:hover {
-						color: $uds-color-brand-maroon;
-					}
-				}
 			}
 
 			.profile-bio-details {
