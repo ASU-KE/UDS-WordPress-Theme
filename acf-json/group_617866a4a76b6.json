@@ -365,12 +365,12 @@
             "endpoint": 0
         },
         {
-            "key": "field_62b4a8c42d58d",
-            "label": "Feature Profile?",
-            "name": "uds_profile_is_feature",
+            "key": "field_6377f713afeab",
+            "label": "Vertical Layout?",
+            "name": "uds_profile_vertical_layout",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Use the Featured profile style, with a larger image?",
+            "instructions": "Use the vertical profile layout? This will apply to ALL screen sizes.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -380,19 +380,27 @@
             },
             "message": "",
             "default_value": 0,
-            "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "ui": 1
         },
         {
-            "key": "field_6377f713afeab",
-            "label": "Vertical Layout?",
-            "name": "uds_profile_vertical_layout",
+            "key": "field_62b4a8c42d58d",
+            "label": "Feature Profile?",
+            "name": "uds_profile_is_feature",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Use the vertical profile layout? Will apply to ALL screen sizes.",
+            "instructions": "Use the Featured profile style, with a larger image? Only available on horizontal profiles.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6377f713afeab",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -423,5 +431,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676323548
+    "modified": 1676324382
 }
