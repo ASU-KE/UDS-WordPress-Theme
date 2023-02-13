@@ -6,6 +6,7 @@
             "key": "field_6178682a1d4a6",
             "label": "Person",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_617869ae747b1",
             "label": "Image",
             "name": "uds_profile_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "For best results, use a square image that is 180x180 pixels.",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_617866ad1d4a0",
             "label": "Name",
             "name": "uds_profile_name",
+            "aria-label": "",
             "type": "text",
             "instructions": "Full name as you want it displayed",
             "required": 0,
@@ -65,6 +68,7 @@
             "key": "field_617866da1d4a1",
             "label": "Title",
             "name": "uds_profile_title",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "For more than one title, use the Enter\/Return key to create a new line.",
             "required": 0,
@@ -84,6 +88,7 @@
             "key": "field_617866f81d4a2",
             "label": "Email",
             "name": "uds_profile_email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -102,6 +107,7 @@
             "key": "field_617867111d4a3",
             "label": "Phone",
             "name": "uds_profile_phone",
+            "aria-label": "",
             "type": "text",
             "instructions": "Phone number in the format: xxx-xxx-xxxx",
             "required": 0,
@@ -121,6 +127,7 @@
             "key": "field_6181b6136171c",
             "label": "Street Address",
             "name": "uds_profile_street_address",
+            "aria-label": "",
             "type": "text",
             "instructions": "Just the street address, as in: 123 E. Central Ave.",
             "required": 0,
@@ -140,6 +147,7 @@
             "key": "field_6181b65e6171d",
             "label": "City, State, ZIP",
             "name": "uds_profile_city_state_zip",
+            "aria-label": "",
             "type": "text",
             "instructions": "Example: Springfield, MO 12345",
             "required": 0,
@@ -159,6 +167,7 @@
             "key": "field_6178673f1d4a4",
             "label": "External Profile URL",
             "name": "uds_profile_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "Link to external profile page",
             "required": 0,
@@ -175,6 +184,7 @@
             "key": "field_617867a91d4a5",
             "label": "Profile",
             "name": "uds_profile_text",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Brief profile description. Max 600 characters!",
             "required": 0,
@@ -194,6 +204,7 @@
             "key": "field_6182f36320e69",
             "label": "Social",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -210,6 +221,7 @@
             "key": "field_6182ee910fefd",
             "label": "Social Media Icons",
             "name": "uds_profile_social_media_icons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -229,6 +241,7 @@
                     "key": "field_6182f8abbbc36",
                     "label": "Network Name",
                     "name": "uds_profile_network_name",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -252,12 +265,14 @@
                     "ui": 0,
                     "return_format": "value",
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_6182ee910fefd"
                 },
                 {
                     "key": "field_6182fd55e47f2",
                     "label": "Custom Network Name",
                     "name": "uds_profile_custom_network_name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -279,12 +294,14 @@
                     "placeholder": "Ex: Facebook",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_6182ee910fefd"
                 },
                 {
                     "key": "field_6182ef1b0feff",
                     "label": "Icon",
                     "name": "uds_profile_social_icon",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -306,12 +323,14 @@
                     "placeholder": "fab fa-facebook-square",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_6182ee910fefd"
                 },
                 {
                     "key": "field_6182eed30fefe",
                     "label": "URL",
                     "name": "uds_profile_social_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -322,14 +341,17 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "https:\/\/facebook.com\/joe-smith"
+                    "placeholder": "https:\/\/facebook.com\/joe-smith",
+                    "parent_repeater": "field_6182ee910fefd"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_6178683c1d4a7",
             "label": "Display",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -343,37 +365,12 @@
             "endpoint": 0
         },
         {
-            "key": "field_618311450b702",
-            "label": "Horizontal Rule at Bottom?",
-            "name": "uds_profile_horizontal_rule",
+            "key": "field_6377f713afeab",
+            "label": "Vertical Layout?",
+            "name": "uds_profile_vertical_layout",
+            "aria-label": "",
             "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_617869ae747b1",
-                        "operator": "!=empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_62b4a8c42d58d",
-            "label": "Feature Profile?",
-            "name": "uds_profile_is_feature",
-            "type": "true_false",
-            "instructions": "Use the Featured profile style, with a larger image?",
+            "instructions": "Use the vertical profile layout? This will apply to ALL screen sizes.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -383,9 +380,37 @@
             },
             "message": "",
             "default_value": 0,
-            "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_62b4a8c42d58d",
+            "label": "Feature Profile?",
+            "name": "uds_profile_is_feature",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Use the Featured profile style, with a larger image? Only available on horizontal profiles.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6377f713afeab",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -406,5 +431,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1656715083
+    "modified": 1676324382
 }
