@@ -141,13 +141,17 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 								</p>
 							</div>
 						<?php endif; ?>
-						<?php if ( $person_street_address && $person_city_state_zip ) : ?>
+						<?php if ( $person_street_address || $person_city_state_zip ) : ?>
 						<div class="profile-contact-address">
 								<div>
 									<p>
-										<?php echo $person_street_address; ?>
-										<br>
-										<?php echo $person_city_state_zip; ?>
+										<?php if ( $person_street_address ): ?>
+											<?php echo $person_street_address; ?>
+											<br>
+										<?php endif; ?>
+										<?php if ( $person_city_state_zip ): ?>
+											<?php echo $person_city_state_zip; ?>
+										<?php endif; ?>
 									</p>
 								</div>
 						</div>
