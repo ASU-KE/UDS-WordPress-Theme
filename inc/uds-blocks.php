@@ -102,7 +102,6 @@ if ( ! function_exists( 'uds_wordpress_unregister_native_blocks' ) ) {
 		unset( $registered_blocks['core/verse'] );
 		unset( $registered_blocks['core/pullquote'] );
 		unset( $registered_blocks['core/preformatted'] );
-		unset( $registered_blocks['core/cover'] );
 		unset( $registered_blocks['core/file'] );
 		unset( $registered_blocks['core/button'] );
 		unset( $registered_blocks['core/buttons'] );
