@@ -285,6 +285,7 @@ Or, to run with Browser-Sync:
 };
 ```
 - Change the browser-sync options to reflect your environment in the file `/browserSyncOptions.json` in the beginning of the file:
+- The `proxy` property needs to match the appserver URL (created by your local server application, i.e. Lando)
 - then run: `$ gulp watch-bs` or `npm run sync`
 
 #### Travis CI
