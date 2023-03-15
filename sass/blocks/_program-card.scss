@@ -43,14 +43,11 @@
 		background-color: unset;
 		margin-top: auto;
 		padding-bottom: 15px;
-		&:not(.with-desc) {
-			// width: 50%;
-			overflow-wrap: normal;
-			padding-bottom: 24px;
-		}
-		&.with-desc {
-			flex-grow: initial !important;
-		}
+		// width: 50%;
+		overflow-wrap: normal;
+		padding-bottom: 24px;
+
+		flex-grow: initial !important;
 	}
 	.card-body {
 		flex-grow: initial;
@@ -60,13 +57,14 @@
 		margin-top: 0;
 		padding: 32px 32px 16px 32px;
 		&:not(.with-desc) {
-			width: 45%;
+			//width: 45%;
 			//position: absolute;
 			//right: 0;
 			/*bottom: 0;*/
-			margin-left: auto;
+			//margin-left: auto;
+			padding-top: 0;
 			.btn {
-				float: right;
+				//float: right;
 			}
 		}
 	}
@@ -145,16 +143,7 @@ padding-left: 0px;
 		top: 0;
 		z-index: 2;
 	}
-	&:not(.with-desc) {
-		&:after {
-			background: linear-gradient(
-				-180deg,
-				#191919c9 2%,
-				#19191900 37%,
-				#19191900 90%
-			);
-		}
-	}
+
 	&:hover {
 		img.card-image {
 			opacity: 0;
