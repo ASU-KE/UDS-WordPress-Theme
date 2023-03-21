@@ -60,12 +60,12 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 
 		// load current user status
 		global $current_user;
-
+/*
 		$menu_name   = 'primary';
 		$menu_items  = uds_react_get_menu_formatted_array( $menu_name );
 		echo '<script>console.log("enqueue animate title")</script>';
 		echo '<script>console.log('.json_encode($menu_items['animate-title']).')</script>';
-		
+
 		// wp_die( var_dump( $menu_items ) );
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
@@ -101,7 +101,7 @@ if ( ! function_exists( 'uds_wp_scripts' ) ) {
 			)
 		);
 	}
-} // End of if function_exists( 'uds_wp_scripts' ).
+} // End of if function_exists( 'uds_wp_scripts' ). */
 add_action( 'wp_enqueue_scripts', 'uds_wp_scripts' );
 
 
