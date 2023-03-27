@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: call-to-action
 * Keywords: nsf, call, action
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:cover {"url":"https://via.placeholder.com/1920x480/78be20/fafafa/?text=image-left-with-text","dimRatio":60} -->

@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: photocards
 * Keywords: photo, card, two, landscape
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->

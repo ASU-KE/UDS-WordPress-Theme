@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: text
 * Keywords: text, content, row, column
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom","className":"my-4"} -->

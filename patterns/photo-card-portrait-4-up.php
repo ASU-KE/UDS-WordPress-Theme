@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: photocards
 * Keywords: photo, card, four
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->

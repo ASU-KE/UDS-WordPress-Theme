@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: quotes
 * Keywords: quote, background, full
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:cover {"url":"https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Quote+on+background","dimRatio":50,"minHeight":480,"isDark":false} -->

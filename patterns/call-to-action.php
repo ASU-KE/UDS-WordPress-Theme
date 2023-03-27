@@ -1,16 +1,19 @@
 <?php
 /**
-* Title: Basic CTA
-* Slug: uds-wordpress/basic-call-to-action
-* Description: A cover block with text and a button
-* Viewport Width: 1920
-* Categories: call-to-action
-* Keywords: call, action
-* Inserter: yes
-*/
+ * Title: Basic CTA
+ * Slug: call-to-action
+ * Description: A cover block with text and a button
+ * Categories: call-to-action
+ * Keywords: call, action
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
-<!-- wp:cover {"url":"https://dummyimage.com/1920x420/747474/fff.jpg","dimRatio":90,"customGradient":"linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"} -->
-<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"></span><img class="wp-block-cover__image-background" alt="" src="https://dummyimage.com/1920x420/747474/fff.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/fff.jpg","dimRatio":90,"customGradient":"linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"} -->
+<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"></span><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/fff.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"2-1","className":"justify-content-between"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":7} -->
 <!-- wp:group {"textColor":"white","layout":{"type":"constrained"}} -->

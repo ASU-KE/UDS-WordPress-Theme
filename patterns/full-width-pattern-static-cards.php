@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: uds-cards
 * Keywords: three, cards, pattern, full
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:wp-bootstrap-blocks/container {"isFluid":true,"marginAfter":"mb-0","className":"pt-6 py-lg-12 bg network-white"} -->

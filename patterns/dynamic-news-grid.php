@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: dynamic
 * Keywords: news, cards, grid, dynamic
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:wp-bootstrap-blocks/container {"isFluid":true,"marginAfter":"mb-0","className":"py-6 pt-lg-10 pb-lg-12 bg network-white"} -->

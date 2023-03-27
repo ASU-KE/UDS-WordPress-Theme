@@ -1,15 +1,19 @@
 <?php
 /**
-* Title: Card on photo
-* Slug: uds-wordpress/card-on-photo
-* Description: Call to action with a "card" on the left
-* Categories: uds-cards
-* Keywords: call, action, card
-* Inserter: yes
-*/
+ * Title: Card on photo
+ * Slug: card-on-photo
+ * Description: Call to action with a "card" on the left
+ * Categories: uds-cards
+ * Keywords: call, action, card
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
-<!-- wp:cover {"url":"https://dummyimage.com/1920x420/747474/fff.jpg","dimRatio":0,"minHeight":420,"isDark":false} -->
-<div class="wp-block-cover is-light" style="min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="https://dummyimage.com/1920x420/747474/fff.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/fff.jpg","dimRatio":0,"minHeight":420,"isDark":false} -->
+<div class="wp-block-cover is-light" style="min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/fff.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeLg":4,"sizeMd":6} -->
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->

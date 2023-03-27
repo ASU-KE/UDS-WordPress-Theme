@@ -6,7 +6,7 @@
 * Viewport Width: 1920
 * Categories: quotes
 * Keywords: quote, background, full
-* Inserter: yes
+* Inserter: true
 */
 ?>
 <!-- wp:cover {"url":"https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Offset+quote+with+button","id":3169,"dimRatio":60,"overlayColor":"gray-7","minHeight":480} -->
