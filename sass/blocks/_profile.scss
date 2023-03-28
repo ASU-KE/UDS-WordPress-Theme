@@ -5,21 +5,74 @@
 // Our base profile DIV has these two classes
 .profile.profile-type-standard {
 
-	// Turn off bottom border if the row has both these classes.
-	.profile-row.no-bottom-border {
-		border-bottom: none !important;
+	// Vertical style gets a column flex and some spacing adjustments.
+	&.vertical {
+
+		height: 100%;
+
+		.profile-row {
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			height: 100%;
+
+			.profile-photo-column {
+				padding: 0;
+
+				/**
+				 * Limit vertical layout image size to avoid issues when we have
+				 * profiles in multiple columns (especially 3 and 4)
+				 */
+				img.pictureOriginal.feature-profile {
+					height: 180px;
+					min-height: 180px;
+					max-height: 180px;
+					width: 180px;
+					min-width: 180px;
+					max-width: 180px;
+				}
+			}
+
+			.profile-bio-column  {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				justify-content: space-between;
+				max-width: 270px;
+				padding: 0 1rem 0 0;
+
+				.profile-name {
+					margin-top: $uds-size-spacing-2;
+				}
+
+				.profile-email-link {
+					word-break: break-all;
+				}
+
+				.profile-contact-row {
+					p {
+						margin-bottom: 0.5rem;
+					}
+					display: flex;
+					flex-direction: column;
+					// Remove right margin used on the desktop version
+					&> div {
+						margin-right: 0;
+						}
+				}
+			}
+		}
 	}
 
 	// The actual content row.
 	.profile-row {
-		border-bottom: 2px #e0e0e0 solid;
-		padding-bottom: 32px;
-		padding-top: 32px;
+		padding-bottom: $uds-size-spacing-4;
+		padding-top: $uds-size-spacing-4;
 		display: flex;
 
 		// Column containing the profile image.
 		.profile-photo-column {
-			padding: 24px 24px 24px 0;
+			padding: $uds-size-spacing-3 $uds-size-spacing-3 $uds-size-spacing-3 0;
 
 			// Image style: fixed dimensions and object-fit rule for consistency.
 			// April 2022: Added additional width rules to fix image size CSS from WordPress.
@@ -27,12 +80,21 @@
 				border-radius: 500px;
 				height: 180px;
 				margin-top: 0;
-				max-height: 180px;		
+				max-height: 180px;
 				max-width: 180px;
-				min-height: 180px;		
+				min-height: 180px;
 				min-width: 180px;
 				object-fit: cover;
 				width: 180px;
+			}
+
+			img.pictureOriginal.feature-profile {
+				height: 270px;
+				min-height: 270px;
+				max-height: 270px;
+				width: 270px;
+				min-width: 270px;
+				max-width: 270px;
 			}
 		}
 
@@ -43,28 +105,42 @@
 			// Row with email/phone/address.
 			.profile-contact-row {
 				display: flex;
-
-				// Adds right margin to the <div> containing all contact info.
+				// Adds right margin to child <div> elements in the contact row.
 				&> div {
-					margin-right: 32px;
+					margin-right: $uds-size-spacing-4;
 					}
 			}
 
 			// Styles for the person's name and title.
 			.profile-name {
 				margin-top: 24px;
+			}
 
-				a {
-					color: #000;
-					text-decoration: none;
-
-					&:hover {
-						color: $uds-color-brand-maroon;
-					}
+			.profile-bio-details {
+				.profile-title {
+					font-weight: $uds-font-weight-bold;
 				}
+			}
 
-				.titleOriginal {
-					font-weight: bold;
+			// Social media icons.
+			ul.person_social_medias {
+
+				// Make the list horizontal and add margin at the bottom.
+				list-style-type: none;
+				display: flex;
+				flex-wrap: wrap;
+				column-gap: $uds-size-spacing-2;
+				row-gap: $uds-size-spacing-1;
+				padding-left: 0;
+				margin-bottom: 0;
+
+				li {
+
+					a {
+						// Override UDS desire to make these maroon and set font size.
+						color: #191919;
+						font-size: 1.75rem;
+					}
 				}
 			}
 		}

@@ -75,7 +75,7 @@ if (!function_exists('uds_wp_pagination')) {
 
 			<ul class="<?php echo esc_attr($class); ?> justify-content-center">
 				<?php if (0 != get_query_var('paged')) { ?>
-					<li class="page-item"><a class="page-link" href="/page/1/">First</a></li>
+					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/1/">First</a></li>
 
 				<?php
 				}
@@ -89,7 +89,7 @@ if (!function_exists('uds_wp_pagination')) {
 				}
 				if ($GLOBALS['wp_query']->max_num_pages != get_query_var('paged')) {
 				?>
-					<li class="page-item"><a class="page-link" href="/page/<?php echo $GLOBALS['wp_query']->max_num_pages; ?>">Last</a></li>
+					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/<?php echo $GLOBALS['wp_query']->max_num_pages; ?>">Last</a></li>
 				<?php } ?>
 			</ul>
 

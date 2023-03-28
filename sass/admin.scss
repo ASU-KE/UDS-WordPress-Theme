@@ -1,3 +1,6 @@
+@import "../src/sass/design-tokens/variables";
+@import "../src/sass/extends/list";
+
 /*--------------------------------------------------------------
 # Admin CSS fixes.
 Enqueued only within the admin screen. (Via enqueue.php)
@@ -7,7 +10,7 @@ Enqueued only within the admin screen. (Via enqueue.php)
 --------------------------------------------------------------*/
 
 section.bg {
-	min-height:90px;
+	min-height: 90px;
 }
 
 /*-------------------------------------------------------------------
@@ -15,11 +18,10 @@ section.bg {
 --------------------------------------------------------------------*/
 
 // default error color (in case we ever want to manipulate it within the loop).
-$warning-color: #F99;
+$warning-color: #f99;
 
 // create 10 classes to cover menu levels 3 through 13
 @for $i from 3 through 13 {
-
 	// target the .menu-item-handle, which is the draggable box.
 	.menu-item-depth-#{$i} .menu-item-bar .menu-item-handle {
 		// apply our warning color
@@ -28,14 +30,14 @@ $warning-color: #F99;
 		// the text 'sub-item' is a sibling span with the class .is-submenu
 		// We append some warning text using the ::after psuedo element.
 		.is-submenu::after {
-			content: ' - too deep!';
+			content: " - too deep!";
 		}
 
-			// the item title, by default, as a very wide right marging (13em!)
-			// to allow more room for our warning text, we reduce this margin
-			.item-title {
-				margin-right: 5em;
-			}
+		// the item title, by default, as a very wide right marging (13em!)
+		// to allow more room for our warning text, we reduce this margin
+		.item-title {
+			margin-right: 5em;
+		}
 	}
 }
 
@@ -49,7 +51,7 @@ $warning-color: #F99;
 // targeting Fontawesome SVG icons inside the Gutenberg styles wrapper
 // so that we get the same look while editing.
 .editor-styles-wrapper svg.svg-inline--fa {
-	vertical-align: -.125rem;
+	vertical-align: -0.125rem;
 }
 
 /*-------------------------------------------------------------------
@@ -62,14 +64,13 @@ $warning-color: #F99;
 	pointer-events: none;
 }
 
-
-.card{
+.card {
 	max-width: none;
 }
 
-.acf-block-preview .uds-tabbed-panels{
+.acf-block-preview .uds-tabbed-panels {
 	a.scroll-control-prev,
-	a.scroll-control-next{
+	a.scroll-control-next {
 		display: none;
 	}
 }
@@ -83,67 +84,42 @@ $warning-color: #F99;
 .acf-block-preview {
 	.profile.profile-type-standard {
 
+		// Vertical style gets a column flex and some spacing adjustments.
+		&.vertical {
+
+			.profile-row {
+				pointer-events: none;
+			}
+		}
+
 		// The actual content row.
 		.profile-row {
-			border-bottom: 2px #e0e0e0 solid;
-			display: flex;
-			padding-bottom: 32px;
-			padding-top: 32px;
 			pointer-events: none;
-
-
-			// Column containing the profile image.
-			.profile-photo-column {
-				padding: 24px 24px 24px 0;
-
-				// Image style: fixed dimensions and object-fit rule for consistency.
-				img.pictureOriginal {
-					width: 180px;
-					height: 180px;
-					border-radius: 500px;
-					margin-top: 0;
-					object-fit: cover;
-				}
-			}
-
-			// A class to undo the default bottom border when needed.
-			.no-bottom-border {
-				border-bottom: none !important;
-			}
-
-			// Column with everything but the image.
-			.profile-bio-column {
-				max-width: 700px;
-
-				// Row with email/phone/address.
-				.profile-contact-row {
-					display: flex;
-
-					// Adds right margin to the <div> containing all contact info.
-					&> div {
-						margin-right: 32px;
-						}
-				}
-
-				// Styles for the person's name and title.
-				.profile-name {
-					margin-top: 24px;
-
-					a {
-						color: #000;
-						text-decoration: none;
-
-						&:hover {
-							color: blue !important;
-							// color: $uds-color-brand-maroon;
-						}
-					}
-
-					.titleOriginal {
-						font-weight: bold;
-					}
-				}
-			}
 		}
 	}
 }
+
+/*-------------------------------------------------------------------
+5. UDS List Block, Admin
+
+.editor-styles-wrapper {
+	ul:not(.uds-list),
+	ol:not(.uds-list),
+	ul.wp-block-list:not(.uds-list),
+	ol.wp-block-list:not(.uds-list) {
+		@extend .uds-list;
+	}
+	ul.wp-block-list,
+	ol.wp-block-list {
+		&.has-asu-maroon-color {
+			color: $uds-color-base-gray-7 !important;
+			@extend .maroon;
+		}
+		&.has-asu-gold-color {
+			color: $uds-color-base-white !important;
+			@extend .gold;
+			@extend .darkmode;
+		}
+	}
+}
+--------------------------------------------------------------------*/
