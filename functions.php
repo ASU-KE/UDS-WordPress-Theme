@@ -38,6 +38,9 @@ $uds_wp_includes = array(
 	'/tiny-mce.php',                             // Create custom toolbars for the WYSIWYG editor in ACF.
 	'/wp-rest-api-extensions.php',               // Extend WP-REST API.
 	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
+	'/header-localizer-script.php',				 // load custom react menu
+	'/class-unity-react-header-navtree-walker.php', // custom loop over navtree using built in WP methods
+	'/class-unity-react-header-ctabtn-walker.php', // loop over cta btns
 );
 
 foreach ($uds_wp_includes as $file) {
