@@ -3,10 +3,10 @@
  * localize_script function for component header.
  */
 
-add_action( 'wp_enqueue_scripts', 'pitchfork_localize_component_header_script', 99 );
-if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
+add_action( 'wp_enqueue_scripts', 'uds_localize_component_header_script', 99 );
+if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
-	function pitchfork_localize_component_header_script() {
+	function uds_localize_component_header_script() {
 
 		// load current user status
 		global $current_user;
@@ -59,7 +59,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		if ( has_nav_menu('primary')) {
 			$menu_items = wp_nav_menu([
 				'theme_location' => 'primary',
-				'walker' => new Pitchfork_React_Header_Navtree(),
+				'walker' => new UDS_React_Header_Navtree(),
 				'echo' => false,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
@@ -81,7 +81,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		if ( has_nav_menu('primary')) {
 			$cta_buttons = wp_nav_menu([
 				'theme_location' => 'primary',
-				'walker' => new Pitchfork_React_Header_CTAButtons(),
+				'walker' => new UDS_React_Header_CTAButtons(),
 				'echo' => false,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
@@ -128,7 +128,7 @@ if ( ! function_exists( 'pitchfork_localize_component_header_script' ) ) {
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
 		wp_localize_script(
-			'pitchfork-custom', // the handle of the script to pass our variables
+			'uds-wordpress-scripts', // the handle of the script to pass our variables
 			'udsHeaderVars', // object name to access our PHP variables from in our script
 			$localized_array
 		);
