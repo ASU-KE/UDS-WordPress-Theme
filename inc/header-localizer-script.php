@@ -79,14 +79,14 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		// Build ctaButton prop using walker class.
 		if ( has_nav_menu('primary')) {
-			$cta_buttons = wp_nav_menu([
+			$cta_buttons = array(wp_nav_menu([
 				'theme_location' => 'primary',
 				'walker' => new UDS_React_Header_CTAButtons(),
 				'echo' => false,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 				'depth' => 1,
-			]);
+			]));;
 		} else {
 			$cta_buttons = array();
 		}
