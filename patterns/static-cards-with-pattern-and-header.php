@@ -1,13 +1,16 @@
 <?php
 /**
-* Title: Full width pattern with cards and header
-* Slug: uds-wordpress/full-width-pattern-static-cards
-* Description: A fluid container with background pattern, heading and button, and three cards
-* Viewport Width: 1920
-* Categories: uds-cards
-* Keywords: three, cards, pattern, full
-* Inserter: true
-*/
+ * Title: Static cards with pattern and header
+ * Slug: static-cards-with-pattern-and-header
+ * Description: A fluid container with background pattern, heading and button, and three cards
+ * Categories: uds-cards
+ * Keywords: three, cards, pattern, full, static
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
 <!-- wp:wp-bootstrap-blocks/container {"isFluid":true,"marginAfter":"mb-0","className":"pt-6 py-lg-12 bg network-white"} -->
 <!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
