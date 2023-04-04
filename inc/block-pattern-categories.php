@@ -5,17 +5,23 @@
 
 
 /**
- * Array of patterns to be registered.
+ * Array of patterns to be registered. The order here is reflected in certain
+ * UI elements, so we're trying to keep these alphabetical by the 'label' field.
  */
 function uds_wordpress_register_pattern_categories() {
 
 	$patterns = array(
-		array( 'slug' => 'photocards' , 'label' => 'Photo Cards' ),
 		array( 'slug' => 'call-to-action', 'label' => 'Calls to Action' ),
-		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
+		array( 'slug' => 'dynamic', 'label' => 'Dynamic'),
+		array( 'slug' => 'images', 'label' => 'Images' ),
 		array( 'slug' => 'layouts', 'label' => 'Layouts'),
-		array( 'slug' => 'uds-cards', 'label' => 'UDS Cards'),
-		array( 'slug' => 'dynamic', 'label' => 'Dynamic')
+		array( 'slug' => 'pages', 'label' => 'Page Starters'),
+		array( 'slug' => 'photocards' , 'label' => 'Photo Cards' ),
+		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
+		array( 'slug' => 'uds-cards', 'label' => 'UDS Cards')
+
+
+
 	);
 
 	if( function_exists( 'register_block_pattern_category' ) ) {
