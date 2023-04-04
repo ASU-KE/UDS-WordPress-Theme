@@ -10,6 +10,11 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		// load current user status
 		global $current_user;
+		// Run through a few options in WordPress to get the menu object by its location ('primary')
+		$menu_name = 'primary';
+		$locations = get_nav_menu_locations();
+		$primary_menu_id = $locations[ $menu_name ] ;
+		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
 
 		/**
 		 * UDS Header: Menu settings
@@ -18,10 +23,10 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		 * Handles situations in which ACF fields have not been set by exclusively setting default options.
 		 */
 
-		$animate_title = get_field('animate_title', 'option');
-		$expand_on_hover = get_field('expand_on_hover', 'option');
+		$animate_title = get_field('animate_title', $primary_menu);
+		$expand_on_hover = get_field('expand_on_hover', $primary_menu);
 
-		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'option');
+		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', $primary_menu);
 		if (empty($mobile_menu_breakpoint )) {
 			$mobile_menu_breakpoint = 'Lg';
 		}
@@ -32,23 +37,23 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		 *
 		 * Get each logo field. If checked, build formatted array, add to object - in enqueue, pull in from object
 		 */
-		if(get_field('asu_logo_override', 'option')) {
+		if(get_field('asu_logo_override', $primary_menu)) {
 			$asu_logo_override_array =
 			[
-				'alt' => get_field('asu_logo_override_alt_text', 'option'),   // default: 'Arizona State University'
-				'src' => get_field('asu_logo_override_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
-				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'option'),  // default: 'arizona-state-university-logo.png'
-				'brandLink' => get_field('asu_logo_override_link', 'option'),  // default: 'https://asu.edu'
+				'alt' => get_field('asu_logo_override_alt_text', $primary_menu),   // default: 'Arizona State University'
+				'src' => get_field('asu_logo_override_url', $primary_menu),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', $primary_menu),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('asu_logo_override_link', $primary_menu),  // default: 'https://asu.edu'
 			];
 		}
-		$show_partner_logo = get_field('add_partner_logo', 'option');
-		if(get_field('add_partner_logo', 'option')) {
+		$show_partner_logo = get_field('add_partner_logo', $primary_menu);
+		if(get_field('add_partner_logo', $primary_menu)) {
 			$add_partner_logo_array =
 			[
-				'alt' => get_field('partner_logo_alt_text', 'option'),        // default: 'Arizona State University'
-				'src' => get_field('partner_logo_url', 'option'),        // default: 'arizona-state-university-logo-vertical.png'
-				'mobileSrc' => get_field('partner_logo_mobile_url', 'option'),  // default: 'arizona-state-university-logo.png'
-				'brandLink' => get_field('partner_logo_link', 'option'),  // default: 'https://asu.edu'
+				'alt' => get_field('partner_logo_alt_text', $primary_menu),        // default: 'Arizona State University'
+				'src' => get_field('partner_logo_url', $primary_menu),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('partner_logo_mobile_url', $primary_menu),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('partner_logo_link', $primary_menu),  // default: 'https://asu.edu'
 			];
 		}
 
@@ -56,11 +61,11 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$parent_org_link = get_theme_mod( 'parent_unit_link' );
 
 		// Build navTree / mobileNavTree props using walker class.
-		if ( has_nav_menu('primary')) {
+		if ( $primary_menu) {
 			$menu_items = wp_nav_menu([
 				'theme_location' => 'primary',
 				'walker' => new UDS_React_Header_Navtree(),
-				'echo' => false,
+				'echo' => true,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
