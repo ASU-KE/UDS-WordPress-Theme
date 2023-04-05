@@ -15,7 +15,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$locations = get_nav_menu_locations();
 		$primary_menu_id = $locations[ $menu_name ] ;
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
-
+		do_action('qm/debug', $primary_menu);
 		/**
 		 * UDS Header: Menu settings
 		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
@@ -63,9 +63,9 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		// Build navTree / mobileNavTree props using walker class.
 		if ( $primary_menu) {
 			$menu_items = wp_nav_menu([
-				'theme_location' => 'primary',
+				'menu' => $primary_menu,
 				'walker' => new UDS_React_Header_Navtree(),
-				'echo' => true,
+				'echo' => false,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
@@ -83,15 +83,15 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		}
 
 		// Build ctaButton prop using walker class.
-		if ( has_nav_menu('primary')) {
-			$cta_buttons = array(wp_nav_menu([
+		if ( $primary_menu ) {
+			$cta_buttons = wp_nav_menu([
 				'theme_location' => 'primary',
 				'walker' => new UDS_React_Header_CTAButtons(),
 				'echo' => false,
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 				'depth' => 1,
-			]));;
+			]);
 		} else {
 			$cta_buttons = array();
 		}
