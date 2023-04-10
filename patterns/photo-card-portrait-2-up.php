@@ -1,20 +1,23 @@
 <?php
 /**
-* Title: Two-up Portrait Photo Cards
-* Slug: uds-wordpress/two-up-portrait-photo-cards
-* Description: A row of two portrait photo cards
-* Viewport Width: 1920
-* Categories: photocards
-* Keywords: photo, card, two, portrait
-* Inserter: true
-*/
+ * Title: Two-up Portrait Photo Cards
+ * Slug: photo-card-portrait-2-up
+ * Description: A row of two portrait photo cards
+ * Categories: photocards
+ * Keywords: photo, card, two, portrait
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4 mb-lg-0"} -->
-<!-- wp:cover {"url":"https://dummyimage.com/588x620/747474/fff.jpg","focalPoint":{"x":0.71,"y":0.39},"minHeight":620,"customGradient":"linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}}} -->
-<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:var(--wp--preset--spacing--uds-size-4);padding-right:var(--wp--preset--spacing--uds-size-4);padding-bottom:var(--wp--preset--spacing--uds-size-4);padding-left:var(--wp--preset--spacing--uds-size-4);min-height:620px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)"></span><img class="wp-block-cover__image-background" alt="" src="https://dummyimage.com/588x620/747474/fff.jpg" style="object-position:71% 39%" data-object-fit="cover" data-object-position="71% 39%"/><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|asu-maroon"}}}},"textColor":"white","layout":{"type":"constrained"}} -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x620.png","id":5154,"dimRatio":50,"minHeight":620,"customGradient":"linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)","contentPosition":"bottom left","isDark":false,"style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}}} -->
+<div class="wp-block-cover is-light has-custom-content-position is-position-bottom-left" style="padding-top:var(--wp--preset--spacing--uds-size-4);padding-right:var(--wp--preset--spacing--uds-size-4);padding-bottom:var(--wp--preset--spacing--uds-size-4);padding-left:var(--wp--preset--spacing--uds-size-4);min-height:620px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)"></span><img class="wp-block-cover__image-background wp-image-5154" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x620.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|asu-maroon"}}}},"textColor":"white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-white-color has-text-color has-link-color"><!-- wp:heading {"textAlign":"left","fontSize":"large"} -->
-<h2 class="has-text-align-left has-large-font-size">Lorem ipsum</h2>
+<h2 class="wp-block-heading has-text-align-left has-large-font-size">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -27,10 +30,10 @@
 <!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4 mb-lg-0"} -->
-<!-- wp:cover {"url":"https://dummyimage.com/588x620/747474/fff.jpg","focalPoint":{"x":0.71,"y":0.39},"minHeight":620,"customGradient":"linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}}} -->
-<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:var(--wp--preset--spacing--uds-size-4);padding-right:var(--wp--preset--spacing--uds-size-4);padding-bottom:var(--wp--preset--spacing--uds-size-4);padding-left:var(--wp--preset--spacing--uds-size-4);min-height:620px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)"></span><img class="wp-block-cover__image-background" alt="" src="https://dummyimage.com/588x620/747474/fff.jpg" style="object-position:71% 39%" data-object-fit="cover" data-object-position="71% 39%"/><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|asu-maroon"}}}},"textColor":"white","layout":{"type":"constrained"}} -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x620.png","id":5154,"dimRatio":50,"minHeight":620,"customGradient":"linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}}} -->
+<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:var(--wp--preset--spacing--uds-size-4);padding-right:var(--wp--preset--spacing--uds-size-4);padding-bottom:var(--wp--preset--spacing--uds-size-4);padding-left:var(--wp--preset--spacing--uds-size-4);min-height:620px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(0deg,rgb(25,25,25) 0%,rgba(26,26,26,0) 73%)"></span><img class="wp-block-cover__image-background wp-image-5154" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x620.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|asu-maroon"}}}},"textColor":"white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-white-color has-text-color has-link-color"><!-- wp:heading {"textAlign":"left","fontSize":"large"} -->
-<h2 class="has-text-align-left has-large-font-size">Lorem ipsum</h2>
+<h2 class="wp-block-heading has-text-align-left has-large-font-size">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
