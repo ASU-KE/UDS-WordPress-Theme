@@ -1,16 +1,19 @@
 <?php
 /**
-* Title: Plain Quote on BG
-* Slug: uds-wordpress/full-width-quote-on-BG
-* Description: A single UDS block quote in a cover block for use with a photo or patterned background
-* Viewport Width: 1920
-* Categories: quotes
-* Keywords: quote, background, full
-* Inserter: true
-*/
+ * Title: Plain Quote on BG
+ * Slug: plain-quote-on-bg
+ * Description: A single UDS block quote in a cover block for use with a photo or patterned background
+ * Categories: quotes
+ * Keywords: quote, background, full
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
-<!-- wp:cover {"url":"https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Quote+on+background","dimRatio":50,"minHeight":480,"isDark":false} -->
-<div class="wp-block-cover is-light" style="min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Quote+on+background" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png","id":5177,"dimRatio":50,"minHeight":480,"isDark":false} -->
+<div class="wp-block-cover is-light" style="min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"2-1"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":8} -->
 <!-- wp:group {"textColor":"white","layout":{"type":"constrained"}} -->

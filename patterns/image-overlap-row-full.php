@@ -14,9 +14,9 @@
 ?>
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom","className":"mt-4 mt-xl-8 mb-6 mb-xl-12"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeXs":0} -->
-<!-- wp:acf/content-image-overlap {"name":"acf/content-image-overlap","data":{"uds_image_overlap_background":4759,"_uds_image_overlap_background":"field_602314ea0c7df","uds_image_overlap_image_size":"100","_uds_image_overlap_image_size":"field_6260546dfc1ec","uds_image_overlap_orientation":"right","_uds_image_overlap_orientation":"field_6023169c15df8"},"mode":"preview"} -->
+<!-- wp:acf/content-image-overlap {"name":"acf/content-image-overlap","data":{"uds_image_overlap_background":"","_uds_image_overlap_background":"field_602314ea0c7df","uds_image_overlap_image_size":"100","_uds_image_overlap_image_size":"field_6260546dfc1ec","uds_image_overlap_orientation":"right","_uds_image_overlap_orientation":"field_6023169c15df8"},"mode":"preview"} -->
 <!-- wp:heading -->
-<h2>Full width</h2>
+<h2 class="wp-block-heading">Full width</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

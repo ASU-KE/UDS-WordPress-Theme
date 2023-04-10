@@ -28,8 +28,8 @@
 <!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":5} -->
-<!-- wp:image {"align":"right","id":5105,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image alignright size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/467-square.png" alt="" class="wp-image-5105"/></figure>
+<!-- wp:image {"align":"right","id":5193,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image alignright size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/467x467.png" alt="" class="wp-image-5193"/></figure>
 <!-- /wp:image -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->

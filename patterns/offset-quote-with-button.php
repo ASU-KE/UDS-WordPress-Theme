@@ -1,16 +1,19 @@
 <?php
 /**
-* Title: Offset Quote with Button
-* Slug: uds-wordpress/full-width-quote-on-BG-3
-* Description: An offset UDS block quote with button on a photo or patterned background
-* Viewport Width: 1920
-* Categories: quotes
-* Keywords: quote, background, full
-* Inserter: true
-*/
+ * Title: Offset Quote with Button
+ * Slug: offset-quote-with-button
+ * Description: An offset UDS block quote with button on a photo or patterned background
+ * Categories: quotes
+ * Keywords: quote, background, full
+ * Viewport Width: 1920
+ * Block Types: 
+ * Post Types: 
+ * Inserter: true
+ */
+
 ?>
-<!-- wp:cover {"url":"https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Offset+quote+with+button","id":3169,"dimRatio":60,"overlayColor":"gray-7","minHeight":480} -->
-<div class="wp-block-cover" style="min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-gray-7-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-3169" alt="" src="https://via.placeholder.com/1920x480/8c1d40/fafafa/?text=Offset+quote+with+button" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
+<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png","id":5177,"dimRatio":60,"overlayColor":"gray-7","minHeight":480} -->
+<div class="wp-block-cover" style="min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-gray-7-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom","className":"offset-lg-2"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":8} -->
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","right":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|70"}}},"textColor":"white","className":"text-center text-md-left","layout":{"type":"constrained"}} -->
