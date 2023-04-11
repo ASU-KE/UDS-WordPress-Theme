@@ -3,8 +3,8 @@
  * Title: Sidebar Left Page
  * Slug: sidebar-left-page
  * Description: An empty page layout with a sidebar on the left
- * Categories: pages
- * Keywords: sidebar, columns, two
+ * Categories: page-starters
+ * Keywords: sidebar, left
  * Viewport Width: 1200
  * Block Types: core/post-content
  * Post Types: page

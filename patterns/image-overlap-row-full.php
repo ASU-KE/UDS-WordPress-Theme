@@ -3,8 +3,8 @@
  * Title: Image Overlap Row (Full)
  * Slug: image-overlap-row-full
  * Description: A full-width, single-column row with a content/image overlap block using all the space.
- * Categories: images
- * Keywords: image, row, overlap
+ * Categories: content-rows
+ * Keywords: image, row, overlap, text
  * Viewport Width: 1200
  * Block Types: 
  * Post Types: 
@@ -27,3 +27,7 @@
 <!-- /wp:acf/content-image-overlap -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

@@ -3,8 +3,8 @@
  * Title: Basic text row
  * Slug: basic-text-row
  * Description: A bootstrap row and column sized for plain text
- * Categories: text
- * Keywords: text, content, row, column
+ * Categories: content-rows
+ * Keywords: text, content, row
  * Viewport Width: 1920
  * Block Types: 
  * Post Types: 
@@ -15,7 +15,7 @@
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom","className":"my-4"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeXl":6,"sizeLg":7,"sizeMd":8} -->
 <!-- wp:heading {"className":"mt-0"} -->
-<h2 class="mt-0">Lorem ipsum</h2>
+<h2 class="wp-block-heading mt-0">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

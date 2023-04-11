@@ -3,8 +3,8 @@
  * Title: The One Pager
  * Slug: the-one-pager
  * Description: A basic hero with a standard container below it
- * Categories: pages
- * Keywords: page, container, full-width, anchor
+ * Categories: page-starters
+ * Keywords: page, full-width, anchor
  * Viewport Width: 1200
  * Block Types: core/post-content
  * Post Types: page

@@ -11,17 +11,13 @@
 function uds_wordpress_register_pattern_categories() {
 
 	$patterns = array(
-		array( 'slug' => 'call-to-action', 'label' => 'Calls to Action' ),
-		array( 'slug' => 'dynamic', 'label' => 'Dynamic'),
-		array( 'slug' => 'images', 'label' => 'Images' ),
-		array( 'slug' => 'layouts', 'label' => 'Layouts'),
-		array( 'slug' => 'pages', 'label' => 'Page Starters'),
-		array( 'slug' => 'photocards' , 'label' => 'Photo Cards' ),
+		array( 'slug' => 'call-to-action', 'label' => 'Call to Action' ),
+		array( 'slug' => 'content-rows', 'label' => 'Content rows'),
+		array( 'slug' => 'image-and-text', 'label' => 'Image and text'),
+		array( 'slug' => 'dynamic', 'label' => 'News and Events'),
+		array( 'slug' => 'page-starters', 'label' => 'Page Starters'),
 		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
-		array( 'slug' => 'uds-cards', 'label' => 'UDS Cards')
-
-
-
+		array( 'slug' => 'cards', 'label' => 'Cards')
 	);
 
 	if( function_exists( 'register_block_pattern_category' ) ) {

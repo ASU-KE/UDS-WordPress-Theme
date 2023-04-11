@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: Wide Card on photo
- * Slug: wide-card-on-photo
+ * Title: Fake Wide Card on Photo
+ * Slug: fake-wide-card-on-photo
  * Description: A call to action block with a wide card on the left
- * Categories: uds-cards
+ * Categories: cards
  * Keywords: call, action, card
  * Viewport Width: 1920
  * Block Types: 

@@ -3,8 +3,8 @@
  * Title: Image Overlap Row (Medium)
  * Slug: image-overlap-row-medium
  * Description: A full-width, single-column row with a content/image overlap block using all the space.
- * Categories: images
- * Keywords: image, row, overlap
+ * Categories: content-rows
+ * Keywords: image, row, overlap, text
  * Viewport Width: 1200
  * Block Types: 
  * Post Types: 
