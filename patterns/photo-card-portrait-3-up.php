@@ -3,9 +3,9 @@
  * Title: Three-up Portait Photo Cards
  * Slug: photo-card-portrait-3-up
  * Description: A row of three portait photo cards
- * Categories: photocards
+ * Categories: content-rows
  * Keywords: photo, card, three
- * Viewport Width: 1920
+ * Viewport Width: 1200
  * Block Types: 
  * Post Types: 
  * Inserter: true
