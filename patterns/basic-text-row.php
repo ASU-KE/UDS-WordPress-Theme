@@ -2,10 +2,10 @@
 /**
  * Title: Basic text row
  * Slug: basic-text-row
- * Description: A bootstrap row and column sized for plain text
+ * Description: A bootstrap row and column sized for plain text that resizes a different breakpoints
  * Categories: content-rows
  * Keywords: text, content, row
- * Viewport Width: 1920
+ * Viewport Width: 1200
  * Block Types: 
  * Post Types: 
  * Inserter: true
