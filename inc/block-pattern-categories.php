@@ -12,12 +12,13 @@ function uds_wordpress_register_pattern_categories() {
 
 	$patterns = array(
 		array( 'slug' => 'call-to-action', 'label' => 'Call to Action' ),
+		array( 'slug' => 'cards', 'label' => 'Cards'),
 		array( 'slug' => 'content-rows', 'label' => 'Content rows'),
 		array( 'slug' => 'image-and-text', 'label' => 'Image and text'),
+		array( 'slug' => 'layouts', 'label' => 'Layouts' ),
 		array( 'slug' => 'dynamic', 'label' => 'News and Events'),
 		array( 'slug' => 'page-starters', 'label' => 'Page Starters'),
-		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
-		array( 'slug' => 'cards', 'label' => 'Cards')
+		array( 'slug' => 'quotes', 'label' => 'Quotes' )
 	);
 
 	if( function_exists( 'register_block_pattern_category' ) ) {
