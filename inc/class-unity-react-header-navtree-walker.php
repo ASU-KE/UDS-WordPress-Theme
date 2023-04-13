@@ -49,7 +49,6 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 			$exIcon = false;
 
 			$isCTA = get_field('menu_cta_button', $item);
-			$btnColor = get_field('menu_cta_button_color', $item);
 			$exIcon = get_field('menu_external_link', $item);
 
 			// Create $entry object from $item data. Prep to insert into the correct place.
