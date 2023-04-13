@@ -6,13 +6,13 @@
  * Categories: page-starters
  * Keywords: page, full-width, breadcrumbs
  * Viewport Width: 1920
- * Block Types: core/post-content
+ * Block Types:
  * Post Types: page
  * Inserter: true
  */
 
 ?>
-<!-- wp:unityblocks/hero {"mediaId":4863,"mediaUrl":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png","subTitleText":"Starter page","titleText":"Full width with breadcrumbs","contentsText":"A single column layout with the Yoast breadcrumb block","hideContents":"yes"} -->
+<!-- wp:unityblocks/hero {"mediaId":5279,"mediaUrl":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png","subTitleText":"Starter page","titleText":"Full width with breadcrumbs","contentsText":"A single column layout with the Yoast breadcrumb block","hideContents":"yes"} -->
 <div id="unityblocks-hero" class="wp-block-unityblocks-hero hide-content" data-herotype="heading-hero" data-image="{&quot;url&quot;:&quot;<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png&quot;,&quot;altText&quot;:&quot;&quot;,&quot;cssClass&quot;:[],&quot;size&quot;:&quot;medium&quot;}" data-subtitle="{&quot;text&quot;:&quot;Starter page&quot;,&quot;highlightColor&quot;:&quot;white&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[]}" data-title="{&quot;text&quot;:&quot;Full width with breadcrumbs&quot;,&quot;highlightColor&quot;:&quot;gold&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[]}" data-contents="[{&quot;text&quot;:&quot;A single column layout with the Yoast breadcrumb block&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[],&quot;highlightColor&quot;:&quot;white&quot;}]" data-contentscolor="white"></div>
 <!-- /wp:unityblocks/hero -->
 

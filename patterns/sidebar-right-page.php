@@ -4,7 +4,7 @@
  * Slug: sidebar-right-page
  * Description: An empty page layout with a sidebar on the right for a contact box or something similar.
  * Categories: page-starters
- * Keywords: sidebar
+ * Keywords: sidebar, right
  * Viewport Width: 1920
  * Block Types: core/post-content
  * Post Types: page
@@ -12,7 +12,7 @@
  */
 
 ?>
-<!-- wp:unityblocks/hero {"mediaId":4863,"mediaUrl":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png","subTitleText":"Page starter","titleText":"Sidebar right","contentsText":"For when you want some kind of important content in that right-hand column.","hideContents":"yes"} -->
+<!-- wp:unityblocks/hero {"mediaId":5279,"mediaUrl":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png","subTitleText":"Page starter","titleText":"Sidebar right","contentsText":"For when you want some kind of important content in that right-hand column.","hideContents":"yes"} -->
 <div id="unityblocks-hero" class="wp-block-unityblocks-hero hide-content" data-herotype="heading-hero" data-image="{&quot;url&quot;:&quot;<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/medium-hero-placeholder.png&quot;,&quot;altText&quot;:&quot;&quot;,&quot;cssClass&quot;:[],&quot;size&quot;:&quot;medium&quot;}" data-subtitle="{&quot;text&quot;:&quot;Page starter&quot;,&quot;highlightColor&quot;:&quot;white&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[]}" data-title="{&quot;text&quot;:&quot;Sidebar right&quot;,&quot;highlightColor&quot;:&quot;gold&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[]}" data-contents="[{&quot;text&quot;:&quot;For when you want some kind of important content in that right-hand column.&quot;,&quot;maxWidth&quot;:&quot;&quot;,&quot;cssClass&quot;:[],&quot;highlightColor&quot;:&quot;white&quot;}]" data-contentscolor="white"></div>
 <!-- /wp:unityblocks/hero -->
 
