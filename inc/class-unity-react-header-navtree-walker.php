@@ -46,10 +46,11 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 
 			// Gather ACF properties from the menu item.
 			$isCTA = false;
-			$exIcon = false;
-
+			//$exIcon = false;
+			$btnColor = "";
 			$isCTA = get_field('menu_cta_button', $item);
-			$exIcon = get_field('menu_external_link', $item);
+			//$exIcon = get_field('menu_external_link', $item);
+			$btnColor = get_field('menu_cta_button_color', $item);
 
 			// Create $entry object from $item data. Prep to insert into the correct place.
 			$entry = new stdClass();
@@ -58,7 +59,8 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 			$entry->text = $item->title;
 			$entry->target = $item->target;
 			$entry->title = $item->attr_title;
-			$entry->exIcon = $exIcon;
+			$entry->color = $btnColor;
+			//$entry->exIcon = $exIcon;
 
 			/**
 			 * Depth 0: First level
@@ -115,6 +117,8 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 				 */
 				if ( $isCTA ) {
 					$entry->type = 'button';
+					//$output .= '';
+					//return;
 				}
 
 				/**
