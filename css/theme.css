@@ -24613,7 +24613,17 @@ X. Misc. styles
 #wp-toolbar {
   display: block;
 }
-
+/* anchor menu user offset */
+.uds-anchor-menu.sticky {
+	top: 88px !important;
+}
+/* CSS offset for React header, unity anchor menu with WP admin bar */
+#asuHeader.admin-offset {
+	margin-top: 32px;
+}
+.uds-anchor-menu.sticky.admin-offset {
+	top: 121px !important;
+}
 /*--------------------------------------------------------------
  Hero adjustments
 --------------------------------------------------------------*/
