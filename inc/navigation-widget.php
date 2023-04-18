@@ -59,7 +59,10 @@ if ( ! function_exists( 'uds_wp_theme_navigation_menu_custom_walker' ) ) {
 	 * @param args $args Array of nav menu arguments.
 	 */
 	function uds_wp_theme_navigation_menu_custom_walker( $args ) {
-		if ( 'social-media' != $args['theme_location'] ) {
+		//do_action('qm/debug', $args);
+		//echo("menu is here: {$args['theme_location']}<br/>");
+		if ( 'primary' == $args['theme_location'] || 'footer' == $args['theme_location']) {
+			//echo("if statement ran: {$args['theme_location']}<br/>");
 			return array_merge(
 				$args,
 				array(

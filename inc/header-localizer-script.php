@@ -14,8 +14,9 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
 		$primary_menu_id = $locations[ $menu_name ] ;
+		//do_action('qm/debug', $primary_menu_id);
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
-		do_action('qm/debug', $primary_menu);
+		//do_action('qm/debug', $primary_menu);
 		/**
 		 * UDS Header: Menu settings
 		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
@@ -62,6 +63,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		// Build navTree / mobileNavTree props using walker class.
 		if ( $primary_menu) {
+			//echo('primary menu ran');
 			$menu_items = wp_nav_menu([
 				'menu' => $primary_menu,
 				'walker' => new UDS_React_Header_Navtree(),
@@ -69,7 +71,9 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
+			//('qm/debug', $menu_items);
 		} else {
+			//echo('primary menu was empty');
 			$menu_items = array();
 		}
 
@@ -77,24 +81,27 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		// is_seralized() should return false. Explictly return an empty array if so.
 		// Handles the use case where the menu is only composed of CTA buttons.
 		if ( is_serialized( $menu_items )) {
+			//echo('is_serialized ran');
 			$menu_items = maybe_unserialize($menu_items);
 		} else {
+			//echo('is_serialized failed');
 			$menu_items = array();
 		}
 
-		// Build ctaButton prop using walker class.
-		if ( $primary_menu ) {
-			$cta_buttons = wp_nav_menu([
-				'theme_location' => 'primary',
-				'walker' => new UDS_React_Header_CTAButtons(),
-				'echo' => false,
-				'container' => '',
-				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-				'depth' => 1,
-			]);
-		} else {
+		//Build ctaButton prop using walker class.
+		// if ( $primary_menu ) {
+		// 	$cta_buttons = wp_nav_menu([
+		// 		'theme_location' => 'button',
+		// 		'walker' => new UDS_React_Header_CTAButtons(),
+		// 		'echo' => false,
+		// 		'container' => '',
+		// 		'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+		// 		'depth' => 1,
+		// 	]);
+
+		// } else {
 			$cta_buttons = array();
-		}
+		//}
 
 		// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
 		// serlizized empty array. Shouldn't be any need to further check is_serialized().
@@ -128,7 +135,9 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'parentOrgUrl' => $parent_org_link,
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
+			'theme_location' => 'test',
 		);
+		//do_action('qm/debug', $localized_array);
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
@@ -139,3 +148,4 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		);
 	}
 }
+
