@@ -24614,15 +24614,21 @@ X. Misc. styles
   display: block;
 }
 /* anchor menu user offset */
-.uds-anchor-menu.sticky {
-	top: 88px !important;
+/* up to Desktop, not logged in */
+@media only screen and (max-width: 991px) {
+	main .uds-anchor-menu.sticky{ top: 105px; }
+	/* up to Desktop, logged in */
+#wpadminbar ~ main .uds-anchor-menu.sticky { top: 117px; }
 }
-/* CSS offset for React header, unity anchor menu with WP admin bar */
-#asuHeader.admin-offset {
-	margin-top: 32px;
-}
-.uds-anchor-menu.sticky.admin-offset {
-	top: 121px !important;
+/* Desktop, not logged in */
+@media only screen and (min-width: 992px) {
+	/* CSS offset for React header, unity anchor menu with WP admin bar */
+	#asuHeader.admin-offset {
+		margin-top: 32px;
+	}
+	main .uds-anchor-menu.sticky{ top: 89px; }
+	/* Desktop, logged in */
+	#wpadminbar ~ main .uds-anchor-menu.sticky { top: 121px; }
 }
 /*--------------------------------------------------------------
  Hero adjustments

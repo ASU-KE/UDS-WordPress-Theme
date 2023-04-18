@@ -7226,10 +7226,10 @@ window.addEventListener("DOMContentLoaded", event => {
 		if(document.getElementById("asuHeader")){
 			let header = document.getElementById("asuHeader")
 			header.classList.add('admin-offset')
-			if(document.getElementById('collapseAnchorMenu')){
-				let anchorMenu = document.getElementsByClassName('uds-anchor-menu')[0]
-				anchorMenu.classList.add('admin-offset')
-			}
+			// if(document.getElementById('collapseAnchorMenu')){
+			// 	let anchorMenu = document.getElementsByClassName('uds-anchor-menu')[0]
+			// 	anchorMenu.classList.add('admin-offset')
+			// }
 		}
 	}
 });
