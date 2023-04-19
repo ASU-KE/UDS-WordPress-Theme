@@ -136,6 +136,8 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
 			'theme_location' => 'test',
+			'searchUrl' => 'https://search.asu.edu/search',
+			'site' => site_url(),
 		);
 		//do_action('qm/debug', $localized_array);
 

@@ -7219,7 +7219,9 @@ window.addEventListener("DOMContentLoaded", event => {
       parentOrg: udsHeaderVars.parentOrg,
       parentOrgUrl: udsHeaderVars.parentOrgUrl,
       breakpoint: udsHeaderVars.breakpoint,
-      buttons: udsHeaderVars.buttons
+      buttons: udsHeaderVars.buttons,
+			searchUrl: udsHeaderVars.searchUrl,
+			site: udsHeaderVars.site,
     }
   });
 	if(document.getElementById("wpadminbar")){
