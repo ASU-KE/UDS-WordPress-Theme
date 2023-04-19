@@ -10,6 +10,10 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		// load current user status
 		global $current_user;
+		//get clean site url
+		$domain_text = site_url();
+		$domain = parse_url($domain_text, PHP_URL_HOST);
+
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
@@ -137,7 +141,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'buttons' => $cta_buttons,
 			'theme_location' => 'test',
 			'searchUrl' => 'https://search.asu.edu/search',
-			'site' => site_url(),
+			'site' => $domain,
 		);
 		//do_action('qm/debug', $localized_array);
 
