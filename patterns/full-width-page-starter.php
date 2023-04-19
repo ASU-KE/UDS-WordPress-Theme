@@ -20,19 +20,15 @@
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeXs":0} -->
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Full content width</h2>
+<h2 class="wp-block-heading">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
-<p class="lead">This is a paragraph that has been given the "lead" class for when you want to emphasize something.</p>
+<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>This layout is <strong>not</strong> optimal for text, as running text across the full content area like this violates the design standard calling for no more than 72 characters per line.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>There is a pattern that lets you easily drop in a row whose columns will resize automatically to stay as close as possible to the standards.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- /wp:paragraph -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->

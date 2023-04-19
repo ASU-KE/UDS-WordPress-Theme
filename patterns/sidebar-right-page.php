@@ -20,11 +20,11 @@
 <!-- wp:wp-bootstrap-blocks/row {"template":"2-1","className":"justify-content-between"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":7,"className":"order-2 order-md-1"} -->
 <!-- wp:heading {"className":"mt-0"} -->
-<h2 class="wp-block-heading mt-0">Content column</h2>
+<h2 class="wp-block-heading mt-0">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
-<p class="lead">This is a paragraph that has been given the "lead" class for when you want to emphasize something.</p>
+<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
