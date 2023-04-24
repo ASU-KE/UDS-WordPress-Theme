@@ -31,8 +31,9 @@ if (!function_exists('uds_wp_scripts')) {
 		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/js/uds-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
 
 		// TODO: disabled until UDS build setup is fixed
-		// $uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-cookie-consent/cookieConsent.production.js' );
-		// wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/js/uds-cookie-consent/cookieConsent.production.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+		$uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-cookie-consent/vendor.umd.js' );
+		wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/js/uds-cookie-consent/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+		wp_enqueue_script( 'uds-cookie-consent1', get_template_directory_uri() . '/js/uds-cookie-consent/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.js' );
 		wp_enqueue_script( 'uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.js', array( 'wp-element', 'wp-components' ), $js_version, true );
@@ -111,7 +112,7 @@ if (!function_exists('uds_wp_gutenberg_css')) {
 	function uds_wp_gutenberg_css()
 	{
 		add_theme_support('editor-styles');
-		add_editor_style('css/theme.min.css');
+		add_editor_style('css/theme.css');
 	}
 } // End of if function_exists( 'uds_wp_gutenberg_css' ).
 add_action('after_setup_theme', 'uds_wp_gutenberg_css');

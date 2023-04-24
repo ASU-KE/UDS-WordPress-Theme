@@ -7224,6 +7224,13 @@ window.addEventListener("DOMContentLoaded", event => {
 			site: udsHeaderVars.site,
     }
   });
+	AsuCookieConsent.initCookieConsent({
+		targetSelector: "#cookie-consent-container",
+		props: {
+			enableCookieConsent: true,
+			expirationTime: 90, // Number of days to expire the consent
+		},
+	});
 	if(document.getElementById("wpadminbar")){
 		if(document.getElementById("asuHeader")){
 			let header = document.getElementById("asuHeader")
