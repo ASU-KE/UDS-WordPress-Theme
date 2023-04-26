@@ -18,9 +18,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
 		$primary_menu_id = $locations[ $menu_name ] ;
-		//do_action('qm/debug', $primary_menu_id);
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
-		//do_action('qm/debug', $primary_menu);
 		/**
 		 * UDS Header: Menu settings
 		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
@@ -67,7 +65,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		// Build navTree / mobileNavTree props using walker class.
 		if ( $primary_menu) {
-			//echo('primary menu ran');
 			$menu_items = wp_nav_menu([
 				'menu' => $primary_menu,
 				'walker' => new UDS_React_Header_Navtree(),
@@ -75,9 +72,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 				'container' => '',
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
-			//('qm/debug', $menu_items);
 		} else {
-			//echo('primary menu was empty');
 			$menu_items = array();
 		}
 
@@ -93,19 +88,13 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		}
 
 		//Build ctaButton prop using walker class.
-		// if ( $primary_menu ) {
-		// 	$cta_buttons = wp_nav_menu([
-		// 		'theme_location' => 'button',
-		// 		'walker' => new UDS_React_Header_CTAButtons(),
-		// 		'echo' => false,
-		// 		'container' => '',
-		// 		'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-		// 		'depth' => 1,
-		// 	]);
-
-		// } else {
-			$cta_buttons = array();
-		//}
+		$cta_buttons = array();
+		foreach ($menu_items as $key => $item) {
+			if($item -> type == 'button'){
+				unset($menu_items[$key]);
+				array_push($cta_buttons, $item);
+			}
+		}
 
 		// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
 		// serlizized empty array. Shouldn't be any need to further check is_serialized().
@@ -130,7 +119,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 				// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
 				// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
 				// // ],
-			//'isPartner' => false,
 			'isPartner' => $show_partner_logo,
 			'partnerLogo' => $add_partner_logo_array,
 			'title' => get_bloginfo(),
@@ -143,7 +131,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $domain,
 		);
-		//do_action('qm/debug', $localized_array);
 
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component

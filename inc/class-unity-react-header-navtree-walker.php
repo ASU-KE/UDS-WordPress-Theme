@@ -85,8 +85,7 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 				// Is this a CTA button?
 				// Bail if so. This is a button and there's another walker for that.
 				if ( $isCTA ) {
-					$output .= '';
-					return;
+					$entry->type = 'button';
 				}
 
 				// Check for the presence of children. Add array wrapper for future depth.
