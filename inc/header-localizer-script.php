@@ -40,6 +40,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		 *
 		 * Get each logo field. If checked, build formatted array, add to object - in enqueue, pull in from object
 		 */
+		$asu_logo_override_array = [];
 		if(get_field('asu_logo_override', $primary_menu)) {
 			$asu_logo_override_array =
 			[
@@ -50,6 +51,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			];
 		}
 		$show_partner_logo = get_field('add_partner_logo', $primary_menu);
+		$add_partner_logo_array = [];
 		if(get_field('add_partner_logo', $primary_menu)) {
 			$add_partner_logo_array =
 			[
@@ -87,10 +89,11 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			$menu_items = array();
 		}
 
-		//Build ctaButton prop using walker class.
+		//Build ctaButton prop
 		$cta_buttons = array();
 		foreach ($menu_items as $key => $item) {
-			if($item -> type == 'button'){
+			$itemType = $item->type ?? false;
+			if($itemType == 'button'){
 				unset($menu_items[$key]);
 				array_push($cta_buttons, $item);
 			}
