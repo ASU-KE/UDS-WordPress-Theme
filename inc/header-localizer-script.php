@@ -15,11 +15,13 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$domain = parse_url($domain_text, PHP_URL_HOST);
 
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
-		$menu_name = 6;
+		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
 		do_action('qm/debug', $locations);
 		$primary_menu_id = $locations[ $menu_name ] ;
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
+
+
 		/**
 		 * UDS Header: Menu settings
 		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
@@ -78,7 +80,10 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
 		} else {
-			$menu_items = array();
+			switch_to_blog( '1' ); 	//switch to the main site of the network (it has ID 1)
+			$menu_items = wp_nav_menu(['menu' => '6', //grab menu that has ID 16 from it
+			]);
+			restore_current_blog();	//switch back to the current site
 		}
 
 		// Expected return from nav walker is a serialized array. But if the array is empty/error,
