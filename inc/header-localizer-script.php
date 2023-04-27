@@ -69,6 +69,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$parent_org_link = get_theme_mod( 'parent_unit_link' );
 		$site_title = false;
 		$site_display_name = false;
+		$multisite_menu_override = false;
 
 		// Build navTree / mobileNavTree props using walker class.
 		if ( has_nav_menu('primary')) {
@@ -80,9 +81,13 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
 		} else {
+			//multisite subsite without primary menu set, get top level main menu instead
 			switch_to_blog( '1' ); 	//switch to the main site of the network (it has ID 1)
+			$multisite_locations = get_nav_menu_locations();
+			$multisite_primary_menu_id = $multisite_locations[ 'primary' ] ;
+			$multisite_primary_menu = wp_get_nav_menu_object( $multisite_primary_menu_id );
 			$menu_items = wp_nav_menu([
-				'menu' => '6', //grab menu that has ID 16 from it
+				'menu' => $multisite_primary_menu,
 				'walker' => new UDS_React_Header_Navtree(),
 				'echo' => false,
 				'container' => '',
