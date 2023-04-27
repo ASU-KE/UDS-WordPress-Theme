@@ -64,9 +64,11 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		$parent_org_name = get_theme_mod( 'parent_unit_name' );
 		$parent_org_link = get_theme_mod( 'parent_unit_link' );
+		$site_title = false;
+		$site_display_name = false;
 
 		// Build navTree / mobileNavTree props using walker class.
-		if ( $primary_menu) {
+		if ( has_nav_menu('primary')) {
 			$menu_items = wp_nav_menu([
 				'menu' => $primary_menu,
 				'walker' => new UDS_React_Header_Navtree(),
@@ -115,13 +117,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'expandOnHover' => $expand_on_hover,
 			'baseUrl' => site_url(),
 			'logo' => $asu_logo_override_array,
-			// 'logo' => $logo_override,
-				// // [
-				// // 	'alt' => 'alt text',        // default: 'Arizona State University'
-				// // 	'src' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',        // default: 'arizona-state-university-logo-vertical.png'
-				// // 	'mobileSrc' => '/wp-content/uploads/2022/11/US-Navy-logo.jpg',  // default: 'arizona-state-university-logo.png'
-				// // 	'brandLink' => 'https://asu.edu',  // default: 'https://asu.edu'
-				// // ],
 			'isPartner' => $show_partner_logo,
 			'partnerLogo' => $add_partner_logo_array,
 			'title' => get_bloginfo(),
@@ -130,11 +125,10 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'parentOrgUrl' => $parent_org_link,
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
-			'theme_location' => 'test',
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $domain,
 		);
-
+		do_action('qm/debug', $localized_array);
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
 		wp_localize_script(
