@@ -15,8 +15,9 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		$domain = parse_url($domain_text, PHP_URL_HOST);
 
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
-		$menu_name = 'primary';
+		$menu_name = 6;
 		$locations = get_nav_menu_locations();
+		do_action('qm/debug', $locations);
 		$primary_menu_id = $locations[ $menu_name ] ;
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
 		/**
