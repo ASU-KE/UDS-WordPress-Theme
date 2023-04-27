@@ -81,7 +81,12 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			]);
 		} else {
 			switch_to_blog( '1' ); 	//switch to the main site of the network (it has ID 1)
-			$menu_items = wp_nav_menu(['menu' => '6', //grab menu that has ID 16 from it
+			$menu_items = wp_nav_menu([
+				'menu' => '6', //grab menu that has ID 16 from it
+				'walker' => new UDS_React_Header_Navtree(),
+				'echo' => false,
+				'container' => '',
+				'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 			]);
 			restore_current_blog();	//switch back to the current site
 		}
