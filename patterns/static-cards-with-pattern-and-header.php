@@ -12,12 +12,12 @@
  */
 
 ?>
-<!-- wp:wp-bootstrap-blocks/container {"isFluid":true,"marginAfter":"mb-0","className":"pt-6 py-lg-12 bg network-white"} -->
+<!-- wp:wp-bootstrap-blocks/container {"isFluid":true,"marginAfter":"mb-0","className":"py-6 py-lg-12 bg network-white"} -->
 <!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom","className":"mb-2"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeXs":0,"equalWidthXs":true,"className":"d-flex justify-content-between align-items-center"} -->
-<!-- wp:heading -->
-<h2 class="wp-block-heading">Lorem ipsum</h2>
+<!-- wp:heading {"className":"mt-0"} -->
+<h2 class="wp-block-heading mt-0">Lorem ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:acf/uds-button {"name":"acf/uds-button","data":{"tag_type":"link","_tag_type":"field_6269c6c11bb7d","button_link":"","_button_link":"field_60522a8361f39","external_link":"0","_external_link":"field_601e39a0afff2","button_color":"maroon","_button_color":"field_601f031d80f7e","button_size":"default","_button_size":"field_601f61b7ff690","icon":"","_icon":"field_602c30da61fbb","remove_outer_div":"0","_remove_outer_div":"field_6269bd7ae75f4","button_attributes":"","_button_attributes":"field_626b104524e2a"},"mode":"preview"} /-->
