@@ -1,13 +1,13 @@
 <?php
 /**
- * Title: 8-Card Grid Container
- * Slug: 8-card-grid-container
+ * Title: 8-Card Grid Section
+ * Slug: 8-card-grid-section
  * Description: A content-width, eight-card grid with a heading row above.
  * Categories: cards
  * Keywords: cards, static, eight, container
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 
