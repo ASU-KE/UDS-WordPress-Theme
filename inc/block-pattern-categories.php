@@ -13,10 +13,9 @@ function uds_wordpress_register_pattern_categories() {
 	$patterns = array(
 		array( 'slug' => 'call-to-action', 'label' => 'Call to Action' ),
 		array( 'slug' => 'cards', 'label' => 'Cards'),
-		array( 'slug' => 'photo-cards', 'label' => 'Content rows'),
 		array( 'slug' => 'image-and-text', 'label' => 'Image and text'),
 		array( 'slug' => 'photo-cards', 'label' => 'Photo Cards' ),
-		array( 'slug' => 'dynamic', 'label' => 'News and Events'),
+		array( 'slug' => 'news-and-events', 'label' => 'News and Events'),
 		array( 'slug' => 'page-starters', 'label' => 'Page Starters'),
 		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
 		array( 'slug' => 'video-and-text', 'label' => 'Video and Text'),
