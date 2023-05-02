@@ -4,9 +4,9 @@
  * Slug: sidebar-left-page-with-breadcrumbs
  * Description: Page starter with left-hand sidebar and breadcrumbs at the top
  * Categories: page-starters
- * Keywords: sidebar, breadcrumbs, left
+ * Keywords: sidebar, breadcrumbs, left, page
  * Viewport Width: 1200
- * Block Types: 
+ * Block Types:
  * Post Types: page
  * Inserter: true
  */

@@ -4,7 +4,7 @@
  * Slug: sidebar-right-page
  * Description: An empty page layout with a sidebar on the right for a contact box or something similar.
  * Categories: page-starters
- * Keywords: sidebar, right
+ * Keywords: sidebar, right, page
  * Viewport Width: 1920
  * Block Types: core/post-content
  * Post Types: page

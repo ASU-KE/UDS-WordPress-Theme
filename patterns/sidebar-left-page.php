@@ -4,7 +4,7 @@
  * Slug: sidebar-left-page
  * Description: An empty page layout with a sidebar on the left
  * Categories: page-starters
- * Keywords: sidebar, left
+ * Keywords: sidebar, left, page
  * Viewport Width: 1920
  * Block Types: core/post-content
  * Post Types: page

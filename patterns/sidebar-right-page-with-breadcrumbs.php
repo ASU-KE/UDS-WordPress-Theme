@@ -4,9 +4,9 @@
  * Slug: sidebar-right-page-with-breadcrumbs
  * Description: An empty page layout with a sidebar on the right for a contact box or something similar and breadcrumbs above all content
  * Categories: page-starters
- * Keywords: sidebar, breadcrumbs, right
+ * Keywords: sidebar, breadcrumbs, right, page
  * Viewport Width: 1920
- * Block Types: 
+ * Block Types:
  * Post Types: page
  * Inserter: true
  */

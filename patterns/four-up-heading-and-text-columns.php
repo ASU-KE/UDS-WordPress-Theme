@@ -4,10 +4,10 @@
  * Slug: four-up-heading-and-text-columns
  * Description: A container with heading and four-column text for navigation
  * Categories: text
- * Keywords: four, text
+ * Keywords: four, text, heading, columns
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 
