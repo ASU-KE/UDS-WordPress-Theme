@@ -3,11 +3,11 @@
  * Title: Image Overlap Row (Full)
  * Slug: image-overlap-row-full
  * Description: A full-width, single-column row with a content/image overlap block using all the space.
- * Categories: content-rows
+ * Categories: image-and-text
  * Keywords: image, row, overlap, text
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

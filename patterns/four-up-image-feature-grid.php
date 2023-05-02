@@ -1,13 +1,13 @@
 <?php
 /**
- * Title: 
+ * Title: Four-up Image Feature Grid
  * Slug: four-up-image-feature-grid
- * Description: 
- * Categories: 
- * Keywords: 
- * Viewport Width: 1280
- * Block Types: 
- * Post Types: 
+ * Description: Four-column layout with image above text
+ * Categories: image-and-text
+ * Keywords: four, image, text, columns
+ * Viewport Width: 1200
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

@@ -3,11 +3,11 @@
  * Title: Four-up Portait Photo Cards
  * Slug: photo-card-portrait-4-up
  * Description: A row of four portait photo cards
- * Categories: content-rows
+ * Categories: photo-cards
  * Keywords: photo, card, four
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

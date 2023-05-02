@@ -3,11 +3,11 @@
  * Title: Four-up Landscape Photo Cards
  * Slug: photo-card-landscape-4-up
  * Description: A row of four landscape photo cards
- * Categories: content-rows
+ * Categories: photo-cards
  * Keywords: card, image, photo
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

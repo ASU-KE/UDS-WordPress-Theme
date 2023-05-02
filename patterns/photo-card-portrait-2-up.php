@@ -3,11 +3,11 @@
  * Title: Two-up Portrait Photo Cards
  * Slug: photo-card-portrait-2-up
  * Description: A row of two portrait photo cards
- * Categories: content-rows
+ * Categories: photo-cards
  * Keywords: photo, card, two, portrait
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

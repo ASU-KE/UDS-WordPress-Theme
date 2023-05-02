@@ -1,6 +1,6 @@
 <?php
 /**
- * Title:
+ * Title: Three-up Image Feature Grid
  * Slug: three-up-image-feature-grid
  * Description: Three column image with heading, text and link
  * Categories: image-and-text

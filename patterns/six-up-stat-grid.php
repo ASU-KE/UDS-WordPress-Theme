@@ -3,11 +3,11 @@
  * Title: Six-up Stat Grid
  * Slug: six-up-stat-grid
  * Description: Six-column statistics with gold underline
- * Categories: content-rows
+ * Categories: text
  * Keywords: six, column, text, stats
  * Viewport Width: 1920
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

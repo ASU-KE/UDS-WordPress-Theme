@@ -3,11 +3,11 @@
  * Title: Two-Up Image Feature Grid
  * Slug: two-up-image-feature-grid
  * Description: A row of two landscape photo cards
- * Categories: content-rows
+ * Categories: image-and-text
  * Keywords: photo, two, image
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

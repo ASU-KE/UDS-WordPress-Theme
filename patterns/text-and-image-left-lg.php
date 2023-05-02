@@ -3,11 +3,11 @@
  * Title: Text and image left (LG)
  * Slug: text-and-image-left-lg
  * Description: A two equal column layout with an image on the left.
- * Categories: content-rows
+ * Categories: image-and-text
  * Keywords: image, column, two, left, text
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 
