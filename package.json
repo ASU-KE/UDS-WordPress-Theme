@@ -9,7 +9,8 @@
     "build": "gulp compile",
     "images": "gulp imagemin",
     "assets": "gulp reset-assets",
-    "sync": "gulp watch-bs"
+    "sync": "gulp watch-bs",
+    "scripts": "gulp scripts"
   },
   "engines": {
     "node": ">=10",

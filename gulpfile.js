@@ -191,6 +191,10 @@ gulp.task("scripts", function () {
 		paths.dev + "/js/custom/skip-link-focus-fix.js",
 		paths.dev + "/js/bootstrap4-asu/global-header.js",
 		paths.dev + "/js/custom/init-cookie-consent.js",
+		paths.dev + "/js/fontawesome/all.min.js",
+		paths.dev + "/js/custom/hero_video.js",
+		paths.dev + "/js/custom/overlay-card.js",
+		paths.dev + "/js/custom/modals.js"
 	];
 	gulp
 		.src(scripts, { allowEmpty: true })
