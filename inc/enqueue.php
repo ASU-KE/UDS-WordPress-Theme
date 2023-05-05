@@ -24,6 +24,10 @@ if (!function_exists('uds_wp_scripts')) {
 
 		wp_enqueue_script('jquery');
 
+		$uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/uds-cookie-consent/vendor.umd.js' );
+		wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/js/uds-cookie-consent/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+		wp_enqueue_script( 'uds-cookie-consent1', get_template_directory_uri() . '/js/uds-cookie-consent/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+
 		$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/js/theme.min.js');
 		wp_enqueue_script('uds-wordpress-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true);
 

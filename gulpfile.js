@@ -190,7 +190,6 @@ gulp.task("scripts", function () {
 		paths.dev + "/js/bootstrap4/bootstrap.bundle.js",
 		paths.dev + "/js/custom/skip-link-focus-fix.js",
 		paths.dev + "/js/bootstrap4-asu/global-header.js",
-		paths.dev + "/js/bootstrap4-asu/cookie-consent.min.js",
 		paths.dev + "/js/custom/init-cookie-consent.js",
 	];
 	gulp
@@ -206,6 +205,7 @@ gulp.task("scripts", function () {
 		.pipe(concat("theme.js"))
 		.pipe(gulp.dest(paths.js))
 		.pipe(browserSync.reload({ stream: true }));
+
 });
 
 // Run:
