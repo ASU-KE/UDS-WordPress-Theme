@@ -22,6 +22,7 @@ acf_register_block_type(
 		'description'       => __( 'A block for building program cards with gif image when hover over', 'uds-wordpress-theme' ), // description the user will see.
 		'icon'              => 'admin-page', // Dashicon, or custom SVG code, for the icon.
 		'render_template'   => 'templates-blocks/overlay-card/overlay-card.php', // location of the block's template.
+		'enqueue_script'    => get_template_directory_uri() . '/src/js/custom/overlay-card.js',
 		'category'          => 'uds', // category this block appears in.
 		'keywords'          => array( 'card', 'cards', 'content', 'program', 'gif', 'overlay', 'uds' ),
 		'supports'          => array(

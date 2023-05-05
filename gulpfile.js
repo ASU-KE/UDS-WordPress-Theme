@@ -193,7 +193,6 @@ gulp.task("scripts", function () {
 		paths.dev + "/js/custom/init-cookie-consent.js",
 		paths.dev + "/js/fontawesome/all.min.js",
 		paths.dev + "/js/custom/hero_video.js",
-		paths.dev + "/js/custom/overlay-card.js",
 		paths.dev + "/js/custom/modals.js"
 	]
 	const adminScripts = [
