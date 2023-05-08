@@ -24,7 +24,8 @@
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4"} -->
 <!-- wp:image {"id":5549,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x305.png" alt="" class="wp-image-5549"/></figure>
+<figure class="wp-block-image size-full"><img src="https://placehold.co/588x305/00a3e0/FFFFFF/png
+" alt="" class="wp-image-5549"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|uds-size-6"}}},"layout":{"type":"default"}} -->
@@ -44,7 +45,8 @@
 
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4"} -->
 <!-- wp:image {"id":5549,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x305.png" alt="" class="wp-image-5549"/></figure>
+<figure class="wp-block-image size-full"><img src="https://placehold.co/588x305/00a3e0/FFFFFF/png
+" alt="" class="wp-image-5549"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|uds-size-6"}}},"layout":{"type":"default"}} -->
@@ -66,7 +68,8 @@
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4 mb-lg-0"} -->
 <!-- wp:image {"id":5549,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x305.png" alt="" class="wp-image-5549"/></figure>
+<figure class="wp-block-image size-full"><img src="https://placehold.co/588x305/00a3e0/FFFFFF/png
+" alt="" class="wp-image-5549"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|uds-size-6"}}},"layout":{"type":"default"}} -->
@@ -86,7 +89,8 @@
 
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":6,"className":"mb-4 mb-lg-0"} -->
 <!-- wp:image {"id":5549,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/588x305.png" alt="" class="wp-image-5549"/></figure>
+<figure class="wp-block-image size-full"><img src="https://placehold.co/588x305/00a3e0/FFFFFF/png
+" alt="" class="wp-image-5549"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"var:preset|spacing|uds-size-6","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->

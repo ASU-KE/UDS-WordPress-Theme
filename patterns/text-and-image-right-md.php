@@ -25,7 +25,7 @@
 
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":4} -->
 <!-- wp:image {"align":"right","id":5196,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image alignright size-full"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/384x384.png" alt="" class="wp-image-5196"/></figure>
+<figure class="wp-block-image alignright size-full"><img src="https://placehold.co/384x384/00a3e0/FFFFFF/png" alt="" class="wp-image-5196"/></figure>
 <!-- /wp:image -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->

@@ -12,8 +12,8 @@
  */
 
 ?>
-<!-- wp:cover {"url":"<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png","id":5177,"dimRatio":0,"minHeight":420,"isDark":false} -->
-<div class="wp-block-cover is-light" style="min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/patterns/images/1920X480.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
+<!-- wp:cover {"url":"https://placehold.co/1920x480/00a3e0/FFFFFF/png","id":5177,"dimRatio":0,"minHeight":420,"isDark":false} -->
+<div class="wp-block-cover is-light" style="min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="https://placehold.co/1920x480/00a3e0/FFFFFF/png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeLg":6,"sizeMd":8} -->
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|uds-size-4","right":"var:preset|spacing|uds-size-4","bottom":"var:preset|spacing|uds-size-4","left":"var:preset|spacing|uds-size-4"}}},"backgroundColor":"white","textColor":"gray-7","layout":{"type":"constrained"}} -->
