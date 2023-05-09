@@ -19,6 +19,7 @@ function uds_wordpress_register_pattern_categories() {
 		array( 'slug' => 'page-starters', 'label' => 'Page Starters'),
 		array( 'slug' => 'quotes', 'label' => 'Quotes' ),
 		array( 'slug' => 'video-and-text', 'label' => 'Video and Text'),
+		array( 'slug' => 'miscellaneous', 'label' => 'Miscellaneous'),
 	);
 
 	if( function_exists( 'register_block_pattern_category' ) ) {
