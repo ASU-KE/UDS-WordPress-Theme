@@ -18,7 +18,7 @@ if ( ! function_exists( 'uds_wp_customize_controls_js' ) ) {
 	function uds_wp_customize_controls_js() {
 		wp_enqueue_script(
 			'uds_wp_customizer_controls',
-			get_template_directory_uri() . '/js/customizer-controls.js',
+			get_template_directory_uri() . '/src/js/custom/admin/customizer-controls.js',
 			array( 'customize-controls' ),
 			'20130508',
 			true
