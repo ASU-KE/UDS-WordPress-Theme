@@ -2,12 +2,12 @@
 /**
  * Title: Two-up Heading and Text Columns
  * Slug: two-up-heading-and-text-columns
- * Description: A container with heading and three columns of text with individual headers and links.
+ * Description: Two columns of text with individual headers and links.
  * Categories: text
  * Keywords: text, columns, two
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

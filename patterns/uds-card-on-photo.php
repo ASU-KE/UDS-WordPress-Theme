@@ -2,7 +2,7 @@
 /**
  * Title: UDS Card on photo
  * Slug: uds-card-on-photo
- * Description: Call to action with a "card" on the left
+ * Description: A "call to action" type section with an actual UDS card block on a background image or pattern.
  * Categories: cards
  * Keywords: card, full-width
  * Viewport Width: 1920

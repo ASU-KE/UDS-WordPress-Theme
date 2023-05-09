@@ -2,7 +2,7 @@
 /**
  * Title: Wide Card on Photo
  * Slug: wide-card-on-photo
- * Description: A call to action block with a wide card on the left
+ * Description: A "call to action" type section with a wide card on the left
  * Categories: cards
  * Keywords: call, action, card
  * Viewport Width: 1920

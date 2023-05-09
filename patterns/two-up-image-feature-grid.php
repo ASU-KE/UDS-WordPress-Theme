@@ -2,7 +2,7 @@
 /**
  * Title: Two-Up Image Feature Grid
  * Slug: two-up-image-feature-grid
- * Description: A row of two landscape photo cards
+ * Description: A page section with its own header, and two columns with individual image, heading, text and link.
  * Categories: image-and-text
  * Keywords: photo, two, image
  * Viewport Width: 1200

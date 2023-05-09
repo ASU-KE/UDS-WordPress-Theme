@@ -2,12 +2,12 @@
 /**
  * Title: Three-up Heading and Text Columns
  * Slug: three-up-heading-and-text-columns
- * Description: A container with heading and three columns of text with individual headers and links.
+ * Description: Three columns of text with individual headers and links.
  * Categories: text
  * Keywords: text, three, columns
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

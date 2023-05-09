@@ -2,7 +2,7 @@
 /**
  * Title: Sidebar Left Page
  * Slug: sidebar-left-page
- * Description: An empty page layout with a sidebar on the left
+ * Description: A page starter pattern with a sidebar on the left and a default sidebar menu.
  * Categories: page-starters
  * Keywords: sidebar, left, page
  * Viewport Width: 1920

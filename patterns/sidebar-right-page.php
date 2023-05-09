@@ -2,7 +2,7 @@
 /**
  * Title: Sidebar Right Page
  * Slug: sidebar-right-page
- * Description: An empty page layout with a sidebar on the right for a contact box or something similar.
+ * Description: An empty page layout with a sidebar on the right for a contact box or other feature.
  * Categories: page-starters
  * Keywords: sidebar, right, page
  * Viewport Width: 1920
