@@ -187,7 +187,7 @@ function uds_wp_render_main_nav_menu() {
 			switch_to_blog( get_main_site_id() );
 		}
 
-		include get_template_directory() . '/asu-navigation-menu.php';
+		include get_template_directory() . '/header-localizer-script.php';
 		?>
 
 		</div>

@@ -7069,144 +7069,309 @@
     }, false);
   }
 })();
-jQuery(document).ready(function ($) {
-  'use strict';
+// udsHeaderVars are set in inc/enqueue.php
 
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 0) {
-      $('#asu-header').addClass('scrolled');
-    } else {
-      $('#asu-header').removeClass('scrolled');
-    }
-  }); // Add a class of .scrolled as the window moves beyond the top of the screen.
-  // Retrigger the dropdown max-height calculation when this occurs.
+/*
+const exampleNavTree = [
+	{
+		href: "/",
+		text: "Home",
+		type: "icon-home",
+		selected: true,
+		class: "test-class",
+	},
+	{
+		text: "Degree programs",
+		href: "#",
+		items: [
+			[
+				{
+					href: "https://www.asu.edu/?feature=newsevents",
+					text: "Mauris viverra, sem nec",
+				},
+				{
+					href: "https://www.asu.edu/?feature=academics",
+					text: "Academics",
+				},
+				{
+					href: "https://www.asu.edu/?feature=research",
+					text: "Research",
+				},
+				{
+					href: "https://www.asu.edu/?feature=athletics",
+					text: "Athletics",
+				},
+				{
+					href: "https://www.asu.edu/?feature=alumni",
+					text: "Alumni",
+				},
+				{
+					href: "https://www.asu.edu/?feature=giving",
+					text: "Giving",
+				},
+				{
+					href: "https://www.asu.edu/?feature=president",
+					text: "President",
+				},
+				{
+					href: "https://www.asu.edu/about",
+					text: "About ASU",
+				},
+			],
+		],
+	},
 
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 0) {
-      $('#asu-header').addClass('scrolled');
-    } else {
-      $('#asu-header').removeClass('scrolled');
-    }
-  }); // Adjusts the height of the top container once the search bar receives and loses the focus.
-
-  $('#header-top input[type="search"]').focusin(function () {
-    $('#header-top').css({
-      height: 48
-    });
-    $('#wrapper-header-top').css({
-      height: 48
-    });
-  });
-  $('#header-top input[type="search"]').focusout(function () {
-    $('#header-top').css({
-      height: ''
-    });
-    $('#wrapper-header-top').css({
-      height: ''
-    });
-  }); // Scrolled top header upon dropdown menu initiation.
-
-  $('#menubar').on('show.bs.collapse', function () {
-    $('#asu-header').addClass('scrolled');
-  });
-  /*  Calculate height of the mobile header.
-   *
-   *  topPadding = 16px. Scrolled class added upon dropdown initiation.
-   *  navbarBrand = 48px. Height of ASU Logo in mobile view, including padding. Static value.
-   *  navbarTitle = Either 16px (one line) or 32px (two lines) + 16px bottom padding
-   */
-
-  function mobileHeaderHeight() {
-    var topPadding = 16;
-    var navbarBrand = $('.navbar-brand').height();
-    var navbarTitle = $('nav.navbar .title').height() + 16;
-    return topPadding + navbarBrand + navbarTitle;
-  }
-
-  function pinBottomMenu() {
-    var viewport = $(window).height();
-    var menuTall = $('#menubar.show').height();
-    var headerTall = mobileHeaderHeight();
-    var pinnedTall = $('.navbar-mobile-footer').height();
-    var maxTall = viewport - headerTall - pinnedTall; // Does the height of the dropdown require the form to be pinned to the bottom of the window?
-
-    if (viewport >= menuTall + headerTall) {
-      $('#menubar').css({
-        maxHeight: ''
-      });
-      $('.navbar-mobile-footer').removeClass('pinned');
-      $('.navbar-mobile-footer').removeClass('shadow');
-      restoreTopValue();
-    } else {
-      $('#menubar').css({
-        maxHeight: maxTall
-      });
-      $('.navbar-mobile-footer').addClass('pinned');
-      $('.navbar-mobile-footer').addClass('shadow');
-      recordTopValue();
-    }
-  }
-
-  function resetCalcValues() {
-    $('#menubar').css({
-      maxHeight: ''
-    });
-    $('.navbar-mobile-footer').removeClass('pinned');
-    $('.navbar-mobile-footer').removeClass('shadow');
-  }
-
-  var topValue = $(document).scrollTop();
-
-  function recordTopValue() {
-    topValue = $(document).scrollTop();
-    $('#asu-header').closest('body').addClass('dropdown-pinned');
-  }
-
-  function restoreTopValue() {
-    $('#asu-header').closest('body').removeClass('dropdown-pinned');
-    topValue = $(document).scrollTop(topValue);
-  } // Does the initial menu expansion require the bottom menu to be pinned?
-
-
-  $('#menubar').on('shown.bs.collapse', function () {
-    pinBottomMenu();
-  }); // Once the menu contracts, kill off the max height for the menubar.
-
-  $('#menubar').on('hidden.bs.collapse', function () {
-    resetCalcValues();
-    restoreTopValue();
-  }); // Does an internal menu dropdown expansion require the bottom menu to be pinned?
-  // Only trigger the recalculation if the bottom menu is NOT already pinned.
-
-  $('#menubar .dropdown').on('shown.bs.dropdown', function () {
-    if ($('.navbar-mobile-footer').hasClass('pinned') == false) {
-      resetCalcValues();
-      pinBottomMenu();
-    }
-  }); // Does any internal menu dropdown contraction require the bottom menu to be pinned?
-
-  $('#menubar .dropdown').on('hidden.bs.dropdown', function () {
-    resetCalcValues();
-    pinBottomMenu();
-  }); // Has the menubar scroll reached the bottom of the container? Remove the shadow if so.
-
-  $('#menubar').on('scroll', function () {
-    if ($('#menubar.show').prop('offsetHeight') + $('#menubar.show').prop('scrollTop') === $('#menubar.show').prop('scrollHeight')) {
-      // the menu is at the end of its scroll
-      $('.navbar-mobile-footer').removeClass('shadow');
-    } else {
-      $('.navbar-mobile-footer').addClass('shadow');
-    }
-  }); // Figure stuff out again if the window resizes.
-
-  $(window).resize(function () {
-    // Only calculate new values if the menubar is open.
-    if ($('.navbar-toggler').hasClass('collapsed')) {// Menu is closed. No need for further action.
-    } else {
-      topValue = $(document).scrollTop();
-      $('body').removeClass('dropdown-pinned');
-      resetCalcValues();
-      pinBottomMenu();
+	{
+		text: "People",
+		href: "#",
+	},
+	{
+		text: "My ASU",
+		href: "#",
+	},
+	{
+		text: "Two Column 1",
+		href: "/",
+		items: [
+			[
+				{
+					type: "heading",
+					text: "Column 1",
+				},
+				{
+					href: "https://www.asu.edu/",
+					text: "Pellentesque ornare",
+				},
+				{
+					href: "https://www.asu.edu/",
+					text: "Curabitur viverra arcu nisl",
+				},
+				{
+					href: "https://www.asu.edu/?feature=athletics",
+					text: "Aenean pharetra",
+				},
+				{
+					href: "https://www.asu.edu/?feature=alumni",
+					text: "Pellentesque",
+				},
+				{
+					href: "https://www.asu.edu/?feature=giving",
+					text: "Donec sagittis nulla",
+				},
+				{
+					href: "https://www.asu.edu/?feature=president",
+					text: "Quisque fringilla",
+				},
+				{
+					href: "https://www.asu.edu/about",
+					text: "Integer vel gravida lectus",
+				},
+			],
+			[
+				{
+					href: "https://www.asu.edu/?feature=newsevents",
+					type: "heading",
+					text: "Ut quis",
+				},
+				{
+					href: "https://www.asu.edu/?feature=academics",
+					text: "Nunc in libero odio",
+				},
+				{
+					href: "https://www.asu.edu/?feature=research",
+					text: "Maecenas quam elit",
+				},
+				{
+					href: "https://www.asu.edu/?feature=academics",
+					text: "Ut at vehicula neque",
+				},
+				{
+					href: "https://www.asu.edu/?feature=athletics",
+					type: "button",
+					text: "Sed molestie",
+				},
+			],
+		],
+	},
+	{
+		text: "Mega Menu (5 Col)",
+		href: "#",
+		buttons: [
+			{
+				text: "CTA One",
+				href: "https://asu.edu",
+				color: "maroon",
+			},
+			{
+				text: "CTA Two",
+				href: "https://asu.edu",
+				color: "gold",
+			},
+		],
+		items: [
+			[
+				{
+					href: "https://asuonline.asu.edu/",
+					type: "heading",
+					text: "Column One Heading Text",
+				},
+				{
+					href: "https://havasu.asu.edu/",
+					text: "The Lake Havasu Campus",
+				},
+				{
+					href: "https://www.thunderbird.edu/about-thunderbird/locations/phoenix-arizona",
+					classes: "border",
+					text: "Thunderbird",
+				},
+				{
+					href: "https://skysong.asu.edu/",
+					text: "Skysong",
+				},
+				{
+					href: "https://asuresearchpark.com/",
+					text: "Research Park",
+				},
+				{
+					href: "https://washingtoncenter.asu.edu/",
+					text: "Washington D.C.",
+				},
+				{
+					href: "https://wpcarey.asu.edu/mba/china-program/english/",
+					text: "China",
+				},
+				{
+					href: "https://campus.asu.edu/downtown/",
+					type: "button",
+					text: "Call to Action",
+				},
+			],
+			[
+				{
+					href: "https://asuonline.asu.edu/",
+					type: "heading",
+					text: "Column 2",
+				},
+				{
+					classes: "border first",
+					href: "https://www.asu.edu/map/",
+					text: "Faculty and Staff Directory",
+				},
+				{
+					href: "https://campus.asu.edu/tempe/",
+					text: "The Tempe Campus",
+				},
+				{
+					href: "https://campus.asu.edu/west/",
+					text: "Sun Devils and Things",
+				},
+				{
+					href: "https://campus.asu.edu/polytechnic/",
+					text: "Another nav link",
+				},
+				{
+					href: "https://campus.asu.edu/downtown/",
+					type: "button",
+					text: "Action Button",
+				},
+			],
+			[
+				{
+					href: "https://asuonline.asu.edu/",
+					type: "heading",
+					text: "Column 3",
+				},
+				{
+					classes: "border first",
+					href: "https://www.asu.edu/map/",
+					text: "University Technology Office",
+				},
+				{
+					href: "https://campus.asu.edu/tempe/",
+					text: "Sun Devil Football",
+				},
+				{
+					href: "https://campus.asu.edu/west/",
+					text: "The School of Something",
+				},
+				{
+					href: "https://campus.asu.edu/polytechnic/",
+					text: "Polytechnic",
+				},
+				{
+					href: "https://campus.asu.edu/downtown/",
+					type: "button",
+					text: "Another Button",
+				},
+			],
+			[
+				{
+					href: "https://asuonline.asu.edu/",
+					type: "heading",
+					text: "Column 4",
+				},
+				{
+					classes: "border first",
+					href: "https://www.asu.edu/map/",
+					text: "Maps and Directions",
+				},
+				{
+					href: "https://campus.asu.edu/tempe/",
+					text: "Office of the technology",
+				},
+				{
+					href: "https://campus.asu.edu/west/",
+					text: "Office of the business",
+				},
+				{
+					href: "https://campus.asu.edu/polytechnic/",
+					text: "Some longer text office of longtext",
+				},
+				{
+					href: "https://campus.asu.edu/downtown/",
+					type: "button",
+					text: "Downtown Phoenix",
+				},
+			],
+			[
+				{
+					href: "https://asuonline.asu.edu/",
+					type: "heading",
+					text: "Column Five",
+				},
+				{
+					classes: "border first",
+					href: "https://www.asu.edu/map/",
+					text: "Buildings and directory",
+				},
+				{
+					href: "https://campus.asu.edu/tempe/",
+					text: "Some good news",
+				},
+				{
+					href: "https://campus.asu.edu/west/",
+					text: "Directory Admin Tools",
+				},
+			],
+		],
+	},
+];
+*/
+window.addEventListener("DOMContentLoaded", event => {
+  AsuHeader.initGlobalHeader({
+    targetSelector: "#header-container",
+    props: {
+      loggedIn: udsHeaderVars.loggedIn,
+      logoutLink: udsHeaderVars.logoutLink,
+      loginLink: udsHeaderVars.loginLink,
+      userName: udsHeaderVars.userName,
+      navTree: udsHeaderVars.navTree,
+      // navTree: exampleNavTree,
+      title: udsHeaderVars.title,
+      parentOrg: udsHeaderVars.parentOrg,
+      parentOrgUrl: udsHeaderVars.parentOrgUrl,
+      breakpoint: udsHeaderVars.breakpoint,
+      buttons: udsHeaderVars.buttons
     }
   });
 });
