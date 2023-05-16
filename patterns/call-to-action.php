@@ -13,7 +13,7 @@
 
 ?>
 <!-- wp:cover {"url":"https://placehold.co/1920x480/00a3e0/FFFFFF/png","id":5177,"dimRatio":90,"customGradient":"linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"} -->
-<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
+<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(90deg,rgba(26,26,26,0.89) 18%,rgba(26,26,26,0) 78%)"></span><img class="wp-block-cover__image-background wp-image-5177" alt="" src="https://placehold.co/1920x480/00a3e0/FFFFFF/png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:wp-bootstrap-blocks/container {"marginAfter":"mb-0"} -->
 <!-- wp:wp-bootstrap-blocks/row {"template":"2-1","className":"justify-content-between"} -->
 <!-- wp:wp-bootstrap-blocks/column {"sizeMd":7} -->
 <!-- wp:group {"textColor":"white","layout":{"type":"constrained"}} -->
