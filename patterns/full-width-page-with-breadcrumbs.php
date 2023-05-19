@@ -7,7 +7,7 @@
  * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
- * Post Types: page
+ * Post Types:
  * Inserter: true
  */
 

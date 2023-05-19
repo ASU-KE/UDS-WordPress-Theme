@@ -7,7 +7,7 @@
  * Keywords:
  * Viewport Width: 1200
  * Block Types:
- * Post Types: page
+ * Post Types:
  * Inserter: true
  */
 
