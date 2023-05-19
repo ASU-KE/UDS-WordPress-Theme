@@ -5,7 +5,7 @@
 * Description: A full-width container with backround and a news card grid
 * Viewport Width: 1920
 * Categories: news-and-events
-* Keywords: news, cards, grid, dynamic
+* Keywords: dynamic
 * Inserter: true
 */
 ?>

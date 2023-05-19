@@ -4,7 +4,7 @@
  * Slug: card-on-photo
  * Description: Call to action with a "card" on the left
  * Categories: cards
- * Keywords: call, action, card, full-width
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

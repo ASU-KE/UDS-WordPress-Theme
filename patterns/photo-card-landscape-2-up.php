@@ -4,7 +4,7 @@
  * Slug: photo-card-landscape-2-up
  * Description: A row of two landscape photo cards
  * Categories: photo-cards
- * Keywords: photo, card, two, landscape
+ * Keywords: columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

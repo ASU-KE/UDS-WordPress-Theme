@@ -6,7 +6,7 @@
  * Categories: video-and-text
  * Keywords: column, two, right, text, video
  * Viewport Width: 1200
- * Block Types:
+ * Block Types: columns, row
  * Post Types:
  * Inserter: true
  */

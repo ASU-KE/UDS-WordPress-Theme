@@ -4,7 +4,7 @@
  * Slug: text-and-video-left
  * Description: A two column layout with text on the left and a YouTube embed block on the right.
  * Categories: video-and-text
- * Keywords: column, two, left, text, video
+ * Keywords:  columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

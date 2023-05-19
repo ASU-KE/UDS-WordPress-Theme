@@ -4,7 +4,7 @@
  * Slug: sidebar-right-page-with-breadcrumbs
  * Description: An empty page layout with a sidebar on the right for a contact box or similar feature, and the Yoast breadcrumbs block.
  * Categories: page-starters
- * Keywords: sidebar, breadcrumbs, right, page
+ * Keywords:
  * Viewport Width: 1920
  * Block Types:
  * Post Types: page

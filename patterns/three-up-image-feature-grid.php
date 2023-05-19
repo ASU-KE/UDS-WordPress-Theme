@@ -4,7 +4,7 @@
  * Slug: three-up-image-feature-grid
  * Description: Three column image with heading, text and link
  * Categories: image-and-text
- * Keywords: three, image, text
+ * Keywords: group, row, columns
  * Viewport Width: 1280
  * Block Types:
  * Post Types:

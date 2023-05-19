@@ -4,7 +4,7 @@
  * Slug: photo-card-portrait-2-up
  * Description: A row of two portrait photo cards
  * Categories: photo-cards
- * Keywords: photo, card, two, portrait
+ * Keywords: columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

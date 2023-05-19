@@ -4,7 +4,7 @@
  * Slug: call-to-action
  * Description: A cover block with text and a button
  * Categories: call-to-action
- * Keywords: call, action
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

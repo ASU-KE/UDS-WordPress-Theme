@@ -4,10 +4,10 @@
  * Slug: 8-card-grid-section-with-background
  * Description: A full-width container with a background pattern that contains an 8-card grid.
  * Categories: cards
- * Keywords: cards, static, eight, container, full-width, background
+ * Keywords: static, container
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

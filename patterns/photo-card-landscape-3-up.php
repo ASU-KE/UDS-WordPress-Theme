@@ -4,7 +4,7 @@
  * Slug: photo-card-landscape-3-up
  * Description: A row of three landscape photo cards
  * Categories: photo-cards
- * Keywords: photo, card, three, landscape
+ * Keywords: columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

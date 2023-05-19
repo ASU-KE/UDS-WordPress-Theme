@@ -4,7 +4,7 @@
  * Slug: three-up-heading-and-text-columns
  * Description: Three columns of text with individual headers and links.
  * Categories: text
- * Keywords: text, three, columns
+ * Keywords: group, row, columns
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

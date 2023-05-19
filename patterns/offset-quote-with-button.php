@@ -4,7 +4,7 @@
  * Slug: offset-quote-with-button
  * Description: An offset UDS block quote with button on a photo or patterned background
  * Categories: quotes
- * Keywords: quote, background, full, button
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

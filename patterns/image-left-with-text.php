@@ -4,7 +4,7 @@
  * Slug: image-left-with-text
  * Description: A full-width cover block with an image on the left and text on the right
  * Categories: call-to-action
- * Keywords: nsf, call, action
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

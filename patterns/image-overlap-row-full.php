@@ -4,7 +4,7 @@
  * Slug: image-overlap-row-full
  * Description: A full-width, single-column row with a content/image overlap block using all the space.
  * Categories: image-and-text
- * Keywords: image, row, overlap, text
+ * Keywords: row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

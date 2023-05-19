@@ -4,7 +4,7 @@
  * Slug: plain-quote-on-bg
  * Description: A single UDS block quote in a cover block for use with a photo or patterned background
  * Categories: quotes
- * Keywords: quote, background, full
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

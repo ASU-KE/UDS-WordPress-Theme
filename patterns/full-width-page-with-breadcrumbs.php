@@ -4,7 +4,7 @@
  * Slug: full-width-page-with-breadcrumbs
  * Description: A full-width page starter, with breadcrumbs at the top.
  * Categories: page-starters
- * Keywords: page, full-width, breadcrumbs
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types: page

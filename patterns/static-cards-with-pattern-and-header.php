@@ -4,10 +4,10 @@
  * Slug: static-cards-with-pattern-and-header
  * Description: A fluid container with background pattern, heading and button, and three cards
  * Categories: cards
- * Keywords: three, cards, pattern, static, full-wdith
+ * Keywords: full-wdith
  * Viewport Width: 1920
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

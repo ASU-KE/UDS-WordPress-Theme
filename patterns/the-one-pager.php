@@ -4,7 +4,7 @@
  * Slug: the-one-pager
  * Description: A page starter for a "one-pager" type of site that has a hero, an anchor menu, and several page sections with anchors.
  * Categories: page-starters
- * Keywords: page, full-width, anchor
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types:
  * Post Types: page

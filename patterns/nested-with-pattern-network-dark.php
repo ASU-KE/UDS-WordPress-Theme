@@ -4,10 +4,10 @@
  * Slug: nested-with-pattern-network-dark
  * Description: A full-width Bootstrap container with a pattern background and content-width container inside
  * Categories: layout-containers
- * Keywords: pattern, container, full, background, dark
+ * Keywords: container, full-width
  * Viewport Width: 1920
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

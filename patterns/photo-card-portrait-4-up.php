@@ -4,7 +4,7 @@
  * Slug: photo-card-portrait-4-up
  * Description: A row of four portait photo cards
  * Categories: photo-cards
- * Keywords: photo, card, four, portrait
+ * Keywords:  columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

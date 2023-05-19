@@ -4,7 +4,7 @@
  * Slug: full-width-page-starter
  * Description: A basic hero with a standard container below it
  * Categories: page-starters
- * Keywords: full-width, page
+ * Keywords: full-width
  * Viewport Width: 1920
  * Block Types: core/post-content
  * Post Types: page

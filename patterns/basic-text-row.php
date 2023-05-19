@@ -4,7 +4,7 @@
  * Slug: basic-text-row
  * Description: A bootstrap row and column sized for plain text that resizes a different breakpoints
  * Categories: text
- * Keywords: text, content, row
+ * Keywords: row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

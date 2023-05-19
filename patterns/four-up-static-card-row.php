@@ -4,10 +4,10 @@
  * Slug: four-up-static-card-row
  * Description: A single row with four static cards
  * Categories: cards
- * Keywords: cards, static, four
+ * Keywords: static
  * Viewport Width: 1200
- * Block Types: 
- * Post Types: 
+ * Block Types:
+ * Post Types:
  * Inserter: true
  */
 

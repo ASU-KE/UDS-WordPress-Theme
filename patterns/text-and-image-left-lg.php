@@ -4,7 +4,7 @@
  * Slug: text-and-image-left-lg
  * Description: A two equal column layout with an image on the left.
  * Categories: image-and-text
- * Keywords: image, column, two, left, large, text
+ * Keywords: columns
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

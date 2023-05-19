@@ -6,7 +6,7 @@
  * Categories: cards
  * Keywords: card, full-width
  * Viewport Width: 1920
- * Block Types:
+ * Block Types: row, columns
  * Post Types:
  * Inserter: true
  */

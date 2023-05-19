@@ -4,7 +4,7 @@
  * Slug: two-up-heading-and-text-columns
  * Description: Two columns of text with individual headers and links.
  * Categories: text
- * Keywords: text, columns, two
+ * Keywords: group, row, columns
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

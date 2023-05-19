@@ -4,7 +4,7 @@
  * Slug: four-up-image-feature-grid
  * Description: Four-column layout with image above text
  * Categories: image-and-text
- * Keywords: four, image, text, columns
+ * Keywords: columns
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

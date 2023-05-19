@@ -4,7 +4,7 @@
  * Slug: sidebar-left-page
  * Description: A page starter pattern with a sidebar on the left and a default sidebar menu.
  * Categories: page-starters
- * Keywords: sidebar, left, page
+ * Keywords:
  * Viewport Width: 1920
  * Block Types: core/post-content
  * Post Types: page

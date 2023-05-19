@@ -4,7 +4,7 @@
  * Slug: wide-card-on-photo
  * Description: A "call to action" type section with a wide card on the left
  * Categories: cards
- * Keywords: call, action, card
+ * Keywords: row, columns
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

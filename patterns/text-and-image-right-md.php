@@ -4,7 +4,7 @@
  * Slug: text-and-image-right-md
  * Description: A two column layout with a medium image on the right.
  * Categories: image-and-text
- * Keywords: image, column, two, right, medium, text
+ * Keywords:  columns, row
  * Viewport Width: 1200
  * Block Types:
  * Post Types:

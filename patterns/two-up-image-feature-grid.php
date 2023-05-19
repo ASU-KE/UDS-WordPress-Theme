@@ -6,7 +6,7 @@
  * Categories: image-and-text
  * Keywords: photo, two, image
  * Viewport Width: 1200
- * Block Types:
+ * Block Types: group, row, columns
  * Post Types:
  * Inserter: true
  */
