@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Four-up Heading and Text Columns
- * Slug: four-up-heading-and-text-columns
+ * Title: Four column heading and text
+ * Slug: four-column-heading-and-text
  * Description: A container with heading and four-column text for navigation
  * Categories: text
  * Keywords: columns
