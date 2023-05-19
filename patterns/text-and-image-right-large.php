@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Text and image right (LG)
- * Slug: text-and-image-right-lg
+ * Title: Text and image right large
+ * Slug: text-and-image-right-large
  * Description: A two equal column layout with an image on the right.
  * Categories: image-and-text
  * Keywords:  columns, row
