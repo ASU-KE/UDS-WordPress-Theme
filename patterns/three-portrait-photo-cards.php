@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Three-up Portait Photo Cards
- * Slug: photo-card-portrait-3-up
+ * Title: Three Portrait Photo Cards
+ * Slug: three-portrait-photo-cards
  * Description: A row of three portait photo cards
  * Categories: photo-cards
  * Keywords: columns, row

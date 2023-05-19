@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Four-up Portait Photo Cards
- * Slug: photo-card-portrait-4-up
+ * Title: Four Portait Photo Cards
+ * Slug: four-portrait-photo-cards
  * Description: A row of four portait photo cards
  * Categories: photo-cards
  * Keywords:  columns, row

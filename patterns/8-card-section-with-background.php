@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 8-Card Grid Section with Background
- * Slug: 8-card-grid-section-with-background
+ * Title: 8-Card Section with Background
+ * Slug: 8-card-section-with-background
  * Description: A full-width container with a background pattern that contains an 8-card grid.
  * Categories: cards
  * Keywords: static, container

@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Image on left with text
- * Slug: image-left-with-text
- * Description: A full-width cover block with an image on the left and text on the right
+ * Title: Call to action image left
+ * Slug: call-to-action-image-left\
+ * Description: A variation of our standard call to action with an image on the left, and the content on the right. Based on the layout of the NSF disclosure feature required on several of our sites.
  * Categories: call-to-action
  * Keywords: full-width
  * Viewport Width: 1920

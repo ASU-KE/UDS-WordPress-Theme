@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Two-up Portrait Photo Cards
- * Slug: photo-card-portrait-2-up
+ * Title: Two Portrait Photo Cards
+ * Slug: two-portrait-photo-cards
  * Description: A row of two portrait photo cards
  * Categories: photo-cards
  * Keywords: columns, row

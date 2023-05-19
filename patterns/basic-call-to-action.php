@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Basic CTA
- * Slug: call-to-action
- * Description: A cover block with text and a button
+ * Title: Basic Call to Action
+ * Slug: basic-call-to-action
+ * Description: Our default Call to Action section, with heading, text, and a button on top of a background image.
  * Categories: call-to-action
  * Keywords: full-width
  * Viewport Width: 1920

@@ -2,7 +2,7 @@
 /**
  * Title: Card on photo
  * Slug: card-on-photo
- * Description: Call to action with a "card" on the left
+ * Description: A card, on the left, over a background image.
  * Categories: cards
  * Keywords: full-width
  * Viewport Width: 1920

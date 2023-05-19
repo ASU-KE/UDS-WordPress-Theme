@@ -4,7 +4,7 @@
  * Slug: six-up-stat-grid
  * Description: Six-column statistics with gold underline
  * Categories: text
- * Keywords:
+ * Keywords: row, columns
  * Viewport Width: 1920
  * Block Types:
  * Post Types:

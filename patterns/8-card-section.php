@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: 8-Card Grid Section
- * Slug: 8-card-grid-section
+ * Title: 8-Card Section
+ * Slug: 8-card-section
  * Description: A content-width, eight-card grid with a heading row above.
  * Categories: cards
  * Keywords: static, container

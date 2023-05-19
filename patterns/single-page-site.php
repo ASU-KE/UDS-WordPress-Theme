@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: The One Pager
- * Slug: the-one-pager
- * Description: A page starter for a "one-pager" type of site that has a hero, an anchor menu, and several page sections with anchors.
+ * Title: Single page site
+ * Slug: single-page-site
+ * Description: A starter for a "one-pager" type of site that has a hero, an anchor menu, and several page sections with anchors.
  * Categories: page-starters
  * Keywords: full-width
  * Viewport Width: 1920

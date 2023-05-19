@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Full-width page starter
- * Slug: full-width-page-starter
- * Description: A basic hero with a standard container below it
+ * Title: Full-width Page
+ * Slug: full-width-page
+ * Description: A page starter with a hero and a single container/row/column for content.
  * Categories: page-starters
  * Keywords: full-width
  * Viewport Width: 1920

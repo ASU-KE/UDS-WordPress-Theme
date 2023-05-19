@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Three-up Landscape Photo Cards
- * Slug: photo-card-landscape-3-up
+ * Title: Three Landscape Photo Cards
+ * Slug: three-landscape-photo-cards
  * Description: A row of three landscape photo cards
  * Categories: photo-cards
  * Keywords: columns, row
