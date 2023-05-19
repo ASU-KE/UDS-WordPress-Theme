@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Nested with pattern (network dark)
- * Slug: nested-with-pattern-network-dark
+ * Title: Nested containers with background pattern
+ * Slug: nested-containers-with-background-pattern
  * Description: A full-width Bootstrap container with a pattern background and content-width container inside
  * Categories: layout-containers
  * Keywords: container, full-width
