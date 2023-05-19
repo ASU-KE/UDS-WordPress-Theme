@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Plain Quote on BG
- * Slug: plain-quote-on-bg
+ * Title: Plain Quote on background
+ * Slug: plain-quote-on-background
  * Description: A single UDS block quote in a cover block for use with a photo or patterned background
  * Categories: quotes
  * Keywords: full-width
