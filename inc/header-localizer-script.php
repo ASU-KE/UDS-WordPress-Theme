@@ -24,15 +24,15 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		/**
 		 * UDS Header: Menu settings
-		 * ACF options defined in options page located at options-general.php?page=pitchfork-settings
+		 * ACF options defined in options page located at options-general.php?page=uds-advanced-settings
 		 *
 		 * Handles situations in which ACF fields have not been set by exclusively setting default options.
 		 */
 
-		$animate_title = get_field('animate_title', $primary_menu);
-		$expand_on_hover = get_field('expand_on_hover', $primary_menu);
+		$animate_title = get_field('animate_title', 'options');
+		$expand_on_hover = get_field('expand_on_hover', 'options');
 
-		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', $primary_menu);
+		$mobile_menu_breakpoint = get_field('mobile_menu_breakpoint', 'options');
 		if (empty($mobile_menu_breakpoint )) {
 			$mobile_menu_breakpoint = 'Lg';
 		}
@@ -44,24 +44,24 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		 * Get each logo field. If checked, build formatted array, add to object - in enqueue, pull in from object
 		 */
 		$asu_logo_override_array = [];
-		if(get_field('asu_logo_override', $primary_menu)) {
+		if(get_field('asu_logo_override', 'options')) {
 			$asu_logo_override_array =
 			[
-				'alt' => get_field('asu_logo_override_alt_text', $primary_menu),   // default: 'Arizona State University'
-				'src' => get_field('asu_logo_override_url', $primary_menu),        // default: 'arizona-state-university-logo-vertical.png'
-				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', $primary_menu),  // default: 'arizona-state-university-logo.png'
-				'brandLink' => get_field('asu_logo_override_link', $primary_menu),  // default: 'https://asu.edu'
+				'alt' => get_field('asu_logo_override_alt_text', 'options'),   // default: 'Arizona State University'
+				'src' => get_field('asu_logo_override_url', 'options'),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'options'),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('asu_logo_override_link', 'options'),  // default: 'https://asu.edu'
 			];
 		}
-		$show_partner_logo = get_field('add_partner_logo', $primary_menu);
+		$show_partner_logo = get_field('add_partner_logo', 'options');
 		$add_partner_logo_array = [];
-		if(get_field('add_partner_logo', $primary_menu)) {
+		if(get_field('add_partner_logo', 'options')) {
 			$add_partner_logo_array =
 			[
-				'alt' => get_field('partner_logo_alt_text', $primary_menu),        // default: 'Arizona State University'
-				'src' => get_field('partner_logo_url', $primary_menu),        // default: 'arizona-state-university-logo-vertical.png'
-				'mobileSrc' => get_field('partner_logo_mobile_url', $primary_menu),  // default: 'arizona-state-university-logo.png'
-				'brandLink' => get_field('partner_logo_link', $primary_menu),  // default: 'https://asu.edu'
+				'alt' => get_field('partner_logo_alt_text', 'options'),        // default: 'Arizona State University'
+				'src' => get_field('partner_logo_url', 'options'),        // default: 'arizona-state-university-logo-vertical.png'
+				'mobileSrc' => get_field('partner_logo_mobile_url', 'options'),  // default: 'arizona-state-university-logo.png'
+				'brandLink' => get_field('partner_logo_link', 'options'),  // default: 'https://asu.edu'
 			];
 		}
 
