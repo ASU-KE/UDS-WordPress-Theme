@@ -40,6 +40,8 @@ $uds_wp_includes = array(
 	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
 	'/header-localizer-script.php',				 // load custom react menu
 	'/class-unity-react-header-navtree-walker.php', // custom loop over navtree using built in WP methods
+	'/theme-settings-custom.php', // advanced admin settings (header menu, etc)
+
 );
 
 foreach ($uds_wp_includes as $file) {

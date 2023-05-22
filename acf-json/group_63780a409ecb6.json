@@ -260,9 +260,9 @@
     "location": [
         [
             {
-                "param": "nav_menu",
+                "param": "options_page",
                 "operator": "==",
-                "value": "location\/primary"
+                "value": "uds-advanced-settings"
             }
         ]
     ],
