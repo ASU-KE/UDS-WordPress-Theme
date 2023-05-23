@@ -6,6 +6,7 @@
             "key": "field_606270615d9ec",
             "label": "Images",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_60621cb77aa3b",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -46,6 +48,7 @@
             "key": "field_606223da7aa3e",
             "label": "Hover Image",
             "name": "hover_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -77,6 +80,7 @@
             "key": "field_606270825d9ed",
             "label": "Text",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -93,6 +97,7 @@
             "key": "field_60621c957aa3a",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -112,6 +117,7 @@
             "key": "field_6078d8ad123e4",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -131,6 +137,7 @@
             "key": "field_606270a35d9ee",
             "label": "Button",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -147,6 +154,7 @@
             "key": "field_60621d4b7aa3d",
             "label": "Button",
             "name": "button",
+            "aria-label": "",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -159,7 +167,7 @@
             "clone": [
                 "group_601db250e6c94"
             ],
-            "display": "seamless",
+            "display": "group",
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
@@ -182,5 +190,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619046512
+    "show_in_rest": 0,
+    "modified": 1679336834
 }
