@@ -5,7 +5,7 @@
 
 
 /**
- * Array of patterns to be registered. The order here is reflected in certain
+ * Array of categories to be registered. The order here is reflected in certain
  * UI elements, so we're trying to keep these alphabetical by the 'label' field.
  */
 function uds_wordpress_register_pattern_categories() {
