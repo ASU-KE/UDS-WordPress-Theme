@@ -38,6 +38,7 @@ $uds_wp_includes = array(
 	'/tiny-mce.php',                             // Create custom toolbars for the WYSIWYG editor in ACF.
 	'/wp-rest-api-extensions.php',               // Extend WP-REST API.
 	'/scroll-to-div.php',                        // Add animation to anchore scroll and offset -150.
+	'/block-pattern-categories.php'				 // Add our custom block pattern categories
 );
 
 foreach ($uds_wp_includes as $file) {
