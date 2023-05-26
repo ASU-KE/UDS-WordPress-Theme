@@ -67,8 +67,12 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 
 		$parent_org_name = get_field('parent_org_name', 'options');
 		$parent_org_link = get_field('parent_org_link', 'options');
+		$site_display_name = get_field('site_display_name', 'options');
+		if(!$site_display_name){
+			$site_display_name = get_bloginfo();
+		}
 		$site_title = false;
-		$site_display_name = false;
+
 		$multisite_menu_override = false;
 
 		// Build navTree / mobileNavTree props using walker class.
@@ -135,7 +139,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'logo' => $asu_logo_override_array,
 			'isPartner' => $show_partner_logo,
 			'partnerLogo' => $add_partner_logo_array,
-			'title' => get_bloginfo(),
+			'title' => $site_display_name,
 			'animateTitle' => $animate_title,
 			'parentOrg' => $parent_org_name,
 			'parentOrgUrl' => $parent_org_link,
