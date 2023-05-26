@@ -296,10 +296,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			navTree: udsHeaderVars.navTree,
 			// navTree: exampleNavTree,
 			title: udsHeaderVars.title,
+			logo: udsHeaderVars.logo,
+			isPartner: udsHeaderVars.isPartner,
+			partnerLogo: udsHeaderVars.partnerLogo,
+			animateTitle: udsHeaderVars.animateTitle,
+			expandOnHover: udsHeaderVars.expandOnHover,
 			parentOrg: udsHeaderVars.parentOrg,
 			parentOrgUrl: udsHeaderVars.parentOrgUrl,
 			breakpoint: udsHeaderVars.breakpoint,
 			buttons: udsHeaderVars.buttons,
+			searchUrl: udsHeaderVars.searchUrl,
+			site: udsHeaderVars.site,
 		},
 	});
 });
