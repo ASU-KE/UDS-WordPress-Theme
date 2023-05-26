@@ -18,6 +18,7 @@ $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
 $nav_menu_enabled      = '';
+$show_asu_header = get_field('show_asu_header', 'options');
 
 // retrieve settings from the theme mods entry in the options database table.
 $c_options = get_theme_mods();
@@ -137,7 +138,8 @@ if (!empty($c_options['hotjar_site_id'])) {
 		$current_user = wp_get_current_user();
 	}
 	?>
-
+	<?php if($show_asu_header) { ?>
 	<div id="header-container"></div>
+	<?php } ?>
 
 	<?php do_action('uds_wp_after_global_header'); ?>

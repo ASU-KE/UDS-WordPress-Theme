@@ -55,6 +55,25 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_64712a9bc6790",
+            "label": "Show ASU Header",
+            "name": "show_asu_header",
+            "type": "true_false",
+            "instructions": "Show or hide the main navigation menu. Hiding this is only approved for Landing Page sites",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -75,5 +94,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685137090
+    "modified": 1685138189
 }
