@@ -65,8 +65,8 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			];
 		}
 
-		$parent_org_name = get_theme_mod( 'parent_unit_name' );
-		$parent_org_link = get_theme_mod( 'parent_unit_link' );
+		$parent_org_name = get_field('parent_org_name', 'options');
+		$parent_org_link = get_field('parent_org_link', 'options');
 		$site_title = false;
 		$site_display_name = false;
 		$multisite_menu_override = false;
