@@ -58,7 +58,7 @@
         },
         {
             "key": "field_64712a9bc6790",
-            "label": "Show ASU Header",
+            "label": "Hide ASU Header",
             "name": "show_asu_header",
             "type": "true_false",
             "instructions": "Show or hide the main navigation menu. Hiding this is only approved for Landing Page sites",
@@ -70,7 +70,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""

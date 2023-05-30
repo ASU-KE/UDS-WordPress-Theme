@@ -138,8 +138,8 @@ if (!empty($c_options['hotjar_site_id'])) {
 		$current_user = wp_get_current_user();
 	}
 	?>
-	<?php if($show_asu_header) { ?>
-	<div id="header-container"></div>
-	<?php } ?>
+
+	<div <?php if($show_asu_header) { ?> class="hide" <?php } ?> id="header-container"></div>
+
 
 	<?php do_action('uds_wp_after_global_header'); ?>
