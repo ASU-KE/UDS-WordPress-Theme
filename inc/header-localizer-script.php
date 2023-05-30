@@ -70,6 +70,10 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		if(!$site_display_name){
 			$site_display_name = get_bloginfo();
 		}
+		$home_icon_url = get_field('home_icon_url', 'options');
+		if(!$home_icon_url){
+			$home_icon_url = site_url();
+		}
 
 		// Build navTree / mobileNavTree props using walker class.
 		if ( has_nav_menu('primary')) {
@@ -131,7 +135,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'navTree' => $menu_items,
 			'mobileNavTree' => $menu_items,
 			'expandOnHover' => $expand_on_hover,
-			'baseUrl' => site_url(),
+			'baseUrl' => $home_icon_url,
 			'logo' => $asu_logo_override_array,
 			'isPartner' => $show_partner_logo,
 			'partnerLogo' => $add_partner_logo_array,

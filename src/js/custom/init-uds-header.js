@@ -307,6 +307,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			buttons: udsHeaderVars.buttons,
 			searchUrl: udsHeaderVars.searchUrl,
 			site: udsHeaderVars.site,
+			baseUrl: udsHeaderVars.baseUrl,
 		},
 	});
 });

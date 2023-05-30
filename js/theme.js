@@ -7378,7 +7378,8 @@ window.addEventListener("DOMContentLoaded", event => {
       breakpoint: udsHeaderVars.breakpoint,
       buttons: udsHeaderVars.buttons,
       searchUrl: udsHeaderVars.searchUrl,
-      site: udsHeaderVars.site
+      site: udsHeaderVars.site,
+      baseUrl: udsHeaderVars.baseUrl
     }
   });
 });

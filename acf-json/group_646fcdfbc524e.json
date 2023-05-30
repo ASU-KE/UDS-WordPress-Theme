@@ -58,7 +58,7 @@
         },
         {
             "key": "field_64712a9bc6790",
-            "label": "Hide ASU Header",
+            "label": "Show ASU Header",
             "name": "show_asu_header",
             "type": "true_false",
             "instructions": "Show or hide the main navigation menu. Hiding this is only approved for Landing Page sites",
@@ -70,10 +70,29 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0,
+            "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_64763213bcac1",
+            "label": "Home Icon URL",
+            "name": "home_icon_url",
+            "type": "text",
+            "instructions": "Customize home icon URL",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -94,5 +113,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685138189
+    "modified": 1685467729
 }
