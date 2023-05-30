@@ -17,7 +17,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
-		do_action('qm/debug', $locations);
 		$primary_menu_id = $locations[ $menu_name ] ;
 		$primary_menu = wp_get_nav_menu_object( $primary_menu_id );
 
@@ -71,9 +70,6 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 		if(!$site_display_name){
 			$site_display_name = get_bloginfo();
 		}
-		$site_title = false;
-
-		$multisite_menu_override = false;
 
 		// Build navTree / mobileNavTree props using walker class.
 		if ( has_nav_menu('primary')) {
@@ -148,7 +144,7 @@ if ( ! function_exists( 'uds_localize_component_header_script' ) ) {
 			'searchUrl' => 'https://search.asu.edu/search',
 			'site' => $domain,
 		);
-		do_action('qm/debug', $localized_array);
+		//do_action('qm/debug', $localized_array);
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
 		// These variables are props for the header React component
 		wp_localize_script(
