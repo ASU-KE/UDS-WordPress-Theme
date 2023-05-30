@@ -139,7 +139,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 	}
 	?>
 
-	<div <?php if($show_asu_header) { ?> class="hide" <?php } ?> id="header-container"></div>
+	<div <?php if($show_asu_header) { ?> class="collapse" <?php } ?> id="header-container"></div>
 
 
 	<?php do_action('uds_wp_after_global_header'); ?>
