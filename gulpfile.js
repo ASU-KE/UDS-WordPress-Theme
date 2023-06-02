@@ -1,7 +1,7 @@
 // Defining requirements
 var gulp = require("gulp");
 var plumber = require("gulp-plumber");
-var sass = require("gulp-sass");
+var sass = require("gulp-sass")(require("sass"));
 var babel = require("gulp-babel");
 var postcss = require("gulp-postcss");
 var rename = require("gulp-rename");
@@ -18,9 +18,6 @@ var autoprefixer = require("autoprefixer");
 var bso = require("./browserSyncOptions.json");
 var cfg = require("./gulpconfig.json");
 var paths = cfg.paths;
-
-// Use Dart Sass to avoid random compliation errors.
-sass.compiler = require("sass");
 
 /**
  * Compiles .scss to .css files.
