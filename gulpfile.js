@@ -179,6 +179,62 @@ gulp.task(
  */
 gulp.task("watch-bs", gulp.parallel("browser-sync", "watch"));
 
+/**
+ * Front-end JS compilation
+ */
+gulp.task("front-end-scripts", function() {
+	const scripts = [
+		paths.dev + "/js/bootstrap4/bootstrap.bundle.js",
+		paths.dev + "/js/custom/skip-link-focus-fix.js",
+		paths.dev + "/js/bootstrap4-asu/global-header.js",
+		paths.dev + "/js/custom/init-cookie-consent.js",
+		paths.dev + "/js/fontawesome/all.min.js",
+		paths.dev + "/js/custom/hero_video.js",
+		paths.dev + "/js/custom/modals.js"
+	]
+
+	// Create uglifified min.js
+	gulp
+		.src(scripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("theme.min.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.js));
+
+	// Create full-sized version
+	return gulp
+		.src(scripts, { allowEmpty: true })
+		.pipe(babel())
+		.pipe(concat("theme.js"))
+		.pipe(gulp.dest(paths.js))
+		.pipe(browserSync.reload({ stream: true }));
+});
+
+
+/**
+ * Back-end JS compilation
+ */
+gulp.task("editor-scripts", function() {
+	const adminScripts = [
+		paths.dev + "/js/fontawesome/all.min.js",
+		paths.dev + "/js/custom/admin/core-list-block.js",
+		paths.dev + "/js/custom/admin/core-divider.js",
+		paths.dev + "/js/custom/admin/heading-highlights.js",
+		paths.dev + "/js/custom/admin/admin.js",
+		paths.js + "theme.min.js",
+		paths.dev + "/js/custom/admin/core-image-block.js"
+	]
+
+	return gulp
+		.src(adminScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("admin-bundle.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.js));
+
+});
+
+gulp.task
 // Run:
 // gulp scripts.
 // Uglifies and concat all JS files into one
