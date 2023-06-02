@@ -179,8 +179,9 @@ gulp.task(
  */
 gulp.task("watch-bs", gulp.parallel("browser-sync", "watch"));
 
+
 /**
- * Front-end JS compilation
+ * Front-end Javascript compilation.
  */
 gulp.task("front-end-scripts", function() {
 	const scripts = [
@@ -216,12 +217,11 @@ gulp.task("front-end-scripts", function() {
  */
 gulp.task("editor-scripts", function() {
 	const adminScripts = [
-		paths.dev + "/js/fontawesome/all.min.js",
 		paths.dev + "/js/custom/admin/core-list-block.js",
 		paths.dev + "/js/custom/admin/core-divider.js",
 		paths.dev + "/js/custom/admin/heading-highlights.js",
 		paths.dev + "/js/custom/admin/admin.js",
-		paths.js + "theme.min.js",
+		"./js/theme.js",
 		paths.dev + "/js/custom/admin/core-image-block.js"
 	]
 
