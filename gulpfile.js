@@ -1,7 +1,7 @@
 // Defining requirements
 var gulp = require("gulp");
 var plumber = require("gulp-plumber");
-var sass = require("gulp-sass");
+var sass = require("gulp-sass")(require("sass"));
 var babel = require("gulp-babel");
 var postcss = require("gulp-postcss");
 var rename = require("gulp-rename");
@@ -18,9 +18,6 @@ var autoprefixer = require("autoprefixer");
 var bso = require("./browserSyncOptions.json");
 var cfg = require("./gulpconfig.json");
 var paths = cfg.paths;
-
-// Use Dart Sass to avoid random compliation errors.
-sass.compiler = require("sass");
 
 /**
  * Compiles .scss to .css files.
@@ -182,10 +179,15 @@ gulp.task(
  */
 gulp.task("watch-bs", gulp.parallel("browser-sync", "watch"));
 
-// Run:
-// gulp scripts.
-// Uglifies and concat all JS files into one
-gulp.task("scripts", function () {
+
+/**
+ * Front-end Javascript compilation.
+ *
+ * This creates 'theme.min.js' and an
+ * uncompressed 'theme.js' that we use when building the admin scripts. This
+ * file contains both Bootstrap and FontAwesome JS.
+ */
+gulp.task("front-end-scripts", function() {
 	const scripts = [
 		paths.dev + "/js/bootstrap4/bootstrap.bundle.js",
 		paths.dev + "/js/custom/skip-link-focus-fix.js",
@@ -195,15 +197,8 @@ gulp.task("scripts", function () {
 		paths.dev + "/js/custom/hero_video.js",
 		paths.dev + "/js/custom/modals.js"
 	]
-	const adminScripts = [
-		paths.dev + "/js/fontawesome/all.min.js",
-		paths.dev + "/js/custom/admin/core-list-block.js",
-		paths.dev + "/js/custom/admin/core-divider.js",
-		paths.dev + "/js/custom/admin/heading-highlights.js",
-		paths.dev + "/js/custom/admin/admin.js",
-		paths.js + "theme.min.js",
-		paths.dev + "/js/custom/admin/core-image-block.js"
-	]
+
+	// Create uglifified min.js
 	gulp
 		.src(scripts, { allowEmpty: true })
 		.pipe(babel({ presets: ["@babel/preset-env"] }))
@@ -211,20 +206,56 @@ gulp.task("scripts", function () {
 		.pipe(uglify())
 		.pipe(gulp.dest(paths.js));
 
-	gulp
-		.src(adminScripts, { allowEmpty: true })
-		.pipe(babel({ presets: ["@babel/preset-env"] }))
-		.pipe(concat("admin-bundle.js"))
-		.pipe(uglify())
-		.pipe(gulp.dest(paths.js));
-
+	// Create full-sized version
 	return gulp
 		.src(scripts, { allowEmpty: true })
 		.pipe(babel())
 		.pipe(concat("theme.js"))
 		.pipe(gulp.dest(paths.js))
 		.pipe(browserSync.reload({ stream: true }));
+});
 
+
+/**
+ * Back-end JS compilation
+ *
+ * This creates a minified 'admin-bundle.js' that we enqueue in the WordPress
+ * editor. This takes the uncompressed 'theme.js' we build in the front-end
+ * step, adds any other custom editor JS we have written, abd then compresses that.
+ * Because the front-end file already contains Bootstrap and FontAwesome files, neither of those are
+ * included here.
+ *
+ * Consistent Gulp issues required me to hand-code one of the paths
+ */
+gulp.task("editor-scripts", function() {
+	const adminScripts = [
+		paths.dev + "/js/custom/admin/core-list-block.js",
+		paths.dev + "/js/custom/admin/core-divider.js",
+		paths.dev + "/js/custom/admin/heading-highlights.js",
+		paths.dev + "/js/custom/admin/admin.js",
+		paths.dev + "/js/custom/admin/core-image-block.js",
+		"./js/theme.js"
+	]
+
+	return gulp
+		.src(adminScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("admin-bundle.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.js));
+
+});
+
+/**
+ * Task: scripts
+ * Runs the front-end and editor tasks in series, which should result in the following files:
+ *
+ * 1) A _minified_ theme.js
+ * 2) A full-size theme.js, to be minified as part of buidling...
+ * 3) A minified admin-bundle.js
+ */
+gulp.task("scripts", function (callback) {
+	gulp.series("front-end-scripts", "editor-scripts")(callback);
 });
 
 // Run:
