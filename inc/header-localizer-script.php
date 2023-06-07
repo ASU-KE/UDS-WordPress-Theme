@@ -70,6 +70,8 @@ if (!function_exists('uds_localize_component_header_script')) {
 		$parent_org_link = get_theme_mod('parent_unit_link');
 		$site_display_name = get_theme_mod('site_display_name');
 		$nav_menu_enabled = get_theme_mod('header_navigation_menu');
+		$alternate_home_url = get_theme_mod('alternate_home_url');
+
 
 		$site_name = get_bloginfo('name');
 		if (!empty(trim($site_display_name))) {
@@ -77,12 +79,12 @@ if (!function_exists('uds_localize_component_header_script')) {
 		}
 
 
-
-		$home_icon_url = get_field('home_icon_url', 'options');
-		if (!$home_icon_url) {
-			$home_icon_url = site_url();
+		if (!$alternate_home_url) {
+			$alternate_home_url = site_url();
 		}
 
+
+		//if nav menu is disabled ("Hide" option is selected), no need to build the nav items.
 		if ($nav_menu_enabled == 'disabled') {
 			$menu_items = [];
 		} else {
@@ -148,7 +150,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 			'navTree' => $menu_items,
 			'mobileNavTree' => $menu_items,
 			'expandOnHover' => $expand_on_hover,
-			'baseUrl' => $home_icon_url,
+			'baseUrl' => $alternate_home_url,
 			'logo' => $asu_logo_override_array,
 			'isPartner' => $show_partner_logo,
 			'partnerLogo' => $add_partner_logo_array,
@@ -159,7 +161,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
 			'searchUrl' => 'https://search.asu.edu/search',
-			'site' => $domain,
+			'site' => $alternate_home_url,
 		);
 		//do_action('qm/debug', $localized_array);
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
