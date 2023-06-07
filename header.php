@@ -17,16 +17,14 @@ $site_gcs_ownership_verification_id = '';
 $site_gtm_container_id = '';
 $site_ga_tracking_id   = '';
 $hotjar_site_id        = '';
-$nav_menu_enabled      = '';
-$show_asu_header = get_field('show_asu_header', 'options');
+
+//$hide_asu_header = get_field('hide_asu_header', 'options');
 
 // retrieve settings from the theme mods entry in the options database table.
 $c_options = get_theme_mods();
 
 // Is navigation menu enabled?
-if (!empty($c_options['header_navigation_menu'])) {
-	$nav_menu_enabled = $c_options['header_navigation_menu'];
-}
+
 
 // Do we have an asu_hub_analytics setting?
 if (!empty($c_options['asu_hub_analytics'])) {
@@ -104,8 +102,8 @@ if (!empty($c_options['hotjar_site_id'])) {
 
 	// Google Search Console Ownership Verification.
 	// Only add the Ownership Verification meta tag on the site homepage
-	if (!empty($site_gcs_ownership_verification_id) && is_front_page() ) {
-		echo '<meta name="google-site-verification" content="' . esc_html( trim( $site_gcs_ownership_verification_id ) )  . '" />';
+	if (!empty($site_gcs_ownership_verification_id) && is_front_page()) {
+		echo '<meta name="google-site-verification" content="' . esc_html(trim($site_gcs_ownership_verification_id))  . '" />';
 	}
 
 	// Site Google Tag Manager.
@@ -139,7 +137,7 @@ if (!empty($c_options['hotjar_site_id'])) {
 	}
 	?>
 
-	<div <?php if($show_asu_header) { ?> class="collapse" <?php } ?> id="header-container"></div>
+	<div id="header-container"></div>
 
 
 	<?php do_action('uds_wp_after_global_header'); ?>
