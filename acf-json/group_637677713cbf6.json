@@ -1,0 +1,87 @@
+{
+    "key": "group_637677713cbf6",
+    "title": "UDS: Advanced menu settings",
+    "fields": [
+        {
+            "key": "field_63767771955c5",
+            "label": "Animate title?",
+            "name": "animate_title",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        },
+        {
+            "key": "field_6376bb6a09455",
+            "label": "Mobile menu breakpoint",
+            "name": "mobile_menu_breakpoint",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Lg": "Lg",
+                "Xl": "Xl"
+            },
+            "default_value": "Lg",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_637804e0dfb23",
+            "label": "Expand on hover",
+            "name": "expand_on_hover",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Mouse hover vs click to open the header menu.",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Field to animate main site title",
+    "show_in_rest": 0,
+    "modified": 1668811312
+}

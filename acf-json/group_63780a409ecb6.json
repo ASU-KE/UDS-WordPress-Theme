@@ -1,0 +1,279 @@
+{
+    "key": "group_63780a409ecb6",
+    "title": "UDS: Advanced logo settings",
+    "fields": [
+        {
+            "key": "field_63780a41d42d6",
+            "label": "ASU Logo Override",
+            "name": "asu_logo_override",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable to override default ASU logo.",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        },
+        {
+            "key": "field_63780befbc363",
+            "label": "Logo URL",
+            "name": "asu_logo_override_url",
+            "type": "text",
+            "instructions": "Use relative URL: \/wp-content\/uploads\/..",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780a41d42d6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780cb17bc1a",
+            "label": "Mobile Logo URL",
+            "name": "asu_logo_override_mobile_logo_url",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780a41d42d6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780ad4dc675",
+            "label": "Alt text",
+            "name": "asu_logo_override_alt_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780a41d42d6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780d13a9f62",
+            "label": "Logo Link",
+            "name": "asu_logo_override_link",
+            "type": "text",
+            "instructions": "Override default link to asu.edu",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780a41d42d6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780eddf754f",
+            "label": "add Partner logo",
+            "name": "add_partner_logo",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Adds additional logo to main header.",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_63780f10f7550",
+            "label": "Partner logo URL",
+            "name": "partner_logo_url",
+            "type": "text",
+            "instructions": "Use relative URL: \/wp-content\/uploads\/..",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780eddf754f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780f35f7551",
+            "label": "Partner logo mobile URL",
+            "name": "partner_logo_mobile_url",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780eddf754f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780f48f7552",
+            "label": "Partner logo alt text",
+            "name": "partner_logo_alt_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780eddf754f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63780f56f7553",
+            "label": "Partner Logo Link",
+            "name": "partner_logo_link",
+            "type": "text",
+            "instructions": "Link to internal or external URL",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780eddf754f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1668812764
+}

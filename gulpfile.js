@@ -191,11 +191,12 @@ gulp.task("front-end-scripts", function() {
 	const scripts = [
 		paths.dev + "/js/bootstrap4/bootstrap.bundle.js",
 		paths.dev + "/js/custom/skip-link-focus-fix.js",
-		paths.dev + "/js/bootstrap4-asu/global-header.js",
+		paths.dev + "/js/custom/init-uds-header.js",
 		paths.dev + "/js/custom/init-cookie-consent.js",
 		paths.dev + "/js/fontawesome/all.min.js",
 		paths.dev + "/js/custom/hero_video.js",
-		paths.dev + "/js/custom/modals.js"
+		paths.dev + "/js/custom/modals.js",
+
 	]
 
 	// Create uglifified min.js
