@@ -1155,3 +1155,25 @@ btn+btn
 .btn:not(:last-of-type) {
 	margin-right: $uds-size-spacing-half;
 }
+
+@media (min-width: 1260px) {
+	#skip-to-content {
+		transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		margin-top: 139px;
+	}
+
+	.admin-bar #asuHeader {
+		top: 32px;
+	}
+}
+
+@media (max-width: 1259.98px) {
+	#skip-to-content {
+		transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		margin-top: 108px;
+	}
+
+	.admin-bar #asuHeader {
+		top: 46px;
+	}
+}
