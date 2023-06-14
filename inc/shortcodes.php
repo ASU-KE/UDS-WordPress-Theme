@@ -38,17 +38,16 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	} else {
 		$sidebar_title = '';
 	}
-
 	// Build the menu with our nav walker.
 	$sidebar = wp_nav_menu(
 		array(
 			'menu'            => $menu,
 			'echo'            => false,
 			'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
-			'items-wrap'      => '%3$s',
+			'container'      => '',
+			'items_wrap'    => '%3$s',
 		)
 	);
-
 	// Return the menu inside the wrapper.
 	return $wrapper . $sidebar . '</nav>';
 }
