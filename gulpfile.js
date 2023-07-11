@@ -196,6 +196,7 @@ gulp.task("front-end-scripts", function() {
 		paths.dev + "/js/fontawesome/all.min.js",
 		paths.dev + "/js/custom/hero_video.js",
 		paths.dev + "/js/custom/modals.js",
+		paths.dev + "/js/custom/list-uds-style-override.js",
 
 	]
 
