@@ -23,7 +23,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function uds_wp_setup() {		
+	function uds_wp_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -72,7 +72,7 @@ if ( ! function_exists( 'uds_wp_setup' ) ) {
 		/*
 		 * Adding Thumbnail basic support
 		 */
-		add_theme_support( 'post-thumbnails', array( 'post' ) );
+		add_theme_support( 'post-thumbnails' );
 
 		/*
 		 * Adding support for Widget edit icons in customizer
