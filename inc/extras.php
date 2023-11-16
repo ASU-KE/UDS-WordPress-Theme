@@ -46,7 +46,7 @@ add_filter( 'edit_post_link', 'uds_wp_custom_edit_post_link' );
  * Only allow iframing of our content when the request for an iFrame is coming from
  * the same domain as the content to be put inside the iFrame. WordPress is using
  * iFrames to insert the block editor in various places now.
- * 
+ *
  * Update March, 2022: removed a conditional that only sent these headers if we
  * WERE NOT in the customizer. They are now sent on all requests. The same
  * domain policy should allow the customizer, widget editor, and other Gutenberg
@@ -293,8 +293,16 @@ add_filter( 'default_page_template_title', 'uds_filter_default_page_template_nam
  * and this is breaking our CSS that determines the margins on our content area, leaving a
  * gap between the main menu and the hero. This code, from a WordPress github conversation,
  * will remove those SVGs.
- * 
+ *
  * This shold only be a temporary solution, as it looks like WordPress may fix this in an
  * upcoming release.
  */
  remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+
+ /* add empty dataLayer for Google Tag Manager event tracking */
+ if ( ! function_exists( 'uds_wp_add_data_layer' ) ) {
+	function uds_wp_add_data_layer() {
+		 echo '<script> window.dataLayer = window.dataLayer || []; </script>';
+	}
+}
+add_action( 'wp_head', 'uds_wp_add_data_layer', 0 );
