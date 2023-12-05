@@ -1084,7 +1084,7 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->add_setting(
 			'asu_hub_analytics',
 			array(
-				'default'           => 'disabled',
+				'default'           => 'enabled',
 				'capability'        => 'edit_theme_options',
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'uds_wp_sanitize_nothing',
