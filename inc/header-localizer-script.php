@@ -161,7 +161,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 			'breakpoint' => $mobile_menu_breakpoint,
 			'buttons' => $cta_buttons,
 			'searchUrl' => 'https://search.asu.edu/search',
-			'site' => $alternate_home_url,
+			'site' => $domain,
 		);
 		//do_action('qm/debug', $localized_array);
 		// pass WordPress PHP variables to the uds-header-scripts script we enqueued above
