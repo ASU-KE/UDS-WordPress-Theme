@@ -9,7 +9,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-if (!function_exists('uds_wp_pagination')) {
+if ( !function_exists( 'uds_wp_pagination' ) ):
 	/**
 	 * Displays the navigation to next/previous set of posts.
 	 *
@@ -40,8 +40,9 @@ if (!function_exists('uds_wp_pagination')) {
 	 * }
 	 * @param string       $class           (Optional) Classes to be added to the <ul> element. Default 'pagination'.
 	 */
-	function uds_wp_pagination($args = array(), $class = 'pagination')
-	{
+
+
+	function uds_wp_pagination($args = array(), $class = 'pagination') {
 
 		if (!isset($args['total']) && $GLOBALS['wp_query']->max_num_pages <= 1) {
 			return;
@@ -60,47 +61,62 @@ if (!function_exists('uds_wp_pagination')) {
 			)
 		);
 
+		// Make the query object available.
 		global $wp_query;
 
+		// Set the last page to the number of current pages from the query.
 		$last_page = $wp_query->max_num_pages;
+
+		// Set the first page to one.
 		$first_page = 1;
+
+		// Set the current page to either the actual current page (if there are any pages), or 1.
 		$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
-		$links = paginate_links($args);
-		if (!$links) {
+		// Retrieve the links from WordPress.
+		$links = paginate_links( $args );
+
+		// If there are no links, return now and do not render any controls.
+		if ( !$links ) {
 			return;
 		}
 
-?>
+		?>
 
 		<nav aria-labelledby="posts-nav-label">
 
 			<h2 id="posts-nav-label" class="sr-only">
-				<?php echo esc_html($args['screen_reader_text']); ?>
+				<?php echo esc_html( $args['screen_reader_text'] ); ?>
 			</h2>
 
-			<ul class="<?php echo esc_attr($class); ?> justify-content-center">
-				<?php if ( $current_page != $first_page ) { ?>
-					<li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link( $first_page ); ?>">First</a></li>
+			<ul class="<?php echo esc_attr( $class ); ?> justify-content-center">
 
 				<?php
-				}
-				foreach ($links as $key => $link) {
+				/**
+				 * Here we do the actual drawing of the controls in three steps:
+				 *
+				 * 1) Check to see if the current page is the FIRST page, and if NOT, render a "First" link.
+				 * 2) Loop through the WordPress-provided pagination links and render them
+				 * 3) Check to see if the current page is the LAST page, and if NOT, render a "Last" link
+				 */
 				?>
+
+				<?php if ( $current_page != $first_page ): ?>
+					<li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link( $first_page ); ?>">First</a></li>
+				<?php endif; ?>
+
+				<?php foreach ( $links as $key => $link ): ?>
 					<li class="page-item <?php echo strpos($link, 'current') ? 'active' : ''; ?>">
-						<?php echo str_replace('page-numbers', 'page-link', $link); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						?>
+						<?php echo str_replace('page-numbers', 'page-link', $link); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</li>
-				<?php
-				}
-				if ( $current_page != $last_page ) {
-				?>
+				<?php endforeach; ?>
+
+				<?php if ( $current_page != $last_page ): ?>
 					<li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link( $last_page ); ?>">Last</a></li>
-				<?php } ?>
+				<?php endif; ?>
 			</ul>
 
 		</nav>
-
 <?php
-	}
-}
+	} // close function
+endif;
