@@ -60,6 +60,12 @@ if (!function_exists('uds_wp_pagination')) {
 			)
 		);
 
+		global $wp_query;
+
+		$last_page = $wp_query->max_num_pages;
+		$first_page = 1;
+		$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
 		$links = paginate_links($args);
 		if (!$links) {
 			return;
@@ -74,8 +80,8 @@ if (!function_exists('uds_wp_pagination')) {
 			</h2>
 
 			<ul class="<?php echo esc_attr($class); ?> justify-content-center">
-				<?php if (0 != get_query_var('paged')) { ?>
-					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/1/">First</a></li>
+				<?php if ( $current_page != $first_page ) { ?>
+					<li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link( $first_page ); ?>">First</a></li>
 
 				<?php
 				}
@@ -87,9 +93,9 @@ if (!function_exists('uds_wp_pagination')) {
 					</li>
 				<?php
 				}
-				if ($GLOBALS['wp_query']->max_num_pages != get_query_var('paged')) {
+				if ( $current_page != $last_page ) {
 				?>
-					<li class="page-item"><a class="page-link" href="<?php echo get_home_url(); ?>/page/<?php echo $GLOBALS['wp_query']->max_num_pages; ?>">Last</a></li>
+					<li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link( $last_page ); ?>">Last</a></li>
 				<?php } ?>
 			</ul>
 
