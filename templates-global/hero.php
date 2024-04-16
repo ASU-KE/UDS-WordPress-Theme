@@ -284,7 +284,7 @@ if (!empty($hero_asset_data['url'])) :
 
 else :
 
-	if (!is_category()) {
+	if (!is_category() && !is_tax()) {
 		echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
 		if (!get_field('hide_page_title', $category)) {
 			the_title('<h1 class="entry-title">', '</h1>');
