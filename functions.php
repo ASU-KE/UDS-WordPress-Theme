@@ -47,3 +47,12 @@ $uds_wp_includes = array(
 foreach ($uds_wp_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+add_filter('auto_update_plugin', 'disable_jetpack_auto_update');
+function disable_jetpack_auto_update($update, $item)
+{
+	if ($item->slug === 'jetpack') {
+		return false;
+	}
+	return $update;
+}
