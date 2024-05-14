@@ -144,7 +144,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
 			'loggedIn' => is_user_logged_in(),
-			'loginLink' => site_url() . '/wp-admin',
+			'loginLink' => site_url() . '/wp-admin' . '?redirect_to=' . urlencode($_SERVER['REQUEST_URI']),
 			'logoutLink' => wp_logout_url(),
 			'userName' => $current_user->user_login,
 			'navTree' => $menu_items,
