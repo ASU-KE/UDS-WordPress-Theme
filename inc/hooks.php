@@ -49,3 +49,14 @@ if ( ! function_exists( 'uds_wp_add_site_info' ) ) {
 		echo apply_filters( 'uds_wp_site_info_content', $site_info ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
+
+function redirect_logged_in_users() {
+	$redirect_url = $_GET["redirect_to"] ?? '';
+
+	if($redirect_url) {
+		wp_redirect( $redirect_url );
+		exit;
+	}
+
+}
+add_action( 'admin_init', 'redirect_logged_in_users' );
