@@ -3,6 +3,7 @@ import gulp from 'gulp';
 import { deleteAsync } from 'del';
 import filter from 'gulp-filter';
 //const filter = require("gulp-filter");
+
 //get latest asu unity stack css
 gulp.task('update-asu-unity-stack-css', function () {
     return gulp.src([
@@ -11,7 +12,11 @@ gulp.task('update-asu-unity-stack-css', function () {
     ])
     .pipe(gulp.dest('./src/css'));
 });
-
+//get latest asu unity stack js
+gulp.task('update-asu-unity-stack-js', function () {
+    return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/js/bootstrap.bundle.min.js',])
+    .pipe(gulp.dest('./src/js'));
+});
 //get latest asu header
 gulp.task('update-asu-header-js', function () {
     return gulp.src(['node_modules/@asu/component-header/dist/**/*'],{encoding: false})
