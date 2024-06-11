@@ -80,7 +80,16 @@
 ### Using the Theme
 
 #### Updating the Theme
-
+##### Update CSS
+- npm i @asu/asu-unity-stack
+- gulp task copy node module to /css folder
+- gulp task minify css for prod
+##### Update ASU header
+- npm i @asu/component-header
+- gulp task copy node module to /js folder
+##### Update cookie consent
+- npm i @asu/cookie-consent
+- gulp task copy node module to /js folder
 #### Customizer Options
 
 #### Page Heroes
