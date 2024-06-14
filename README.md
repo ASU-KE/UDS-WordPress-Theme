@@ -82,6 +82,8 @@
 #### Updating the Theme
 ##### Update CSS
 - npm i @asu/asu-unity-stack
+- npm i bootstrap
+- node_modules update @import path to `../../node_modules/bootstrap` in errored files
 - gulp task copy node module to /css folder
 - gulp task minify css for prod
 ##### Update ASU header
@@ -90,6 +92,10 @@
 ##### Update cookie consent
 - npm i @asu/cookie-consent
 - gulp task copy node module to /js folder
+##### Update images
+- npm i @asu/asu-unity-stack
+- gulp task copy node module to /img folder
+
 #### Customizer Options
 
 #### Page Heroes
