@@ -33,7 +33,7 @@ buttons. */
 	.uds-hero-container {
 		// At mobile size, do not apply the negative margin if no buttons exist.
 		// Also fix the left margin to match (?) the content area.
-		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+		@media screen and (max-width: $uds-grid-container-max-width-s) {
 			margin-bottom: 0 !important;
 			margin-left: 1rem;
 
@@ -49,7 +49,7 @@ buttons. */
 	.uds-hero-container {
 		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist.
 		// Also fix the left margin to match (?) the content area.
-		@media screen and (max-width: $uds-component-heroes-media-uds-hero-uds-hero-container-media-breakpoint) {
+		@media screen and (max-width: $uds-grid-container-max-width-s) {
 			margin-bottom: 2rem !important;
 			margin-left: 1rem;
 			top: 0 !important;
