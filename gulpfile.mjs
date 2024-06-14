@@ -2,7 +2,9 @@
 import gulp from 'gulp';
 import { deleteAsync } from 'del';
 import filter from 'gulp-filter';
-//const filter = require("gulp-filter");
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(dartSass);
 
 //get latest asu unity stack css
 gulp.task('update-asu-unity-stack-css', function () {
@@ -10,18 +12,23 @@ gulp.task('update-asu-unity-stack-css', function () {
         'node_modules/@asu/unity-bootstrap-theme/dist/css/unity-bootstrap-theme.css',
         'node_modules/@asu/unity-bootstrap-theme/dist/css/unity-bootstrap-theme.css.map',
     ])
-    .pipe(gulp.dest('./src/css'));
+    .pipe(gulp.dest('./src/css/asu-unity'));
 });
 //get latest asu unity stack js
 gulp.task('update-asu-unity-stack-js', function () {
     return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/js/bootstrap.bundle.min.js',])
-    .pipe(gulp.dest('./src/js'));
+    .pipe(gulp.dest('./src/js/asu-unity'));
 });
 //get latest asu header
 gulp.task('update-asu-header-js', function () {
     return gulp.src(['node_modules/@asu/component-header/dist/**/*'],{encoding: false})
 	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
     .pipe(gulp.dest('./src/js/uds-asu-header'));
+});
+//get latest uds images
+gulp.task('update-uds-images', function () {
+    return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/img/**/*'],{encoding: false})
+    .pipe(gulp.dest('./src/img/asu-unity'));
 });
 
 //get latest asu header
@@ -32,6 +39,73 @@ gulp.task('update-cookie-consent-js', function () {
 	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
     .pipe(gulp.dest('./src/js/uds-cookie-consent'));
 });
+
+//get latest fontawesome css
+gulp.task('update-fontawesome-css', function () {
+    return gulp.src([
+		'node_modules/@fortawesome/fontawesome-free/css/all.css'
+    ])
+    .pipe(gulp.dest('./src/css/fontawesome'));
+});
+
+//get latest fontawesome js
+gulp.task('update-fontawesome-js', function () {
+    return gulp.src([
+		'node_modules/@fortawesome/fontawesome-free/js/all.js'
+    ])
+    .pipe(gulp.dest('./src/js/fontawesome'));
+});
+
+//Compiles .scss to .css files.
+gulp.task("compile-sass", function () {
+	return gulp.src( './src/sass/theme.scss' )
+	// .pipe(
+	// 	plumber({
+	// 		errorHandler(err) {
+	// 			console.log(err);
+	// 			this.emit("end");
+	// 		},
+	// 	})
+	// )
+	//.pipe(sourcemaps.init({ loadMaps: true }))
+	.pipe(sass().on('error', sass.logError))
+	//.pipe(postcss([autoprefixer()]))
+	//.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+	.pipe(gulp.dest('./src/css/compilied-sass'));
+});
+
+//Minifies css files.
+gulp.task("minifycss", function () {
+	return gulp
+		.src([
+			paths.css + "/custom-editor-style.css",
+			paths.css + "/theme.css",
+			paths.css + "/admin.css",
+		])
+		.pipe(
+			sourcemaps.init({
+				loadMaps: true,
+			})
+		)
+		.pipe(
+			cleanCSS({
+				compatibility: "*",
+			})
+		)
+		.pipe(
+			plumber({
+				errorHandler(err) {
+					console.log(err);
+					this.emit("end");
+				},
+			})
+		)
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(sourcemaps.write("./"))
+		.pipe(gulp.dest(paths.css))
+		.pipe(browserSync.reload({ stream: true }));
+});
+
 // var plumber = require("gulp-plumber");
 // var sass = require("gulp-sass")(require("sass"));
 // var babel = require("gulp-babel");
