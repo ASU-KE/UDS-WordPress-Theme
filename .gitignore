@@ -32,3 +32,4 @@ phpcs.xml.dist
 .phpcs-cache
 
 browserSyncOptions.json
+

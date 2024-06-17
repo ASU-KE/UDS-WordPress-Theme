@@ -47,3 +47,42 @@ $uds_wp_includes = array(
 foreach ($uds_wp_includes as $file) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+function log_rest_api_attempts($result, $server, $request)
+{
+	// Ensure the current user is properly initialized
+	wp_set_current_user(wp_validate_auth_cookie('', 'logged_in'));
+
+	// Path to the log file
+	$log_file = get_template_directory() . '/rest-api-attempts.log';
+	// Get the route from the request
+	$route = $request->get_route();
+
+	// Check if the request URL contains '/wp/v2'
+	if (strpos($route, '/wp/v2') !== false) {
+		// Get the current user
+		$current_user = wp_get_current_user();
+		$is_authenticated = ($current_user->exists()) ? 'Authenticated' : 'Unauthenticated';
+
+		// Log the user information for debugging
+		$user_info = sprintf(
+			"User ID: %s, Username: %s",
+			$current_user->ID,
+			$current_user->user_login
+		);
+
+		// Log the attempt
+		$log_entry = sprintf(
+			"[%s] %s %s %s | %s\n",
+			date('Y-m-d H:i:s'),
+			$_SERVER['REMOTE_ADDR'],
+			$_SERVER['REQUEST_URI'],
+			$is_authenticated,
+			$user_info
+		);
+		file_put_contents($log_file, $log_entry, FILE_APPEND);
+	}
+
+	return $result;
+}
+add_filter('rest_pre_dispatch', 'log_rest_api_attempts', 10, 3);
