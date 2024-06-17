@@ -32,4 +32,4 @@ phpcs.xml.dist
 .phpcs-cache
 
 browserSyncOptions.json
-
+rest-api-attempts.log
