@@ -81,6 +81,15 @@ function log_rest_api_attempts($result, $server, $request)
 			$user_info
 		);
 		file_put_contents($log_file, $log_entry, FILE_APPEND);
+
+		// Restrict access to the users endpoint for unauthorized users
+		if (!$current_user->exists() && $route === '/wp/v2/users') {
+			return new WP_Error(
+				'rest_forbidden',
+				esc_html__('You do not have permission to access this endpoint.', 'text-domain'),
+				array('status' => 401)
+			);
+		}
 	}
 
 	return $result;
