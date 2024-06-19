@@ -4,6 +4,7 @@ import { deleteAsync } from 'del';
 import filter from 'gulp-filter';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
 const sass = gulpSass(dartSass);
 
 //get latest asu unity stack css
@@ -58,52 +59,10 @@ gulp.task('update-fontawesome-js', function () {
 
 //Compiles .scss to .css files.
 gulp.task("compile-sass", function () {
-	return gulp.src( './src/sass/theme.scss' )
-	// .pipe(
-	// 	plumber({
-	// 		errorHandler(err) {
-	// 			console.log(err);
-	// 			this.emit("end");
-	// 		},
-	// 	})
-	// )
-	//.pipe(sourcemaps.init({ loadMaps: true }))
+	return gulp.src( './src/sass/*.scss', { sourcemaps: true } )
 	.pipe(sass().on('error', sass.logError))
-	//.pipe(postcss([autoprefixer()]))
-	//.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
-	.pipe(gulp.dest('./src/css/compilied-sass'));
-});
-
-//Minifies css files.
-gulp.task("minifycss", function () {
-	return gulp
-		.src([
-			paths.css + "/custom-editor-style.css",
-			paths.css + "/theme.css",
-			paths.css + "/admin.css",
-		])
-		.pipe(
-			sourcemaps.init({
-				loadMaps: true,
-			})
-		)
-		.pipe(
-			cleanCSS({
-				compatibility: "*",
-			})
-		)
-		.pipe(
-			plumber({
-				errorHandler(err) {
-					console.log(err);
-					this.emit("end");
-				},
-			})
-		)
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(sourcemaps.write("./"))
-		.pipe(gulp.dest(paths.css))
-		.pipe(browserSync.reload({ stream: true }));
+	.pipe(autoprefixer())
+	.pipe(gulp.dest('./src/css/compilied-sass', { sourcemaps: '.' }));
 });
 
 // var plumber = require("gulp-plumber");
