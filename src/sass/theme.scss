@@ -1,16 +1,14 @@
 // Override image base path for theme css
 $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 
-//@import "../src/sass/bootstrap-asu";
 @import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme";
-@import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme-variables";
-@import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme-extends";
+
 // Any additional imported files //
 @import "theme/theme"; // Small rulesets for our theme. Bigger customizations go in separate files.
 @import "theme/color-picker"; // Default rules for defined ASU color palette options. Works with default blocks.
 @import "theme/customizer"; // Tweaks to the customizer (mostly buttons).
 @import "theme/gradient-bg"; //Add breakpoints and colors to gr[side]-[breakpoint]-[color]
-@import "theme/admin"; // Admin styles for the theme.
+//@import "theme/admin"; // Admin styles for the theme.
 
 // Permanent files. Blocks and other items not directly indicated by UDS Bootstrap
 @import "blocks/core-blocks";
