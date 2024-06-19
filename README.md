@@ -85,7 +85,7 @@
 - npm i bootstrap
 - node_modules update @import path to `../../node_modules/bootstrap` in errored files
 - gulp task copy node module to /css folder
-- gulp task minify css for prod
+- gulp task minify css for prod (rename module is throwing `(node:26735) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.` may need update soon )
 ##### Update ASU header
 - npm i @asu/component-header
 - gulp task copy node module to /js folder
