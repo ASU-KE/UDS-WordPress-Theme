@@ -5,6 +5,8 @@ import filter from 'gulp-filter';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import rename from 'gulp-rename';
 const sass = gulpSass(dartSass);
 
 //get latest asu unity stack css
@@ -62,8 +64,32 @@ gulp.task("compile-sass", function () {
 	return gulp.src( './src/sass/*.scss', { sourcemaps: true } )
 	.pipe(sass().on('error', sass.logError))
 	.pipe(autoprefixer())
-	.pipe(gulp.dest('./src/css/compilied-sass', { sourcemaps: '.' }));
+	.pipe(gulp.dest('./src/css/compiled-sass', { sourcemaps: '.' }));
 });
+
+//minify css
+gulp.task("minifycss", function () {
+	return gulp
+		.src([
+			"./src/css/compiled-sass/theme.css",
+			"./src/css/compiled-sass/admin.css"
+		], { sourcemaps: true })
+		// .pipe(
+		// 	sourcemaps.init({
+		// 		loadMaps: true,
+		// 	})
+		// )
+		.pipe(
+			cleanCSS({
+				compatibility: "*",
+			})
+		)
+		.pipe(rename({ suffix: ".min" }))
+		//.pipe(sourcemaps.write("./"))
+		.pipe(gulp.dest('./dist/css', { sourcemaps: '.' }))
+		//.pipe(browserSync.reload({ stream: true }));
+});
+
 
 // var plumber = require("gulp-plumber");
 // var sass = require("gulp-sass")(require("sass"));
