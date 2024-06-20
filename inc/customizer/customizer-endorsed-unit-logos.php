@@ -26,7 +26,7 @@ if ( ! function_exists( 'uds_wp_theme_get_endorsed_unit_logos' ) ) {
 			// Nope!  We gotta make a call.
 		} else {
 			// Get the contents of the JSON file containing the array of endorsed unit logos.
-			$str_json_file_contents = file_get_contents( get_template_directory() . '/img/endorsed-logo/unit-logos.json' );
+			$str_json_file_contents = file_get_contents( get_template_directory() . '/dist/img/endorsed-logo/unit-logos.json' );
 
 			// Convert to nested array.
 			$endorsed_logos = json_decode( $str_json_file_contents, true );

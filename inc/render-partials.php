@@ -249,7 +249,7 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/dist/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
 					$logo_link
 				),
@@ -426,7 +426,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
+			get_template_directory_uri() . '/dist/img/asu-logo/asu_university_horiz_rgb_white_150.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),
