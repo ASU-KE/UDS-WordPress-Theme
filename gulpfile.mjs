@@ -31,7 +31,7 @@ gulp.task('update-asu-header-js', function () {
 //get latest uds images
 gulp.task('update-uds-images', function () {
     return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/img/**/*'],{encoding: false})
-    .pipe(gulp.dest('./src/img/asu-unity'));
+    .pipe(gulp.dest('./dist/img/'));
 });
 
 //get latest asu header
