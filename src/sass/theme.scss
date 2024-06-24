@@ -2,6 +2,8 @@
 $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 
 @import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme";
+@import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-footer";
+
 
 // Any additional imported files //
 @import "theme/theme"; // Small rulesets for our theme. Bigger customizations go in separate files.
