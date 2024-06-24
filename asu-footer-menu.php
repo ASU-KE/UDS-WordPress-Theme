@@ -16,14 +16,14 @@ foreach ( $menu_items as $item ) :
 	if ( empty( $item['menu_item_parent'] ) && ! empty( $item['children'] ) ) :
 		?>
 		<div class="col-xl flex-footer">
-			<div class="card card-foldable desktop-disable-xl">
-				<div class="card-header">
-					<h5>
+			<div class="card accordion-item desktop-disable-xl">
+				<div class="accordion-header" role="button" tabindex="0" data-bs-toggle="collapse">
+					<div class="h5">
 						<a id="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>" class="collapsed" data-toggle="collapse" href="#footlink-<?php echo sanitize_title( $item['title'] ); ?>" role="button" aria-expanded="false" aria-controls="footlink-<?php echo sanitize_title( $item['title'] ); ?>">
 							<?php echo $item['title']; ?>
 							<span class="fas fa-chevron-up"></span>
 						</a>
-					</h5>
+				</div>
 				</div>
 				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="collapse card-body" aria-labelledby="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>">
 					<?php
