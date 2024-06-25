@@ -9,14 +9,6 @@ import cleanCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
 const sass = gulpSass(dartSass);
 
-//get latest asu unity stack css
-gulp.task('update-asu-unity-stack-css', function () {
-    return gulp.src([
-        'node_modules/@asu/unity-bootstrap-theme/dist/css/unity-bootstrap-theme.css',
-        'node_modules/@asu/unity-bootstrap-theme/dist/css/unity-bootstrap-theme.css.map',
-    ])
-    .pipe(gulp.dest('./src/css/asu-unity'));
-});
 //get latest asu unity stack js
 gulp.task('update-asu-unity-stack-js', function () {
     return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/js/bootstrap.bundle.min.js',])
