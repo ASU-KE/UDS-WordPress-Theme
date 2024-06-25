@@ -718,22 +718,6 @@ a.btn.btn-gray {
 }
 
 /*--------------------------------------------------------------
-Temporary fix: Adjust the position of the gold underline on
-active sidebar items. This matches a change on Storybook that
-we have not pulled from upstream yet, but looks to be the correct
-way to handle the underlines.
---------------------------------------------------------------*/
-// Position the is-active underline for most cases
-.sidebar .nav-link.is-active::after {
-	top: 0.5rem;
-	margin-top: 0.5rem;
-}
-// Position the is-active underline for the last item of a sub-menu
-.card-foldable .card-body .nav-link-container:last-child .is-active::after {
-	top: 1rem;
-}
-
-/*--------------------------------------------------------------
 wp-block-separator
 --------------------------------------------------------------*/
 
