@@ -21866,21 +21866,6 @@ a.btn.btn-gray, a.btn-gray.uds-modal-close-btn {
 }
 
 /*--------------------------------------------------------------
-Temporary fix: Adjust the position of the gold underline on
-active sidebar items. This matches a change on Storybook that
-we have not pulled from upstream yet, but looks to be the correct
-way to handle the underlines.
---------------------------------------------------------------*/
-.sidebar .nav-link.is-active::after, .sidebar .is-active.secondary-nav-link::after {
-  top: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.card-foldable .card-body .nav-link-container:last-child .is-active::after {
-  top: 1rem;
-}
-
-/*--------------------------------------------------------------
 wp-block-separator
 --------------------------------------------------------------*/
 .wp-block-separator {
