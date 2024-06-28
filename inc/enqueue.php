@@ -56,8 +56,8 @@ if (!function_exists('uds_wp_admin_scripts')) {
 		$the_theme     = wp_get_theme();
 		$theme_version = $the_theme->get('Version');
 
-		$css_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/css/admin.css');
-		wp_enqueue_style('uds-wordpress-admin-styles', get_template_directory_uri() . '/dist/css/admin.css', array(), $css_version);
+		$css_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/css/admin.min.css');
+		wp_enqueue_style('uds-wordpress-admin-styles', get_template_directory_uri() . '/dist/css/admin.min.css', array(), $css_version);
 
 		$js_image_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/admin-bundle.js');
 		wp_enqueue_script('uds-wordpress-admin-core-image-script', get_template_directory_uri() . '/dist/js/admin-bundle.js', array(), $js_image_version);
