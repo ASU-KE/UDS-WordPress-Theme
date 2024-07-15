@@ -60,7 +60,7 @@ if (!function_exists('uds_wp_admin_scripts')) {
 		wp_enqueue_style('uds-wordpress-admin-styles', get_template_directory_uri() . '/css/admin.css', array(), $css_version);
 
 		$js_image_version = $theme_version . '.' . filemtime(get_template_directory() . '/js/admin-bundle.js');
-		wp_enqueue_script('uds-wordpress-admin-core-image-script', get_template_directory_uri() . '/js/admin-bundle.js', array(), $js_image_version);
+		wp_enqueue_script('uds-wordpress-admin-scripts', get_template_directory_uri() . '/js/admin-bundle.js', array('lodash'), $js_image_version);
 
 
 	}
