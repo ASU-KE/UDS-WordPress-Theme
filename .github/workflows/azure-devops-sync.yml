@@ -7,10 +7,6 @@ on:
   issue_comment:
     types: [created, edited, deleted]
 
-concurrency:
-  group: issue-${{ github.event.issue.number }}
-  cancel-in-progress: false
-
 jobs:
   alert:
     if: ${{ !github.event.issue.pull_request }}
@@ -20,6 +16,7 @@ jobs:
         env:
           ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
+        with:
           ado_organization: "asuteam404"
           ado_project: "Web Services"
           parent_work_item: 37895
