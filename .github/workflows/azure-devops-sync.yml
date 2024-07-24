@@ -22,6 +22,7 @@ jobs:
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "asuteam404"
           ado_project: "Web Services"
+          parent_work_item: 37895
           ado_area_path: "Web Services"
           ado_wit: "Bug"
           ado_new_state: "New"
