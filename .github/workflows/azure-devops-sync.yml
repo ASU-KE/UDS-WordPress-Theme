@@ -23,7 +23,7 @@ jobs:
           ado_organization: "asuteam404"
           ado_project: "Web Services"
           ado_area_path: "Web Services"
-          ado_wit: "User Story"
+          ado_wit: "Product Backlog"
           ado_new_state: "New"
           ado_active_state: "Active"
           ado_close_state: "Closed"
