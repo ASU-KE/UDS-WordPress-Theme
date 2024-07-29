@@ -31,7 +31,10 @@ div.container + .uds-section,
 
 	&.morse-code-black,
 	&.topo-black,
-	&.network-black {
+	&.network-black,
+	&.semiconductor-dark,
+	&.plus-dark,
+	&.arrows-dark {
 
 		[class*="wp-block-group__inner-container"]{
 			background-color:$uds-color-base-gray-7;
@@ -40,7 +43,10 @@ div.container + .uds-section,
 
 	&.morse-code-white,
 	&.topo-white,
-	&.network-white{
+	&.network-white,
+	&.semiconductor-light,
+	&.plus-light,
+	&.arrows-light {
 
 		[class*="wp-block-group__inner-container"]{
 			background-color:$uds-color-base-white;
@@ -110,16 +116,21 @@ need to use the full name of the block. */
 
 	&.morse-code-black .wp-block-wp-bootstrap-blocks-container,
 	&.topo-black .wp-block-wp-bootstrap-blocks-container,
-	&.network-black .wp-block-wp-bootstrap-blocks-container {
+	&.network-black .wp-block-wp-bootstrap-blocks-container,
+	&.semiconductor-dark .wp-block-wp-bootstrap-blocks-container,
+	&.plus-dark .wp-block-wp-bootstrap-blocks-container,
+	&.arrows-dark .wp-block-wp-bootstrap-blocks-container {
 		background-color:$uds-color-base-gray-7;
 	}
 
 	&.morse-code-white .wp-block-wp-bootstrap-blocks-container,
 	&.topo-white .wp-block-wp-bootstrap-blocks-container,
-	&.network-white .wp-block-wp-bootstrap-blocks-container {
+	&.network-white .wp-block-wp-bootstrap-blocks-container,
+	&.semiconductor-light .wp-block-wp-bootstrap-blocks-container,
+	&.plus-light .wp-block-wp-bootstrap-blocks-container,
+	&.arrows-light .wp-block-wp-bootstrap-blocks-container {
 		background-color:$uds-color-base-white;
 	}
-
 }
 
 // Dealing with custom background textures.
