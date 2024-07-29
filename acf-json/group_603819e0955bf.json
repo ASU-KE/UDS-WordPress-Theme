@@ -90,18 +90,24 @@
                 "id": ""
             },
             "choices": {
-                "morse-code-white": "Morse code - White",
+                "morse-code-white": "Morse code - Light",
                 "morse-code-black": "Morse code - Dark",
-                "topo-white": "Topographic map - White",
+                "topo-white": "Topographic map - Light",
                 "topo-black": "Topographic map - Dark",
-                "network-white": "Network map - White",
-                "network-black": "Network map - Dark"
+                "network-white": "Network map - Light",
+                "network-black": "Network map - Dark",
+                "semiconductor-light": "Semiconductor - Light",
+                "semiconductor-dark": "Semiconductor - Dark",
+                "plus-light": "Plus - Light",
+                "plus-dark": "Plus - Dark",
+                "arrows-light": "Arrows - Light",
+                "arrows-dark": "Arrows - Dark"
             },
+            "default_value": "morse-code-white",
+            "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "morse-code-white",
             "layout": "vertical",
-            "return_format": "value",
             "save_other_choice": 0
         },
         {
@@ -159,7 +165,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_60381d8c3ba87",
@@ -348,5 +356,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Field for creating a background <code><section><\/code> as a wrapper for other elements.",
-    "modified": 1628804093
+    "show_in_rest": 0,
+    "modified": 1722294452
 }
