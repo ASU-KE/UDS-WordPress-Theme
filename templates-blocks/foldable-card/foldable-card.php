@@ -57,7 +57,7 @@ if( empty ( $accordion_icon ) ) {
 						' . $collapsed . '
 						data-target="' . $accordion_id . '"
 						data-bs-toggle="collapse"
-						href="' . $accordion_id . '"
+						href="#' . $accordion_id . '"
 						id="' . $accordion_id . '"
 						role="button"
 						data-ga='. $accordion_title . '
