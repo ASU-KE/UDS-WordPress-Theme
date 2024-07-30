@@ -71,9 +71,9 @@ if( empty ( $accordion_icon ) ) {
 				</h3>
 			</div>
 			<div
-				aria-labelledby="Body_' . $accordion_id . '"
+				aria-labelledby="' . $accordion_id . '"
 				class="collapse ' . $show_body_area . '"
-				id="Body_' . $accordion_id . '"
+				id="' . $accordion_id . '"
 			>
 			<div class="accordion-body">';
 
