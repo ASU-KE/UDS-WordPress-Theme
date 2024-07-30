@@ -93,7 +93,10 @@ if (!empty($image_data)) {
 	$image_alt = $image_data['alt'];
 }
 ?>
-
+<?php if ('card-horizontal' == $orientation_class) : ?>
+<div class="uds-card-arrangement">
+	<div class="uds-card-arrangement-card-container">
+<?php endif; ?>
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
 	<?php if ('image' == $header_style) : ?>
 		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
@@ -240,5 +243,7 @@ if (!empty($image_data)) {
 	<?php endif; ?>
 	<?php if ('card-horizontal' == $orientation_class) : ?>
 </div> <!-- close horizontal content -->
+	</div> <!-- close card arrangement card container -->
+</div> <!-- close card arrangement -->
 <?php endif; ?>
 </div>
