@@ -53,7 +53,7 @@ if( empty ( $accordion_icon ) ) {
 			<div class="accordion-header">
 				<h3>
 					<a
-						aria-controls="accordionHeader' . $accordion_id . '"
+						aria-controls="' . $accordion_id . '"
 						' . $collapsed . '
 						data-target="' . $accordion_id . '"
 						data-bs-toggle="collapse"
