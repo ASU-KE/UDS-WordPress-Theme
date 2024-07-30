@@ -275,7 +275,7 @@ gulp.task("minifycss", function () {
  */
 gulp.task("front-end-scripts", function() {
 	const scripts = [
-		"./src/js/bootstrap.bundle.min.js",
+		//"./src/js/bootstrap.bundle.min.js",
 		"./src/js/fontawesome/all.js",
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/init-uds-header.js",
