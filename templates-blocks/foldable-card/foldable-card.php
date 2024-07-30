@@ -14,7 +14,7 @@ $accordion_color = get_field( 'uds_single_accordion_color' );
 
 // Set collapsed classes based on checkbox setting.
 if ( $collapsed ) {
-	$collapsed = 'aria-expanded="false" class="collapsed"';
+	$collapsed = 'aria-expanded="false" class="collapse"';
 	$show_body_area = '';
 } else {
 	$collapsed = 'aria-expanded="true"';
@@ -49,29 +49,37 @@ if( empty ( $accordion_icon ) ) {
 		),
 	);
 
-	echo '<div class="card card-foldable mt-3 ' . $accordion_color . ' ' . $additional_classes . '">
-			<div class="card-header">
-				<h4>
+	echo '<div class="accordion-item mt-3 ' . $accordion_color . ' ' . $additional_classes . '">
+			<div class="accordion-header">
+				<h3>
 					<a
-						aria-controls="Body_' . $accordion_id . '"
+						aria-controls="accordionHeader' . $accordion_id . '"
 						' . $collapsed . '
-						data-target="#Body_' . $accordion_id . '"
-						data-toggle="collapse"
-						href="#Body_' . $accordion_id . '"
-						id="Header_' . $accordion_id . '"
+						data-target="' . $accordion_id . '"
+						data-bs-toggle="collapse"
+						href="' . $accordion_id . '"
+						id="' . $accordion_id . '"
 						role="button"
-					><span class="card-icon mb-0"> <i class="' . $accordion_icon . ' ' . $accordion_spacing . '"></i>' . $accordion_title . '</span><span class="fas fa-chevron-up" />
+						data-ga='. $accordion_title . '
+						data-ga-name="onclick"
+						data-ga-event="collapse"
+						data-ga-type="click"
+						data-ga-region="main content"
+						data-ga-section="default"
+					><span class="card-icon mb-0"> <i class="' . $accordion_icon . ' ' . $accordion_spacing . '"></i>' . $accordion_title . '</span><span class="fas fa-chevron-up"></span>
 					</a>
-				</h4>
+				</h3>
 			</div>
 			<div
-				aria-labelledby="Header_' . $accordion_id . '"
-				class="collapse card-body ' . $show_body_area . '"
+				aria-labelledby="Body_' . $accordion_id . '"
+				class="collapse ' . $show_body_area . '"
 				id="Body_' . $accordion_id . '"
-			>';
+			>
+			<div class="accordion-body">';
+
 	echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" template="' . esc_attr( wp_json_encode( $template ) ) . '" />';
 
-	echo '</div>
+	echo '</div></div>
 </div>';
 
 	?>

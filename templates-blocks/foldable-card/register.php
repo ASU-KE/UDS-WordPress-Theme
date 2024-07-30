@@ -4,7 +4,7 @@
  *
  * Block name: UDS Foldable card block
  * Author: Zainab Alsidiki
- * Version: 0.1
+ * Version: 1.0
  *
  * @package UDS WordPress Theme
  *
@@ -18,7 +18,7 @@ acf_register_block_type(
 		'description'       => __( 'A Foldable card block that can be used as accordions when multiple cards are added into one group.', 'uds-wordpress-theme' ),
 		'icon'              => 'archive',
 		'render_template'   => 'templates-blocks/foldable-card/foldable-card.php',
-		'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/foldable-card/foldable-card.js',
+		//'enqueue_script'    => get_template_directory_uri() . '/templates-blocks/foldable-card/foldable-card.js',
 		'category'          => 'uds',
 		'keywords'          => array( 'accordions', 'accordion', 'foldable', 'card' ),
 		'supports'          => array(
