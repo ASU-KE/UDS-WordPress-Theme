@@ -89,7 +89,7 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 			$output .= $indent . ' ';
 			if ( 0 === $depth && $has_children > 0 ) {
 				$attributes = ' href="#menu-content-of-' . $parent_menu_item_id . '" ';
-				$attributes .= ' data-toggle="collapse" role="button" aria-expanded="false" role="button" aria-controls="menu-content-of-' . $parent_menu_item_id . '"';
+				$attributes .= ' data-bs-toggle="collapse" role="button" aria-expanded="false" role="button" aria-controls="menu-content-of-' . $parent_menu_item_id . '"';
 				$wrapper = '<div class="card card-foldable">
 					<div class="card-header">';
 						$end_wrapper = '</div>';
