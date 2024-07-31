@@ -24,7 +24,7 @@ if ( ! empty( $block['className'] ) ) {
 
 
 	// Sets InnerBlocks with a Bootstrap blocks container as default content.
-	$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
+	$allowedblocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
 	$template = array(
 		array(
 			'wp-bootstrap-blocks/container',
@@ -48,7 +48,6 @@ if ( ! empty( $block['className'] ) ) {
               >
               ' . $tab_icon . $tab_title . '
               </a>
-							<a   href="#nav-home"  aria-selected="true" data-ga-event="link" data-ga-action="click" data-ga-name="onclick" data-ga-type="internal link" data-ga="Home long tab">Home long tab</a>
 							</div>
 							<a
               class="scroll-control-prev"
