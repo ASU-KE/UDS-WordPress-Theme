@@ -15015,8 +15015,11 @@ div[class="alert alert-block"] {
   flex: 5;
   margin-right: 2rem;
 }
-.banner .banner-content h3, .banner .banner-content .h3 {
+.banner .banner-content h3, .banner .banner-content .h3, .banner .banner-content h1, .banner .banner-content .h1 {
   margin: 0.5rem 0rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.0525rem;
+  line-height: 1.75rem;
 }
 .banner .banner-buttons {
   flex: 3;
@@ -15107,8 +15110,11 @@ div[class="alert alert-block"] {
   .banner .banner-content {
     margin-bottom: 1rem;
   }
-  .banner .banner-content h3, .banner .banner-content .h3 {
+  .banner .banner-content h3, .banner .banner-content .h3, .banner .banner-content h1, .banner .banner-content .h1 {
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.0525rem;
+    line-height: 1.75rem;
   }
   .banner .banner-close {
     position: absolute;
@@ -20860,24 +20866,26 @@ Mobile Styles
 .card-ranking .info-layer .content .header .btn-expand {
   margin: 0 0 0 0.5rem;
   padding: 0;
+  background-color: unset;
+  border: none;
+  flex-grow: 1;
 }
-.card-ranking .info-layer .content .header .btn-expand svg {
-  font-size: 1.25rem;
-  float: right;
-}
-.card-ranking .info-layer .content .header .btn-expand:focus {
-  box-shadow: none !important;
+.card-ranking .info-layer .content .header .btn-expand:focus-visible {
+  outline: none;
 }
 .card-ranking .info-layer .content .header h4, .card-ranking .info-layer .content .header .h4 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: #191919;
 }
 .card-ranking .info-layer .content .header svg.fa-chevron-up,
 .card-ranking .info-layer .content .header i.fa-chevron-up {
   transition: all 0.3s ease-in-out;
+  color: #191919;
 }
-.card-ranking .info-layer .content p {
+.card-ranking .info-layer .content > p,
+.card-ranking .info-layer .content .header > p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -20885,11 +20893,11 @@ Mobile Styles
   line-height: 1.25rem;
   -webkit-line-clamp: 3;
 }
-.card-ranking .info-layer .content a {
+.card-ranking .info-layer .content > a {
   font-size: 0.875rem;
   font-weight: 600;
 }
-.card-ranking .info-layer .content a .icon-small {
+.card-ranking .info-layer .content > a .icon-small {
   margin-left: 5px;
   font-size: 0.875rem;
 }
@@ -20903,7 +20911,8 @@ Mobile Styles
 .card-ranking .info-layer.active .content .header i.fa-chevron-up {
   transform: rotate(180deg);
 }
-.card-ranking .info-layer.active .content p {
+.card-ranking .info-layer.active .content > p,
+.card-ranking .info-layer.active .content .header > p {
   -webkit-line-clamp: 12;
 }
 .card-ranking .info-layer .icons {
@@ -20922,6 +20931,19 @@ Mobile Styles
 .card-ranking.small-image .image-wrapper img {
   max-width: 100%;
 }
+.card-ranking.small-image:has(.info-layer.active) img {
+  visibility: hidden;
+  transition: visibility 0.3s ease-in;
+}
+.card-ranking.small-image .info-layer a.read-more {
+  display: none;
+}
+.card-ranking.small-image .info-layer.active .content a.read-more {
+  display: block;
+}
+.card-ranking.small-image .info-layer .content .header > p {
+  width: 90%;
+}
 .card-ranking.small-image .citation {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -20937,18 +20959,38 @@ Mobile Styles
   -o-object-fit: cover;
      object-fit: cover;
 }
-.card-ranking.large-image .info-layer .content .header h4, .card-ranking.large-image .info-layer .content .header .h4 {
+.card-ranking.large-image:has(.info-layer.active) img {
+  visibility: hidden;
+  transition: visibility 0.3s ease-in;
+}
+.card-ranking.large-image .info-layer .content .header .btn-expand {
+  display: flex;
+  justify-content: space-between;
+}
+.card-ranking.large-image .info-layer .content .header .btn-expand h4, .card-ranking.large-image .info-layer .content .header .btn-expand .h4 {
   min-height: 52px;
   max-width: 300px;
   margin: 0 0 1.5rem;
   -webkit-line-clamp: 2;
 }
-.card-ranking.large-image .info-layer .content p {
-  -webkit-line-clamp: 12;
+.card-ranking.large-image .info-layer .content > p {
+  -webkit-line-clamp: 10;
+  visibility: hidden;
+  transition: visibility 0.3s ease-in;
+}
+.card-ranking.large-image .info-layer .content a.read-more {
+  visibility: hidden;
+  transition: visibility 0.3s ease-in;
 }
 .card-ranking.large-image .info-layer.active .content .header h4, .card-ranking.large-image .info-layer.active .content .header .h4 {
   min-height: unset;
   max-height: unset;
+}
+.card-ranking.large-image .info-layer.active .content > p {
+  visibility: visible;
+}
+.card-ranking.large-image .info-layer.active .content a.read-more {
+  visibility: visible;
 }
 @media screen and (min-width: 768px) {
   .card-ranking {
