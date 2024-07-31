@@ -41,7 +41,7 @@ if ( ! empty( $block['className'] ) ) {
                 aria-controls="' . $tab_id . '"
                 aria-selected="true"
                 class="nav-item nav-link active"
-                data-toggle="tab"
+                data-bs-toggle="tab"
                 href="#' . $tab_id . '"
                 id="' . $tab_id . '-nav"
                 role="tab"
