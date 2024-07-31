@@ -83,7 +83,7 @@ if ( ! empty( $block['className'] ) ) {
 							</nav>
 <div class="tab-content" id="nav_' . $tab_id . 'Content">
   <div
-	aria-labelledby="' . $tab_id . '-nav"
+	aria-labelledby="' . $tab_id . '-tab"
 	class="tab-pane fade show active ' . $additional_classes . '"
 	id="' . $tab_id . '-nav"
 	role="tabpanel"
