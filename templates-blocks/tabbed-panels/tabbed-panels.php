@@ -35,19 +35,20 @@ if ( ! empty( $block['className'] ) ) {
 	);
 
 	echo '
-<nav class="uds-tabbed-panels">
+<nav class="uds-tabbed-panels uds-content-align">
             <div class="nav nav-tabs" data-scroll-position="0" id="nav_' . $tab_id . '" role="tablist" >
               <a
-                aria-controls="' . $tab_id . '"
+                aria-controls="' . $tab_id . '-nav"
                 aria-selected="true"
                 class="nav-item nav-link active"
-                data-toggle="tab"
-                href="#' . $tab_id . '"
-                id="' . $tab_id . '-nav"
+                data-bs-toggle="tab"
+                href="#' . $tab_id . '-nav"
+                id="' . $tab_id . '-tab"
                 role="tab"
               >
               ' . $tab_icon . $tab_title . '
               </a>
+							<a   href="#nav-home"  aria-selected="true" data-ga-event="link" data-ga-action="click" data-ga-name="onclick" data-ga-type="internal link" data-ga="Home long tab">Home long tab</a>
 							</div>
 							<a
               class="scroll-control-prev"
@@ -84,7 +85,7 @@ if ( ! empty( $block['className'] ) ) {
   <div
 	aria-labelledby="' . $tab_id . '-nav"
 	class="tab-pane fade show active ' . $additional_classes . '"
-	id="' . $tab_id . '"
+	id="' . $tab_id . '-nav"
 	role="tabpanel"
 >
 ';
