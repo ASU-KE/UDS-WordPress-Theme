@@ -26069,4 +26069,26 @@ Hero video
 .profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias li a {
   color: #191919;
   font-size: 1.75rem;
+}
+
+/*--------------------------------------------------------------
+# Style for UDS Anchor Menu
+Block lives in Unity Blocks v2.0
+Keep until refactor for anchor menu inside <header>
+--------------------------------------------------------------*/
+.admin-bar .uds-anchor-menu.uds-anchor-menu-expanded-lg.sticky {
+  top: 149px;
+}
+
+.uds-anchor-menu.uds-anchor-menu-expanded-lg.sticky {
+  top: 117px;
+}
+
+@media (min-width: 992px) {
+  .admin-bar .uds-anchor-menu.uds-anchor-menu-expanded-lg.sticky {
+    top: 121px;
+  }
+  .uds-anchor-menu.uds-anchor-menu-expanded-lg.sticky {
+    top: 89px;
+  }
 }/*# sourceMappingURL=theme.css.map */
