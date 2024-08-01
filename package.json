@@ -25,8 +25,8 @@
   "dependencies": {
     "@asu/component-cookie-consent": "^2.1.0",
     "@asu/component-header": "^2.2.8",
-    "@asu/unity-bootstrap-theme": "^1.10.0",
-    "@fortawesome/fontawesome-free": "^5.15.3"
+    "@asu/unity-bootstrap-theme": "^1.11.0",
+    "@fortawesome/fontawesome-free": "^5.15.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
