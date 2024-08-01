@@ -227,6 +227,14 @@ Once you have been able to install and run a local version of WordPress, clone [
 - Run: `$ composer install`
 - Run: `$ npm install`
 
+### VS Code editor config
+- Install PHP intelephenese
+- Add default wordpress stub
+- To get intelephese to recognize acf functions, add to VS code `settings.json`:
+  -  `"intelephense.environment.includePaths": ["/local/path/to/acf-pro-stubs"]`,
+  - [https://github.com/php-stubs/acf-pro-stubs](https://github.com/php-stubs/acf-pro-stubs)
+
+
 ### Installing Dependencies from the ASU Unity Design System
 
 The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
