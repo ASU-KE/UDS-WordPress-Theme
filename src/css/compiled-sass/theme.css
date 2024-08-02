@@ -25250,6 +25250,73 @@ span.customize-partial-edit-shortcut-logo_url {
   }
 }
 /*--------------------------------------------------------------
+. vars for building backgrounds
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+. bg classes for building backgrounds, copied from unity theme sass
+--------------------------------------------------------------*/
+.bg.cronkite-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/cronkite-light.png");
+}
+.bg.cronkite-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/cronkite-dark.png");
+}
+.bg.fusion-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/fusion-light.png");
+}
+.bg.fusion-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/fusion-dark.png");
+}
+.bg.hayden-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/hayden-light.png");
+}
+.bg.hayden-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/hayden-dark.png");
+}
+.bg.hayden-library-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/hayden-library-light.png");
+}
+.bg.hayden-library-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/hayden-library-dark.png");
+}
+.bg.honeycomb-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/honeycomb-light.png");
+}
+.bg.honeycomb-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/honeycomb-dark.png");
+}
+.bg.plaza-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/plaza-light.png");
+}
+.bg.plaza-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/plaza-dark.png");
+}
+.bg.poly-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/poly-light.png");
+}
+.bg.poly-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/poly-dark.png");
+}
+.bg.tempe-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/tempe-light.png");
+}
+.bg.tempe-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/tempe-dark.png");
+}
+.bg.thunderbird-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/thunderbird-light.png");
+}
+.bg.thunderbird-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/thunderbird-dark.png");
+}
+.bg.wexford-light {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/wexford-light.png");
+}
+.bg.wexford-dark {
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/wexford-dark.png");
+}
+
+/*--------------------------------------------------------------
 Additional styles for core blocks.
 These block may contain additional block styles that require
 mapping back to specific classes within UDS-Boostrap.
@@ -25429,10 +25496,10 @@ need to use the full name of the block. */
 .uds-section.bg .wp-block-wp-bootstrap-blocks-container {
   padding: 2rem;
 }
-.uds-section.bg.morse-code-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.semiconductor-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plus-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.arrows-dark .wp-block-wp-bootstrap-blocks-container {
+.uds-section.bg.morse-code-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-black .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.semiconductor-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plus-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.arrows-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.cronkite-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.fusion-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.hayden-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.hayden-library-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.honeycomb-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plaza-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.poly-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.tempe-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.thunderbird-dark .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.wexford-dark .wp-block-wp-bootstrap-blocks-container {
   background-color: #191919;
 }
-.uds-section.bg.morse-code-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.semiconductor-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plus-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.arrows-light .wp-block-wp-bootstrap-blocks-container {
+.uds-section.bg.morse-code-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.topo-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.network-white .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.semiconductor-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plus-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.arrows-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.cronkite-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.fusion-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.hayden-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.hayden-library-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.honeycomb-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.plaza-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.poly-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.tempe-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.thunderbird-light .wp-block-wp-bootstrap-blocks-container, .uds-section.bg.wexford-light .wp-block-wp-bootstrap-blocks-container {
   background-color: #ffffff;
 }
 
