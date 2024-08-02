@@ -10,6 +10,8 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 @import "theme/color-picker"; // Default rules for defined ASU color palette options. Works with default blocks.
 @import "theme/customizer"; // Tweaks to the customizer (mostly buttons).
 @import "theme/gradient-bg"; //Add breakpoints and colors to gr[side]-[breakpoint]-[color]
+@import "theme/building-backgrounds-vars"; // Variables for building backgrounds
+@import "theme/building-backgrounds"; // Building background styles
 //@import "theme/admin"; // Admin styles for the theme.
 
 // Permanent files. Blocks and other items not directly indicated by UDS Bootstrap
