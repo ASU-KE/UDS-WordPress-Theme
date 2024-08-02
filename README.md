@@ -18,11 +18,9 @@
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
 	- [Installation](#installation)
-		- [GitHub Updater](#github-updater)
-		- [Installing Required Plugins](#installing-required-plugins)
+		- [Required Plugins](#required-plugins)
 	- [Using the Theme](#using-the-theme)
 		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
@@ -53,21 +51,16 @@
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
 		- [BroswerSync](#broswersync)
-		- [Travis CI](#travis-ci)
 	- [Extending the Theme](#extending-the-theme)
 		- [UDS-WordPress-Child-Theme theme template](#uds-wordpress-child-theme-theme-template)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
-- [Project Structure](#project-structure)
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
 ## Getting Started
 
-### Installation
-
-#### GitHub Updater
-
-#### Installing Required Plugins
+### Required Plugins
+- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
+- [Bootstrap Blocks](https://wordpress.org/plugins/wp-bootstrap-blocks/)
 
 ### Using the Theme
 
@@ -301,7 +294,6 @@ Or, to run with Browser-Sync:
 - The `proxy` property needs to match the appserver URL (created by your local server application, i.e. Lando)
 - then run: `$ gulp watch-bs` or `npm run sync`
 
-#### Travis CI
 
 ### Extending the Theme
 The UDS-WordPress theme is a complete theme which includes all of the required WordPress template files and assets for the theme to work.
@@ -350,14 +342,3 @@ function your_project_add_prefooter_content() {
 }
 add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
 ```
-
-## Project Structure
-
-| Name                    | Description                                                                                                                                                           |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **functions.php**       | A lean file that loads code from multiple files in the **/inc** directory                                                                                             |
-| **/inc**                | WordPress hooks and callbacks, organized by their purpose in the theme and loaded into **functions.php** at runtime                                                   |
-| **/templates-loop**     | Partial templates for displaying content from posts and pages (the WordPress 'loop')                                                                                  |
-| **/templates-page**     | Multiple full-page layout templates                                                                                                                                   |
-| **/templates-sidebar**  | Templates for the various widget areas in the theme (aka 'sidebars')                                                                                                  |
-| **/sass/theme/\_theme** | An SCSS file for styling rules that are not covered by the Bootstrap theme, or other SCSS files in the **/sass** directory. The first place to put your custom styles |
