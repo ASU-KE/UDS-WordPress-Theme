@@ -101,7 +101,27 @@
                 "plus-light": "Plus - Light",
                 "plus-dark": "Plus - Dark",
                 "arrows-light": "Arrows - Light",
-                "arrows-dark": "Arrows - Dark"
+                "arrows-dark": "Arrows - Dark",
+                "cronkite-light": "Cronkite - Light",
+                "cronkite-dark": "Cronkite - Dark",
+                "fusion-light": "Fusion - Light",
+                "fusion-dark": "Fusion - Dark",
+                "hayden-light": "Hayden - Light",
+                "hayden-dark": "Hayden - Dark",
+                "hayden-library-light": "Hayden Library - Light",
+                "hayden-library-dark": "Hayden Library - Dark",
+                "honeycomb-light": "Honeycomb - Light",
+                "honeycomb-dark": "Honeycomb - Dark",
+                "plaza-light": "Plaza - Light",
+                "plaza-dark": "Plaza - Dark",
+                "poly-light": "Poly - Light",
+                "poly-dark": "Poly - Dark",
+                "tempe-light": "Tempe - Light",
+                "tempe-dark": "Tempe - Dark",
+                "thunderbird-light": "Thunderbird - Light",
+                "thunderbird-dark": "Thunderbird - Dark",
+                "wexford-light": "Wexford - Light",
+                "wexford-dark": "Wexford - Dark"
             },
             "default_value": "morse-code-white",
             "return_format": "value",
@@ -357,5 +377,5 @@
     "active": true,
     "description": "Field for creating a background <code><section><\/code> as a wrapper for other elements.",
     "show_in_rest": 0,
-    "modified": 1722294452
+    "modified": 1722629949
 }
