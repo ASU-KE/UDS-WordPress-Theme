@@ -7,12 +7,6 @@
 
 <p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
-
-[![bootstrap](https://img.shields.io/badge/Bootstrap-4-blue)](https://getbootstrap.com/)
-[![wordpress](https://img.shields.io/badge/Wordpress-5-green?logo=Wordpress)](https://getbootstrap.com/)
-[![understrap](https://img.shields.io/badge/Built with-Understrap-lightgrey?)](https://understrap.com/)
-
 ### Features
 
 - ASU Web Standards 2.0
@@ -21,8 +15,6 @@
   - Accessibilty built-in: all Bootstrap markup and styling is approved by the ASU Accessibility community before release
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
-
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
 ## Table of Contents
 
@@ -138,7 +130,7 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ### Reporting Issues
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
+[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
 
 ## For Developers
 
@@ -146,12 +138,9 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ### Requirements
 
-You need to set up your development environment before you can do anything.
+- [Volta](https://volta.sh/) is used to manage node versions. `package.json` volta section references the minimum requirements.
+- Lando + Docker or Local by Flywheel is used to run a local dev server.
 
-Install [Node.js and NPM](https://nodejs.org/en/download/)
-
-- on OSX use [homebrew](http://brew.sh) `brew install node`
-- on Windows use [chocolatey](https://chocolatey.org/) `choco install nodejs`
 
 ### Local WordPress Environment
 
@@ -168,7 +157,7 @@ There are several solutions available for hosting local WordPress development si
 
 #### Local By Flywheel
 
-- Visit [Local by Flywheel](https://localwp.com/) and click the `Download` button.
+- Visit [v](https://localwp.com/) and click the `Download` button.
 - Choose your platform and enter some information (only the email field is mandatory), the download should start and you’ll be taken to a start-up screen, where you will select the `Let’s Go!` button. After installation, you’ll be taken to the dashboard.
 - Proceed to create a new local WordPress install or connect to a remote service like [WP Engine](https://wpengine.com/).
 
@@ -218,7 +207,7 @@ You are now ready to clone the theme within the projects `wp-content/themes` fol
 
 ### Cloning the Theme
 
-Once you have been able to install and run a local version of WordPress, clone [theme repository](https://github.com/asu-ke-web-services/UDS-WordPress-Theme.git) into the `wp-content/themes` folder and continue with the installation process below.
+Once you have been able to install and run a local version of WordPress, clone into the `wp-content/themes` folder and continue with the installation process below.
 
 ### Installing Dependencies
 
@@ -362,13 +351,7 @@ function your_project_add_prefooter_content() {
 add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
 ```
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
-
 ## Project Structure
-
-[is this needed?]
-
-This theme is built on top of [Understrap](https://understrap.com), with minor adjustments specific to the needs of the theme. Most traditional WordPress theme files are where you would expect them. Files and folders of interest include:
 
 | Name                    | Description                                                                                                                                                           |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
