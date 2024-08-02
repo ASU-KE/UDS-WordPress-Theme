@@ -119,7 +119,17 @@ need to use the full name of the block. */
 	&.network-black .wp-block-wp-bootstrap-blocks-container,
 	&.semiconductor-dark .wp-block-wp-bootstrap-blocks-container,
 	&.plus-dark .wp-block-wp-bootstrap-blocks-container,
-	&.arrows-dark .wp-block-wp-bootstrap-blocks-container {
+	&.arrows-dark .wp-block-wp-bootstrap-blocks-container,
+	&.cronkite-dark .wp-block-wp-bootstrap-blocks-container,
+	&.fusion-dark .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-dark .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-library-dark .wp-block-wp-bootstrap-blocks-container,
+	&.honeycomb-dark .wp-block-wp-bootstrap-blocks-container,
+	&.plaza-dark .wp-block-wp-bootstrap-blocks-container,
+	&.poly-dark .wp-block-wp-bootstrap-blocks-container,
+	&.tempe-dark .wp-block-wp-bootstrap-blocks-container,
+	&.thunderbird-dark .wp-block-wp-bootstrap-blocks-container,
+	&.wexford-dark .wp-block-wp-bootstrap-blocks-container {
 		background-color:$uds-color-base-gray-7;
 	}
 
@@ -128,7 +138,17 @@ need to use the full name of the block. */
 	&.network-white .wp-block-wp-bootstrap-blocks-container,
 	&.semiconductor-light .wp-block-wp-bootstrap-blocks-container,
 	&.plus-light .wp-block-wp-bootstrap-blocks-container,
-	&.arrows-light .wp-block-wp-bootstrap-blocks-container {
+	&.arrows-light .wp-block-wp-bootstrap-blocks-container,
+	&.cronkite-light .wp-block-wp-bootstrap-blocks-container,
+	&.fusion-light .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-light .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-library-light .wp-block-wp-bootstrap-blocks-container,
+	&.honeycomb-light .wp-block-wp-bootstrap-blocks-container,
+	&.plaza-light .wp-block-wp-bootstrap-blocks-container,
+	&.poly-light .wp-block-wp-bootstrap-blocks-container,
+	&.tempe-light .wp-block-wp-bootstrap-blocks-container,
+	&.thunderbird-light .wp-block-wp-bootstrap-blocks-container,
+	&.wexford-light .wp-block-wp-bootstrap-blocks-container {
 		background-color:$uds-color-base-white;
 	}
 }
