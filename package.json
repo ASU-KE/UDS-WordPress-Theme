@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@asu/component-cookie-consent": "^2.1.0",
-    "@asu/component-header": "^2.2.8",
+    "@asu/component-header": "^2.3.0",
     "@asu/unity-bootstrap-theme": "^1.11.0",
     "@fortawesome/fontawesome-free": "^5.15.4"
   },
