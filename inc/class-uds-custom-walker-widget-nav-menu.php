@@ -94,11 +94,16 @@ if ( ! class_exists( 'Uds_Custom_Walker_Widget_Nav_Menu' ) ) {
 					<div class="card-header">';
 						$end_wrapper = '</div>';
 						$classes[] = 'collapsed nav-link';
-			} else {
+			} else if ( 0 === $depth ) {
 				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 				$classes[] = 'nav-link';
 				$wrapper = '<div class="nav-link-container">';
 				$end_wrapper = '</div>';
+			}  else {
+				$attributes = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+				$classes[] = 'nav-link';
+				$wrapper = '';
+				$end_wrapper = '';
 			}
 			$is_external_link = get_field( 'menu_external_link', $item->ID );
 			if ( $is_external_link ) {
