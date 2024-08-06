@@ -61,7 +61,17 @@ get_header();
 					<div class="row">
 						<div class="v1-uds-hero-text col col-lg-8 ">
 							<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></p>
-							<?php get_search_form(); ?>
+							<form action="https://search.asu.edu/search" class="form-inline navbar-mobile-search" method="get" name="gs" mptid="2">
+								<input aria-label="header-mid-search" class="form-control" name="q" placeholder="Search asu.edu" type="search" mptid="INPUT;name:gs;0">
+								<input name="url_host" type="hidden" value="<?php site_url() ?>">
+								<input name="site" type="hidden" value="default_collection">
+								<input name="sort" type="hidden" value="date:D:L:d1">
+								<input name="output" type="hidden" value="xml_no_dtd">
+								<input name="ie" type="hidden" value="UTF-8">
+								<input name="oe" type="hidden" value="UTF-8">
+								<input name="client" type="hidden" value="asu_frontend">
+								<input name="proxystylesheet" type="hidden" value="asu_frontend">
+							</form>
 						</div><!-- .page-content -->
 					</div>
 				</div>
