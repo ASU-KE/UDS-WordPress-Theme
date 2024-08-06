@@ -122,7 +122,7 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/init-cookie-consent.js",
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
-
+		"./src/js/custom/side-menu-active-child.js",
 	]
 
 	// Create uglifified min.js
