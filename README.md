@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.infonet.research.asu.edu/assets/asu_asu_knowledge_enterprise_horiz_150ppi.png" alt="ASU Knowledge Enterprise" width="400" />
+  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
 </p>
 
 <h1 align="center">ASU Web Standards WordPress Theme</h1>
@@ -26,11 +26,8 @@
 		- [Customizer Options](#customizer-options)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
-		- [Social Media Icons](#social-media-icons)
 		- [Menus](#menus)
 			- [Working with the Main Menu](#working-with-the-main-menu)
-			- [Working with the Footer Menu](#working-with-the-footer-menu)
-			- [Working with the Social Media Icons Menu](#working-with-the-social-media-icons-menu)
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
 	- [Reporting Issues](#reporting-issues)
@@ -41,20 +38,16 @@
 	- [Setting Up Local or Lando](#setting-up-local-or-lando)
 		- [Local By Flywheel](#local-by-flywheel)
 		- [Lando](#lando)
-	- [Cloning the Theme](#cloning-the-theme)
 	- [Installing Dependencies](#installing-dependencies)
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
-		- [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
 	- [Contributing to the Theme](#contributing-to-the-theme)
 		- [PHP Coding Standards](#php-coding-standards)
 				- [Composer Scripts](#composer-scripts)
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
-		- [BroswerSync](#broswersync)
 	- [Extending the Theme](#extending-the-theme)
 		- [UDS-WordPress-Child-Theme theme template](#uds-wordpress-child-theme-theme-template)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
-
 
 ## Getting Started
 
@@ -92,8 +85,6 @@ To create a banner, add the provided *Notification Banner* widget to the *Global
 
 To remove a page banner, either delete the widget from the Global Banner widget area, or set the *Show Banner* option to **No**.
 
-#### Social Media Icons
-
 #### Menus
 The UDS-WordPress theme has three assignable menu areas:
 - The **main navigation** menu, at the top of every page
@@ -112,10 +103,8 @@ You build the main menu of your site using the built-in WordPress menu builder. 
 
 Here is an example of a main menu hierarchy, and how each item would be rendered in this theme.
 
-![Example of menu hierarchy](img/admin/menu-hierarchy.png "Example Menu Hierarchy")
+![Example of menu hierarchy](dist/img/admin/menu-hierarchy.png "Example Menu Hierarchy")
 
-##### Working with the Footer Menu
-##### Working with the Social Media Icons Menu
 
 #### Shortcodes
 
@@ -198,10 +187,6 @@ The process will look like this.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
-### Cloning the Theme
-
-Once you have been able to install and run a local version of WordPress, clone into the `wp-content/themes` folder and continue with the installation process below.
-
 ### Installing Dependencies
 
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
@@ -220,25 +205,6 @@ Once you have been able to install and run a local version of WordPress, clone i
 ### Installing Dependencies from the ASU Unity Design System
 
 The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
-
-#### Creating a User Account and Saving your NPM Access Token
-
-1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: https://registry.web.asu.edu/
-2. Create your npm user account by executing in a terminal: `npm adduser --registry https://registry.web.asu.edu`
-3. It is recommended that you use your ASU.edu email address. You can use any password; be sure to save it in LastPass!
-4. Configure npm to use this private registry. Add the following line to the .npmrc file in your home directory (existing lines can be left in-place):
-
-```
-@asu-design-system:registry=https://registry.web.asu.edu/
-```
-
-This config tells npm that all packages from ‘@asu-design-system’ should be requested from the ASU private registry. If it says you are not authorized, sign in using:
-
-```
-npm login --registry https://registry.web.asu.edu/
-```
-
-Once you have successfully signed-in, npm will automatically save a new line to your .npmrc, saving your login token for the future.
 
 ### Contributing to the Theme
 
@@ -274,26 +240,6 @@ We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks dire
 #### Working with Styles
 
 To work with and compile your Sass files on the fly start:`$ gulp watch`
-
-#### BroswerSync
-
-Or, to run with Browser-Sync:
-
-- First create a new .json file in the theme root, name it "browserSyncOptions.json", copy and paste the lines below into the new created file:
-
-```javascript
-{
-    "browserSyncOptions" : {
-        "proxy": "localhost/theme_test/", // <----- CHANGE HERE
-        "notify": false
-    },
-    ...
-};
-```
-- Change the browser-sync options to reflect your environment in the file `/browserSyncOptions.json` in the beginning of the file:
-- The `proxy` property needs to match the appserver URL (created by your local server application, i.e. Lando)
-- then run: `$ gulp watch-bs` or `npm run sync`
-
 
 ### Extending the Theme
 The UDS-WordPress theme is a complete theme which includes all of the required WordPress template files and assets for the theme to work.
