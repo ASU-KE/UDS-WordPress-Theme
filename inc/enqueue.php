@@ -25,20 +25,20 @@ if (!function_exists('uds_wp_scripts')) {
 		wp_enqueue_script('jquery');
 
 		$uds_header_vendor_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds-asu-header/vendor.umd.js' );
-		wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/src/js/uds-asu-header/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, true );
+		wp_enqueue_script( 'uds-header-vendor', get_template_directory_uri() . '/src/js/uds-asu-header/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_vendor_version, array('strategy' => 'async') );
 
 		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds-asu-header/asuHeader.umd.js' );
-		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/js/uds-asu-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
+		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/js/uds-asu-header/asuHeader.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, array('strategy' => 'async') );
 
 		$uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds-cookie-consent/vendor.umd.js' );
-		wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/src/js/uds-cookie-consent/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
-		wp_enqueue_script( 'uds-cookie-consent1', get_template_directory_uri() . '/src/js/uds-cookie-consent/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
+		wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/src/js/uds-cookie-consent/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, array('strategy' => 'async') );
+		wp_enqueue_script( 'uds-cookie-consent1', get_template_directory_uri() . '/src/js/uds-cookie-consent/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, array('strategy' => 'async') );
 
 		$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/theme.min.js');
-		wp_enqueue_script('uds-wordpress-scripts', get_template_directory_uri() . '/dist/js/theme.min.js', array(), $js_version, true);
+		wp_enqueue_script('uds-wordpress-scripts', get_template_directory_uri() . '/dist/js/theme.min.js', array(), $js_version, array('strategy' => 'async'));
 
 		$bs5_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/bootstrap.bundle.min.js');
-		wp_enqueue_script('uds-bootstrap-scripts', get_template_directory_uri() . '/dist/js/bootstrap.bundle.min.js', array(), $bs5_version, true);
+		wp_enqueue_script('uds-bootstrap-scripts', get_template_directory_uri() . '/dist/js/bootstrap.bundle.min.js', array(), $bs5_version, array('strategy' => 'async'));
 
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
