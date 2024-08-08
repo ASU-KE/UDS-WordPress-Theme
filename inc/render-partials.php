@@ -390,7 +390,7 @@ function uds_wp_render_footer_action_row() {
 			<div class="container" id="footer-columns">
 				<div class="row">
 
-					<div class="col-xl" id="info-column">
+					<div class="col-xl-3" id="info-column">
 						<div class="h5"><?php uds_wp_render_footer_unit_name(); ?></div>
 						<p class="contact-link"><?php uds_wp_render_contact_link(); ?></p>
 						<p class="contribute-button"><?php uds_wp_render_contribute_button(); ?></p>
