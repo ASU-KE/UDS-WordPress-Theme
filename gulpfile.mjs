@@ -143,32 +143,35 @@ gulp.task("front-end-scripts", function() {
 });
 
 
-// /**
-//  * Admin JS compilation
-//  *
-//  * This creates a minified 'admin-bundle.js' that we enqueue in the WordPress
-//  * admin area. This takes the uncompressed 'theme.js' we build in the front-end
-//  * step, adds any other custom editor JS we have written, abd then compresses that.
-//  *
-//  */
-// gulp.task("editor-scripts", function() {
-// 	const adminScripts = [
-// 		paths.dev + "/js/custom/admin/core-list-block.js",
-// 		paths.dev + "/js/custom/admin/core-divider.js",
-// 		paths.dev + "/js/custom/admin/heading-highlights.js",
-// 		paths.dev + "/js/custom/admin/admin.js",
-// 		paths.dev + "/js/custom/admin/core-image-block.js",
-// 		"./js/theme.js"
-// 	]
+/**
+ * Admin JS compilation
+ *
+ * This creates a minified 'admin-bundle.js' that we enqueue in the WordPress
+ * admin area. This takes the uncompressed 'theme.js' we build in the front-end
+ * step, adds any other custom editor JS we have written, abd then compresses that.
+ *
+ */
+gulp.task("admin-scripts", function() {
+	const adminScripts = [
+		"./src/js/custom/admin/core-list-block.js",
+		"./src/js/custom/admin/core-divider.js",
+		"./src/js/custom/admin/heading-highlights.js",
+		"./src/js/custom/admin/admin.js",
+		"./src/js/custom/admin/core-image-block.js",
+		"./src/js/fontawesome/all.js",
+		"./src/js/custom/skip-link-focus-fix.js",
+		"./src/js/custom/hero_video.js",
+		"./src/js/custom/modals.js",
+		"./src/js/custom/side-menu-active-child.js",
+	]
 
-// 	return gulp
-// 		.src(adminScripts, { allowEmpty: true })
-// 		.pipe(babel({ presets: ["@babel/preset-env"] }))
-// 		.pipe(concat("admin-bundle.js"))
-// 		.pipe(uglify())
-// 		.pipe(gulp.dest(paths.js));
+	return gulp
+		.src(adminScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("admin-bundle.js"))
+		.pipe(gulp.dest("./dist/js"));
 
-// });
+});
 
 // /**
 //  * Task: scripts
