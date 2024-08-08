@@ -120,3 +120,11 @@ $warning-color: #f99;
 	}
 }
 --------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+set acf fields to 100% width
+--------------------------------------------------------------*/
+.acf-block-panel .acf-fields > .acf-field {
+	float: unset !important;
+	width: unset !important;
+	min-height: unset !important;
+}
