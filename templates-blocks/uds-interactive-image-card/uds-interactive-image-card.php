@@ -28,7 +28,7 @@ $call_to_action_url = get_field('call_to_action_url');
 			<h3><?php echo $heading ?></h3>
 			<div class="hidden-details">
 				<p class="long-text"><?php echo $paragraph ?></p>
-				<a href="<?php echo $call_to_action_url ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (strpos($call_to_action, 'asu.edu') !== false || strpos($call_to_action, '/') == 0) ? 'internal link' : 'external link';?>" data-ga-region="main content" data-ga-section="<?php echo $heading ?>"><?php echo $call_to_action ?></a>
+				<a href="<?php echo $call_to_action_url ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link';?>" data-ga-region="main content" data-ga-section="<?php echo $heading ?>"><?php echo $call_to_action ?></a>
 			</div>
 		</div>
 	</div>
