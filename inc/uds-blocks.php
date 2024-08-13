@@ -129,3 +129,11 @@ if ( ! function_exists( 'remove_core_patterns' ) ) {
 	}
 	add_action( 'after_setup_theme', 'remove_core_patterns' );
 }
+
+/**
+ * Using new API to register ACF blocks with block.json in each block directory
+ */
+add_action( 'init', 'register_acf_blocks', 5 );
+function register_acf_blocks() {
+    register_block_type( get_template_directory() . '/templates-blocks/uds-interactive-image-card' );
+}
