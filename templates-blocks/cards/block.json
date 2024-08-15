@@ -1,0 +1,30 @@
+{
+    "name": "acf/uds-card",
+    "title": "UDS Card",
+    "description": "A block for building static versions of basic, degree, story, event, and interactive cards.",
+    "category": "uds",
+    "icon": "id-alt",
+    "keywords": ["card", "cards", "content", "hover", "interactive", "overlay", "uds"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "card.php",
+		"validate": false
+    },
+    "supports": {
+        "align": false
+    },
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"title": "UDS Card Block",
+				"body_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec enim nunc. Morbi vitae viverra enim, nec elementum nulla. Cras varius turpis posuere tortor feugiat, a mattis ligula ornare. Aliquam in rhoncus elit. Aliquam at elementum ligula, nec egestas massa.",
+				"card_style": "basic",
+				"header_style": "image",
+				"image": {
+					"url": "https://wordpress.asu.edu/wp-content/uploads/2021/03/gold-skyline.jpg.webp"
+				}
+			}
+		}
+	}
+}
