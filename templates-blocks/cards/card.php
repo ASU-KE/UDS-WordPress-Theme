@@ -158,7 +158,7 @@ if (!empty($image_data)) {
 					$button_size   = get_sub_field('card_buttons_button_size');
 					$button_icon   = get_sub_field('card_buttons_icon');
 					// These come in from the ACF cloned fields from the button group.
-					$link_values   = get_sub_field('card_buttons_button_link');
+					$link_values   = get_sub_field('card_buttons_button_link') ?: array( 'title' => null, 'url' => null, 'target' => null );
 					$button_label  = sanitize_text_field($link_values['title']);
 					$button_url    = esc_url($link_values['url']);
 					$button_target = $link_values['target'];
