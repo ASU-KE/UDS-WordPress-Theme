@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="col">
 					<div class="d-flex footer-innovation-links">
 						<a class="img-link" href="https://www.asu.edu/rankings">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/innovation-lockup/on-gold/ASU-2023-Innovation-RGB-for-Digital-Lockup-wide-on-gold@2x.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 8 years, 2016-2023">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/innovation-lockup/innovationLogo.png" alt="Number one in the U.S. for innovation. ASU ahead of MIT and Stanford . - U.S. News and World Report, 8 years, 2016-2023">
 					</a>
 						<nav class="nav" aria-label="University Services">
 							<a class="nav-link" href="https://asu.edu/map/">Maps and Locations</a>
@@ -54,7 +54,6 @@ defined( 'ABSPATH' ) || exit;
 						<a class="nav-link" href="https://asu.edu/privacy/">Privacy</a>
 						<a class="nav-link" href="https://asu.edu/tou/">Terms of Use</a>
 						<a class="nav-link" href="https://asu.edu/emergency/">Emergency</a>
-						<a class="nav-link" href="https://eoss.asu.edu/health/announcements/coronavirus">COVID-19 Information</a>
 					</nav>
 				</div>
 			</div>
