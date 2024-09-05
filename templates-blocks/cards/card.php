@@ -257,11 +257,9 @@ if (!empty($image_data)) {
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
-	<?php if ('card-horizontal' == $orientation_class) : ?>
-</div> <!-- close horizontal content -->
-<?php endif; ?>
-	</div> <!-- close card arrangement card container -->
-</div> <!-- close card arrangement -->
-<?php endif; ?>
-
 </div>
+	<?php if ('card-horizontal' == $orientation_class) : ?>
+</div> <!-- uds-card-arrangement-card-container -->
+</div> <!-- close uds-card-arrangement -->
+	<?php endif; ?>
+<?php endif; ?>
