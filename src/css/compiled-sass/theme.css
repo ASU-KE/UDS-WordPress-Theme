@@ -26368,6 +26368,13 @@ span.customize-partial-edit-shortcut-logo_url {
   background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/background-patterns/buildings/wexford-dark.png");
 }
 
+/* fallbacks for legacy sites. do not use these styles for new content, they will be removed as sites are rebuilt/modernized. */
+/* buttons float fallback  */
+/* used on sites: E+I  */
+.float-right {
+  float: right !important;
+}
+
 /*--------------------------------------------------------------
 Additional styles for core blocks.
 These block may contain additional block styles that require
