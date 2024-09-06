@@ -45,7 +45,7 @@ get_header();
 			// If we have chosen 'default' from the customizer.
 			if ($image_404) {
 				?>
-				<div class="v1-uds-hero uds-hero-lg hero-image">
+				<div class="v1-uds-hero uds-hero-md hero-image">
 				<?php $image_404 = wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>
 				<img src="<?php echo $image_404; ?>" alt="404 - Not Found" />
 			<div class="container v1-uds-hero-container">
