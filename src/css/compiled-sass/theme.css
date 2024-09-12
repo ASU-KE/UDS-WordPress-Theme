@@ -23426,6 +23426,9 @@ btn+btn
 WP admin bar mobile fix
 --------------------------------------------------------------*/
 @media (max-width: 992px) {
+  html {
+    margin-top: 0 !important;
+  }
   .admin-bar #wpadminbar {
     position: sticky;
   }
