@@ -8,6 +8,7 @@
 
 ( function( $ ) {
 
+	//removed span from render-partials.php
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			$( 'span.subdomain-name' ).text( to );

@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------
+. bg classes for building backgrounds, copied from unity theme sass
+--------------------------------------------------------------*/
+.bg {
+
+	&.cronkite {
+		&-light {
+			background-image: $cronkite-light;
+		}
+		&-dark {
+			background-image: $cronkite-dark;
+		}
+	}
+	&.fusion {
+		&-light {
+			background-image: $fusion-light;
+		}
+		&-dark {
+			background-image: $fusion-dark;
+		}
+	}
+	&.hayden {
+		&-light {
+			background-image: $hayden-light;
+		}
+		&-dark {
+			background-image: $hayden-dark;
+		}
+	}
+	&.hayden-library {
+		&-light {
+			background-image: $hayden-library-light;
+		}
+		&-dark {
+			background-image: $hayden-library-dark;
+		}
+	}
+	&.honeycomb {
+		&-light {
+			background-image: $honeycomb-light;
+		}
+		&-dark {
+			background-image: $honeycomb-dark;
+		}
+	}
+	&.plaza {
+		&-light {
+			background-image: $plaza-light;
+		}
+		&-dark {
+			background-image: $plaza-dark;
+		}
+	}
+	&.poly {
+		&-light {
+			background-image: $poly-light;
+		}
+		&-dark {
+			background-image: $poly-dark;
+		}
+	}
+	&.tempe {
+		&-light {
+			background-image: $tempe-light;
+		}
+		&-dark {
+			background-image: $tempe-dark;
+		}
+	}
+	&.thunderbird {
+		&-light {
+			background-image: $thunderbird-light;
+		}
+		&-dark {
+			background-image: $thunderbird-dark;
+		}
+	}
+	&.wexford {
+		&-light {
+			background-image: $wexford-light;
+		}
+		&-dark {
+			background-image: $wexford-dark;
+		}
+	}
+}

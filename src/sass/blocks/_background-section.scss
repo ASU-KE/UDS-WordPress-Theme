@@ -1,0 +1,205 @@
+/*--------------------------------------------------------------
+# UDS Background Section
+
+1. General styles
+2. Desktop
+3. Additional styles for Gutenberg
+4. Background shapes
+--------------------------------------------------------------*/
+
+// Inner padding of the section
+.uds-section {
+	padding-top: $uds-size-spacing-6;
+	padding-bottom: $uds-size-spacing-6;
+	overflow: hidden;
+}
+
+// Adjusting the margins of the surrounding area.
+div.container + .uds-section,
+.uds-section + div.container {
+	margin-top: $uds-size-spacing-6;
+}
+
+// When a section has a background texture, the inner container
+// needs padding and a background color.
+.uds-section.bg {
+
+	[class*="wp-block-group__inner-container"] {
+		padding: $uds-size-spacing-4;
+
+	}
+
+	&.morse-code-black,
+	&.topo-black,
+	&.network-black,
+	&.semiconductor-dark,
+	&.plus-dark,
+	&.arrows-dark {
+
+		[class*="wp-block-group__inner-container"]{
+			background-color:$uds-color-base-gray-7;
+		}
+	}
+
+	&.morse-code-white,
+	&.topo-white,
+	&.network-white,
+	&.semiconductor-light,
+	&.plus-light,
+	&.arrows-light {
+
+		[class*="wp-block-group__inner-container"]{
+			background-color:$uds-color-base-white;
+		}
+	}
+
+}
+
+// Dealing with custom background textures.
+.uds-section.media-file {
+
+	background-position:center;
+	background-repeat: repeat;
+
+	[class*="wp-block-group__inner-container"] {
+		padding-top: $uds-size-spacing-4;
+		padding-bottom: $uds-size-spacing-4;
+	}
+
+	&.inner-bg-gray-7 [class*="wp-block-group__inner-container"] {
+		background-color: $uds-color-base-gray-7;
+	}
+
+	&.inner-bg-gray-2 [class*="wp-block-group__inner-container"] {
+		background-color: $uds-color-base-gray-2;
+	}
+
+	&.inner-bg-gray-1 [class*="wp-block-group__inner-container"] {
+		background-color: $uds-color-base-gray-1;
+	}
+
+	&.inner-bg-white [class*="wp-block-group__inner-container"] {
+		background-color: $uds-color-base-white;
+	}
+}
+
+/* ------------------------------------------------------------------
+2. Desktop, large
+------------------------------------------------------------------- */
+@include media-breakpoint-up(md) {
+
+	.uds-section {
+		padding-top: $uds-size-spacing-12;
+		padding-bottom: $uds-size-spacing-12;
+	}
+
+	div.container + .uds-section,
+	.uds-section + div.container {
+		margin-top: $uds-size-spacing-12;
+	}
+
+}
+
+/* ------------------------------------------------------------------
+3. Styles specifically for Gutenberg.
+------------------------------------------------------------------- */
+
+/* The more generic .container class is only produced by the BS blocks
+when the content is rendered on the front end. To style for Gutenberg, we
+need to use the full name of the block. */
+
+.uds-section.bg {
+
+	.wp-block-wp-bootstrap-blocks-container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.morse-code-black .wp-block-wp-bootstrap-blocks-container,
+	&.topo-black .wp-block-wp-bootstrap-blocks-container,
+	&.network-black .wp-block-wp-bootstrap-blocks-container,
+	&.semiconductor-dark .wp-block-wp-bootstrap-blocks-container,
+	&.plus-dark .wp-block-wp-bootstrap-blocks-container,
+	&.arrows-dark .wp-block-wp-bootstrap-blocks-container,
+	&.cronkite-dark .wp-block-wp-bootstrap-blocks-container,
+	&.fusion-dark .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-dark .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-library-dark .wp-block-wp-bootstrap-blocks-container,
+	&.honeycomb-dark .wp-block-wp-bootstrap-blocks-container,
+	&.plaza-dark .wp-block-wp-bootstrap-blocks-container,
+	&.poly-dark .wp-block-wp-bootstrap-blocks-container,
+	&.tempe-dark .wp-block-wp-bootstrap-blocks-container,
+	&.thunderbird-dark .wp-block-wp-bootstrap-blocks-container,
+	&.wexford-dark .wp-block-wp-bootstrap-blocks-container {
+		background-color:$uds-color-base-gray-7;
+	}
+
+	&.morse-code-white .wp-block-wp-bootstrap-blocks-container,
+	&.topo-white .wp-block-wp-bootstrap-blocks-container,
+	&.network-white .wp-block-wp-bootstrap-blocks-container,
+	&.semiconductor-light .wp-block-wp-bootstrap-blocks-container,
+	&.plus-light .wp-block-wp-bootstrap-blocks-container,
+	&.arrows-light .wp-block-wp-bootstrap-blocks-container,
+	&.cronkite-light .wp-block-wp-bootstrap-blocks-container,
+	&.fusion-light .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-light .wp-block-wp-bootstrap-blocks-container,
+	&.hayden-library-light .wp-block-wp-bootstrap-blocks-container,
+	&.honeycomb-light .wp-block-wp-bootstrap-blocks-container,
+	&.plaza-light .wp-block-wp-bootstrap-blocks-container,
+	&.poly-light .wp-block-wp-bootstrap-blocks-container,
+	&.tempe-light .wp-block-wp-bootstrap-blocks-container,
+	&.thunderbird-light .wp-block-wp-bootstrap-blocks-container,
+	&.wexford-light .wp-block-wp-bootstrap-blocks-container {
+		background-color:$uds-color-base-white;
+	}
+}
+
+// Dealing with custom background textures.
+.uds-section.media-file {
+
+	.wp-block-wp-bootstrap-blocks-container {
+		padding: $uds-size-spacing-4;
+	}
+
+	&.inner-bg-gray-7 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-7;
+	}
+
+	&.inner-bg-gray-2 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-2;
+	}
+
+	&.inner-bg-gray-1 .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-gray-1;
+	}
+
+	&.inner-bg-white .wp-block-wp-bootstrap-blocks-container {
+		background-color: $uds-color-base-white;
+	}
+
+	&.inner-bg-opacity-50 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .5);
+	}
+
+	&.inner-bg-opacity-75 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .75);
+	}
+
+	&.inner-bg-opacity-90 .wp-block-wp-bootstrap-blocks-container {
+		background-color: rgba(255, 255, 255, .9);
+	}
+}
+
+/* ------------------------------------------------------------------
+4. Background shapes. (Early access, no UI.)
+------------------------------------------------------------------- */
+
+.uds-section.shape-oval {
+	border-bottom-left-radius: 55% 10%;
+    border-bottom-right-radius: 55% 10%;
+    border-top-left-radius: 55% 10%;
+    border-top-right-radius: 55% 10%;
+	width: 1900px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -93,7 +93,26 @@ if (!empty($image_data)) {
 	$image_alt = $image_data['alt'];
 }
 ?>
-
+<?php if ('card-horizontal' == $orientation_class) : ?>
+<div class="uds-card-arrangement">
+	<div class="uds-card-arrangement-card-container">
+<?php endif; ?>
+<?php if ('interactive' == $style) : ?>
+	<div class="content-section text-white">
+		<div class="image-holder">
+			<img src="<?php $background_image = the_field('interactive_background_image');?>" alt="alt text" loading="lazy" decoding="async">
+		</div>
+		<div class="content-holder">
+			<div class="content-bg">
+				<h3><?php the_field('title'); ?></h3>
+				<div class="hidden-details">
+					<p class="long-text"><?php the_field('body_text', false, false); ?></p>
+					<a href="<?php $call_to_action_url = get_field('interactive_cta_url'); echo $call_to_action_url; ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="<?php echo $heading; ?>"><?php $call_to_action = the_field('interactive_cta_button_text');  echo $call_to_action; ?></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php else : ?>
 <div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
 	<?php if ('image' == $header_style) : ?>
 		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
@@ -238,7 +257,9 @@ if (!empty($image_data)) {
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
-	<?php if ('card-horizontal' == $orientation_class) : ?>
-</div> <!-- close horizontal content -->
-<?php endif; ?>
 </div>
+	<?php if ('card-horizontal' == $orientation_class) : ?>
+</div> <!-- uds-card-arrangement-card-container -->
+</div> <!-- close uds-card-arrangement -->
+	<?php endif; ?>
+<?php endif; ?>
