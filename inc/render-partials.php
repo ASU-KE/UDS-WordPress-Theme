@@ -249,7 +249,7 @@ function uds_wp_render_footer_logo() {
 			echo wp_kses(
 				sprintf(
 					$logo_template,
-					get_template_directory_uri() . '/img/endorsed-logo/' . $filename,
+					get_template_directory_uri() . '/dist/img/endorsed-logo/' . $filename,
 					get_bloginfo( 'name' ) . ' Logo',
 					$logo_link
 				),
@@ -391,14 +391,9 @@ function uds_wp_render_footer_action_row() {
 				<div class="row">
 
 					<div class="col-xl-3" id="info-column">
-						<h5><span class="footer-site-name" id="footer-unit-text"><?php uds_wp_render_footer_unit_name(); ?></span></h5>
-						<div class="contact-wrapper">
-							<?php uds_wp_render_contact_link(); ?>
-						</div>
-
-						<div class="contribute-wrapper">
-							<?php uds_wp_render_contribute_button(); ?>
-						</div>
+						<div class="h5"><?php uds_wp_render_footer_unit_name(); ?></div>
+						<p class="contact-link"><?php uds_wp_render_contact_link(); ?></p>
+						<p class="contribute-button"><?php uds_wp_render_contribute_button(); ?></p>
 					</div>
 					<?php include get_template_directory() . '/asu-footer-menu.php'; ?>
 				</div> <!-- row -->
@@ -426,7 +421,7 @@ function uds_wp_render_asu_footer_logo() {
 	echo wp_kses(
 		sprintf(
 			$logo_template,
-			get_template_directory_uri() . '/img/asu-logo/asu_university_horiz_rgb_white_150.png',
+			get_template_directory_uri() . '/dist/img/asu-logo/asu-university-horiz-white.png',
 			get_bloginfo( 'name' ) . ' Logo',
 			'https://asu.edu'
 		),

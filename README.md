@@ -1,17 +1,11 @@
 <p align="center">
-  <img src="https://cdn.infonet.research.asu.edu/assets/asu_asu_knowledge_enterprise_horiz_150ppi.png" alt="ASU Knowledge Enterprise" width="400" />
+  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
 </p>
 
 <h1 align="center">ASU Web Standards WordPress Theme</h1>
 <h2 align="center">A WordPress theme based on ASU's Web Standards 2.0</h2>
 
 <p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
-
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
-
-[![bootstrap](https://img.shields.io/badge/Bootstrap-4-blue)](https://getbootstrap.com/)
-[![wordpress](https://img.shields.io/badge/Wordpress-5-green?logo=Wordpress)](https://getbootstrap.com/)
-[![understrap](https://img.shields.io/badge/Built with-Understrap-lightgrey?)](https://understrap.com/)
 
 ### Features
 
@@ -22,25 +16,18 @@
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
 	- [Installation](#installation)
-		- [GitHub Updater](#github-updater)
-		- [Installing Required Plugins](#installing-required-plugins)
+		- [Required Plugins](#required-plugins)
 	- [Using the Theme](#using-the-theme)
 		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
-		- [Social Media Icons](#social-media-icons)
 		- [Menus](#menus)
 			- [Working with the Main Menu](#working-with-the-main-menu)
-			- [Working with the Footer Menu](#working-with-the-footer-menu)
-			- [Working with the Social Media Icons Menu](#working-with-the-social-media-icons-menu)
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
 	- [Reporting Issues](#reporting-issues)
@@ -51,35 +38,41 @@
 	- [Setting Up Local or Lando](#setting-up-local-or-lando)
 		- [Local By Flywheel](#local-by-flywheel)
 		- [Lando](#lando)
-	- [Cloning the Theme](#cloning-the-theme)
 	- [Installing Dependencies](#installing-dependencies)
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
-		- [Creating a User Account and Saving your NPM Access Token](#creating-a-user-account-and-saving-your-npm-access-token)
 	- [Contributing to the Theme](#contributing-to-the-theme)
 		- [PHP Coding Standards](#php-coding-standards)
 				- [Composer Scripts](#composer-scripts)
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
-		- [BroswerSync](#broswersync)
-		- [Travis CI](#travis-ci)
 	- [Extending the Theme](#extending-the-theme)
 		- [UDS-WordPress-Child-Theme theme template](#uds-wordpress-child-theme-theme-template)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
-- [Project Structure](#project-structure)
-
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
 
 ## Getting Started
 
-### Installation
-
-#### GitHub Updater
-
-#### Installing Required Plugins
+### Required Plugins
+- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
+- [Bootstrap Blocks](https://wordpress.org/plugins/wp-bootstrap-blocks/)
 
 ### Using the Theme
 
 #### Updating the Theme
+##### Update CSS
+- npm i @asu/asu-unity-stack
+- npm i bootstrap
+- node_modules update @import path to `../../node_modules/bootstrap` in errored files
+- gulp task copy node module to /css folder
+- gulp task minify css for prod (rename module is throwing `(node:26735) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.` may need update soon )
+##### Update ASU header
+- npm i @asu/component-header
+- gulp task copy node module to /js folder
+##### Update cookie consent
+- npm i @asu/cookie-consent
+- gulp task copy node module to /js folder
+##### Update images
+- npm i @asu/asu-unity-stack
+- gulp task copy node module to /img folder
 
 #### Customizer Options
 
@@ -91,8 +84,6 @@ The theme provides a widget area, and corresponding widget, for displaying UDS-c
 To create a banner, add the provided *Notification Banner* widget to the *Global Banner Area* on the WordPress widgets admin screen (or via the Customizer) and configure the banner as desired using the options provided. Make sure to set the *Show Banner* option to **Yes** in order to have the banner appear on your site.
 
 To remove a page banner, either delete the widget from the Global Banner widget area, or set the *Show Banner* option to **No**.
-
-#### Social Media Icons
 
 #### Menus
 The UDS-WordPress theme has three assignable menu areas:
@@ -112,10 +103,8 @@ You build the main menu of your site using the built-in WordPress menu builder. 
 
 Here is an example of a main menu hierarchy, and how each item would be rendered in this theme.
 
-![Example of menu hierarchy](img/admin/menu-hierarchy.png "Example Menu Hierarchy")
+![Example of menu hierarchy](dist/img/admin/menu-hierarchy.png "Example Menu Hierarchy")
 
-##### Working with the Footer Menu
-##### Working with the Social Media Icons Menu
 
 #### Shortcodes
 
@@ -123,7 +112,7 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ### Reporting Issues
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
+[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
 
 ## For Developers
 
@@ -131,12 +120,9 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ### Requirements
 
-You need to set up your development environment before you can do anything.
+- [Volta](https://volta.sh/) is used to manage node versions. `package.json` volta section references the minimum requirements.
+- Lando + Docker or Local by Flywheel is used to run a local dev server.
 
-Install [Node.js and NPM](https://nodejs.org/en/download/)
-
-- on OSX use [homebrew](http://brew.sh) `brew install node`
-- on Windows use [chocolatey](https://chocolatey.org/) `choco install nodejs`
 
 ### Local WordPress Environment
 
@@ -153,7 +139,7 @@ There are several solutions available for hosting local WordPress development si
 
 #### Local By Flywheel
 
-- Visit [Local by Flywheel](https://localwp.com/) and click the `Download` button.
+- Visit [v](https://localwp.com/) and click the `Download` button.
 - Choose your platform and enter some information (only the email field is mandatory), the download should start and you’ll be taken to a start-up screen, where you will select the `Let’s Go!` button. After installation, you’ll be taken to the dashboard.
 - Proceed to create a new local WordPress install or connect to a remote service like [WP Engine](https://wpengine.com/).
 
@@ -201,10 +187,6 @@ The process will look like this.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
-### Cloning the Theme
-
-Once you have been able to install and run a local version of WordPress, clone [theme repository](https://github.com/asu-ke-web-services/UDS-WordPress-Theme.git) into the `wp-content/themes` folder and continue with the installation process below.
-
 ### Installing Dependencies
 
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
@@ -212,28 +194,17 @@ Once you have been able to install and run a local version of WordPress, clone [
 - Run: `$ composer install`
 - Run: `$ npm install`
 
+### VS Code editor config
+- Install PHP intelephenese
+- Add default wordpress stub
+- To get intelephese to recognize acf functions, add to VS code `settings.json`:
+  -  `"intelephense.environment.includePaths": ["/local/path/to/acf-pro-stubs"]`,
+  - [https://github.com/php-stubs/acf-pro-stubs](https://github.com/php-stubs/acf-pro-stubs)
+
+
 ### Installing Dependencies from the ASU Unity Design System
 
 The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
-
-#### Creating a User Account and Saving your NPM Access Token
-
-1. Visit the ASU Unity NPM Package server and follow directions to add yourself as a user: https://registry.web.asu.edu/
-2. Create your npm user account by executing in a terminal: `npm adduser --registry https://registry.web.asu.edu`
-3. It is recommended that you use your ASU.edu email address. You can use any password; be sure to save it in LastPass!
-4. Configure npm to use this private registry. Add the following line to the .npmrc file in your home directory (existing lines can be left in-place):
-
-```
-@asu-design-system:registry=https://registry.web.asu.edu/
-```
-
-This config tells npm that all packages from ‘@asu-design-system’ should be requested from the ASU private registry. If it says you are not authorized, sign in using:
-
-```
-npm login --registry https://registry.web.asu.edu/
-```
-
-Once you have successfully signed-in, npm will automatically save a new line to your .npmrc, saving your login token for the future.
 
 ### Contributing to the Theme
 
@@ -269,27 +240,6 @@ We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks dire
 #### Working with Styles
 
 To work with and compile your Sass files on the fly start:`$ gulp watch`
-
-#### BroswerSync
-
-Or, to run with Browser-Sync:
-
-- First create a new .json file in the theme root, name it "browserSyncOptions.json", copy and paste the lines below into the new created file:
-
-```javascript
-{
-    "browserSyncOptions" : {
-        "proxy": "localhost/theme_test/", // <----- CHANGE HERE
-        "notify": false
-    },
-    ...
-};
-```
-- Change the browser-sync options to reflect your environment in the file `/browserSyncOptions.json` in the beginning of the file:
-- The `proxy` property needs to match the appserver URL (created by your local server application, i.e. Lando)
-- then run: `$ gulp watch-bs` or `npm run sync`
-
-#### Travis CI
 
 ### Extending the Theme
 The UDS-WordPress theme is a complete theme which includes all of the required WordPress template files and assets for the theme to work.
@@ -338,20 +288,3 @@ function your_project_add_prefooter_content() {
 }
 add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
 ```
-
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
-
-## Project Structure
-
-[is this needed?]
-
-This theme is built on top of [Understrap](https://understrap.com), with minor adjustments specific to the needs of the theme. Most traditional WordPress theme files are where you would expect them. Files and folders of interest include:
-
-| Name                    | Description                                                                                                                                                           |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **functions.php**       | A lean file that loads code from multiple files in the **/inc** directory                                                                                             |
-| **/inc**                | WordPress hooks and callbacks, organized by their purpose in the theme and loaded into **functions.php** at runtime                                                   |
-| **/templates-loop**     | Partial templates for displaying content from posts and pages (the WordPress 'loop')                                                                                  |
-| **/templates-page**     | Multiple full-page layout templates                                                                                                                                   |
-| **/templates-sidebar**  | Templates for the various widget areas in the theme (aka 'sidebars')                                                                                                  |
-| **/sass/theme/\_theme** | An SCSS file for styling rules that are not covered by the Bootstrap theme, or other SCSS files in the **/sass** directory. The first place to put your custom styles |

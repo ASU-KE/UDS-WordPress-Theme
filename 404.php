@@ -43,15 +43,58 @@ get_header();
 
 		} else {
 			// If we have chosen 'default' from the customizer.
-			?>
-			<div class="v1-uds-hero uds-hero-lg hero-image">
+			if ($image_404) {
+				?>
+				<div class="v1-uds-hero uds-hero-md hero-image">
 				<?php $image_404 = wp_kses( $image_404, wp_kses_allowed_html( 'post' ) ); ?>
 				<img src="<?php echo $image_404; ?>" alt="404 - Not Found" />
 			<div class="container v1-uds-hero-container">
 				<div class="container px-0 error-404 not-found">
 					<div class="row">
 						<div class="col col-lg-8">
-							<h1 class="heading heading-one col-md-12 px-0">
+							<h1 class="col-md-12 px-0">
+								<span class="highlight-gold">
+									<?php esc_html_e( '404 - Not Found', 'uds-wordpress-theme' ); ?>
+								</span>
+							</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-lg-8 ">
+							<h4>
+								<span class="highlight-white">
+								<?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?>
+								</span>
+							</h4>
+							<form action="https://search.asu.edu/search" class="form-inline navbar-mobile-search" method="get" name="gs" mptid="2">
+								<input aria-label="header-mid-search" class="form-control" name="q" placeholder="Search asu.edu" type="search" mptid="INPUT;name:gs;0">
+								<input name="url_host" type="hidden" value="
+								<?php
+									$search_site_url = site_url();
+									$search_site_url = preg_replace('#^https?://#i', '', $search_site_url);
+									echo $search_site_url;
+								?>">
+								<input name="site" type="hidden" value="default_collection">
+								<input name="sort" type="hidden" value="date:D:L:d1">
+								<input name="output" type="hidden" value="xml_no_dtd">
+								<input name="ie" type="hidden" value="UTF-8">
+								<input name="oe" type="hidden" value="UTF-8">
+								<input name="client" type="hidden" value="asu_frontend">
+								<input name="proxystylesheet" type="hidden" value="asu_frontend">
+							</form>
+						</div><!-- .page-content -->
+					</div>
+				</div>
+			</div>
+			</div>
+			<?php
+			} else {
+			?>
+			<div class="bg network-white pb-5 pt-5">
+				<div class="container">
+					<div class="row">
+						<div class="col col-lg-8">
+							<h1 class="heading heading-one col-md-12">
 								<span class="highlight highlight-gold highlight-heading-one">
 									<?php esc_html_e( '404 - Not Found', 'uds-wordpress-theme' ); ?>
 								</span>
@@ -59,16 +102,30 @@ get_header();
 						</div>
 					</div>
 					<div class="row">
-						<div class="v1-uds-hero-text col col-lg-8 ">
-							<p><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></p>
-							<?php get_search_form(); ?>
+						<div class="col col-lg-8 ">
+							<h4><?php esc_html_e( 'It looks like nothing was found! Maybe try a search?', 'uds-wordpress-theme' ); ?></h4>
+							<form action="https://search.asu.edu/search" class="form-inline navbar-mobile-search" method="get" name="gs" mptid="2">
+								<input aria-label="header-mid-search" class="form-control" name="q" placeholder="Search asu.edu" type="search" mptid="INPUT;name:gs;0">
+								<input name="url_host" type="hidden" value="
+								<?php
+									$search_site_url = site_url();
+									$search_site_url = preg_replace('#^https?://#i', '', $search_site_url);
+									echo $search_site_url;
+								?>">
+								<input name="site" type="hidden" value="default_collection">
+								<input name="sort" type="hidden" value="date:D:L:d1">
+								<input name="output" type="hidden" value="xml_no_dtd">
+								<input name="ie" type="hidden" value="UTF-8">
+								<input name="oe" type="hidden" value="UTF-8">
+								<input name="client" type="hidden" value="asu_frontend">
+								<input name="proxystylesheet" type="hidden" value="asu_frontend">
+							</form>
 						</div><!-- .page-content -->
 					</div>
 				</div>
 			</div>
-			</div>
 			<?php
-
+			}
 		}
 		?>
 

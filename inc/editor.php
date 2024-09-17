@@ -8,17 +8,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'admin_init', 'uds_wp_wpdocs_theme_add_editor_styles' );
-
-if ( ! function_exists( 'uds_wp_wpdocs_theme_add_editor_styles' ) ) {
-	/**
-	 * Registers an editor stylesheet for the theme.
-	 */
-	function uds_wp_wpdocs_theme_add_editor_styles() {
-		add_editor_style( 'css/custom-editor-style.min.css' );
-	}
-}
-
 add_filter( 'mce_buttons_2', 'uds_wp_tiny_mce_style_formats' );
 
 if ( ! function_exists( 'uds_wp_tiny_mce_style_formats' ) ) {

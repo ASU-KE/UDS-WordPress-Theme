@@ -16,29 +16,29 @@ foreach ( $menu_items as $item ) :
 	if ( empty( $item['menu_item_parent'] ) && ! empty( $item['children'] ) ) :
 		?>
 		<div class="col-xl flex-footer">
-			<div class="card card-foldable desktop-disable-xl">
-				<div class="card-header">
-					<h5>
-						<a id="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>" class="collapsed" data-toggle="collapse" href="#footlink-<?php echo sanitize_title( $item['title'] ); ?>" role="button" aria-expanded="false" aria-controls="footlink-<?php echo sanitize_title( $item['title'] ); ?>">
+			<div class="card accordion-item desktop-disable-xl">
+				<div class="accordion-header">
+					<div class="h5">
+						<a id="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>" class="collapsed" data-bs-toggle="collapse" href="#footlink-<?php echo sanitize_title( $item['title'] ); ?>" role="button" aria-expanded="false" aria-controls="footlink-<?php echo sanitize_title( $item['title'] ); ?>">
 							<?php echo $item['title']; ?>
 							<span class="fas fa-chevron-up"></span>
 						</a>
-					</h5>
 				</div>
-				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="collapse card-body" aria-labelledby="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>">
+				</div>
+				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="collapse accordion-body" aria-labelledby="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>">
 					<?php
 					$footer_column = '';
 					foreach ( $item['children'] as $child ) :
 						$child['external_link'] = '';
 						$is_target_blank    = $child['target_blank'];
 						// Add external link icon if it has been requested. Using extra-small size here.
-						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
+						$footer_link = '<a class="nav-link" href="%1$s" title="link">%2$s%3$s</a>';
 						if ( get_field( 'menu_external_link', $child['ID'] ) ) {
 							if ( $is_target_blank ) {
 								$is_target_blank = 'target=_blank';
 							}
 							$child['external_link'] .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
-							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
+							$footer_link = '<a class="nav-link" href="%1$s" title="link" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
 						}
 
 

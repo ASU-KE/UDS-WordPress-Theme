@@ -24,7 +24,7 @@ if ( ! empty( $block['className'] ) ) {
 
 
 	// Sets InnerBlocks with a Bootstrap blocks container as default content.
-	$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
+	$allowedblocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
 	$template = array(
 		array(
 			'wp-bootstrap-blocks/container',
@@ -41,7 +41,7 @@ if ( ! empty( $block['className'] ) ) {
                 aria-controls="' . $tab_id . '"
                 aria-selected="true"
                 class="nav-item nav-link active"
-                data-toggle="tab"
+                data-bs-toggle="tab"
                 href="#' . $tab_id . '"
                 id="' . $tab_id . '-nav"
                 role="tab"
