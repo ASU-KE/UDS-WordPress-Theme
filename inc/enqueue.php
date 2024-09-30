@@ -69,7 +69,7 @@ if (!function_exists('uds_wp_admin_scripts')) {
 			$current_screen = get_current_screen();
 			if ( $current_screen->id === 'post' || $current_screen->id === 'page' ) {
 				$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/admin-core-bundle.js');
-				wp_enqueue_script('uds-wordpress-admin-core-script', get_template_directory_uri() . '/dist/js/admin-core-bundle.js', array(), $js_version);
+				wp_enqueue_script('uds-wordpress-admin-core-script', get_template_directory_uri() . '/dist/js/admin-core-bundle.js', array('lodash'), $js_version);
 			}
 		}
 
