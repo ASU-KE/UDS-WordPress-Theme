@@ -17662,7 +17662,9 @@ span.page-link:hover {
 }
 @media (max-width: 767.98px) {
   .pagination {
-    gap: 0.4rem;
+    gap: 0rem;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
   }
   a.page-link {
     font-size: 14px;
@@ -19781,7 +19783,6 @@ ul.uds-display-list li span {
 }
 .uds-charts-and-graphs-overlay span {
   font: normal normal 700 1.125rem Arial;
-  max-width: 60%;
 }
 @media (max-width: 767.98px) {
   .uds-charts-and-graphs-overlay h4, .uds-charts-and-graphs-overlay .h4, .uds-charts-and-graphs-overlay p {
@@ -19794,6 +19795,7 @@ ul.uds-display-list li span {
 
 .uds-charts-and-graphs-overlay {
   justify-content: center;
+  width: 60%;
 }
 
 .uds-charts-and-graphs-overlay p {
@@ -20329,6 +20331,7 @@ div.uds-card-image-and-content-content-container .card {
   font: normal normal bold 2.5rem Arial;
   flex: 1;
   max-width: 784px;
+  padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 1260px) {
@@ -20349,7 +20352,6 @@ div.uds-card-image-and-content-content-container .card {
   }
   .uds-image-background-with-cta-container > span {
     font-size: 2rem;
-    margin-bottom: 2rem;
     max-width: 512px;
   }
 }
@@ -20413,6 +20415,14 @@ div.uds-card-image-and-content-content-container .card {
   .uds-table > table tbody tr > th.indent {
     padding-left: 2rem;
   }
+}
+.uds-table caption, .uds-table figcaption {
+  background-color: var(--bs-gray-1);
+  caption-side: top;
+  font-size: 0.85rem;
+  padding: 1rem;
+  text-align: center;
+  word-break: break-word;
 }
 
 .uds-table-fixed {
@@ -20941,7 +20951,7 @@ Mobile Styles
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1.5rem 1.5rem 0;
+  padding: 0.5rem 1.5rem 0;
   border-top: 0.5rem solid #ffc627;
   transition: all 0.3s ease-in-out;
   z-index: 10;
@@ -21029,6 +21039,10 @@ Mobile Styles
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
+.card-ranking.small-image .info-layer {
+  padding: 1.5rem 0.5rem 0 1.5rem;
+  cursor: unset;
+}
 .card-ranking.small-image .info-layer a.read-more {
   display: none;
 }
@@ -21037,6 +21051,10 @@ Mobile Styles
 }
 .card-ranking.small-image .info-layer .content .header > p {
   width: 90%;
+}
+.card-ranking.small-image .info-layer .content .header .btn-expand {
+  padding: 0.6rem;
+  border-radius: 0;
 }
 .card-ranking.small-image .citation {
   padding-left: 1.5rem;
@@ -21060,6 +21078,7 @@ Mobile Styles
 .card-ranking.large-image .info-layer .content .header .btn-expand {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 .card-ranking.large-image .info-layer .content .header .btn-expand h4, .card-ranking.large-image .info-layer .content .header .btn-expand .h4 {
   min-height: 52px;
@@ -21068,6 +21087,7 @@ Mobile Styles
   -webkit-line-clamp: 2;
 }
 .card-ranking.large-image .info-layer .content > p {
+  line-clamp: 10;
   -webkit-line-clamp: 10;
   visibility: hidden;
   transition: visibility 0.3s ease-in;
