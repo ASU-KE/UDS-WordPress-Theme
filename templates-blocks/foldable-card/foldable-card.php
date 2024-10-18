@@ -14,7 +14,7 @@ $accordion_color = get_field( 'uds_single_accordion_color' );
 
 // Set collapsed classes based on checkbox setting.
 if ( $collapsed ) {
-	$collapsed = 'aria-expanded="false" class="collapse"';
+	$collapsed = 'aria-expanded="false" class="collapse collapsed"';
 	$show_body_area = '';
 } else {
 	$collapsed = 'aria-expanded="true"';
@@ -58,7 +58,7 @@ if( empty ( $accordion_icon ) ) {
 						data-target="' . $accordion_id . '"
 						data-bs-toggle="collapse"
 						href="#' . $accordion_id . '"
-						id="' . $accordion_id . '"
+						id="' . $accordion_id . '_header"
 						role="button"
 						data-ga='. $accordion_title . '
 						data-ga-name="onclick"
@@ -71,7 +71,7 @@ if( empty ( $accordion_icon ) ) {
 				</h3>
 			</div>
 			<div
-				aria-labelledby="' . $accordion_id . '"
+				aria-labelledby="' . $accordion_id . '_header"
 				class="collapse ' . $show_body_area . '"
 				id="' . $accordion_id . '"
 			>
