@@ -41,6 +41,7 @@ $external_link = get_field('external_link');
 $new_tab = get_field('new_tab');
 $remove_outer_div = get_field('remove_outer_div');
 $full_width = get_field('full_width');
+$aria_label = get_field('aria_label');
 
 
 /**
@@ -116,7 +117,7 @@ endif;
 
 	<?php if ('button' !== $button_tag_type) : // default to links unless specified
 	?>
-		<a href="<?php echo esc_url($button_url); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" <?php echo $attribute_string; ?> <?php echo $target_text; ?> <?php echo $rel; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+		<a href="<?php echo esc_url($button_url); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" <?php echo $attribute_string; ?> <?php echo $target_text; ?> <?php echo $rel; echo $aria_label ? 'aria-label="' . $aria_label . '"' : ''; ?>><?php echo $icon_span; ?><?php echo $button_label; ?> </a>
 	<?php else : ?>
 		<button type="button" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" <?php echo $attribute_string; ?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
 	<?php endif; ?>
