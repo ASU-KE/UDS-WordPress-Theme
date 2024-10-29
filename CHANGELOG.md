@@ -10,6 +10,7 @@
 - update component-header v2.3.3
 - Font awesome updates - fix styling, update to v6.6
 - unity-bootstrap-theme v1.14.2
+- Update GFL logo with latest registered tm
 
 ## v1.0 September:
 - README update, dev instructions
