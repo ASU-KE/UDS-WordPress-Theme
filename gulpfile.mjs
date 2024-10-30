@@ -153,11 +153,7 @@ gulp.task("front-end-scripts", function() {
  */
 gulp.task("admin-scripts", function() {
 	const adminScripts = [
-		"./src/js/custom/admin/core-list-block.js",
-		"./src/js/custom/admin/core-divider.js",
-		"./src/js/custom/admin/heading-highlights.js",
 		"./src/js/custom/admin/admin.js",
-		"./src/js/custom/admin/core-image-block.js",
 		"./src/js/fontawesome/all.js",
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/hero_video.js",
@@ -169,6 +165,22 @@ gulp.task("admin-scripts", function() {
 		.src(adminScripts, { allowEmpty: true })
 		.pipe(babel({ presets: ["@babel/preset-env"] }))
 		.pipe(concat("admin-bundle.js"))
+		.pipe(gulp.dest("./dist/js"));
+
+});
+
+gulp.task("admin-core-scripts", function() {
+	const adminScripts = [
+		"./src/js/custom/admin/core-list-block.js",
+		"./src/js/custom/admin/core-divider.js",
+		"./src/js/custom/admin/core-image-block.js",
+		"./src/js/custom/admin/heading-highlights.js",
+	]
+
+	return gulp
+		.src(adminScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("admin-core-bundle.js"))
 		.pipe(gulp.dest("./dist/js"));
 
 });

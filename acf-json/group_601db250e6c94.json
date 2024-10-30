@@ -143,6 +143,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_66eb51e8ee109",
+            "label": "Screenreader text: Aria Label",
+            "name": "aria_label",
+            "type": "text",
+            "instructions": "The aria-label attribute on links ( &lt;a&gt; elements with the \"href\" attribute) should only be used when it is not possible or desirable to use the default link text. (example: \"Learn more\" button is required to have a descriptive aria-label)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_626aca0dbca13",
             "label": "Style",
             "name": "",
@@ -283,6 +302,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Attribute",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_626b107324e2b",
@@ -301,7 +321,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_626b104524e2a"
                 },
                 {
                     "key": "field_626b108324e2c",
@@ -320,7 +341,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_626b104524e2a"
                 }
             ]
         }
@@ -343,5 +365,5 @@
     "active": true,
     "description": "Fields for creating a UDS compliant button links with customizable color, size, and icon.",
     "show_in_rest": 0,
-    "modified": 1651854794
+    "modified": 1726698649
 }

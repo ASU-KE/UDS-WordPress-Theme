@@ -1,5 +1,18 @@
 # ASU UDS WP Theme 2024 Change log
-## v1.0 release Sep 17 2024:
+## v1.1 October
+- sync updated azure-devops-sync.yml
+- Merge pull request
+- UDS Button: add optional aria-label
+- `src/js`: create admin-core-scripts bundle for page editor
+- enqueue lodash with admin script
+- stop cookie consent init on edit page
+- update bs5 collapsed default, aria updates
+- update component-header v2.3.3
+- Font awesome updates - fix styling, update to v6.6
+- unity-bootstrap-theme v1.14.2
+- Update GFL logo with latest registered tm
+
+## v1.0 September:
 - README update, dev instructions
 - add Changelog
 - reorganize src/ and dist/
