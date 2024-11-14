@@ -35,13 +35,16 @@ const save = (props) => {
   });
 
   return (
-    <div
-      id="unityblocks-anchor-menu-v2"
+		<div className="block">
+			<div
+			id="unityblocks-anchor-menu-v2"
       {...useBlockProps.save()}
       data-items={JSON.stringify(items)}
       data-firstElementId={firstElementId}
       data-focusFirstFocusableElement={focusFirstFocusableElement}
-    ></div>
+			></div>
+		</div>
+
   );
 };
 
