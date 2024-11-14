@@ -136,3 +136,7 @@ add_action( 'init', 'register_acf_blocks', 5 );
 function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
 }
+add_action( 'init', 'create_block_anchor_menu_block_init' );
+function create_block_anchor_menu_block_init() {
+	register_block_type( get_template_directory() . '/templates-blocks/anchor-menu/build' );
+}

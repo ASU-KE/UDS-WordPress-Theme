@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "unityblocks/anchor-menu-v2",
+	"version": "1.0.0",
+	"title": "Anchor Menu",
+	"category": "widgets",
+	"icon": "sticky",
+	"keywords": ["menu", "navigation"],
+	"description": "Provide sticky menu bar to jump to anchor points on the current page.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "anchor-menu",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"itemIcons": {
+			"type": "array",
+			"default": []
+		},
+		"itemTexts": {
+			"type": "array",
+			"default": []
+		},
+		"itemTargets": {
+			"type": "array",
+			"default": []
+		},
+		"firstElementId": {
+			"type": "string",
+			"default": ""
+		},
+		"focusFirstFocusableElement": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}
