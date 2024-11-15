@@ -71,8 +71,13 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 
 			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
+			$aria_label = '';
+			preg_match('/-(.*?)-/', $title, $match);
+			if ( ! empty( $match ) ) {
+				$aria_label = $match[1];
+			}
 			$item_output = $args->before
-				. "<a id='menu-item-$item->ID' $class_names $attributes ><span class='fab $title'>"
+				. "<a aria-label='$aria_label' id='menu-item-$item->ID' $class_names $attributes ><span class='fab $title'>"
 				. '</span></a> '
 				. $args->after;
 
