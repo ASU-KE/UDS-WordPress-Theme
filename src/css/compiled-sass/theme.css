@@ -27348,6 +27348,7 @@ Keep until refactor for anchor menu inside <header>
 }
 .glide .glide__track .glide__slides {
   margin-bottom: 0;
+  touch-action: auto;
 }
 .glide .glide__track .glide__slides .glide__slide .card {
   width: 100%;
