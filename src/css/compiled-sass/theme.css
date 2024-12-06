@@ -22384,10 +22384,18 @@ Footer - Table of Contents
 #footer-innovation .footer-innovation-links .img-link {
   order: 2;
   margin-right: 0;
+  padding-bottom: 24px;
+  padding-top: 24px;
   transform: translate(1.5rem, 0);
 }
+@media (min-width: 992px) {
+  #footer-innovation .footer-innovation-links .img-link {
+    padding-right: 16px;
+  }
+}
 #footer-innovation .footer-innovation-links .img-link img {
-  height: 100px;
+  height: auto;
+  max-width: 320px;
   width: auto;
 }
 #footer-innovation .footer-innovation-links .nav-link, #footer-innovation .footer-innovation-links .secondary-nav-link {
