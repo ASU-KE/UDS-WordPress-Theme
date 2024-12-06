@@ -124,6 +124,7 @@ $uds-color-brand-gold: #ffc627; // ASU Gold brand color
 
     .glide__slides {
       margin-bottom: 0;
+      touch-action: auto;
       .glide__slide {
         .card {
           width: 100%;
