@@ -6,6 +6,7 @@
             "key": "field_6154aece6b8f4",
             "label": "Foldable Card",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -16,14 +17,16 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_613fc348fae26",
             "label": "Card title",
             "name": "uds_single_accordion_title",
+            "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Adding an icon? Use <code>&amp;nbsp;<\/code> in title field to space title away from icon.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -32,15 +35,17 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_6143d81a230b1",
             "label": "Icon",
             "name": "uds_single_accordion_title_icon",
+            "aria-label": "",
             "type": "text",
             "instructions": "Enter all required FA classes. Example: <code>fas fa-external-link-alt<\/code>.",
             "required": 0,
@@ -60,6 +65,7 @@
             "key": "field_613fc3aafae27",
             "label": "Collapsed",
             "name": "uds_single_accordion_collapsed",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -79,6 +85,7 @@
             "key": "field_613fc3defae28",
             "label": "Color",
             "name": "uds_single_accordion_color",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -89,20 +96,22 @@
                 "id": ""
             },
             "choices": {
-                "card-gold": "Gold",
-                "card-maroon": "Maroon",
-                "card-gray": "Light",
-                "card-dark": "Dark"
+                "accordion-item-gold": "Gold",
+                "accordion-item-maroon": "Maroon",
+                "accordion-item-gray": "Light",
+                "accordion-item-dark": "Dark"
             },
-            "allow_null": 0,
             "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
         },
         {
             "key": "field_6154aedf6b8f5",
             "label": "Accordion",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -113,12 +122,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6154aeef6b8f6",
             "label": "Creating an Accordion",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -150,5 +161,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632941364
+    "show_in_rest": 0,
+    "modified": 1733422527
 }
