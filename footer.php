@@ -32,11 +32,11 @@ defined( 'ABSPATH' ) || exit;
 						<img src="<?php echo get_template_directory_uri(); ?>/dist/img/innovation-lockup/on-gold/footer-rank.png" alt="ASU is number one in the U.S. for innovation.">
 					</a>
 						<nav class="nav" aria-label="University Services">
-							<a class="nav-link" href="https://asu.edu/map/">Maps and Locations</a>
-							<a class="nav-link" href="https://asu.edu/asujobs">Jobs</a>
-							<a class="nav-link" href="https://isearch.asu.edu/">Directory</a>
-							<a class="nav-link" href="https://asu.edu/contactasu/">Contact ASU</a>
-							<a class="nav-link" href="https://my.asu.edu/">My ASU</a>
+							<a class="nav-link" href="https://www.asu.edu/about/locations-maps">Maps and Locations</a>
+							<a class="nav-link" href="https://cfo.asu.edu/applicant">Jobs</a>
+							<a class="nav-link" href="https://search.asu.edu/?search-tabs=web_dir_faculty_staff">Directory</a>
+							<a class="nav-link" href="https://www.asu.edu/about/contact">Contact ASU</a>
+							<a class="nav-link" href="https://my.asu.edu">My ASU</a>
 						</nav>
 					</div>
 				</div>
@@ -49,10 +49,10 @@ defined( 'ABSPATH' ) || exit;
 			<div class="row">
 				<div class="col">
 					<nav class="nav colophon" aria-label="University Legal and Compliance">
-						<a class="nav-link" href="https://asu.edu/copyright/">Copyright and Trademark</a>
-						<a class="nav-link" href="https://asu.edu/accessibility/">Accessibility</a>
-						<a class="nav-link" href="https://asu.edu/privacy/">Privacy</a>
-						<a class="nav-link" href="https://asu.edu/tou/">Terms of Use</a>
+						<a class="nav-link" href="https://www.asu.edu/about/copyright-trademark">Copyright and Trademark</a>
+						<a class="nav-link" href="https://accessibility.asu.edu/report">Accessibility</a>
+						<a class="nav-link" href="https://www.asu.edu/about/privacy">Privacy</a>
+						<a class="nav-link" href="https://www.asu.edu/about/terms-of-use">Terms of Use</a>
 						<a class="nav-link" href="https://asu.edu/emergency/">Emergency</a>
 					</nav>
 				</div>
