@@ -16041,6 +16041,10 @@ Cards - Table of Contents
   margin-right: var(--card-child-margin);
   padding: 0 var(--card-child-padding) 24px var(--card-child-padding);
 }
+.card-link a {
+  min-width: 24px;
+  min-height: 24px;
+}
 
 .card-footer {
   margin-left: var(--card-child-margin);
@@ -27356,6 +27360,7 @@ Keep until refactor for anchor menu inside <header>
 }
 .glide .glide__track .glide__slides {
   margin-bottom: 0;
+  touch-action: auto;
 }
 .glide .glide__track .glide__slides .glide__slide .card {
   width: 100%;
