@@ -20529,11 +20529,15 @@ Desktop styles
 .uds-person-profile {
   --max-width: 800px;
   --pic-size: 180px;
+  --grid-pic-size: 282px;
+  --grid-info-size: 308px;
+  --grid-info-max-size: 395px;
   --person-profession-bottom-margin: 16px;
   --person-name-size: 24px;
   --name-top-margin: 8px;
   display: flex;
   max-width: var(--max-width);
+  /* Grid Profile styles */
 }
 .uds-person-profile.small {
   --pic-size: 120px;
@@ -20585,6 +20589,12 @@ Desktop styles
 .uds-person-profile .person-profession h4, .uds-person-profile .person-profession .h4 {
   margin: 0;
   font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .uds-person-profile .person .more-link {
   line-height: 1;
@@ -20612,6 +20622,38 @@ Desktop styles
 .uds-person-profile .person ul.person-social-medias a {
   color: #191919;
   font-size: 1.75rem;
+}
+.uds-person-profile.uds-grid-profile {
+  flex-direction: column;
+  max-width: var(--grid-info-max-size);
+}
+.uds-person-profile.uds-grid-profile .person {
+  margin-left: 0;
+}
+.uds-person-profile.uds-grid-profile .person .person-contact-info {
+  flex-direction: column;
+}
+.uds-person-profile.uds-grid-profile .person .description-and-social,
+.uds-person-profile.uds-grid-profile .person address.person-address {
+  display: none;
+}
+.uds-person-profile.uds-grid-profile .person ul {
+  gap: 0px;
+}
+.uds-person-profile.uds-grid-profile .profile-img-container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+.uds-person-profile.uds-grid-profile .profile-img-container .profile-img-placeholder {
+  width: var(--grid-pic-size);
+  height: var(--grid-pic-size);
+  max-width: 100%;
+}
+.uds-person-profile.uds-grid-profile .profile-img-container .profile-img-placeholder .profile-img {
+  width: var(--grid-pic-size);
+  height: var(--grid-pic-size);
+  max-width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -20641,6 +20683,9 @@ Mobile Styles
   .uds-person-profile .person ul.person-contact-info li {
     margin-top: 0.5rem;
     margin-left: 0;
+  }
+  .uds-person-profile.uds-grid-profile {
+    max-width: var(--grid-info-size);
   }
 }
 .parallax-container {
