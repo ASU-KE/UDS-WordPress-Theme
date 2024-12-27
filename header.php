@@ -76,32 +76,6 @@ if (!empty($c_options['hotjar_site_id'])) {
 	<?php
 	}
 
-	// Lavidge Adwords tracking code.
-	if (!function_exists('uds_wp_include_lavidge_script')) {
-
-		/**
-		 * Include Lavidge Adword script.
-		 */
-		function uds_wp_include_lavidge_script()
-		{
-			$lav_c_options = array();
-			$lav_c_options = get_theme_mods();
-
-			// Do we have an asu_hub_analytics setting?
-			if (!empty($lav_c_options['asu_hub_analytics'])) {
-				$lav_asu_hub_analytics = $lav_c_options['asu_hub_analytics'];
-			}
-
-			// If the setting is "enabled", turn on the tracking code.
-			if (!empty($lav_asu_hub_analytics) && 'enabled' === $lav_asu_hub_analytics) {
-				include get_template_directory() . '/inc/analytics/asu-lavidge-analytics-tracking-code.php';
-			}
-		}
-	}
-	add_action('include_lavidge_script', 'uds_wp_include_lavidge_script', 10, 2);
-	do_action('include_lavidge_script');
-
-
 	// Google Search Console Ownership Verification.
 	// Only add the Ownership Verification meta tag on the site homepage
 	if (!empty($site_gcs_ownership_verification_id) && is_front_page()) {
