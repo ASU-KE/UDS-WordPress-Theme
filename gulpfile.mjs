@@ -123,7 +123,6 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
-		"./src/js/custom/ga-footer.js",
 	]
 
 	// Create uglifified min.js
