@@ -38,11 +38,11 @@ defined( 'ABSPATH' ) || exit;
 							<img src="<?php echo get_template_directory_uri(); ?>/dist/img/innovation-lockup/on-gold/footer-rank.png" alt="ASU is number one in the U.S. for innovation.">
 						</a>
 						<nav class="nav" aria-label="University Services">
-							<a class="nav-link" href="https://www.asu.edu/about/locations-maps">Maps and Locations</a>
-							<a class="nav-link" href="https://cfo.asu.edu/applicant">Jobs</a>
-							<a class="nav-link" href="https://search.asu.edu/?search-tabs=web_dir_faculty_staff">Directory</a>
-							<a class="nav-link" href="https://www.asu.edu/about/contact">Contact ASU</a>
-							<a class="nav-link" href="https://my.asu.edu">My ASU</a>
+							<a class="nav-link" href="https://www.asu.edu/about/locations-maps" data-ga-footer-type="internal link" data-ga-footer-section="secondary footer" data-ga-footer="Maps and Locations">Maps and Locations</a>
+							<a class="nav-link" href="https://cfo.asu.edu/applicant" data-ga-footer-type="internal link" data-ga-footer-section="secondary footer" data-ga-footer="Jobs">Jobs</a>
+							<a class="nav-link" href="https://search.asu.edu/?search-tabs=web_dir_faculty_staff" data-ga-footer-type="internal link" data-ga-footer-section="secondary footer" data-ga-footer="Directory">Directory</a>
+							<a class="nav-link" href="https://www.asu.edu/about/contact" data-ga-footer-type="internal link" data-ga-footer-section="secondary footer" data-ga-footer="Contact ASU">Contact ASU</a>
+							<a class="nav-link" href="https://my.asu.edu" data-ga-footer-type="internal link" data-ga-footer-section="secondary footer" data-ga-footer="My ASU">My ASU</a>
 						</nav>
 					</div>
 				</div>
