@@ -1,0 +1,25 @@
+{
+    "name": "acf/uds-step-list",
+    "title": "UDS Step List",
+    "description": "A block for building a UDS step list",
+    "category": "uds",
+    "icon": "editor-ol",
+    "keywords": ["list", "step", "numbered", "uds"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "step-list.php",
+		"validate": false
+    },
+    "supports": {
+        "align": false
+    },
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"list-item-text": "",
+				"body_html": ""
+			}
+		}
+	}
+}

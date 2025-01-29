@@ -1,0 +1,184 @@
+{
+    "key": "group_67991dfa33ed0",
+    "title": "UDS Step List",
+    "fields": [
+        {
+            "key": "field_67994895a8897",
+            "label": "List Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1,
+            "selected": 0
+        },
+        {
+            "key": "field_67991fd5ac332",
+            "label": "UDS Step List",
+            "name": "uds_step_list_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 1,
+            "rows_per_page": 5,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_67991dfa99ee9",
+            "button_label": "Add List Item",
+            "sub_fields": [
+                {
+                    "key": "field_67991dfa99ee9",
+                    "label": "List item text",
+                    "name": "uds_step_list_item_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Step list item",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_67991fd5ac332"
+                },
+                {
+                    "key": "field_67991ee099eea",
+                    "label": "List item content",
+                    "name": "uds_step_list_item_content",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "visual",
+                    "toolbar": "uds_wp_simple",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_67991fd5ac332"
+                }
+            ]
+        },
+        {
+            "key": "field_679948b4a8898",
+            "label": "Style",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_67994ab4a8899",
+            "label": "Bullet Color",
+            "name": "bullet_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Black",
+                "uds-steplist-maroon": "Maroon",
+                "uds-steplist-gold": "Gold"
+            },
+            "default_value": "black",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_67994ae8a889a",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "White",
+                "smokemode": "Smoke Mode",
+                "light-smokemode": "Light Smoke Mode",
+                "darkmode": "Dark Mode"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-step-list"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1738104435
+}
