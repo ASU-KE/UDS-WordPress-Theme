@@ -5,6 +5,7 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 
 // Any additional imported files //
 @import "theme/theme"; // Small rulesets for our theme. Bigger customizations go in separate files.
+@import "theme/component-header";
 @import "theme/color-picker"; // Default rules for defined ASU color palette options. Works with default blocks.
 @import "theme/customizer"; // Tweaks to the customizer (mostly buttons).
 @import "theme/gradient-bg"; //Add breakpoints and colors to gr[side]-[breakpoint]-[color]

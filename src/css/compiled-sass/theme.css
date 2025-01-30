@@ -16044,6 +16044,7 @@ Cards - Table of Contents
 .card-link a {
   min-width: 24px;
   min-height: 24px;
+  display: block;
 }
 
 .card-footer {
@@ -16618,8 +16619,11 @@ Cards - Table of Contents
 }
 .accordion .accordion-header .accordion-icon {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0;
+}
+.accordion .accordion-header button {
+  text-align: left;
 }
 
 /*------------------------------------------------------------------
@@ -17570,6 +17574,10 @@ a.page-link:hover {
   text-decoration: none;
 }
 
+.page-item.active a.page-link:hover {
+  color: #fafafa;
+}
+
 span.page-link {
   padding-left: 0;
   padding-right: 0;
@@ -18325,6 +18333,18 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
 .breadcrumb.bg-gray-7 li.active, .bg-gray-7.yoast-breadcrumbs li.active {
   color: #fafafa;
 }
+.breadcrumb .breadcrumb-item, .yoast-breadcrumbs .breadcrumb-item {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+}
+.breadcrumb .breadcrumb-item a, .yoast-breadcrumbs .breadcrumb-item a {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  display: flex;
+}
+.breadcrumb .breadcrumb-item.active a, .yoast-breadcrumbs .breadcrumb-item.active a {
+  color: var(--bs-breadcrumb-item-active-color);
+}
 
 @media screen and (max-width: 576px) {
   .breadcrumb, .yoast-breadcrumbs {
@@ -18878,6 +18898,10 @@ form.wpcf7-form select:focus {
   border: 1px solid #191919 !important;
   border-radius: none;
 }
+form.uds-form input[type=submit]:focus, form.wpcf7-form input[type=submit]:focus {
+  box-shadow: #ffffff 0 0 0 2px, #191919 0px 0px 0px 4px !important;
+  border: 0 !important;
+}
 form.uds-form fieldset, form.wpcf7-form fieldset {
   margin: 0 0 2rem 0;
 }
@@ -19042,12 +19066,6 @@ form.was-validated.wpcf7-form select:valid:focus {
 }
 form.uds-form.was-validated .form-check-input:valid ~ .form-check-label, form.uds-form.was-validated .wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.was-validated input:valid ~ .form-check-label, form.was-validated.wpcf7-form .form-check-input:valid ~ .form-check-label, form.was-validated.wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label {
   color: #191919;
-}
-form.uds-form.needs-validation .invalid-feedback, form.needs-validation.wpcf7-form .invalid-feedback {
-  display: none;
-}
-form.uds-form.needs-validation .valid-feedback, form.needs-validation.wpcf7-form .valid-feedback {
-  display: none;
 }
 form.uds-form input.is-invalid:enabled, form.wpcf7-form input.is-invalid:enabled,
 form.uds-form textarea.is-invalid:enabled,
@@ -20647,13 +20665,15 @@ Desktop styles
 }
 .uds-person-profile.uds-grid-profile .profile-img-container .profile-img-placeholder {
   width: var(--grid-pic-size);
-  height: var(--grid-pic-size);
+  height: -moz-fit-content;
+  height: fit-content;
   max-width: 100%;
 }
 .uds-person-profile.uds-grid-profile .profile-img-container .profile-img-placeholder .profile-img {
   width: var(--grid-pic-size);
-  height: var(--grid-pic-size);
   max-width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
 }
 
 /*--------------------------------------------------------------
@@ -23544,6 +23564,11 @@ WP admin bar mobile fix
   }
   .admin-bar #wpadminbar {
     position: sticky;
+  }
+}
+@media (max-width: 540px) {
+  .header-main .navbar .title {
+    width: auto;
   }
 }
 /*--------------------------------------------------------------
