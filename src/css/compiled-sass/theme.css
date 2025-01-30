@@ -23566,6 +23566,11 @@ WP admin bar mobile fix
     position: sticky;
   }
 }
+@media (max-width: 540px) {
+  .header-main .navbar .title {
+    width: auto;
+  }
+}
 /*--------------------------------------------------------------
 Color picker CSS rules
 
