@@ -1,0 +1,12 @@
+{
+    "name": "acf/hero-video",
+    "title": "Video Hero",
+    "description": "Video hero using UDS standards.",
+    "category": "uds",
+    "icon": "video",
+    "keywords": ["hero", "video"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero.php"
+    }
+}
