@@ -27737,4 +27737,10 @@ Keep until refactor for anchor menu inside <header>
 .glide.image-carousel figure.uds-figure .uds-caption-text {
   color: #191919;
   max-width: 100%;
+}
+
+/* unity-carousels plugin - testimonial and gallery carousel are not centered by default in UDS, center to match the other carousels */
+.wp-block-unity-carousels-testimonial-carousel, .wp-block-unity-carousels-image-gallery-carousel, .wp-block-unity-carousels-image-carousel, .wp-block-unity-carousels-card-carousel {
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=theme.css.map */
