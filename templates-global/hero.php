@@ -21,19 +21,8 @@ if (is_category()) {
 }
 
 
-/**
- * Retrieve our field values. Note, we do not get button values here, as they are
- * retrieved later on when rendered, as they involve looping through a repeater
- * field.
- */
-// $hero_size = get_field('hero_size', $category);
-//$hero_title = wptexturize(wp_kses_post(get_field('hero_title', $category, false)));
-$apply_highlighting = get_field('apply_highlighting', $category);
-$hero_highlight = get_field('hero_highlight', $category);
-
-
 $hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)));
-$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
+//$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
 
 
 
@@ -271,6 +260,10 @@ switch ($media_source) {
 $hero_title = wptexturize(wp_kses_post(get_field('hero_title', $category, false)));
 $title_color = get_field('title_color', $category);
 $title_color_class = ($title_color == 'white') ? 'text-white' : '';
+$apply_highlighting = get_field('apply_highlighting', $category);
+$hero_highlight = get_field('hero_highlight', $category);
+$hero_highlight_class = $apply_highlighting ? $hero_highlight : '';
+
 
 ?>
 <div class="<?php echo "{$hero_size_class} {$has_buttons_class} {$media_type}" ?>">
@@ -290,7 +283,7 @@ $title_color_class = ($title_color == 'white') ? 'text-white' : '';
 	</div>
 	<?php } ?>
 
-	<h1><span class="highlight-white <?php echo "{$title_color_class}" ?>"><?php echo "{$hero_title}"?></span></h1>
+	<h1><span class="<?php echo "{$title_color_class} {$hero_highlight_class}" ?>"><?php echo "{$hero_title}"?></span></h1>
 	<div class="content">
 		<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua eiusmod tempo.</p>
 	</div>
