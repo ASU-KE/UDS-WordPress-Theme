@@ -21,7 +21,6 @@ if (is_category()) {
 }
 
 
-$hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)));
 //$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
 
 
@@ -263,6 +262,7 @@ $title_color_class = ($title_color == 'white') ? 'text-white' : '';
 $apply_highlighting = get_field('apply_highlighting', $category);
 $hero_highlight = get_field('hero_highlight', $category);
 $hero_highlight_class = $apply_highlighting ? $hero_highlight : '';
+$hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)));
 
 
 ?>
@@ -284,15 +284,18 @@ $hero_highlight_class = $apply_highlighting ? $hero_highlight : '';
 	<?php } ?>
 
 	<h1><span class="<?php echo "{$title_color_class} {$hero_highlight_class}" ?>"><?php echo "{$hero_title}"?></span></h1>
+
+	<?php if (!empty($hero_text)) { ?>
 	<div class="content">
-		<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua eiusmod tempo.</p>
+		<p class="text-white"><?php echo "{$hero_text}"?></p>
 	</div>
+	<?php } ?>
+
 	<?php if (!empty($has_buttons_class)) { ?>
 		<div class="btn-row">
 			<a href="#" class="btn btn-maroon" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Call to Action</a>
 			<a href="#" class="btn btn-gold" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Second Call to Action</a>
 		</div>
-	<?php
-	}
-	?>
+	<?php } ?>
+
 </div>
