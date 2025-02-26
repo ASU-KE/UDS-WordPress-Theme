@@ -26516,6 +26516,16 @@ span.customize-partial-edit-shortcut-logo_url {
   float: right !important;
 }
 
+.editor-styles-wrapper.block-editor-writing-flow {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.wp-block-wp-bootstrap-blocks-container {
+  max-width: 1224px;
+  margin: 0 auto;
+}
+
 /*--------------------------------------------------------------
 Additional styles for core blocks.
 These block may contain additional block styles that require
