@@ -20,12 +20,7 @@ if (is_category()) {
 	$category = get_queried_object();
 }
 
-
 //$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
-
-
-
-
 
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 /*
@@ -173,21 +168,7 @@ if (!empty($hero_asset_data['url'])) :
 							endwhile;
 							echo '</div>';
 						} else {
-							/**
-							 * For backwards compatability, if no buttons are found in the cta_buttons
-							 * field, check for values in the older fields and draw a single button
-							 * if they're found.
-							 */
-							/*
-							$cta_url = get_field('hero_call_to_action_url', $category);
-							$cta_text = get_field('hero_call_to_action_text', $category);
-							$cta_color = get_field('call_to_action_color', $category);
 
-							if (!empty($cta_url) && !empty($cta_text)) {
-								$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
-								echo wp_kses(sprintf($text, $cta_url, $cta_text, $cta_color), wp_kses_allowed_html('post'));
-							}
-						}
 						?>
 					</div>
 				</div>
@@ -291,11 +272,24 @@ $hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)))
 	</div>
 	<?php } ?>
 
-	<?php if (!empty($has_buttons_class)) { ?>
+	<?php if (!empty($has_buttons_class)) {
+		/** For backwards compatability, if no buttons are found in the cta_buttons field,
+		* check for values in the older fields and draw a single button if found. **/
+		$cta_url = get_field('hero_call_to_action_url', $category);
+		$cta_text = get_field('hero_call_to_action_text', $category);
+		$cta_color = get_field('call_to_action_color', $category);
+		?>
 		<div class="btn-row">
+		<?php
+		if (!empty($cta_url) && !empty($cta_text)) {
+			$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
+			echo wp_kses(sprintf($text, $cta_url, $cta_text, $cta_color), wp_kses_allowed_html('post'));
+		} else { ?>
 			<a href="#" class="btn btn-maroon" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Call to Action</a>
 			<a href="#" class="btn btn-gold" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Second Call to Action</a>
+
+	<?php 	   } ?>
 		</div>
 	<?php } ?>
-
 </div>
+
