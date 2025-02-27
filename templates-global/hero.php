@@ -22,10 +22,8 @@ if (is_category()) {
 
 //$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
 
-// Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 /*
-if (!empty($hero_asset_data['url'])) :
-?>
+
 	<div class="v1-uds-hero <?php echo $hero_size_class; ?> hero-<?php echo $media_type; ?>">
 
 		<?php if ('video' === $media_type) { ?>
@@ -100,17 +98,6 @@ if (!empty($hero_asset_data['url'])) :
 						?>
 					</div>
 				</div>
-				<?php
-				if (!empty($hero_text)) :
-				?>
-					<div class="row">
-						<div class="v1-uds-hero-text col col-lg-8">
-							<p><?php echo $hero_text; ?></p>
-						</div>
-					</div>
-				<?php
-				endif;
-				?>
 				<div class="row">
 					<div class="col col-lg-8">
 						<?php
@@ -175,20 +162,6 @@ if (!empty($hero_asset_data['url'])) :
 			</div>
 		</div>
 	</div>
-
-<?php
-
-else :
-
-	if (!is_category() && !is_tax()) {
-		echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
-		if (!get_field('hide_page_title', $category)) {
-			the_title('<h1 class="entry-title">', '</h1>');
-		}
-		echo '</div></div></div></section>';
-	}
-
-endif;
 */
 ?>
 
@@ -245,7 +218,8 @@ $hero_highlight = get_field('hero_highlight', $category);
 $hero_highlight_class = $apply_highlighting ? $hero_highlight : '';
 $hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)));
 
-
+// Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
+if (!empty($hero_asset_data['url'])) :
 ?>
 <div class="<?php echo "{$hero_size_class} {$has_buttons_class} {$media_type}" ?>">
 	<div class="hero-overlay"></div>
@@ -288,8 +262,20 @@ $hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)))
 			<a href="#" class="btn btn-maroon" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Call to Action</a>
 			<a href="#" class="btn btn-gold" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Second Call to Action</a>
 
-	<?php 	   } ?>
+		<?php  } ?>
 		</div>
 	<?php } ?>
 </div>
+<?php
+// no media found, show the title area
+else :
 
+	if (!is_category() && !is_tax()) {
+		echo '<section id="page-title"><div class="container"><div class="row"><div class="col-md-12">';
+		if (!get_field('hide_page_title', $category)) {
+			the_title('<h1 class="entry-title">', '</h1>');
+		}
+		echo '</div></div></div></section>';
+	}
+
+endif;
