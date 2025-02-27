@@ -26,29 +26,7 @@ if (is_category()) {
 
 	<div class="v1-uds-hero <?php echo $hero_size_class; ?> hero-<?php echo $media_type; ?>">
 
-		<?php if ('video' === $media_type) { ?>
 
-			<video class="d-none d-sm-block" id="media-video" autoplay loop muted>
-				<source src="<?php echo $hero_asset_data['url']; ?>" type="video/mp4">
-				<?php echo $hero_asset_data['alt']; ?>
-			</video>
-			<?php if ($hero_image_data) { ?>
-				<img class="d-block d-sm-none" srcset="<?php echo $hero_image_data['url']; ?>" src="<?php echo $hero_image_data['url']; ?>" alt="<?php echo $hero_image_data['alt']; ?>" />
-
-			<?php
-			}
-		} else {
-			?>
-			<img srcset="<?php echo $hero_asset_data['url']; ?>" src="<?php echo $hero_asset_data['url']; ?>" alt="
-		<?php
-			if ('image' == $media_type) {
-				echo $hero_asset_data['alt'];
-			} else {
-				echo 'Hero image';
-			}
-		?>
-		" />
-		<?php } ?>
 		<div class="container v1-uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
 			<div class="container px-0">
 				<div class="row">
@@ -223,10 +201,17 @@ if (!empty($hero_asset_data['url'])) :
 ?>
 <div class="<?php echo "{$hero_size_class} {$has_buttons_class} {$media_type}" ?>">
 	<div class="hero-overlay"></div>
-	<img class="hero" src="https://asu.github.io/asu-unity-stack/@asu/unity-bootstrap-theme/assets/cards-image-BwWUi4CH.jpg" alt="Sample placeholder image." width="2560" height="512" loading="lazy" decoding="async" fetchpriority="high">
 
-	<?php if ('video' === $media_type) { ?>
-	<video id="media-video" autoplay="" loop=""><source src="https://asu.github.io/asu-unity-stack/@asu/unity-bootstrap-theme/assets/stock-video-person-drawing-D9L4C8eq.mp4">Your browser does not support the video tag.</video>
+	<?php if ($hero_image_data) { ?>
+		<img class="hero" src="<?php echo $hero_image_data['url']; ?>" alt="<?php echo $hero_image_data['alt']; ?>" width="2560" height="512" loading="lazy" decoding="async" fetchpriority="high">
+	<?php
+	}
+
+	if ('uds-video-hero' === $media_type) { ?>
+	<video id="media-video" autoplay="" loop="">
+		<source src="<?php echo $hero_asset_data['url']; ?>">
+		<?php echo $hero_asset_data['alt']; ?>
+	</video>
 	<div class="video-hero-controls">
 		<button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large">
 			<svg class="svg-inline--fa fa-play" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
