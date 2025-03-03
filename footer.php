@@ -63,7 +63,6 @@ defined( 'ABSPATH' ) || exit;
 
 <?php wp_footer(); ?>
 
-<div id="cookieConsentContainer"></div>
 </body>
 
 </html>
