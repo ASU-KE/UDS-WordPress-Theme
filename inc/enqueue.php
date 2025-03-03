@@ -39,11 +39,6 @@ if (!function_exists('uds_wp_scripts')) {
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
-		if(!is_admin()) {
-			$uds_cookie_consent_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds-cookie-consent/vendor.umd.js' );
-			wp_enqueue_script( 'uds-cookie-consent', get_template_directory_uri() . '/src/js/uds-cookie-consent/vendor.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
-			wp_enqueue_script( 'uds-cookie-consent1', get_template_directory_uri() . '/src/js/uds-cookie-consent/asuCookieConsent.umd.js', array( 'wp-element', 'wp-components' ), $uds_cookie_consent_version, true );
-		}
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action('wp_enqueue_scripts', 'uds_wp_scripts');
