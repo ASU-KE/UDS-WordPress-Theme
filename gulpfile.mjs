@@ -29,15 +29,6 @@ gulp.task('update-uds-images', function () {
     .pipe(gulp.dest('./dist/img/'));
 });
 
-//get latest asu header
-gulp.task('update-cookie-consent-js', function () {
-    return gulp.src([
-        'node_modules/@asu/component-cookie-consent/dist/**/*'
-    ])
-	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
-    .pipe(gulp.dest('./src/js/uds-cookie-consent'));
-});
-
 //get latest fontawesome css
 gulp.task('update-fontawesome-css', function () {
     return gulp.src([
