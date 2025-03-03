@@ -24,14 +24,6 @@ if (is_category()) {
 
 /*
 
-	<div class="v1-uds-hero <?php echo $hero_size_class; ?> hero-<?php echo $media_type; ?>">
-
-
-		<div class="container v1-uds-hero-container <?php echo $has_buttons_class; ?> lazyloaded">
-			<div class="container px-0">
-				<div class="row">
-					<div class="col col-lg-8">
-						<?php
 						if (!empty($hero_title)) {
 
 							// Determine if there is any kind of highlighting to apply.
@@ -208,7 +200,7 @@ if (!empty($hero_asset_data['url'])) :
 	}
 
 	if ('uds-video-hero' === $media_type) { ?>
-	<video id="media-video" autoplay="" loop="">
+	<video id="media-video" autoplay loop muted>
 		<source src="<?php echo $hero_asset_data['url']; ?>">
 		<?php echo $hero_asset_data['alt']; ?>
 	</video>
@@ -232,8 +224,55 @@ if (!empty($hero_asset_data['url'])) :
 	<?php } ?>
 
 	<?php if (!empty($has_buttons_class)) {
-		/** For backwards compatability, if no buttons are found in the cta_buttons field,
-		* check for values in the older fields and draw a single button if found. **/
+			if (have_rows('hero_cta_buttons')) { ?>
+		<div class="btn-row">
+			<?php while (have_rows('hero_cta_buttons')) : the_row();
+				$size = get_sub_field('button_size');
+				$color = get_sub_field('button_color');
+				$external_link = get_sub_field('external_link');
+				$icon = get_sub_field('icon');
+
+				// Get and format the output for an external link.
+				if ($external_link) {
+					$rel_text = 'target="_blank" rel="noopener noreferrer"';
+				} else {
+					$rel_text = '';
+				}
+
+				// Get the output for a button icon.
+				if ($icon) {
+					$icon_text = '<span class="fas fa-' . $icon . '"></span>&nbsp;';
+				} else {
+					$icon_text = '';
+				}
+
+				// The label, URL and target values are inside an ACF 'Link' field.
+				if (get_sub_field('button_link')) {
+					$button_link_data = get_sub_field('button_link');
+					$button_label     = sanitize_text_field($button_link_data['title']);
+					$button_url       = esc_url($button_link_data['url']);
+					$button_target    = $button_link_data['target'];
+
+					// Button target is a checkbox. If it's checked, we want target to be '_blank'.
+					if ($button_target) {
+						$target_text = 'target="_blank"';
+					} else {
+						$target_text = '';
+					}
+				} else {
+					// The link field was not filled out. Create some defaults.
+					$button_label  = 'Label Missing!';
+					$button_url    = '#';
+					$target_text   = '';
+				}
+
+				$text = '<a class="btn btn-%3$s btn-%4$s" href="%1$s" %5$s %6$s >%7$s %2$s</a>';
+				echo wp_kses(sprintf($text, $button_url, $button_label, $size, $color, $target_text, $rel_text, $icon_text), wp_kses_allowed_html('post'));
+			endwhile; ?>
+		</div>
+	<?php } else {
+		// For backwards compatibility, if no buttons are found in the cta_buttons field,
+		// check for values in the older fields and draw a single button if found.
 		$cta_url = get_field('hero_call_to_action_url', $category);
 		$cta_text = get_field('hero_call_to_action_text', $category);
 		$cta_color = get_field('call_to_action_color', $category);
@@ -249,7 +288,9 @@ if (!empty($hero_asset_data['url'])) :
 
 		<?php  } ?>
 		</div>
-	<?php } ?>
+	<?php 		}
+		} ?>
+
 </div>
 <?php
 // no media found, show the title area
