@@ -178,6 +178,7 @@ switch ($media_source) {
 	default:
 		$media_type = '';
 		$hero_asset_data = get_field('hero_asset_file', $category);
+		$hero_image_data = $hero_asset_data;
 		break;
 }
 $hero_title = wptexturize(wp_kses_post(get_field('hero_title', $category, false)));
@@ -282,11 +283,7 @@ if (!empty($hero_asset_data['url'])) :
 		if (!empty($cta_url) && !empty($cta_text)) {
 			$text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
 			echo wp_kses(sprintf($text, $cta_url, $cta_text, $cta_color), wp_kses_allowed_html('post'));
-		} else { ?>
-			<a href="#" class="btn btn-maroon" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Call to Action</a>
-			<a href="#" class="btn btn-gold" data-ga="Call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-secion="the new american university">Second Call to Action</a>
-
-		<?php  } ?>
+		} ?>
 		</div>
 	<?php 		}
 		} ?>
