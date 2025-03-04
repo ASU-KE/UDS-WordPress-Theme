@@ -22,47 +22,6 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2.5 Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-
-.uds-hero-lg,
-.uds-hero-sm {
-	.uds-hero-container {
-		// At mobile size, do not apply the negative margin if no buttons exist.
-		// Also fix the left margin to match (?) the content area.
-		@media screen and (max-width: $uds-grid-container-max-width-sm) {
-			margin-bottom: 0 !important;
-			margin-left: 1rem;
-
-			&.has-buttons {
-				// With buttons, use -2rem bottom margin to pull the content down.
-				margin-bottom: -2rem !important;
-			}
-		}
-	}
-}
-
-.uds-hero-md {
-	.uds-hero-container {
-		// At mobile size, do not apply negative margin or a 'top' of 2rem if no buttons exist.
-		// Also fix the left margin to match (?) the content area.
-		@media screen and (max-width: $uds-grid-container-max-width-sm) {
-			margin-bottom: 2rem !important;
-			margin-left: 1rem;
-			top: 0 !important;
-
-			&.has-buttons {
-				// With buttons, we need to move down
-				top: 2rem !important;
-			}
-		}
-	}
-}
-
-/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 
@@ -288,79 +247,6 @@ main {
 		align-items: flex-end;
 		margin-top: 0;
 		margin-right: 0;
-	}
-}
-
-/*--------------------------------------------------------------
-Override UDS scss
---------------------------------------------------------------*/
-
-//Override the UDS hero class on heroes.scss
-@media screen and (max-width: $uds-breakpoint-sm) {
-	.uds-hero.uds-hero-sm {
-		margin: 0;
-		padding-left: 0;
-		padding-bottom: 0;
-	}
-}
-
-//Override the UDS padding on uds-list class on list.scss
-ul.uds-list {
-	padding: 0 5rem 0 2rem;
-}
-
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-	position: relative;
-	overflow: hidden;
-
-	@include media-breakpoint-down(xs) {
-		overflow: unset;
-	}
-
-	video {
-		height: 100%;
-		min-height: 100%;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	.hero-video-controls {
-		position: relative;
-		width: 100%;
-		display: block;
-
-		.btn.btn-circle.btn-circle-large {
-			z-index: 9;
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			transition: 0.3s;
-			opacity: 0.4;
-		}
-
-		#playHeroVid {
-			padding-left: 8px;
-			display: none;
-		}
-	}
-
-	&:hover {
-		.btn.btn-circle.btn-circle-large {
-			opacity: 1;
-		}
-	}
-}
-
-@include media-breakpoint-down(md) {
-	#footer-colophon,
-	#footer-innovation {
-		padding-right: 12px;
-		padding-left: 12px;
 	}
 }
 
