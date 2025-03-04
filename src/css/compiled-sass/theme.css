@@ -22575,35 +22575,6 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2.5 Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-@media screen and (max-width: 540px) {
-  .uds-hero-lg .uds-hero-container,
-  .uds-hero-sm .uds-hero-container {
-    margin-bottom: 0 !important;
-    margin-left: 1rem;
-  }
-  .uds-hero-lg .uds-hero-container.has-buttons,
-  .uds-hero-sm .uds-hero-container.has-buttons {
-    margin-bottom: -2rem !important;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .uds-hero-md .uds-hero-container {
-    margin-bottom: 2rem !important;
-    margin-left: 1rem;
-    top: 0 !important;
-  }
-  .uds-hero-md .uds-hero-container.has-buttons {
-    top: 2rem !important;
-  }
-}
-
-/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 /* The included JS file for the global header accidently applies the .dropdown-pinned
@@ -22635,99 +22606,6 @@ X. Misc. styles
   display: block;
 }
 
-/*--------------------------------------------------------------
- Hero adjustments
---------------------------------------------------------------*/
-.uds-hero {
-  position: relative;
-}
-.uds-hero .uds-hero-container {
-  z-index: 30;
-}
-.uds-hero img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-}
-
-/*--------------------------------------------------------------
-Unity hero: highlight/subtitle covers up letters fix
-
-The line height on hero H1's was not large enough to accomodate
-highlighted text, leading to letters with descenders ('g', 'y',
-etc.) being clipped. Upping the line height here to the mimimum
-size that will prevent clipping.
-
-Note: This is for all sizes except extra small and small, which
-are handled with the media query below
----------------------------------------------------------------*/
-div[class^=uds-hero] h1, div[class^=uds-hero] .h1 {
-  line-height: 4.5rem;
-}
-
-div[class^=uds-hero] [role=doc-subtitle] {
-  line-height: 1.7rem;
-}
-
-/*--------------------------------------------------------------
-Unity Hero Block Title/Subtitle Z-index
-
-The unity hero block loses the z-index setting on the title and
-subtitle when it drops below 768px (don't know why). Adding it
-back.
----------------------------------------------------------------*/
-@media (max-width: 768px) {
-  div[class^=uds-hero] .btn-row,
-  div[class^=uds-hero] .content,
-  div[class^=uds-hero] [role=doc-subtitle],
-  div[class^=uds-hero] a.btn,
-  div[class^=uds-hero] a.uds-modal-close-btn,
-  div[class^=uds-hero] h1,
-  div[class^=uds-hero] .h1 {
-    z-index: 30;
-  }
-  /* Unity hero also decides to drop the background gradient
-  at this size. Adding it back. Style rule copied directly from
-  the inspector at larger screen size. */
-  div[class^=uds-hero]::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(180deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.7882352941) 100%);
-    grid-column: 1/span 3;
-    grid-row: 1/span 4;
-    z-index: 20;
-  }
-  /* The unity hero bock only scaled the font size down at the
-  smallest mobile size (XSmall). Adding these rules to this
-  media query so we will scale down the font size at XS and Small.
-
-  Note: because we had an issue with highlighted text and line
-  height, we set the line height manually here, and did not use
-  a unity theme variable.
-
-  Note: We're also using slightly smaller than standard text for our
-  hero H1's here, only because it looks a little better IMO.
-  */
-  div[class^=uds-hero] h1, div[class^=uds-hero] .h1 {
-    font-size: 2rem; /* 2 rem */
-    line-height: 2.25rem;
-  }
-}
-@media only screen and (min-width: 576px) and (max-width: 768px) and (max-width: 768px) {
-  div[class^=uds-hero] .content {
-    width: 100%;
-    max-width: 560px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
@@ -22816,64 +22694,6 @@ main {
     align-items: flex-end;
     margin-top: 0;
     margin-right: 0;
-  }
-}
-/*--------------------------------------------------------------
-Override UDS scss
---------------------------------------------------------------*/
-@media screen and (max-width: 576px) {
-  .uds-hero.uds-hero-sm {
-    margin: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
-}
-ul.uds-list, .uds-list ul {
-  padding: 0 5rem 0 2rem;
-}
-
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-  position: relative;
-  overflow: hidden;
-  overflow: unset;
-}
-.hero-video video {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero-video .hero-video-controls {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video .hero-video-controls input.btn-circle.btn-circle-large[type=submit], .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
-  z-index: 9;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: 0.3s;
-  opacity: 0.4;
-}
-.hero-video .hero-video-controls #playHeroVid {
-  padding-left: 8px;
-  display: none;
-}
-.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video:hover input.btn-circle.btn-circle-large[type=submit], .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
-  opacity: 1;
-}
-
-@media (max-width: 767.98px) {
-  #footer-colophon,
-  #footer-innovation {
-    padding-right: 12px;
-    padding-left: 12px;
   }
 }
 /*--------------------------------------------------------------
@@ -27737,4 +27557,10 @@ Keep until refactor for anchor menu inside <header>
 .glide.image-carousel figure.uds-figure .uds-caption-text {
   color: #191919;
   max-width: 100%;
+}
+
+/* unity-carousels plugin - testimonial and gallery carousel are not centered by default in UDS, center to match the other carousels */
+.wp-block-unity-carousels-testimonial-carousel, .wp-block-unity-carousels-image-gallery-carousel, .wp-block-unity-carousels-image-carousel, .wp-block-unity-carousels-card-carousel {
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=theme.css.map */

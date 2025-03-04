@@ -6,6 +6,7 @@
             "key": "field_60527f44c91db",
             "label": "Media",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -16,12 +17,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_5ef9553c97988",
             "label": "Hero Size",
             "name": "hero_size",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -48,6 +51,7 @@
             "key": "field_60527e8bb6c34",
             "label": "Media Source",
             "name": "media_source",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -71,6 +75,7 @@
             "key": "field_5ef9561897989",
             "label": "Media URL",
             "name": "hero_asset_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "Enter a valid URL to the hero media",
             "required": 0,
@@ -95,6 +100,7 @@
             "key": "field_60527e5bb6c33",
             "label": "Image",
             "name": "hero_asset_file",
+            "aria-label": "",
             "type": "image",
             "instructions": "Choose an image from the media library",
             "required": 0,
@@ -127,8 +133,9 @@
             "key": "field_60663bf1e6be1",
             "label": "Video",
             "name": "video",
+            "aria-label": "",
             "type": "file",
-            "instructions": "Choose an MP4 video from the media library",
+            "instructions": "Choose an MP4 video from the media library. Hero size must be set to large. A static image must be uploaded for mobile.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -148,12 +155,14 @@
             "library": "all",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp4"
+            "mime_types": "mp4",
+            "allow_in_bindings": 1
         },
         {
             "key": "field_60527f5dc91dc",
             "label": "Text",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -164,12 +173,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_5ef956ca9798a",
             "label": "Title Text",
             "name": "hero_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "The large title portion of the hero",
             "required": 0,
@@ -189,6 +200,7 @@
             "key": "field_602adc094d066",
             "label": "Title Text Color",
             "name": "title_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "Text color for title with no highlighting, or single word highlighting.",
             "required": 0,
@@ -214,6 +226,7 @@
             "key": "field_605bcd7bcf1be",
             "label": "Apply Highlighting?",
             "name": "apply_highlighting",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -233,6 +246,7 @@
             "key": "field_5f5ac3e5eaa9e",
             "label": "Title Highlight Color",
             "name": "hero_highlight",
+            "aria-label": "",
             "type": "select",
             "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
             "required": 0,
@@ -267,6 +281,7 @@
             "key": "field_605a7e752fb32",
             "label": "Title Highlight Type",
             "name": "title_highlight_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "Apply highlight to the entire title or a specific word",
             "required": 0,
@@ -300,6 +315,7 @@
             "key": "field_605a7929986d0",
             "label": "Single Word Highlight",
             "name": "single_word_highlight",
+            "aria-label": "",
             "type": "text",
             "instructions": "Enter the exact word that you want to highlight, including any capitalization.",
             "required": 0,
@@ -332,6 +348,7 @@
             "key": "field_5ef956e49798b",
             "label": "Body Text",
             "name": "hero_text",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Enter a short text blurb to be displayed below the Hero Title. (optional)",
             "required": 0,
@@ -351,6 +368,7 @@
             "key": "field_60527f75c91dd",
             "label": "Buttons",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -361,12 +379,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_605930976d34b",
             "label": "Hero CTA Buttons",
             "name": "hero_cta_buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -381,11 +401,13 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Button",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_60be99f040bae",
                     "label": "Hero Buttons",
                     "name": "hero_buttons",
+                    "aria-label": "",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -401,7 +423,8 @@
                     "display": "seamless",
                     "layout": "block",
                     "prefix_label": 0,
-                    "prefix_name": 1
+                    "prefix_name": 1,
+                    "parent_repeater": "field_605930976d34b"
                 }
             ]
         },
@@ -409,6 +432,7 @@
             "key": "field_6127d5560dd21",
             "label": "Legacy Button",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -419,12 +443,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6127d57a0dd22",
             "label": "About Legacy Buttons",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -442,6 +468,7 @@
             "key": "field_605e64882fb32",
             "label": "Call to Action URL",
             "name": "hero_call_to_action_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -458,6 +485,7 @@
             "key": "field_605e64ac2fb33",
             "label": "Call to Action Text",
             "name": "hero_call_to_action_text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -477,6 +505,7 @@
             "key": "field_605e64c62fb34",
             "label": "Call to Action Color",
             "name": "call_to_action_color",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -520,5 +549,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
-    "modified": 1630002253
+    "show_in_rest": 0,
+    "modified": 1741131080
 }
