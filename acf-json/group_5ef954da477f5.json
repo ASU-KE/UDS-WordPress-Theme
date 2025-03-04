@@ -135,7 +135,7 @@
             "name": "video",
             "aria-label": "",
             "type": "file",
-            "instructions": "Choose an MP4 video from the media library. Hero size must be set to large.",
+            "instructions": "Choose an MP4 video from the media library. Hero size must be set to large. A static image must be uploaded for mobile.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -550,5 +550,5 @@
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
     "show_in_rest": 0,
-    "modified": 1740681344
+    "modified": 1741131080
 }
