@@ -54,7 +54,7 @@ gulp.task("compile-sass", function () {
 });
 
 //minify css
-gulp.task("minifycss", function () {
+gulp.task("minify-css", function () {
 	return gulp
 		.src([
 			"./src/css/compiled-sass/theme.css",
