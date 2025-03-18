@@ -218,11 +218,6 @@ gulp.task("admin-core-scripts", function() {
 // 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/js/*.js")
 // 		.pipe(gulp.dest(paths.dev + "/js/bootstrap4-asu"));
 
-// 	// Copy UDS cookie-consent JS files
-// 	var stream = gulp
-// 		.src(paths.node + "/@asu-design-system/cookie-consent/dist/*.js")
-// 		.pipe(gulp.dest(paths.dev + "/js/bootstrap4-asu"));
-
 // 	// Copy UDS SCSS files
 // 	var stream = gulp
 // 		.src(paths.node + "/@asu-design-system/bootstrap4-theme/src/scss/**/*.scss")
