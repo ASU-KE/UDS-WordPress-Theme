@@ -286,7 +286,7 @@ const exampleNavTree = [
 ];
 */
 window.addEventListener("DOMContentLoaded", (event) => {
-	AsuHeader.initGlobalHeader({
+	AsuHeaderFooter.initGlobalHeader({
 		targetSelector: "#header-container",
 		props: {
 			loggedIn: udsHeaderVars.loggedIn,
