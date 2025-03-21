@@ -23,7 +23,7 @@ gulp.task('update-asu-unity-stack-js', function () {
  * get latest asu header
  */
 gulp.task('update-asu-header-js', function () {
-    return gulp.src(['node_modules/@asu/component-header/dist/**/*'],{encoding: false})
+    return gulp.src(['node_modules/@asu/component-header-footer/dist/**/*'],{encoding: false})
 	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
     .pipe(gulp.dest('./src/js/uds-asu-header'));
 });
