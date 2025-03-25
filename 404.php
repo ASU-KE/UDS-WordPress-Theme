@@ -21,8 +21,15 @@ get_header();
 		// if we have chosen a custom page type.
 		if ( 'custom' === $page_type ) {
 
-			// get the 404 page name from the customizer.
-			$not_found_page = get_page_by_title( $custom_page_name );
+			$query = new WP_Query( array( 'title' => $custom_page_name ) );
+
+			if ( $query->have_posts() ) {
+				$query->the_post();
+				$not_found_page = get_post();
+				wp_reset_postdata();
+			} else {
+				$not_found_page = null;
+			}
 
 			// get the blocks for the 404 page.
 			$blocks = parse_blocks( $not_found_page->post_content );
