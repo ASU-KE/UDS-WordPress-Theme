@@ -58,19 +58,16 @@
 
 #### Updating the Theme
 ##### Update CSS
-- npm i @asu/asu-unity-stack
-- npm i bootstrap
+- `npm i @asu/asu-unity-stack`
+- `npm i bootstrap`
 - node_modules update @import path to `../../node_modules/bootstrap` in errored files
 - gulp task copy node module to /css folder
 - gulp task minify css for prod (rename module is throwing `(node:26735) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.` may need update soon )
 ##### Update ASU header
-- npm i @asu/component-header
-- gulp task copy node module to /js folder
-##### Update cookie consent
-- npm i @asu/cookie-consent
+- `npm i @asu/component-header-footer`
 - gulp task copy node module to /js folder
 ##### Update images
-- npm i @asu/asu-unity-stack
+- `npm i @asu/asu-unity-stack`
 - gulp task copy node module to /img folder
 
 #### Customizer Options
