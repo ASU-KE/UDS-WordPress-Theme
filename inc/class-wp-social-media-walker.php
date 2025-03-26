@@ -72,7 +72,7 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
 			$aria_label = '';
-			preg_match('/fa-(?:square-)?(?:x-)?([^-]+)/', $title, $match);
+			preg_match('/fa-(?:square-)?([^-]+)/', $title, $match);
 			if ( ! empty( $match[1] ) ) {
 				$aria_label = $match[1];
 			}
