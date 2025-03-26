@@ -1,20 +1,23 @@
 <p align="center">
-  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
+  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/dist/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
 </p>
 
 <h1 align="center">ASU Web Standards WordPress Theme</h1>
-<h2 align="center">A WordPress theme based on ASU's Web Standards 2.0</h2>
 
-<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
+<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Unity Design System (@asu/unity-bootstrap-theme), to deliver standards-compliant and accessible WordPress websites across ASU.</p>
 
 ### Features
 
 - ASU Web Standards 2.0
   - Based on ASU's official design token libray for consistent adherence to Web Standards 2.0
   - Utilizes the official ASU Bootstrap theme built on top of the design token library
-  - Accessibilty built-in: all Bootstrap markup and styling is approved by the ASU Accessibility community before release
+  - Accessibilty compliant
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
+
+### Found a bug? Have a question? Need support?
+
+[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
 
 ## Table of Contents
 
@@ -30,7 +33,6 @@
 			- [Working with the Main Menu](#working-with-the-main-menu)
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
-	- [Reporting Issues](#reporting-issues)
 - [For Developers](#for-developers)
 	- [Introduction](#introduction)
 	- [Requirements](#requirements)
@@ -105,10 +107,6 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 #### Shortcodes
 
 #### Adding Sidebars
-
-### Reporting Issues
-
-[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
 
 ## For Developers
 
