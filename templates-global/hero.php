@@ -188,6 +188,8 @@ $apply_highlighting = get_field('apply_highlighting', $category);
 $hero_highlight = get_field('hero_highlight', $category);
 $hero_highlight_class = $apply_highlighting ? $hero_highlight : '';
 $hero_text = wptexturize(wp_kses_post(get_field('hero_text', $category, false)));
+$subtitle_text = wptexturize(wp_kses_post(get_field('subtitle_text', $category, false)));
+$subtitle_style = get_field('subtitle_style', $category);
 
 // Check for a hero bg image and if present build the hero. Otherwise show the title of the page.
 if (!empty($hero_asset_data['url'])) :
@@ -216,12 +218,20 @@ if (!empty($hero_asset_data['url'])) :
 	</div>
 	<?php } ?>
 
-	<h1><span class="<?php echo "{$title_color_class} {$hero_highlight_class}" ?>"><?php echo "{$hero_title}"?></span></h1>
+	<?php if( !empty($subtitle_text) ): ?>
+		<div role="doc-subtitle"><span class="<?php echo $subtitle_style;?>"><?php echo $subtitle_text;?></span></div>
+	<?php endif; ?>
+
+	<?php if( ! $apply_highlighting ): ?>
+		<h1 class="<?php echo $title_color_class; ?>"><?php echo $hero_title; ?></h1>
+	<?else: ?>
+		<h1><span class="<?php echo $hero_highlight_class; ?>"><?php echo $hero_title; ?></span></h1>
+	<?php endif; ?>
 
 	<?php if (!empty($hero_text)) { ?>
-	<div class="content">
-		<p class="text-white"><?php echo "{$hero_text}"?></p>
-	</div>
+		<div class="content">
+			<p class="<?php echo $title_color_class; ?>"><?php echo "{$hero_text}"?></p>
+		</div>
 	<?php } ?>
 
 	<?php if (!empty($has_buttons_class)) {
