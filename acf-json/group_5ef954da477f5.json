@@ -233,7 +233,7 @@
             "name": "title_color",
             "aria-label": "",
             "type": "radio",
-            "instructions": "Color for the main title and body content. Note: if you apply highlighting, the text color within the highlight will be determined by the highlight class and not this setting.",
+            "instructions": "Color for the main title text and body content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -278,8 +278,8 @@
             "label": "Title Highlight Color",
             "name": "hero_highlight",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
+            "type": "radio",
+            "instructions": "Note: these highlight colors will also determine the color of the highlighted text, and will override the 'Title Text Color' value above.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -300,20 +300,20 @@
                 "highlight-black": "Black",
                 "highlight-white": "White"
             },
-            "default_value": "Gold",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "",
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605a7e752fb32",
             "label": "Title Highlight Type",
             "name": "title_highlight_type",
             "aria-label": "",
-            "type": "select",
+            "type": "radio",
             "instructions": "Apply highlight to the entire title or a specific word",
             "required": 0,
             "conditional_logic": [
@@ -334,13 +334,13 @@
                 "all": "The entire title",
                 "word": "Only one word"
             },
-            "default_value": "none",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "",
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605a7929986d0",
@@ -669,5 +669,5 @@
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
     "show_in_rest": 0,
-    "modified": 1743633229
+    "modified": 1743633993
 }
