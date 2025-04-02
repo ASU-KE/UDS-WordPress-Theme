@@ -232,18 +232,10 @@
             "label": "Title Text Color",
             "name": "title_color",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Text color for title with no highlighting, or single word highlighting.",
+            "type": "radio",
+            "instructions": "Color for the main title and body content. Note: if you apply highlighting, the text color within the highlight will be determined by the highlight class and not this setting.",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_605bcd7bcf1be",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
                 "class": "",
@@ -253,14 +245,13 @@
                 "black": "Black",
                 "white": "White"
             },
-            "default_value": "black",
+            "default_value": "",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
+            "other_choice": 0,
             "allow_in_bindings": 1,
-            "ui": 1,
-            "ajax": 0,
-            "placeholder": ""
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605bcd7bcf1be",
@@ -476,7 +467,7 @@
             "name": "hero_text",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Enter a short text blurb to be displayed below the Hero Title. (optional)",
+            "instructions": "Text to show below the main title. This text will NOT APPEAR on mobile sizes and will always adopt the same color you choose for the main title.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -485,9 +476,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 4,
+            "placeholder": "",
             "new_lines": "br"
         },
         {
@@ -677,5 +669,5 @@
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
     "show_in_rest": 0,
-    "modified": 1743621007
+    "modified": 1743633229
 }
