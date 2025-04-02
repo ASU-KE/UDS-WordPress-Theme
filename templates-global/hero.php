@@ -20,119 +20,7 @@ if (is_category()) {
 	$category = get_queried_object();
 }
 
-//$single_word_highlight = sanitize_text_field(get_field('single_word_highlight', $category));
 
-/*
-
-						if (!empty($hero_title)) {
-
-							// Determine if there is any kind of highlighting to apply.
-							if ($apply_highlighting) {
-								// Yes. Highlighting has been chosen.
-								$title_highlight_type = get_field('title_highlight_type', $category);
-
-								switch ($title_highlight_type) {
-									case 'word':
-										/**
-										 * For single-word highlighting, we ensure the following:
-										 * - A word was actually provided
-										 * - That word is in the title
-										 *
-										 * If both those are true, then we replace the word with the same word wrapped in a span
-										 * of the approprite class. Otherwise, we fall back on the default title behavior.
-										 */
-										/*
-										if (!empty($single_word_highlight) && false !== strpos($hero_title, $single_word_highlight)) {
-											$title_string = str_replace(
-												$single_word_highlight,
-												'<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
-												$hero_title
-											);
-										} else {
-											// Word not found. Just present the title with the appropriate text color class.
-											echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
-										}
-										echo '<h1 class="text-' . $title_color . '">' . $title_string . '</h1>';
-										break;
-									case 'all':
-									default:
-										// Full title highlight. Wrap the entire text in a <span> of the chosen style.
-										echo '<h1><span class="' . $hero_highlight . '">' . $hero_title . '</span></h1>';
-										break;
-								}
-							} else {
-								// No highlighting. Just present the title with the appropriate text color class.
-								echo '<h1><span class="' . $title_color_class . '">' . $hero_title . '</span></h1>';
-							}
-						}
-						?>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col col-lg-8">
-						<?php
-						// Render any buttons we have added to the hero area.
-						if (have_rows('hero_cta_buttons')) {
-							echo '<div class="hero-buttons">';
-							while (have_rows('hero_cta_buttons')) :
-								the_row();
-								$size = get_sub_field('button_size');
-								$color = get_sub_field('button_color');
-								$external_link = get_sub_field('external_link');
-								$icon = get_sub_field('icon');
-
-								// Get and format the output for an external link.
-								if ($external_link) {
-									$rel_text = 'target="_blank" rel="noopener noreferrer"';
-								} else {
-									$rel_text = '';
-								}
-
-								// Get the output for a button icon.
-								if ($icon) {
-									$icon_text = '<span class="fas fa-' . $icon . '"></span>&nbsp;';
-								} else {
-									$icon_text = '';
-								}
-
-								/**
-								 * The label, URL and target values are inside an ACF 'Link' field.
-								 * They do not have default values, like the other button fields,
-								 * so we check here to see if they've been set, and apply some defaults.
-								 */
-								/*
-								if (get_sub_field('button_link')) {
-									$button_link_data = get_sub_field('button_link');
-									$button_label     = sanitize_text_field($button_link_data['title']);
-									$button_url       = esc_url($button_link_data['url']);
-									$button_target    = $button_link_data['target'];
-
-									// Button target is a checkbox. If it's checked, we want target to be '_blank'.
-									if ($button_target) {
-										$target_text = 'target="_blank"';
-									} else {
-										$target_text = '';
-									}
-								} else {
-									// The link field was not filled out. Create some defaults.
-									$button_label  = 'Label Missing!';
-									$button_url    = '#';
-									$target_text   = '';
-								}
-
-								$text = '<a class="btn btn-%3$s btn-%4$s mr-2 mb-2" href="%1$s" %5$s %6$s >%7$s %2$s</a>';
-								echo wp_kses(sprintf($text, $button_url, $button_label, $size, $color, $target_text, $rel_text, $icon_text), wp_kses_allowed_html('post'));
-							endwhile;
-							echo '</div>';
-						} else {
-
-						?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-*/
 ?>
 
 <?php
@@ -222,10 +110,46 @@ if (!empty($hero_asset_data['url'])) :
 		<div role="doc-subtitle"><span class="<?php echo $subtitle_style;?>"><?php echo $subtitle_text;?></span></div>
 	<?php endif; ?>
 
+
 	<?php if( ! $apply_highlighting ): ?>
+		// No highlighting, so apply a class directly to the H1 tag
 		<h1 class="<?php echo $title_color_class; ?>"><?php echo $hero_title; ?></h1>
 	<?else: ?>
-		<h1><span class="<?php echo $hero_highlight_class; ?>"><?php echo $hero_title; ?></span></h1>
+		<?php
+
+			$title_highlight_type = get_field('title_highlight_type', $category);
+			switch ($title_highlight_type) {
+				case 'word':
+					/**
+					 * For single-word highlighting, we ensure the following:
+					 * - A word was actually provided
+					 * - That word is in the title
+					 *
+					 * If both those are true, then we replace the word with the same word wrapped in a span
+					 * of the approprite class. Otherwise, we fall back on the default title behavior.
+					 */
+					$single_word_highlight = get_field('single_word_highlight', $category);
+					if (!empty($single_word_highlight) && false !== strpos($hero_title, $single_word_highlight)) {
+						$title_string = str_replace(
+							$single_word_highlight,
+							'<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
+							$hero_title
+						);
+						echo '<h1 class="' . $title_color_class .'">' . $title_string . '</h1>';
+					} else {
+						// Word not found. Just present the title with the appropriate text color class.
+						echo '<h1 class="' . $title_color_class . '">' . $hero_title . '</h1>';
+					}
+					break;
+				case 'all':
+				default:
+					// Full title highlight. Wrap the entire text in a <span> of the chosen style.
+					echo '<h1><span class="' . $hero_highlight . '">' . $hero_title . '</span></h1>';
+					break;
+			}
+		?>
+
+
 	<?php endif; ?>
 
 	<?php if (!empty($hero_text)) { ?>
