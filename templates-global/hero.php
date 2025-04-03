@@ -42,7 +42,6 @@ switch ($media_source) {
         $hero_image_data = $hero_asset_data;
         break;
 }
-do_action('qm/debug', $hero_asset_data);
 $hero_title = wptexturize(wp_kses_post(get_field('hero_title', $category, false)));
 $title_color = get_field('title_color', $category);
 $title_color_class = ($title_color == 'white') ? 'text-white' : '';
