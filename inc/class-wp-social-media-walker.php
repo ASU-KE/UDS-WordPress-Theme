@@ -72,10 +72,16 @@ if ( ! class_exists( 'WP_Social_Media_Walker' ) ) {
 			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
 			$aria_label = '';
-			preg_match('/fa-(?:square-)?([^-]+)/', $title, $match);
-			if ( ! empty( $match[1] ) ) {
-				$aria_label = $match[1];
-			}
+
+			// Remove unwanted prefixes and suffixes from the title, leaving only the icon name.
+			$unwanted = array(
+				'fa-',
+				'square-',
+				'-square',
+			);
+
+  			$aria_label = str_replace($unwanted, '', $title);
+
 			$item_output = $args->before
 				. "<a aria-label='$aria_label' id='menu-item-$item->ID' $class_names $attributes ><span class='fab $title'>"
 				. '</span></a> '
