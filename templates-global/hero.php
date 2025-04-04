@@ -98,6 +98,7 @@ if (!empty($hero_asset_data['url'])) : ?>
             $title_highlight_type = get_field('title_highlight_type', $category);
             switch ($title_highlight_type) {
                 case 'word':
+					$title_open_markup = '<h1 class="' . $title_color_class . '">';
                     $single_word_highlight = get_field('single_word_highlight', $category);
                     if (!empty($single_word_highlight) && false !== strpos($hero_title, $single_word_highlight)) {
                         $title_string = str_replace(
@@ -105,9 +106,7 @@ if (!empty($hero_asset_data['url'])) : ?>
                             '<span class="' . $hero_highlight . '" style="margin-left: 0;">' . $single_word_highlight . '</span>',
                             $hero_title
                         );
-                    } else {
-                        $title_open_markup = '<h1 class="' . $title_color_class . '">';
-                    }
+					}
                     break;
                 case 'all':
                 default:
