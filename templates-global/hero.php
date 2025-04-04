@@ -102,7 +102,7 @@ if (!empty($hero_asset_data['url'])) : ?>
                     if (!empty($single_word_highlight) && false !== strpos($hero_title, $single_word_highlight)) {
                         $title_string = str_replace(
                             $single_word_highlight,
-                            '<span class="' . $hero_highlight . '">' . $single_word_highlight . '</span>',
+                            '<span class="' . $hero_highlight . '" style="margin-left: 0;">' . $single_word_highlight . '</span>',
                             $hero_title
                         );
                     } else {
