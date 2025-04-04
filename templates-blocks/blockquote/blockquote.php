@@ -115,10 +115,12 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	<div class="content-wrapper">
 		<blockquote>
 			<p><?php the_field( 'quote_text' ); ?></p>
+			<div class="citation">
+				<div class="citation-content">
+					<cite class="name"><?php the_field( 'name' ); ?></cite>
+					<cite class="description"><?php the_field( 'description' ); ?></cite>
+				</div>
+			</div>
 		</blockquote>
-		<figcaption>
-			<cite class="name"><?php the_field( 'name' ); ?></cite>
-			<cite class="description"><?php the_field( 'description' ); ?></cite>
-		</figcaption>
 	</div>
 </figure>
