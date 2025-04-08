@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 // Get theme mods from the Customizer.
 $image_404 = get_theme_mod( 'image_404' );
 $page_type = get_theme_mod( '404_page_type' );
-$custom_page_name = get_the_title( get_theme_mod( '404_page_id' ) );
+$custom_page_id = get_theme_mod( '404_page_id' );
 
 get_header();
 
@@ -21,7 +21,7 @@ get_header();
 		// if we have chosen a custom page type.
 		if ( 'custom' === $page_type ) {
 
-			$query = new WP_Query( array( 'title' => $custom_page_name ) );
+			$query = new WP_Query( array( 'page_id' => $custom_page_id ) );
 
 			if ( $query->have_posts() ) {
 				$query->the_post();
