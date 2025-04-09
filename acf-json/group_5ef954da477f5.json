@@ -3,8 +3,8 @@
     "title": "UDS: Page Hero",
     "fields": [
         {
-            "key": "field_60527f44c91db",
-            "label": "Media",
+            "key": "field_67d3173259785",
+            "label": "Hero Type and Size",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -16,21 +16,48 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0,
             "selected": 0
+        },
+        {
+            "key": "field_60527e8bb6c34",
+            "label": "Hero Type",
+            "name": "media_source",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "local_image": "Image from Media Library",
+                "local_video": "Video from Media Library",
+                "url": "Image from URL"
+            },
+            "default_value": "local_image",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_5ef9553c97988",
             "label": "Hero Size",
             "name": "hero_size",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "radio",
+            "instructions": "Select a size for the hero.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -39,103 +66,47 @@
                 "medium": "Medium (1920x512)",
                 "large": "Large (1920x684)"
             },
-            "default_value": "medium",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "",
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
-            "key": "field_60527e8bb6c34",
-            "label": "Media Source",
-            "name": "media_source",
+            "key": "field_67d31af4a5468",
+            "label": "About Video Heroes",
+            "name": "",
             "aria-label": "",
-            "type": "button_group",
+            "type": "message",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "url": "URL",
-                "local_image": "Image",
-                "local_video": "Video"
-            },
-            "allow_null": 0,
-            "default_value": "local",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_5ef9561897989",
-            "label": "Media URL",
-            "name": "hero_asset_url",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "Enter a valid URL to the hero media",
-            "required": 0,
             "conditional_logic": [
                 [
                     {
                         "field": "field_60527e8bb6c34",
                         "operator": "==",
-                        "value": "url"
+                        "value": "local_video"
                     }
                 ]
             ],
             "wrapper": {
-                "width": "50",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "message": "When creating a video hero, you <strong>must<\/strong> set the size to <strong>Large<\/strong>, and select an image to be used on mobile screens.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
-            "key": "field_60527e5bb6c33",
-            "label": "Image",
-            "name": "hero_asset_file",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Choose an image from the media library",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60527e8bb6c34",
-                        "operator": "==",
-                        "value": "local_image"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_60663bf1e6be1",
+            "key": "field_67d1eff3cab77",
             "label": "Video",
             "name": "video",
             "aria-label": "",
             "type": "file",
-            "instructions": "Choose an MP4 video from the media library. Hero size must be set to large. A static image must be uploaded for mobile.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -155,12 +126,72 @@
             "library": "all",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp4",
-            "allow_in_bindings": 1
+            "mime_types": "",
+            "allow_in_bindings": 0
         },
         {
-            "key": "field_60527f5dc91dc",
-            "label": "Text",
+            "key": "field_60527e5bb6c33",
+            "label": "Image",
+            "name": "hero_asset_file",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60527e8bb6c34",
+                        "operator": "!=",
+                        "value": "url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_5ef9561897989",
+            "label": "Media URL",
+            "name": "hero_asset_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter a valid URL to the hero media",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60527e8bb6c34",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "placeholder": ""
+        },
+        {
+            "key": "field_67d3178059786",
+            "label": "Main Title",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -172,7 +203,7 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0,
             "selected": 0
         },
@@ -201,8 +232,8 @@
             "label": "Title Text Color",
             "name": "title_color",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Text color for title with no highlighting, or single word highlighting.",
+            "type": "radio",
+            "instructions": "Color for the main title text and body content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -214,13 +245,13 @@
                 "black": "Black",
                 "white": "White"
             },
-            "default_value": "black",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 0,
+            "default_value": "",
             "return_format": "value",
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605bcd7bcf1be",
@@ -247,8 +278,8 @@
             "label": "Title Highlight Color",
             "name": "hero_highlight",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Choose a Web 2.0 highlight style to be applied to the hero title text",
+            "type": "radio",
+            "instructions": "Note: these highlight colors will also determine the color of the highlighted text, and will override the 'Title Text Color' value above.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -269,20 +300,20 @@
                 "highlight-black": "Black",
                 "highlight-white": "White"
             },
-            "default_value": "Gold",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "",
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605a7e752fb32",
             "label": "Title Highlight Type",
             "name": "title_highlight_type",
             "aria-label": "",
-            "type": "select",
+            "type": "radio",
             "instructions": "Apply highlight to the entire title or a specific word",
             "required": 0,
             "conditional_logic": [
@@ -303,13 +334,13 @@
                 "all": "The entire title",
                 "word": "Only one word"
             },
-            "default_value": "none",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "",
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
         },
         {
             "key": "field_605a7929986d0",
@@ -345,12 +376,98 @@
             "maxlength": ""
         },
         {
+            "key": "field_67d3218970aee",
+            "label": "Subtitle",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_67d31e59a81fe",
+            "label": "Subtitle Text",
+            "name": "subtitle_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter text here to create a subtitle above the main hero title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67d31e9da81ff",
+            "label": "Subtitle Highlight",
+            "name": "subtitle_style",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Note: The Gold\/Black\/White highlight options will automatically change the text color",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text-white": "White next (no highlight)",
+                "text-black": "Black text (no highlight)",
+                "highlight-gold": "Gold Highlight",
+                "highlight-black": "Black Highlight",
+                "highlight-white": "White Highlight"
+            },
+            "default_value": "text-white",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_67d321ba70aef",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_5ef956e49798b",
             "label": "Body Text",
             "name": "hero_text",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Enter a short text blurb to be displayed below the Hero Title. (optional)",
+            "instructions": "Text to show below the main title. This text will NOT APPEAR on mobile sizes and will always adopt the same color you choose for the main title.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -359,13 +476,14 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 4,
+            "placeholder": "",
             "new_lines": "br"
         },
         {
-            "key": "field_60527f75c91dd",
+            "key": "field_67d317b059787",
             "label": "Buttons",
             "name": "",
             "aria-label": "",
@@ -378,7 +496,7 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0,
             "selected": 0
         },
@@ -396,10 +514,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_60be99f040bae",
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "row",
+            "collapsed": "field_60be99f040bae",
             "button_label": "Add Button",
             "rows_per_page": 20,
             "sub_fields": [
@@ -429,8 +548,8 @@
             ]
         },
         {
-            "key": "field_6127d5560dd21",
-            "label": "Legacy Button",
+            "key": "field_67d317de59788",
+            "label": "Legacy Buttons",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -442,7 +561,7 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0,
             "selected": 0
         },
@@ -550,5 +669,5 @@
     "active": true,
     "description": "Fields for constructing a page hero, with optional sizes, text styles, and a Call to Action button",
     "show_in_rest": 0,
-    "modified": 1741131080
+    "modified": 1743633993
 }

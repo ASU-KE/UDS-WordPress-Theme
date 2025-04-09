@@ -1,20 +1,23 @@
 <p align="center">
-  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
+  <img src="https://rto.asu.edu/wp-content/themes/UDS-WordPress-Theme/dist/img/endorsed-logo/asu_knowledge_enterprise_white.png" alt="ASU Knowledge Enterprise" width="400" />
 </p>
 
 <h1 align="center">ASU Web Standards WordPress Theme</h1>
-<h2 align="center">A WordPress theme based on ASU's Web Standards 2.0</h2>
 
-<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Bootstrap theme, to deliver standards-compliant and accessible WordPress websites across ASU.</p>
+<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Unity Design System (@asu/unity-bootstrap-theme), to deliver standards-compliant and accessible WordPress websites across ASU.</p>
 
 ### Features
 
 - ASU Web Standards 2.0
   - Based on ASU's official design token libray for consistent adherence to Web Standards 2.0
   - Utilizes the official ASU Bootstrap theme built on top of the design token library
-  - Accessibilty built-in: all Bootstrap markup and styling is approved by the ASU Accessibility community before release
+  - Accessibilty compliant
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
+
+### Found a bug? Have a question? Need support?
+
+[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
 
 ## Table of Contents
 
@@ -30,7 +33,6 @@
 			- [Working with the Main Menu](#working-with-the-main-menu)
 		- [Shortcodes](#shortcodes)
 		- [Adding Sidebars](#adding-sidebars)
-	- [Reporting Issues](#reporting-issues)
 - [For Developers](#for-developers)
 	- [Introduction](#introduction)
 	- [Requirements](#requirements)
@@ -42,11 +44,10 @@
 	- [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
 	- [Contributing to the Theme](#contributing-to-the-theme)
 		- [PHP Coding Standards](#php-coding-standards)
-				- [Composer Scripts](#composer-scripts)
+			- [Composer Scripts](#composer-scripts)
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
 	- [Extending the Theme](#extending-the-theme)
-		- [UDS-WordPress-Child-Theme theme template](#uds-wordpress-child-theme-theme-template)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
 
 ## Getting Started
@@ -59,19 +60,16 @@
 
 #### Updating the Theme
 ##### Update CSS
-- npm i @asu/asu-unity-stack
-- npm i bootstrap
+- `npm i @asu/asu-unity-stack`
+- `npm i bootstrap`
 - node_modules update @import path to `../../node_modules/bootstrap` in errored files
 - gulp task copy node module to /css folder
 - gulp task minify css for prod (rename module is throwing `(node:26735) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.` may need update soon )
 ##### Update ASU header
-- npm i @asu/component-header
-- gulp task copy node module to /js folder
-##### Update cookie consent
-- npm i @asu/cookie-consent
+- `npm i @asu/component-header-footer`
 - gulp task copy node module to /js folder
 ##### Update images
-- npm i @asu/asu-unity-stack
+- `npm i @asu/asu-unity-stack`
 - gulp task copy node module to /img folder
 
 #### Customizer Options
@@ -110,10 +108,6 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 #### Adding Sidebars
 
-### Reporting Issues
-
-[ServiceNow - KE Web Services Portal](https://asu.service-now.com/sp?sys_id=aa9567101b47b9109a9cca2b234bcbfd&id=sc_category)
-
 ## For Developers
 
 ### Introduction
@@ -126,14 +120,8 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 ### Local WordPress Environment
 
-This is a WordPress theme, and you will need to have access, and administrative rights, to a WordPress site in order to do any development on the theme. It is **not recommended** to attempt theme development on a live server.
-
-There are several solutions available for hosting local WordPress development sites on your own computer, including:
-
 - [Local by Flywheel](https://localwp.com/)
 - [Lando](https://docs.lando.dev/)
-- [wp-local-docker](https://github.com/10up/wp-local-docker) by 10up
-- [VVV](https://varyingvagrantvagrants.org/)
 
 ### Setting Up Local or Lando
 
@@ -204,7 +192,7 @@ You are now ready to clone the theme within the projects `wp-content/themes` fol
 
 ### Installing Dependencies from the ASU Unity Design System
 
-The ASU-produced packages in this theme are loaded from the ASU Unity Private NPM (Verdaccio) package repository. This requires you to sign-in and create a user account on the NPM server. Doing so, npm will automatically save your authentication token into a local .npmrc file located in your home directory.
+Add your private key to the `.npmrc` file.
 
 ### Contributing to the Theme
 
@@ -242,13 +230,6 @@ We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks dire
 To work with and compile your Sass files on the fly start:`$ gulp watch`
 
 ### Extending the Theme
-The UDS-WordPress theme is a complete theme which includes all of the required WordPress template files and assets for the theme to work.
-
-It can also function as the [parent](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme) for a customized child theme. A [child theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-child-theme) allows developers to make modifications to any part of the existing theme and to keep their customizations separate from the parent theme functions.
-
-The UDS-WordPress theme also includes several [action hooks](https://kinsta.com/blog/wordpress-hooks/) that can be used either by a child theme or a plugin to add or alter functionality of the parent theme.
-
-#### UDS-WordPress-Child-Theme theme template
 
 A "starter" child theme template has been made available for use in creating your custom solution for WordPress. That theme template is located here:
 
