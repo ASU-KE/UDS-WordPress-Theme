@@ -54,23 +54,26 @@ if ('horizontal' == get_field('card_orientation')) {
 
 // If there's an icon, clean it up for use.
 $icon_name = get_field('header_icon');
+
 if ('icon' == $header_style && '' != $icon_name) {
 	$icon_name = sanitize_text_field($icon_name);
+
+	/**
+	 * For legacy support, if the icon name does not start with 'fas' or 'fab'
+	 * we will presume we have only the icon base name (ex. just 'user' )
+	 * and apply the original 'fas fa-' version like this:
+	 *
+	 * if the icon name does NOT start with FAS or FAB
+	 * strip out 'fa-' if it is found (for cases like getting 'fa-user')
+	 * then prepend the result with 'fas fa-' like the original code did.
+	 */
+	if( false == preg_match('/^fa[sb]/', $icon_name ) ) {
+		$icon_name = str_ireplace('fa-', '', $icon_name );
+		$icon_name = trim('fas fa-' . $icon_name);
+	}
 }
 
-/**
- * For legacy support, if the icon name does not start with 'fas' or 'fab'
- * we will presume we have only the icon base name (ex. just 'user' )
- * and apply the original 'fas fa-' version like this:
- *
- * if the icon name does NOT start with FAS or FAB
- * strip out 'fa-' if it is found (for cases like getting 'fa-user')
- * then prepend the result with 'fas fa-' like the original code did.
- */
-if( false == preg_match('/^fa[sb]/', $icon_name ) ) {
-	$icon_name = str_ireplace('fa-', '', $icon_name );
-	$icon_name = trim('fas fa-' . $icon_name);
-}
+
 
 // Get the icon color
 $icon_color = get_field( 'card_icon_color' );
