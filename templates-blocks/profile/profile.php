@@ -81,92 +81,61 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 
 // Render the block.
 ?>
-<div class="profile profile-type-standard <?php echo $additional_classes; ?> <?php echo $vertical_classes; ?>">
-	<div class="profile-row">
-		<?php if ( ! empty( $image_data ) ) : ?>
-			<div class="profile-photo-column">
-				<?php if ( ! empty( $person_url ) ) : ?>
-					<a href=<?php echo $person_url; ?> target="_blank" rel="noopener noreferrer">
+<div class="uds-person-profile <?php echo $feature_class; ?>">
+	<div class="profile-img-container">
+		<div class="profile-img-placeholder" style="background-image: url('https://asu.github.io/asu-unity-stack/@asu/unity-bootstrap-theme/assets/anon-CXWQnlvV.png');">
+			<img class="profile-img" src="<?php echo $image_data['url']; ?>" alt="<?php echo $person_name; ?>" width="300" height="300" decoding="async" loading="lazy" fetchpriority="high">
+		</div>
+	</div>
+	<div class="person">
+		<h3 class="person-name"><?php echo $person_name; ?></h3>
+		<div class="person-profession">
+			<?php if ( ! empty( $person_title ) ) : ?>
+				<h4><span><?php echo $person_title; ?></span></h4>
+			<?php endif; ?>
+		</div>
+		<?php if ( $render_contact_row ) : ?>
+			<ul class="person-contact-info">
+				<?php if ( ! empty( $person_email ) ) : ?>
+					<li>
+						<a href="mailto:<?php echo $person_email; ?>" aria-label="Email user"><?php echo $person_email; ?></a>
+					</li>
 				<?php endif; ?>
-					<img class="pictureOriginal <?php echo $feature_class;?>" src="<?php echo $image_data['url']; ?>" alt="profile picture for <?php echo $person_name; ?>">
-				<?php if ( ! empty( $person_url ) ) : ?>
-					</a>
+				<?php if ( ! empty( $person_phone ) ) : ?>
+					<li>
+						<a href="tel:<?php echo $person_phone; ?>" aria-label="Call user"><?php echo $person_phone; ?></a>
+					</li>
 				<?php endif; ?>
+				<?php if ( $person_street_address || $person_city_state_zip ) : ?>
+					<li>
+						<address class="person-address">
+							<?php if ( $person_street_address ) : ?>
+								<span class="person-street"><?php echo $person_street_address; ?></span>
+							<?php endif; ?>
+							<?php if ( $person_city_state_zip ) : ?>
+								<span class="person-city"><?php echo $person_city_state_zip; ?></span>
+							<?php endif; ?>
+						</address>
+					</li>
+				<?php endif; ?>
+			</ul>
+		<?php endif; ?>
+		<?php if ( ! empty( $person_text ) ) : ?>
+			<div>
+				<p class="person-description"><?php echo $person_text; ?></p>
 			</div>
 		<?php endif; ?>
-		<div class="profile-bio-column">
-			<div class="profile-bio-details">
-				<h3 class="profile-name">
-					<?php if ( ! empty( $person_url ) ) : ?>
-						<a href="<?php echo $person_url; ?>" target="_blank" rel="noopener noreferrer">
-					<?php endif; ?>
-						<?php echo $person_name; ?>
-					<?php if ( ! empty( $person_url ) ) : ?>
+		<?php if ( have_rows( 'uds_profile_social_media_icons' ) ) : ?>
+			<ul class="person-social-medias">
+				<?php while ( have_rows( 'uds_profile_social_media_icons' ) ) : the_row(); ?>
+					<?php $network_name = get_sub_field( 'uds_profile_network_name' ); ?>
+					<li>
+						<a href="<?php echo get_sub_field( 'uds_profile_social_url' ); ?>" aria-label="Go to user <?php echo $base_social_media[ $network_name ]['name']; ?> profile">
+							<span class="<?php echo $base_social_media[ $network_name ]['icon']; ?>"></span>
 						</a>
-					<?php endif; ?>
-				</h3>
-				<?php if ( ! empty( $person_title ) ) : ?>
-					<div class="profile-title">
-						<p class="titleOriginal">
-							<?php echo $person_title; ?>
-						</p>
-					</div>
-				<?php endif; ?>
-				<?php if ( $render_contact_row ) : ?>
-					<div class="profile-contact-row">
-						<?php if ( ! empty( $person_email ) ) : ?>
-							<div class="profile-contact-email">
-								<p>
-									<a class="linkOriginal profile-email-link" href="mailto:<?php echo $person_email; ?>">
-										<?php echo $person_email; ?>
-									</a>
-								</p>
-							</div>
-						<?php endif; ?>
-						<?php if ( ! empty( $person_phone ) ) : ?>
-							<div class="profile-contact-phone">
-								<p>
-									<a class="" href="tel:<?php echo $person_phone; ?>">
-										<?php echo $person_phone; ?>
-									</a>
-								</p>
-							</div>
-						<?php endif; ?>
-						<?php if ( $person_street_address || $person_city_state_zip ) : ?>
-						<div class="profile-contact-address">
-								<div>
-									<p>
-										<?php if ( $person_street_address ): ?>
-											<?php echo $person_street_address; ?>
-											<br>
-										<?php endif; ?>
-										<?php if ( $person_city_state_zip ): ?>
-											<?php echo $person_city_state_zip; ?>
-										<?php endif; ?>
-									</p>
-								</div>
-						</div>
-						<?php endif; ?>
-					</div>
-				<?php endif; ?>
-				<?php if ( ! empty( $person_text ) ) : ?>
-					<p>
-						<?php echo $person_text; ?>
-					</p>
-				<?php endif; ?>
-			</div>
-			<div class="profile-bio-social">
-			<?php if (have_rows('uds_profile_social_media_icons')) : ?>
-				<ul class="person_social_medias">
-					<?php while (have_rows('uds_profile_social_media_icons')) : the_row(); ?>
-						<?php $network_name = get_sub_field('uds_profile_network_name'); ?>
-						<li>
-							<a href="<?php echo get_sub_field('uds_profile_social_url'); ?>" ><span class="<?php echo $base_social_media[$network_name]['icon']; ?>"></span></a>
-						</li>
-					<?php endwhile; ?>
-				</ul>
-			<?php endif; ?>
-			</div>
-		</div>
+					</li>
+				<?php endwhile; ?>
+			</ul>
+		<?php endif; ?>
 	</div>
 </div>
