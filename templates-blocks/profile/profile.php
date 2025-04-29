@@ -83,7 +83,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 ?>
 <div class="uds-person-profile <?php echo $feature_class; ?>">
 	<div class="profile-img-container">
-		<div class="profile-img-placeholder" style="background-image: url('https://asu.github.io/asu-unity-stack/@asu/unity-bootstrap-theme/assets/anon-CXWQnlvV.png');">
+		<div class="profile-img-placeholder">
 			<img class="profile-img" src="<?php echo $image_data['url']; ?>" alt="<?php echo $person_name; ?>" width="300" height="300" decoding="async" loading="lazy" fetchpriority="high">
 		</div>
 	</div>
