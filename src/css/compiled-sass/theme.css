@@ -26914,31 +26914,13 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 /*------------------------------------------------------------------
 3. Desktop, XL
 --------------------------------------------------------------------*/
-.profile.profile-type-standard.vertical {
+.uds-person-profile.vertical {
   height: 100%;
-}
-.profile.profile-type-standard.vertical .profile-row {
   display: flex;
   flex-direction: column;
   padding: 0;
-  height: 100%;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column {
-  padding: 0;
-  /**
-   * Limit vertical layout image size to avoid issues when we have
-   * profiles in multiple columns (especially 3 and 4)
-   */
-}
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
-  height: 180px;
-  min-height: 180px;
-  max-height: 180px;
-  width: 180px;
-  min-width: 180px;
-  max-width: 180px;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column {
+.uds-person-profile.vertical .person {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -26946,43 +26928,32 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   max-width: 270px;
   padding: 0 1rem 0 0;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-name {
+.uds-person-profile.vertical .person .person-name {
   margin-top: 1rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-email-link {
-  word-break: break-all;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row {
+.uds-person-profile.vertical .person .person-contact-info {
   display: flex;
   flex-direction: column;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row p {
+  word-break: break-all;
+  margin-right: 0;
   margin-bottom: 0.5rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 0;
+.uds-person-profile.vertical .profile-img-container {
+  padding: 0;
+  /**
+   * Limit vertical layout image size to avoid issues when we have
+   * profiles in multiple columns (especially 3 and 4)
+   */
 }
-.profile.profile-type-standard .profile-row {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column {
-  padding: 1.5rem 1.5rem 1.5rem 0;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal {
-  border-radius: 500px;
+.uds-person-profile.vertical .profile-img-container img.profile-img.feature-profile {
   height: 180px;
-  margin-top: 0;
-  max-height: 180px;
-  max-width: 180px;
   min-height: 180px;
-  min-width: 180px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-height: 180px;
   width: 180px;
+  min-width: 180px;
+  max-width: 180px;
 }
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
+.uds-person-profile.vertical img.profile-img.feature-profile {
   height: 270px;
   min-height: 270px;
   max-height: 270px;
@@ -26990,34 +26961,8 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   min-width: 270px;
   max-width: 270px;
 }
-.profile.profile-type-standard .profile-row .profile-bio-column {
-  max-width: 700px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row {
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 2rem;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-name {
-  margin-top: 24px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-bio-details .profile-title {
-  font-weight: 700;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-  row-gap: 0.5rem;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias li a {
-  color: #191919;
-  font-size: 1.75rem;
+.uds-person-profile.feature-profile {
+  --pic-size: 270px;
 }
 
 /*--------------------------------------------------------------
