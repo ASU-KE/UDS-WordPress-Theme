@@ -1,0 +1,33 @@
+{
+    "name": "acf/uds-person-profile",
+    "title": "UDS Person Profile",
+    "description": "A block for building a single UDS profile.",
+    "category": "uds",
+    "icon": "admin-users",
+    "keywords": ["person", "profile", "uds"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "profile.php"
+    },
+    "supports": {
+		"align": false,
+        "anchor": true
+    },
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"name": "Jane Q. Public",
+				"title": "Professor of Logic, University of Science",
+				"email": "janeq@science.edu",
+				"phone": "(123) 456-7890",
+				"image": {
+					"url": "wp-content/themes/UDS-WordPress-Theme/dist/img/admin/headshot-placeholder.png",
+					"alt": "image placeholder"
+				},
+				"profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				"url": "https://asu.edu"
+			}
+		}
+	}
+}
