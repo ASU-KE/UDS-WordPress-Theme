@@ -81,7 +81,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 
 // Render the block.
 ?>
-<div class="uds-person-profile <?php echo "{$vertical_classes} {$feature_class}"; ?>">
+<div class="uds-person-profile <?php echo "{$vertical_classes} {$feature_class} {$additional_classes}"; ?>">
 	<div class="profile-img-container">
 		<div class="profile-img-placeholder">
 			<img class="profile-img <?php echo $feature_class; ?>" src="<?php echo $image_data['url'] ?? '/wp-content/themes/UDS-WordPress-Theme/dist/img/admin/headshot-placeholder.png'; ?>" alt="<?php echo $person_name; ?>" width="300" height="300" decoding="async" loading="lazy">
