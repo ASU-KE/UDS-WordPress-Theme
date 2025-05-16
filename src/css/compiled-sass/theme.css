@@ -26928,6 +26928,8 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   width: 180px;
   min-width: 180px;
   max-width: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .uds-person-profile.vertical img.profile-img.feature-profile {
   height: 270px;
