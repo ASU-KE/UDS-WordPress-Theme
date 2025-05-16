@@ -14737,6 +14737,8 @@ label {
 .card-title a {
   color: #191919;
   text-decoration: none;
+  display: inline-block;
+  margin: 4px;
 }
 
 .card-title a:hover {
@@ -14806,6 +14808,7 @@ textarea:focus,
 select:focus {
   outline: none !important;
   box-shadow: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px #191919 !important;
+  z-index: 1;
 }
 
 .alert {
@@ -15029,9 +15032,15 @@ div[class="alert alert-block"] {
 }
 .banner .banner-buttons a,
 .banner .banner-buttons button {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   margin-left: 0;
+}
+.banner .banner-buttons a.btn.btn-sm.btn-dark, .banner .banner-buttons a.btn-sm.btn-dark.uds-modal-close-btn, .banner .banner-buttons .btn-group-sm > a.btn.btn-dark, .banner .banner-buttons .btn-group-sm > a.btn-dark.uds-modal-close-btn {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .banner .banner-close {
   flex: 2;
@@ -15674,6 +15683,10 @@ Cards - Table of Contents
 }
 .uds-img .uds-figure img.img-original {
   width: initial;
+}
+.uds-img .uds-figure a:has(img):focus {
+  display: flex;
+  position: relative;
 }
 .uds-img .uds-figure .uds-figure-caption {
   border: 1px solid #d0d0d0;
@@ -17878,6 +17891,7 @@ div[class^=uds-hero] header {
   grid-row: 2;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  margin-top: 5rem;
 }
 div[class^=uds-hero] header p {
   margin: 0;
@@ -17999,7 +18013,7 @@ div[class^=uds-hero] .hero-overlay {
 }
 
 div.uds-hero-sm {
-  height: 16rem;
+  min-height: 16rem;
   grid-template-rows: 1fr auto auto 3rem;
 }
 div.uds-hero-sm h1, div.uds-hero-sm .h1,
@@ -18026,14 +18040,14 @@ div.uds-hero-sm.has-btn-row .btn-row a.btn, div.uds-hero-sm.has-btn-row .btn-row
   margin-top: 0;
 }
 div.uds-hero-sm.has-btn-row .hero-overlay {
-  height: 16rem;
+  min-height: 16rem;
 }
 div.uds-hero-sm > a.btn, div.uds-hero-sm > a.uds-modal-close-btn {
   top: 15rem;
 }
 
 div.uds-hero-md {
-  height: 21rem;
+  min-height: 21rem;
   grid-template-rows: 1fr auto auto 3rem;
 }
 div.uds-hero-md .content {
@@ -18045,14 +18059,14 @@ div.uds-hero-md.has-btn-row .btn-row {
   top: 20rem;
 }
 div.uds-hero-md.has-btn-row .hero-overlay {
-  height: 21rem;
+  min-height: 21rem;
 }
 div.uds-hero-md > a.btn, div.uds-hero-md > a.uds-modal-close-btn {
   top: 20rem;
 }
 
 div.uds-hero-lg {
-  height: 32rem;
+  min-height: 32rem;
 }
 div.uds-hero-lg .content {
   display: none;
@@ -18072,7 +18086,7 @@ div.uds-hero-lg.has-btn-row .btn-row {
   top: 31rem;
 }
 div.uds-hero-lg.has-btn-row .hero-overlay {
-  height: 32rem;
+  min-height: 32rem;
 }
 div.uds-hero-lg.uds-video-hero video, div.uds-hero-lg.uds-video-hero .video-hero-controls {
   display: none;
@@ -18127,7 +18141,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     grid-template-rows: 1fr auto auto 3.5rem;
   }
   div.uds-hero-sm.has-btn-row .btn-row {
-    top: 14.5rem;
+    top: 92%;
   }
   div.uds-hero-sm > a.btn, div.uds-hero-sm > a.uds-modal-close-btn {
     grid-row: unset;
@@ -18135,7 +18149,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     top: 14.5rem;
   }
   div.uds-hero-md {
-    height: 32rem;
+    min-height: 32rem;
     grid-template-rows: 1fr repeat(4, auto) 3rem;
   }
   div.uds-hero-md h1, div.uds-hero-md .h1 {
@@ -18161,10 +18175,10 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     margin-top: 0;
   }
   div.uds-hero-md.has-btn-row .hero-overlay {
-    height: 32rem;
+    min-height: 32rem;
   }
   div.uds-hero-lg {
-    height: 42.75rem;
+    min-height: 42.75rem;
     grid-template-rows: 1fr repeat(4, auto) 3rem;
   }
   div.uds-hero-lg .content {
@@ -18184,7 +18198,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     margin-top: 0;
   }
   div.uds-hero-lg.has-btn-row .hero-overlay {
-    height: 42.75rem;
+    min-height: 42.75rem;
   }
   div.uds-hero-lg h1, div.uds-hero-lg .h1 {
     margin-bottom: 2rem;
@@ -18224,7 +18238,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     max-width: calc(1200px - 34%);
   }
   div.uds-hero-lg {
-    height: 42.75rem;
+    min-height: 42.75rem;
   }
   div.uds-hero-lg.uds-video-hero {
     position: relative;
@@ -18843,6 +18857,16 @@ form.uds-form label.uds-form-label-disabled, form.wpcf7-form label.uds-form-labe
 form.uds-form legend.uds-form-label-disabled,
 form.wpcf7-form legend.uds-form-label-disabled {
   color: #484848;
+}
+form.uds-form label.form-check-label::before, form.wpcf7-form label.form-check-label::before,
+form.uds-form legend.form-check-label::before,
+form.wpcf7-form legend.form-check-label::before {
+  margin-left: 0.4rem;
+}
+form.uds-form label.form-check-label::after, form.wpcf7-form label.form-check-label::after,
+form.uds-form legend.form-check-label::after,
+form.wpcf7-form legend.form-check-label::after {
+  margin-left: 0.4rem;
 }
 form.uds-form .form-control, form.uds-form .wpcf7-form input:not([type=submit]), .wpcf7-form form.uds-form input:not([type=submit]),
 form.uds-form .wpcf7-form textarea,
@@ -19969,6 +19993,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-sm .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-sm h4, .uds-anchor-menu.uds-anchor-menu-expanded-sm .h4, .uds-anchor-menu.uds-anchor-menu-expanded-sm h2, .uds-anchor-menu.uds-anchor-menu-expanded-sm .h2 {
     margin: auto 0;
@@ -20013,6 +20038,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-md .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-md h4, .uds-anchor-menu.uds-anchor-menu-expanded-md .h4, .uds-anchor-menu.uds-anchor-menu-expanded-md h2, .uds-anchor-menu.uds-anchor-menu-expanded-md .h2 {
     margin: auto 0;
@@ -20057,6 +20083,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-lg .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-lg h4, .uds-anchor-menu.uds-anchor-menu-expanded-lg .h4, .uds-anchor-menu.uds-anchor-menu-expanded-lg h2, .uds-anchor-menu.uds-anchor-menu-expanded-lg .h2 {
     margin: auto 0;
@@ -20107,6 +20134,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-xl .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-xl h4, .uds-anchor-menu.uds-anchor-menu-expanded-xl .h4, .uds-anchor-menu.uds-anchor-menu-expanded-xl h2, .uds-anchor-menu.uds-anchor-menu-expanded-xl .h2 {
     margin: auto 0;
@@ -22243,49 +22271,6 @@ the content of the header
   }
 }
 
-/*
-  TODO: all imports below belong to the previous bootstrap 4 package, you have to check each import and be careful when removing it.
-*/
-:focus {
-  outline: 0;
-  box-shadow: 0 0 8px #00baff !important;
-}
-
-body {
-  font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
-  font-weight: 400;
-  color: #191919;
-}
-
-.text-white, .bg-dark .tab-content .tab-pane {
-  color: #e8e8e8 !important;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.text-capitalize {
-  text-transform: capitalize !important;
-}
-
-u,
-ins {
-  text-decoration-line: none;
-  font-style: italic;
-}
-
-abbr {
-  text-decoration-line: none !important;
-  text-decoration-style: none !important;
-  text-decoration-color: initial !important;
-}
-
-b,
-strong {
-  font-weight: 700 !important;
-}
-
 /*------------------------------------------------------------------
 Footer - Table of Contents
 
@@ -22384,6 +22369,9 @@ Footer - Table of Contents
   color: #bfbfbf;
   line-height: 1;
   padding-top: 7px;
+}
+#endorsed-footer #social-media .nav-link :hover, #endorsed-footer #social-media .secondary-nav-link :hover {
+  color: #ffffff;
 }
 
 @media (max-width: 575.98px) {
@@ -22796,27 +22784,15 @@ Override the desktop media query for header to fix the gap issue
 @media (min-width: 1260px) {
   #asu-header + div,
   #asu-header + main {
-    transition: all 0.2s ease-in-out;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
     margin-top: 144px;
-  }
-}
-@media (min-width: 1260px) and (prefers-reduced-motion: reduce) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: none;
   }
 }
 @media (max-width: 991.98px) {
   #asu-header + div,
   #asu-header + main {
-    transition: all 0.2s ease-in-out;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
     margin-top: 113px;
-  }
-}
-@media (max-width: 991.98px) and (prefers-reduced-motion: reduce) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: none;
   }
 }
 #wpadminbar + #asu-header.fixed-top,
@@ -26914,31 +26890,13 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 /*------------------------------------------------------------------
 3. Desktop, XL
 --------------------------------------------------------------------*/
-.profile.profile-type-standard.vertical {
+.uds-person-profile.vertical {
   height: 100%;
-}
-.profile.profile-type-standard.vertical .profile-row {
   display: flex;
   flex-direction: column;
   padding: 0;
-  height: 100%;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column {
-  padding: 0;
-  /**
-   * Limit vertical layout image size to avoid issues when we have
-   * profiles in multiple columns (especially 3 and 4)
-   */
-}
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
-  height: 180px;
-  min-height: 180px;
-  max-height: 180px;
-  width: 180px;
-  min-width: 180px;
-  max-width: 180px;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column {
+.uds-person-profile.vertical .person {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -26946,78 +26904,45 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   max-width: 270px;
   padding: 0 1rem 0 0;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-name {
+.uds-person-profile.vertical .person .person-name {
   margin-top: 1rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-email-link {
-  word-break: break-all;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row {
+.uds-person-profile.vertical .person .person-contact-info {
   display: flex;
   flex-direction: column;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row p {
+  word-break: break-all;
+  margin-right: 0;
   margin-bottom: 0.5rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 0;
+.uds-person-profile.vertical .profile-img-container {
+  padding: 0;
+  /**
+   * Limit vertical layout image size to avoid issues when we have
+   * profiles in multiple columns (especially 3 and 4)
+   */
 }
-.profile.profile-type-standard .profile-row {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column {
-  padding: 1.5rem 1.5rem 1.5rem 0;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal {
-  border-radius: 500px;
+.uds-person-profile.vertical .profile-img-container img.profile-img.feature-profile {
   height: 180px;
-  margin-top: 0;
-  max-height: 180px;
-  max-width: 180px;
   min-height: 180px;
+  max-height: 180px;
+  width: 180px;
   min-width: 180px;
+  max-width: 180px;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 180px;
 }
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
+.uds-person-profile.vertical img.profile-img.feature-profile {
   height: 270px;
   min-height: 270px;
   max-height: 270px;
   width: 270px;
   min-width: 270px;
   max-width: 270px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.profile.profile-type-standard .profile-row .profile-bio-column {
-  max-width: 700px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row {
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 2rem;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-name {
-  margin-top: 24px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-bio-details .profile-title {
-  font-weight: 700;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-  row-gap: 0.5rem;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias li a {
-  color: #191919;
-  font-size: 1.75rem;
+.uds-person-profile.feature-profile {
+  --pic-size: 270px;
 }
 
 /*--------------------------------------------------------------

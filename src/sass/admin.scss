@@ -75,51 +75,20 @@ $warning-color: #f99;
 /*-------------------------------------------------------------------
 4. UDS Profile Block, Admin
 --------------------------------------------------------------------*/
-// A copy of the front-end styles applied to the ACF block preview.
-// The one changes is having no pointer events in the editor.
 // This avoids accidentally clicking images, links, etc. by accident.
 .acf-block-preview {
-	.profile.profile-type-standard {
-
-		// Vertical style gets a column flex and some spacing adjustments.
+	.uds-person-profile  {
 		&.vertical {
-
-			.profile-row {
+			.person {
 				pointer-events: none;
 			}
 		}
-
-		// The actual content row.
-		.profile-row {
+		.person  {
 			pointer-events: none;
 		}
 	}
 }
 
-/*-------------------------------------------------------------------
-5. UDS List Block, Admin
-
-.editor-styles-wrapper {
-	ul:not(.uds-list),
-	ol:not(.uds-list),
-	ul.wp-block-list:not(.uds-list),
-	ol.wp-block-list:not(.uds-list) {
-		@extend .uds-list;
-	}
-	ul.wp-block-list,
-	ol.wp-block-list {
-		&.has-asu-maroon-color {
-			color: $uds-color-base-gray-7 !important;
-			@extend .maroon;
-		}
-		&.has-asu-gold-color {
-			color: $uds-color-base-white !important;
-			@extend .gold;
-			@extend .darkmode;
-		}
-	}
-}
---------------------------------------------------------------------*/
 /*--------------------------------------------------------------
 set acf fields to 100% width
 --------------------------------------------------------------*/
