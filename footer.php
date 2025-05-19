@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="col">
 					<div class="d-flex footer-innovation-links">
 						<a class="img-link" href="https://www.asu.edu/rankings">
-						<img src="<?php echo get_template_directory_uri(); ?>/dist/img/innovation-lockup/on-gold/footer-rank.png" alt="ASU is number one in the U.S. for innovation.">
+						<img src="<?php echo get_template_directory_uri(); ?>/dist/img/innovation-lockup/on-gold/footer-rank.png" alt="Repeatedly ranked #1, 20+ lists in the last 3 years">
 					</a>
 						<nav class="nav" aria-label="University Services">
 							<a class="nav-link" href="https://www.asu.edu/about/locations-maps">Maps and Locations</a>

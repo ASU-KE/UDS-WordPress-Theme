@@ -148,37 +148,13 @@ section.bg {
 /*-------------------------------------------------------------------
 4. UDS Profile Block, Admin
 --------------------------------------------------------------------*/
-.acf-block-preview .profile.profile-type-standard.vertical .profile-row {
+.acf-block-preview .uds-person-profile.vertical .person {
   pointer-events: none;
 }
-.acf-block-preview .profile.profile-type-standard .profile-row {
+.acf-block-preview .uds-person-profile .person {
   pointer-events: none;
 }
 
-/*-------------------------------------------------------------------
-5. UDS List Block, Admin
-
-.editor-styles-wrapper {
-	ul:not(.uds-list),
-	ol:not(.uds-list),
-	ul.wp-block-list:not(.uds-list),
-	ol.wp-block-list:not(.uds-list) {
-		@extend .uds-list;
-	}
-	ul.wp-block-list,
-	ol.wp-block-list {
-		&.has-asu-maroon-color {
-			color: $uds-color-base-gray-7 !important;
-			@extend .maroon;
-		}
-		&.has-asu-gold-color {
-			color: $uds-color-base-white !important;
-			@extend .gold;
-			@extend .darkmode;
-		}
-	}
-}
---------------------------------------------------------------------*/
 /*--------------------------------------------------------------
 set acf fields to 100% width
 --------------------------------------------------------------*/
