@@ -98,7 +98,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 			<ul class="person-contact-info">
 				<?php if ( ! empty( $person_email ) ) : ?>
 					<li>
-						<a href="mailto:<?php echo $person_email; ?>" aria-label="Email user"><?php echo $person_email; ?></a>
+						<a href="mailto:<?php echo $person_email; ?>" aria-label="Email <?php echo esc_attr( $person_name ? $person_name : 'user' ); ?>"><?php echo $person_email; ?></a>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $person_phone ) ) : ?>
