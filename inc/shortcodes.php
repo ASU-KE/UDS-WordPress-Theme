@@ -30,7 +30,7 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	$slug = sanitize_title( $menu );
 
 	// Create the wrapper around the sidebar menu, with an <h3> title if provided.
-	$wrapper = '<div aria-controls="' . $slug . '" aria-expanded="false" class="sidebar-toggler" data-target="#' . $slug . '" data-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
+	$wrapper = '<div aria-controls="' . $slug . '" aria-expanded="false" class="sidebar-toggler" data-bs-target="#' . $slug . '" data-bs-toggle="collapse"><p>Select Section </p><span class="fas fa-chevron-up" /></div>';
 	$wrapper .= '<nav class="sidebar collapse" id="' . $slug . '" aria-label="Secondary">';
 
 	if ( ! empty( $title ) ) {
