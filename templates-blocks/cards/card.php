@@ -67,8 +67,8 @@ if ('icon' == $header_style && '' != $icon_name) {
  * strip out 'fa-' if it is found (for cases like getting 'fa-user')
  * then prepend the result with 'fas fa-' like the original code did.
  */
-if( false == preg_match('/^fa[sb]/', $icon_name ) ) {
-	$icon_name = str_ireplace('fa-', '', $icon_name );
+if( false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
+	$icon_name = str_ireplace('fa-', '', (string)$icon_name );
 	$icon_name = trim('fas fa-' . $icon_name);
 }
 
@@ -212,7 +212,7 @@ if (!empty($image_data)) {
 						$target_text = '';
 					}
 					?>
-					<a href="<?php echo $button_url; ?>" class="btn <?php echo "{$button_size} btn-{$button_color}"; ?>" <?php echo "{$rel} {$target_text}";?> aria-label="<?php echo $aria_label;?>"><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+					<?php echo "<a href=\"{$button_url}\" class=\"btn {$button_size} btn-{$button_color}\" {$rel} {$target_text} aria-label=\"{$aria_label}\"> {$icon_span} {$button_label}</a>";?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
