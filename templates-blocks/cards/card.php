@@ -181,6 +181,7 @@ if (!empty($image_data)) {
 					$button_label  = sanitize_text_field($link_values['title']);
 					$button_url    = esc_url($link_values['url']);
 					$button_target = $link_values['target'];
+					$aria_label    = get_sub_field('aria_label');
 
 					// Set "rel" text if requested.
 					if ($external_link) {
@@ -211,7 +212,7 @@ if (!empty($image_data)) {
 						$target_text = '';
 					}
 					?>
-					<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+					<a href="<?php echo $button_url; ?>" class="btn <?php echo "{$button_size} btn-{$button_color}"; ?>" <?php echo "{$rel} {$target_text}";?> aria-label="<?php echo $aria_label;?>"><?php echo $icon_span; ?><?php echo $button_label; ?></a>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
