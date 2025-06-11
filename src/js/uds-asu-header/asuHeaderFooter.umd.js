@@ -619,6 +619,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       outline: none;
       box-shadow: 0 0 0 2px var(--color-base-white),
         0 0 0 4px var(--color-base-grey-7) !important;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
   }
 
