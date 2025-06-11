@@ -26392,12 +26392,6 @@ mapping back to specific classes within UDS-Boostrap.
   color: #191919 !important;
 }
 
-ul.uds-list, .uds-list ul,
-ol.uds-list,
-.uds-list ol {
-  padding: 0 5rem 0 2rem;
-}
-
 /*--------------------------------------------------------------
 3. core/image
 --------------------------------------------------------------*/
