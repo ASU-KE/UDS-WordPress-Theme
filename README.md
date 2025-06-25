@@ -14,6 +14,9 @@
   - Accessibilty compliant
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
+- PHP 8 required
+  - PHP 8 - v1.6 and later
+  - PHP 7.4 compatible - v1.5 and earlier
 
 ### Found a bug? Have a question? Need support?
 
