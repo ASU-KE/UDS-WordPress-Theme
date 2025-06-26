@@ -14737,6 +14737,8 @@ label {
 .card-title a {
   color: #191919;
   text-decoration: none;
+  display: inline-block;
+  margin: 4px;
 }
 
 .card-title a:hover {
@@ -14806,6 +14808,7 @@ textarea:focus,
 select:focus {
   outline: none !important;
   box-shadow: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px #191919 !important;
+  z-index: 1;
 }
 
 .alert {
@@ -14816,7 +14819,7 @@ select:focus {
 .alert .alert-icon {
   flex: 0 0 4rem;
 }
-.alert .alert-icon svg {
+.alert .alert-icon svg, .alert .alert-icon span, .alert .alert-icon i {
   font-size: 2rem;
 }
 .alert .alert-content {
@@ -14868,7 +14871,7 @@ div[class="alert alert-block"] {
   .alert .alert-icon {
     flex: 0 0 3rem;
   }
-  .alert .alert-icon svg {
+  .alert .alert-icon svg, .alert .alert-icon span, .alert .alert-icon i {
     font-size: 2rem;
     margin-top: 1rem;
   }
@@ -15007,7 +15010,7 @@ div[class="alert alert-block"] {
 .banner .banner-icon {
   text-align: left;
 }
-.banner .banner-icon svg {
+.banner .banner-icon svg, .banner .banner-icon i, .banner .banner-icon span {
   font-size: 2rem;
   margin: calc(0.5rem / 2) 2rem calc(0.5rem / 2) 0;
 }
@@ -15029,9 +15032,15 @@ div[class="alert alert-block"] {
 }
 .banner .banner-buttons a,
 .banner .banner-buttons button {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   margin-left: 0;
+}
+.banner .banner-buttons a.btn.btn-sm.btn-dark, .banner .banner-buttons a.btn-sm.btn-dark.uds-modal-close-btn, .banner .banner-buttons .btn-group-sm > a.btn.btn-dark, .banner .banner-buttons .btn-group-sm > a.btn-dark.uds-modal-close-btn {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .banner .banner-close {
   flex: 2;
@@ -15103,7 +15112,7 @@ div[class="alert alert-block"] {
     flex: 1;
     margin-bottom: 0.5rem;
   }
-  .banner .banner-icon svg {
+  .banner .banner-icon svg, .banner .banner-icon i, .banner .banner-icon span {
     font-size: 2.5rem;
     margin: 0rem;
   }
@@ -15489,15 +15498,28 @@ div[class="alert alert-block"] {
   --bs-btn-disabled-border-color: #191919;
 }
 
-a.text-gold:hover,
-a.text-gold:focus {
+a.text-gold:link, a.text-gold:hover, a.text-gold:focus, .bg-gray-7 a:link, .bg-gray-7 a:hover, .bg-gray-7 a:focus {
   color: #ffc627 !important;
 }
-
-a.text-gold:visited:not(.btn):not(.uds-modal-close-btn) {
-  color: #daa000 !important;
+a.text-gold:visited:not(.btn):not(.uds-modal-close-btn), .bg-gray-7 a:visited:not(.btn):not(.uds-modal-close-btn) {
+  color: #7f6227 !important;
 }
 
+/*a:hover,
+a:focus {
+  color: $uds-color-base-gold !important;
+}
+a:visited:not(.btn) {
+  color: $uds-color-base-darkgold !important;
+}
+
+a.text-gold:hover,
+a.text-gold:focus {
+  color: $uds-color-base-gold !important;
+}
+a.text-gold:visited:not(.btn) {
+  color: $uds-color-base-darkgold !important;
+}*/
 /*--------------------------------------------------------------
 0 to SM breakpoint included
 --------------------------------------------------------------*/
@@ -15661,6 +15683,10 @@ Cards - Table of Contents
 }
 .uds-img .uds-figure img.img-original {
   width: initial;
+}
+.uds-img .uds-figure a:has(img):focus {
+  display: flex;
+  position: relative;
 }
 .uds-img .uds-figure .uds-figure-caption {
   border: 1px solid #d0d0d0;
@@ -16693,7 +16719,6 @@ ul.uds-list ul,
   --list-padding-top: 1rem;
   --list-padding-right: 0;
   --list-padding-bottom: 0;
-  --list-padding-left: 1.5rem;
   --list-list-style: none;
 }
 
@@ -16743,7 +16768,7 @@ ul.uds-list,
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
@@ -16751,6 +16776,7 @@ ul.uds-list,
 ul.uds-list li,
 .uds-list ul li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ul.uds-list li:last-of-type,
 .uds-list ul li:last-of-type {
@@ -16772,21 +16798,23 @@ ul.uds-list li:before,
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 ul.uds-list > li:before,
 .uds-list ul > li:before,
 .uds-list ul ul > li:before {
   --li-before-font-size: 2rem;
   vertical-align: middle;
-  padding-right: 1.25rem;
-  margin-left: -2rem;
 }
 
-ul.uds-list.maroon li:before, .uds-list ul.maroon li:before, ul.uds-list.is-style-maroon li:before, .uds-list ul.is-style-maroon li:before,
-ol.uds-list.maroon li:before,
-.uds-list ol.maroon li:before,
-ol.uds-list.is-style-maroon li:before,
-.uds-list ol.is-style-maroon li:before {
+ul.uds-list.maroon li, .uds-list ul.maroon li, ul.uds-list.is-style-maroon li, .uds-list ul.is-style-maroon li,
+ol.uds-list.maroon li,
+.uds-list ol.maroon li,
+ol.uds-list.is-style-maroon li,
+.uds-list ol.is-style-maroon li {
   --li-before-color: #8c1d40;
 }
 ul.uds-list.darkmode, ul.uds-list.is-style-steplist-darkmode-maroon, ul.uds-list.is-style-steplist-darkmode-gold, ul.uds-list.is-style-steplist-darkmode, .uds-list ul.darkmode, .uds-list ul.is-style-steplist-darkmode-maroon, .uds-list ul.is-style-steplist-darkmode-gold, .uds-list ul.is-style-steplist-darkmode, ul.uds-list.is-style-darkmode-gold, .uds-list ul.is-style-darkmode-gold, ul.uds-list.is-style-darkmode, .uds-list ul.is-style-darkmode,
@@ -16806,7 +16834,7 @@ ol.uds-list.is-style-darkmode,
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
@@ -16829,6 +16857,7 @@ ol.uds-list.is-style-darkmode-gold li,
 ol.uds-list.is-style-darkmode li,
 .uds-list ol.is-style-darkmode li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ul.uds-list.darkmode li:last-of-type, ul.uds-list.is-style-steplist-darkmode-maroon li:last-of-type, ul.uds-list.is-style-steplist-darkmode-gold li:last-of-type, ul.uds-list.is-style-steplist-darkmode li:last-of-type, .uds-list ul.darkmode li:last-of-type, .uds-list ul.is-style-steplist-darkmode-maroon li:last-of-type, .uds-list ul.is-style-steplist-darkmode-gold li:last-of-type, .uds-list ul.is-style-steplist-darkmode li:last-of-type, ul.uds-list.is-style-darkmode-gold li:last-of-type, .uds-list ul.is-style-darkmode-gold li:last-of-type, ul.uds-list.is-style-darkmode li:last-of-type, .uds-list ul.is-style-darkmode li:last-of-type,
 ol.uds-list.darkmode li:last-of-type,
@@ -16883,51 +16912,40 @@ ol.uds-list.is-style-darkmode li:before,
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
-ul.uds-list.darkmode li:before, ul.uds-list.is-style-steplist-darkmode-maroon li:before, ul.uds-list.is-style-steplist-darkmode-gold li:before, ul.uds-list.is-style-steplist-darkmode li:before, .uds-list ul.darkmode li:before, .uds-list ul.is-style-steplist-darkmode-maroon li:before, .uds-list ul.is-style-steplist-darkmode-gold li:before, .uds-list ul.is-style-steplist-darkmode li:before, ul.uds-list.is-style-darkmode-gold li:before, .uds-list ul.is-style-darkmode-gold li:before, ul.uds-list.is-style-darkmode li:before, .uds-list ul.is-style-darkmode li:before,
-ol.uds-list.darkmode li:before,
-ol.uds-list.is-style-steplist-darkmode-maroon li:before,
-ol.uds-list.is-style-steplist-darkmode-gold li:before,
-ol.uds-list.is-style-steplist-darkmode li:before,
-.uds-list ol.darkmode li:before,
-.uds-list ol.is-style-steplist-darkmode-maroon li:before,
-.uds-list ol.is-style-steplist-darkmode-gold li:before,
-.uds-list ol.is-style-steplist-darkmode li:before,
-ol.uds-list.is-style-darkmode-gold li:before,
-.uds-list ol.is-style-darkmode-gold li:before,
-ol.uds-list.is-style-darkmode li:before,
-.uds-list ol.is-style-darkmode li:before {
+ul.uds-list.darkmode li, ul.uds-list.is-style-steplist-darkmode-maroon li, ul.uds-list.is-style-steplist-darkmode-gold li, ul.uds-list.is-style-steplist-darkmode li, .uds-list ul.darkmode li, .uds-list ul.is-style-steplist-darkmode-maroon li, .uds-list ul.is-style-steplist-darkmode-gold li, .uds-list ul.is-style-steplist-darkmode li, ul.uds-list.is-style-darkmode-gold li, .uds-list ul.is-style-darkmode-gold li, ul.uds-list.is-style-darkmode li, .uds-list ul.is-style-darkmode li,
+ol.uds-list.darkmode li,
+ol.uds-list.is-style-steplist-darkmode-maroon li,
+ol.uds-list.is-style-steplist-darkmode-gold li,
+ol.uds-list.is-style-steplist-darkmode li,
+.uds-list ol.darkmode li,
+.uds-list ol.is-style-steplist-darkmode-maroon li,
+.uds-list ol.is-style-steplist-darkmode-gold li,
+.uds-list ol.is-style-steplist-darkmode li,
+ol.uds-list.is-style-darkmode-gold li,
+.uds-list ol.is-style-darkmode-gold li,
+ol.uds-list.is-style-darkmode li,
+.uds-list ol.is-style-darkmode li {
   --li-before-color: #e8e8e8;
 }
-ul.uds-list.darkmode.gold li:before, ul.uds-list.gold.is-style-steplist-darkmode-maroon li:before, ul.uds-list.gold.is-style-steplist-darkmode-gold li:before, ul.uds-list.gold.is-style-steplist-darkmode li:before, .uds-list ul.darkmode.gold li:before, .uds-list ul.gold.is-style-steplist-darkmode-maroon li:before, .uds-list ul.gold.is-style-steplist-darkmode-gold li:before, .uds-list ul.gold.is-style-steplist-darkmode li:before, ul.uds-list.is-style-darkmode-gold li:before, .uds-list ul.is-style-darkmode-gold li:before, ul.uds-list.gold.is-style-darkmode li:before, .uds-list ul.gold.is-style-darkmode li:before,
-ol.uds-list.darkmode.gold li:before,
-ol.uds-list.gold.is-style-steplist-darkmode-maroon li:before,
-ol.uds-list.gold.is-style-steplist-darkmode-gold li:before,
-ol.uds-list.gold.is-style-steplist-darkmode li:before,
-.uds-list ol.darkmode.gold li:before,
-.uds-list ol.gold.is-style-steplist-darkmode-maroon li:before,
-.uds-list ol.gold.is-style-steplist-darkmode-gold li:before,
-.uds-list ol.gold.is-style-steplist-darkmode li:before,
-ol.uds-list.is-style-darkmode-gold li:before,
-.uds-list ol.is-style-darkmode-gold li:before,
-ol.uds-list.gold.is-style-darkmode li:before,
-.uds-list ol.gold.is-style-darkmode li:before {
+ul.uds-list.darkmode.gold li, ul.uds-list.gold.is-style-steplist-darkmode-maroon li, ul.uds-list.gold.is-style-steplist-darkmode-gold li, ul.uds-list.gold.is-style-steplist-darkmode li, .uds-list ul.darkmode.gold li, .uds-list ul.gold.is-style-steplist-darkmode-maroon li, .uds-list ul.gold.is-style-steplist-darkmode-gold li, .uds-list ul.gold.is-style-steplist-darkmode li, ul.uds-list.is-style-darkmode-gold li, .uds-list ul.is-style-darkmode-gold li, ul.uds-list.gold.is-style-darkmode li, .uds-list ul.gold.is-style-darkmode li,
+ol.uds-list.darkmode.gold li,
+ol.uds-list.gold.is-style-steplist-darkmode-maroon li,
+ol.uds-list.gold.is-style-steplist-darkmode-gold li,
+ol.uds-list.gold.is-style-steplist-darkmode li,
+.uds-list ol.darkmode.gold li,
+.uds-list ol.gold.is-style-steplist-darkmode-maroon li,
+.uds-list ol.gold.is-style-steplist-darkmode-gold li,
+.uds-list ol.gold.is-style-steplist-darkmode li,
+ol.uds-list.is-style-darkmode-gold li,
+.uds-list ol.is-style-darkmode-gold li,
+ol.uds-list.gold.is-style-darkmode li,
+.uds-list ol.gold.is-style-darkmode li {
   --li-before-color: #ffc627;
-}
-ul.uds-list.darkmode.gold li .fa-li, ul.uds-list.gold.is-style-steplist-darkmode-maroon li .fa-li, ul.uds-list.gold.is-style-steplist-darkmode-gold li .fa-li, ul.uds-list.gold.is-style-steplist-darkmode li .fa-li, .uds-list ul.darkmode.gold li .fa-li, .uds-list ul.gold.is-style-steplist-darkmode-maroon li .fa-li, .uds-list ul.gold.is-style-steplist-darkmode-gold li .fa-li, .uds-list ul.gold.is-style-steplist-darkmode li .fa-li, ul.uds-list.is-style-darkmode-gold li .fa-li, .uds-list ul.is-style-darkmode-gold li .fa-li, ul.uds-list.gold.is-style-darkmode li .fa-li, .uds-list ul.gold.is-style-darkmode li .fa-li,
-ol.uds-list.darkmode.gold li .fa-li,
-ol.uds-list.gold.is-style-steplist-darkmode-maroon li .fa-li,
-ol.uds-list.gold.is-style-steplist-darkmode-gold li .fa-li,
-ol.uds-list.gold.is-style-steplist-darkmode li .fa-li,
-.uds-list ol.darkmode.gold li .fa-li,
-.uds-list ol.gold.is-style-steplist-darkmode-maroon li .fa-li,
-.uds-list ol.gold.is-style-steplist-darkmode-gold li .fa-li,
-.uds-list ol.gold.is-style-steplist-darkmode li .fa-li,
-ol.uds-list.is-style-darkmode-gold li .fa-li,
-.uds-list ol.is-style-darkmode-gold li .fa-li,
-ol.uds-list.gold.is-style-darkmode li .fa-li,
-.uds-list ol.gold.is-style-darkmode li .fa-li {
-  color: #ffc627;
 }
 ul.uds-list.darkmode.uds-steplist li:before, ul.uds-list.is-style-steplist-darkmode-maroon li:before, ul.uds-list.is-style-steplist-darkmode-gold li:before, ul.uds-list.is-style-steplist-darkmode li:before, ul.uds-list.darkmode.is-style-steplist-light-smokemode-maroon li:before, ul.uds-list.darkmode.is-style-steplist-light-smokemode-gold li:before, ul.uds-list.darkmode.is-style-steplist-light-smokemode li:before, ul.uds-list.darkmode.is-style-steplist-smokemode-maroon li:before, ul.uds-list.darkmode.is-style-steplist-smokemode-gold li:before, ul.uds-list.darkmode.is-style-steplist-smokemode li:before, ul.uds-list.darkmode.is-style-steplist-maroon li:before, ul.uds-list.darkmode.is-style-steplist-gold li:before, ul.uds-list.darkmode.is-style-steplist li:before, .uds-list ul.darkmode.uds-steplist li:before, .uds-list ul.is-style-steplist-darkmode-maroon li:before, .uds-list ul.is-style-steplist-darkmode-gold li:before, .uds-list ul.is-style-steplist-darkmode li:before, .uds-list ul.darkmode.is-style-steplist-light-smokemode-maroon li:before, .uds-list ul.darkmode.is-style-steplist-light-smokemode-gold li:before, .uds-list ul.darkmode.is-style-steplist-light-smokemode li:before, .uds-list ul.darkmode.is-style-steplist-smokemode-maroon li:before, .uds-list ul.darkmode.is-style-steplist-smokemode-gold li:before, .uds-list ul.darkmode.is-style-steplist-smokemode li:before, .uds-list ul.darkmode.is-style-steplist-maroon li:before, .uds-list ul.darkmode.is-style-steplist-gold li:before, .uds-list ul.darkmode.is-style-steplist li:before, ul.uds-list.uds-steplist.is-style-darkmode-gold li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-light-smokemode-maroon li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-light-smokemode-gold li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-light-smokemode li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-smokemode-maroon li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-smokemode-gold li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-smokemode li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-maroon li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist-gold li:before, ul.uds-list.is-style-darkmode-gold.is-style-steplist li:before, .uds-list ul.uds-steplist.is-style-darkmode-gold li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-light-smokemode-maroon li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-light-smokemode-gold li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-light-smokemode li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-smokemode-maroon li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-smokemode-gold li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-smokemode li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-maroon li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist-gold li:before, .uds-list ul.is-style-darkmode-gold.is-style-steplist li:before, ul.uds-list.uds-steplist.is-style-darkmode li:before, ul.uds-list.is-style-darkmode.is-style-steplist-light-smokemode-maroon li:before, ul.uds-list.is-style-darkmode.is-style-steplist-light-smokemode-gold li:before, ul.uds-list.is-style-darkmode.is-style-steplist-light-smokemode li:before, ul.uds-list.is-style-darkmode.is-style-steplist-smokemode-maroon li:before, ul.uds-list.is-style-darkmode.is-style-steplist-smokemode-gold li:before, ul.uds-list.is-style-darkmode.is-style-steplist-smokemode li:before, ul.uds-list.is-style-darkmode.is-style-steplist-maroon li:before, ul.uds-list.is-style-darkmode.is-style-steplist-gold li:before, ul.uds-list.is-style-darkmode.is-style-steplist li:before, .uds-list ul.uds-steplist.is-style-darkmode li:before, .uds-list ul.is-style-darkmode.is-style-steplist-light-smokemode-maroon li:before, .uds-list ul.is-style-darkmode.is-style-steplist-light-smokemode-gold li:before, .uds-list ul.is-style-darkmode.is-style-steplist-light-smokemode li:before, .uds-list ul.is-style-darkmode.is-style-steplist-smokemode-maroon li:before, .uds-list ul.is-style-darkmode.is-style-steplist-smokemode-gold li:before, .uds-list ul.is-style-darkmode.is-style-steplist-smokemode li:before, .uds-list ul.is-style-darkmode.is-style-steplist-maroon li:before, .uds-list ul.is-style-darkmode.is-style-steplist-gold li:before, .uds-list ul.is-style-darkmode.is-style-steplist li:before,
 ol.uds-list.darkmode.uds-steplist li:before,
@@ -17014,7 +17032,7 @@ ol.uds-list.is-style-smokemode,
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
@@ -17034,6 +17052,7 @@ ol.uds-list.is-style-steplist-smokemode li,
 ol.uds-list.is-style-smokemode li,
 .uds-list ol.is-style-smokemode li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ul.uds-list.smokemode li:last-of-type, ul.uds-list.is-style-steplist-smokemode-maroon li:last-of-type, ul.uds-list.is-style-steplist-smokemode-gold li:last-of-type, ul.uds-list.is-style-steplist-smokemode li:last-of-type, .uds-list ul.smokemode li:last-of-type, .uds-list ul.is-style-steplist-smokemode-maroon li:last-of-type, .uds-list ul.is-style-steplist-smokemode-gold li:last-of-type, .uds-list ul.is-style-steplist-smokemode li:last-of-type, ul.uds-list.is-style-smokemode li:last-of-type, .uds-list ul.is-style-smokemode li:last-of-type,
 ol.uds-list.smokemode li:last-of-type,
@@ -17082,6 +17101,10 @@ ol.uds-list.is-style-smokemode li:before,
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 ul.uds-list.light-smokemode, ul.uds-list.is-style-steplist-light-smokemode-maroon, ul.uds-list.is-style-steplist-light-smokemode-gold, ul.uds-list.is-style-steplist-light-smokemode, .uds-list ul.light-smokemode, .uds-list ul.is-style-steplist-light-smokemode-maroon, .uds-list ul.is-style-steplist-light-smokemode-gold, .uds-list ul.is-style-steplist-light-smokemode, ul.uds-list.is-style-light-smokemode, .uds-list ul.is-style-light-smokemode,
 ol.uds-list.light-smokemode,
@@ -17098,7 +17121,7 @@ ol.uds-list.is-style-light-smokemode,
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
@@ -17118,6 +17141,7 @@ ol.uds-list.is-style-steplist-light-smokemode li,
 ol.uds-list.is-style-light-smokemode li,
 .uds-list ol.is-style-light-smokemode li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ul.uds-list.light-smokemode li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode-maroon li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode-gold li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode li:last-of-type, .uds-list ul.light-smokemode li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode-maroon li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode-gold li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode li:last-of-type, ul.uds-list.is-style-light-smokemode li:last-of-type, .uds-list ul.is-style-light-smokemode li:last-of-type,
 ol.uds-list.light-smokemode li:last-of-type,
@@ -17166,6 +17190,10 @@ ol.uds-list.is-style-light-smokemode li:before,
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 
 ul.uds-list.fa-ul, .uds-list ul.fa-ul {
@@ -17173,16 +17201,16 @@ ul.uds-list.fa-ul, .uds-list ul.fa-ul {
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
-  --list-padding-left: 2.25rem;
   margin-left: 0rem;
   margin-bottom: 0rem;
 }
 ul.uds-list.fa-ul li, .uds-list ul.fa-ul li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ul.uds-list.fa-ul li:last-of-type, .uds-list ul.fa-ul li:last-of-type {
   margin-bottom: 0rem;
@@ -17201,18 +17229,20 @@ ul.uds-list.fa-ul li:before, .uds-list ul.fa-ul li:before {
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 ul.uds-list.fa-ul li .fa-li, .uds-list ul.fa-ul li .fa-li {
   left: -2.5rem;
+  color: var(--li-before-color);
 }
-ul.uds-list.fa-ul li:before, .uds-list ul.fa-ul li:before {
+ul.uds-list.fa-ul li:not(.blank-icon):before, .uds-list ul.fa-ul li:not(.blank-icon):before {
   --li-before-content: none;
   vertical-align: middle;
   padding-right: 1rem;
   margin-left: -1.5rem;
-}
-ul.uds-list.fa-ul.maroon li .fa-li, .uds-list ul.fa-ul.maroon li .fa-li, ul.uds-list.fa-ul.is-style-maroon li .fa-li, .uds-list ul.fa-ul.is-style-maroon li .fa-li {
-  color: #8c1d40;
 }
 
 ol.uds-list,
@@ -17221,7 +17251,7 @@ ol.uds-list,
   --list-padding-top: 0;
   --list-padding-right: 0;
   --list-padding-bottom: 3rem;
-  --list-padding-left: 2rem;
+  --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
   /* Apply CSS vars */
@@ -17231,6 +17261,7 @@ ol.uds-list,
 ol.uds-list li,
 .uds-list ol li {
   margin-bottom: 1rem;
+  position: relative;
 }
 ol.uds-list li:last-of-type,
 .uds-list ol li:last-of-type {
@@ -17252,22 +17283,20 @@ ol.uds-list li:before,
   color: var(--li-before-color);
   background-color: var(--li-before-background-color);
   line-height: var(--li-before-line-height);
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 ol.uds-list > li:before,
 .uds-list ol > li:before,
 .uds-list ol ol > li:before {
   --li-before-font-size: 1rem;
   counter-increment: listcounter;
-  padding-right: 0.75rem;
-  margin-left: -1.9rem;
-}
-ol.uds-list li:nth-of-type(9) ~ li:before,
-.uds-list ol li:nth-of-type(9) ~ li:before {
-  margin-left: -2.4rem;
-}
-ol.uds-list li:nth-of-type(99) ~ li:before,
-.uds-list ol li:nth-of-type(99) ~ li:before {
-  margin-left: -2.9rem;
+  left: -3rem;
+  text-align: right;
+  position: absolute;
+  width: 2rem;
 }
 ol.uds-list.uds-steplist, ol.uds-list.is-style-steplist-darkmode-maroon, ol.uds-list.is-style-steplist-darkmode-gold, ol.uds-list.is-style-steplist-darkmode, ol.uds-list.is-style-steplist-light-smokemode-maroon, ol.uds-list.is-style-steplist-light-smokemode-gold, ol.uds-list.is-style-steplist-light-smokemode, ol.uds-list.is-style-steplist-smokemode-maroon, ol.uds-list.is-style-steplist-smokemode-gold, ol.uds-list.is-style-steplist-smokemode, ol.uds-list.is-style-steplist-maroon, ol.uds-list.is-style-steplist-gold, ol.uds-list.is-style-steplist,
 .uds-list ol.uds-steplist,
@@ -17345,10 +17374,13 @@ ol.uds-list.uds-steplist li:before, ol.uds-list.is-style-steplist-darkmode-maroo
   --li-before-color: #fafafa;
   --li-before-font-size: 1.25rem;
   border-radius: 50rem;
-  padding: 0.5rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   margin-right: 2rem;
   margin-left: -4.5rem;
   font-weight: bold;
+  position: absolute;
+  left: auto;
+  width: auto;
 }
 ol.uds-list.uds-steplist.uds-steplist-gold li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-darkmode-maroon li:before, ol.uds-list.is-style-steplist-darkmode-gold li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-darkmode li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-light-smokemode-maroon li:before, ol.uds-list.is-style-steplist-light-smokemode-gold li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-light-smokemode li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-smokemode-maroon li:before, ol.uds-list.is-style-steplist-smokemode-gold li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-smokemode li:before, ol.uds-list.uds-steplist-gold.is-style-steplist-maroon li:before, ol.uds-list.is-style-steplist-gold li:before, ol.uds-list.uds-steplist-gold.is-style-steplist li:before,
 .uds-list ol.uds-steplist.uds-steplist-gold li:before,
@@ -17658,6 +17690,7 @@ span.page-link:hover {
 .pagination.uds-bg-dark .active .page-link {
   background-color: #ffc627;
   color: #191919;
+  border-radius: 50%;
 }
 .pagination.uds-bg-dark :not(.active) .page-link {
   background-color: #191919;
@@ -17682,6 +17715,16 @@ span.page-link:hover {
     font-size: 14px;
   }
 }
+.page-item.active .page-link {
+  border-radius: 50%;
+  padding: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .uds-tabbed-panels {
   box-shadow: inset 0px -2px 0px 0px #bfbfbf;
   flex-wrap: inherit;
@@ -17865,6 +17908,7 @@ div[class^=uds-hero] header {
   grid-row: 2;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  margin-top: 5rem;
 }
 div[class^=uds-hero] header p {
   margin: 0;
@@ -17986,7 +18030,7 @@ div[class^=uds-hero] .hero-overlay {
 }
 
 div.uds-hero-sm {
-  height: 16rem;
+  min-height: 16rem;
   grid-template-rows: 1fr auto auto 3rem;
 }
 div.uds-hero-sm h1, div.uds-hero-sm .h1,
@@ -18013,14 +18057,14 @@ div.uds-hero-sm.has-btn-row .btn-row a.btn, div.uds-hero-sm.has-btn-row .btn-row
   margin-top: 0;
 }
 div.uds-hero-sm.has-btn-row .hero-overlay {
-  height: 16rem;
+  min-height: 16rem;
 }
 div.uds-hero-sm > a.btn, div.uds-hero-sm > a.uds-modal-close-btn {
   top: 15rem;
 }
 
 div.uds-hero-md {
-  height: 21rem;
+  min-height: 21rem;
   grid-template-rows: 1fr auto auto 3rem;
 }
 div.uds-hero-md .content {
@@ -18032,14 +18076,14 @@ div.uds-hero-md.has-btn-row .btn-row {
   top: 20rem;
 }
 div.uds-hero-md.has-btn-row .hero-overlay {
-  height: 21rem;
+  min-height: 21rem;
 }
 div.uds-hero-md > a.btn, div.uds-hero-md > a.uds-modal-close-btn {
   top: 20rem;
 }
 
 div.uds-hero-lg {
-  height: 32rem;
+  min-height: 32rem;
 }
 div.uds-hero-lg .content {
   display: none;
@@ -18059,7 +18103,7 @@ div.uds-hero-lg.has-btn-row .btn-row {
   top: 31rem;
 }
 div.uds-hero-lg.has-btn-row .hero-overlay {
-  height: 32rem;
+  min-height: 32rem;
 }
 div.uds-hero-lg.uds-video-hero video, div.uds-hero-lg.uds-video-hero .video-hero-controls {
   display: none;
@@ -18114,7 +18158,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     grid-template-rows: 1fr auto auto 3.5rem;
   }
   div.uds-hero-sm.has-btn-row .btn-row {
-    top: 14.5rem;
+    top: 92%;
   }
   div.uds-hero-sm > a.btn, div.uds-hero-sm > a.uds-modal-close-btn {
     grid-row: unset;
@@ -18122,7 +18166,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     top: 14.5rem;
   }
   div.uds-hero-md {
-    height: 32rem;
+    min-height: 32rem;
     grid-template-rows: 1fr repeat(4, auto) 3rem;
   }
   div.uds-hero-md h1, div.uds-hero-md .h1 {
@@ -18148,10 +18192,10 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     margin-top: 0;
   }
   div.uds-hero-md.has-btn-row .hero-overlay {
-    height: 32rem;
+    min-height: 32rem;
   }
   div.uds-hero-lg {
-    height: 42.75rem;
+    min-height: 42.75rem;
     grid-template-rows: 1fr repeat(4, auto) 3rem;
   }
   div.uds-hero-lg .content {
@@ -18171,7 +18215,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     margin-top: 0;
   }
   div.uds-hero-lg.has-btn-row .hero-overlay {
-    height: 42.75rem;
+    min-height: 42.75rem;
   }
   div.uds-hero-lg h1, div.uds-hero-lg .h1 {
     margin-bottom: 2rem;
@@ -18211,7 +18255,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     max-width: calc(1200px - 34%);
   }
   div.uds-hero-lg {
-    height: 42.75rem;
+    min-height: 42.75rem;
   }
   div.uds-hero-lg.uds-video-hero {
     position: relative;
@@ -18330,7 +18374,10 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
 .breadcrumb, .yoast-breadcrumbs {
   padding-left: 0;
 }
-.breadcrumb.bg-gray-7 li.active, .bg-gray-7.yoast-breadcrumbs li.active {
+.breadcrumb.bg-gray-7 a, .bg-gray-7.yoast-breadcrumbs a {
+  color: #ffc627;
+}
+.breadcrumb.bg-gray-7 li.active, .bg-gray-7.yoast-breadcrumbs li.active, .breadcrumb.bg-gray-7 li.active a, .bg-gray-7.yoast-breadcrumbs li.active a {
   color: #fafafa;
 }
 .breadcrumb .breadcrumb-item, .yoast-breadcrumbs .breadcrumb-item {
@@ -18345,12 +18392,19 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
 .breadcrumb .breadcrumb-item.active a, .yoast-breadcrumbs .breadcrumb-item.active a {
   color: var(--bs-breadcrumb-item-active-color);
 }
-
-@media screen and (max-width: 576px) {
-  .breadcrumb, .yoast-breadcrumbs {
-    display: none;
-  }
+.breadcrumb .breadcrumb-item, .yoast-breadcrumbs .breadcrumb-item {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
 }
+.breadcrumb .breadcrumb-item a, .yoast-breadcrumbs .breadcrumb-item a {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  display: flex;
+}
+.breadcrumb .breadcrumb-item.active a, .yoast-breadcrumbs .breadcrumb-item.active a {
+  color: var(--bs-breadcrumb-item-active-color);
+}
+
 /*------------------------------------------------------------------
 Sidebar Navigation
 
@@ -18799,9 +18853,13 @@ form.wpcf7-form legend {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-form.uds-form label svg.uds-field-required, form.wpcf7-form label svg.uds-field-required,
+form.uds-form label svg.uds-field-required, form.wpcf7-form label svg.uds-field-required, form.uds-form label i.uds-field-required, form.wpcf7-form label i.uds-field-required, form.uds-form label span.uds-field-required, form.wpcf7-form label span.uds-field-required,
 form.uds-form legend svg.uds-field-required,
-form.wpcf7-form legend svg.uds-field-required {
+form.wpcf7-form legend svg.uds-field-required,
+form.uds-form legend i.uds-field-required,
+form.wpcf7-form legend i.uds-field-required,
+form.uds-form legend span.uds-field-required,
+form.wpcf7-form legend span.uds-field-required {
   font-size: 0.5rem;
   margin-right: 0.25rem;
   margin-bottom: 0.125rem;
@@ -18811,6 +18869,16 @@ form.uds-form label.uds-form-label-disabled, form.wpcf7-form label.uds-form-labe
 form.uds-form legend.uds-form-label-disabled,
 form.wpcf7-form legend.uds-form-label-disabled {
   color: #484848;
+}
+form.uds-form label.form-check-label::before, form.wpcf7-form label.form-check-label::before,
+form.uds-form legend.form-check-label::before,
+form.wpcf7-form legend.form-check-label::before {
+  margin-left: 0.4rem;
+}
+form.uds-form label.form-check-label::after, form.wpcf7-form label.form-check-label::after,
+form.uds-form legend.form-check-label::after,
+form.wpcf7-form legend.form-check-label::after {
+  margin-left: 0.4rem;
 }
 form.uds-form .form-control, form.uds-form .wpcf7-form input:not([type=submit]), .wpcf7-form form.uds-form input:not([type=submit]),
 form.uds-form .wpcf7-form textarea,
@@ -19106,7 +19174,7 @@ form.uds-form .invalid-feedback, form.wpcf7-form .invalid-feedback {
   display: inline-block;
   font-weight: bold;
 }
-form.uds-form .invalid-feedback svg, form.wpcf7-form .invalid-feedback svg {
+form.uds-form .invalid-feedback svg, form.wpcf7-form .invalid-feedback svg, form.uds-form .invalid-feedback i, form.wpcf7-form .invalid-feedback i, form.uds-form .invalid-feedback span, form.wpcf7-form .invalid-feedback span {
   color: var(--invalid-feedback-light-background);
   margin-right: 0.5rem;
 }
@@ -19149,11 +19217,11 @@ form.uds-form .valid-feedback, form.wpcf7-form .valid-feedback {
   display: inline-block;
   font-weight: bold;
 }
-form.uds-form .valid-feedback svg, form.wpcf7-form .valid-feedback svg {
+form.uds-form .valid-feedback svg, form.wpcf7-form .valid-feedback svg, form.uds-form .valid-feedback i, form.wpcf7-form .valid-feedback i, form.uds-form .valid-feedback span, form.wpcf7-form .valid-feedback span {
   color: #446d12;
   margin-right: 0.5rem;
 }
-form.uds-form .input-group-trailing-icon svg, form.wpcf7-form .input-group-trailing-icon svg {
+form.uds-form .input-group-trailing-icon svg, form.wpcf7-form .input-group-trailing-icon svg, form.uds-form .input-group-trailing-icon i, form.wpcf7-form .input-group-trailing-icon i, form.uds-form .input-group-trailing-icon span, form.wpcf7-form .input-group-trailing-icon span {
   position: absolute;
   right: 0.75rem;
   top: 0.75rem;
@@ -19188,6 +19256,7 @@ form.uds-form-gray2.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disab
 }
 form.uds-form.uds-form-gray7, form.uds-form-gray7.wpcf7-form {
   background-color: #191919;
+  color: #fafafa;
   /* Dark Labels */
   /* Dark Labels, checks, radios and selects, client side, tweaks */
   /* TODO Likely we'll find more work to do with client side validation rules
@@ -19199,7 +19268,7 @@ form.uds-form.uds-form-gray7, form.uds-form-gray7.wpcf7-form {
   /* Dark error input */
   /* Dark success input */
 }
-form.uds-form.uds-form-gray7 label svg.uds-field-required, form.uds-form-gray7.wpcf7-form label svg.uds-field-required, form.uds-form.uds-form-gray7 legend svg.uds-field-required, form.uds-form-gray7.wpcf7-form legend svg.uds-field-required {
+form.uds-form.uds-form-gray7 label svg.uds-field-required, form.uds-form-gray7.wpcf7-form label svg.uds-field-required, form.uds-form.uds-form-gray7 label i.uds-field-required, form.uds-form-gray7.wpcf7-form label i.uds-field-required, form.uds-form.uds-form-gray7 label span.uds-field-required, form.uds-form-gray7.wpcf7-form label span.uds-field-required, form.uds-form.uds-form-gray7 legend svg.uds-field-required, form.uds-form-gray7.wpcf7-form legend svg.uds-field-required, form.uds-form.uds-form-gray7 legend i.uds-field-required, form.uds-form-gray7.wpcf7-form legend i.uds-field-required, form.uds-form.uds-form-gray7 legend span.uds-field-required, form.uds-form-gray7.wpcf7-form legend span.uds-field-required {
   color: #ffc627;
 }
 form.uds-form.uds-form-gray7 .form-control, form.uds-form.uds-form-gray7 .wpcf7-form input:not([type=submit]), .wpcf7-form form.uds-form.uds-form-gray7 input:not([type=submit]),
@@ -19395,7 +19464,7 @@ form.uds-form.uds-form-gray7 .invalid-feedback, form.uds-form-gray7.wpcf7-form .
   font-weight: bold;
   color: #FF7B7D;
 }
-form.uds-form.uds-form-gray7 .invalid-feedback svg, form.uds-form-gray7.wpcf7-form .invalid-feedback svg {
+form.uds-form.uds-form-gray7 .invalid-feedback svg, form.uds-form-gray7.wpcf7-form .invalid-feedback svg, form.uds-form.uds-form-gray7 .invalid-feedback i, form.uds-form-gray7.wpcf7-form .invalid-feedback i, form.uds-form.uds-form-gray7 .invalid-feedback span, form.uds-form-gray7.wpcf7-form .invalid-feedback span {
   color: #FF7B7D;
   margin-right: 0.5rem;
 }
@@ -19419,11 +19488,11 @@ form.uds-form.uds-form-gray7 .valid-feedback, form.uds-form-gray7.wpcf7-form .va
   font-weight: bold;
   color: #78be20;
 }
-form.uds-form.uds-form-gray7 .valid-feedback svg, form.uds-form-gray7.wpcf7-form .valid-feedback svg {
+form.uds-form.uds-form-gray7 .valid-feedback svg, form.uds-form-gray7.wpcf7-form .valid-feedback svg, form.uds-form.uds-form-gray7 .valid-feedback i, form.uds-form-gray7.wpcf7-form .valid-feedback i, form.uds-form.uds-form-gray7 .valid-feedback span, form.uds-form-gray7.wpcf7-form .valid-feedback span {
   color: #78be20;
   margin-right: 0.5rem;
 }
-form.uds-form.uds-form-gray7 .input-group-trailing-icon svg, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon svg {
+form.uds-form.uds-form-gray7 .input-group-trailing-icon svg, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon svg, form.uds-form.uds-form-gray7 .input-group-trailing-icon i, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon i, form.uds-form.uds-form-gray7 .input-group-trailing-icon span, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon span {
   color: #fafafa;
 }
 form.uds-form input:disabled ~ .valid-feedback, form.wpcf7-form input:disabled ~ .valid-feedback,
@@ -19478,9 +19547,16 @@ form.wpcf7-form select:disabled ~ .invalid-feedback {
   }
 }
 
-div.uds-tooltip-container {
+.uds-tooltip-container {
   display: inline-block;
   position: relative;
+}
+.uds-tooltip-container [aria-describedby] + [role=tooltip] {
+  visibility: hidden;
+}
+.uds-tooltip-container [aria-describedby]:focus + [role=tooltip],
+.uds-tooltip-container [aria-describedby]:hover + [role=tooltip] {
+  visibility: visible;
 }
 
 button.uds-tooltip {
@@ -19764,7 +19840,7 @@ span.uds-tooltip-visually-hidden {
   padding: 1.5rem;
   text-decoration: none;
 }
-.uds-grid-links a svg {
+.uds-grid-links a svg, .uds-grid-links a span {
   margin: calc(0.5rem / 2) 0.5rem 0 0;
 }
 .uds-grid-links a:hover {
@@ -19929,6 +20005,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-sm .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-sm h4, .uds-anchor-menu.uds-anchor-menu-expanded-sm .h4, .uds-anchor-menu.uds-anchor-menu-expanded-sm h2, .uds-anchor-menu.uds-anchor-menu-expanded-sm .h2 {
     margin: auto 0;
@@ -19973,6 +20050,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-md .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-md h4, .uds-anchor-menu.uds-anchor-menu-expanded-md .h4, .uds-anchor-menu.uds-anchor-menu-expanded-md h2, .uds-anchor-menu.uds-anchor-menu-expanded-md .h2 {
     margin: auto 0;
@@ -20017,6 +20095,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-lg .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-lg h4, .uds-anchor-menu.uds-anchor-menu-expanded-lg .h4, .uds-anchor-menu.uds-anchor-menu-expanded-lg h2, .uds-anchor-menu.uds-anchor-menu-expanded-lg .h2 {
     margin: auto 0;
@@ -20067,6 +20146,7 @@ canvas {
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-xl .uds-anchor-menu-wrapper {
     flex-direction: row;
+    padding-top: 3px;
   }
   .uds-anchor-menu.uds-anchor-menu-expanded-xl h4, .uds-anchor-menu.uds-anchor-menu-expanded-xl .h4, .uds-anchor-menu.uds-anchor-menu-expanded-xl h2, .uds-anchor-menu.uds-anchor-menu-expanded-xl .h2 {
     margin: auto 0;
@@ -21104,17 +21184,19 @@ Mobile Styles
   margin-left: 5px;
   font-size: 0.875rem;
 }
-.card-ranking .info-layer.active {
+.card-ranking .info-layer.show, .card-ranking .info-layer.active {
   height: 100%;
 }
-.card-ranking .info-layer.active .content .header h4, .card-ranking .info-layer.active .content .header .h4 {
+.card-ranking .info-layer.show .content .header h4, .card-ranking .info-layer.show .content .header .h4, .card-ranking .info-layer.active .content .header h4, .card-ranking .info-layer.active .content .header .h4 {
   display: block;
 }
-.card-ranking .info-layer.active .content .header svg.fa-chevron-up,
+.card-ranking .info-layer.show .content .header svg.fa-chevron-up,
+.card-ranking .info-layer.show .content .header i.fa-chevron-up, .card-ranking .info-layer.active .content .header svg.fa-chevron-up,
 .card-ranking .info-layer.active .content .header i.fa-chevron-up {
   transform: rotate(180deg);
 }
-.card-ranking .info-layer.active .content > p,
+.card-ranking .info-layer.show .content > p,
+.card-ranking .info-layer.show .content .header > p, .card-ranking .info-layer.active .content > p,
 .card-ranking .info-layer.active .content .header > p {
   -webkit-line-clamp: 12;
 }
@@ -21134,7 +21216,7 @@ Mobile Styles
 .card-ranking.small-image .image-wrapper img {
   max-width: 100%;
 }
-.card-ranking.small-image:has(.info-layer.active) img {
+.card-ranking.small-image:has(.info-layer.show) img, .card-ranking.small-image:has(.info-layer.active) img {
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
@@ -21145,7 +21227,7 @@ Mobile Styles
 .card-ranking.small-image .info-layer a.read-more {
   display: none;
 }
-.card-ranking.small-image .info-layer.active .content a.read-more {
+.card-ranking.small-image .info-layer.show .content a.read-more, .card-ranking.small-image .info-layer.active .content a.read-more {
   display: block;
 }
 .card-ranking.small-image .info-layer .content .header > p {
@@ -21170,7 +21252,7 @@ Mobile Styles
   -o-object-fit: cover;
      object-fit: cover;
 }
-.card-ranking.large-image:has(.info-layer.active) img {
+.card-ranking.large-image:has(.info-layer.show) img, .card-ranking.large-image:has(.info-layer.active) img {
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
@@ -21195,14 +21277,14 @@ Mobile Styles
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
-.card-ranking.large-image .info-layer.active .content .header h4, .card-ranking.large-image .info-layer.active .content .header .h4 {
+.card-ranking.large-image .info-layer.show .content .header h4, .card-ranking.large-image .info-layer.show .content .header .h4, .card-ranking.large-image .info-layer.active .content .header h4, .card-ranking.large-image .info-layer.active .content .header .h4 {
   min-height: unset;
   max-height: unset;
 }
-.card-ranking.large-image .info-layer.active .content > p {
+.card-ranking.large-image .info-layer.show .content > p, .card-ranking.large-image .info-layer.active .content > p {
   visibility: visible;
 }
-.card-ranking.large-image .info-layer.active .content a.read-more {
+.card-ranking.large-image .info-layer.show .content a.read-more, .card-ranking.large-image .info-layer.active .content a.read-more {
   visibility: visible;
 }
 @media screen and (min-width: 768px) {
@@ -22201,49 +22283,6 @@ the content of the header
   }
 }
 
-/*
-  TODO: all imports below belong to the previous bootstrap 4 package, you have to check each import and be careful when removing it.
-*/
-:focus {
-  outline: 0;
-  box-shadow: 0 0 8px #00baff !important;
-}
-
-body {
-  font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
-  font-weight: 400;
-  color: #191919;
-}
-
-.text-white, .bg-dark .tab-content .tab-pane {
-  color: #e8e8e8 !important;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.text-capitalize {
-  text-transform: capitalize !important;
-}
-
-u,
-ins {
-  text-decoration-line: none;
-  font-style: italic;
-}
-
-abbr {
-  text-decoration-line: none !important;
-  text-decoration-style: none !important;
-  text-decoration-color: initial !important;
-}
-
-b,
-strong {
-  font-weight: 700 !important;
-}
-
 /*------------------------------------------------------------------
 Footer - Table of Contents
 
@@ -22342,6 +22381,9 @@ Footer - Table of Contents
   color: #bfbfbf;
   line-height: 1;
   padding-top: 7px;
+}
+#endorsed-footer #social-media .nav-link :hover, #endorsed-footer #social-media .secondary-nav-link :hover {
+  color: #ffffff;
 }
 
 @media (max-width: 575.98px) {
@@ -22575,35 +22617,6 @@ main > * {
 }
 
 /*--------------------------------------------------------------
-2.5 Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-@media screen and (max-width: 540px) {
-  .uds-hero-lg .uds-hero-container,
-  .uds-hero-sm .uds-hero-container {
-    margin-bottom: 0 !important;
-    margin-left: 1rem;
-  }
-  .uds-hero-lg .uds-hero-container.has-buttons,
-  .uds-hero-sm .uds-hero-container.has-buttons {
-    margin-bottom: -2rem !important;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .uds-hero-md .uds-hero-container {
-    margin-bottom: 2rem !important;
-    margin-left: 1rem;
-    top: 0 !important;
-  }
-  .uds-hero-md .uds-hero-container.has-buttons {
-    top: 2rem !important;
-  }
-}
-
-/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 /* The included JS file for the global header accidently applies the .dropdown-pinned
@@ -22635,99 +22648,6 @@ X. Misc. styles
   display: block;
 }
 
-/*--------------------------------------------------------------
- Hero adjustments
---------------------------------------------------------------*/
-.uds-hero {
-  position: relative;
-}
-.uds-hero .uds-hero-container {
-  z-index: 30;
-}
-.uds-hero img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-}
-
-/*--------------------------------------------------------------
-Unity hero: highlight/subtitle covers up letters fix
-
-The line height on hero H1's was not large enough to accomodate
-highlighted text, leading to letters with descenders ('g', 'y',
-etc.) being clipped. Upping the line height here to the mimimum
-size that will prevent clipping.
-
-Note: This is for all sizes except extra small and small, which
-are handled with the media query below
----------------------------------------------------------------*/
-div[class^=uds-hero] h1, div[class^=uds-hero] .h1 {
-  line-height: 4.5rem;
-}
-
-div[class^=uds-hero] [role=doc-subtitle] {
-  line-height: 1.7rem;
-}
-
-/*--------------------------------------------------------------
-Unity Hero Block Title/Subtitle Z-index
-
-The unity hero block loses the z-index setting on the title and
-subtitle when it drops below 768px (don't know why). Adding it
-back.
----------------------------------------------------------------*/
-@media (max-width: 768px) {
-  div[class^=uds-hero] .btn-row,
-  div[class^=uds-hero] .content,
-  div[class^=uds-hero] [role=doc-subtitle],
-  div[class^=uds-hero] a.btn,
-  div[class^=uds-hero] a.uds-modal-close-btn,
-  div[class^=uds-hero] h1,
-  div[class^=uds-hero] .h1 {
-    z-index: 30;
-  }
-  /* Unity hero also decides to drop the background gradient
-  at this size. Adding it back. Style rule copied directly from
-  the inspector at larger screen size. */
-  div[class^=uds-hero]::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(180deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.7882352941) 100%);
-    grid-column: 1/span 3;
-    grid-row: 1/span 4;
-    z-index: 20;
-  }
-  /* The unity hero bock only scaled the font size down at the
-  smallest mobile size (XSmall). Adding these rules to this
-  media query so we will scale down the font size at XS and Small.
-
-  Note: because we had an issue with highlighted text and line
-  height, we set the line height manually here, and did not use
-  a unity theme variable.
-
-  Note: We're also using slightly smaller than standard text for our
-  hero H1's here, only because it looks a little better IMO.
-  */
-  div[class^=uds-hero] h1, div[class^=uds-hero] .h1 {
-    font-size: 2rem; /* 2 rem */
-    line-height: 2.25rem;
-  }
-}
-@media only screen and (min-width: 576px) and (max-width: 768px) and (max-width: 768px) {
-  div[class^=uds-hero] .content {
-    width: 100%;
-    max-width: 560px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
 /*--------------------------------------------------------------
  ACF Button block
 --------------------------------------------------------------*/
@@ -22819,64 +22739,6 @@ main {
   }
 }
 /*--------------------------------------------------------------
-Override UDS scss
---------------------------------------------------------------*/
-@media screen and (max-width: 576px) {
-  .uds-hero.uds-hero-sm {
-    margin: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
-}
-ul.uds-list, .uds-list ul {
-  padding: 0 5rem 0 2rem;
-}
-
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-  position: relative;
-  overflow: hidden;
-  overflow: unset;
-}
-.hero-video video {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero-video .hero-video-controls {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video .hero-video-controls input.btn-circle.btn-circle-large[type=submit], .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn {
-  z-index: 9;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: 0.3s;
-  opacity: 0.4;
-}
-.hero-video .hero-video-controls #playHeroVid {
-  padding-left: 8px;
-  display: none;
-}
-.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video:hover input.btn-circle.btn-circle-large[type=submit], .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn {
-  opacity: 1;
-}
-
-@media (max-width: 767.98px) {
-  #footer-colophon,
-  #footer-innovation {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
-/*--------------------------------------------------------------
 Dividers
 --------------------------------------------------------------*/
 .block-editor-block-list__layout .wp-block.is-style-copy-divider {
@@ -22934,27 +22796,15 @@ Override the desktop media query for header to fix the gap issue
 @media (min-width: 1260px) {
   #asu-header + div,
   #asu-header + main {
-    transition: all 0.2s ease-in-out;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
     margin-top: 144px;
-  }
-}
-@media (min-width: 1260px) and (prefers-reduced-motion: reduce) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: none;
   }
 }
 @media (max-width: 991.98px) {
   #asu-header + div,
   #asu-header + main {
-    transition: all 0.2s ease-in-out;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
     margin-top: 113px;
-  }
-}
-@media (max-width: 991.98px) and (prefers-reduced-motion: reduce) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: none;
   }
 }
 #wpadminbar + #asu-header.fixed-top,
@@ -26552,12 +26402,6 @@ mapping back to specific classes within UDS-Boostrap.
   color: #191919 !important;
 }
 
-ul.uds-list, .uds-list ul,
-ol.uds-list,
-.uds-list ol {
-  padding: 0 5rem 0 2rem;
-}
-
 /*--------------------------------------------------------------
 3. core/image
 --------------------------------------------------------------*/
@@ -27062,242 +26906,13 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
 /*------------------------------------------------------------------
 3. Desktop, XL
 --------------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Markup for UDS Hero
-Obsolete with update of UDS-Boostrap > v.5.0
-
-1. Hero, Desktop
-2. Hero, Mobile
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-2. Hero, Desktop
---------------------------------------------------------------*/
-.v1-uds-hero {
-  background-size: cover;
-  background-position: top;
-  width: 100%;
-  height: 42.75rem;
-  display: flex;
-  max-width: 1920px;
-}
-.v1-uds-hero .v1-uds-hero-container {
-  /* width: 800px; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: auto auto 2rem auto;
-}
-.v1-uds-hero .v1-uds-hero-container h1, .v1-uds-hero .v1-uds-hero-container .h1 {
-  margin-left: 0;
-  margin-top: 0;
-}
-.v1-uds-hero .v1-uds-hero-container h3, .v1-uds-hero .v1-uds-hero-container .h3 {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-left: 6px;
-}
-.v1-uds-hero .v1-uds-hero-container .v1-uds-hero-text {
-  margin-left: 0;
-}
-.v1-uds-hero .v1-uds-hero-container p {
-  color: #ffffff;
-  font-size: 1.5rem;
-  margin-bottom: 1.75rem;
-}
-.v1-uds-hero.uds-hero-sm {
-  height: 16rem;
-}
-.v1-uds-hero.uds-hero-sm .container.uds-hero-container {
-  width: 100%;
-}
-.v1-uds-hero.uds-hero-md {
-  height: 32rem;
-}
-.v1-uds-hero.uds-hero-md .container {
-  width: 100%;
-}
-.v1-uds-hero.uds-hero-md .container .v1-uds-hero-text {
-  line-height: 2rem;
-}
-.v1-uds-hero.uds-hero-lg {
-  height: 42.75rem;
-}
-.v1-uds-hero.uds-hero-lg .container.uds-hero-container {
-  width: 100%;
-}
-.v1-uds-hero.uds-hero-lg .container.uds-hero-container .v1-uds-hero-text {
-  line-height: 2rem;
-}
-
-/*--------------------------------------------------------------
-3. Hero, Mobile
---------------------------------------------------------------*/
-@media screen and (max-width: 576px) {
-  .v1-uds-hero .v1-uds-hero-container {
-    margin-bottom: -2rem;
-  }
-  .v1-uds-hero .v1-uds-hero-container h1, .v1-uds-hero .v1-uds-hero-container .h1 {
-    max-width: 100%;
-  }
-  .v1-uds-hero .v1-uds-hero-container p {
-    display: none;
-  }
-}
-@media screen and (max-width: 576px) {
-  .v1-uds-hero.uds-hero-sm {
-    padding-bottom: 2rem;
-  }
-  .v1-uds-hero.uds-hero-sm .highlight {
-    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
-    background-color: #fafafa;
-  }
-}
-@media screen and (max-width: 576px) {
-  .v1-uds-hero.uds-hero-md {
-    height: 16rem;
-  }
-  .v1-uds-hero.uds-hero-md .container {
-    position: relative;
-    top: 2rem;
-  }
-  .v1-uds-hero.uds-hero-md .container .highlight {
-    box-shadow: -0.15em 0 0 #fafafa, 0.15em 0 0 #fafafa;
-    background-color: #fafafa;
-  }
-}
-@media screen and (max-width: 1400px) {
-  .v1-uds-hero.uds-hero-lg {
-    height: 32rem;
-  }
-}
-
-/*--------------------------------------------------------------
-Additional rules from theme.scss
---------------------------------------------------------------*/
-.v1-uds-hero {
-  position: relative;
-}
-.v1-uds-hero:after {
-  content: "";
-  background: linear-gradient(180deg, rgba(25, 25, 25, 0) 0%, rgba(25, 25, 25, 0.7882352941) 100%);
+.uds-person-profile.vertical {
   height: 100%;
-  width: 100%;
-  position: absolute;
-}
-.v1-uds-hero .v1-uds-hero-container {
-  z-index: 30;
-}
-.v1-uds-hero img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-}
-
-@media screen and (max-width: 576px) {
-  .uds-hero.uds-hero-sm {
-    margin: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
-}
-/*--------------------------------------------------------------
-Hero title bottom-margin-fix
---------------------------------------------------------------*/
-/* Prevent the hero content container (title, sub-title,
-buttons), from being moved down on mobile when there are no
-buttons. */
-@media screen and (max-width: 576px) {
-  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container {
-    margin-bottom: 0 !important;
-    margin-left: 1rem;
-  }
-  .v1-uds-hero.uds-hero-lg .v1-uds-hero-container.has-buttons, .v1-uds-hero.uds-hero-sm .v1-uds-hero-container.has-buttons {
-    margin-bottom: -2rem !important;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .v1-uds-hero.uds-hero-md .v1-uds-hero-container {
-    margin-bottom: 2rem !important;
-    margin-left: 1rem;
-    top: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
-Hero video
---------------------------------------------------------------*/
-.hero-video {
-  position: relative;
-  overflow: hidden;
-  overflow: unset;
-}
-.hero-video video {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero-video .hero-video-controls {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-.hero-video .hero-video-controls .btn.btn-circle.btn-circle-large, .hero-video .hero-video-controls .btn-circle.btn-circle-large.uds-modal-close-btn, .hero-video .hero-video-controls .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video .hero-video-controls input.btn-circle.btn-circle-large[type=submit] {
-  z-index: 9;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: 0.3s;
-  opacity: 0.4;
-}
-.hero-video .hero-video-controls #playHeroVid {
-  padding-left: 8px;
-  display: none;
-}
-.hero-video:hover .btn.btn-circle.btn-circle-large, .hero-video:hover .btn-circle.btn-circle-large.uds-modal-close-btn, .hero-video:hover .wpcf7-form input.btn-circle.btn-circle-large[type=submit], .wpcf7-form .hero-video:hover input.btn-circle.btn-circle-large[type=submit] {
-  opacity: 1;
-}
-
-@media (max-width: 767.98px) {
-  #footer-colophon,
-  #footer-innovation {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
-.profile.profile-type-standard.vertical {
-  height: 100%;
-}
-.profile.profile-type-standard.vertical .profile-row {
   display: flex;
   flex-direction: column;
   padding: 0;
-  height: 100%;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column {
-  padding: 0;
-  /**
-   * Limit vertical layout image size to avoid issues when we have
-   * profiles in multiple columns (especially 3 and 4)
-   */
-}
-.profile.profile-type-standard.vertical .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
-  height: 180px;
-  min-height: 180px;
-  max-height: 180px;
-  width: 180px;
-  min-width: 180px;
-  max-width: 180px;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column {
+.uds-person-profile.vertical .person {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -27305,78 +26920,45 @@ Hero video
   max-width: 270px;
   padding: 0 1rem 0 0;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-name {
+.uds-person-profile.vertical .person .person-name {
   margin-top: 1rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-email-link {
-  word-break: break-all;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row {
+.uds-person-profile.vertical .person .person-contact-info {
   display: flex;
   flex-direction: column;
-}
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row p {
+  word-break: break-all;
+  margin-right: 0;
   margin-bottom: 0.5rem;
 }
-.profile.profile-type-standard.vertical .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 0;
+.uds-person-profile.vertical .profile-img-container {
+  padding: 0;
+  /**
+   * Limit vertical layout image size to avoid issues when we have
+   * profiles in multiple columns (especially 3 and 4)
+   */
 }
-.profile.profile-type-standard .profile-row {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column {
-  padding: 1.5rem 1.5rem 1.5rem 0;
-}
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal {
-  border-radius: 500px;
+.uds-person-profile.vertical .profile-img-container img.profile-img.feature-profile {
   height: 180px;
-  margin-top: 0;
-  max-height: 180px;
-  max-width: 180px;
   min-height: 180px;
+  max-height: 180px;
+  width: 180px;
   min-width: 180px;
+  max-width: 180px;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 180px;
 }
-.profile.profile-type-standard .profile-row .profile-photo-column img.pictureOriginal.feature-profile {
+.uds-person-profile.vertical img.profile-img.feature-profile {
   height: 270px;
   min-height: 270px;
   max-height: 270px;
   width: 270px;
   min-width: 270px;
   max-width: 270px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.profile.profile-type-standard .profile-row .profile-bio-column {
-  max-width: 700px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row {
-  display: flex;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-contact-row > div {
-  margin-right: 2rem;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-name {
-  margin-top: 24px;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column .profile-bio-details .profile-title {
-  font-weight: 700;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-  row-gap: 0.5rem;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-.profile.profile-type-standard .profile-row .profile-bio-column ul.person_social_medias li a {
-  color: #191919;
-  font-size: 1.75rem;
+.uds-person-profile.feature-profile {
+  --pic-size: 270px;
 }
 
 /*--------------------------------------------------------------

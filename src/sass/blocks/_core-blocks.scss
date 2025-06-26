@@ -120,13 +120,6 @@ mapping back to specific classes within UDS-Boostrap.
 	@extend .darkmode;
 }
 
-
-//Override the UDS padding on uds-list class on list.scss
-ul.uds-list,
-ol.uds-list {
-	padding: 0 $uds-size-spacing-10 0 $uds-size-spacing-4;
-}
-
 /*--------------------------------------------------------------
 3. core/image
 --------------------------------------------------------------*/
