@@ -63,7 +63,6 @@ function my_acf_blocks_init() {
 			'/image',              // UDS Image block with caption and shadow options.
 			'/modals',             // UDS windows modal block.
 			'/overlay-card',       // UDS Program Cards.
-			'/profile', // Individual person profile (non-iSearch).
 			'/show-more',          // Show more button.
 			'/tabbed-panels',      // UDS Tabbed panels block.
 		);
@@ -135,4 +134,6 @@ if ( ! function_exists( 'remove_core_patterns' ) ) {
 add_action( 'init', 'register_acf_blocks', 5 );
 function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
+	register_block_type( get_template_directory() . '/templates-blocks/profile' );
+
 }
