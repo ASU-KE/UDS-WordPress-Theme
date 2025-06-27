@@ -12,7 +12,7 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 @import "theme/building-backgrounds-vars"; // Variables for building backgrounds
 @import "theme/building-backgrounds"; // Building background styles
 @import "theme/bs4-fallbacks"; // Fallbacks for legacy sites. Do not use these styles for new content, they will be removed as sites are rebuilt/modernized.
-//@import "theme/admin"; // Admin styles for the theme.
+@import "theme/editor";
 
 // Permanent files. Blocks and other items not directly indicated by UDS Bootstrap
 @import "blocks/core-blocks";
