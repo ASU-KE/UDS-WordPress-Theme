@@ -6,6 +6,7 @@
             "key": "field_603d25e83b9ce",
             "label": "Title and Text",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -23,6 +24,7 @@
             "key": "field_602f0c315bfc0",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "For advanced HTML, use the text tab.",
             "required": 1,
@@ -32,7 +34,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "Lorem Ipsum",
             "tabs": "all",
             "toolbar": "uds_wp_cards",
@@ -43,6 +44,7 @@
             "key": "field_602f0c412559a",
             "label": "Body Text",
             "name": "body_text",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -52,7 +54,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "tabs": "all",
             "toolbar": "uds_wp_cards",
@@ -63,6 +64,7 @@
             "key": "field_602f0b2b2e093",
             "label": "Image, Icon and Style",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -80,6 +82,7 @@
             "key": "field_602f0b39b4c29",
             "label": "Card Style",
             "name": "card_style",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -105,6 +108,7 @@
             "key": "field_602f0b5660bc4",
             "label": "Header Style",
             "name": "header_style",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 1,
@@ -139,6 +143,7 @@
             "key": "field_602f0bafbc593",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -156,7 +161,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all",
@@ -172,6 +176,7 @@
             "key": "field_602f0beaa8637",
             "label": "Icon",
             "name": "header_icon",
+            "aria-label": "",
             "type": "text",
             "instructions": "ex. 'fas fa-user'",
             "required": 0,
@@ -189,7 +194,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "maxlength": "",
             "placeholder": "Icon Name Here",
@@ -200,6 +204,7 @@
             "key": "field_63754c77a4df3",
             "label": "Icon Color",
             "name": "card_icon_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -217,7 +222,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "black": "Black",
                 "gold": "Gold",
@@ -235,6 +239,7 @@
             "key": "field_602f0c2622823",
             "label": "Card Orientation",
             "name": "card_orientation",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -267,6 +272,7 @@
             "key": "field_602f0c58aff5b",
             "label": "Date and Time",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -284,7 +290,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "open": 0,
             "multi_expand": 1,
             "endpoint": 0
@@ -293,6 +298,7 @@
             "key": "field_602f0c6e30e8a",
             "label": "Start Date",
             "name": "start_date",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "",
             "required": 0,
@@ -302,7 +308,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "display_format": "F j, Y",
             "return_format": "F j, Y",
             "first_day": 1
@@ -311,6 +316,7 @@
             "key": "field_602f0c78e6848",
             "label": "Start Time",
             "name": "start_time",
+            "aria-label": "",
             "type": "time_picker",
             "instructions": "",
             "required": 0,
@@ -320,7 +326,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "display_format": "g:i a",
             "return_format": "g:i a"
         },
@@ -328,6 +333,7 @@
             "key": "field_602f0c89e480e",
             "label": "End Time",
             "name": "end_time",
+            "aria-label": "",
             "type": "time_picker",
             "instructions": "",
             "required": 0,
@@ -337,7 +343,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "display_format": "g:i a",
             "return_format": "g:i a"
         },
@@ -345,6 +350,7 @@
             "key": "field_602f0c9880d9e",
             "label": "Location",
             "name": "location",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -354,7 +360,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -365,6 +370,7 @@
             "key": "field_602f0caa28fd9",
             "label": "Buttons",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -390,6 +396,7 @@
             "key": "field_602f0cc0abbc7",
             "label": "Buttons",
             "name": "buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -399,7 +406,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -411,6 +417,7 @@
                     "key": "field_605260e337e2b",
                     "label": "Card Buttons",
                     "name": "card_buttons",
+                    "aria-label": "",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -420,7 +427,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "clone": [
                         "group_601db250e6c94"
                     ],
@@ -436,6 +442,7 @@
             "key": "field_602f0e89e370a",
             "label": "Links",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -461,6 +468,7 @@
             "key": "field_602f0e97702ae",
             "label": "Links",
             "name": "links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -470,7 +478,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -482,6 +489,7 @@
                     "key": "field_602f0eaece055",
                     "label": "Text",
                     "name": "link_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -491,7 +499,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -503,6 +510,7 @@
                     "key": "field_602f0ebb35993",
                     "label": "url",
                     "name": "link_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -512,7 +520,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "parent_repeater": "field_602f0e97702ae"
@@ -521,6 +528,7 @@
                     "key": "field_602f0ec7cdd06",
                     "label": "External Link",
                     "name": "external_link",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -530,7 +538,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "message": "",
                     "default_value": 0,
                     "ui": 1,
@@ -544,6 +551,7 @@
             "key": "field_602f0edb450a1",
             "label": "Tags",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -569,6 +577,7 @@
             "key": "field_602f0f084ce05",
             "label": "Tags",
             "name": "tags",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -578,7 +587,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "field_602f0f20874f6",
             "min": 0,
             "max": 0,
@@ -590,6 +598,7 @@
                     "key": "field_602f0f20874f6",
                     "label": "Tag Text",
                     "name": "tag_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -599,7 +608,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "Tag Here",
                     "prepend": "",
@@ -611,6 +619,7 @@
                     "key": "field_602f0f35bc049",
                     "label": "Tag URL",
                     "name": "tag_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -620,7 +629,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "parent_repeater": "field_602f0f084ce05"
@@ -631,6 +639,7 @@
             "key": "field_66bd3effc9658",
             "label": "Interactive card options",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -656,6 +665,7 @@
             "key": "field_66bd3c3ecc0c2",
             "label": "Interactive background image",
             "name": "interactive_background_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -688,8 +698,9 @@
             "key": "field_66bd3d64cc0c3",
             "label": "Interactive CTA Button Text",
             "name": "interactive_cta_button_text",
+            "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Optional, leave blank to hide",
             "required": 0,
             "conditional_logic": [
                 [
@@ -707,6 +718,7 @@
             },
             "default_value": "Click here",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -715,8 +727,9 @@
             "key": "field_66bd3dc6cc0c4",
             "label": "Interactive CTA URL",
             "name": "interactive_cta_url",
+            "aria-label": "",
             "type": "url",
-            "instructions": "",
+            "instructions": "Optional, leave blank to hide",
             "required": 0,
             "conditional_logic": [
                 [
@@ -733,6 +746,7 @@
                 "id": ""
             },
             "default_value": "https:\/\/asu.edu",
+            "allow_in_bindings": 1,
             "placeholder": ""
         }
     ],
@@ -754,5 +768,5 @@
     "active": true,
     "description": "Fields for creating static, but customizable, versions of all UDS card types: standard, story, degree, and event.",
     "show_in_rest": 0,
-    "modified": 1723678571
+    "modified": 1744665723
 }
