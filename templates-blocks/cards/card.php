@@ -111,7 +111,7 @@ if (!empty($image_data)) {
 				<div class="hidden-details">
 					<p class="long-text"><?php the_field('body_text', false, false); ?></p>
 					<?php if (get_field('interactive_cta_url') && get_field('interactive_cta_button_text')) : ?>
-					<a href="<?php $call_to_action_url = get_field('interactive_cta_url'); echo $call_to_action_url; ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="<?php echo get_field('title'); ?>"><?php $call_to_action = the_field('interactive_cta_button_text');  echo $call_to_action; ?></a>
+					<a href="<?php $call_to_action_url = get_field('interactive_cta_url'); echo $call_to_action_url; ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="<?php the_field('title', false, false); ?>"><?php $call_to_action = the_field('interactive_cta_button_text');  echo $call_to_action; ?></a>
 					<?php endif; ?>
 				</div>
 			</div>
