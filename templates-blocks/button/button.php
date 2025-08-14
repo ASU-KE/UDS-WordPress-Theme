@@ -78,6 +78,13 @@ if ($icon) {
 	$icon_span = '';
 }
 
+// construct the aria-label attribute if one was provided.
+if ($aria_label) {
+	$aria_label = 'aria-label="' . esc_attr($aria_label) . '"';
+} else {
+	$aria_label = '';
+}
+
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
 if (isset($block['className']) && !empty($block['className'])) {
