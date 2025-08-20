@@ -1,0 +1,24 @@
+{
+    "name": "acf/uds-button",
+    "title": "UDS Button",
+    "description": "UDS compliant button with configurable size, color, and icon",
+    "category": "uds",
+    "icon": "button",
+    "keywords": ["button", "link"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "button.php",
+		"validate": false
+    },
+    "supports": {
+        "align": false
+    },
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"button_link": {"title":"Your label", "button_color":"maroon", "button_size":"default"}
+			}
+		}
+	}
+}

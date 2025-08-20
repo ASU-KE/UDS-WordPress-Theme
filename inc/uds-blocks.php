@@ -55,7 +55,6 @@ function my_acf_blocks_init() {
 			'/background-section', // UDS Background section.
 			'/banner',             // UDS banner block.
 			'/blockquote',         // Combination of UDS block quote and testimonial.
-			'/button',             // Button block for UDS theme.
 			'/content-sections',   // Miscellaneous content sections.
 			'/foldable-card',      // UDS Foldable card block.
 			'/grid-links',         // UDS Grid Links.
@@ -135,5 +134,6 @@ add_action( 'init', 'register_acf_blocks', 5 );
 function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
+	register_block_type( get_template_directory() . '/templates-blocks/button' );
 
 }
