@@ -90,15 +90,26 @@ if (!function_exists('uds_localize_component_header_script')) {
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
 			if (has_nav_menu('primary') && $primary_menu) {
-				// Check if the menu actually has items before calling wp_nav_menu
+				// Debug: Let's understand what wp_get_nav_menu_items returns for empty menus
 				$menu_items_check = wp_get_nav_menu_items($primary_menu->term_id);
-				if ($menu_items_check && !empty($menu_items_check)) {
+				
+				// wp_get_nav_menu_items() can return:
+				// - false: if no menu items exist at all (truly empty menu)  
+				// - array(): if menu exists but no visible items (e.g., all items are in trash)
+				// - array with items: if menu has actual items
+				$has_menu_items = false;
+				if ($menu_items_check !== false && is_array($menu_items_check) && count($menu_items_check) > 0) {
+					$has_menu_items = true;
+				}
+				
+				if ($has_menu_items) {
 					$menu_items = wp_nav_menu([
 						'menu' => $primary_menu,
 						'walker' => new UDS_React_Header_Navtree(),
 						'echo' => false,
 						'container' => '',
 						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+						'fallback_cb' => false, // Prevent fallback that might return "0"
 					]);
 					// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
 					if ($menu_items === "0" || $menu_items === 0) {
@@ -115,15 +126,26 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
 				if ($multisite_primary_menu) {
-					// Check if the multisite menu actually has items before calling wp_nav_menu
+					// Debug: Let's understand what wp_get_nav_menu_items returns for empty menus
 					$multisite_menu_items_check = wp_get_nav_menu_items($multisite_primary_menu->term_id);
-					if ($multisite_menu_items_check && !empty($multisite_menu_items_check)) {
+					
+					// wp_get_nav_menu_items() can return:
+					// - false: if no menu items exist at all (truly empty menu)  
+					// - array(): if menu exists but no visible items (e.g., all items are in trash)
+					// - array with items: if menu has actual items
+					$has_multisite_menu_items = false;
+					if ($multisite_menu_items_check !== false && is_array($multisite_menu_items_check) && count($multisite_menu_items_check) > 0) {
+						$has_multisite_menu_items = true;
+					}
+					
+					if ($has_multisite_menu_items) {
 						$menu_items = wp_nav_menu([
 							'menu' => $multisite_primary_menu,
 							'walker' => new UDS_React_Header_Navtree(),
 							'echo' => false,
 							'container' => '',
 							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+							'fallback_cb' => false, // Prevent fallback that might return "0"
 						]);
 						// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
 						if ($menu_items === "0" || $menu_items === 0) {

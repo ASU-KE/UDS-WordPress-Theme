@@ -43,7 +43,17 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 	$sidebar = '';
 	if ( $menu_object ) {
 		$menu_items_check = wp_get_nav_menu_items( $menu_object->term_id );
-		if ( $menu_items_check && !empty( $menu_items_check ) ) {
+		
+		// wp_get_nav_menu_items() can return:
+		// - false: if no menu items exist at all (truly empty menu)  
+		// - array(): if menu exists but no visible items (e.g., all items are in trash)
+		// - array with items: if menu has actual items
+		$has_menu_items = false;
+		if ( $menu_items_check !== false && is_array( $menu_items_check ) && count( $menu_items_check ) > 0 ) {
+			$has_menu_items = true;
+		}
+		
+		if ( $has_menu_items ) {
 			$sidebar = wp_nav_menu(
 				array(
 					'menu'            => $menu,
@@ -51,6 +61,7 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 					'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
 					'container'      => '',
 					'items_wrap'    => '%3$s',
+					'fallback_cb' => false, // Prevent fallback that might return "0"
 				)
 			);
 			// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty string
