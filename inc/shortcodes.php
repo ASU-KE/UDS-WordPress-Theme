@@ -53,6 +53,10 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 					'items_wrap'    => '%3$s',
 				)
 			);
+			// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty string
+			if ( $sidebar === "0" || $sidebar === 0 ) {
+				$sidebar = '';
+			}
 		}
 	}
 	// Return the menu inside the wrapper.

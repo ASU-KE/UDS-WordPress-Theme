@@ -100,6 +100,10 @@ if (!function_exists('uds_localize_component_header_script')) {
 						'container' => '',
 						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 					]);
+					// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
+					if ($menu_items === "0" || $menu_items === 0) {
+						$menu_items = array();
+					}
 				} else {
 					// Menu exists but has no items, set to empty array
 					$menu_items = array();
@@ -121,6 +125,10 @@ if (!function_exists('uds_localize_component_header_script')) {
 							'container' => '',
 							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 						]);
+						// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
+						if ($menu_items === "0" || $menu_items === 0) {
+							$menu_items = array();
+						}
 					} else {
 						// Multisite menu exists but has no items, set to empty array
 						$menu_items = array();
@@ -142,6 +150,11 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$menu_items = maybe_unserialize($menu_items);
 			} else {
 				//echo('is_serialized failed');
+				$menu_items = array();
+			}
+			
+			// Final validation: ensure we never pass "0" to React
+			if ($menu_items === "0" || $menu_items === 0) {
 				$menu_items = array();
 			}
 
