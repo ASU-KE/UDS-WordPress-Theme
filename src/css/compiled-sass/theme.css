@@ -15694,7 +15694,7 @@ Cards - Table of Contents
   opacity: 1;
   background: #ffffff 0% 0% no-repeat padding-box;
   padding: 2rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 .uds-img .uds-figure .uds-figure-caption h3, .uds-img .uds-figure .uds-figure-caption .h3 {
   color: #191919;
@@ -22400,7 +22400,7 @@ Footer - Table of Contents
   font-size: 2rem;
   color: #bfbfbf;
   line-height: 1;
-  padding-top: 7px;
+  padding: 7px 16px;
 }
 #endorsed-footer #social-media .nav-link :hover, #endorsed-footer #social-media .secondary-nav-link :hover {
   color: #ffffff;
