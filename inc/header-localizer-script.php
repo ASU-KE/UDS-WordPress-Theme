@@ -90,25 +90,29 @@ if (!function_exists('uds_localize_component_header_script')) {
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
 			if (has_nav_menu('primary') && $primary_menu) {
-				// Check if the menu actually has any items before processing
+				// Get menu items to check if menu has content
 				$menu_items_check = wp_get_nav_menu_items($primary_menu->term_id);
 				
-				// Only process the menu if it has actual visible items
+				// Only call wp_nav_menu if the menu actually has visible items
 				if ($menu_items_check && is_array($menu_items_check) && count($menu_items_check) > 0) {
-					$menu_items = wp_nav_menu([
+					$menu_output = wp_nav_menu([
 						'menu' => $primary_menu,
 						'walker' => new UDS_React_Header_Navtree(),
 						'echo' => false,
 						'container' => '',
 						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-						'fallback_cb' => false, // Prevent fallback that might return "0"
+						'fallback_cb' => '__return_empty_string', // Prevent any fallback output
 					]);
 					
-					// Ensure we have valid serialized data, not "0" or other invalid values
-					if (!is_serialized($menu_items) || $menu_items === "0" || $menu_items === 0 || empty($menu_items)) {
-						$menu_items = array();
+					// Process the output from walker
+					if (is_serialized($menu_output) && !empty($menu_output) && $menu_output !== 'a:0:{}') {
+						$menu_items = maybe_unserialize($menu_output);
+						// Ensure it's a proper array
+						if (!is_array($menu_items)) {
+							$menu_items = array();
+						}
 					} else {
-						$menu_items = maybe_unserialize($menu_items);
+						$menu_items = array();
 					}
 				} else {
 					// Menu exists but has no items - return empty array
@@ -121,25 +125,29 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
 				if ($multisite_primary_menu) {
-					// Check if the multisite menu actually has any items before processing
+					// Get menu items to check if menu has content
 					$multisite_menu_items_check = wp_get_nav_menu_items($multisite_primary_menu->term_id);
 					
-					// Only process the menu if it has actual visible items
+					// Only call wp_nav_menu if the menu actually has visible items
 					if ($multisite_menu_items_check && is_array($multisite_menu_items_check) && count($multisite_menu_items_check) > 0) {
-						$menu_items = wp_nav_menu([
+						$menu_output = wp_nav_menu([
 							'menu' => $multisite_primary_menu,
 							'walker' => new UDS_React_Header_Navtree(),
 							'echo' => false,
 							'container' => '',
 							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-							'fallback_cb' => false, // Prevent fallback that might return "0"
+							'fallback_cb' => '__return_empty_string', // Prevent any fallback output
 						]);
 						
-						// Ensure we have valid serialized data, not "0" or other invalid values
-						if (!is_serialized($menu_items) || $menu_items === "0" || $menu_items === 0 || empty($menu_items)) {
-							$menu_items = array();
+						// Process the output from walker
+						if (is_serialized($menu_output) && !empty($menu_output) && $menu_output !== 'a:0:{}') {
+							$menu_items = maybe_unserialize($menu_output);
+							// Ensure it's a proper array
+							if (!is_array($menu_items)) {
+								$menu_items = array();
+							}
 						} else {
-							$menu_items = maybe_unserialize($menu_items);
+							$menu_items = array();
 						}
 					} else {
 						// Multisite menu exists but has no items - return empty array
@@ -167,6 +175,10 @@ if (!function_exists('uds_localize_component_header_script')) {
 			}
 		}
 
+		// Final validation: ensure menu_items is never "0", empty string, or invalid
+		if ($menu_items === "0" || $menu_items === 0 || $menu_items === "" || !is_array($menu_items)) {
+			$menu_items = array();
+		}
 
 		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
