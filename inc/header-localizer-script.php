@@ -19,7 +19,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
-		$primary_menu_id = $locations[$menu_name];
+		$primary_menu_id = isset($locations[$menu_name]) ? $locations[$menu_name] : null;
 		$primary_menu = wp_get_nav_menu_object($primary_menu_id);
 
 
@@ -89,7 +89,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 			$menu_items = [];
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
-			if (has_nav_menu('primary')) {
+			if (has_nav_menu('primary') && $primary_menu) {
 				$menu_items = wp_nav_menu([
 					'menu' => $primary_menu,
 					'walker' => new UDS_React_Header_Navtree(),
@@ -97,20 +97,27 @@ if (!function_exists('uds_localize_component_header_script')) {
 					'container' => '',
 					'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 				]);
-			} else {
+			} elseif (is_multisite() && !is_main_site()) {
 				//multisite subsite without primary menu set, get top level main menu instead
 				switch_to_blog('1'); 	//switch to the main site of the network (it has ID 1)
 				$multisite_locations = get_nav_menu_locations();
-				$multisite_primary_menu_id = $multisite_locations['primary'];
+				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
-				$menu_items = wp_nav_menu([
-					'menu' => $multisite_primary_menu,
-					'walker' => new UDS_React_Header_Navtree(),
-					'echo' => false,
-					'container' => '',
-					'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-				]);
+				if ($multisite_primary_menu) {
+					$menu_items = wp_nav_menu([
+						'menu' => $multisite_primary_menu,
+						'walker' => new UDS_React_Header_Navtree(),
+						'echo' => false,
+						'container' => '',
+						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+					]);
+				} else {
+					$menu_items = array();
+				}
 				restore_current_blog();	//switch back to the current site
+			} else {
+				// No valid menu found, set to empty array
+				$menu_items = array();
 			}
 
 			// Expected return from nav walker is a serialized array. But if the array is empty/error,

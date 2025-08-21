@@ -31,6 +31,12 @@ if ( ! function_exists( 'uds_react_get_menu_formatted_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
+			
+			// If the menu object is false/null, return empty array
+			if ( ! $menu_object ) {
+				return array();
+			}
+			
 			$animate_title = get_field("animate_title", 'options');
 			$expand_on_hover = get_field("expand_on_hover", 'options');
 			$mobile_menu_breakpoint = get_field("mobile_menu_breakpoint", 'options');
@@ -369,6 +375,12 @@ if ( ! function_exists( 'uds_wp_get_menu_array' ) ) {
 		$locations = get_nav_menu_locations();
 		if ( isset( $locations[ $menu_name ] ) ) {
 			$menu_object = wp_get_nav_menu_object( $locations[ $menu_name ] );
+			
+			// If the menu object is false/null, return empty array
+			if ( ! $menu_object ) {
+				return array();
+			}
+			
 			$array_menu  = wp_get_nav_menu_items( $menu_object->term_id );
 
 			// array_menu will return false if there are no menu options.
