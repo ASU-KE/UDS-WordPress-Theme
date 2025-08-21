@@ -39,15 +39,22 @@ function uds_wordpress_shortcode_sidebar_menu( $atts ) {
 		$sidebar_title = '';
 	}
 	// Build the menu with our nav walker.
-	$sidebar = wp_nav_menu(
-		array(
-			'menu'            => $menu,
-			'echo'            => false,
-			'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
-			'container'      => '',
-			'items_wrap'    => '%3$s',
-		)
-	);
+	$menu_object = wp_get_nav_menu_object( $menu );
+	$sidebar = '';
+	if ( $menu_object ) {
+		$menu_items_check = wp_get_nav_menu_items( $menu_object->term_id );
+		if ( $menu_items_check && !empty( $menu_items_check ) ) {
+			$sidebar = wp_nav_menu(
+				array(
+					'menu'            => $menu,
+					'echo'            => false,
+					'walker'          => new Uds_Custom_Walker_Widget_Nav_Menu(),
+					'container'      => '',
+					'items_wrap'    => '%3$s',
+				)
+			);
+		}
+	}
 	// Return the menu inside the wrapper.
 	return $wrapper . $sidebar . '</nav>';
 }

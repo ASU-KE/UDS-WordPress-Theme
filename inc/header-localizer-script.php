@@ -90,13 +90,20 @@ if (!function_exists('uds_localize_component_header_script')) {
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
 			if (has_nav_menu('primary') && $primary_menu) {
-				$menu_items = wp_nav_menu([
-					'menu' => $primary_menu,
-					'walker' => new UDS_React_Header_Navtree(),
-					'echo' => false,
-					'container' => '',
-					'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-				]);
+				// Check if the menu actually has items before calling wp_nav_menu
+				$menu_items_check = wp_get_nav_menu_items($primary_menu->term_id);
+				if ($menu_items_check && !empty($menu_items_check)) {
+					$menu_items = wp_nav_menu([
+						'menu' => $primary_menu,
+						'walker' => new UDS_React_Header_Navtree(),
+						'echo' => false,
+						'container' => '',
+						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+					]);
+				} else {
+					// Menu exists but has no items, set to empty array
+					$menu_items = array();
+				}
 			} elseif (is_multisite() && !is_main_site()) {
 				//multisite subsite without primary menu set, get top level main menu instead
 				switch_to_blog('1'); 	//switch to the main site of the network (it has ID 1)
@@ -104,13 +111,20 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
 				if ($multisite_primary_menu) {
-					$menu_items = wp_nav_menu([
-						'menu' => $multisite_primary_menu,
-						'walker' => new UDS_React_Header_Navtree(),
-						'echo' => false,
-						'container' => '',
-						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-					]);
+					// Check if the multisite menu actually has items before calling wp_nav_menu
+					$multisite_menu_items_check = wp_get_nav_menu_items($multisite_primary_menu->term_id);
+					if ($multisite_menu_items_check && !empty($multisite_menu_items_check)) {
+						$menu_items = wp_nav_menu([
+							'menu' => $multisite_primary_menu,
+							'walker' => new UDS_React_Header_Navtree(),
+							'echo' => false,
+							'container' => '',
+							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+						]);
+					} else {
+						// Multisite menu exists but has no items, set to empty array
+						$menu_items = array();
+					}
 				} else {
 					$menu_items = array();
 				}
