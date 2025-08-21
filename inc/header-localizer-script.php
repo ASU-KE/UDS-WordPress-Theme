@@ -90,19 +90,11 @@ if (!function_exists('uds_localize_component_header_script')) {
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
 			if (has_nav_menu('primary') && $primary_menu) {
-				// Debug: Let's understand what wp_get_nav_menu_items returns for empty menus
+				// Check if the menu actually has any items before processing
 				$menu_items_check = wp_get_nav_menu_items($primary_menu->term_id);
 				
-				// wp_get_nav_menu_items() can return:
-				// - false: if no menu items exist at all (truly empty menu)  
-				// - array(): if menu exists but no visible items (e.g., all items are in trash)
-				// - array with items: if menu has actual items
-				$has_menu_items = false;
-				if ($menu_items_check !== false && is_array($menu_items_check) && count($menu_items_check) > 0) {
-					$has_menu_items = true;
-				}
-				
-				if ($has_menu_items) {
+				// Only process the menu if it has actual visible items
+				if ($menu_items_check && is_array($menu_items_check) && count($menu_items_check) > 0) {
 					$menu_items = wp_nav_menu([
 						'menu' => $primary_menu,
 						'walker' => new UDS_React_Header_Navtree(),
@@ -111,12 +103,15 @@ if (!function_exists('uds_localize_component_header_script')) {
 						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 						'fallback_cb' => false, // Prevent fallback that might return "0"
 					]);
-					// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
-					if ($menu_items === "0" || $menu_items === 0) {
+					
+					// Ensure we have valid serialized data, not "0" or other invalid values
+					if (!is_serialized($menu_items) || $menu_items === "0" || $menu_items === 0 || empty($menu_items)) {
 						$menu_items = array();
+					} else {
+						$menu_items = maybe_unserialize($menu_items);
 					}
 				} else {
-					// Menu exists but has no items, set to empty array
+					// Menu exists but has no items - return empty array
 					$menu_items = array();
 				}
 			} elseif (is_multisite() && !is_main_site()) {
@@ -126,19 +121,11 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
 				if ($multisite_primary_menu) {
-					// Debug: Let's understand what wp_get_nav_menu_items returns for empty menus
+					// Check if the multisite menu actually has any items before processing
 					$multisite_menu_items_check = wp_get_nav_menu_items($multisite_primary_menu->term_id);
 					
-					// wp_get_nav_menu_items() can return:
-					// - false: if no menu items exist at all (truly empty menu)  
-					// - array(): if menu exists but no visible items (e.g., all items are in trash)
-					// - array with items: if menu has actual items
-					$has_multisite_menu_items = false;
-					if ($multisite_menu_items_check !== false && is_array($multisite_menu_items_check) && count($multisite_menu_items_check) > 0) {
-						$has_multisite_menu_items = true;
-					}
-					
-					if ($has_multisite_menu_items) {
+					// Only process the menu if it has actual visible items
+					if ($multisite_menu_items_check && is_array($multisite_menu_items_check) && count($multisite_menu_items_check) > 0) {
 						$menu_items = wp_nav_menu([
 							'menu' => $multisite_primary_menu,
 							'walker' => new UDS_React_Header_Navtree(),
@@ -147,12 +134,15 @@ if (!function_exists('uds_localize_component_header_script')) {
 							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
 							'fallback_cb' => false, // Prevent fallback that might return "0"
 						]);
-						// Additional check: if wp_nav_menu still returns "0" despite having items, set to empty array
-						if ($menu_items === "0" || $menu_items === 0) {
+						
+						// Ensure we have valid serialized data, not "0" or other invalid values
+						if (!is_serialized($menu_items) || $menu_items === "0" || $menu_items === 0 || empty($menu_items)) {
 							$menu_items = array();
+						} else {
+							$menu_items = maybe_unserialize($menu_items);
 						}
 					} else {
-						// Multisite menu exists but has no items, set to empty array
+						// Multisite menu exists but has no items - return empty array
 						$menu_items = array();
 					}
 				} else {
@@ -164,36 +154,17 @@ if (!function_exists('uds_localize_component_header_script')) {
 				$menu_items = array();
 			}
 
-			// Expected return from nav walker is a serialized array. But if the array is empty/error,
-			// is_seralized() should return false. Explictly return an empty array if so.
-			// Handles the use case where the menu is only composed of CTA buttons.
-			if (is_serialized($menu_items)) {
-				//echo('is_serialized ran');
-				$menu_items = maybe_unserialize($menu_items);
-			} else {
-				//echo('is_serialized failed');
-				$menu_items = array();
-			}
-			
-			// Final validation: ensure we never pass "0" to React
-			if ($menu_items === "0" || $menu_items === 0) {
-				$menu_items = array();
-			}
-
 			//Build ctaButton prop
 			$cta_buttons = array();
-			foreach ($menu_items as $key => $item) {
-				$itemType = $item->type ?? false;
-				if ($itemType == 'button') {
-					unset($menu_items[$key]);
-					array_push($cta_buttons, $item);
+			if (is_array($menu_items) && !empty($menu_items)) {
+				foreach ($menu_items as $key => $item) {
+					$itemType = $item->type ?? false;
+					if ($itemType == 'button') {
+						unset($menu_items[$key]);
+						array_push($cta_buttons, $item);
+					}
 				}
 			}
-
-			// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
-			// serlizized empty array. Shouldn't be any need to further check is_serialized().
-
-			$cta_buttons = maybe_unserialize($cta_buttons);
 		}
 
 
