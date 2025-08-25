@@ -19,7 +19,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 		// Run through a few options in WordPress to get the menu object by its location ('primary')
 		$menu_name = 'primary';
 		$locations = get_nav_menu_locations();
-		$primary_menu_id = isset($locations[$menu_name]) ? $locations[$menu_name] : null;
+		$primary_menu_id = $locations[$menu_name];
 		$primary_menu = wp_get_nav_menu_object($primary_menu_id);
 
 
@@ -87,98 +87,61 @@ if (!function_exists('uds_localize_component_header_script')) {
 		//if nav menu is disabled ("Hide" option is selected), no need to build the nav items.
 		if ($nav_menu_enabled == 'disabled') {
 			$menu_items = [];
+			$cta_buttons = [];
 		} else {
 			// Build navTree / mobileNavTree props using walker class.
-			if (has_nav_menu('primary') && $primary_menu) {
-				// Get menu items to check if menu has content
-				$menu_items_check = wp_get_nav_menu_items($primary_menu->term_id);
-				
-				// Only call wp_nav_menu if the menu actually has visible items
-				if ($menu_items_check && is_array($menu_items_check) && count($menu_items_check) > 0) {
-					$menu_output = wp_nav_menu([
-						'menu' => $primary_menu,
-						'walker' => new UDS_React_Header_Navtree(),
-						'echo' => false,
-						'container' => '',
-						'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-						'fallback_cb' => '__return_empty_string', // Prevent any fallback output
-					]);
-					
-					// Process the output from walker
-					if (is_serialized($menu_output) && !empty($menu_output) && $menu_output !== 'a:0:{}') {
-						$menu_items = maybe_unserialize($menu_output);
-						// Ensure it's a proper array
-						if (!is_array($menu_items)) {
-							$menu_items = array();
-						}
-					} else {
-						$menu_items = array();
-					}
-				} else {
-					// Menu exists but has no items - return empty array
-					$menu_items = array();
-				}
-			} elseif (is_multisite() && !is_main_site()) {
+			if (has_nav_menu('primary')) {
+				$menu_items = wp_nav_menu([
+					'menu' => $primary_menu,
+					'walker' => new UDS_React_Header_Navtree(),
+					'echo' => false,
+					'container' => '',
+					'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+				]);
+			} else {
 				//multisite subsite without primary menu set, get top level main menu instead
 				switch_to_blog('1'); 	//switch to the main site of the network (it has ID 1)
 				$multisite_locations = get_nav_menu_locations();
-				$multisite_primary_menu_id = isset($multisite_locations['primary']) ? $multisite_locations['primary'] : null;
+				$multisite_primary_menu_id = $multisite_locations['primary'];
 				$multisite_primary_menu = wp_get_nav_menu_object($multisite_primary_menu_id);
-				if ($multisite_primary_menu) {
-					// Get menu items to check if menu has content
-					$multisite_menu_items_check = wp_get_nav_menu_items($multisite_primary_menu->term_id);
-					
-					// Only call wp_nav_menu if the menu actually has visible items
-					if ($multisite_menu_items_check && is_array($multisite_menu_items_check) && count($multisite_menu_items_check) > 0) {
-						$menu_output = wp_nav_menu([
-							'menu' => $multisite_primary_menu,
-							'walker' => new UDS_React_Header_Navtree(),
-							'echo' => false,
-							'container' => '',
-							'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
-							'fallback_cb' => '__return_empty_string', // Prevent any fallback output
-						]);
-						
-						// Process the output from walker
-						if (is_serialized($menu_output) && !empty($menu_output) && $menu_output !== 'a:0:{}') {
-							$menu_items = maybe_unserialize($menu_output);
-							// Ensure it's a proper array
-							if (!is_array($menu_items)) {
-								$menu_items = array();
-							}
-						} else {
-							$menu_items = array();
-						}
-					} else {
-						// Multisite menu exists but has no items - return empty array
-						$menu_items = array();
-					}
-				} else {
-					$menu_items = array();
-				}
+				$menu_items = wp_nav_menu([
+					'menu' => $multisite_primary_menu,
+					'walker' => new UDS_React_Header_Navtree(),
+					'echo' => false,
+					'container' => '',
+					'items_wrap' => '%3$s', // See: wp_nav_menu codex for why. Returns empty string.
+				]);
 				restore_current_blog();	//switch back to the current site
+			}
+
+			// Expected return from nav walker is a serialized array. But if the array is empty/error,
+			// is_seralized() should return false. Explictly return an empty array if so.
+			// Handles the use case where the menu is only composed of CTA buttons.
+			if (is_serialized($menu_items)) {
+				//echo('is_serialized ran');
+				$menu_items = maybe_unserialize($menu_items);
 			} else {
-				// No valid menu found, set to empty array
+				//echo('is_serialized failed');
 				$menu_items = array();
 			}
 
 			//Build ctaButton prop
 			$cta_buttons = array();
-			if (is_array($menu_items) && !empty($menu_items)) {
-				foreach ($menu_items as $key => $item) {
-					$itemType = $item->type ?? false;
-					if ($itemType == 'button') {
-						unset($menu_items[$key]);
-						array_push($cta_buttons, $item);
-					}
+			foreach ($menu_items as $key => $item) {
+				$itemType = $item->type ?? false;
+				if ($itemType == 'button') {
+					unset($menu_items[$key]);
+					array_push($cta_buttons, $item);
 				}
+			}
+
+			// If there are no CTA buttons defined in the menu, ensure we have a proper array
+			// $cta_buttons is already an array at this point, so no need to unserialize
+			if (!is_array($cta_buttons)) {
+				$cta_buttons = array();
 			}
 		}
 
-		// Final validation: ensure menu_items is never "0", empty string, or invalid
-		if ($menu_items === "0" || $menu_items === 0 || $menu_items === "" || !is_array($menu_items)) {
-			$menu_items = array();
-		}
 
 		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
