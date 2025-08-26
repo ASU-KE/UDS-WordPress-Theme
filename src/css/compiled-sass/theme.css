@@ -15694,7 +15694,7 @@ Cards - Table of Contents
   opacity: 1;
   background: #ffffff 0% 0% no-repeat padding-box;
   padding: 2rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 .uds-img .uds-figure .uds-figure-caption h3, .uds-img .uds-figure .uds-figure-caption .h3 {
   color: #191919;
@@ -16062,6 +16062,10 @@ Cards - Table of Contents
   flex-grow: 1;
 }
 
+.card:not(:has(.card-header)) .card-body {
+  margin-top: var(--card-child-padding);
+}
+
 .card-link {
   margin-left: var(--card-child-margin);
   margin-right: var(--card-child-margin);
@@ -16421,7 +16425,8 @@ Cards - Table of Contents
 .accordion-item .accordion-header .h5 a,
 .accordion-item .accordion-header h5 button,
 .accordion-item .accordion-header .h5 button {
-  padding: 1rem var(--card-child-padding);
+  margin: 0.4rem 0.3rem;
+  padding: 0.6rem 0.7rem;
   color: #191919;
   text-decoration: none;
   display: flex;
@@ -18707,15 +18712,20 @@ blockquote:before {
 3. Blockquote, mobile only
 ------------------------------------------------------------------- */
 @media (max-width: 575.98px) {
-  .uds-blockquote.no-cite.with-image {
+  .uds-blockquote, .uds-blockquoteAnimated {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
-  .uds-blockquote.no-cite.with-image blockquote,
-  .uds-blockquote.no-cite.with-image h3,
-  .uds-blockquote.no-cite.with-image .h3 {
-    text-align: center;
+  .uds-blockquote svg, .uds-blockquoteAnimated svg {
+    margin-bottom: 0.5rem;
+    width: 2.5rem;
+  }
+  .uds-blockquote blockquote, .uds-blockquoteAnimated blockquote {
+    width: 100%;
+  }
+  .uds-blockquote .citation, .uds-blockquoteAnimated .citation {
+    width: 100%;
   }
 }
 /*------------------------------------------------------------------
@@ -21123,6 +21133,7 @@ Mobile Styles
   position: relative;
   border: 1px solid #d0d0d0;
   overflow: hidden;
+  --ranking-card-text-padding: 1.5rem;
 }
 .card-ranking .info-layer {
   display: flex;
@@ -21130,7 +21141,7 @@ Mobile Styles
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 0.5rem 1.5rem 0;
+  padding: 1rem var(--ranking-card-text-padding) 0;
   border-top: 0.5rem solid #ffc627;
   transition: all 0.3s ease-in-out;
   z-index: 10;
@@ -21139,6 +21150,9 @@ Mobile Styles
   cursor: pointer;
 }
 .card-ranking .info-layer .content {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 1rem);
   flex-grow: 1;
 }
 .card-ranking .info-layer .content .header {
@@ -21147,7 +21161,6 @@ Mobile Styles
   justify-content: space-between;
 }
 .card-ranking .info-layer .content .header .btn-expand {
-  margin: 0 0 0 0.5rem;
   padding: 0;
   background-color: unset;
   border: none;
@@ -21163,7 +21176,8 @@ Mobile Styles
   color: #191919;
 }
 .card-ranking .info-layer .content .header svg.fa-chevron-up,
-.card-ranking .info-layer .content .header i.fa-chevron-up {
+.card-ranking .info-layer .content .header i.fa-chevron-up,
+.card-ranking .info-layer .content .header .fa-chevron-up {
   transition: all 0.3s ease-in-out;
   color: #191919;
 }
@@ -21173,14 +21187,15 @@ Mobile Styles
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.2rem;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
-.card-ranking .info-layer .content > a {
-  font-size: 0.875rem;
+.card-ranking .info-layer .content > a.read-more {
   font-weight: 600;
+  margin-top: auto;
 }
-.card-ranking .info-layer .content > a .icon-small {
+.card-ranking .info-layer .content > a.read-more .icon-small {
   margin-left: 5px;
   font-size: 0.875rem;
 }
@@ -21198,7 +21213,8 @@ Mobile Styles
 .card-ranking .info-layer.show .content > p,
 .card-ranking .info-layer.show .content .header > p, .card-ranking .info-layer.active .content > p,
 .card-ranking .info-layer.active .content .header > p {
-  -webkit-line-clamp: 12;
+  line-clamp: 22;
+  -webkit-line-clamp: 22;
 }
 .card-ranking .info-layer .icons {
   display: flex;
@@ -21221,7 +21237,7 @@ Mobile Styles
   transition: visibility 0.3s ease-in;
 }
 .card-ranking.small-image .info-layer {
-  padding: 1.5rem 0.5rem 0 1.5rem;
+  padding: var(--ranking-card-text-padding) 0.5rem 0 var(--ranking-card-text-padding);
   cursor: unset;
 }
 .card-ranking.small-image .info-layer a.read-more {
@@ -21230,16 +21246,16 @@ Mobile Styles
 .card-ranking.small-image .info-layer.show .content a.read-more, .card-ranking.small-image .info-layer.active .content a.read-more {
   display: block;
 }
-.card-ranking.small-image .info-layer .content .header > p {
-  width: 90%;
-}
 .card-ranking.small-image .info-layer .content .header .btn-expand {
-  padding: 0.6rem;
+  padding: 0.5rem;
   border-radius: 0;
 }
 .card-ranking.small-image .citation {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: var(--ranking-card-text-padding);
+  padding-right: var(--ranking-card-text-padding);
+}
+.card-ranking.small-image .citation p {
+  font-size: 1rem;
 }
 .card-ranking.large-image img {
   z-index: 0;
@@ -21256,30 +21272,32 @@ Mobile Styles
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
+.card-ranking.large-image .info-layer .content .header {
+  padding-bottom: var(--ranking-card-text-padding);
+}
 .card-ranking.large-image .info-layer .content .header .btn-expand {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
 }
 .card-ranking.large-image .info-layer .content .header .btn-expand h4, .card-ranking.large-image .info-layer .content .header .btn-expand .h4 {
-  min-height: 52px;
-  max-width: 300px;
-  margin: 0 0 1.5rem;
+  margin: 0;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 .card-ranking.large-image .info-layer .content > p {
-  line-clamp: 10;
-  -webkit-line-clamp: 10;
+  line-clamp: 15;
+  -webkit-line-clamp: 15;
   visibility: hidden;
   transition: visibility 0.3s ease-in;
+  margin: 0;
 }
 .card-ranking.large-image .info-layer .content a.read-more {
   visibility: hidden;
   transition: visibility 0.3s ease-in;
 }
 .card-ranking.large-image .info-layer.show .content .header h4, .card-ranking.large-image .info-layer.show .content .header .h4, .card-ranking.large-image .info-layer.active .content .header h4, .card-ranking.large-image .info-layer.active .content .header .h4 {
-  min-height: unset;
-  max-height: unset;
+  display: block;
 }
 .card-ranking.large-image .info-layer.show .content > p, .card-ranking.large-image .info-layer.active .content > p {
   visibility: visible;
@@ -22348,6 +22366,7 @@ Footer - Table of Contents
   --endorsed-logo-padding-bottom: 12px;
   --endorsed-logo-img-max-height: 100%;
   --endorsed-logo-img-width: 100%;
+  --endorsed-logo-img-max-width: 320px;
   padding-top: var(--endorsed-logo-padding-top);
   padding-bottom: var(--endorsed-logo-padding-bottom);
   display: var(--endorsed-logo-display);
@@ -22364,6 +22383,7 @@ Footer - Table of Contents
 }
 #endorsed-logo img {
   width: var(--endorsed-logo-img-width);
+  max-width: var(--endorsed-logo-img-max-width);
   height: auto;
   max-height: var(--endorsed-logo-img-max-height);
   /* Transform here scales an image which has embedded padding so that
@@ -22380,7 +22400,7 @@ Footer - Table of Contents
   font-size: 2rem;
   color: #bfbfbf;
   line-height: 1;
-  padding-top: 7px;
+  padding: 7px 16px;
 }
 #endorsed-footer #social-media .nav-link :hover, #endorsed-footer #social-media .secondary-nav-link :hover {
   color: #ffffff;
@@ -22575,6 +22595,34 @@ Footer - Table of Contents
     justify-self: end;
   }
 }
+/*------------------------------------------------------------------
+8. Footer Colophon - Cookie Consent
+--------------------------------------------------------------------*/
+.footer-legal-links.colophon #manualConsentoptout,
+.footer-legal-links #manualConsentoptout,
+.footer-menu.colophon #manualConsentoptout,
+.footer-menu #manualConsentoptout,
+.nav.colophon #manualConsentoptout,
+.nav #manualConsentoptout {
+  color: #484848;
+  border: none;
+  background-color: transparent;
+  width: auto;
+  cursor: pointer;
+  padding: 0;
+  text-align: right;
+  justify-self: end;
+  font-size: 1rem;
+}
+.footer-legal-links.colophon #manualConsentoptout:hover,
+.footer-legal-links #manualConsentoptout:hover,
+.footer-menu.colophon #manualConsentoptout:hover,
+.footer-menu #manualConsentoptout:hover,
+.nav.colophon #manualConsentoptout:hover,
+.nav #manualConsentoptout:hover {
+  text-decoration: underline;
+}
+
 /* -----------------------------------------------------
 Container/ row / column padding adjustments for mobile.
 
@@ -26364,6 +26412,16 @@ span.customize-partial-edit-shortcut-logo_url {
 /* used on sites: E+I  */
 .float-right {
   float: right !important;
+}
+
+.editor-styles-wrapper.block-editor-writing-flow {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.wp-block-wp-bootstrap-blocks-container {
+  max-width: 1224px;
+  margin: 0 auto;
 }
 
 /*--------------------------------------------------------------

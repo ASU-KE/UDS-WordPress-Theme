@@ -54,9 +54,9 @@ if ('horizontal' == get_field('card_orientation')) {
 
 // If there's an icon, clean it up for use.
 $icon_name = get_field('header_icon');
+
 if ('icon' == $header_style && '' != $icon_name) {
 	$icon_name = sanitize_text_field($icon_name);
-}
 
 /**
  * For legacy support, if the icon name does not start with 'fas' or 'fab'
@@ -70,7 +70,10 @@ if ('icon' == $header_style && '' != $icon_name) {
 if( false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
 	$icon_name = str_ireplace('fa-', '', (string)$icon_name );
 	$icon_name = trim('fas fa-' . $icon_name);
+	}
 }
+
+
 
 // Get the icon color
 $icon_color = get_field( 'card_icon_color' );
@@ -107,7 +110,9 @@ if (!empty($image_data)) {
 				<h3><?php the_field('title'); ?></h3>
 				<div class="hidden-details">
 					<p class="long-text"><?php the_field('body_text', false, false); ?></p>
-					<a href="<?php $call_to_action_url = get_field('interactive_cta_url'); echo $call_to_action_url; ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="<?php echo $heading; ?>"><?php $call_to_action = the_field('interactive_cta_button_text');  echo $call_to_action; ?></a>
+					<?php if (get_field('interactive_cta_url') && get_field('interactive_cta_button_text')) : ?>
+					<a href="<?php $call_to_action_url = get_field('interactive_cta_url'); echo $call_to_action_url; ?>" class="btn btn-gold btn-sm" data-ga="call to action" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo $data_ga_type = (str_contains($call_to_action_url, 'asu.edu') !== false || str_contains(substr($call_to_action_url, 0, 1), '/') !== false) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="<?php the_field('title', false, false); ?>"><?php $call_to_action = the_field('interactive_cta_button_text');  echo $call_to_action; ?></a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

@@ -133,14 +133,14 @@ if (!function_exists('uds_localize_component_header_script')) {
 					array_push($cta_buttons, $item);
 				}
 			}
-
-			// If there are no CTA buttons defined in the menu, the CTA walker explicitly returns a
-			// serlizized empty array. Shouldn't be any need to further check is_serialized().
-
-			$cta_buttons = maybe_unserialize($cta_buttons);
+			if (is_array($cta_buttons) && empty($cta_buttons)) {
+				$cta_buttons = null;
+			}
+			// If there are only CTA buttons, set $menu_items to null
+			if (is_array($menu_items) && count($menu_items) === 1 && !empty($cta_buttons)) {
+				$menu_items = null;
+			}
 		}
-
-
 		// Prep localized array items for wp_localize_script below.
 		$localized_array = 	array(
 			'loggedIn' => is_user_logged_in(),
