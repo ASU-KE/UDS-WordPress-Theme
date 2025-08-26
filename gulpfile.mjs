@@ -124,8 +124,9 @@ gulp.task("front-end-scripts", function() {
 gulp.task("admin-scripts", function() {
 	const adminScripts = [
 		"./src/js/custom/admin/admin.js",
-		"./src/js/fontawesome/all.js",
-		"./src/js/custom/skip-link-focus-fix.js",
+		"./src/js/fontawesome/fontawesome.js",
+		"./src/js/fontawesome/brands.js",
+		"./src/js/fontawesome/solid.js",
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
