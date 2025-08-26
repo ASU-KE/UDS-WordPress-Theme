@@ -89,7 +89,7 @@ if ( ! class_exists('UDS_React_Header_Navtree') ) {
 				}
 
 				// Check for the presence of children. Add array wrapper for future depth.
-				if ( $args->walker->has_children ) {
+				if ( isset($args) && isset($args->walker) && isset($args->walker->has_children) && $args->walker->has_children ) {
 					$entry->items = array();
 				}
 
