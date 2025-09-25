@@ -17,15 +17,24 @@ $show_close_button = get_field( 'show_close_button' );
 
 /**
  * Buttons are part of an ACF form group, so we get the group first, then use
- * standard PHP array notation to get the sub-fields of the group
+ * standard PHP array notation to get the sub-fields of the group. We first check
+ * to see if we have any buttons by looking at the button count field. If we do,
+ * we get the button group data, check to make sure it's an array (which it should be),
+ * then pull out the text and URL for each button.
  */
-$button_one_data = get_field( 'uds_button_1_settings' );
-$button_one_text = $button_one_data['button_one_text'];
-$button_one_url = $button_one_data['button_one_url'];
 
-$button_two_data = get_field( 'uds_button_2_settings' );
-$button_two_text = $button_two_data['button_two_text'];
-$button_two_url = $button_two_data['button_two_url'];
+if ( $button_count > 0 ) {
+	$button_one_data = get_field( 'uds_button_1_settings' );
+	if ( $button_one_data && is_array( $button_one_data ) ) {
+		$button_one_text = $button_one_data['button_one_text'];
+		$button_one_url = $button_one_data['button_one_url'];
+	}
+	$button_two_data = get_field( 'uds_button_2_settings' );
+	if ( $button_two_data && is_array( $button_two_data ) ) {
+		$button_two_text = $button_two_data['button_two_text'];
+		$button_two_url = $button_two_data['button_two_url'];
+	}
+}
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -45,7 +54,7 @@ $button_block_open = '<div class="banner-buttons">';
 $button_block_close = '</div>';
 
 // if our button count is more than zero, we have buttons to build.
-if ( $button_count ) {
+if ( $button_count > 0 ) {
 
 	// add the opening markup to our button block.
 	$button_block .= $button_block_open;
