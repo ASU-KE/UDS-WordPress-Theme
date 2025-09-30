@@ -947,3 +947,13 @@ WP admin bar mobile fix
 		position: sticky;
 	}
 }
+/*--------------------------------------------------------------
+mobile heading - 2nd line padding fix
+--------------------------------------------------------------*/
+.highlight-gold,
+.highlight-white,
+.highlight-black,
+h2 mark {
+	box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
