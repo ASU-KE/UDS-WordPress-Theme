@@ -23,12 +23,20 @@ $show_close_button = get_field( 'show_close_button' );
  * then pull out the text and URL for each button.
  */
 
+// set some default values for the buttons, in case we don't have any button data.
+$button_one_text = 'Default button 1 text';
+$button_one_url = '#';
+$button_two_text = 'Default button 2 text';
+$button_two_url = '#';
+
 if ( $button_count > 0 ) {
 	$button_one_data = get_field( 'uds_button_1_settings' );
 	if ( $button_one_data && is_array( $button_one_data ) ) {
 		$button_one_text = $button_one_data['button_one_text'];
 		$button_one_url = $button_one_data['button_one_url'];
 	}
+}
+if ( 2 == $button_count ) {
 	$button_two_data = get_field( 'uds_button_2_settings' );
 	if ( $button_two_data && is_array( $button_two_data ) ) {
 		$button_two_text = $button_two_data['button_two_text'];
