@@ -56,7 +56,7 @@
 		<?php echo $content; ?>
 	</div>
 	<div class="alert-close">
-		<button type="button" data-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
+		<button type="button" data-bs-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
 			<i class="fas fa-times"></i>
 		</button>
 	</div>
