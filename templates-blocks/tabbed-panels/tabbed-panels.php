@@ -24,7 +24,7 @@ if ( ! empty( $block['className'] ) ) {
 
 
 	// Sets InnerBlocks with a Bootstrap blocks container as default content.
-	$allowedblocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
+	$allowed_blocks = array( 'wp-bootstrap-blocks/container', 'core/html' );
 	$template = array(
 		array(
 			'wp-bootstrap-blocks/container',
