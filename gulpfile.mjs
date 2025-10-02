@@ -99,6 +99,7 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
+		"./src/js/custom/accordion.js",
 	]
 
 	// Create uglifified min.js
@@ -130,6 +131,7 @@ gulp.task("admin-scripts", function() {
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
+		"./src/js/custom/accordion.js",
 	]
 
 	return gulp
