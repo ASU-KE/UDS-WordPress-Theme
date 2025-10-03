@@ -135,5 +135,6 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
 	register_block_type( get_template_directory() . '/templates-blocks/button' );
+	register_block_type( get_template_directory() . '/templates-blocks/timeline' );
 
 }
