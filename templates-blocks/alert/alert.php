@@ -15,12 +15,12 @@
 		'success' => array(
 			'class' => 'success',
 			'title' => 'Success',
-			'icon'  => 'fa-check-circle',
+			'icon'  => 'fa-circle-check',
 		),
 		'info' => array(
 			'class' => 'info',
 			'title' => 'Information',
-			'icon'  => 'fa-info-circle',
+			'icon'  => 'fa-circle-info',
 		),
 		'danger' => array(
 			'class' => 'danger',
