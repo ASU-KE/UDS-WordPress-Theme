@@ -25,7 +25,7 @@
 		'danger' => array(
 			'class' => 'danger',
 			'title' => 'Error',
-			'icon'  => 'fa-exclamation-triangle',
+			'icon'  => 'fa-triangle-exclamation',
 		),
 	);
 
@@ -57,7 +57,7 @@
 	</div>
 	<div class="alert-close">
 		<button type="button" data-bs-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
-			<i class="fas fa-times"></i>
+			<i class="fas fa-xmark"></i>
 		</button>
 	</div>
 </div>
