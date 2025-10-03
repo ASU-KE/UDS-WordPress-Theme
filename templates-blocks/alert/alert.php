@@ -15,17 +15,17 @@
 		'success' => array(
 			'class' => 'success',
 			'title' => 'Success',
-			'icon'  => 'fa-check-circle',
+			'icon'  => 'fa-circle-check',
 		),
 		'info' => array(
 			'class' => 'info',
 			'title' => 'Information',
-			'icon'  => 'fa-info-circle',
+			'icon'  => 'fa-circle-info',
 		),
 		'danger' => array(
 			'class' => 'danger',
 			'title' => 'Error',
-			'icon'  => 'fa-exclamation-triangle',
+			'icon'  => 'fa-triangle-exclamation',
 		),
 	);
 
@@ -47,17 +47,15 @@
 <!-- alert block -->
 <div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?> <?php echo $additional_classes; ?>" role="alert">
 
-	<?php if ( get_field( 'alert_include_icon' ) ) : ?>
-		<div class="alert-icon">
-			<span title="<?php echo $settings[ $style ]['title']; ?>" class="fa fa-icon <?php echo $settings[ $style ]['icon']; ?>"></span>
-		</div>
-	<?php endif; ?>
+	<div class="alert-icon"<?php if ( ! get_field( 'alert_include_icon' ) ) echo ' style="display: none;"'; ?>>
+		<span title="<?php echo $settings[ $style ]['title']; ?>" class="fas <?php echo $settings[ $style ]['icon']; ?>"></span>
+	</div>
 	<div class="alert-content">
 		<?php echo $content; ?>
 	</div>
 	<div class="alert-close">
-		<button type="button" data-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
-			<i class="fas fa-times"></i>
+		<button type="button" data-bs-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
+			<i class="fas fa-xmark"></i>
 		</button>
 	</div>
 </div>

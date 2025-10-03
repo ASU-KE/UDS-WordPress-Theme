@@ -60,7 +60,7 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
   <div class="uds-modal">
 	<div class="uds-modal-container">
 	  <button class="uds-modal-close-btn closeModalButton">
-		<i class="fas fa-times fa-stack-1x"></i>
+		<i class="fas fa-xmark fa-stack-1x"></i>
 		<span class="sr-only">Close</span>
 	  </button>
 	  <?php echo $window_content; ?>
