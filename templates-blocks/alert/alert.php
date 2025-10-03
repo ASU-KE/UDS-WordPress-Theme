@@ -47,11 +47,9 @@
 <!-- alert block -->
 <div class="alert alert-dismissible fade show alert-block alert-<?php echo $settings[ $style ]['class']; ?> <?php echo $additional_classes; ?>" role="alert">
 
-	<?php if ( get_field( 'alert_include_icon' ) ) : ?>
-		<div class="alert-icon">
-			<span title="<?php echo $settings[ $style ]['title']; ?>" class="fas <?php echo $settings[ $style ]['icon']; ?>"></span>
-		</div>
-	<?php endif; ?>
+	<div class="alert-icon"<?php if ( ! get_field( 'alert_include_icon' ) ) echo ' style="display: none;"'; ?>>
+		<span title="<?php echo $settings[ $style ]['title']; ?>" class="fas <?php echo $settings[ $style ]['icon']; ?>"></span>
+	</div>
 	<div class="alert-content">
 		<?php echo $content; ?>
 	</div>
