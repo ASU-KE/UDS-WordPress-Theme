@@ -64,6 +64,7 @@ function my_acf_blocks_init() {
 			'/overlay-card',       // UDS Program Cards.
 			'/show-more',          // Show more button.
 			'/tabbed-panels',      // UDS Tabbed panels block.
+			'/timeline',           // UDS Timeline block.
 		);
 
 		// Loop through array items and include each register file.

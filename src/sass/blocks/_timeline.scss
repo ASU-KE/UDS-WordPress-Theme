@@ -1,0 +1,393 @@
+// Timeline Block SCSS
+// Styles for the UDS Timeline block with vertical/horizontal layouts and animations
+
+.uds-timeline {
+  position: relative;
+  margin: 2rem 0;
+
+  // Common timeline list styles
+  &__list {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  // Individual timeline item
+  &__item {
+    position: relative;
+    padding: 1.5rem 0;
+    
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    // Hidden items (when not using carousel)
+    &--hidden {
+      display: none;
+    }
+  }
+
+  // Timeline item content container
+  &__item-content {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Timeline item image
+  &__item-image {
+    flex-shrink: 0;
+    
+    img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  // Timeline item details
+  &__item-details {
+    flex-grow: 1;
+  }
+
+  // Timeline item date
+  &__item-date {
+    font-size: 0.875rem;
+    color: #8c1d40; // ASU Maroon
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  // Timeline item title
+  &__item-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #8c1d40; // ASU Maroon
+      }
+    }
+  }
+
+  // Timeline item content text
+  &__item-content-text {
+    color: #555;
+    line-height: 1.6;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Timeline connector (vertical line or horizontal line)
+  &__connector {
+    position: absolute;
+    background-color: #ffc627; // ASU Gold
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #8c1d40; // ASU Maroon
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Vertical layout styles
+  &--vertical {
+    .uds-timeline__list {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: #ffc627; // ASU Gold
+        z-index: 0;
+      }
+    }
+
+    .uds-timeline__item-content {
+      margin-left: 60px;
+      flex-direction: column;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+    }
+
+    .uds-timeline__connector {
+      left: 24px;
+      top: 50%;
+      width: 15px;
+      height: 3px;
+      transform: translateY(-50%);
+
+      &::before {
+        left: -6px;
+        top: -4.5px;
+      }
+    }
+
+    .uds-timeline__item-image {
+      img {
+        width: 100%;
+        height: 200px;
+
+        @media (min-width: 768px) {
+          width: 150px;
+          height: 100px;
+        }
+      }
+    }
+  }
+
+  // Horizontal layout styles
+  &--horizontal {
+    .uds-timeline__list {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #ffc627; // ASU Gold
+        z-index: 0;
+      }
+    }
+
+    .uds-timeline__item {
+      flex: 0 0 300px;
+      margin-bottom: 0;
+    }
+
+    .uds-timeline__item-content {
+      flex-direction: column;
+      margin-bottom: 60px;
+    }
+
+    .uds-timeline__connector {
+      bottom: 24px;
+      left: 50%;
+      width: 3px;
+      height: 15px;
+      transform: translateX(-50%);
+
+      &::before {
+        left: -4.5px;
+        bottom: -6px;
+      }
+    }
+
+    .uds-timeline__item-image {
+      img {
+        width: 100%;
+        height: 150px;
+      }
+    }
+  }
+
+  // Style variations
+  &--style-modern {
+    .uds-timeline__item-content {
+      border-left: 4px solid #ffc627; // ASU Gold
+      border-radius: 0 8px 8px 0;
+    }
+
+    .uds-timeline__connector::before {
+      background-color: #ffc627; // ASU Gold
+      border-color: #8c1d40; // ASU Maroon
+    }
+  }
+
+  &--style-minimal {
+    .uds-timeline__item-content {
+      box-shadow: none;
+      border: 1px solid #e0e0e0;
+      background: transparent;
+    }
+
+    .uds-timeline__connector {
+      background-color: #ccc;
+
+      &::before {
+        background-color: #fff;
+        border-color: #ccc;
+      }
+    }
+  }
+
+  &--style-bold {
+    .uds-timeline__item-content {
+      box-shadow: 0 4px 20px rgba(140, 29, 64, 0.15);
+      border: 2px solid #8c1d40; // ASU Maroon
+    }
+
+    .uds-timeline__connector {
+      background-color: #8c1d40; // ASU Maroon
+      width: 5px;
+      height: 5px;
+
+      &::before {
+        width: 16px;
+        height: 16px;
+        background-color: #8c1d40; // ASU Maroon
+        border-color: #fff;
+      }
+    }
+
+    &.uds-timeline--vertical .uds-timeline__connector {
+      width: 20px;
+      height: 5px;
+    }
+
+    &.uds-timeline--horizontal .uds-timeline__connector {
+      width: 5px;
+      height: 20px;
+    }
+  }
+
+  // Animation styles
+  &--animated {
+    .uds-timeline__item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+
+      &.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      // Stagger animation delay
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{($i - 1) * 0.1}s;
+        }
+      }
+    }
+
+    &.uds-timeline--horizontal .uds-timeline__item {
+      transform: translateX(-30px);
+
+      &.animate-in {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // Carousel-specific styles
+  &--carousel {
+    .glide__arrows {
+      margin-top: 1rem;
+    }
+
+    .glide__arrow {
+      background-color: #8c1d40; // ASU Maroon
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #ffc627; // ASU Gold
+        color: #000;
+        transform: scale(1.1);
+      }
+
+      &--left {
+        margin-right: 1rem;
+      }
+    }
+
+    .glide__bullets {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      .glide__bullet {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &--active {
+          background-color: #8c1d40; // ASU Maroon
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 767px) {
+    &--horizontal {
+      .uds-timeline__list {
+        flex-direction: column;
+        
+        &::before {
+          display: none;
+        }
+      }
+
+      .uds-timeline__item {
+        flex: none;
+      }
+
+      .uds-timeline__connector {
+        display: none;
+      }
+    }
+
+    .uds-timeline__item-content {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .uds-timeline__item-image img {
+      width: 100%;
+      height: 120px;
+    }
+  }
+}

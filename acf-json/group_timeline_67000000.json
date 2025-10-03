@@ -1,0 +1,234 @@
+{
+    "key": "group_timeline_67000000",
+    "title": "UDS Block: Timeline",
+    "fields": [
+        {
+            "key": "field_timeline_layout",
+            "label": "Timeline Layout",
+            "name": "timeline_layout",
+            "type": "radio",
+            "instructions": "Choose the orientation of your timeline.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "vertical": "Vertical",
+                "horizontal": "Horizontal"
+            },
+            "default_value": "vertical",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_timeline_style",
+            "label": "Timeline Style",
+            "name": "timeline_style",
+            "type": "select",
+            "instructions": "Choose the visual style of your timeline.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "modern": "Modern",
+                "minimal": "Minimal",
+                "bold": "Bold"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_show_animations",
+            "label": "Enable Animations",
+            "name": "show_animations",
+            "type": "true_false",
+            "instructions": "Enable entrance animations for timeline items.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
+            "key": "field_visible_items",
+            "label": "Visible Items",
+            "name": "visible_items",
+            "type": "number",
+            "instructions": "Number of timeline items to show at once. If you have more items, they will be displayed in a carousel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 4,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_timeline_items",
+            "label": "Timeline Items",
+            "name": "timeline_items",
+            "type": "repeater",
+            "instructions": "Add and configure your timeline events.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Timeline Item",
+            "collapsed": "field_item_title",
+            "sub_fields": [
+                {
+                    "key": "field_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "The title for this timeline item.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Event title...",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_item_date",
+                    "label": "Date",
+                    "name": "date",
+                    "type": "text",
+                    "instructions": "The date for this timeline item (any format).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "January 2024",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_item_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Optional image for this timeline item.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_item_url",
+                    "label": "Link URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "Optional link for this timeline item.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://..."
+                },
+                {
+                    "key": "field_item_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "textarea",
+                    "instructions": "The description or content for this timeline item.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "Describe this timeline event...",
+                    "new_lines": "wpautop"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/uds-timeline"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the UDS Timeline block",
+    "show_in_rest": 0,
+    "modified": 1703875200
+}
