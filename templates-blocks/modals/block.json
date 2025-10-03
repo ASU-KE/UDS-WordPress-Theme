@@ -1,0 +1,28 @@
+{
+    "name": "acf/uds-modals",
+    "title": "UDS Modals",
+    "description": "UDS Modal window with its button",
+    "category": "uds",
+    "icon": "welcome-comments",
+    "keywords": ["modals", "window", "button"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "modals.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "edit",
+            "data": {
+                "button_link": {
+                    "title": "Your label"
+                },
+                "button_color": "maroon",
+                "button_size": "default"
+            }
+        }
+    }
+}

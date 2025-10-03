@@ -59,7 +59,7 @@ function my_acf_blocks_init() {
 			'/grid-links',         // UDS Grid Links.
 			'/headings',           // A UDS Headings block.
 			'/image',              // UDS Image block with caption and shadow options.
-			'/modals',             // UDS windows modal block.
+
 			'/overlay-card',       // UDS Program Cards.
 			'/show-more',          // Show more button.
 			'/tabbed-panels',      // UDS Tabbed panels block.
@@ -134,6 +134,7 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/alert' );
 	register_block_type( get_template_directory() . '/templates-blocks/button' );
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
+	register_block_type( get_template_directory() . '/templates-blocks/modals' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
 
 }
