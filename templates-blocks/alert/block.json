@@ -1,0 +1,25 @@
+{
+    "name": "acf/uds-alert",
+    "title": "UDS Alert",
+    "description": "A UDS compliant alert banner, with customizable text and styles.",
+    "category": "uds",
+    "icon": "warning",
+    "keywords": ["alert", "message", "banner"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "alert.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "alert_style": "info",
+                "alert_content": "Your alert text here."
+            }
+        }
+    }
+}

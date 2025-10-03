@@ -51,7 +51,6 @@ function my_acf_blocks_init() {
 
 		// Array of block folders to use. Each must have a 'register.php' file.
 		$block_includes = array(
-			'/alert',
 			'/background-section', // UDS Background section.
 			'/banner',             // UDS banner block.
 			'/blockquote',         // Combination of UDS block quote and testimonial.
@@ -132,8 +131,9 @@ if ( ! function_exists( 'remove_core_patterns' ) ) {
  */
 add_action( 'init', 'register_acf_blocks', 5 );
 function register_acf_blocks() {
+	register_block_type( get_template_directory() . '/templates-blocks/alert' );
+	register_block_type( get_template_directory() . '/templates-blocks/button' );
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
-	register_block_type( get_template_directory() . '/templates-blocks/button' );
 
 }
