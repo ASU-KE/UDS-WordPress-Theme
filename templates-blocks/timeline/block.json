@@ -1,0 +1,49 @@
+{
+    "name": "acf/uds-timeline",
+    "title": "UDS Timeline",
+    "description": "A block for displaying chronological events in an appealing timeline format.",
+    "category": "uds",
+    "icon": "clock",
+    "keywords": ["timeline", "chronological", "events", "history", "steps"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "timeline.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "timeline_layout": "vertical",
+                "timeline_style": "default",
+                "show_animations": true,
+                "visible_items": 4,
+                "timeline_items": [
+                    {
+                        "title": "First Event",
+                        "date": "2024-01-01",
+                        "content": "This is the first event in our timeline.",
+                        "image": {
+                            "url": "https://via.placeholder.com/300x200?text=Timeline+Event",
+                            "alt": "Timeline event image"
+                        },
+                        "url": "#"
+                    },
+                    {
+                        "title": "Second Event",
+                        "date": "2024-06-01",
+                        "content": "This is the second event in our timeline.",
+                        "image": {
+                            "url": "https://via.placeholder.com/300x200?text=Timeline+Event",
+                            "alt": "Timeline event image"
+                        },
+                        "url": "#"
+                    }
+                ]
+            }
+        }
+    }
+}
