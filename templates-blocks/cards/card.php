@@ -67,7 +67,7 @@ if ('icon' == $header_style && '' != $icon_name) {
  * strip out 'fa-' if it is found (for cases like getting 'fa-user')
  * then prepend the result with 'fas fa-' like the original code did.
  */
-if( false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
+if( $icon_name && false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
 	$icon_name = str_ireplace('fa-', '', (string)$icon_name );
 	$icon_name = trim('fas fa-' . $icon_name);
 	}
