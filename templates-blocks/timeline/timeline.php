@@ -24,7 +24,7 @@ $timeline_items = get_field('timeline_items') ?: array();
 $timeline_id = 'timeline-' . uniqid();
 
 // Determine if we need carousel functionality
-$use_carousel = count($timeline_items) > $visible_items;
+$use_carousel = count($timeline_items) > $visible_items && $visible_items > 0;
 
 // Build CSS classes
 $timeline_classes = array(
@@ -46,19 +46,23 @@ $timeline_class_string = implode(' ', $timeline_classes);
 
 // If no items, show a placeholder in the editor
 if (empty($timeline_items)) {
-	if (is_admin()) {
-		echo '<div class="acf-placeholder">Add timeline items to get started.</div>';
+	if (is_admin() || (defined('REST_REQUEST') && REST_REQUEST)) {
+		echo '<div class="acf-placeholder" style="padding: 2rem; border: 2px dashed #ccc; text-align: center; color: #666; background: #f9f9f9; border-radius: 8px; margin: 1rem 0;">
+			<i class="fas fa-clock" style="font-size: 2rem; margin-bottom: 1rem; display: block; color: #8c1d40;"></i>
+			<h3 style="margin-bottom: 0.5rem; color: #8c1d40;">Timeline Block</h3>
+			<p style="margin: 0;">Add timeline items to get started with your chronological timeline.</p>
+		</div>';
 	}
 	return;
 }
 ?>
 
-<div class="<?php echo esc_attr($timeline_class_string); ?>" id="<?php echo esc_attr($timeline_id); ?>">
+<div class="<?php echo esc_attr($timeline_class_string); ?>" id="<?php echo esc_attr($timeline_id); ?>" role="region" aria-label="Timeline of events">
 	<?php if ($use_carousel): ?>
 		<div class="glide__track" data-glide-el="track">
-			<ul class="glide__slides uds-timeline__list">
+			<ul class="glide__slides uds-timeline__list" role="list">
 	<?php else: ?>
-		<div class="uds-timeline__list">
+		<div class="uds-timeline__list" role="list">
 	<?php endif; ?>
 
 		<?php 
@@ -76,13 +80,14 @@ if (empty($timeline_items)) {
 				$item_classes[] = 'glide__slide';
 			}
 			
-			if ($index >= $visible_items && !$use_carousel) {
+			// Hide items beyond visible limit when not using carousel
+			if (!$use_carousel && $visible_items > 0 && $index >= $visible_items) {
 				$item_classes[] = 'uds-timeline__item--hidden';
 			}
 			
 			$item_class_string = implode(' ', $item_classes);
 		?>
-			<div class="<?php echo esc_attr($item_class_string); ?>">
+			<div class="<?php echo esc_attr($item_class_string); ?>" role="listitem">
 				<div class="uds-timeline__item-content">
 					<?php if ($image): ?>
 						<div class="uds-timeline__item-image">
@@ -134,18 +139,21 @@ if (empty($timeline_items)) {
 		</div>
 		
 		<!-- Carousel navigation -->
-		<div class="glide__arrows" data-glide-el="controls">
-			<button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-				<i class="fas fa-chevron-left"></i>
+		<div class="glide__arrows" data-glide-el="controls" role="group" aria-label="Timeline navigation">
+			<button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous timeline items">
+				<i class="fas fa-chevron-left" aria-hidden="true"></i>
 			</button>
-			<button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-				<i class="fas fa-chevron-right"></i>
+			<button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next timeline items">
+				<i class="fas fa-chevron-right" aria-hidden="true"></i>
 			</button>
 		</div>
 		
-		<div class="glide__bullets" data-glide-el="controls[nav]">
-			<?php for ($i = 0; $i < ceil(count($timeline_items) / $visible_items); $i++): ?>
-				<button class="glide__bullet" data-glide-dir="=<?php echo $i; ?>"></button>
+		<div class="glide__bullets" data-glide-el="controls[nav]" role="group" aria-label="Timeline page indicators">
+			<?php 
+			$total_pages = $visible_items > 0 ? ceil(count($timeline_items) / $visible_items) : 1;
+			for ($i = 0; $i < $total_pages; $i++): 
+			?>
+				<button class="glide__bullet" data-glide-dir="=<?php echo $i; ?>" aria-label="Go to timeline page <?php echo ($i + 1); ?>"></button>
 			<?php endfor; ?>
 		</div>
 	<?php else: ?>
@@ -158,7 +166,7 @@ if (empty($timeline_items)) {
 document.addEventListener('DOMContentLoaded', function() {
 	<?php
 	// Calculate items per view based on layout
-	$items_per_view = $timeline_layout === 'horizontal' ? min($visible_items, 3) : 1;
+	$items_per_view = $timeline_layout === 'horizontal' ? min(intval($visible_items), 3) : 1;
 	?>
 	
 	var timeline = new Glide('#<?php echo esc_js($timeline_id); ?>', {

@@ -49,7 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function initTimelineCarousels() {
         const carouselTimelines = document.querySelectorAll('.uds-timeline--carousel');
         
-        if (carouselTimelines.length === 0 || typeof Glide === 'undefined') return;
+        if (carouselTimelines.length === 0) return;
+        
+        // Check if Glide is available, if not, load it dynamically or fall back gracefully
+        if (typeof Glide === 'undefined') {
+            console.warn('Glide carousel library not found. Timeline carousel functionality disabled.');
+            return;
+        }
         
         carouselTimelines.forEach(function(timeline) {
             const timelineId = timeline.getAttribute('id');
@@ -93,8 +99,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 
+                // Add keyboard accessibility
+                timeline.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        glide.go('<');
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        glide.go('>');
+                    }
+                });
+                
             } catch (error) {
                 console.warn('Timeline carousel initialization failed:', error);
+                // Fallback: show all items if carousel fails
+                timeline.classList.remove('uds-timeline--carousel');
+                const hiddenItems = timeline.querySelectorAll('.uds-timeline__item--hidden');
+                hiddenItems.forEach(function(item) {
+                    item.classList.remove('uds-timeline__item--hidden');
+                });
             }
         });
     }
