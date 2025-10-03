@@ -49,7 +49,7 @@
 
 	<?php if ( get_field( 'alert_include_icon' ) ) : ?>
 		<div class="alert-icon">
-			<span title="<?php echo $settings[ $style ]['title']; ?>" class="fa fa-icon <?php echo $settings[ $style ]['icon']; ?>"></span>
+			<span title="<?php echo $settings[ $style ]['title']; ?>" class="fas <?php echo $settings[ $style ]['icon']; ?>"></span>
 		</div>
 	<?php endif; ?>
 	<div class="alert-content">
