@@ -1,0 +1,84 @@
+{
+    "key": "group_uds_header_additional_settings",
+    "title": "UDS: Header Additional Settings",
+    "fields": [
+        {
+            "key": "field_header_navigation_menu",
+            "label": "Main Navigation Menu",
+            "name": "header_navigation_menu",
+            "type": "radio",
+            "instructions": "Show or hide the main navigation menu. Hiding this is <b>only</b> approved for Landing Page sites.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "enabled": "Show",
+                "disabled": "Hide"
+            },
+            "default_value": "enabled",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_use_main_site_menu",
+            "label": "Use Main Site Menu",
+            "name": "use_main_site_menu",
+            "type": "true_false",
+            "instructions": "If selected, this sub-site will display the navigation menu from the main site of this multi-site network, and not its own main menu. (Only available on multisite installations)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_alternate_home_url",
+            "label": "Alternate Home URL",
+            "name": "alternate_home_url",
+            "type": "url",
+            "instructions": "Customize the Home URL. This is most useful with sub-sites that want to point back up to a main site in a network.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Additional header settings moved from customizer.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}

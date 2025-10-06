@@ -20,32 +20,12 @@ $hotjar_site_id        = '';
 
 //$hide_asu_header = get_field('hide_asu_header', 'options');
 
-// retrieve settings from the theme mods entry in the options database table.
-$c_options = get_theme_mods();
-
-// Is navigation menu enabled?
-
-
-// Do we have an asu_hub_analytics setting?
-if (!empty($c_options['asu_hub_analytics'])) {
-	$asu_hub_analytics = $c_options['asu_hub_analytics'];
-}
-// Do we have a site_gcs_ownership_verification_id setting?
-if (!empty($c_options['site_gcs_ownership_verification_id'])) {
-	$site_gcs_ownership_verification_id = $c_options['site_gcs_ownership_verification_id'];
-}
-// Do we have a site_gtm_container_id setting?
-if (!empty($c_options['site_gtm_container_id'])) {
-	$site_gtm_container_id = $c_options['site_gtm_container_id'];
-}
-// Do we have a site_ga_tracking_id setting?
-if (!empty($c_options['site_ga_tracking_id'])) {
-	$site_ga_tracking_id = $c_options['site_ga_tracking_id'];
-}
-// Do we have an hotjar_site_id setting?
-if (!empty($c_options['hotjar_site_id'])) {
-	$hotjar_site_id = $c_options['hotjar_site_id'];
-}
+// Retrieve settings using helper function that checks both ACF and theme_mods for backward compatibility
+$asu_hub_analytics = uds_wp_get_setting('asu_hub_analytics', 'enabled');
+$site_gcs_ownership_verification_id = uds_wp_get_setting('site_gcs_ownership_verification_id', '');
+$site_gtm_container_id = uds_wp_get_setting('site_gtm_container_id', '');
+$site_ga_tracking_id = uds_wp_get_setting('site_ga_tracking_id', '');
+$hotjar_site_id = uds_wp_get_setting('hotjar_site_id', '');
 ?>
 
 <!DOCTYPE html>

@@ -30,7 +30,7 @@ function uds_wp_render_blogname() {
  * or <div class="title subdomain-name"> depending on the presence or absence of the parent title info.
  */
 function uds_wp_render_title_wrapper() {
-	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
+	$parent_unit_name = uds_wp_get_setting( 'parent_unit_name' );
 
 	if ( empty( $parent_unit_name ) ) {
 		echo '<div class="title subdomain-name">';
@@ -45,8 +45,8 @@ function uds_wp_render_title_wrapper() {
  * Takes the unit name and link settings and renders a link tag.
  */
 function uds_wp_render_parent_unit_name() {
-	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
-	$parent_unit_link = get_theme_mod( 'parent_unit_link' );
+	$parent_unit_name = uds_wp_get_setting( 'parent_unit_name' );
+	$parent_unit_link = uds_wp_get_setting( 'parent_unit_link' );
 
 	if ( ! empty( $parent_unit_name ) ) {
 		// If there is a unit name, do we need a link as well?
@@ -72,9 +72,9 @@ function uds_wp_render_parent_unit_name() {
  */
 function uds_wp_render_subdomain_name() {
 
-	$parent_unit_name = get_theme_mod( 'parent_unit_name' );
-	$sitename_is_linked = get_theme_mod( 'sitename_as_link' );
-	$site_display_name = get_theme_mod( 'site_display_name' );
+	$parent_unit_name = uds_wp_get_setting( 'parent_unit_name' );
+	$sitename_is_linked = uds_wp_get_setting( 'sitename_as_link' );
+	$site_display_name = uds_wp_get_setting( 'site_display_name' );
 	$site_name = get_bloginfo( 'name' );
 
 	// Determine the site name to display.
@@ -108,7 +108,7 @@ function uds_wp_render_subdomain_name() {
  * whether or not to add the no-link css class to .navbar-container
  */
 function uds_wp_render_navbar_container() {
-	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
+	$nav_menu_enabled = uds_wp_get_setting( 'header_navigation_menu', 'enabled' );
 	$navbar_container = '<div class="navbar-container ';
 
 	if ( 'disabled' === $nav_menu_enabled ) {
@@ -134,7 +134,7 @@ function uds_wp_render_main_nav_menu() {
 
 
 	// get our setting and initialize some variables.
-	$nav_menu_enabled = get_theme_mod( 'header_navigation_menu' );
+	$nav_menu_enabled = uds_wp_get_setting( 'header_navigation_menu', 'enabled' );
 	$current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
 	$we_are_on_the_homepage = ( home_url() === $current_url );
 	$home_icon_class = 'nav-link-home';
@@ -154,7 +154,7 @@ function uds_wp_render_main_nav_menu() {
 		<?php
 			// Determine which URL to use for the Home icon.
 			$home_url = home_url();
-			$alt_home_url = trim( get_theme_mod( 'alternate_home_url' ) );
+			$alt_home_url = trim( uds_wp_get_setting( 'alternate_home_url' ) );
 
 			if( ! empty( $alt_home_url ) ) {
 				// If we have a value in the box, set $home_url to that value.
@@ -164,7 +164,7 @@ function uds_wp_render_main_nav_menu() {
 			// Determine which title attribute to use for the Home title (aka 'tooltip').
 			// Default to the UDS 2.0 standard using the 'Site Name' value from Wordpress settings.
 			$home_title = get_bloginfo( 'name' ) . ' home';
-			$alt_home_title = trim( get_theme_mod( 'alternate_home_title' ) );
+			$alt_home_title = trim( uds_wp_get_setting( 'alternate_home_title' ) );
 
 			if( ! empty( $alt_home_title ) ) {
 				// If we have a value in the box, set $home_title to that value.
@@ -182,7 +182,7 @@ function uds_wp_render_main_nav_menu() {
 		// render the actual menu items.
 
 		// If we are not the main site, and we want to use a parent menu,
-		if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_menu' ) ) {
+		if( is_multisite() && ! is_main_site() && true === uds_wp_get_setting( 'use_main_site_menu' ) ) {
 			// Switch our database context to the 'main' blog of our multisite.
 			switch_to_blog( get_main_site_id() );
 		}
@@ -220,10 +220,10 @@ function uds_wp_render_main_nav_menu() {
  * logo takes preference over a logo URL.
  */
 function uds_wp_render_footer_logo() {
-	$logo_type = get_theme_mod( 'footer_logo_type' );
-	$logo_select = get_theme_mod( 'logo_select' );
-	$logo_url = get_theme_mod( 'logo_url' );
-    $logo_link = get_theme_mod( 'footer_logo_link' )? get_theme_mod( 'footer_logo_link' ):home_url( '/' );
+	$logo_type = uds_wp_get_setting( 'footer_logo_type', 'asu' );
+	$logo_select = uds_wp_get_setting( 'logo_select' );
+	$logo_url = uds_wp_get_setting( 'logo_url' );
+    $logo_link = uds_wp_get_setting( 'footer_logo_link' ) ? uds_wp_get_setting( 'footer_logo_link' ) : home_url( '/' );
 	$logo_template = '<a href="%3$s"><img src="%1$s" alt="%2$s" /></a>';
 
 	if ( $logo_type && 'asu' === $logo_type ) {
@@ -282,8 +282,8 @@ if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
 	 * Takes the contribute_url setting and coditionally renders the button.
 	 */
 	function uds_wp_render_contribute_button() {
-		$contribute_url = get_theme_mod( 'contribute_url' );
-		$contribute_text = get_theme_mod( 'contribute_text' ) ? get_theme_mod( 'contribute_text' ) : 'Contribute';
+		$contribute_url = uds_wp_get_setting( 'contribute_url' );
+		$contribute_text = uds_wp_get_setting( 'contribute_text' ) ? uds_wp_get_setting( 'contribute_text' ) : 'Contribute';
 		$contribute_template = '<p class="contribute-button"><a href="%1$s" type="button" class="btn btn-gold">%2$s</a></p>';
 
 		// Do we have a contribute?
@@ -300,7 +300,7 @@ if ( ! function_exists( 'uds_wp_render_contribute_button' ) ) {
  * meaning that individual settings for logo or social icons are ignored.
  */
 function uds_wp_render_footer_branding_row() {
-	$row_status = get_theme_mod( 'footer_row_branding' );
+	$row_status = uds_wp_get_setting( 'footer_row_branding', 'enabled' );
 
 	if ( 'enabled' === $row_status ) {
 		?>
@@ -317,7 +317,7 @@ function uds_wp_render_footer_branding_row() {
 						if ( has_nav_menu( 'social-media' ) ) {
 
 							// If we are not the main site, and we want to use a parent menu,
-							if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_social_menu' ) ) {
+							if( is_multisite() && ! is_main_site() && true === uds_wp_get_setting( 'use_main_site_social_menu' ) ) {
 								// Switch our database context to the 'main' blog of our multisite.
 								switch_to_blog( get_main_site_id() );
 							}
@@ -358,7 +358,7 @@ function uds_wp_render_footer_branding_row() {
  * renders a link with that value as the URL.
  */
 function uds_wp_render_contact_link() {
-	$contact_url = get_theme_mod( 'contact_url' );
+	$contact_url = uds_wp_get_setting( 'contact_url' );
 	$contact_template = '<p class="contact-link"><a href="%1$s">Contact Us</a></p>';
 
 	if ( $contact_url && '' !== $contact_url ) {
@@ -376,10 +376,10 @@ function uds_wp_render_contact_link() {
  * items are ignored altogether.
  */
 function uds_wp_render_footer_action_row() {
-	$action_row_status = get_theme_mod( 'footer_row_actions' );
+	$action_row_status = uds_wp_get_setting( 'footer_row_actions', 'enabled' );
 
 	// If we are not the main site, and we want to use a parent menu,
-	if( is_multisite() && ! is_main_site() && true === get_theme_mod( 'use_main_site_footer_menu' ) ) {
+	if( is_multisite() && ! is_main_site() && true === uds_wp_get_setting( 'use_main_site_footer_menu' ) ) {
 		// Switch our database context to the 'main' blog of our multisite.
 		switch_to_blog( get_main_site_id() );
 	}
@@ -433,10 +433,10 @@ function uds_wp_render_asu_footer_logo() {
  * Renders text below the footer logo: either the site name, or some custom text.
  */
 function uds_wp_render_footer_unit_name() {
-	$footer_unit_name_type = get_theme_mod( 'footer_unit_name_type' );
+	$footer_unit_name_type = uds_wp_get_setting( 'footer_unit_name_type', 'default' );
 
 	if ( 'custom' === $footer_unit_name_type ) {
-		$footer_unit_name_text = get_theme_mod( 'footer_unit_name_text' );
+		$footer_unit_name_text = uds_wp_get_setting( 'footer_unit_name_text' );
 		echo $footer_unit_name_text;
 	} else {
 		echo get_bloginfo( 'name' );

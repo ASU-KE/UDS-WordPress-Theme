@@ -40,6 +40,7 @@ $uds_wp_includes = array(
 	'/header-localizer-script.php',				 // load custom react menu
 	'/class-unity-react-header-navtree-walker.php', // custom loop over navtree using built in WP methods
 	'/theme-settings-custom.php', // advanced admin settings (header menu, etc)
+	'/customizer-migration.php',				 // Migration from customizer to UDS Advanced Settings
 	'/block-pattern-categories.php'				 // Add our custom block pattern categories
 );
 

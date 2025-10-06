@@ -1,0 +1,110 @@
+{
+    "key": "group_uds_404_settings",
+    "title": "UDS: 404 Page Settings",
+    "fields": [
+        {
+            "key": "field_404_page_type",
+            "label": "404 Page Type",
+            "name": "404_page_type",
+            "type": "radio",
+            "instructions": "You can use the default 404 page content (and choose an image here), or create a custom page on the website for your 404 content.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "custom": "Custom"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_404_page_id",
+            "label": "404 Page",
+            "name": "404_page_id",
+            "type": "page_link",
+            "instructions": "Choose an existing page containing the content you would like to use on your custom 404 page.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_404_page_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_image_404",
+            "label": "Default 404 Image",
+            "name": "image_404",
+            "type": "image",
+            "instructions": "Background image only used on the default 404 page. For best results, use a 1200x500 pixel image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_404_page_type",
+                        "operator": "==",
+                        "value": "default"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Settings for customizing the 404 error page.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}

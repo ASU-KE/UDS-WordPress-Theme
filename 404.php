@@ -8,10 +8,10 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Get theme mods from the Customizer.
-$image_404 = get_theme_mod( 'image_404' );
-$page_type = get_theme_mod( '404_page_type' );
-$custom_page_id = get_theme_mod( '404_page_id' );
+// Get settings from UDS Advanced Settings (with fallback to theme mods for backward compatibility).
+$image_404 = uds_wp_get_setting( 'image_404' );
+$page_type = uds_wp_get_setting( '404_page_type', 'default' );
+$custom_page_id = uds_wp_get_setting( '404_page_id' );
 
 get_header();
 

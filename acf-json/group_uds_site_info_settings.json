@@ -1,0 +1,98 @@
+{
+    "key": "group_uds_site_info_settings",
+    "title": "UDS: Site Information Settings",
+    "fields": [
+        {
+            "key": "field_sitename_as_link",
+            "label": "Make Title a Link",
+            "name": "sitename_as_link",
+            "type": "true_false",
+            "instructions": "Determines if the site name in the header is also a link to the root (home page) of your site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_site_display_name",
+            "label": "Site Display Name",
+            "name": "site_display_name",
+            "type": "text",
+            "instructions": "To display a site title other than the one listed above, enter an alternate title here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_parent_unit_name",
+            "label": "Parent Unit Name",
+            "name": "parent_unit_name",
+            "type": "text",
+            "instructions": "The Parent Unit name displays as smaller text above the site title, but <b>will be hidden in mobile views.</b>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_parent_unit_link",
+            "label": "Parent Unit URL",
+            "name": "parent_unit_link",
+            "type": "url",
+            "instructions": "To make the Parent Unit a link, provide the URL here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 40,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Site information and title settings.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}
