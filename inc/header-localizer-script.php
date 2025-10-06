@@ -52,6 +52,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 					'src' => get_field('asu_logo_override_url', 'options'),        // default: 'arizona-state-university-logo-vertical.png'
 					'mobileSrc' => get_field('asu_logo_override_mobile_logo_url', 'options'),  // default: 'arizona-state-university-logo.png'
 					'brandLink' => get_field('asu_logo_override_link', 'options'),  // default: 'https://asu.edu'
+					'title' => get_field('asu_logo_override_title', 'options'),    // logo hover title text
 				];
 		}
 		$show_partner_logo = get_field('add_partner_logo', 'options');
@@ -63,6 +64,7 @@ if (!function_exists('uds_localize_component_header_script')) {
 					'src' => get_field('partner_logo_url', 'options'),        // default: 'arizona-state-university-logo-vertical.png'
 					'mobileSrc' => get_field('partner_logo_mobile_url', 'options'),  // default: 'arizona-state-university-logo.png'
 					'brandLink' => get_field('partner_logo_link', 'options'),  // default: 'https://asu.edu'
+					'title' => get_field('partner_logo_title', 'options'),    // partner logo hover title text
 				];
 		}
 
