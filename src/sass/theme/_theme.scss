@@ -293,8 +293,10 @@ Correct the button color on gray bg
 
 /*--------------------------------------------------------------
 Fix links in white cards within gray background sections
-When background sections have gray-7 backgrounds, links turn gold
-for dark mode, but inside white cards they should be maroon
+Issue: When users add content inside background section and select 
+gray-7 background, links turn gold to handle black background contrast.
+However, if cards inside are white, links should stay maroon, not gold.
+This fix ensures links inside white elements remain maroon (#8c1d40).
 --------------------------------------------------------------*/
 .uds-section.bg-color.bg-gray-7,
 .uds-section.bg-color.text-white {
