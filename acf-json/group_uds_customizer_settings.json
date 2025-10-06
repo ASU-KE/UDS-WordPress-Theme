@@ -1,0 +1,44 @@
+{
+    "key": "group_uds_customizer_settings",
+    "title": "UDS: Customizer Settings",
+    "fields": [
+        {
+            "key": "field_disable_customizer",
+            "label": "Disable WordPress Customizer",
+            "name": "disable_customizer",
+            "type": "true_false",
+            "instructions": "Hide the WordPress Customizer completely since all theme settings have been moved to UDS Advanced Settings. This removes customizer links from admin menu and admin bar, and redirects any direct access to this settings page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Yes, hide the WordPress Customizer completely",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Control whether to completely disable the WordPress Customizer.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}

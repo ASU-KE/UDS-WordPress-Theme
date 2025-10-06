@@ -26,7 +26,7 @@
 		- [Required Plugins](#required-plugins)
 	- [Using the Theme](#using-the-theme)
 		- [Updating the Theme](#updating-the-theme)
-		- [Customizer Options](#customizer-options)
+		- [UDS Advanced Settings](#uds-advanced-settings)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
 		- [Menus](#menus)
@@ -72,7 +72,21 @@
 - `npm i @asu/asu-unity-stack`
 - gulp task copy node module to /img folder
 
-#### Customizer Options
+#### UDS Advanced Settings
+
+The theme provides comprehensive settings through **UDS Advanced Settings** (found under Settings > UDS Advanced Settings in your WordPress admin). This replaces most WordPress Customizer functionality with a more organized and user-friendly interface.
+
+**Available Settings Include:**
+- **Analytics Settings**: Configure ASU Hub Analytics, Google Analytics, GTM, Hotjar, and Search Console
+- **404 Page Settings**: Customize your 404 error page with default or custom content and images  
+- **Footer Settings**: Control footer branding, logos, contact links, and social media options
+- **Header Settings**: Configure navigation menu visibility and multisite options
+- **Site Information**: Set up parent unit information, site display names, and title linking
+- **Customizer Control**: Option to completely disable WordPress Customizer if desired
+
+**Migration from Customizer**: If you were previously using WordPress Customizer settings, they will be automatically migrated to UDS Advanced Settings when you update to this version. Your existing configuration will be preserved.
+
+**Accessing Settings**: Go to **Settings > UDS Advanced Settings** in your WordPress admin dashboard.
 
 #### Page Heroes
 

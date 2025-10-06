@@ -142,6 +142,38 @@ function uds_wp_get_setting($setting_name, $default = '') {
 add_action('admin_init', 'uds_wp_migrate_customizer_settings');
 
 /**
+ * Optionally disable the customizer completely 
+ * This can be enabled via a filter if desired
+ */
+function uds_wp_maybe_disable_customizer() {
+    
+    $disable_customizer = get_field('disable_customizer', 'options') || apply_filters('uds_disable_customizer_completely', false);
+    
+    if ($disable_customizer) {
+        // Remove customizer from admin menu
+        add_action('admin_init', function() {
+            remove_submenu_page('themes.php', 'customize.php');
+        });
+        
+        // Remove customize link from admin bar
+        add_action('wp_before_admin_bar_render', function() {
+            global $wp_admin_bar;
+            $wp_admin_bar->remove_menu('customize');
+        });
+        
+        // Redirect customizer access to UDS Advanced Settings
+        add_action('admin_init', function() {
+            global $pagenow;
+            if ($pagenow == 'customize.php') {
+                wp_redirect(admin_url('options-general.php?page=uds-advanced-settings'));
+                exit;
+            }
+        });
+    }
+}
+add_action('init', 'uds_wp_maybe_disable_customizer');
+
+/**
  * Add admin notice when migration completes
  */
 function uds_wp_migration_admin_notice() {
@@ -153,7 +185,8 @@ function uds_wp_migration_admin_notice() {
         ?>
         <div class="notice notice-success is-dismissible" id="uds-migration-notice">
             <p><strong>UDS Theme:</strong> Customizer settings have been successfully migrated to UDS Advanced Settings. 
-            <a href="<?php echo admin_url('options-general.php?page=uds-advanced-settings'); ?>">View Settings</a></p>
+            <a href="<?php echo admin_url('options-general.php?page=uds-advanced-settings'); ?>">View Settings</a> | 
+            You can now optionally disable the WordPress Customizer completely in the Advanced Settings.</p>
         </div>
         <script>
         jQuery(document).ready(function($) {
