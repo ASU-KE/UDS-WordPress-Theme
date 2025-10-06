@@ -38,6 +38,7 @@ $uds_wp_includes = array(
 	'/tiny-mce.php',                             // Create custom toolbars for the WYSIWYG editor in ACF.
 	'/wp-rest-api-extensions.php',               // Extend WP-REST API.
 	'/header-localizer-script.php',				 // load custom react menu
+	'/footer-localizer-script.php',				 // load custom react footer
 	'/class-unity-react-header-navtree-walker.php', // custom loop over navtree using built in WP methods
 	'/theme-settings-custom.php', // advanced admin settings (header menu, etc)
 	'/block-pattern-categories.php'				 // Add our custom block pattern categories
