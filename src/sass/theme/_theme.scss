@@ -292,6 +292,35 @@ Correct the button color on gray bg
 }
 
 /*--------------------------------------------------------------
+Fix links in white cards within gray background sections
+When background sections have gray-7 backgrounds, links turn gold
+for dark mode, but inside white cards they should be maroon
+--------------------------------------------------------------*/
+.uds-section.bg-color.bg-gray-7,
+.uds-section.bg-color.text-white {
+	.card,
+	.bg-white,
+	[style*="background-color: white"],
+	[style*="background-color: #fff"],
+	[style*="background-color: #ffffff"],
+	[class*="bg-white"] {
+		a:not(.btn) {
+			color: #8c1d40 !important;
+		}
+		a:not(.btn):hover {
+			color: #8c1d40 !important;
+		}
+
+		.card-link a {
+			color: #8c1d40 !important;
+		}
+		.card-link a:hover {
+			color: #8c1d40 !important;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 Override the desktop media query for header to fix the gap issue
 --------------------------------------------------------------*/
 // Desktop
