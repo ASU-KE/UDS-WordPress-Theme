@@ -2,6 +2,15 @@
 
 /**
  * Localize_script function for component footer.
+ * 
+ * This script extracts WordPress footer configuration and formats it for
+ * the React ASU Footer component. It follows the same pattern as the header
+ * localizer script, converting WordPress theme customizer settings and
+ * navigation menus into props that can be consumed by the React component.
+ * 
+ * The React footer expects two main props:
+ * - social: Contains logo information and social media links
+ * - contact: Contains contact information and footer navigation columns
  */
 
 add_action('wp_enqueue_scripts', 'uds_localize_component_footer_script', 99);
@@ -121,7 +130,7 @@ if (!function_exists('uds_localize_component_footer_script')) {
 			switch_to_blog(get_main_site_id());
 		}
 
-		if (has_nav_menu($menu_name)) {
+		if (has_nav_menu($menu_name) && function_exists('uds_wp_get_menu_formatted_array')) {
 			$footer_menu_items = uds_wp_get_menu_formatted_array($menu_name);
 		}
 

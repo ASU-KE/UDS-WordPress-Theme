@@ -12,7 +12,16 @@ defined( 'ABSPATH' ) || exit;
 <?php do_action( 'uds_wp_before_global_footer' ); ?>
 
 <?php
-// Check if React footer is enabled - can be controlled via theme customizer
+/**
+ * Footer v2: React Component Implementation
+ * 
+ * This footer template supports both the new React-based footer and the legacy
+ * PHP-based footer for backward compatibility. The React footer provides the same
+ * functionality as the header, using WordPress data passed as props to a React component.
+ * 
+ * Toggle between implementations using the theme customizer option 'use_react_footer'.
+ * The React footer is enabled by default and recommended for new installations.
+ */
 $use_react_footer = get_theme_mod('use_react_footer', true); // Default to React footer
 ?>
 
