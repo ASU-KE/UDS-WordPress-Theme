@@ -92,8 +92,8 @@ $image_alt = '';
 $image_data = get_field('image');
 
 if (!empty($image_data)) {
-	$image_url = $image_data['url'];
-	$image_alt = $image_data['alt'];
+	$image_url = isset($image_data['url']) ? $image_data['url'] : '';
+	$image_alt = isset($image_data['alt']) ? $image_data['alt'] : '';
 }
 ?>
 <?php if ('card-horizontal' == $orientation_class) : ?>
