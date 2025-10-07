@@ -34,44 +34,7 @@ if ( ! function_exists( 'uds_custom_category' ) ) {
 }
 add_filter( 'block_categories_all', 'uds_custom_category', 10, 2 );
 
-/**
- * Loops through an array of block folder names and includes the 'register.php'
- * from within each one.
- *
- * When creating a new block, add the folder name to the $block_includes array
- * below. The folder should contain a 'register.php' file that does the actual
- * block registration, along with your block template(s).
- *
- * Note: Blocks appear in the block picker IN THE ORDER THEY ARE LISTED HERE.
- * When adding a new block, please make sure to insert it an alphabetical order.
- */
-function my_acf_blocks_init() {
-	// Check to see if we have ACF Pro for block support.
-	if ( function_exists( 'acf_register_block_type' ) ) {
 
-		// Array of block folders to use. Each must have a 'register.php' file.
-		$block_includes = array(
-			'/background-section', // UDS Background section.
-			'/banner',             // UDS banner block.
-			'/blockquote',         // Combination of UDS block quote and testimonial.
-			'/content-sections',   // Miscellaneous content sections.
-			'/foldable-card',      // UDS Foldable card block.
-			'/grid-links',         // UDS Grid Links.
-			'/headings',           // A UDS Headings block.
-			'/image',              // UDS Image block with caption and shadow options.
-
-			'/overlay-card',       // UDS Program Cards.
-			'/show-more',          // Show more button.
-			'/tabbed-panels',      // UDS Tabbed panels block.
-		);
-
-		// Loop through array items and include each register file.
-		foreach ( $block_includes as $folder ) {
-			require_once get_template_directory() . '/templates-blocks' . $folder . '/register.php';
-		}
-	}
-}
-add_action( 'acf/init', 'my_acf_blocks_init' );
 
 
 /**
@@ -132,9 +95,19 @@ if ( ! function_exists( 'remove_core_patterns' ) ) {
 add_action( 'init', 'register_acf_blocks', 5 );
 function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/alert' );
+	register_block_type( get_template_directory() . '/templates-blocks/background-section' );
+	register_block_type( get_template_directory() . '/templates-blocks/banner' );
+	register_block_type( get_template_directory() . '/templates-blocks/blockquote' );
 	register_block_type( get_template_directory() . '/templates-blocks/button' );
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
+	register_block_type( get_template_directory() . '/templates-blocks/content-sections' );
+	register_block_type( get_template_directory() . '/templates-blocks/foldable-card' );
+	register_block_type( get_template_directory() . '/templates-blocks/grid-links' );
+	register_block_type( get_template_directory() . '/templates-blocks/headings' );
+	register_block_type( get_template_directory() . '/templates-blocks/image' );
 	register_block_type( get_template_directory() . '/templates-blocks/modals' );
+	register_block_type( get_template_directory() . '/templates-blocks/overlay-card' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
-
+	register_block_type( get_template_directory() . '/templates-blocks/show-more' );
+	register_block_type( get_template_directory() . '/templates-blocks/tabbed-panels' );
 }

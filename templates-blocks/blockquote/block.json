@@ -1,0 +1,26 @@
+{
+    "name": "acf/uds-blockquote",
+    "title": "UDS Blockquote",
+    "description": "Stylized quotation, with optional image and configurable accent colors.",
+    "category": "uds",
+    "icon": "format-quote",
+    "keywords": ["blockquote", "block", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "blockquote.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "quote_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                "name": "Name of person",
+                "description": "description here"
+            }
+        }
+    }
+}
