@@ -41,6 +41,25 @@ if (!function_exists('uds_wp_scripts')) {
 add_action('wp_enqueue_scripts', 'uds_wp_scripts');
 
 
+if (!function_exists('uds_wp_disable_jquery_migrate')) {
+	/**
+	 * Disable jQuery Migrate on frontend for improved performance.
+	 * jQuery core remains functional without jQuery Migrate.
+	 */
+	function uds_wp_disable_jquery_migrate($scripts)
+	{
+		if (!is_admin() && !empty($scripts->registered['jquery'])) {
+			// Remove jquery-migrate from jQuery dependencies
+			$scripts->registered['jquery']->deps = array_diff(
+				$scripts->registered['jquery']->deps,
+				array('jquery-migrate')
+			);
+		}
+	}
+}
+add_action('wp_default_scripts', 'uds_wp_disable_jquery_migrate');
+
+
 
 if (!function_exists('uds_wp_admin_scripts')) {
 	/**

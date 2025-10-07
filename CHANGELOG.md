@@ -11,6 +11,7 @@
 - Font awesome updates - fix styling, update to v6.6
 - unity-bootstrap-theme v1.14.2
 - Update GFL logo with latest registered tm
+- Disable jQuery Migrate on frontend for improved performance and best practices compliance
 
 ## v1.0 September:
 - README update, dev instructions
