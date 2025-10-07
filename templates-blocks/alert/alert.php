@@ -54,7 +54,7 @@
 		<?php echo $content; ?>
 	</div>
 	<div class="alert-close">
-		<button type="button" data-bs-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close">
+		<button type="button" data-bs-dismiss="alert" class="btn btn-circle btn-circle-alt-black close" aria-label="Close" data-ga="alert close" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="close" data-ga-region="main content" data-ga-section="alert">
 			<i class="fas fa-xmark"></i>
 		</button>
 	</div>

@@ -3990,3 +3990,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+// Import data-layer.js for analytics tracking
+import './custom/data-layer.js';
