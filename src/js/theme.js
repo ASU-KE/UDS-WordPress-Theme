@@ -3991,5 +3991,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Import data-layer.js for analytics tracking
-import './custom/data-layer.js';
+// Data layer analytics is initialized via init-data-layer.js in the build process

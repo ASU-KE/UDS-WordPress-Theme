@@ -184,16 +184,8 @@ function initDataLayer() {
 }
 
 /* Function must be initialized after document load
- * Example:
- *   window.initDataLayer();
+ * This is now handled by init-data-layer.js in the custom directory
  */
 window.initDataLayer = window.initDataLayer || initDataLayer;
-
-// Initialize on DOM content loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initDataLayer);
-} else {
-  initDataLayer();
-}
 
 export { initDataLayer };
