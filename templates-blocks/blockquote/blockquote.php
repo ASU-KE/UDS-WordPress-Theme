@@ -30,17 +30,17 @@
 switch ( get_field( 'background_color' ) ) {
 
 	case 'light':
-		$background_class = 'bq-light';
+		$background_class = 'bg-gray-1';
 		$accent_class = get_field( 'accent_light' );
 		break;
 
 	case 'medium':
-		$background_class = 'bq-medium';
+		$background_class = 'bg-gray-2';
 		$accent_class = get_field( 'accent_medium' );
 		break;
 
 	case 'dark':
-		$background_class = 'bq-dark';
+		$background_class = 'bg-gray-7 text-white';
 		$accent_class = get_field( 'accent_dark' );
 		break;
 
@@ -60,7 +60,7 @@ if ( ! empty( $accent_class ) ) {
 
 // Now check to see if they want to add the padding.
 if ( get_field( 'add_space' ) ) {
-	$background_class .= ' bq-color-padding';
+	$background_class .= ' p-4';
 }
 
 // See if we are in image, or no-image, mode.
