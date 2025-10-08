@@ -11,6 +11,18 @@ blockquote {
 	font-weight: inherit;
 	padding-left: 0;
 	max-width: none;
+	
+	p {
+		max-width: unset;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		word-break: break-word;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+		hyphenate-limit-chars: 12 3 4;
+	}
 }
 
 blockquote:before {
@@ -20,82 +32,137 @@ blockquote:before {
 /*------------------------------------------------------------------
 2. New Blockquote, mobile
 ------------------------------------------------------------------- */
-figure.uds-blockquote {
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
+.uds-blockquote {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: $uds-size-spacing-3;
 
 	font-size: $uds-size-font-large;
 	font-weight: 700;
 
+	padding: $uds-size-spacing-4;
+
+	@include media-breakpoint-down(sm) {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: $uds-size-spacing-4;
+	}
+
 	svg {
+		grid-column: 1;
 		fill: $uds-color-base-gray-7;
 		width: $uds-size-spacing-5;
 		height: auto;
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: $uds-size-spacing-1;
+		}
 	}
 
 	blockquote {
-		margin-top: $uds-size-spacing-2;
+		grid-column: 2;
+		margin-top: 0;
 		margin-bottom: 0;
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
 
 		p:last-child {
 			margin-bottom: 0;
 		}
 
 		p:last-child:after {
-			content: '"';
+			content: '\201D';
 		}
 	}
 
-	figcaption {
+	.citation {
+		display: flex;
 
-		&:before {
-			content: '';
-			display: block;
-			background-color: $uds-color-base-gray-5;
-			height: $uds-size-spacing-half;
-			width: $uds-size-spacing-9;
-			margin: $uds-size-spacing-2 auto;
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
+
+		.citation-content {
+			display: flex;
+			flex-direction: column;
 		}
 
 		cite {
 			display: block;
 			font-size: $uds-size-font-medium;
+			font-style: normal;
 
 			&.name {
 				font-weight: 700;
 			}
 
-			&.name:before {
-				padding-right: 0.5em;
-				content: "\2014";
-			}
-
 			&.description {
 				font-weight: 400;
-				font-style: italic;
-				padding-left: 1.5rem;
 			}
 		}
 	}
 
+	.citation:before {
+		padding-right: 0.5em;
+		margin-top: -5px;
+		content: '\2014';
+	}
+
 	&.with-image {
+		gap: $uds-size-spacing-4;
 
 		img {
-			border-radius: 50%;
-			height: 180px;
-			max-height: 180px;
-			max-width: 180px;
-			min-height: 180px;
-			min-width: 180px;		
 			object-fit: cover;
-			width: 180px;
+			border-radius: 100%;
+			width: 72px;
+			height: 72px;
+			min-width: 72px;
+			min-height: 72px;
+
+			@include media-breakpoint-up(sm) {
+				min-width: 120px;
+				min-height: 120px;
+				width: 120px;
+				height: 120px;
+			}
 		}
 
-		blockquote p:first-child:before {
-			content: '"';
+		blockquote p:first-of-type:before {
+			content: '\201C';
+		}
+
+		&.reversed {
+			img {
+				grid-column: 2;
+			}
+
+			blockquote {
+				grid-column: 1;
+				grid-row: 1;
+			}
+		}
+	}
+
+	&.no-citation {
+		blockquote {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			p:first-of-type:before {
+				content: '\201C';
+			}
+
+			h3 {
+				margin-bottom: 0;
+			}
+
+			h3 + p {
+				margin-top: $uds-size-spacing-3;
+			}
 		}
 	}
 
@@ -103,12 +170,27 @@ figure.uds-blockquote {
 		svg {
 			fill: $uds-color-base-gold;
 		}
+	}
 
-		figcaption:before {
-			background-color: $uds-color-base-gold;
+	&.accent-maroon {
+		svg {
+			fill: $uds-color-base-maroon;
 		}
 	}
 
+	&.accent-white {
+		svg {
+			fill: $uds-color-base-white;
+		}
+	}
+
+	&.accent-gray-5 {
+		svg {
+			fill: $uds-color-base-gray-5;
+		}
+	}
+
+	// Legacy background classes for backward compatibility
 	&.bq-color-padding {
 		padding: $uds-size-spacing-3;
 	}
@@ -126,35 +208,46 @@ figure.uds-blockquote {
 		color: $uds-color-base-gray-1;
 	}
 
+	// Alt citation style with colored bar
+	&.alt-citation {
+		.citation {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 
+			&:before {
+				content: '';
+				display: block;
+				background-color: $uds-color-base-gray-7;
+				height: $uds-size-spacing-half;
+				width: $uds-size-spacing-9;
+				margin: $uds-size-spacing-2 0;
+			}
 
-	&.accent-maroon {
-		svg {
-			fill: $uds-color-base-maroon;
+			cite.name:before {
+				content: none;
+				display: flex;
+			}
+
+			cite.name {
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			cite.description {
+				font-weight: 400;
+				padding-left: 0;
+				display: flex;
+				justify-content: flex-start;
+			}
 		}
 
-		figcaption:before {
+		&.accent-gold .citation:before {
+			background-color: $uds-color-base-gold;
+		}
+
+		&.accent-maroon .citation:before {
 			background-color: $uds-color-base-maroon;
-		}
-	}
-
-	&.accent-white {
-		svg {
-			fill: $uds-color-base-white;
-		}
-
-		figcaption:before {
-			background-color: $uds-color-base-white;
-		}
-	}
-
-	&.accent-gray-5 {
-		svg {
-			fill: $uds-color-base-gray-5;
-		}
-
-		figcaption:before {
-			background-color: $uds-color-base-gray-5;
 		}
 	}
 }
@@ -162,67 +255,43 @@ figure.uds-blockquote {
 
 
 /*------------------------------------------------------------------
-3. New Blockquote, desktop
+3. Testimonial style (centered alignment)
 ------------------------------------------------------------------- */
-@include media-breakpoint-up(md) {
+.uds-blockquote.uds-testimonial {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-	figure.uds-blockquote {
+	blockquote {
+		text-align: center;
 
+		p:first-of-type:before {
+			content: '\201C';
+		}
+
+		p:last-of-type:after {
+			content: '\201D';
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.citation:before {
+		display: inline-flex;
+		margin: $uds-size-spacing-2 auto;
+	}
+
+	cite.name,
+	cite.description {
 		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		text-align: left;
+		justify-content: center;
+	}
 
-		// wraps either the large quotes, or the image
-		div.feature-wrapper {
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			justify-content: flex-start;
-			padding: 0 $uds-size-spacing-2 0 0;
-
-		}
-
-		blockquote {
-			margin-top: 0;
-
-			p:last-child {
-				margin-bottom: 0;
-			}
-
-			p:last-child:after {
-				content: '"';
-			}
-		}
-
-		figcaption {
-			// The space between quote and person's name/description.
-			margin-top: $uds-size-spacing-2;
-
-			&:before {
-				display: none;
-			}
-		}
-
-		&.with-image {
-
-			img {
-				object-fit: cover;
-				height: 180px;
-			}
-
-			div.feature-wrapper {
-				margin-right: $uds-size-spacing-4;
-			}
-		}
-
-		&.with-image.reversed {
-			flex-direction: row-reverse;
-
-			div.feature-wrapper {
-				// With image on the right, put margin on the left of it.
-				margin-left: $uds-size-spacing-4;
-			}
-		}
+	&.with-image img {
+		width: 180px;
+		height: 180px;
+		border-radius: 100%;
 	}
 }
