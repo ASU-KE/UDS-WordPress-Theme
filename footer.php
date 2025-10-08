@@ -19,10 +19,14 @@ defined( 'ABSPATH' ) || exit;
  * PHP-based footer for backward compatibility. The React footer provides the same
  * functionality as the header, using WordPress data passed as props to a React component.
  * 
- * Toggle between implementations using the theme customizer option 'use_react_footer'.
+ * Toggle between implementations using the UDS Advanced Settings 'use_react_footer' field.
  * The React footer is enabled by default and recommended for new installations.
  */
-$use_react_footer = get_theme_mod('use_react_footer', true); // Default to React footer
+$use_react_footer = get_field('use_react_footer', 'options'); 
+// Default to React footer if field is not set
+if ($use_react_footer === null) {
+	$use_react_footer = true;
+}
 ?>
 
 <?php if ( $use_react_footer ): ?>
