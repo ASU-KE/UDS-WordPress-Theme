@@ -3,162 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Layer Analytics Test</title>
-    <!-- jQuery removed to test vanilla JS version -->
+    <title>Data Layer Test - Complete Functionality</title>
+    <!-- Using local jQuery fallback for testing -->
+    <script>
+        // Simple jQuery-like functionality for testing
+        window.$ = window.jQuery = function(selector) {
+            if (typeof selector === 'function') {
+                // $(document).ready()
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', selector);
+                } else {
+                    selector();
+                }
+                return;
+            }
+            
+            // Simple element selection and methods
+            var elements = typeof selector === 'string' ? 
+                document.querySelectorAll(selector) : 
+                (selector ? [selector] : []);
+            
+            return {
+                length: elements.length,
+                on: function(events, handler) {
+                    events.split(' ').forEach(function(event) {
+                        elements.forEach(function(el) {
+                            el.addEventListener(event, handler);
+                        });
+                    });
+                    return this;
+                },
+                attr: function(name, value) {
+                    if (value !== undefined) {
+                        elements.forEach(function(el) { el.setAttribute(name, value); });
+                        return this;
+                    }
+                    return elements[0] ? elements[0].getAttribute(name) : undefined;
+                },
+                data: function(key) {
+                    return elements[0] ? elements[0].getAttribute('data-' + key) : undefined;
+                },
+                val: function() {
+                    return elements[0] ? elements[0].value : '';
+                },
+                text: function() {
+                    return elements[0] ? elements[0].textContent.trim() : '';
+                },
+                find: function(selector) {
+                    var found = [];
+                    elements.forEach(function(el) {
+                        found.push(...el.querySelectorAll(selector));
+                    });
+                    return $(found);
+                },
+                closest: function(selector) {
+                    var closest = elements[0] ? elements[0].closest(selector) : null;
+                    return $(closest ? [closest] : []);
+                },
+                is: function(selector) {
+                    return elements[0] ? elements[0].matches(selector) : false;
+                },
+                prop: function(name) {
+                    return elements[0] ? elements[0][name] : undefined;
+                }
+            };
+        };
+        
+        // Document ready and additional jQuery methods
+        $(document).ready = function(callback) { $(callback); };
+        $.fn = {};
+        
+        // Add ready method to jQuery objects
+        $().ready = function(callback) { $(callback); };
+    </script>
+    <style>
+        .test-section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        button, input, select, textarea {
+            margin: 5px;
+            padding: 8px;
+        }
+        .header-mock {
+            background: #8c1d40;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .header-mock a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .asu-header .navbar-brand {
+            font-weight: bold;
+        }
+        #event-log {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: white;
+            border: 2px solid #ccc;
+            padding: 10px;
+            z-index: 1000;
+            font-size: 11px;
+            font-family: monospace;
+        }
+        .event-entry {
+            margin: 5px 0;
+            padding: 8px;
+            background: #e8f4fd;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Layer Analytics Test - Complete Functionality</h1>
+    
+    <!-- Mock Header for Testing Header Events -->
+    <div id="header-container" class="header-mock">
+        <div class="asu-header">
+            <a href="/" class="navbar-brand">ASU Logo</a>
+            <a href="/about">About</a>
+            <a href="/academics">Academics</a>
+            <a href="https://external.com">External Link</a>
+            
+            <form id="searchform" style="display: inline-block; margin-left: 20px;">
+                <input type="search" name="s" placeholder="Search..." style="color: black;">
+                <button type="submit" id="searchsubmit">Search</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Test elements with data-ga attributes -->
+    <div class="test-section">
+        <h2>1. Elements with data-ga attributes (General Click Handler)</h2>
+        <button data-ga="test button" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="test">Test Button</button>
+        <br><br>
+        <a href="/test" data-ga="internal test link" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="test">Internal Link</a>
+        <br><br>
+        <a href="https://google.com" data-ga="external test link" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="external link" data-ga-region="main content" data-ga-section="test">External Link</a>
+    </div>
+    
+    <!-- Test header click events -->
+    <div class="test-section">
+        <h2>2. Header Click Events (Auto-tracked)</h2>
+        <p>Click on the header navigation links above to test header click tracking.</p>
+        <p>These elements don't have data-ga attributes but should be tracked by the header click handler.</p>
+    </div>
+    
+    <!-- Test header search events -->
+    <div class="test-section">
+        <h2>3. Header Search Events (Auto-tracked)</h2>
+        <p>Use the search form in the header above to test:</p>
+        <ul>
+            <li>Type in the search field (change events with debouncing)</li>
+            <li>Click the search button (click events)</li>
+            <li>Submit the form (submit events)</li>
+        </ul>
+    </div>
+    
+    <!-- Test input change events -->
+    <div class="test-section">
+        <h2>4. Input Change Events (Auto-tracked)</h2>
+        <form id="test-form">
+            <p>Test various form inputs (changes tracked with debouncing):</p>
+            <label>Text Input: <input type="text" name="text-input" placeholder="Type something..."></label><br><br>
+            <label>Email Input: <input type="email" name="email-input" placeholder="email@example.com"></label><br><br>
+            <label>Password Input: <input type="password" name="password-input" placeholder="Not tracked for security"></label><br><br>
+            <label>Textarea: <textarea name="textarea-input" placeholder="Type a message..."></textarea></label><br><br>
+            <label>Select: 
+                <select name="select-input">
+                    <option value="">Choose option...</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                </select>
+            </label><br><br>
+            <label><input type="checkbox" name="checkbox-input" value="yes"> Checkbox</label><br><br>
+            <label><input type="radio" name="radio-input" value="option1"> Radio Option 1</label>
+            <label><input type="radio" name="radio-input" value="option2"> Radio Option 2</label><br><br>
+            <button type="submit">Submit Form</button>
+        </form>
+    </div>
+    
+    <!-- Test elements without data-ga attributes -->
+    <div class="test-section">
+        <h2>5. Regular Elements (Should only be tracked if in header)</h2>
+        <button>Regular Button (not tracked)</button>
+        <br><br>
+        <a href="/regular">Regular Link (not tracked)</a>
+        <br><br>
+        <p>These elements should NOT be tracked by the general click handler since they don't have data-ga attributes and are not in the header.</p>
+    </div>
+
+    <!-- Event Log Panel -->
+    <div id="event-log">
+        <h3 style="margin-top:0;">DataLayer Events Log</h3>
+        <div id="log-content"></div>
+    </div>
+
     <script>
         // Initialize dataLayer
         window.dataLayer = window.dataLayer || [];
         
-        // Console log dataLayer pushes for testing
+        // Log all dataLayer pushes for testing with better formatting
         const originalPush = window.dataLayer.push;
-        window.dataLayer.push = function(event) {
-            console.log('DataLayer Event Pushed:', event);
-            originalPush.call(this, event);
+        window.dataLayer.push = function(...args) {
+            console.log('🎯 DataLayer Push:', args);
+            
+            // Display in floating log panel
+            const logContent = document.getElementById('log-content');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'event-entry';
+            logEntry.innerHTML = '<strong>Event:</strong><br><pre>' + JSON.stringify(args[0], null, 2) + '</pre>';
+            logContent.insertBefore(logEntry, logContent.firstChild);
+            
+            // Keep only last 10 entries
+            while (logContent.children.length > 10) {
+                logContent.removeChild(logContent.lastChild);
+            }
+            
+            return originalPush.apply(this, args);
         };
     </script>
-</head>
-<body>
-    <h1>Data-Layer.js Analytics Test Page</h1>
     
-    <h2>Test Elements with data-ga attributes:</h2>
+    <!-- Include our data-layer script -->
+    <script src="src/js/custom/data-layer.js"></script>
     
-    <!-- Button test -->
-    <button data-ga="test button" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="button" data-ga-region="main content" data-ga-section="test">
-        Test Button
-    </button>
-    
-    <!-- Internal link test -->
-    <a href="/test" data-ga="internal link test" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="test">
-        Internal Link Test
-    </a>
-    
-    <!-- External link test -->
-    <a href="https://google.com" data-ga="external link test" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="external link" data-ga-region="main content" data-ga-section="test">
-        External Link Test
-    </a>
-    
-    <!-- Modal test -->
-    <button data-ga="modal open" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="modal open" data-ga-region="main content" data-ga-section="modal">
-        Open Modal
-    </button>
-    
-    <div id="console-output">
-        <h3>Console Output:</h3>
-        <div id="console-log" style="background: #f5f5f5; padding: 10px; min-height: 200px; font-family: monospace;"></div>
-    </div>
-
     <script>
-        // Vanilla JS version for testing
-        function initDataLayerTracking() {
-            // Ensure dataLayer exists
-            window.dataLayer = window.dataLayer || [];
-
-            // Add click event listener to document for elements with data-ga attributes
-            document.addEventListener('click', function(event) {
-                var element = event.target.closest('[data-ga]');
-                if (!element) return;
-
-                var eventData = {};
-
-                // Base event structure
-                eventData.event = 'gaEvent';
-                eventData.eventCategory = 'engagement';
-                eventData.eventAction = 'click';
-
-                // Extract data-ga-* attributes
-                var dataGa = element.getAttribute('data-ga');
-                var dataGaName = element.getAttribute('data-ga-name');
-                var dataGaEvent = element.getAttribute('data-ga-event');
-                var dataGaAction = element.getAttribute('data-ga-action');
-                var dataGaType = element.getAttribute('data-ga-type');
-                var dataGaRegion = element.getAttribute('data-ga-region');
-                var dataGaSection = element.getAttribute('data-ga-section');
-                var dataGaText = element.getAttribute('data-ga-text');
-
-                // Set event properties based on available data-ga attributes
-                if (dataGa) {
-                    eventData.eventLabel = dataGa;
-                }
-
-                if (dataGaName) {
-                    eventData.eventName = dataGaName;
-                }
-
-                if (dataGaEvent) {
-                    eventData.event = dataGaEvent;
-                }
-
-                if (dataGaAction) {
-                    eventData.eventAction = dataGaAction;
-                }
-
-                if (dataGaType) {
-                    eventData.eventCategory = dataGaType;
-                    eventData.linkType = dataGaType;
-                }
-
-                if (dataGaRegion) {
-                    eventData.region = dataGaRegion;
-                }
-
-                if (dataGaSection) {
-                    eventData.section = dataGaSection;
-                }
-
-                if (dataGaText) {
-                    eventData.text = dataGaText;
-                }
-
-                // Get link information if element is a link
-                if (element.tagName.toLowerCase() === 'a') {
-                    var href = element.getAttribute('href');
-                    if (href) {
-                        eventData.linkUrl = href;
-                        
-                        // Determine if internal or external link
-                        if (href.indexOf('asu.edu') !== -1 || href.indexOf('/') === 0 || href.indexOf('#') === 0) {
-                            eventData.linkType = eventData.linkType || 'internal link';
-                        } else {
-                            eventData.linkType = eventData.linkType || 'external link';
-                        }
-                    }
-                }
-
-                // Get button text or link text if not already specified
-                if (!eventData.text && !dataGaText) {
-                    var elementText = element.textContent.trim();
-                    if (elementText) {
-                        eventData.text = elementText;
-                    }
-                }
-
-                // Add element type information
-                eventData.elementType = element.tagName.toLowerCase();
-                
-                // Add timestamp
-                eventData.timestamp = new Date().toISOString();
-
-                // Push to dataLayer
-                console.log('Data Layer Event:', eventData); // Debug logging
-                window.dataLayer.push(eventData);
-                
-                // Display in UI for testing
-                var consoleLog = document.getElementById('console-log');
-                var logEntry = document.createElement('div');
-                logEntry.innerHTML = '<div>' + new Date().toLocaleTimeString() + ': ' + JSON.stringify(eventData, null, 2) + '</div><hr>';
-                consoleLog.appendChild(logEntry);
-                
-                // Prevent default for test links
-                if (element.tagName.toLowerCase() === 'a') {
-                    event.preventDefault();
-                }
-            });
-        }
-
-        // Initialize when document is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            initDataLayerTracking();
-            console.log('Data Layer Analytics initialized');
+        // Simple test feedback
+        console.log('✅ Test page loaded - check console for events');
+        
+        // Prevent navigation for test links outside header
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'a' && !e.target.closest('#header-container')) {
+                e.preventDefault();
+                console.log('Navigation prevented for testing');
+            }
         });
     </script>
 </body>
