@@ -186,6 +186,5 @@ function initDataLayer() {
 /* Function must be initialized after document load
  * This is now handled by init-data-layer.js in the custom directory
  */
-window.initDataLayer = window.initDataLayer || initDataLayer;
 
 export { initDataLayer };
