@@ -70,16 +70,16 @@ if (isset($block['className']) && !empty($block['className'])) {
 		<div class="overlay-card-button <?php echo $with_desc_class; ?>">
 			<?php
 			// Get our ACF Field values.
-			$external_link = $button['external_link'];
-			$button_color  = $button['button_color'];
-			$button_size   = $button['button_size'];
-			$button_icon   = $button['icon'];
+			$external_link = isset($button['external_link']) ? $button['external_link'] : false;
+			$button_color  = isset($button['button_color']) ? $button['button_color'] : 'gray';
+			$button_size   = isset($button['button_size']) ? $button['button_size'] : 'normal';
+			$button_icon   = isset($button['icon']) ? $button['icon'] : '';
 
-			$button_link = $button['button_link'];
+			$button_link = isset($button['button_link']) ? $button['button_link'] : null;
 			if ($button_link) {
-				$button_label  = $button_link['title'];
-				$button_url    = $button_link['url'];
-				$button_target = $button_link['target'];
+				$button_label  = isset($button_link['title']) ? $button_link['title'] : '';
+				$button_url    = isset($button_link['url']) ? $button_link['url'] : '/';
+				$button_target = isset($button_link['target']) ? $button_link['target'] : '_blank';
 			} else {
 				$button_label  = '';
 				$button_url = '/';
@@ -126,10 +126,10 @@ if (isset($block['className']) && !empty($block['className'])) {
 
 
 	<?php if ($image) { ?>
-		<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
+		<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo isset($image['alt']) ? $image['alt'] : ''; ?>" title="<?php echo isset($image['title']) ? $image['title'] : ''; ?>" />
 	<?php } ?>
 	<?php if ($hover_image) { ?>
-		<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo $hover_image['alt']; ?>" title="<?php echo $hover_image['title']; ?>" />
+		<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo isset($hover_image['alt']) ? $hover_image['alt'] : ''; ?>" title="<?php echo isset($hover_image['title']) ? $hover_image['title'] : ''; ?>" />
 	<?php } ?>
 
 
