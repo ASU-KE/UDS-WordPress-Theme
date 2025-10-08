@@ -59,7 +59,19 @@
 ### Using the Theme
 
 #### Updating the Theme
-##### Update CSS
+##### Update CSS from Latest ASU Unity Stack Release
+**Automated Method:**
+```bash
+./update-css.sh
+```
+
+**Manual Method:**
+1. `npm install @asu/unity-bootstrap-theme@latest --save`
+2. `gulp update-css-styling` (or separately: `gulp compile-sass` then `gulp minify-css`)
+
+**Note:** Requires valid GitHub Personal Access Token in `.npmrc` file. See [update-css-styling.md](update-css-styling.md) for detailed instructions.
+
+##### Legacy CSS Update Process
 - `npm i @asu/asu-unity-stack`
 - `npm i bootstrap`
 - node_modules update @import path to `../../node_modules/bootstrap` in errored files

@@ -30,3 +30,7 @@ phpcs.xml.dist
 .phpcs-cache
 
 browserSyncOptions.json
+
+# Update CSS documentation (remove if you want to track these)
+# update-css-styling.md
+# update-css.sh
