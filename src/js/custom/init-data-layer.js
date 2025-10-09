@@ -211,6 +211,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		});
 
+		// General click events for elements with data-ga attributes
+		// This ensures template block analytics continue to work
+		document.querySelectorAll('[data-ga]').forEach((element) => {
+			element.addEventListener('click', function () {
+				const name = element.getAttribute('data-ga-name') || '';
+				const event = element.getAttribute('data-ga-event') || 'click';
+				let action = element.getAttribute('data-ga-action') || 'click';
+				const expanded = element.getAttribute('aria-expanded');
+				if (expanded) {
+					action = expanded === 'false' ? 'open' : 'close';
+				}
+				const type = element.getAttribute('data-ga-type') || 'click';
+				const section = element.getAttribute('data-ga-section') || 'default';
+				const region = element.getAttribute('data-ga-region') || 'main-content';
+				const text = element.getAttribute('data-ga') || element.textContent.trim().slice(0, 40);
+				const component = element.getAttribute('data-ga-component') || '';
+
+				pushGAEvent({
+					name: name.toLowerCase(),
+					event: event.toLowerCase(),
+					action: action.toLowerCase(),
+					type: type.toLowerCase(),
+					section: section.toLowerCase(),
+					region: region.toLowerCase(),
+					text: text.toLowerCase(),
+					...(component && {
+						component: component.toLowerCase(),
+					}),
+				});
+			});
+		});
+
 	}
 
 	initBootstrapDataLayer();
