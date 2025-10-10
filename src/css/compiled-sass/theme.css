@@ -15140,6 +15140,13 @@ div[class="alert alert-block"] {
   white-space: nowrap;
   width: -moz-max-content !important;
   width: max-content !important;
+  position: relative;
+}
+.btn::before, .wpcf7-form input[type=submit]::before, .uds-modal-close-btn::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  margin: auto;
 }
 .btn::first-letter, .wpcf7-form input[type=submit]::first-letter, .uds-modal-close-btn::first-letter {
   text-transform: uppercase;
@@ -15503,6 +15510,13 @@ a.text-gold:link, a.text-gold:hover, a.text-gold:focus, .bg-gray-7 a:link, .bg-g
 }
 a.text-gold:visited:not(.btn):not(.uds-modal-close-btn), .bg-gray-7 a:visited:not(.btn):not(.uds-modal-close-btn) {
   color: #7f6227 !important;
+}
+a.btn[disabled], a[disabled].uds-modal-close-btn {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: var(--bs-btn-disabled-bg);
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: var(--bs-btn-disabled-opacity);
 }
 
 /*a:hover,
@@ -16644,6 +16658,13 @@ Cards - Table of Contents
 /*------------------------------------------------------------------
 7. Accordion
 --------------------------------------------------------------------*/
+.accordion:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 1px #191919 !important;
+  border: 1px solid #191919 !important;
+  margin: 4px;
+  width: -webkit-fill-available;
+}
 .accordion .accordion-item {
   border-bottom: 1px solid #d0d0d0;
   border-top: 1px solid #d0d0d0;
@@ -16772,7 +16793,7 @@ ul.uds-list,
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -16780,12 +16801,8 @@ ul.uds-list,
 }
 ul.uds-list li,
 .uds-list ul li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ul.uds-list li:last-of-type,
-.uds-list ul li:last-of-type {
-  margin-bottom: 0rem;
 }
 ul.uds-list,
 .uds-list ul {
@@ -16838,7 +16855,7 @@ ol.uds-list.is-style-darkmode,
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -16861,23 +16878,8 @@ ol.uds-list.is-style-darkmode-gold li,
 .uds-list ol.is-style-darkmode-gold li,
 ol.uds-list.is-style-darkmode li,
 .uds-list ol.is-style-darkmode li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ul.uds-list.darkmode li:last-of-type, ul.uds-list.is-style-steplist-darkmode-maroon li:last-of-type, ul.uds-list.is-style-steplist-darkmode-gold li:last-of-type, ul.uds-list.is-style-steplist-darkmode li:last-of-type, .uds-list ul.darkmode li:last-of-type, .uds-list ul.is-style-steplist-darkmode-maroon li:last-of-type, .uds-list ul.is-style-steplist-darkmode-gold li:last-of-type, .uds-list ul.is-style-steplist-darkmode li:last-of-type, ul.uds-list.is-style-darkmode-gold li:last-of-type, .uds-list ul.is-style-darkmode-gold li:last-of-type, ul.uds-list.is-style-darkmode li:last-of-type, .uds-list ul.is-style-darkmode li:last-of-type,
-ol.uds-list.darkmode li:last-of-type,
-ol.uds-list.is-style-steplist-darkmode-maroon li:last-of-type,
-ol.uds-list.is-style-steplist-darkmode-gold li:last-of-type,
-ol.uds-list.is-style-steplist-darkmode li:last-of-type,
-.uds-list ol.darkmode li:last-of-type,
-.uds-list ol.is-style-steplist-darkmode-maroon li:last-of-type,
-.uds-list ol.is-style-steplist-darkmode-gold li:last-of-type,
-.uds-list ol.is-style-steplist-darkmode li:last-of-type,
-ol.uds-list.is-style-darkmode-gold li:last-of-type,
-.uds-list ol.is-style-darkmode-gold li:last-of-type,
-ol.uds-list.is-style-darkmode li:last-of-type,
-.uds-list ol.is-style-darkmode li:last-of-type {
-  margin-bottom: 0rem;
 }
 ul.uds-list.darkmode, ul.uds-list.is-style-steplist-darkmode-maroon, ul.uds-list.is-style-steplist-darkmode-gold, ul.uds-list.is-style-steplist-darkmode, .uds-list ul.darkmode, .uds-list ul.is-style-steplist-darkmode-maroon, .uds-list ul.is-style-steplist-darkmode-gold, .uds-list ul.is-style-steplist-darkmode, ul.uds-list.is-style-darkmode-gold, .uds-list ul.is-style-darkmode-gold, ul.uds-list.is-style-darkmode, .uds-list ul.is-style-darkmode,
 ol.uds-list.darkmode,
@@ -17036,7 +17038,7 @@ ol.uds-list.is-style-smokemode,
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -17056,21 +17058,8 @@ ol.uds-list.is-style-steplist-smokemode li,
 .uds-list ol.is-style-steplist-smokemode li,
 ol.uds-list.is-style-smokemode li,
 .uds-list ol.is-style-smokemode li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ul.uds-list.smokemode li:last-of-type, ul.uds-list.is-style-steplist-smokemode-maroon li:last-of-type, ul.uds-list.is-style-steplist-smokemode-gold li:last-of-type, ul.uds-list.is-style-steplist-smokemode li:last-of-type, .uds-list ul.smokemode li:last-of-type, .uds-list ul.is-style-steplist-smokemode-maroon li:last-of-type, .uds-list ul.is-style-steplist-smokemode-gold li:last-of-type, .uds-list ul.is-style-steplist-smokemode li:last-of-type, ul.uds-list.is-style-smokemode li:last-of-type, .uds-list ul.is-style-smokemode li:last-of-type,
-ol.uds-list.smokemode li:last-of-type,
-ol.uds-list.is-style-steplist-smokemode-maroon li:last-of-type,
-ol.uds-list.is-style-steplist-smokemode-gold li:last-of-type,
-ol.uds-list.is-style-steplist-smokemode li:last-of-type,
-.uds-list ol.smokemode li:last-of-type,
-.uds-list ol.is-style-steplist-smokemode-maroon li:last-of-type,
-.uds-list ol.is-style-steplist-smokemode-gold li:last-of-type,
-.uds-list ol.is-style-steplist-smokemode li:last-of-type,
-ol.uds-list.is-style-smokemode li:last-of-type,
-.uds-list ol.is-style-smokemode li:last-of-type {
-  margin-bottom: 0rem;
 }
 ul.uds-list.smokemode, ul.uds-list.is-style-steplist-smokemode-maroon, ul.uds-list.is-style-steplist-smokemode-gold, ul.uds-list.is-style-steplist-smokemode, .uds-list ul.smokemode, .uds-list ul.is-style-steplist-smokemode-maroon, .uds-list ul.is-style-steplist-smokemode-gold, .uds-list ul.is-style-steplist-smokemode, ul.uds-list.is-style-smokemode, .uds-list ul.is-style-smokemode,
 ol.uds-list.smokemode,
@@ -17125,7 +17114,7 @@ ol.uds-list.is-style-light-smokemode,
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -17145,21 +17134,8 @@ ol.uds-list.is-style-steplist-light-smokemode li,
 .uds-list ol.is-style-steplist-light-smokemode li,
 ol.uds-list.is-style-light-smokemode li,
 .uds-list ol.is-style-light-smokemode li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ul.uds-list.light-smokemode li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode-maroon li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode-gold li:last-of-type, ul.uds-list.is-style-steplist-light-smokemode li:last-of-type, .uds-list ul.light-smokemode li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode-maroon li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode-gold li:last-of-type, .uds-list ul.is-style-steplist-light-smokemode li:last-of-type, ul.uds-list.is-style-light-smokemode li:last-of-type, .uds-list ul.is-style-light-smokemode li:last-of-type,
-ol.uds-list.light-smokemode li:last-of-type,
-ol.uds-list.is-style-steplist-light-smokemode-maroon li:last-of-type,
-ol.uds-list.is-style-steplist-light-smokemode-gold li:last-of-type,
-ol.uds-list.is-style-steplist-light-smokemode li:last-of-type,
-.uds-list ol.light-smokemode li:last-of-type,
-.uds-list ol.is-style-steplist-light-smokemode-maroon li:last-of-type,
-.uds-list ol.is-style-steplist-light-smokemode-gold li:last-of-type,
-.uds-list ol.is-style-steplist-light-smokemode li:last-of-type,
-ol.uds-list.is-style-light-smokemode li:last-of-type,
-.uds-list ol.is-style-light-smokemode li:last-of-type {
-  margin-bottom: 0rem;
 }
 ul.uds-list.light-smokemode, ul.uds-list.is-style-steplist-light-smokemode-maroon, ul.uds-list.is-style-steplist-light-smokemode-gold, ul.uds-list.is-style-steplist-light-smokemode, .uds-list ul.light-smokemode, .uds-list ul.is-style-steplist-light-smokemode-maroon, .uds-list ul.is-style-steplist-light-smokemode-gold, .uds-list ul.is-style-steplist-light-smokemode, ul.uds-list.is-style-light-smokemode, .uds-list ul.is-style-light-smokemode,
 ol.uds-list.light-smokemode,
@@ -17205,7 +17181,7 @@ ul.uds-list.fa-ul, .uds-list ul.fa-ul {
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -17214,11 +17190,8 @@ ul.uds-list.fa-ul, .uds-list ul.fa-ul {
   margin-bottom: 0rem;
 }
 ul.uds-list.fa-ul li, .uds-list ul.fa-ul li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ul.uds-list.fa-ul li:last-of-type, .uds-list ul.fa-ul li:last-of-type {
-  margin-bottom: 0rem;
 }
 ul.uds-list.fa-ul, .uds-list ul.fa-ul {
   max-width: var(--list-max-width);
@@ -17255,7 +17228,7 @@ ol.uds-list,
   --list-max-width: 43.75rem;
   --list-padding-top: 0;
   --list-padding-right: 0;
-  --list-padding-bottom: 3rem;
+  --list-padding-bottom: 0;
   --list-padding-left: 3rem;
   --list-list-style: none;
   --li-before-line-height: 1.5rem;
@@ -17265,12 +17238,8 @@ ol.uds-list,
 }
 ol.uds-list li,
 .uds-list ol li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
-}
-ol.uds-list li:last-of-type,
-.uds-list ol li:last-of-type {
-  margin-bottom: 0rem;
 }
 ol.uds-list,
 .uds-list ol {
@@ -19690,7 +19659,7 @@ span.uds-tooltip-visually-hidden {
   align-items: center;
 }
 .uds-video-with-caption figure figcaption {
-  color: #747474;
+  color: #484848;
   font-size: 0.75rem;
   margin: 0.5rem 1rem 1rem 1rem;
 }
