@@ -4,183 +4,255 @@
  * This script handles analytics tracking for various elements and pushes event data 
  * to the Google Analytics data layer.
  * 
- * Copied from ASU Unity Stack:
- * https://github.com/ASU/asu-unity-stack/blob/dev/packages/unity-bootstrap-theme/src/js/data-layer.js
+ * Combined Bootstrap 5 specific analytics (from pitchfork-blocks) with ASU Unity Stack
+ * general analytics to provide comprehensive event tracking.
  * 
  * @package UDS WordPress Theme
  */
 
 function initDataLayer() {
-  /**
-   * Push events to data layer (Google Analytics)
-   * Used by Header and General events
-   * Required
-   */
-  const pushGAEvent = event => {
-    window.dataLayer = window.dataLayer || [];
-    const { dataLayer } = window;
-    if (dataLayer) dataLayer.push(event);
-  };
+	/**
+	 * Push events to data layer (Google Analytics)
+	 * Used by Header and General events.
+	 */
+	const pushGAEvent = (event) => {
+		const { dataLayer } = window;
+		if (dataLayer) dataLayer.push(event);
+	};
 
-  /**
-   * Header click events
-   * Elements with attribute [data-ga-header]
-   * 1 of 2 Header data layer functions
-   */
-  document.querySelectorAll("[data-ga-header]")?.forEach(element =>
-    element.addEventListener("click", () => {
-      const event = element.getAttribute("data-ga-header-event") || "link";
-      let action = element.getAttribute("data-ga-header-action") || "click";
-      const expanded = element.getAttribute("aria-expanded");
-      if (expanded) {
-        action = expanded === "false" ? "open" : "close";
-      }
-      const type =
-        element.getAttribute("data-ga-header-type") || "internal link";
-      const section =
-        element.getAttribute("data-ga-header-section") || "main navbar";
-      const text = element.getAttribute("data-ga-header") || "";
-      const component = element.getAttribute("data-ga-header-component");
+	// Accordions. Events emitted by the body which uses BS5 collapse.
+	document.querySelectorAll('.accordion-body').forEach((element) => {
 
-      pushGAEvent({
-        name: "onclick",
-        event: event.toLowerCase(),
-        action: action.toLowerCase(),
-        type: type.toLowerCase(),
-        section: section.toLowerCase(),
-        region: "navbar",
-        text: text.toLowerCase(),
-        ...(component && {
-          component: component.toLowerCase(),
-        }),
-      });
-    })
-  );
+		element.addEventListener('hide.bs.collapse', function () {
+			const name = element.getAttribute('id') || 'unknown-accordion';
+			const event = 'collapse';
+			const action = 'hide';
+			const type = 'click';
+			const section = 'default';
+			const region = 'main-content';
+			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-  /**
-   * Header search change events
-   * Search element with attribute [data-ga-input-header-event]
-   * 2 of 2 Header data layer functions
-   */
-  document.querySelectorAll("[data-ga-input-header-event]")?.forEach(element =>
-    element.addEventListener("change", e => {
-      const event = element.getAttribute("data-ga-input-header-event") || "";
-      const text = e.target.value || "";
+			// console.log('Hide event. ' + name);
 
-      pushGAEvent({
-        name: "onenter",
-        action: "type",
-        type: "main search",
-        section: "topbar",
-        region: "navbar",
-        text: text.toLowerCase(),
-        event: event.toLowerCase(),
-      });
-    })
-  );
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+			});
+		});
 
-  /**
-   * General click events
-   * Elements with attribute [data-ga]
-   * 1 of 2 General data layer functions
-   */
-  document.querySelectorAll("[data-ga]")?.forEach(element =>
-    element.addEventListener("click", () => {
-      const name = element.getAttribute("data-ga-name") || "";
-      const event = element.getAttribute("data-ga-event") || "";
-      let action = element.getAttribute("data-ga-action") || "";
-      const expanded = element.getAttribute("aria-expanded");
-      if (expanded) {
-        action = expanded === "false" ? "open" : "close";
-      }
-      const type = element.getAttribute("data-ga-type") || "";
-      const section = element.getAttribute("data-ga-section") || "";
-      const region = element.getAttribute("data-ga-region") || "";
-      const text = element.getAttribute("data-ga") || "";
-      const component = element.getAttribute("data-ga-component") || "";
+		element.addEventListener('show.bs.collapse', function () {
+			const name = element.getAttribute('id') || 'unknown-accordion';
+			const event = 'collapse';
+			const action = 'show';
+			const type = 'click';
+			const section = 'default';
+			const region = 'main-content';
+			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-      pushGAEvent({
-        name: name.toLowerCase(),
-        event: event.toLowerCase(),
-        action: action.toLowerCase(),
-        type: type.toLowerCase(),
-        section: section.toLowerCase(),
-        region: region.toLowerCase(),
-        text: text.toLowerCase(),
-        component: component.toLowerCase(),
-      });
-    })
-  );
+			// console.log('"Show yourself!" ~Elsa. ' + name);
 
-  /**
-   * Input change event
-   * Input elementa with attribute [data-ga-input]
-   * 2 of 2 General data layer functions
-   */
-  document.querySelectorAll("[data-ga-input]")?.forEach(element =>
-    element.addEventListener("change", e => {
-      const name = element.getAttribute("data-ga-input-name") || "";
-      const action = element.getAttribute("data-ga-input-action") || "";
-      const type = element.getAttribute("data-ga-input") || "";
-      const region = element.getAttribute("data-ga-input-region") || "";
-      const section = element.getAttribute("data-ga-input-section") || "";
-      let event = element.getAttribute("data-ga-input-event") || "";
-      let text;
-      switch (type) {
-        case "checkbox":
-          // elements with attribute [data-ga-input="checkbox"]
-          text = e.target.labels[0].textContent || "";
-          event = e.target.checked ? event : "deselect";
-          break;
-        case "radio button":
-          // elements with attribute [data-ga-input="radio button"]
-          text = e.target.labels[0].textContent || "";
-          break;
-        case "blur":
-          // elements with attribute [data-ga-input="blur"]
-          text = e.target.value.toLowerCase() || "";
-          break;
-        default:
-          // Select elements
-          text =
-            [...e.target.selectedOptions]
-              .map(option => option.value)
-              .join(",") || "";
-          break;
-      }
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+			});
+		});
+	});
 
-      pushGAEvent({
-        name: name.toLowerCase(),
-        event: event.toLowerCase(),
-        action: action.toLowerCase(),
-        type: type.toLowerCase(),
-        section: section.toLowerCase(),
-        region: region.toLowerCase(),
-        text: text.toLowerCase(),
-      });
-    })
-  );
+	// Sidebar menu items. Track open close events.
+	document.querySelectorAll('.sidebar .card-body').forEach((element) => {
 
-  /**
-   * Footer focus events
-   * Elements with attribute [data-ga-footer]
-   */
-  document.querySelectorAll("[data-ga-footer]").forEach(element =>
-    element.addEventListener("focus", () => {
-      const args = {
-        type: element.getAttribute("data-ga-footer-type").toLowerCase(),
-        section: element.getAttribute("data-ga-footer-section").toLowerCase(),
-        text: element.getAttribute("data-ga-footer").toLowerCase(),
-      };
-      pushGAEvent({
-        event: "link",
-        action: "click",
-        name: "onclick",
-        region: "footer",
-        ...args,
-      });
-    })
-  );
+		// Because the sidebar menu items are nested in another expandable element,
+		// We need to ignore the event emitted for showing the sidebar on mobile if it wasn't clicked directly.
+		// Best way to do that is to test the element that was actually clicked.
+
+		if (document.querySelector(`a[data-bs-target="#${element.id}"]`)) {
+			element.addEventListener('hide.bs.collapse', function () {
+				const name = element.getAttribute('id') || 'unknown-sidebar';
+				const event = 'collapse';
+				const action = 'hide';
+				const type = 'click';
+				const section = 'sidebar-menu';
+				const region = 'sidebar';
+				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
+
+				// console.log('Sidebar menu hide. ' + name);
+
+				pushGAEvent({
+					name: name.toLowerCase(),
+					event: event.toLowerCase(),
+					action: action.toLowerCase(),
+					type: type.toLowerCase(),
+					section: section.toLowerCase(),
+					region: region.toLowerCase(),
+					text: text.toLowerCase(),
+				});
+			});
+
+			element.addEventListener('show.bs.collapse', function () {
+				const name = element.getAttribute('id') || 'unknown-sidebar';
+				const event = 'collapse';
+				const action = 'show';
+				const type = 'click';
+				const section = 'sidebar-menu';
+				const region = 'sidebar';
+				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
+
+				// console.log('Sidebar menu show.' + name);
+
+				pushGAEvent({
+					name: name.toLowerCase(),
+					event: event.toLowerCase(),
+					action: action.toLowerCase(),
+					type: type.toLowerCase(),
+					section: section.toLowerCase(),
+					region: region.toLowerCase(),
+					text: text.toLowerCase(),
+				});
+			});
+		} else {
+
+			// This was an event specifically for the mobile menu expand of the sidebar.
+			// Ignore it for now.
+
+		}
+
+	});
+
+	// Sidebar mobile menu. Track open close events.
+	document.querySelectorAll('nav.sidebar').forEach((element) => {
+
+		element.addEventListener('hide.bs.collapse', function () {
+			const name = element.getAttribute('id') || 'unknown-sidebar';
+			const event = 'collapse';
+			const action = 'hide';
+			const type = 'click';
+			const section = 'sidebar-mobile';
+			const region = 'main-content';
+			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
+
+			// console.log('Sidebar menu hide. ' + name);
+
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+			});
+		});
+
+		element.addEventListener('show.bs.collapse', function () {
+			const name = element.getAttribute('id') || 'unknown-sidebar';
+			const event = 'collapse';
+			const action = 'show';
+			const type = 'click';
+			const section = 'sidebar-mobile';
+			const region = 'main-content';
+			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
+
+			// console.log('Sidebar menu show.' + name);
+
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+			});
+		});
+
+	});
+
+	// Alerts and banners. Events emitted by the .alert element which uses BS5 collapse.
+	document.querySelectorAll('.alert').forEach((element) => {
+
+		// While we are here, let's move the focus appropriately. We'll need the index later.
+		// Recommendation from BS 5: https://getbootstrap.com/docs/5.2/components/alerts/#dismissing
+		var allFocusableElements = document.querySelectorAll(
+			'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+		);
+		var alertButton = element.querySelector('button');
+		var dismissedIndex = Array.from(allFocusableElements).indexOf(alertButton);
+
+		element.addEventListener('close.bs.alert', function () {
+			const name = element.getAttribute('id') || 'unknown-dismiss';
+			const event = 'dismiss';
+			const action = 'close';
+			const type = 'click';
+			const section = 'default';
+			const region = 'main-content';
+
+			// Fancy selector will find .alert-content and .banner-content
+			const text = element.querySelector('[class*=content]').textContent.slice(0, 40);
+
+			console.log('Close alert/banner. ' + name);
+
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+			});
+
+			if (dismissedIndex !== -1 && dismissedIndex < allFocusableElements.length - 1) {
+				// Focus on the next element
+				var nextElement = allFocusableElements[dismissedIndex + 1];
+				nextElement.focus();
+			}
+
+		});
+
+	});
+
+	// General click events for elements with data-ga attributes
+	// This ensures template block analytics continue to work
+	document.querySelectorAll('[data-ga]').forEach((element) => {
+		element.addEventListener('click', function () {
+			const name = element.getAttribute('data-ga-name') || '';
+			const event = element.getAttribute('data-ga-event') || 'click';
+			let action = element.getAttribute('data-ga-action') || 'click';
+			const expanded = element.getAttribute('aria-expanded');
+			if (expanded) {
+				action = expanded === 'false' ? 'open' : 'close';
+			}
+			const type = element.getAttribute('data-ga-type') || 'click';
+			const section = element.getAttribute('data-ga-section') || 'default';
+			const region = element.getAttribute('data-ga-region') || 'main-content';
+			const text = element.getAttribute('data-ga') || element.textContent.trim().slice(0, 40);
+			const component = element.getAttribute('data-ga-component') || '';
+
+			pushGAEvent({
+				name: name.toLowerCase(),
+				event: event.toLowerCase(),
+				action: action.toLowerCase(),
+				type: type.toLowerCase(),
+				section: section.toLowerCase(),
+				region: region.toLowerCase(),
+				text: text.toLowerCase(),
+				...(component && {
+					component: component.toLowerCase(),
+				}),
+			});
+		});
+	});
+
 }
 
 /* Function must be initialized after document load
