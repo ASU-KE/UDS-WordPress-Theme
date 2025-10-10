@@ -87,9 +87,63 @@ gulp.task("minify-css", function () {
 
 
 /**
- * Front-end Javascript compilation. Scripts enqueued in the front-end of the site.
+ * Critical Javascript compilation - scripts needed for initial page load
  */
-gulp.task("front-end-scripts", function() {
+gulp.task("critical-scripts", function() {
+	const criticalScripts = [
+		"./src/js/custom/skip-link-focus-fix.js",
+		"./src/js/custom/init-uds-header.js",
+	]
+
+	return gulp
+		.src(criticalScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("theme-critical.min.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest("./dist/js"));
+});
+
+/**
+ * Non-critical Javascript compilation - scripts that can be deferred
+ */
+gulp.task("non-critical-scripts", function() {
+	const nonCriticalScripts = [
+		"./src/js/custom/hero_video.js",
+		"./src/js/custom/modals.js",
+		"./src/js/custom/side-menu-active-child.js",
+	]
+
+	return gulp
+		.src(nonCriticalScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("theme-deferred.min.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest("./dist/js"));
+});
+
+/**
+ * FontAwesome compilation - separate bundle for conditional loading
+ */
+gulp.task("fontawesome-scripts", function() {
+	const fontAwesomeScripts = [
+		"./src/js/fontawesome/fontawesome.js",
+		"./src/js/fontawesome/brands.js",
+		"./src/js/fontawesome/solid.js",
+	]
+
+	return gulp
+		.src(fontAwesomeScripts, { allowEmpty: true })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(concat("fontawesome.min.js"))
+		.pipe(uglify())
+		.pipe(gulp.dest("./dist/js"));
+});
+
+/**
+ * Front-end Javascript compilation. Scripts enqueued in the front-end of the site.
+ * This is the legacy task maintained for backward compatibility
+ */
+gulp.task("front-end-scripts", gulp.series("critical-scripts", "non-critical-scripts", "fontawesome-scripts", function() {
 	const scripts = [
 		"./src/js/fontawesome/fontawesome.js",
 		"./src/js/fontawesome/brands.js",
@@ -101,7 +155,7 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/side-menu-active-child.js",
 	]
 
-	// Create uglifified min.js
+	// Create uglifified min.js (legacy)
 	gulp
 		.src(scripts, { allowEmpty: true })
 		.pipe(babel({ presets: ["@babel/preset-env"] }))
@@ -115,7 +169,7 @@ gulp.task("front-end-scripts", function() {
 		.pipe(babel())
 		.pipe(concat("theme.js"))
 		.pipe(gulp.dest("./src/js"))
-});
+}));
 
 
 /**

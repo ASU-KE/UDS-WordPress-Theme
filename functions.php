@@ -40,7 +40,11 @@ $uds_wp_includes = array(
 	'/header-localizer-script.php',				 // load custom react menu
 	'/class-unity-react-header-navtree-walker.php', // custom loop over navtree using built in WP methods
 	'/theme-settings-custom.php', // advanced admin settings (header menu, etc)
-	'/block-pattern-categories.php'				 // Add our custom block pattern categories
+	'/block-pattern-categories.php',				 // Add our custom block pattern categories
+	'/fontawesome-optimizer.php',                   // FontAwesome optimization and conditional loading
+	'/image-optimization.php',                      // Image lazy loading and WebP optimization
+	'/css-optimization.php',                        // CSS optimization and critical CSS
+	'/performance-monitor.php'                      // Performance monitoring and analysis tools
 );
 
 foreach ($uds_wp_includes as $file) {
