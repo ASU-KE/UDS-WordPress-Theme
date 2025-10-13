@@ -3990,3 +3990,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+// Data layer analytics is initialized via init-data-layer.js in the build process

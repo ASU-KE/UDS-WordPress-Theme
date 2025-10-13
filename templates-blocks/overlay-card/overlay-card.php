@@ -118,7 +118,7 @@ if (isset($block['className']) && !empty($block['className'])) {
 				$target_text = '';
 			}
 			?>
-			<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+			<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo (strpos($button_url, 'asu.edu') !== false || strpos($button_url, '/') === 0) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="overlay card" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
 		</div>
 	<?php } //End of the button
 	?>

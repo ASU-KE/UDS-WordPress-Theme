@@ -98,12 +98,12 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 			<ul class="person-contact-info">
 				<?php if ( ! empty( $person_email ) ) : ?>
 					<li>
-						<a href="mailto:<?php echo $person_email; ?>" aria-label="Email <?php echo esc_attr( $person_name ? $person_name : 'user' ); ?>"><?php echo $person_email; ?></a>
+						<a href="mailto:<?php echo $person_email; ?>" aria-label="Email <?php echo esc_attr( $person_name ? $person_name : 'user' ); ?>" data-ga="<?php echo esc_attr($person_email); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="email" data-ga-region="main content" data-ga-section="profile"><?php echo $person_email; ?></a>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $person_phone ) ) : ?>
 					<li>
-						<a href="tel:<?php echo $person_phone; ?>" aria-label="Call user"><?php echo $person_phone; ?></a>
+						<a href="tel:<?php echo $person_phone; ?>" aria-label="Call user" data-ga="<?php echo esc_attr($person_phone); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="phone" data-ga-region="main content" data-ga-section="profile"><?php echo $person_phone; ?></a>
 					</li>
 				<?php endif; ?>
 				<?php if ( $person_street_address || $person_city_state_zip ) : ?>
@@ -130,7 +130,7 @@ if ( empty( $person_email ) && empty( $person_phone ) && empty( $person_street_a
 				<?php while ( have_rows( 'uds_profile_social_media_icons' ) ) : the_row(); ?>
 					<?php $network_name = get_sub_field( 'uds_profile_network_name' ); ?>
 					<li>
-						<a href="<?php echo get_sub_field( 'uds_profile_social_url' ); ?>" aria-label="Go to user <?php echo $base_social_media[ $network_name ]['name']; ?> profile">
+						<a href="<?php echo get_sub_field( 'uds_profile_social_url' ); ?>" aria-label="Go to user <?php echo $base_social_media[ $network_name ]['name']; ?> profile" data-ga="<?php echo esc_attr($base_social_media[ $network_name ]['name']); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="external link" data-ga-region="main content" data-ga-section="profile social media">
 							<span class="<?php echo $base_social_media[ $network_name ]['icon']; ?>"></span>
 						</a>
 					</li>

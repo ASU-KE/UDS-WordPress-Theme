@@ -70,13 +70,13 @@ if (!empty($hero_asset_data['url'])) : ?>
                 <?php echo $hero_asset_data['alt']; ?>
             </video>
             <div class="video-hero-controls">
-                <button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large">
+                <button id="playHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large" data-ga="play hero video" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="video play" data-ga-region="hero" data-ga-section="hero video">
                     <svg class="svg-inline--fa fa-play" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
                         <path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path>
                     </svg>
                     <span class="visually-hidden">Play hero video</span>
                 </button>
-                <button id="pauseHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large uds-video-btn-play">
+                <button id="pauseHeroVid" type="button" class="btn btn-circle btn-circle-alt-white btn-circle-large uds-video-btn-play" data-ga="pause hero video" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="video pause" data-ga-region="hero" data-ga-section="hero video">
                     <svg class="svg-inline--fa fa-pause" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pause" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
                         <path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"></path>
                     </svg>
@@ -147,7 +147,7 @@ if (!empty($hero_asset_data['url'])) : ?>
                             $target_text = '';
                         }
 
-                        $text = '<a class="btn btn-%3$s btn-%4$s" href="%1$s" %5$s %6$s >%7$s %2$s</a>';
+                        $text = '<a class="btn btn-%3$s btn-%4$s" href="%1$s" %5$s %6$s data-ga="%2$s" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_url, 'asu.edu') !== false || strpos($button_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="hero" data-ga-section="hero cta">%7$s %2$s</a>';
                         echo wp_kses(sprintf($text, $button_url, $button_label, $size, $color, $target_text, $rel_text, $icon_text), wp_kses_allowed_html('post'));
                     endwhile; ?>
                 </div>
@@ -157,7 +157,7 @@ if (!empty($hero_asset_data['url'])) : ?>
                 $cta_color = get_field('call_to_action_color', $category);
 
                 if (!empty($cta_url) && !empty($cta_text)) {
-                    $text = '<a class="btn btn-%3$s" href="%1$s">%2$s</a>';
+                    $text = '<a class="btn btn-%3$s" href="%1$s" data-ga="%2$s" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($cta_url, 'asu.edu') !== false || strpos($cta_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="hero" data-ga-section="hero cta">%2$s</a>';
                     echo wp_kses(sprintf($text, $cta_url, $cta_text, $cta_color), wp_kses_allowed_html('post'));
                 }
             endif;

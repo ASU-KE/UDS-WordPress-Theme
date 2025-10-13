@@ -75,11 +75,11 @@ if ( $button_count > 0 ) {
 	}
 
 	// if we got here we have more than zero buttons, so we will render button #1.
-	$button_block .= '<a href="' . $button_one_url . '" class="btn btn-sm btn-' . $button_class . '">' . $button_one_text . '</a>';
+	$button_block .= '<a href="' . $button_one_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_one_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_one_url, 'asu.edu') !== false || strpos($button_one_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_one_text . '</a>';
 
 	// if we have two buttons (the maximum), we also render button #2.
 	if ( 2 == $button_count ) {
-		$button_block .= '<a href="' . $button_two_url . '" class="btn btn-sm btn-' . $button_class . '">' . $button_two_text . '</a>';
+		$button_block .= '<a href="' . $button_two_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_two_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_two_url, 'asu.edu') !== false || strpos($button_two_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_two_text . '</a>';
 	}
 
 	// add the closing markup to the button block.
@@ -102,7 +102,7 @@ if ( $button_count > 0 ) {
 					<?php echo $button_block; ?>
 					<?php if ( $show_close_button ) : ?>
 						<div class="banner-close">
-							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
+							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" data-ga="banner close" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="close" data-ga-region="main content" data-ga-section="banner" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
 						</div>
 					<?php endif; ?>
 				</div>
