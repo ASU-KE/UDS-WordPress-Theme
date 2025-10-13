@@ -128,7 +128,6 @@ gulp.task("admin-scripts", function() {
 		"./src/js/fontawesome/fontawesome.js",
 		"./src/js/fontawesome/brands.js",
 		"./src/js/fontawesome/solid.js",
-		"./src/js/custom/init-data-layer.js",
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
