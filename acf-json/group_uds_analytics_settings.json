@@ -1,0 +1,125 @@
+{
+    "key": "group_uds_analytics_settings",
+    "title": "UDS: Analytics Settings",
+    "fields": [
+        {
+            "key": "field_asu_hub_analytics",
+            "label": "ASU Marketing Hub Analytics",
+            "name": "asu_hub_analytics",
+            "type": "radio",
+            "instructions": "Enable the ASU Marketing Hub's analytics package. This must be active on all production ASU web sites.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "enabled": "Enabled",
+                "disabled": "Disabled"
+            },
+            "default_value": "enabled",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_site_gcs_ownership_verification_id",
+            "label": "Google Search Console Ownership Verification ID",
+            "name": "site_gcs_ownership_verification_id",
+            "type": "text",
+            "instructions": "In Search Console, choose the HTML tag method on the Ownership verification page. In the provided HTML snippet, copy the content value: content=\"COPY_AND_PASTE_THIS_VALUE\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_gtm_container_id",
+            "label": "Google Tag Manager Container ID",
+            "name": "site_gtm_container_id",
+            "type": "text",
+            "instructions": "Enter your unit's GTM container ID to enable analytics for this website.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "GTM-XXXXXX",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_ga_tracking_id",
+            "label": "Google Analytics Tracking ID",
+            "name": "site_ga_tracking_id",
+            "type": "text",
+            "instructions": "Your unit's Google Analytics Tracking ID",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "UA-XXXXXXXX-X or G-XXXXXXXXXX",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hotjar_site_id",
+            "label": "Hotjar Site ID",
+            "name": "hotjar_site_id",
+            "type": "text",
+            "instructions": "Your Hotjar Site ID",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Analytics and tracking settings for ASU web standards compliance.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}

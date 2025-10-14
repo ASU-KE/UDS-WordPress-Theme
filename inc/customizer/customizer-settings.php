@@ -22,6 +22,15 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 	 */
 	function uds_wp_register_theme_customizer_settings($wp_customize)
 	{
+		
+		// Check if customizer sections should be disabled (migrated to UDS Advanced Settings)
+		$disable_migrated_sections = apply_filters('uds_disable_migrated_customizer_sections', true);
+		
+		if ($disable_migrated_sections) {
+			// Skip adding migrated sections - they are now in UDS Advanced Settings
+			uds_wp_register_remaining_customizer_settings($wp_customize);
+			return;
+		}
 
 		if (!class_exists('Prefix_Separator_Control')) {
 			/**
@@ -53,6 +62,12 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 		$wp_customize->remove_section('background_image');
 		$wp_customize->remove_section('colors');
 		$wp_customize->remove_section('header_image');
+		
+		// Remove sections as per 2024 update requirements
+		$wp_customize->remove_section('custom_css');       // Remove additional CSS section
+		$wp_customize->remove_section('widgets');          // Disable widgets section  
+		$wp_customize->remove_panel('nav_menus');          // Disable menus panel
+		$wp_customize->remove_section('static_front_page'); // Remove homepage settings (moved to admin)
 
 		$wp_customize->remove_control('blogdescription');
 		$wp_customize->remove_control('site_icon');
@@ -247,6 +262,9 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
+		// Header section moved to UDS Advanced Settings  
+		// Commenting out to disable customizer section
+		/*
 		/***********************************************************************
 		 * ASU Global Header Section
 		 *
@@ -255,14 +273,14 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 
 		/**
 		 * Create the section
-		 */
+		 *//*
 		$wp_customize->add_section(
 			'uds_wp_theme_section_header',
 			array(
 				'title'      => __('ASU Global Header', 'uds-wordpress-theme'),
 				'priority'   => 30,
 			)
-		);
+		);*/
 
 		/**
 		 * Main navigtion menu on/off
@@ -387,18 +405,21 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 
 
 
+		// Footer section moved to UDS Advanced Settings
+		// Commenting out to disable customizer section
+		/*
 		/***********************************************************************
 		 * ASU Global Footer Section
 		 *
 		 * Contains: logo+social row toggle, footer logo, social media menu
-		 */
+		 *//*
 		$wp_customize->add_section(
 			'uds_wp_theme_section_footer',
 			array(
 				'title'      => __('ASU Global Footer', 'uds-wordpress-theme'),
 				'priority'   => 30,
 			)
-		);
+		);*/
 
 		/**
 		 * Unit logo+social toggle
@@ -931,19 +952,21 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
+		// 404 section moved to UDS Advanced Settings
+		// Commenting out to disable customizer section
+		/*
 		/***********************************************************************
 		 * 404 Image Section
 		 *
 		 * Contains: button to show 404 page, 404 image, 404 page type.
-		 */
-
+		 *//*
 		$wp_customize->add_section(
 			'uds_wp_theme_section_404',
 			array(
 				'title'      => __('404 Page Settings', 'uds-wordpress-theme'),
 				'priority'   => 30,
 			)
-		);
+		);*/
 
 
 		/**
@@ -1063,20 +1086,22 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 
+		// Analytics section moved to UDS Advanced Settings
+		// Commenting out to disable customizer section
+		/*
 		/***********************************************************************
 		 * ASU Analytics Section
 		 *
 		 * Contains: ASU Hub analytics, Google Analytics, Google Tag Manager,
 		 * and Hotjar settings.
-		 */
-
+		 *//*
 		$wp_customize->add_section(
 			'uds_wp_theme_section_asu_analytics',
 			array(
 				'title'      => __('ASU Analytics', 'uds-wordpress-theme'),
 				'priority'   => 30,
 			)
-		);
+		);*/
 
 		/**
 		 * ASU Marketing Hub Analytics Manager
@@ -1224,6 +1249,92 @@ if (!function_exists('uds_wp_register_theme_customizer_settings')) {
 			)
 		);
 	}
+	
+	/**
+	 * Register only the remaining customizer settings after migration to UDS Advanced Settings
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer reference.
+	 */
+	function uds_wp_register_remaining_customizer_settings($wp_customize)
+	{
+		if (!class_exists('Prefix_Separator_Control')) {
+			/**
+			 * Class Prefix_Separator_Control
+			 *
+			 * Custom control to display a separator between controls within
+			 * a single section. We create a phony setting, then insert this
+			 * control, associating it with that setting.
+			 */
+			class Prefix_Separator_Control extends WP_Customize_Control
+			{
+
+				/**
+				 * Render separator
+				 */
+				public function render_content()
+				{                  ?>
+					<label>
+						<br>
+						<hr>
+						<br>
+					</label>
+<?php
+				}
+			}
+		}
+
+		// Remove default sections and controls we do not need/want.
+		$wp_customize->remove_section('background_image');
+		$wp_customize->remove_section('colors');
+		$wp_customize->remove_section('header_image');
+		
+		// Remove sections as per 2024 update requirements
+		$wp_customize->remove_section('custom_css');       // Remove additional CSS section
+		$wp_customize->remove_section('widgets');          // Disable widgets section  
+		$wp_customize->remove_panel('nav_menus');          // Disable menus panel
+		$wp_customize->remove_section('static_front_page'); // Remove homepage settings (moved to admin)
+
+		$wp_customize->remove_control('blogdescription');
+		$wp_customize->remove_control('site_icon');
+		$wp_customize->remove_control('custom_logo');
+
+		// Rename the 'Site Identity' section to 'Site Information'.
+		$wp_customize->get_section('title_tagline')->title = __('Site Information', 'uds-wordpress-theme');
+
+		// Add a notice about migrated settings
+		$wp_customize->add_section(
+			'uds_migration_notice_section',
+			array(
+				'title'       => __('Settings Moved', 'uds-wordpress-theme'),
+				'description' => __('Most theme settings have been moved to <a href="' . admin_url('options-general.php?page=uds-advanced-settings') . '">UDS Advanced Settings</a> in the admin area for better organization and functionality.', 'uds-wordpress-theme'),
+				'priority'    => 1,
+			)
+		);
+
+		// The title_tagline section remains for basic site information that WordPress expects
+		
+		/**
+		 * Selective refresh for site title
+		 *
+		 * Allows for the visual edit button next to the site title. We are using
+		 * the default 'blog name' value, so we're simply setting the selective
+		 * refresh for this, not a new setting or control.
+		 */
+		$wp_customize->selective_refresh->add_partial(
+			'blogname',
+			array(
+				'selector'        => '.subdomain-name, .footer-site-name',
+				'container_inclusive' => false,
+				'render_callback' => function () {
+					return (uds_wp_render_title_wrapper()
+						&&
+						uds_wp_render_subdomain_name()
+					);
+				},
+			)
+		);
+	}
+
 } // End of if function_exists( 'uds_wp_register_theme_customizer_settings' ).
 add_action('customize_register', 'uds_wp_register_theme_customizer_settings');
 
