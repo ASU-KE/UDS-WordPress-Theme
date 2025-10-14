@@ -241,3 +241,5 @@ function initDataLayer() {
 	});
 
 }
+// Initialize the data layer analytics
+window.addEventListener("DOMContentLoaded", (event) => { initDataLayer(); });
