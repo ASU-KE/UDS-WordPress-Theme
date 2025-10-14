@@ -17,15 +17,32 @@ $show_close_button = get_field( 'show_close_button' );
 
 /**
  * Buttons are part of an ACF form group, so we get the group first, then use
- * standard PHP array notation to get the sub-fields of the group
+ * standard PHP array notation to get the sub-fields of the group. We first check
+ * to see if we have any buttons by looking at the button count field. If we do,
+ * we get the button group data, check to make sure it's an array (which it should be),
+ * then pull out the text and URL for each button.
  */
-$button_one_data = get_field( 'uds_button_1_settings' );
-$button_one_text = $button_one_data['button_one_text'];
-$button_one_url = $button_one_data['button_one_url'];
 
-$button_two_data = get_field( 'uds_button_2_settings' );
-$button_two_text = $button_two_data['button_two_text'];
-$button_two_url = $button_two_data['button_two_url'];
+// set some default values for the buttons, in case we don't have any button data.
+$button_one_text = 'Default button 1 text';
+$button_one_url = '#';
+$button_two_text = 'Default button 2 text';
+$button_two_url = '#';
+
+if ( $button_count > 0 ) {
+	$button_one_data = get_field( 'uds_button_1_settings' );
+	if ( $button_one_data && is_array( $button_one_data ) ) {
+		$button_one_text = $button_one_data['button_one_text'];
+		$button_one_url = $button_one_data['button_one_url'];
+	}
+}
+if ( 2 == $button_count ) {
+	$button_two_data = get_field( 'uds_button_2_settings' );
+	if ( $button_two_data && is_array( $button_two_data ) ) {
+		$button_two_text = $button_two_data['button_two_text'];
+		$button_two_url = $button_two_data['button_two_url'];
+	}
+}
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -45,7 +62,7 @@ $button_block_open = '<div class="banner-buttons">';
 $button_block_close = '</div>';
 
 // if our button count is more than zero, we have buttons to build.
-if ( $button_count ) {
+if ( $button_count > 0 ) {
 
 	// add the opening markup to our button block.
 	$button_block .= $button_block_open;
@@ -58,11 +75,11 @@ if ( $button_count ) {
 	}
 
 	// if we got here we have more than zero buttons, so we will render button #1.
-	$button_block .= '<a href="' . $button_one_url . '" class="btn btn-sm btn-' . $button_class . '">' . $button_one_text . '</a>';
+	$button_block .= '<a href="' . $button_one_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_one_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_one_url, 'asu.edu') !== false || strpos($button_one_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_one_text . '</a>';
 
 	// if we have two buttons (the maximum), we also render button #2.
 	if ( 2 == $button_count ) {
-		$button_block .= '<a href="' . $button_two_url . '" class="btn btn-sm btn-' . $button_class . '">' . $button_two_text . '</a>';
+		$button_block .= '<a href="' . $button_two_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_two_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_two_url, 'asu.edu') !== false || strpos($button_two_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_two_text . '</a>';
 	}
 
 	// add the closing markup to the button block.
@@ -85,7 +102,7 @@ if ( $button_count ) {
 					<?php echo $button_block; ?>
 					<?php if ( $show_close_button ) : ?>
 						<div class="banner-close">
-							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
+							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" data-ga="banner close" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="close" data-ga-region="main content" data-ga-section="banner" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
 						</div>
 					<?php endif; ?>
 				</div>

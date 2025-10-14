@@ -1,0 +1,18 @@
+{
+    "name": "acf/uds-tabbed-panels",
+    "title": "UDS Tabbed panels",
+    "description": "A Tabbed panels block",
+    "category": "uds",
+    "icon": "table-row-after",
+    "keywords": ["tabs", "tab", "tabbed", "panel", "panels", "nav"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "tabbed-panels.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false,
+        "jsx": true
+    },
+    "editorScript": "file:../../src/js/custom/tabbed-panels.js"
+}

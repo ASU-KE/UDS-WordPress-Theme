@@ -130,6 +130,33 @@
             "append": ""
         },
         {
+            "key": "field_63780d14a9f63",
+            "label": "Logo Title",
+            "name": "asu_logo_override_title",
+            "type": "text",
+            "instructions": "Text that appears when hovering over the logo",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780a41d42d6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Arizona State University",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63780eddf754f",
             "label": "add Partner logo",
             "name": "add_partner_logo",
@@ -255,6 +282,33 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_63780f57f7554",
+            "label": "Partner Logo Title",
+            "name": "partner_logo_title",
+            "type": "text",
+            "instructions": "Text that appears when hovering over the partner logo",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63780eddf754f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Partner Organization Name",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -275,5 +329,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668812764
+    "modified": 1728000000
 }

@@ -55,12 +55,12 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 ?>
 
 
-<button class="openModalButton btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>"><?php echo $icon_span; ?><?php echo $button_label; ?></button>
+<button class="openModalButton btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?> <?php echo $additional_classes; ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="modal open" data-ga-region="main content" data-ga-section="modal"><?php echo $icon_span; ?><?php echo $button_label; ?></button>
 
   <div class="uds-modal">
 	<div class="uds-modal-container">
-	  <button class="uds-modal-close-btn closeModalButton">
-		<i class="fas fa-times fa-stack-1x"></i>
+	  <button class="uds-modal-close-btn closeModalButton" data-ga="modal close" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="modal close" data-ga-region="modal" data-ga-section="modal">
+		<i class="fas fa-xmark fa-stack-1x"></i>
 		<span class="sr-only">Close</span>
 	  </button>
 	  <?php echo $window_content; ?>

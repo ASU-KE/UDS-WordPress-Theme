@@ -71,10 +71,10 @@ if ( 'arbitrary' === $source ) {
 				$bg_image_alt = $bg_image['alt'];
 				$bg_image = '<img src="' . $bg_image_url . '" title="' . $bg_image_title . '" alt="' . $bg_image_alt . '" />';
 				$bg_image_class = 'grid-link-bg-img';
-				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="' . $bg_image_class . '"><p>' . $linkstring . esc_html( $link_title ) . '</p>' . $bg_image . '</a>';
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="' . $bg_image_class . '" data-ga="' . esc_attr( $link_title ) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($link_url, 'asu.edu') !== false || strpos($link_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="grid links"><p>' . $linkstring . esc_html( $link_title ) . '</p>' . $bg_image . '</a>';
 			} else {
 				// With no image, our $linkstring can be much simpler.
-				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . $linkstring . esc_html( $link_title ) . '</a>';
+				$linkstring = '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" data-ga="' . esc_attr( $link_title ) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($link_url, 'asu.edu') !== false || strpos($link_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="grid links">' . $linkstring . esc_html( $link_title ) . '</a>';
 			}
 
 			echo $linkstring;
@@ -96,7 +96,7 @@ if ( 'arbitrary' === $source ) {
 
 	if ( $terms ) {
 		foreach ( $terms as $gridterm ) {
-			echo '<a href="' . esc_url( get_term_link( $gridterm ) ) . '">' . esc_html( $gridterm->name ) . '</a>';
+			echo '<a href="' . esc_url( get_term_link( $gridterm ) ) . '" data-ga="' . esc_attr( $gridterm->name ) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="grid links">' . esc_html( $gridterm->name ) . '</a>';
 		}
 	} else {
 		echo '<a href="#">No ' . $source . ' selected.</a>';

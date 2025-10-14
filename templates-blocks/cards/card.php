@@ -67,7 +67,7 @@ if ('icon' == $header_style && '' != $icon_name) {
  * strip out 'fa-' if it is found (for cases like getting 'fa-user')
  * then prepend the result with 'fas fa-' like the original code did.
  */
-if( false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
+if( $icon_name && false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
 	$icon_name = str_ireplace('fa-', '', (string)$icon_name );
 	$icon_name = trim('fas fa-' . $icon_name);
 	}
@@ -92,8 +92,8 @@ $image_alt = '';
 $image_data = get_field('image');
 
 if (!empty($image_data)) {
-	$image_url = $image_data['url'];
-	$image_alt = $image_data['alt'];
+	$image_url = isset($image_data['url']) ? $image_data['url'] : '';
+	$image_alt = isset($image_data['alt']) ? $image_data['alt'] : '';
 }
 ?>
 <?php if ('card-horizontal' == $orientation_class) : ?>

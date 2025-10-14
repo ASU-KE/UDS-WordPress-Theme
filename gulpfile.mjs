@@ -12,10 +12,13 @@ import uglify from 'gulp-uglify';
 const sass = gulpSass(dartSass);
 
 /**
- * get latest asu unity stack js
+ * get latest bootstrap js
  */
-gulp.task('update-asu-unity-stack-js', function () {
-    return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/js/bootstrap.bundle.min.js',])
+gulp.task('update-bootstrap-js', function () {
+    return gulp.src([
+		'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+		'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
+	])
     .pipe(gulp.dest('./dist/js/'));
 });
 
@@ -25,7 +28,7 @@ gulp.task('update-asu-unity-stack-js', function () {
 gulp.task('update-asu-header-js', function () {
     return gulp.src(['node_modules/@asu/component-header-footer/dist/**/*'],{encoding: false})
 	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
-    .pipe(gulp.dest('./src/js/uds-asu-header'));
+    .pipe(gulp.dest('./src/js/uds'));
 });
 
 /**

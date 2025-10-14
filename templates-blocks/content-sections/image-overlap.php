@@ -10,6 +10,7 @@ $background = get_field( 'uds_image_overlap_background' );
 $image_size = get_field( 'uds_image_overlap_image_size' );
 
 if ( ! $background ) {
+	$background = array();
 	$background['url'] = 'https://via.placeholder.com/960x640/191919/FAFAFA.png?text=image+placeholder';
 	$background['alt'] = 'A placeholder image';
 }

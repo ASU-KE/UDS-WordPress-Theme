@@ -24,8 +24,8 @@ if (!function_exists('uds_wp_scripts')) {
 
 		wp_enqueue_script('jquery');
 
-		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds-asu-header/asuHeaderFooter.umd.js' );
-		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/js/uds-asu-header/asuHeaderFooter.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
+		$uds_header_version = $theme_version . '.' . filemtime( get_template_directory() . '/src/js/uds/asuHeaderFooter.umd.js' );
+		wp_enqueue_script( 'uds-header', get_template_directory_uri() . '/src/js/uds/asuHeaderFooter.umd.js', array( 'wp-element', 'wp-components' ), $uds_header_version, true );
 
 		$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/theme.min.js');
 		wp_enqueue_script('uds-wordpress-scripts', get_template_directory_uri() . '/dist/js/theme.min.js', array(), $js_version, true);
@@ -33,12 +33,34 @@ if (!function_exists('uds_wp_scripts')) {
 		$bs5_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/bootstrap.bundle.min.js');
 		wp_enqueue_script('uds-bootstrap-scripts', get_template_directory_uri() . '/dist/js/bootstrap.bundle.min.js', array(), $bs5_version, true);
 
+		$datalayer_version = $theme_version . '.' . filemtime(get_template_directory() . '/src/js/uds/data-layer.js');
+		wp_enqueue_script('uds-data-layer', get_template_directory_uri() . '/src/js/uds/data-layer.js', array(), $datalayer_version, true);
+
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
 	}
 } // End of if function_exists( 'uds_wp_scripts' ).
 add_action('wp_enqueue_scripts', 'uds_wp_scripts');
+
+
+if (!function_exists('uds_wp_disable_jquery_migrate')) {
+	/**
+	 * Disable jQuery Migrate on frontend for improved performance.
+	 * jQuery core remains functional without jQuery Migrate.
+	 */
+	function uds_wp_disable_jquery_migrate($scripts)
+	{
+		if (!is_admin() && !empty($scripts->registered['jquery'])) {
+			// Remove jquery-migrate from jQuery dependencies
+			$scripts->registered['jquery']->deps = array_diff(
+				$scripts->registered['jquery']->deps,
+				array('jquery-migrate')
+			);
+		}
+	}
+}
+add_action('wp_default_scripts', 'uds_wp_disable_jquery_migrate');
 
 
 
