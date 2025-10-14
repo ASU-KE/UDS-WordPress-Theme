@@ -1,12 +1,12 @@
 /**
  * Data Layer Analytics Script
- * 
- * This script handles analytics tracking for various elements and pushes event data 
+ *
+ * This script handles analytics tracking for various elements and pushes event data
  * to the Google Analytics data layer.
- * 
+ *
  * Combined Bootstrap 5 specific analytics (from pitchfork-blocks) with ASU Unity Stack
  * general analytics to provide comprehensive event tracking.
- * 
+ *
  * @package UDS WordPress Theme
  */
 
@@ -15,7 +15,8 @@ function initDataLayer() {
 	 * Push events to data layer (Google Analytics)
 	 * Used by Header and General events.
 	 */
-	const pushGAEvent = (event) => {
+	const pushGAEvent = event => {
+		window.dataLayer = window.dataLayer || [];
 		const { dataLayer } = window;
 		if (dataLayer) dataLayer.push(event);
 	};
@@ -254,9 +255,3 @@ function initDataLayer() {
 	});
 
 }
-
-/* Function must be initialized after document load
- * This is now handled by init-data-layer.js in the custom directory
- */
-
-export { initDataLayer };
