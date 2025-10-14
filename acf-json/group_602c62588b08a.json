@@ -19,6 +19,28 @@
             "endpoint": 0
         },
         {
+            "key": "field_blockquote_type",
+            "label": "Blockquote Type",
+            "name": "blockquote_type",
+            "type": "button_group",
+            "instructions": "Choose between standard blockquote or animated blockquote style.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "standard": "Standard Blockquote",
+                "animated": "Animated Blockquote"
+            },
+            "allow_null": 0,
+            "default_value": "standard",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_602c64c2f0dcd",
             "label": "Quote Text",
             "name": "quote_text",
