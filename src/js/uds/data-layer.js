@@ -33,8 +33,6 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-			// console.log('Hide event. ' + name);
-
 			pushGAEvent({
 				name: name.toLowerCase(),
 				event: event.toLowerCase(),
@@ -54,8 +52,6 @@ function initDataLayer() {
 			const section = 'default';
 			const region = 'main-content';
 			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
-
-			// console.log('"Show yourself!" ~Elsa. ' + name);
 
 			pushGAEvent({
 				name: name.toLowerCase(),
@@ -86,8 +82,6 @@ function initDataLayer() {
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-				// console.log('Sidebar menu hide. ' + name);
-
 				pushGAEvent({
 					name: name.toLowerCase(),
 					event: event.toLowerCase(),
@@ -107,8 +101,6 @@ function initDataLayer() {
 				const section = 'sidebar-menu';
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
-
-				// console.log('Sidebar menu show.' + name);
 
 				pushGAEvent({
 					name: name.toLowerCase(),
@@ -141,8 +133,6 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
 
-			// console.log('Sidebar menu hide. ' + name);
-
 			pushGAEvent({
 				name: name.toLowerCase(),
 				event: event.toLowerCase(),
@@ -162,8 +152,6 @@ function initDataLayer() {
 			const section = 'sidebar-mobile';
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
-
-			// console.log('Sidebar menu show.' + name);
 
 			pushGAEvent({
 				name: name.toLowerCase(),
@@ -199,8 +187,6 @@ function initDataLayer() {
 
 			// Fancy selector will find .alert-content and .banner-content
 			const text = element.querySelector('[class*=content]').textContent.slice(0, 40);
-
-			console.log('Close alert/banner. ' + name);
 
 			pushGAEvent({
 				name: name.toLowerCase(),
