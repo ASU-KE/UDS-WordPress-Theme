@@ -96,7 +96,8 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 			<p><?php 
 				$quote_text = get_field( 'quote_text' );
 				// Process quote text to add mark elements for animation
-				// Look for text wrapped in [] to convert to <mark class="pen-yellow">
+				// Usage: Wrap text with [brackets] to create animated highlighting
+				// Example: "We are measured not by whom we exclude, but by [whom we include] and [how they succeed]"
 				$animated_quote = preg_replace('/\[([^\]]+)\]/', '<mark class="pen-yellow">$1</mark>', $quote_text);
 				echo $animated_quote;
 			?></p>
