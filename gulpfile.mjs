@@ -104,6 +104,7 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/fontawesome/solid.js",
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/init-uds-header.js",
+		"./src/js/custom/init-uds-footer.js",
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
