@@ -1,0 +1,149 @@
+name: Front-End Scripts Build
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/js/**'
+      - '.github/workflows/front-end-scripts.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'src/js/**'
+      - '.github/workflows/front-end-scripts.yml'
+  workflow_dispatch:
+
+jobs:
+  build-frontend-scripts:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies for build tools
+      run: |
+        # Create a minimal package.json for build tools
+        mkdir -p /tmp/build-tools
+        cd /tmp/build-tools
+        npm init -y
+        npm install @babel/core @babel/preset-env @babel/cli terser
+        
+        # Make tools available globally via symlinks
+        sudo ln -sf /tmp/build-tools/node_modules/.bin/babel /usr/local/bin/babel
+        sudo ln -sf /tmp/build-tools/node_modules/.bin/terser /usr/local/bin/terser
+        
+    - name: Check source files exist
+      run: |
+        echo "Checking source files..."
+        ls -la src/js/fontawesome/ || echo "FontAwesome directory not found"
+        ls -la src/js/custom/ || echo "Custom directory not found"
+        
+        # List available files
+        echo "Available JavaScript files:"
+        find src/js -name "*.js" -type f | sort
+        
+    - name: Create concatenated JavaScript file
+      run: |
+        mkdir -p dist/js
+        mkdir -p src/js/temp
+        
+        # Define source files in order (skip missing files)
+        SOURCE_FILES=""
+        
+        # Check and add each file if it exists
+        if [ -f "src/js/fontawesome/fontawesome.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/fontawesome.js"
+        fi
+        
+        if [ -f "src/js/fontawesome/brands.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/brands.js"
+        fi
+        
+        if [ -f "src/js/fontawesome/solid.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/solid.js"
+        fi
+        
+        if [ -f "src/js/custom/skip-link-focus-fix.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/skip-link-focus-fix.js"
+        else
+          echo "Warning: skip-link-focus-fix.js not found, skipping..."
+        fi
+        
+        if [ -f "src/js/custom/init-uds-header.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/init-uds-header.js"
+        fi
+        
+        if [ -f "src/js/custom/hero_video.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/hero_video.js"
+        fi
+        
+        if [ -f "src/js/custom/modals.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/modals.js"
+        fi
+        
+        if [ -f "src/js/custom/side-menu-active-child.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/side-menu-active-child.js"
+        fi
+        
+        echo "Source files to process: $SOURCE_FILES"
+        
+        # Concatenate files
+        if [ -n "$SOURCE_FILES" ]; then
+          cat $SOURCE_FILES > src/js/temp/combined.js
+        else
+          echo "No source files found!"
+          exit 1
+        fi
+        
+    - name: Transpile and create final files
+      run: |
+        # Transpile for production (minified version) - matches gulp babel({ presets: ["@babel/preset-env"] })
+        BABEL_PATH=/tmp/build-tools/node_modules/.bin/babel
+        $BABEL_PATH src/js/temp/combined.js --presets=/tmp/build-tools/node_modules/@babel/preset-env --out-file src/js/temp/transpiled.js
+        
+        # Transpile for development (non-minified version) - matches gulp babel() without presets
+        $BABEL_PATH src/js/temp/combined.js --out-file src/js/temp/transpiled-dev.js
+        
+        # Create minified version - matches gulp uglify()
+        TERSER_PATH=/tmp/build-tools/node_modules/.bin/terser
+        $TERSER_PATH src/js/temp/transpiled.js --compress --mangle --output dist/js/theme.min.js
+        
+        # Copy non-minified version - matches the second gulp pipeline
+        cp src/js/temp/transpiled-dev.js src/js/theme.js
+        
+    - name: Verify output files
+      run: |
+        echo "Generated files:"
+        ls -la dist/js/theme.min.js 2>/dev/null && echo "✓ dist/js/theme.min.js created" || echo "✗ dist/js/theme.min.js not found"
+        ls -la src/js/theme.js 2>/dev/null && echo "✓ src/js/theme.js created" || echo "✗ src/js/theme.js not found"
+        
+        if [ -f "dist/js/theme.min.js" ]; then
+          echo "Size of theme.min.js: $(wc -c < dist/js/theme.min.js) bytes"
+        fi
+        
+        if [ -f "src/js/theme.js" ]; then
+          echo "Size of theme.js: $(wc -c < src/js/theme.js) bytes"
+        fi
+        
+    - name: Clean up temporary files
+      run: |
+        rm -rf src/js/temp
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled-scripts
+        path: |
+          dist/js/theme.min.js
+          src/js/theme.js
+        retention-days: 30
