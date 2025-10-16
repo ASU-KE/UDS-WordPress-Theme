@@ -686,14 +686,6 @@ is first to avoid extra space
 	}
 }
 
-/*--------------------------------------------------------------
-Accordion focus styles for accessibility
---------------------------------------------------------------*/
-.accordion-header a:focus {
-	outline: none !important;
-	box-shadow: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px #191919 !important;
-}
-
 // Use flexbox to keep the icon from overlapping a second line in the title.
 span.card-icon {
 	display: flex;
