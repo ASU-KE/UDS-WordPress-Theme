@@ -23,6 +23,16 @@ The following blocks now use `viewScript` which ensures their JavaScript is only
    - Built: `build/blocks/overlay-card/view.js`
    - Block.json: `viewScript: "file:../../build/blocks/overlay-card/view.js"`
 
+4. **Background Section Block** (`templates-blocks/background-section/`)
+   - Source: `templates-blocks/background-section/background-section.js`
+   - Built: `build/blocks/background-section/view.js`
+   - Block.json: `viewScript: "file:../../build/blocks/background-section/view.js"`
+
+5. **Foldable Card Block** (`templates-blocks/foldable-card/`)
+   - Source: `templates-blocks/foldable-card/foldable-card.js`
+   - Built: `build/blocks/foldable-card/view.js`
+   - Block.json: `viewScript: "file:../../build/blocks/foldable-card/view.js"`
+
 ### Global JavaScript (Gulp)
 The following JavaScript files remain in the global Gulp build process as they are used site-wide:
 
@@ -41,7 +51,7 @@ The following JavaScript files remain in the global Gulp build process as they a
 
 ### Development Notes
 
-1. Block-specific JavaScript should be placed in `src/js/custom/` with descriptive filenames
+1. Block-specific JavaScript should be placed in `src/js/custom/` with descriptive filenames or in the block directory
 2. Add new blocks to the `build-blocks.sh` script and corresponding `viewScript` in block.json
 3. Global JavaScript should remain in the Gulp `front-end-scripts` task
 4. The `build/` directory contains compiled block assets and should not be edited directly

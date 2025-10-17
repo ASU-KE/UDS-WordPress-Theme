@@ -23,5 +23,6 @@
                 "uds_single_accordion_collapsed": true
             }
         }
-    }
+    },
+    "viewScript": "file:../../build/blocks/foldable-card/view.js"
 }
