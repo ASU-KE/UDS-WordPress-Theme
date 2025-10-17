@@ -24,5 +24,6 @@
                 "button_size": "default"
             }
         }
-    }
+    },
+    "viewScript": "file:../../build/blocks/modals/view.js"
 }
