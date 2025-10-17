@@ -105,7 +105,6 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/init-uds-header.js",
 		"./src/js/custom/hero_video.js",
-		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
 		"./src/js/custom/a11y/accordion.js",
 	]
@@ -150,17 +149,27 @@ gulp.task("admin-scripts", function() {
 });
 
 gulp.task("admin-core-scripts", function() {
+	// Core block extensions now use editorScript instead of bundling
+	// Only remaining general admin scripts stay in this bundle
 	const adminScripts = [
-		"./src/js/custom/admin/core-list-block.js",
-		"./src/js/custom/admin/core-divider.js",
-		"./src/js/custom/admin/core-image-block.js",
-		"./src/js/custom/admin/heading-highlights.js",
+		// Add any remaining general admin scripts here that don't belong to specific blocks
 	]
 
-	return gulp
-		.src(adminScripts, { allowEmpty: true })
-		.pipe(babel({ presets: ["@babel/preset-env"] }))
-		.pipe(concat("admin-core-bundle.js"))
-		.pipe(gulp.dest("./dist/js"));
-
+	// Return empty task since core block scripts are now handled as editorScript
+	return Promise.resolve();
 });
+
+/**
+ * All scripts
+ */
+gulp.task("scripts", gulp.series("front-end-scripts", "admin-scripts", "admin-core-scripts"));
+
+/**
+ * Main compile task
+ */
+gulp.task("compile", gulp.series("update-css-styling", "scripts"));
+
+/**
+ * Default task
+ */
+gulp.task("default", gulp.series("compile"));

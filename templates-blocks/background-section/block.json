@@ -23,5 +23,6 @@
             }
         }
     },
-    "editorScript": "file:./background-section.js"
+    "editorScript": "file:./background-section.js",
+    "viewScript": "file:../../build/blocks/background-section/view.js"
 }

@@ -83,8 +83,32 @@ if (!function_exists('uds_wp_admin_scripts')) {
 		if ( function_exists( 'get_current_screen' ) ) {
 			$current_screen = get_current_screen();
 			if ( $current_screen->id === 'post' || $current_screen->id === 'page' ) {
-				$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/admin-core-bundle.js');
-				wp_enqueue_script('uds-wordpress-admin-core-script', get_template_directory_uri() . '/dist/js/admin-core-bundle.js', array('lodash'), $js_version);
+				// Enqueue individual editor scripts instead of bundled admin-core-bundle.js
+				// These scripts extend WordPress core blocks in the editor
+				
+				// Core list block extensions (styles and functionality)
+				if ( file_exists( get_template_directory() . '/build/admin/core-list-block.js' ) ) {
+					$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/build/admin/core-list-block.js');
+					wp_enqueue_script('uds-core-list-block', get_template_directory_uri() . '/build/admin/core-list-block.js', array('wp-blocks', 'wp-dom-ready', 'wp-hooks', 'lodash'), $js_version);
+				}
+				
+				// Core separator/divider block extensions  
+				if ( file_exists( get_template_directory() . '/build/admin/core-divider.js' ) ) {
+					$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/build/admin/core-divider.js');
+					wp_enqueue_script('uds-core-divider', get_template_directory_uri() . '/build/admin/core-divider.js', array('wp-blocks', 'wp-dom-ready'), $js_version);
+				}
+				
+				// Core image block extensions
+				if ( file_exists( get_template_directory() . '/build/admin/core-image-block.js' ) ) {
+					$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/build/admin/core-image-block.js');
+					wp_enqueue_script('uds-core-image-block', get_template_directory_uri() . '/build/admin/core-image-block.js', array('wp-blocks', 'wp-dom-ready'), $js_version);
+				}
+				
+				// Heading highlights (formatting extensions for headings)
+				if ( file_exists( get_template_directory() . '/build/admin/heading-highlights.js' ) ) {
+					$js_version = $theme_version . '.' . filemtime(get_template_directory() . '/build/admin/heading-highlights.js');
+					wp_enqueue_script('uds-heading-highlights', get_template_directory_uri() . '/build/admin/heading-highlights.js', array('wp-element', 'wp-data', 'wp-compose', 'wp-block-editor', 'wp-rich-text'), $js_version);
+				}
 			}
 		}
 

@@ -14,7 +14,8 @@
   ],
   "license": "GPL-2.0-only",
   "scripts": {
-    "build": "gulp compile",
+    "build": "npm run build:blocks && gulp compile",
+    "build:blocks": "./build-blocks.sh",
     "images": "gulp imagemin",
     "assets": "gulp reset-assets",
     "sync": "gulp watch-bs",
