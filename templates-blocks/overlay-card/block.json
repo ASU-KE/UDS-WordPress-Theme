@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "admin-page",
     "keywords": ["card", "cards", "content", "program", "gif", "overlay", "uds"],
+    "viewStyle": "file:../../src/css/blocks/overlay-card.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "overlay-card.php",

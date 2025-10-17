@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "archive",
     "keywords": ["accordions", "accordion", "foldable", "card"],
+    "viewStyle": "file:../../src/css/blocks/foldable-card.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "foldable-card.php",

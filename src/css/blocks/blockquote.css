@@ -1,0 +1,190 @@
+/*--------------------------------------------------------------
+# UDS Blockquote Block View Styles
+
+Frontend-only styles for the UDS Blockquote block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+/* Reset original blockquote styles */
+blockquote {
+	border-left: none;
+	font-weight: inherit;
+	padding-left: 0;
+	max-width: none;
+}
+
+blockquote:before {
+	display: none;
+}
+
+/* New Blockquote base styles */
+figure.uds-blockquote {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+figure.uds-blockquote svg {
+	fill: #484848;
+	width: 40px;
+	height: auto;
+}
+
+figure.uds-blockquote blockquote {
+	margin-top: 8px;
+	margin-bottom: 0;
+}
+
+figure.uds-blockquote blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+figure.uds-blockquote blockquote p:last-child:after {
+	content: '"';
+}
+
+figure.uds-blockquote figcaption:before {
+	content: '';
+	display: block;
+	background-color: #747474;
+	height: 4px;
+	width: 72px;
+	margin: 8px auto;
+}
+
+figure.uds-blockquote figcaption cite {
+	display: block;
+	font-size: 1.125rem;
+}
+
+figure.uds-blockquote figcaption cite.name {
+	font-weight: 700;
+}
+
+figure.uds-blockquote figcaption cite.name:before {
+	padding-right: 0.5em;
+	content: "\2014";
+}
+
+figure.uds-blockquote figcaption cite.description {
+	font-weight: 400;
+	font-style: italic;
+	padding-left: 1.5rem;
+}
+
+/* With image variant */
+figure.uds-blockquote.with-image img {
+	border-radius: 50%;
+	height: 180px;
+	max-height: 180px;
+	max-width: 180px;
+	min-height: 180px;
+	min-width: 180px;
+	object-fit: cover;
+	width: 180px;
+}
+
+figure.uds-blockquote.with-image blockquote p:first-child:before {
+	content: '"';
+}
+
+/* Color accents */
+figure.uds-blockquote.accent-gold svg {
+	fill: #ffc627;
+}
+
+figure.uds-blockquote.accent-gold figcaption:before {
+	background-color: #ffc627;
+}
+
+figure.uds-blockquote.accent-maroon svg {
+	fill: #8c1d40;
+}
+
+figure.uds-blockquote.accent-maroon figcaption:before {
+	background-color: #8c1d40;
+}
+
+figure.uds-blockquote.accent-white svg {
+	fill: #ffffff;
+}
+
+figure.uds-blockquote.accent-white figcaption:before {
+	background-color: #ffffff;
+}
+
+figure.uds-blockquote.accent-gray-5 svg {
+	fill: #747474;
+}
+
+figure.uds-blockquote.accent-gray-5 figcaption:before {
+	background-color: #747474;
+}
+
+/* Background color variants */
+figure.uds-blockquote.bq-color-padding {
+	padding: 16px;
+}
+
+figure.uds-blockquote.bq-light {
+	background-color: #fafafa;
+}
+
+figure.uds-blockquote.bq-medium {
+	background-color: #d0d0d0;
+}
+
+figure.uds-blockquote.bq-dark {
+	background-color: #484848;
+	color: #fafafa;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+	figure.uds-blockquote {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	figure.uds-blockquote div.feature-wrapper {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-start;
+		padding: 0 8px 0 0;
+	}
+
+	figure.uds-blockquote blockquote {
+		margin-top: 0;
+	}
+
+	figure.uds-blockquote figcaption {
+		margin-top: 8px;
+	}
+
+	figure.uds-blockquote figcaption:before {
+		display: none;
+	}
+
+	figure.uds-blockquote.with-image img {
+		object-fit: cover;
+		height: 180px;
+	}
+
+	figure.uds-blockquote.with-image div.feature-wrapper {
+		margin-right: 24px;
+	}
+
+	figure.uds-blockquote.with-image.reversed {
+		flex-direction: row-reverse;
+	}
+
+	figure.uds-blockquote.with-image.reversed div.feature-wrapper {
+		margin-left: 24px;
+	}
+}

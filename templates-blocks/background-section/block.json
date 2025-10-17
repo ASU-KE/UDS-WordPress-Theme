@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "star-filled",
     "keywords": ["background", "section", "image"],
+    "viewStyle": "file:../../src/css/blocks/background-section.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "background-section.php",
