@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+# UDS Profile Block View Styles
+
+Frontend-only styles for the UDS Profile block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+/* Base profile container */
+.uds-person-profile {
+	/* Default styles can be added here if needed */
+}
+
+/* Vertical style profile */
+.uds-person-profile.vertical {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.uds-person-profile.vertical .person {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
+	max-width: 270px;
+	padding: 0 1rem 0 0;
+}
+
+.uds-person-profile.vertical .person .person-name {
+	margin-top: 8px;
+}
+
+.uds-person-profile.vertical .person .person-contact-info {
+	display: flex;
+	flex-direction: column;
+	word-break: break-all;
+	margin-right: 0;
+	margin-bottom: 0.5rem;
+}
+
+.uds-person-profile.vertical .profile-img-container {
+	padding: 0;
+}
+
+/* Vertical layout image size restrictions */
+.uds-person-profile.vertical .profile-img-container img.profile-img.feature-profile {
+	height: 180px;
+	min-height: 180px;
+	max-height: 180px;
+	width: 180px;
+	min-width: 180px;
+	max-width: 180px;
+	object-fit: cover;
+}
+
+/* Feature profile image styling */
+.uds-person-profile img.profile-img.feature-profile {
+	height: 270px;
+	min-height: 270px;
+	max-height: 270px;
+	width: 270px;
+	min-width: 270px;
+	max-width: 270px;
+	object-fit: cover;
+}
+
+.uds-person-profile.feature-profile {
+	--pic-size: 270px;
+}

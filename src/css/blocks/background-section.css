@@ -1,0 +1,94 @@
+/*--------------------------------------------------------------
+# UDS Background Section View Styles
+
+Frontend-only styles for the UDS Background Section block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+/* Inner padding of the section */
+.uds-section {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	overflow: hidden;
+}
+
+/* Adjusting the margins of the surrounding area */
+div.container + .uds-section,
+.uds-section + div.container {
+	margin-top: 32px;
+}
+
+/* When a section has a background texture, the inner container needs padding and a background color */
+.uds-section.bg [class*="wp-block-group__inner-container"] {
+	padding: 24px;
+}
+
+.uds-section.bg.morse-code-black [class*="wp-block-group__inner-container"],
+.uds-section.bg.topo-black [class*="wp-block-group__inner-container"],
+.uds-section.bg.network-black [class*="wp-block-group__inner-container"],
+.uds-section.bg.semiconductor-dark [class*="wp-block-group__inner-container"],
+.uds-section.bg.plus-dark [class*="wp-block-group__inner-container"],
+.uds-section.bg.arrows-dark [class*="wp-block-group__inner-container"] {
+	background-color: #484848;
+}
+
+.uds-section.bg.morse-code-white [class*="wp-block-group__inner-container"],
+.uds-section.bg.topo-white [class*="wp-block-group__inner-container"],
+.uds-section.bg.network-white [class*="wp-block-group__inner-container"],
+.uds-section.bg.semiconductor-light [class*="wp-block-group__inner-container"],
+.uds-section.bg.plus-light [class*="wp-block-group__inner-container"],
+.uds-section.bg.arrows-light [class*="wp-block-group__inner-container"] {
+	background-color: #ffffff;
+}
+
+/* Dealing with custom background textures */
+.uds-section.media-file {
+	background-position: center;
+	background-repeat: repeat;
+}
+
+.uds-section.media-file [class*="wp-block-group__inner-container"] {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+.uds-section.media-file.inner-bg-gray-7 [class*="wp-block-group__inner-container"] {
+	background-color: #484848;
+}
+
+.uds-section.media-file.inner-bg-gray-2 [class*="wp-block-group__inner-container"] {
+	background-color: #d0d0d0;
+}
+
+.uds-section.media-file.inner-bg-gray-1 [class*="wp-block-group__inner-container"] {
+	background-color: #fafafa;
+}
+
+.uds-section.media-file.inner-bg-white [class*="wp-block-group__inner-container"] {
+	background-color: #ffffff;
+}
+
+/* Background shapes (Early access, no UI) */
+.uds-section.shape-oval {
+	border-bottom-left-radius: 55% 10%;
+	border-bottom-right-radius: 55% 10%;
+	border-top-left-radius: 55% 10%;
+	border-top-right-radius: 55% 10%;
+	width: 1900px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+	.uds-section {
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+
+	div.container + .uds-section,
+	.uds-section + div.container {
+		margin-top: 96px;
+	}
+}

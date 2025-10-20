@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "welcome-widgets-menus",
     "keywords": ["overlap", "content", "section"],
+    "viewStyle": "file:../../src/css/blocks/content-sections.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "image-overlap.php",
