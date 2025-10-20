@@ -4,27 +4,39 @@
  * Adds keyboard accessibility support for accordion/foldable card components.
  * Enables Space bar to toggle accordion state in addition to Enter/Return key.
  */
+(function() {
+    'use strict';
 
-/*jshint esversion: 6 */
-( function( $ ) {
-	'use strict';
+    function onSpaceKeyDown(e) {
+        // Match original selector: .accordion-header h3 a[role="button"]
+        const trigger = e.target.closest('.accordion-header h3 a[role="button"]');
+        if (!trigger) return;
 
-	$( document ).ready(function() {
+        // Space key
+        if (e.code === 'Space' || e.key === ' ' || e.keyCode === 32 || e.which === 32) {
+            e.preventDefault();
 
-		// Add keydown event listener to accordion headers
-		$( document ).on( 'keydown', '.accordion-header h3 a[role="button"], .accordion-header h4 a[role="button"]', function( e ) {
+            // Get target selector (data-bs-target preferred, fallback to href="#id")
+            let targetSelector =
+                trigger.getAttribute('data-bs-target') ||
+                trigger.getAttribute('href');
 
-			// Check if Space bar (keyCode 32) was pressed
-			if ( e.which === 32 || e.keyCode === 32 ) {
+            if (!targetSelector || targetSelector === 'collapse') return;
+            // Ensure it's an ID selector (href might be full URL; only proceed if starts with #)
+            if (!targetSelector.startsWith('#')) return;
 
-				// Prevent default scrolling behavior of Space bar
-				e.preventDefault();
-				// Get the target accordion item
-				var targetId = $( this ).attr('data-bs-target') || $( this ).attr('href');
-				// Use Bootstrap's collapse API
-				$( targetId ).collapse('toggle');
-			}
-		});
-	});
+            const targetEl = document.querySelector(targetSelector);
+            if (!targetEl) return;
 
-})( jQuery );
+            if (window.bootstrap && bootstrap.Collapse) {
+                const collapseInstance = bootstrap.Collapse.getOrCreateInstance(targetEl);
+                collapseInstance.toggle();
+            } else {
+                // Fallback: toggle class (minimal)
+                targetEl.classList.toggle('show');
+            }
+        }
+    }
+
+    document.addEventListener('keydown', onSpaceKeyDown);
+})();
