@@ -88,6 +88,11 @@ gulp.task("minify-css", function () {
 		.pipe(gulp.dest('./dist/css', { sourcemaps: '.' }))
 });
 
+/**
+ * Update CSS styling from latest ASU Unity Stack release
+ * This task combines compile-sass and minify-css for the complete CSS update process
+ */
+gulp.task("update-css-styling", gulp.series("compile-sass", "minify-css"));
 
 /**
  * Front-end Javascript compilation. Scripts enqueued in the front-end of the site.
@@ -102,6 +107,7 @@ gulp.task("front-end-scripts", function() {
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
+		"./src/js/custom/a11y/accordion.js",
 	]
 
 	// Create uglifified min.js

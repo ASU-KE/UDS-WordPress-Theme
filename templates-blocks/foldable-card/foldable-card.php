@@ -56,6 +56,7 @@ if( empty ( $accordion_icon ) ) {
 						aria-controls="' . $accordion_id . '"
 						' . $collapsed . '
 						data-bs-toggle="collapse"
+						data-bs-target="#' . $accordion_id . '"
 						href="#' . $accordion_id . '"
 						id="' . $accordion_id . '_header"
 						role="button"
