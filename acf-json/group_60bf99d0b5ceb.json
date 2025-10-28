@@ -263,7 +263,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/uds-grid-links"
+                "value": "acf\/grid-links"
             }
         ]
     ],
