@@ -46,7 +46,7 @@ if (isset($block['className']) && !empty($block['className'])) {
 
 ?>
 
-<div class="home-overlay-card card <?php echo $with_desc_class . ' ' . $additional_classes; ?>">
+<div class="home-overlay-card card <?php echo esc_attr($with_desc_class . ' ' . $additional_classes); ?>">
 
 
 
@@ -55,19 +55,19 @@ if (isset($block['className']) && !empty($block['className'])) {
 	<?php
 	if ($card_title) {
 		// echo '<h3 class="' . $with_desc_class . '">' . $card_title . '</h3>'; .
-		echo '<div class="card-header ' . $with_desc_class . '">
-				<h3 class="card-title">' . $card_title . '</h3>
+		echo '<div class="card-header ' . esc_attr($with_desc_class) . '">
+				<h3 class="card-title">' . esc_html($card_title) . '</h3>
 			</div>';
 	}
 	if ($card_description) {
 		// echo '<p>' . $card_description . '</p>'; .
 		echo '<div class="card-body">
-				<p class="card-text">' . $card_description . '</p>
+				<p class="card-text">' . esc_html($card_description) . '</p>
 			</div>';
 	}
 	?>
 	<?php if ($button) { ?>
-		<div class="overlay-card-button <?php echo $with_desc_class; ?>">
+		<div class="overlay-card-button <?php echo esc_attr($with_desc_class); ?>">
 			<?php
 			// Get our ACF Field values.
 			$external_link = isset($button['external_link']) ? $button['external_link'] : false;
@@ -118,7 +118,7 @@ if (isset($block['className']) && !empty($block['className'])) {
 				$target_text = '';
 			}
 			?>
-			<a href="<?php echo $button_url; ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo (strpos($button_url, 'asu.edu') !== false || strpos($button_url, '/') === 0) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="overlay card" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo $button_label; ?></a>
+			<a href="<?php echo esc_url($button_url); ?>" class="btn <?php echo esc_attr($button_size); ?> btn-<?php echo esc_attr($button_color); ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo (strpos($button_url, 'asu.edu') !== false || strpos($button_url, '/') === 0) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="overlay card" <?php echo $rel; ?> <?php echo $target_text; ?>><?php echo $icon_span; ?><?php echo esc_html($button_label); ?></a>
 		</div>
 	<?php } //End of the button
 	?>
@@ -129,13 +129,13 @@ if (isset($block['className']) && !empty($block['className'])) {
 		// Provide meaningful alt text fallback if ACF alt is empty
 		$image_alt = isset($image['alt']) && !empty(trim($image['alt'])) ? $image['alt'] : ($card_title ? $card_title . ' card image' : 'Card image');
 	?>
-		<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr($image_alt); ?>" title="<?php echo isset($image['title']) ? $image['title'] : ''; ?>" />
+		<img class="card-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image_alt); ?>" title="<?php echo esc_attr(isset($image['title']) ? $image['title'] : ''); ?>" />
 	<?php } ?>
 	<?php if ($hover_image) { 
 		// Provide meaningful alt text fallback if ACF alt is empty
 		$hover_image_alt = isset($hover_image['alt']) && !empty(trim($hover_image['alt'])) ? $hover_image['alt'] : ($card_title ? $card_title . ' hover animation' : 'Card hover animation');
 	?>
-		<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo esc_attr($hover_image_alt); ?>" title="<?php echo isset($hover_image['title']) ? $hover_image['title'] : ''; ?>" />
+		<img class="hover-image" src="<?php echo esc_url($hover_image['url']); ?>" alt="<?php echo esc_attr($hover_image_alt); ?>" title="<?php echo esc_attr(isset($hover_image['title']) ? $hover_image['title'] : ''); ?>" />
 	<?php } ?>
 
 
