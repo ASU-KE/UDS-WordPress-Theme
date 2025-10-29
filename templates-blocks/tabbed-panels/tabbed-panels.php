@@ -35,7 +35,8 @@ if ( ! empty( $block['className'] ) ) {
 	);
 
 	echo '
-<nav class="uds-tabbed-panels">
+<div class="uds-tabbed-panels">
+	<nav>
             <div class="nav nav-tabs" data-scroll-position="0" id="nav_' . $tab_id . '" role="tablist" >
               <a
                 aria-controls="' . $tab_id . '"
@@ -55,8 +56,9 @@ if ( ! empty( $block['className'] ) ) {
               >
               ' . $tab_icon . $tab_title . '
               </a>
-							</div>
-							<a
+            </div>
+	</nav>
+            <a
               class="scroll-control-prev"
               data-scroll="prev"
               href="#carouselExampleControls"
@@ -86,7 +88,7 @@ if ( ! empty( $block['className'] ) ) {
                 Next
               </span>
             </a>
-							</nav>
+</div>
 <div class="tab-content" id="nav_' . $tab_id . 'Content">
   <div
 	aria-labelledby="' . $tab_id . '-nav"

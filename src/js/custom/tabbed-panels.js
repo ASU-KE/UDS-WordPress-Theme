@@ -70,10 +70,10 @@ $( '.wp-block-group.uds-tabs-wrapper' ).each(function() {
 			 $( this ).find( '.nav.nav-tabs' ).empty();
 			 tab_nav_items.push( tab_nav_item );
 		 });
-		 $( this ).find( 'nav.uds-tabbed-panels:not(:first-of-type)' ).remove();
-		 $( this ).find( 'nav.uds-tabbed-panels .nav.nav-tabs' ).append( tab_nav_items );
-		 $( this ).find( 'nav.uds-tabbed-panels .nav.nav-tabs .nav-item:not(:first-of-type)' ).removeClass( 'active' );
-		 $( this ).find( 'nav.uds-tabbed-panels .nav.nav-tabs .nav-item:not(:first-of-type)' ).attr( 'aria-selected', 'false' );
+		 $( this ).find( '.uds-tabbed-panels:not(:first-of-type)' ).remove();
+		 $( this ).find( '.uds-tabbed-panels .nav.nav-tabs' ).append( tab_nav_items );
+		 $( this ).find( '.uds-tabbed-panels .nav.nav-tabs .nav-item:not(:first-of-type)' ).removeClass( 'active' );
+		 $( this ).find( '.uds-tabbed-panels .nav.nav-tabs .nav-item:not(:first-of-type)' ).attr( 'aria-selected', 'false' );
 	tab_nav_items = [];
 
 	var tab_content_items = [];
