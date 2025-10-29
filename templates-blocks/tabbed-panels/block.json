@@ -14,5 +14,6 @@
         "align": false,
         "jsx": true
     },
-    "editorScript": "file:../../src/js/custom/tabbed-panels.js"
+    "editorScript": "file:../../src/js/custom/tabbed-panels.js",
+    "viewScript": "file:../../src/js/custom/tabbed-panels.js"
 }
