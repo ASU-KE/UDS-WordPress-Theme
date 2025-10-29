@@ -125,11 +125,17 @@ if (isset($block['className']) && !empty($block['className'])) {
 	<!-- </div> -->
 
 
-	<?php if ($image) { ?>
-		<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo isset($image['alt']) ? $image['alt'] : ''; ?>" title="<?php echo isset($image['title']) ? $image['title'] : ''; ?>" />
+	<?php if ($image) { 
+		// Provide meaningful alt text fallback if ACF alt is empty
+		$image_alt = isset($image['alt']) && !empty(trim($image['alt'])) ? $image['alt'] : ($card_title ? $card_title . ' card image' : 'Card image');
+	?>
+		<img class="card-image" src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr($image_alt); ?>" title="<?php echo isset($image['title']) ? $image['title'] : ''; ?>" />
 	<?php } ?>
-	<?php if ($hover_image) { ?>
-		<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo isset($hover_image['alt']) ? $hover_image['alt'] : ''; ?>" title="<?php echo isset($hover_image['title']) ? $hover_image['title'] : ''; ?>" />
+	<?php if ($hover_image) { 
+		// Provide meaningful alt text fallback if ACF alt is empty
+		$hover_image_alt = isset($hover_image['alt']) && !empty(trim($hover_image['alt'])) ? $hover_image['alt'] : ($card_title ? $card_title . ' hover animation' : 'Card hover animation');
+	?>
+		<img class="hover-image" src="<?php echo $hover_image['url']; ?>" alt="<?php echo esc_attr($hover_image_alt); ?>" title="<?php echo isset($hover_image['title']) ? $hover_image['title'] : ''; ?>" />
 	<?php } ?>
 
 
