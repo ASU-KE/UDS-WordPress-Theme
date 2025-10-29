@@ -36,7 +36,7 @@ if ( ! empty( $block['className'] ) ) {
 
 	echo '
 <div class="uds-tabbed-panels">
-	<nav>
+	<nav role="navigation" aria-label="Tabbed panels navigation">
             <div class="nav nav-tabs" data-scroll-position="0" id="nav_' . $tab_id . '" role="tablist" >
               <a
                 aria-controls="' . $tab_id . '"
