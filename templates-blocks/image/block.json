@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "cover-image",
     "keywords": ["image", "images", "caption", "uds"],
+    "viewStyle": "file:../../src/css/blocks/image.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "image.php",

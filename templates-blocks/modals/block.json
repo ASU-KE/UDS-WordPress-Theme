@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "welcome-comments",
     "keywords": ["modals", "window", "button"],
+    "viewStyle": "file:../../src/css/blocks/modals.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "modals.php",
