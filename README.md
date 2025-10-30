@@ -300,6 +300,20 @@ The theme includes support for WordPress 6.8's Speculative Loading feature, whic
 **What is Speculative Loading?**
 Speculative Loading allows the browser to speculatively load pages in the background before a user clicks on a link. This can significantly reduce page load times and improve the user experience.
 
+**UI Configuration**
+You can configure Speculative Loading settings from the WordPress admin:
+1. Navigate to **Settings → UDS Advanced Settings**
+2. Locate the **Speculative Loading Settings** section
+3. Configure the following options:
+   - **Enable Speculative Loading**: Toggle to enable/disable the feature (enabled by default)
+   - **Speculation Mode**: Choose between:
+     - **Prefetch**: Downloads the page content in advance (lighter on resources)
+     - **Prerender**: Fully renders the page in the background (faster but more resource intensive)
+   - **Eagerness**: Control when speculation starts:
+     - **Conservative**: Only on user interaction (hover, mousedown)
+     - **Moderate**: Balance between conservative and eager (default)
+     - **Eager**: Speculatively load immediately when link is visible
+
 **Default Exclusions**
 The theme automatically excludes the following paths from speculative loading to prevent unnecessary prefetching of administrative and API endpoints:
 - `/wp-admin/*` - WordPress admin pages

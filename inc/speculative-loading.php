@@ -9,27 +9,44 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Configure speculative loading rules for the theme.
- * Uses wp_get_speculation_rules_configuration() to get the default configuration
- * and allows customization via filters.
+ * Configure speculative loading rules based on UDS Advanced Settings.
+ * Modifies the default WordPress configuration using ACF settings.
  *
- * @return void
+ * @param array $config The default speculation rules configuration.
+ * @return array Modified speculation rules configuration.
  */
-function uds_wp_configure_speculation_rules() {
+function uds_wp_configure_speculation_rules( $config ) {
 	// Only proceed if the function exists (WordPress 6.8+).
 	if ( ! function_exists( 'wp_get_speculation_rules_configuration' ) ) {
-		return;
+		return $config;
 	}
 
-	// Get the default speculation rules configuration from WordPress core.
-	$config = wp_get_speculation_rules_configuration();
+	// Check if speculative loading is enabled in UDS Advanced Settings.
+	$enabled = get_field( 'enable_speculative_loading', 'option' );
+
+	// If disabled, return empty config to disable speculation.
+	if ( false === $enabled ) {
+		return array();
+	}
+
+	// Get mode setting (prefetch or prerender).
+	$mode = get_field( 'speculation_mode', 'option' );
+	if ( ! empty( $mode ) ) {
+		$config['mode'] = $mode;
+	}
+
+	// Get eagerness setting (conservative, moderate, or eager).
+	$eagerness = get_field( 'speculation_eagerness', 'option' );
+	if ( ! empty( $eagerness ) ) {
+		$config['eagerness'] = $eagerness;
+	}
 
 	// Allow child themes or plugins to modify the configuration.
 	$config = apply_filters( 'uds_wp_speculation_rules_configuration', $config );
 
-	// The configuration is automatically used by WordPress core when returned.
 	return $config;
 }
+add_filter( 'wp_speculation_rules_configuration', 'uds_wp_configure_speculation_rules' );
 
 /**
  * Add custom speculation rules in addition to core rules.
