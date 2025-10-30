@@ -1,0 +1,109 @@
+{
+    "key": "group_67230a1b2c4f5",
+    "title": "UDS: Front Page Settings",
+    "fields": [
+        {
+            "key": "field_67230a1b2c4f6",
+            "label": "Front Page Display",
+            "name": "uds_front_page_display",
+            "type": "radio",
+            "instructions": "Choose what to display on the front page of your site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "posts": "Your latest posts",
+                "page": "A static page"
+            },
+            "default_value": "posts",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_67230a1b2c4f7",
+            "label": "Select Front Page",
+            "name": "uds_page_on_front",
+            "type": "post_object",
+            "instructions": "Select the page to display on the front page.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_67230a1b2c4f6",
+                        "operator": "==",
+                        "value": "page"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_67230a1b2c4f8",
+            "label": "Select Posts Page",
+            "name": "uds_page_for_posts",
+            "type": "post_object",
+            "instructions": "Select the page to display your blog posts. This is optional - leave blank if you don't want a dedicated posts page.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_67230a1b2c4f6",
+                        "operator": "==",
+                        "value": "page"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Configure front page and posts page settings",
+    "show_in_rest": 0,
+    "modified": 1730332059
+}
