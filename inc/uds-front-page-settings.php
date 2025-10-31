@@ -68,21 +68,21 @@ function uds_sync_front_page_settings_to_wp($post_id) {
     $page_on_front = get_field('uds_page_on_front', 'option');
     $page_for_posts = get_field('uds_page_for_posts', 'option');
     
-    // Update WordPress options
-    if (!empty($front_page_display)) {
+    // Update WordPress options only if we have a valid display setting
+    if ($front_page_display !== '' && $front_page_display !== false && $front_page_display !== null) {
         update_option('show_on_front', $front_page_display);
         
         if ($front_page_display === 'page') {
-            // Set the front page
-            if (!empty($page_on_front)) {
-                update_option('page_on_front', $page_on_front);
+            // Set the front page (0 is valid meaning no page selected)
+            if ($page_on_front !== '' && $page_on_front !== false && $page_on_front !== null) {
+                update_option('page_on_front', intval($page_on_front));
             } else {
                 update_option('page_on_front', 0);
             }
             
-            // Set the posts page
-            if (!empty($page_for_posts)) {
-                update_option('page_for_posts', $page_for_posts);
+            // Set the posts page (0 is valid meaning no posts page)
+            if ($page_for_posts !== '' && $page_for_posts !== false && $page_for_posts !== null) {
+                update_option('page_for_posts', intval($page_for_posts));
             } else {
                 update_option('page_for_posts', 0);
             }
