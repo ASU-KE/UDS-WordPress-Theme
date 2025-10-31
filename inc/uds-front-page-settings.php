@@ -49,12 +49,12 @@ function uds_migrate_front_page_settings() {
 		
 		if ( $show_on_front === 'page' ) {
 			// Migrate front page setting if set (0 means unset, so we skip it)
-			if ( uds_is_valid_field_value( $page_on_front ) ) {
+			if ( intval( $page_on_front ) > 0 ) {
 				update_field( 'uds_page_on_front', $page_on_front, 'option' );
 			}
 			
 			// Migrate posts page setting if set (0 means unset, so we skip it)
-			if ( uds_is_valid_field_value( $page_for_posts ) ) {
+			if ( intval( $page_for_posts ) > 0 ) {
 				update_field( 'uds_page_for_posts', $page_for_posts, 'option' );
 			}
 		}
@@ -120,4 +120,3 @@ function uds_customize_register_remove_front_page_settings( $wp_customize ) {
 	$wp_customize->remove_section( 'static_front_page' );
 }
 add_action( 'customize_register', 'uds_customize_register_remove_front_page_settings', 20 );
-
