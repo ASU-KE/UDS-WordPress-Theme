@@ -27,6 +27,7 @@
 	- [Using the Theme](#using-the-theme)
 		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
+		- [UDS Advanced Settings](#uds-advanced-settings)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
 		- [Menus](#menus)
@@ -73,6 +74,21 @@
 - gulp task copy node module to /img folder
 
 #### Customizer Options
+
+#### UDS Advanced Settings
+The UDS Advanced Settings page (Settings > UDS Advanced Settings) provides additional configuration options for your site, including:
+
+##### Front Page Settings
+Configure what displays on the front page of your site:
+- **Your latest posts**: Display your blog posts on the front page (WordPress default)
+- **A static page**: Select a specific page to display as your front page
+  - When using a static front page, you can optionally select a separate page to display your blog posts
+
+**Note:** These settings were previously located in the WordPress Customizer but have been moved to UDS Advanced Settings for better organization. If your site already had front page settings configured, they will be automatically migrated when you update the theme.
+
+Other UDS Advanced Settings include:
+- Header menu settings (animation, breakpoint, hover behavior)
+- Logo override settings (ASU logo and partner logos)
 
 #### Page Heroes
 
