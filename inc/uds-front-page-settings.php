@@ -28,6 +28,11 @@ function uds_is_valid_field_value( $value ) {
  * This runs once to preserve existing settings when moving from Customizer to UDS Advanced Settings
  */
 function uds_migrate_front_page_settings() {
+	// Check if ACF is available
+	if ( ! function_exists( 'get_field' ) || ! function_exists( 'update_field' ) ) {
+		return;
+	}
+	
 	// Check if migration has already been done
 	$migration_done = get_option( 'uds_front_page_migration_done', false );
 	
@@ -74,6 +79,11 @@ add_action( 'admin_init', 'uds_migrate_front_page_settings' );
 function uds_sync_front_page_settings_to_wp( $post_id ) {
 	// Only run on options pages
 	if ( 'options' !== $post_id ) {
+		return;
+	}
+	
+	// Check if ACF is available
+	if ( ! function_exists( 'get_field' ) ) {
 		return;
 	}
 	
