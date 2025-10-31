@@ -48,12 +48,12 @@ function uds_migrate_front_page_settings() {
 		update_field( 'uds_front_page_display', $show_on_front, 'option' );
 		
 		if ( $show_on_front === 'page' ) {
-			// Migrate front page setting (can be 0 which is valid)
+			// Migrate front page setting if set (0 means unset, so we skip it)
 			if ( uds_is_valid_field_value( $page_on_front ) ) {
 				update_field( 'uds_page_on_front', $page_on_front, 'option' );
 			}
 			
-			// Migrate posts page setting (can be 0 which is valid)
+			// Migrate posts page setting if set (0 means unset, so we skip it)
 			if ( uds_is_valid_field_value( $page_for_posts ) ) {
 				update_field( 'uds_page_for_posts', $page_for_posts, 'option' );
 			}
@@ -87,14 +87,14 @@ function uds_sync_front_page_settings_to_wp( $post_id ) {
 		update_option( 'show_on_front', $front_page_display );
 		
 		if ( $front_page_display === 'page' ) {
-			// Set the front page (0 is valid meaning no page selected)
+			// Set the front page - ACF returns null/false for empty, WordPress uses 0
 			if ( uds_is_valid_field_value( $page_on_front ) ) {
 				update_option( 'page_on_front', intval( $page_on_front ) );
 			} else {
 				update_option( 'page_on_front', 0 );
 			}
 			
-			// Set the posts page (0 is valid meaning no posts page)
+			// Set the posts page - ACF returns null/false for empty, WordPress uses 0
 			if ( uds_is_valid_field_value( $page_for_posts ) ) {
 				update_option( 'page_for_posts', intval( $page_for_posts ) );
 			} else {
