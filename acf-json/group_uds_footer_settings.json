@@ -1,0 +1,279 @@
+{
+    "key": "group_uds_footer_settings",
+    "title": "UDS: Footer Settings",
+    "fields": [
+        {
+            "key": "field_footer_row_branding",
+            "label": "Logo and Social Media Row",
+            "name": "footer_row_branding",
+            "type": "radio",
+            "instructions": "Show or hide the entire row containing the logo and social media icons",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "enabled": "Show",
+                "disabled": "Hide"
+            },
+            "default_value": "enabled",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_footer_logo_type",
+            "label": "Footer Logo",
+            "name": "footer_logo_type",
+            "type": "radio",
+            "instructions": "Logo to use in the global footer area. If you do not have a unit logo, you must use the ASU logo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "asu": "Use the ASU logo",
+                "custom": "Use a unit logo"
+            },
+            "default_value": "asu",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_logo_select",
+            "label": "Endorsed Logos Presets",
+            "name": "logo_select",
+            "type": "select",
+            "instructions": "Select an endorsed logo to appear in the footer, or 'none' to provide a link to a different endorsed logo.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_logo_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (use custom URL below)"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_logo_url",
+            "label": "Unit Endorsed Logo URL",
+            "name": "logo_url",
+            "type": "url",
+            "instructions": "If you have chosen 'none' above, provide a URL to an approved logo. Choosing 'none' and leaving this field empty will result in the ASU logo being displayed.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_logo_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_footer_logo_link",
+            "label": "External URL",
+            "name": "footer_logo_link",
+            "type": "url",
+            "instructions": "By default the logo links to the home page of the current website. You can link it to a different website by adding a URL here:",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_logo_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_footer_row_actions",
+            "label": "Information and Menu Row",
+            "name": "footer_row_actions",
+            "type": "radio",
+            "instructions": "Show or hide the entire row containing unit information and menus",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "enabled": "Show",
+                "disabled": "Hide"
+            },
+            "default_value": "enabled",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_footer_unit_name_type",
+            "label": "Footer Unit Name Type",
+            "name": "footer_unit_name_type",
+            "type": "radio",
+            "instructions": "Choose between using the site name, or custom text, beneath the footer logo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Site Name",
+                "custom": "Custom Text"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_footer_unit_name_text",
+            "label": "Alternate Text",
+            "name": "footer_unit_name_text",
+            "type": "text",
+            "instructions": "Text to use, instead of the site name, beneath the footer logo",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_unit_name_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contribute_url",
+            "label": "Contribute Button URL",
+            "name": "contribute_url",
+            "type": "url",
+            "instructions": "Enter a URL here to show the 'Contribute' button in the footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_contribute_text",
+            "label": "Contribute Button Text",
+            "name": "contribute_text",
+            "type": "text",
+            "instructions": "Enter custom text here to replace the default text of 'Contribute'",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Contribute",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_url",
+            "label": "Contact URL",
+            "name": "contact_url",
+            "type": "url",
+            "instructions": "Enter a URL to a contact page to show a 'Contact Us' link in the footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 30,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Settings for customizing the ASU global footer.",
+    "show_in_rest": 0,
+    "modified": 1701360000
+}
