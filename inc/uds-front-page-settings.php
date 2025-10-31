@@ -31,18 +31,18 @@ function uds_migrate_front_page_settings() {
     // Only migrate if ACF fields don't already have values
     $current_display = get_field('uds_front_page_display', 'option');
     
-    if (empty($current_display)) {
+    if ($current_display === null || $current_display === false || $current_display === '') {
         // Migrate to ACF options
         update_field('uds_front_page_display', $show_on_front, 'option');
         
         if ($show_on_front === 'page') {
             // Migrate front page setting (can be 0 which is valid)
-            if ($page_on_front !== '' && $page_on_front !== false) {
+            if ($page_on_front !== '' && $page_on_front !== false && $page_on_front !== null) {
                 update_field('uds_page_on_front', $page_on_front, 'option');
             }
             
             // Migrate posts page setting (can be 0 which is valid)
-            if ($page_for_posts !== '' && $page_for_posts !== false) {
+            if ($page_for_posts !== '' && $page_for_posts !== false && $page_for_posts !== null) {
                 update_field('uds_page_for_posts', $page_for_posts, 'option');
             }
         }
