@@ -12,7 +12,7 @@
 	"homepage": "https://github.com/asu-ke-web-services/uds-wordpress-theme",
 	"require": {
 		"composer/installers": "^1.9",
-		"php": ">=5.6"
+		"php": ">=7.4"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
@@ -22,7 +22,7 @@
 		"php-parallel-lint/php-parallel-lint": "^1.2"
 	},
 	"scripts": {
-		"check:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 5.6-"],
+		"check:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 7.4-"],
 		"fix:cs": ["@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"],
 		"lint:php": ["@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."]
 	},
