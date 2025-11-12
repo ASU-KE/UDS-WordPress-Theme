@@ -77,7 +77,7 @@ if( $icon_name && false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
 
 // Get the icon color
 $icon_color = get_field( 'card_icon_color' );
-do_action('qm/debug', $icon_color);
+
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -181,12 +181,22 @@ if (!empty($image_data)) {
 					$button_color  = get_sub_field('card_buttons_button_color');
 					$button_size   = get_sub_field('card_buttons_button_size');
 					$button_icon   = get_sub_field('card_buttons_icon');
-					// These come in from the ACF cloned fields from the button group.
+
+					// Button text, URL, target attribute and ARIA label come from the ACF cloned fields for buttons.
+					// These are stored in an array called 'link_values'.
 					$link_values   = get_sub_field('card_buttons_button_link');
-					$button_label  = sanitize_text_field($link_values['title']);
-					$button_url    = esc_url($link_values['url']);
-					$button_target = $link_values['target'];
+					// Sanitize the button values and check for missing values. If missing, set to a safe default to alert the editor.
+					$button_label  = isset($link_values['title']) && !empty($link_values['title']) ? sanitize_text_field($link_values['title']) : 'Button label missing!';
+					$button_url    = isset($link_values['url']) && !empty($link_values['url']) ? esc_url($link_values['url']) : '#';
+					$button_target = isset($link_values['target']) ? $link_values['target'] : '';
+
+					// set ARIA label if provided
 					$aria_label    = get_sub_field('aria_label');
+					if ($aria_label) {
+						$aria_label = sanitize_text_field($aria_label);
+					} else {
+						$aria_label = $button_label;
+					}
 
 					// Set "rel" text if requested.
 					if ($external_link) {
@@ -231,17 +241,23 @@ if (!empty($image_data)) {
 					the_row();
 				?>
 					<?php
-					$link_label = sanitize_text_field(get_sub_field('link_text'));
-					$link_url = esc_url(get_sub_field('link_url'));
+					// Get our ACF Field values.
+					$link_text = get_sub_field('link_text');
+					$link_url = get_sub_field('link_url');
 					$external_link = get_sub_field('external_link');
 
+					// Sanitize and check for missing values.
+					$link_text = isset($link_text) && !empty($link_text) ? sanitize_text_field($link_text) : 'Link text missing!';
+					$link_url = isset($link_url) && !empty($link_url) ? esc_url($link_url) : '#';
+
+					// Set "rel" text if requested.
 					if ($external_link) {
 						$rel = 'target="_blank" rel="noopener noreferrer"';
 					} else {
 						$rel = '';
 					}
 					?>
-					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_label; ?></a>
+					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_text; ?></a>
 				<?php endwhile; ?>
 			</div>
 		<?php endif; ?>
