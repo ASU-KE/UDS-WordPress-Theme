@@ -96,11 +96,10 @@ if (!empty($image_data)) {
 	$image_alt = isset($image_data['alt']) ? $image_data['alt'] : '';
 }
 ?>
-<?php if ('card-horizontal' == $orientation_class) : ?>
-<div class="uds-card-arrangement">
-	<div class="uds-card-arrangement-card-container">
-<?php endif; ?>
+
+<!-- If it's an interactive card, use the interactive card format -->
 <?php if ('interactive' == $style) : ?>
+	<!-- open interacgtive card -->
 	<div class="content-section text-white">
 		<div class="image-holder">
 			<img src="<?php $background_image = the_field('interactive_background_image');?>" alt="alt text" loading="lazy" decoding="async">
@@ -116,34 +115,55 @@ if (!empty($image_data)) {
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php else : ?>
-<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
+	</div> <!-- close interactive card -->
+
+	<!-- all other card types use the standard card format -->
+<?php else : ?>
+	<!-- open standard card -->
+	<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
+
+	<!-- get header content based on header style -->
+
+	<!-- image style header -->
 	<?php if ('image' == $header_style) : ?>
 		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
 	<?php endif; ?>
+
+	<!-- icon style header -->
 	<?php if ('icon' == $header_style) : ?>
+		<!-- render icon with color span if needed -->
 		<?php if ('maroon' == $icon_color || 'gold' == $icon_color) : ?>
 			<span class="text-<?php echo $icon_color; ?>">
 		<?php endif; ?>
+
 		<span class="<?php echo $icon_name;?> fa-2x card-icon-top"></span>
+
 		<?php if ('maroon' == $icon_color || 'gold' == $icon_color): ?>
 			</span>
 		<?php endif; ?>
 	<?php endif; ?>
+
+	<!-- if horizontal, open content wrapper -->
 	<?php if ('card-horizontal' == $orientation_class) : ?>
-		<div class="card-content-wrapper" />
+		<div class="card-content-wrapper">
 	<?php endif; ?>
+
+	<!-- card header -->
 	<div class="card-header">
 		<h3 class="card-title"><?php the_field('title', false, false); ?></h3>
 	</div>
+
+	<!-- card body -->
 	<?php if ('' !== get_field('body_text')) : ?>
 		<div class="card-body">
 			<p class="card-text"><?php the_field('body_text', false, false); ?></p>
 		</div>
 	<?php endif; ?>
 
+	<!-- event details for event style cards -->
 	<?php if ('event' === get_field('card_style')) : ?>
+
+		<!-- event date and time -->
 		<?php if (get_field('start_date') || get_field('start_time')) : ?>
 			<div class="card-event-details">
 				<div class="card-event-icons">
@@ -158,6 +178,8 @@ if (!empty($image_data)) {
 				</div>
 			</div>
 		<?php endif; ?>
+
+		<!-- event location -->
 		<?php if (get_field('location')) : ?>
 			<div class="card-event-details">
 				<div class="card-event-icons">
@@ -168,6 +190,8 @@ if (!empty($image_data)) {
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card buttons, links, and tags -->
+	<!-- card buttons -->
 	<?php if (get_field('buttons')) : ?>
 		<?php if (have_rows('buttons')) : ?>
 			<?php
@@ -233,6 +257,7 @@ if (!empty($image_data)) {
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card links -->
 	<?php if (get_field('links')) : ?>
 		<?php if (have_rows('links')) : ?>
 			<div class="card-link">
@@ -263,6 +288,7 @@ if (!empty($image_data)) {
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card tags -->
 	<?php if (get_field('tags')) : ?>
 		<?php if (have_rows('tags')) : ?>
 			<div class="card-tags">
@@ -279,9 +305,12 @@ if (!empty($image_data)) {
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
-</div>
+
+	<!-- close content wrapper if horizontal -->
 	<?php if ('card-horizontal' == $orientation_class) : ?>
-</div> <!-- uds-card-arrangement-card-container -->
-</div> <!-- close uds-card-arrangement -->
+		</div>
 	<?php endif; ?>
+
+	</div> <!-- close standard card -->
+
 <?php endif; ?>
