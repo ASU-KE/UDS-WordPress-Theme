@@ -18099,8 +18099,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
   div[class^=uds-hero] .hero-subtitle,
   div[class^=uds-hero] a.btn,
   div[class^=uds-hero] a.uds-modal-close-btn,
-  div[class^=uds-hero] .content,
-  div[class^=uds-hero] .btn-row {
+  div[class^=uds-hero] .content {
     grid-column: 2;
     max-width: 700px;
     z-index: 30;
@@ -18132,7 +18131,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
     grid-template-rows: 1fr auto auto 3.5rem;
   }
   div.uds-hero-sm.has-btn-row .btn-row {
-    top: 92%;
+    top: 90%;
   }
   div.uds-hero-sm > a.btn, div.uds-hero-sm > a.uds-modal-close-btn {
     grid-row: unset;
@@ -18210,8 +18209,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
   div[class^=uds-hero] .hero-subtitle,
   div[class^=uds-hero] a.btn,
   div[class^=uds-hero] a.uds-modal-close-btn,
-  div[class^=uds-hero] .content,
-  div[class^=uds-hero] .btn-row {
+  div[class^=uds-hero] .content {
     max-width: calc(940px - 30%);
   }
 }
@@ -18224,8 +18222,7 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
   div[class^=uds-hero] .hero-subtitle,
   div[class^=uds-hero] a.btn,
   div[class^=uds-hero] a.uds-modal-close-btn,
-  div[class^=uds-hero] .content,
-  div[class^=uds-hero] .btn-row {
+  div[class^=uds-hero] .content {
     max-width: calc(1200px - 34%);
   }
   div.uds-hero-lg {
@@ -22532,6 +22529,11 @@ Footer - Table of Contents
   }
   #footer-innovation .footer-innovation-links .nav-link:nth-child(n+4), #footer-innovation .footer-innovation-links .secondary-nav-link:nth-child(n+4) {
     justify-self: end;
+  }
+}
+@media (max-width: 575.98px) {
+  #footer-innovation .footer-innovation-links .img-link img {
+    max-width: 100%;
   }
 }
 /*------------------------------------------------------------------
