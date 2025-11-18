@@ -29,13 +29,13 @@ foreach ( $menu_items as $item ) :
 						$child['external_link'] = '';
 						$is_target_blank    = $child['target_blank'];
 						// Add external link icon if it has been requested. Using extra-small size here.
-						$footer_link = '<a class="nav-link" href="%1$s" title="link">%2$s%3$s</a>';
+						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
 						if ( get_field( 'menu_external_link', $child['ID'] ) ) {
 							if ( $is_target_blank ) {
 								$is_target_blank = 'target=_blank';
 							}
 							$child['external_link'] .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
-							$footer_link = '<a class="nav-link" href="%1$s" title="link" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
+							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
 						}
 
 
