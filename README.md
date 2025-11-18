@@ -83,6 +83,90 @@ To create a banner, add the provided *Notification Banner* widget to the *Global
 
 To remove a page banner, either delete the widget from the Global Banner widget area, or set the *Show Banner* option to **No**.
 
+#### React Footer (Footer v2)
+
+The theme now includes a modern React-based footer component that operates similarly to the header, providing better performance and consistency. This feature can be toggled on or off through the WordPress admin interface.
+
+##### Enabling/Disabling the React Footer
+
+1. Navigate to **WordPress Admin → Settings → UDS Advanced Settings**
+2. Locate the **"Use React Footer"** toggle
+3. Enable for the React footer (recommended) or disable to use the legacy PHP footer
+4. The React footer is enabled by default for new installations
+
+##### React Footer Features
+
+The React footer provides the same functionality as the legacy footer with these sections:
+- **Branding Row**: Logo and social media icons
+- **Action Row**: Contact information and footer navigation columns
+- **Innovation Links**: Rankings image and university services links
+- **Colophon**: Legal and compliance links
+
+##### Important Notes and Quirks
+
+**Social Media Icons:**
+- The React footer only displays [officially approved social media icons](https://zeroheight.com/9f0b32a56/p/02de7e-iconography) per ASU brand standards
+- Supported platforms: Facebook, Twitter (displays as X icon), LinkedIn, Instagram, YouTube, and a few others
+- **Note**: Use "Twitter" as the navigation label to get the X icon
+- Icons not in the approved list will not appear in the React footer
+- The icon is determined by the **Navigation Label**, not the URL
+- If a social menu item has a label but no URL, the icon will not appear
+
+**Contribute Button:**
+- The button text is standardized to "Support ASU" per ASU brand guidelines
+- Custom contribute button text from the Customizer is **not** used in the React footer
+- This ensures brand consistency but may affect sites with custom button text
+- Use the legacy footer if custom button text is required
+
+**Footer Menu:**
+- Three-level deep menus are supported, but third-level items will not display (per standards)
+- If no menu is assigned to the "Footer Menu" location, the information row will still show with the site name
+
+**Child Theme Compatibility:**
+- If your child theme overrides `footer.php`, it will use that version instead of the React footer
+- The React footer toggle has no effect when `footer.php` is overridden in a child theme
+- This ensures child theme customizations continue to work as expected
+
+**Customizer Settings:**
+All standard Customizer settings are respected by the React footer:
+- Custom logo images and URLs
+- Unit name customization (custom text or site name)
+- Contact link URL
+- Contribute button URL
+- Hiding logo/social or information rows
+- Footer menu assignments
+
+**Switching Between React and Legacy:**
+- Settings are applied immediately when switching between footer types
+- React footer enforces brand standards (e.g., "Support ASU" button text)
+- Legacy footer allows customizations that may not meet brand standards
+- No data migration is needed; both footers use the same WordPress settings
+
+##### Developer Notes
+
+**File Structure:**
+- `inc/footer-localizer-script.php` - Extracts WordPress footer data and formats it for React
+- `src/js/custom/init-uds-footer.js` - Initializes the React footer component
+- `footer.php` - Template that switches between React and legacy implementations
+- `acf-json/group_637677713cbf6.json` - ACF field definition for the React footer toggle
+
+**Data Flow:**
+```
+WordPress Customizer Settings → footer-localizer-script.php → 
+JavaScript Props → React Component (AsuHeaderFooter.initASUFooter)
+```
+
+**For PHP 8.0+ Developers:**
+The footer toggle logic in `footer.php` (lines 25-29) can be simplified using the null coalescing operator:
+```php
+$use_react_footer = get_field('use_react_footer', 'options') ?? true;
+```
+
+**Extending/Debugging:**
+- JavaScript errors are logged to the browser console with descriptive messages
+- Check for `udsFooterVars` in the browser console to verify footer data is being passed correctly
+- The footer initialization includes checks for missing dependencies (React library, footer container, etc.)
+
 #### Menus
 The UDS-WordPress theme has three assignable menu areas:
 - The **main navigation** menu, at the top of every page
