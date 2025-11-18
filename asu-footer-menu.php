@@ -17,15 +17,12 @@ foreach ( $menu_items as $item ) :
 		?>
 		<div class="col-xl flex-footer">
 			<div class="card accordion-item desktop-disable-xl">
-				<div class="accordion-header">
+				<div class="footer-accordion-header">
 					<div class="h5">
-						<a id="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>" class="collapsed" data-bs-toggle="collapse" href="#footlink-<?php echo sanitize_title( $item['title'] ); ?>" role="button" aria-expanded="false" aria-controls="footlink-<?php echo sanitize_title( $item['title'] ); ?>">
-							<?php echo $item['title']; ?>
-							<span class="fas fa-chevron-up"></span>
-						</a>
+						<p class="accordion-button"><?php echo $item['title']; ?></p>
+					</div>
 				</div>
-				</div>
-				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="collapse accordion-body" aria-labelledby="footlink-header-<?php echo sanitize_title( $item['title'] ); ?>">
+				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="footer-accordion-body" role="region">
 					<?php
 					$footer_column = '';
 					foreach ( $item['children'] as $child ) :
