@@ -99,7 +99,7 @@ if (!empty($image_data)) {
 
 <!-- If it's an interactive card, use the interactive card format -->
 <?php if ('interactive' == $style) : ?>
-	<!-- open interacgtive card -->
+	<!-- open interactive card -->
 	<div class="content-section text-white">
 		<div class="image-holder">
 			<img src="<?php $background_image = the_field('interactive_background_image');?>" alt="alt text" loading="lazy" decoding="async">
