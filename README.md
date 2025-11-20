@@ -69,6 +69,7 @@
 			- [Composer Scripts](#composer-scripts)
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
+	- [WP REST API Extensions](#wp-rest-api-extensions)
 	- [Extending the Theme](#extending-the-theme)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
 
@@ -95,6 +96,16 @@
 - gulp task copy node module to /img folder
 
 #### Customizer Options
+
+The WordPress Customizer provides access to various theme settings for controlling the appearance and behavior of your site:
+
+- **Header Settings** - Configure the ASU header including logo, navigation, and partner logo
+- **Footer Settings** - Customize footer columns, social media icons, unit name, and contribute button
+- **Color Schemes** - Select color options for various components
+- **Analytics** - Add tracking codes for Google Tag Manager, Google Analytics, and Hotjar
+- **Additional Settings** - Various other theme-specific configuration options
+
+Access the Customizer via **Appearance → Customize** in the WordPress admin.
 
 #### UDS Advanced Settings
 
@@ -154,6 +165,18 @@ The theme includes 42+ pre-designed block patterns organized into categories for
 Access patterns from the Block Editor inserter by clicking the "Patterns" tab.
 
 #### Page Heroes
+
+Page heroes are large banner areas at the top of pages or posts that can include images, videos, titles, and call-to-action buttons. Heroes are configured using Advanced Custom Fields on each page or post.
+
+**Hero Configuration Options:**
+- **Size** - Choose from small, medium (default), or large hero sizes
+- **Media Source** - Use uploaded images, videos, or external URLs
+- **Title** - Custom hero title with optional text highlighting
+- **Text Color** - Choose between dark or white text for contrast
+- **Call-to-Action Buttons** - Add multiple CTA buttons with configurable styles and links
+- **Background Effects** - Optional color overlays and opacity controls
+
+Heroes are automatically displayed at the top of pages and posts when configured. The hero template is located in `templates-global/hero.php`.
 
 #### Page Banners
 The theme provides a widget area, and corresponding widget, for displaying UDS-compliant banners across the top of every page in your site. These banners will appear below the hero area, and above all other content.
