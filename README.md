@@ -8,12 +8,30 @@
 
 ### Features
 
-- ASU Web Standards 2.0
-  - Based on ASU's official design token libray for consistent adherence to Web Standards 2.0
+- **ASU Web Standards 2.0**
+  - Based on ASU's official design token library for consistent adherence to Web Standards 2.0
   - Utilizes the official ASU Bootstrap theme built on top of the design token library
-  - Accessibilty compliant
-- WordPress
-  - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
+  - Accessibility compliant
+  - React-based header and footer components
+
+- **Content Components**
+  - 16 custom ACF blocks for UDS-compliant content (cards, banners, alerts, modals, etc.)
+  - 42+ pre-designed block patterns for rapid page building
+  - Custom widgets for global banners and footer content
+  - Shortcode for sidebar menus
+
+- **WordPress Integration**
+  - Utilizes standard WordPress features for easy development
+  - Enhanced WP REST API with featured image and ACF field support
+  - Custom navigation menus with ASU Web Standards enforcement
+  - Widget areas for banners and footer customization
+  - Child theme support with starter template available
+
+- **Analytics & Performance**
+  - Built-in Google Analytics Data Layer for comprehensive event tracking
+  - Google Tag Manager, Google Analytics, and Hotjar integration
+  - WordPress 6.8+ Speculative Loading support for improved performance
+  - Automatic tracking of user interactions (clicks, accordions, modals, etc.)
 
 ### Found a bug? Have a question? Need support?
 
@@ -449,6 +467,36 @@ We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks dire
 #### Working with Styles
 
 To work with and compile your Sass files on the fly start:`$ gulp watch`
+
+### WP REST API Extensions
+
+The theme extends the WordPress REST API to provide additional functionality for headless implementations and external integrations:
+
+#### Featured Images in REST API
+
+All public post types that support thumbnails automatically include enhanced featured image data in their REST API responses under the `uds_featured_image` field. This includes:
+- Image ID, alt text, caption, and description
+- Media type and details
+- Source URL and all available image sizes with their URLs
+- Parent post information
+
+#### ACF Fields in REST API
+
+The theme registers custom ACF fields to the `/wp-json/wp/v2/posts` endpoint:
+
+**News Author Fields** (`uds_news_author`)
+- Author name
+- Author title
+- Author email
+- Author phone
+
+**Story Hero Fields** (`uds_story_hero`)
+- Background choice (color/image)
+- Background color
+- Background image
+- Background image size
+
+These extensions make it easier to build headless WordPress implementations or integrate with external systems while maintaining access to custom content fields.
 
 ### Extending the Theme
 
