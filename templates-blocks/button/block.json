@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "button",
     "keywords": ["button", "link"],
+    "viewStyle": "file:../../src/css/blocks/button.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "button.php",

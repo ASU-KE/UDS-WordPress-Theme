@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "info-outline",
     "keywords": ["banner", "message", "text"],
+    "viewStyle": "file:../../src/css/blocks/banner.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "banner.php",
