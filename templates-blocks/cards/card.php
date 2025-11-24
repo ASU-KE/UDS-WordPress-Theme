@@ -216,11 +216,7 @@ if (!empty($image_data)) {
 
 					// set ARIA label if provided
 					$aria_label    = get_sub_field('aria_label');
-					if ($aria_label) {
-						$aria_label = sanitize_text_field($aria_label);
-					} else {
-						$aria_label = $button_label;
-					}
+					$aria_label    = sanitize_text_field($aria_label ? $aria_label : $button_label);
 
 					// Set "rel" text if requested.
 					if ($external_link) {
