@@ -13,6 +13,11 @@
   - Utilizes the official ASU Bootstrap theme built on top of the design token library
   - Accessibility compliant
   - React-based header and footer components
+- WordPress
+  - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
+- PHP 8 required
+  - PHP 8 - v1.6 and later
+  - PHP 7.4 compatible - v1.5 and earlier
 
 - **Content Components**
   - 16 custom ACF blocks for UDS-compliant content (cards, banners, alerts, modals, etc.)
