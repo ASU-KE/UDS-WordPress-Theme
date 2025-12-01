@@ -23,7 +23,6 @@ foreach ( $menu_items as $item ) :
 					</div>
 				</div>
 				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="footer-accordion-body" role="region">
-					<nav class="nav">
 						<?php
 						$footer_column = '';
 						foreach ( $item['children'] as $child ) :
@@ -44,7 +43,6 @@ foreach ( $menu_items as $item ) :
 						endforeach;
 						echo $footer_column;
 						?>
-					</nav>
 				</div>
 			</div>
 		</div>
