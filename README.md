@@ -8,15 +8,35 @@
 
 ### Features
 
-- ASU Web Standards 2.0
-  - Based on ASU's official design token libray for consistent adherence to Web Standards 2.0
+- **ASU Web Standards 2.0**
+  - Based on ASU's official design token library for consistent adherence to Web Standards 2.0
   - Utilizes the official ASU Bootstrap theme built on top of the design token library
-  - Accessibilty compliant
+  - Accessibility compliant
+  - React-based header and footer components
 - WordPress
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
 - PHP 8 required
   - PHP 8 - v1.6 and later
   - PHP 7.4 compatible - v1.5 and earlier
+
+- **Content Components**
+  - 16 custom ACF blocks for UDS-compliant content (cards, banners, alerts, modals, etc.)
+  - 42+ pre-designed block patterns for rapid page building
+  - Custom widgets for global banners and footer content
+  - Shortcode for sidebar menus
+
+- **WordPress Integration**
+  - Utilizes standard WordPress features for easy development
+  - Enhanced WP REST API with featured image and ACF field support
+  - Custom navigation menus with ASU Web Standards enforcement
+  - Widget areas for banners and footer customization
+  - Child theme support with starter template available
+
+- **Analytics & Performance**
+  - Built-in Google Analytics Data Layer for comprehensive event tracking
+  - Google Tag Manager, Google Analytics, and Hotjar integration
+  - WordPress 6.8+ Speculative Loading support for improved performance
+  - Automatic tracking of user interactions (clicks, accordions, modals, etc.)
 
 ### Found a bug? Have a question? Need support?
 
@@ -30,12 +50,16 @@
 	- [Using the Theme](#using-the-theme)
 		- [Updating the Theme](#updating-the-theme)
 		- [Customizer Options](#customizer-options)
+		- [UDS Advanced Settings](#uds-advanced-settings)
+		- [ACF Blocks](#acf-blocks)
+		- [Block Patterns](#block-patterns)
 		- [Page Heroes](#page-heroes)
 		- [Page Banners](#page-banners)
 		- [Menus](#menus)
 			- [Working with the Main Menu](#working-with-the-main-menu)
 		- [Shortcodes](#shortcodes)
-		- [Adding Sidebars](#adding-sidebars)
+		- [Widget Areas](#widget-areas)
+		- [Analytics and Tracking](#analytics-and-tracking)
 - [For Developers](#for-developers)
 	- [Introduction](#introduction)
 	- [Requirements](#requirements)
@@ -50,6 +74,7 @@
 			- [Composer Scripts](#composer-scripts)
 		- [NPM and Gulp Scripts](#npm-and-gulp-scripts)
 		- [Working with Styles](#working-with-styles)
+	- [WP REST API Extensions](#wp-rest-api-extensions)
 	- [Extending the Theme](#extending-the-theme)
 		- [Action Hooks and Filters](#action-hooks-and-filters)
 
@@ -77,7 +102,86 @@
 
 #### Customizer Options
 
+The WordPress Customizer provides access to various theme settings for controlling the appearance and behavior of your site:
+
+- **Header Settings** - Configure the ASU header including logo, navigation, and partner logo
+- **Footer Settings** - Customize footer columns, social media icons, unit name, and contribute button
+- **Color Schemes** - Select color options for various components
+- **Analytics** - Add tracking codes for Google Tag Manager, Google Analytics, and Hotjar
+- **Additional Settings** - Various other theme-specific configuration options
+
+Access the Customizer via **Appearance → Customize** in the WordPress admin.
+
+#### UDS Advanced Settings
+
+The theme provides an advanced settings page accessible at **WordPress Admin → Settings → UDS Advanced Settings**. This page includes configuration options for:
+
+##### React Footer Toggle
+- Enable or disable the React-based footer (see [React Footer](#react-footer-footer-v2) section below for details)
+- Default: Enabled for new installations
+
+##### Speculative Loading Settings
+- Enable/disable WordPress 6.8+ Speculative Loading for improved performance
+- Configure speculation mode (prefetch or prerender)
+- Set eagerness level (conservative, moderate, or eager)
+- See [Speculative Loading](#speculative-loading-wordpress-68) section for complete details
+
+##### Header Configuration
+- Advanced header menu settings and customization options
+
+#### ACF Blocks
+
+The theme includes 16 custom ACF blocks that provide UDS-compliant content components:
+
+- **UDS Alert** - Dismissible alert messages with various styles and colors
+- **UDS Background Section** - Container with background images, patterns, or colors using Inner Blocks
+- **UDS Banner** - Customizable banner with text and styles
+- **UDS Blockquote** - Stylized quotations with optional images and accent colors
+- **UDS Button** - Configurable buttons with multiple styles, sizes, and optional icons
+- **UDS Card** - Content cards with images, text, and call-to-action elements
+- **UDS Content Image Overlap** - Image and content layouts with overlapping designs
+- **UDS Foldable Card** - Accordion-style collapsible content cards
+- **UDS Grid Links** - Grid layout for displaying linked content items
+- **UDS Heading** - Customizable headings with UDS styling options
+- **UDS Image** - Enhanced image block with UDS-specific features
+- **UDS Modals** - Modal windows with configurable triggers and content
+- **UDS Overlay Card** - Cards with image overlays and hover effects
+- **UDS Person Profile** - Display profiles with photos, contact information, and social links
+- **UDS Show More** - Expandable content sections with show/hide functionality
+- **UDS Tabbed Panels** - Tabbed interface for organizing content into switchable panels
+
+All blocks are available in the WordPress Block Editor under the "UDS" category and follow ASU Web Standards 2.0 design guidelines.
+
+#### Block Patterns
+
+The theme includes 42+ pre-designed block patterns organized into categories for quick page building:
+
+**Pattern Categories:**
+- **Call to Action** - Conversion-focused layouts with buttons and messaging
+- **Cards** - Various card layouts for content display (4-card, 6-card, 8-card sections)
+- **Image and Text** - Combined text and image layouts in multiple configurations
+- **Photo Cards** - Portrait and landscape photo card arrangements (2, 3, and 4-column layouts)
+- **News and Events** - Dynamic news grid patterns
+- **Page Starters** - Complete page templates (full-width, with sidebars, with breadcrumbs)
+- **Quotes** - Quote layouts with various styling options
+- **Video and Text** - Video content combined with text layouts
+- **Miscellaneous** - Additional utility patterns including stat grids, image features, and nested containers
+
+Access patterns from the Block Editor inserter by clicking the "Patterns" tab.
+
 #### Page Heroes
+
+Page heroes are large banner areas at the top of pages or posts that can include images, videos, titles, and call-to-action buttons. Heroes are configured using Advanced Custom Fields on each page or post.
+
+**Hero Configuration Options:**
+- **Size** - Choose from small, medium (default), or large hero sizes
+- **Media Source** - Use uploaded images, videos, or external URLs
+- **Title** - Custom hero title with optional text highlighting
+- **Text Color** - Choose between dark or white text for contrast
+- **Call-to-Action Buttons** - Add multiple CTA buttons with configurable styles and links
+- **Background Effects** - Optional color overlays and opacity controls
+
+Heroes are automatically displayed at the top of pages and posts when configured. The hero template is located in `templates-global/hero.php`.
 
 #### Page Banners
 The theme provides a widget area, and corresponding widget, for displaying UDS-compliant banners across the top of every page in your site. These banners will appear below the hero area, and above all other content.
@@ -85,6 +189,90 @@ The theme provides a widget area, and corresponding widget, for displaying UDS-c
 To create a banner, add the provided *Notification Banner* widget to the *Global Banner Area* on the WordPress widgets admin screen (or via the Customizer) and configure the banner as desired using the options provided. Make sure to set the *Show Banner* option to **Yes** in order to have the banner appear on your site.
 
 To remove a page banner, either delete the widget from the Global Banner widget area, or set the *Show Banner* option to **No**.
+
+#### React Footer (Footer v2)
+
+The theme now includes a modern React-based footer component that operates similarly to the header, providing better performance and consistency. This feature can be toggled on or off through the WordPress admin interface.
+
+##### Enabling/Disabling the React Footer
+
+1. Navigate to **WordPress Admin → Settings → UDS Advanced Settings**
+2. Locate the **"Use React Footer"** toggle
+3. Enable for the React footer (recommended) or disable to use the legacy PHP footer
+4. The React footer is enabled by default for new installations
+
+##### React Footer Features
+
+The React footer provides the same functionality as the legacy footer with these sections:
+- **Branding Row**: Logo and social media icons
+- **Action Row**: Contact information and footer navigation columns
+- **Innovation Links**: Rankings image and university services links
+- **Colophon**: Legal and compliance links
+
+##### Important Notes and Quirks
+
+**Social Media Icons:**
+- The React footer only displays [officially approved social media icons](https://zeroheight.com/9f0b32a56/p/02de7e-iconography) per ASU brand standards
+- Supported platforms: Facebook, Twitter (displays as X icon), LinkedIn, Instagram, YouTube, and a few others
+- **Note**: Use "Twitter" as the navigation label to get the X icon
+- Icons not in the approved list will not appear in the React footer
+- The icon is determined by the **Navigation Label**, not the URL
+- If a social menu item has a label but no URL, the icon will not appear
+
+**Contribute Button:**
+- The button text is standardized to "Support ASU" per ASU brand guidelines
+- Custom contribute button text from the Customizer is **not** used in the React footer
+- This ensures brand consistency but may affect sites with custom button text
+- Use the legacy footer if custom button text is required
+
+**Footer Menu:**
+- Three-level deep menus are supported, but third-level items will not display (per standards)
+- If no menu is assigned to the "Footer Menu" location, the information row will still show with the site name
+
+**Child Theme Compatibility:**
+- If your child theme overrides `footer.php`, it will use that version instead of the React footer
+- The React footer toggle has no effect when `footer.php` is overridden in a child theme
+- This ensures child theme customizations continue to work as expected
+
+**Customizer Settings:**
+All standard Customizer settings are respected by the React footer:
+- Custom logo images and URLs
+- Unit name customization (custom text or site name)
+- Contact link URL
+- Contribute button URL
+- Hiding logo/social or information rows
+- Footer menu assignments
+
+**Switching Between React and Legacy:**
+- Settings are applied immediately when switching between footer types
+- React footer enforces brand standards (e.g., "Support ASU" button text)
+- Legacy footer allows customizations that may not meet brand standards
+- No data migration is needed; both footers use the same WordPress settings
+
+##### Developer Notes
+
+**File Structure:**
+- `inc/footer-localizer-script.php` - Extracts WordPress footer data and formats it for React
+- `src/js/custom/init-uds-footer.js` - Initializes the React footer component
+- `footer.php` - Template that switches between React and legacy implementations
+- `acf-json/group_637677713cbf6.json` - ACF field definition for the React footer toggle
+
+**Data Flow:**
+```
+WordPress Customizer Settings → footer-localizer-script.php → 
+JavaScript Props → React Component (AsuHeaderFooter.initASUFooter)
+```
+
+**For PHP 8.0+ Developers:**
+The footer toggle logic in `footer.php` (lines 25-29) can be simplified using the null coalescing operator:
+```php
+$use_react_footer = get_field('use_react_footer', 'options') ?? true;
+```
+
+**Extending/Debugging:**
+- JavaScript errors are logged to the browser console with descriptive messages
+- Check for `udsFooterVars` in the browser console to verify footer data is being passed correctly
+- The footer initialization includes checks for missing dependencies (React library, footer container, etc.)
 
 #### Menus
 The UDS-WordPress theme has three assignable menu areas:
@@ -109,7 +297,83 @@ Here is an example of a main menu hierarchy, and how each item would be rendered
 
 #### Shortcodes
 
-#### Adding Sidebars
+The theme provides the following shortcode:
+
+##### `[uds-sidebar-menu]`
+
+Creates a collapsible sidebar navigation menu using a WordPress menu.
+
+**Attributes:**
+- `menu` - The name of the WordPress menu to display
+- `title` - Optional title to display above the menu
+
+**Example:**
+```
+[uds-sidebar-menu menu="My Sidebar Menu" title="Section Navigation"]
+```
+
+The shortcode generates a UDS-compliant sidebar menu with:
+- Mobile-responsive collapse/expand functionality
+- Bootstrap 5 data attributes for animations
+- Automatic menu structure from WordPress menu builder
+- ARIA labels for accessibility
+
+#### Widget Areas
+
+The theme provides two widget areas for adding WordPress widgets:
+
+##### Global Banner Area
+- **Location:** Below the hero image and above all page content
+- **Purpose:** Display site-wide alert banners or important notifications
+- **Widget:** Use the provided "Notification Banner" widget to create UDS-compliant banners
+- **Configuration:** Add the widget in **Appearance → Widgets** or via the Customizer
+
+##### Footer Widgets
+- **Location:** Additional column in the footer area
+- **Purpose:** Add custom content or widgets to the footer
+- **Configuration:** Add widgets in **Appearance → Widgets** or via the Customizer
+- **Note:** This area is managed separately from the React Footer columns
+
+#### Analytics and Tracking
+
+The theme includes comprehensive analytics support for tracking user interactions and behavior:
+
+##### Google Analytics Data Layer
+
+The theme includes `data-layer.js` which automatically tracks:
+- **Accordion interactions** - Open/close events on UDS Foldable Cards
+- **Sidebar menu events** - Navigation clicks in sidebar menus
+- **Carousel interactions** - Slide navigation events
+- **Tab interactions** - Tab panel switching in UDS Tabbed Panels
+- **Modal events** - Modal open/close actions
+- **Button clicks** - Call-to-action button interactions
+- **Card interactions** - Clicks on UDS Card elements
+
+All events are pushed to the Google Analytics data layer with structured data including:
+- Event name and type
+- Action performed
+- Section and region identifiers
+- Clicked element text
+- Custom `data-ga` attributes from blocks
+
+##### Tracking Code Integration
+
+Configure tracking codes in the WordPress Customizer:
+
+**Google Tag Manager**
+- Add GTM container ID in Customizer
+- Automatically includes both `<head>` and `<noscript>` implementations
+- Provides data layer support for enhanced tracking
+
+**Google Analytics**
+- Direct GA tracking code support
+- Legacy GA implementation for sites not using GTM
+
+**Hotjar**
+- Add Hotjar site ID in Customizer
+- Includes Hotjar tracking script for heatmaps and session recordings
+
+All tracking implementations follow ASU Web Standards and best practices for privacy and performance.
 
 ## For Developers
 
@@ -232,6 +496,36 @@ We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks dire
 
 To work with and compile your Sass files on the fly start:`$ gulp watch`
 
+### WP REST API Extensions
+
+The theme extends the WordPress REST API to provide additional functionality for headless implementations and external integrations:
+
+#### Featured Images in REST API
+
+All public post types that support thumbnails automatically include enhanced featured image data in their REST API responses under the `uds_featured_image` field. This includes:
+- Image ID, alt text, caption, and description
+- Media type and details
+- Source URL and all available image sizes with their URLs
+- Parent post information
+
+#### ACF Fields in REST API
+
+The theme registers custom ACF fields to the `/wp-json/wp/v2/posts` endpoint:
+
+**News Author Fields** (`uds_news_author`)
+- Author name
+- Author title
+- Author email
+- Author phone
+
+**Story Hero Fields** (`uds_story_hero`)
+- Background choice (color/image)
+- Background color
+- Background image
+- Background image size
+
+These extensions make it easier to build headless WordPress implementations or integrate with external systems while maintaining access to custom content fields.
+
 ### Extending the Theme
 
 A "starter" child theme template has been made available for use in creating your custom solution for WordPress. That theme template is located here:
@@ -254,6 +548,10 @@ The **UDS-WordPress-Theme** includes hooks in the following places.
 | uds_wp_after_global_header     | header.php         |
 | uds_wp_before_global_footer     | footer.php         |
 | uds_wp_before_global_footer_columns | footer.php |
+| uds_wp_add_speculation_rules | inc/speculative-loading.php |
+| uds_wp_speculation_exclude_paths (filter) | inc/speculative-loading.php |
+| wp_load_speculation_rules | inc/speculative-loading.php |
+| wp_speculation_rules_href_exclude_paths (filter) | inc/speculative-loading.php |
 
 **uds_wp_after_global_header** - fires immediately after the closing `</header><!-- end #asu-header -->` statement in `header.php`. Serves as an ideal place for a small banner or other alert mechanism to be added before a potential hero image across multiple pages on the site.
 
@@ -261,8 +559,16 @@ The **UDS-WordPress-Theme** includes hooks in the following places.
 
 **uds_wp_before_global_footer_columns** - fires immediately before the `<div id="wrapper-footer-columns">` landmark within `footer.php`. In conjunction with the theme option to turn off the native footer column feature, this would be a handy way to replace the native functionality for the footer columns with your own solution.
 
+**uds_wp_add_speculation_rules** - fires during the `wp_load_speculation_rules` action, allowing child themes or plugins to add custom speculation rules for prefetching or prerendering pages. This is part of the WordPress 6.8+ Speculative Loading API that helps improve site performance.
+
+**uds_wp_speculation_exclude_paths** (filter) - filters the array of paths to exclude from speculative loading. Use this filter in child themes or plugins to add or modify which URLs should not be prefetched or prerendered.
+
+**wp_load_speculation_rules** - WordPress core action that is hooked to add custom speculation rules in addition to the main core speculation rule.
+
+**wp_speculation_rules_href_exclude_paths** (filter) - WordPress core filter that allows you to exclude additional paths from speculative loading. The theme uses this to exclude admin URLs, login pages, AJAX endpoints, and REST API endpoints by default.
+
 You can take advantage of these hooks within a child theme or plugin using a function like the following:
-```
+```php
 /**
  * Adds a section of content immediately above the global footer.
  * Looks for a template called '/templates/content-prefooter.php'
@@ -271,4 +577,50 @@ function your_project_add_prefooter_content() {
 	get_template_part( 'templates/content', 'prefooter' );
 }
 add_action( 'uds_wp_before_global_footer', 'your_project_add_prefooter_content' );
+
+/**
+ * Example: Add custom paths to exclude from speculative loading.
+ */
+function your_project_exclude_custom_paths( $exclude_paths ) {
+	// Exclude your custom paths from speculative loading
+	$exclude_paths[] = '/custom-path/*';
+	$exclude_paths[] = '/another-path/*';
+	return $exclude_paths;
+}
+add_filter( 'uds_wp_speculation_exclude_paths', 'your_project_exclude_custom_paths' );
 ```
+
+### Speculative Loading (WordPress 6.8+)
+
+The theme includes support for WordPress 6.8's Speculative Loading feature, which uses the [Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API) to improve site performance by prefetching or prerendering pages that users are likely to navigate to.
+
+**What is Speculative Loading?**
+Speculative Loading allows the browser to speculatively load pages in the background before a user clicks on a link. This can significantly reduce page load times and improve the user experience.
+
+**UI Configuration**
+You can configure Speculative Loading settings from the WordPress admin:
+1. Navigate to **Settings → UDS Advanced Settings**
+2. Locate the **Speculative Loading Settings** section
+3. Configure the following options:
+   - **Enable Speculative Loading**: Toggle to enable/disable the feature (enabled by default)
+   - **Speculation Mode**: Choose between:
+     - **Prefetch**: Downloads the page content in advance (lighter on resources)
+     - **Prerender**: Fully renders the page in the background (faster but more resource intensive)
+   - **Eagerness**: Control when speculation starts:
+     - **Conservative**: Only on user interaction (hover, mousedown)
+     - **Moderate**: Balance between conservative and eager (default)
+     - **Eager**: Speculatively load immediately when link is visible
+
+**Default Exclusions**
+The theme automatically excludes the following paths from speculative loading to prevent unnecessary prefetching of administrative and API endpoints:
+- `/wp-admin/*` - WordPress admin pages
+- `/wp-login.php*` - Login pages
+- `/wp-admin/admin-ajax.php*` - AJAX endpoints
+- `/wp-json/*` - REST API endpoints
+
+**Customization**
+You can customize which paths are excluded from speculative loading using the `uds_wp_speculation_exclude_paths` filter in your child theme or plugin. See the example above.
+
+For more information about WordPress Speculative Loading, see:
+- [WordPress 6.8 Speculative Loading](https://make.wordpress.org/core/2025/03/06/speculative-loading-in-6-8/)
+- [WordPress Core Ticket #62503](https://core.trac.wordpress.org/ticket/62503)

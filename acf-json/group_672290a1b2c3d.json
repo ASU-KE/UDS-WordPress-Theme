@@ -1,0 +1,109 @@
+{
+    "key": "group_672290a1b2c3d",
+    "title": "UDS: Speculative Loading Settings",
+    "fields": [
+        {
+            "key": "field_672290a1b2c3e",
+            "label": "Enable Speculative Loading",
+            "name": "enable_speculative_loading",
+            "type": "true_false",
+            "instructions": "Enable WordPress 6.8+ Speculative Loading to prefetch or prerender pages for improved performance. Only works with WordPress 6.8 or higher.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
+        },
+        {
+            "key": "field_672290a1b2c3f",
+            "label": "Speculation Mode",
+            "name": "speculation_mode",
+            "type": "radio",
+            "instructions": "Choose how pages are loaded:\n- Prefetch: Downloads the page content in advance\n- Prerender: Fully renders the page in the background (more resource intensive but faster)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_672290a1b2c3e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "prefetch": "Prefetch",
+                "prerender": "Prerender"
+            },
+            "default_value": "prerender",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_672290a1b2c40",
+            "label": "Eagerness",
+            "name": "speculation_eagerness",
+            "type": "radio",
+            "instructions": "Control when speculation starts:\n- Conservative: Only on user interaction (hover, mousedown)\n- Moderate: Balance between conservative and eager (default)\n- Eager: Speculatively load immediately when link is visible",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_672290a1b2c3e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "conservative": "Conservative",
+                "moderate": "Moderate",
+                "eager": "Eager"
+            },
+            "default_value": "moderate",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uds-advanced-settings"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Configure WordPress 6.8+ Speculative Loading settings for improved page load performance",
+    "show_in_rest": 0,
+    "modified": 1730318400
+}

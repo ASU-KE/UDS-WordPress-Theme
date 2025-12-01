@@ -77,7 +77,7 @@ if( $icon_name && false == preg_match('/^fa[sb]/', (string)$icon_name ) ) {
 
 // Get the icon color
 $icon_color = get_field( 'card_icon_color' );
-do_action('qm/debug', $icon_color);
+
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -96,11 +96,10 @@ if (!empty($image_data)) {
 	$image_alt = isset($image_data['alt']) ? $image_data['alt'] : '';
 }
 ?>
-<?php if ('card-horizontal' == $orientation_class) : ?>
-<div class="uds-card-arrangement">
-	<div class="uds-card-arrangement-card-container">
-<?php endif; ?>
+
+<!-- If it's an interactive card, use the interactive card format -->
 <?php if ('interactive' == $style) : ?>
+	<!-- open interactive card -->
 	<div class="content-section text-white">
 		<div class="image-holder">
 			<img src="<?php $background_image = the_field('interactive_background_image');?>" alt="alt text" loading="lazy" decoding="async">
@@ -116,34 +115,55 @@ if (!empty($image_data)) {
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php else : ?>
-<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
+	</div> <!-- close interactive card -->
+
+	<!-- all other card types use the standard card format -->
+<?php else : ?>
+	<!-- open standard card -->
+	<div class="card <?php echo $style_class; ?> <?php echo $orientation_class; ?> <?php echo $additional_classes; ?>">
+
+	<!-- get header content based on header style -->
+
+	<!-- image style header -->
 	<?php if ('image' == $header_style) : ?>
 		<img class="card-img-top" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
 	<?php endif; ?>
+
+	<!-- icon style header -->
 	<?php if ('icon' == $header_style) : ?>
+		<!-- render icon with color span if needed -->
 		<?php if ('maroon' == $icon_color || 'gold' == $icon_color) : ?>
 			<span class="text-<?php echo $icon_color; ?>">
 		<?php endif; ?>
+
 		<span class="<?php echo $icon_name;?> fa-2x card-icon-top"></span>
+
 		<?php if ('maroon' == $icon_color || 'gold' == $icon_color): ?>
 			</span>
 		<?php endif; ?>
 	<?php endif; ?>
+
+	<!-- if horizontal, open content wrapper -->
 	<?php if ('card-horizontal' == $orientation_class) : ?>
-		<div class="card-content-wrapper" />
+		<div class="card-content-wrapper">
 	<?php endif; ?>
+
+	<!-- card header -->
 	<div class="card-header">
 		<h3 class="card-title"><?php the_field('title', false, false); ?></h3>
 	</div>
+
+	<!-- card body -->
 	<?php if ('' !== get_field('body_text')) : ?>
 		<div class="card-body">
 			<p class="card-text"><?php the_field('body_text', false, false); ?></p>
 		</div>
 	<?php endif; ?>
 
+	<!-- event details for event style cards -->
 	<?php if ('event' === get_field('card_style')) : ?>
+
+		<!-- event date and time -->
 		<?php if (get_field('start_date') || get_field('start_time')) : ?>
 			<div class="card-event-details">
 				<div class="card-event-icons">
@@ -158,6 +178,8 @@ if (!empty($image_data)) {
 				</div>
 			</div>
 		<?php endif; ?>
+
+		<!-- event location -->
 		<?php if (get_field('location')) : ?>
 			<div class="card-event-details">
 				<div class="card-event-icons">
@@ -168,6 +190,8 @@ if (!empty($image_data)) {
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card buttons, links, and tags -->
+	<!-- card buttons -->
 	<?php if (get_field('buttons')) : ?>
 		<?php if (have_rows('buttons')) : ?>
 			<?php
@@ -181,12 +205,18 @@ if (!empty($image_data)) {
 					$button_color  = get_sub_field('card_buttons_button_color');
 					$button_size   = get_sub_field('card_buttons_button_size');
 					$button_icon   = get_sub_field('card_buttons_icon');
-					// These come in from the ACF cloned fields from the button group.
+
+					// Button text, URL, target attribute and ARIA label come from the ACF cloned fields for buttons.
+					// These are stored in an array called 'link_values'.
 					$link_values   = get_sub_field('card_buttons_button_link');
-					$button_label  = sanitize_text_field($link_values['title']);
-					$button_url    = esc_url($link_values['url']);
-					$button_target = $link_values['target'];
+					// Sanitize the button values and check for missing values. If missing, set to a safe default to alert the editor.
+					$button_label  = isset($link_values['title']) && !empty($link_values['title']) ? sanitize_text_field($link_values['title']) : 'Button label missing!';
+					$button_url    = isset($link_values['url']) && !empty($link_values['url']) ? esc_url($link_values['url']) : '#';
+					$button_target = isset($link_values['target']) ? $link_values['target'] : '';
+
+					// set ARIA label if provided
 					$aria_label    = get_sub_field('aria_label');
+					$aria_label    = sanitize_text_field($aria_label ? $aria_label : $button_label);
 
 					// Set "rel" text if requested.
 					if ($external_link) {
@@ -223,6 +253,7 @@ if (!empty($image_data)) {
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card links -->
 	<?php if (get_field('links')) : ?>
 		<?php if (have_rows('links')) : ?>
 			<div class="card-link">
@@ -231,22 +262,29 @@ if (!empty($image_data)) {
 					the_row();
 				?>
 					<?php
-					$link_label = sanitize_text_field(get_sub_field('link_text'));
-					$link_url = esc_url(get_sub_field('link_url'));
+					// Get our ACF Field values.
+					$link_text = get_sub_field('link_text');
+					$link_url = get_sub_field('link_url');
 					$external_link = get_sub_field('external_link');
 
+					// Sanitize and check for missing values.
+					$link_text = isset($link_text) && !empty($link_text) ? sanitize_text_field($link_text) : 'Link text missing!';
+					$link_url = isset($link_url) && !empty($link_url) ? esc_url($link_url) : '#';
+
+					// Set "rel" text if requested.
 					if ($external_link) {
 						$rel = 'target="_blank" rel="noopener noreferrer"';
 					} else {
 						$rel = '';
 					}
 					?>
-					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_label; ?></a>
+					<a href="<?php echo $link_url; ?>" <?php echo $rel; ?>><?php echo $link_text; ?></a>
 				<?php endwhile; ?>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<!-- card tags -->
 	<?php if (get_field('tags')) : ?>
 		<?php if (have_rows('tags')) : ?>
 			<div class="card-tags">
@@ -263,9 +301,12 @@ if (!empty($image_data)) {
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
-</div>
+
+	<!-- close content wrapper if horizontal -->
 	<?php if ('card-horizontal' == $orientation_class) : ?>
-</div> <!-- uds-card-arrangement-card-container -->
-</div> <!-- close uds-card-arrangement -->
+		</div>
 	<?php endif; ?>
+
+	</div> <!-- close standard card -->
+
 <?php endif; ?>

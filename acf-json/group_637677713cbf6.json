@@ -63,6 +63,25 @@
             "ui_on_text": "",
             "ui_off_text": "",
             "ui": 0
+        },
+        {
+            "key": "field_675000001234a",
+            "label": "Use React Footer",
+            "name": "use_react_footer",
+            "type": "true_false",
+            "instructions": "Enable the new React-based footer component. Disable to use the legacy PHP footer.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Use React footer component for improved performance and consistency with the header.",
+            "default_value": 1,
+            "ui_on_text": "React Footer",
+            "ui_off_text": "Legacy Footer",
+            "ui": 1
         }
     ],
     "location": [
