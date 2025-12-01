@@ -18,6 +18,17 @@ if (!function_exists('uds_localize_component_footer_script')) {
 
 	function uds_localize_component_footer_script()
 	{
+		// Only run this script if React footer is enabled
+		$use_react_footer = get_field('use_react_footer', 'options');
+		// Default to React footer if field is not set
+		if ($use_react_footer === null) {
+			$use_react_footer = true;
+		}
+		
+		// Exit early if React footer is not enabled
+		if (!$use_react_footer) {
+			return;
+		}
 
 		// Get clean site url
 		$domain_text = site_url();
