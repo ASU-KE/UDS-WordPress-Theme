@@ -23,26 +23,28 @@ foreach ( $menu_items as $item ) :
 					</div>
 				</div>
 				<div id="footlink-<?php echo sanitize_title( $item['title'] ); ?>" class="footer-accordion-body" role="region">
-					<?php
-					$footer_column = '';
-					foreach ( $item['children'] as $child ) :
-						$child['external_link'] = '';
-						$is_target_blank    = $child['target_blank'];
-						// Add external link icon if it has been requested. Using extra-small size here.
-						$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
-						if ( get_field( 'menu_external_link', $child['ID'] ) ) {
-							if ( $is_target_blank ) {
-								$is_target_blank = 'target=_blank';
+					<nav class="nav">
+						<?php
+						$footer_column = '';
+						foreach ( $item['children'] as $child ) :
+							$child['external_link'] = '';
+							$is_target_blank    = $child['target_blank'];
+							// Add external link icon if it has been requested. Using extra-small size here.
+							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s">%2$s%3$s</a>';
+							if ( get_field( 'menu_external_link', $child['ID'] ) ) {
+								if ( $is_target_blank ) {
+									$is_target_blank = 'target=_blank';
+								}
+								$child['external_link'] .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
+								$footer_link = '<a class="nav-link" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
 							}
-							$child['external_link'] .= '&nbsp;&nbsp;<i class="fas fa-external-link-alt fa-xs"></i>';
-							$footer_link = '<a class="nav-link" href="%1$s" title="%2$s" rel="noreferrer noopener" ' . $is_target_blank . '>%2$s%3$s</a>';
-						}
 
 
-						$footer_column .= wp_kses( sprintf( $footer_link, $child['url'], $child['title'], $child['external_link'] ), wp_kses_allowed_html( 'post' ) );
-					endforeach;
-					echo $footer_column;
-					?>
+							$footer_column .= wp_kses( sprintf( $footer_link, $child['url'], $child['title'], $child['external_link'] ), wp_kses_allowed_html( 'post' ) );
+						endforeach;
+						echo $footer_column;
+						?>
+					</nav>
 				</div>
 			</div>
 		</div>
