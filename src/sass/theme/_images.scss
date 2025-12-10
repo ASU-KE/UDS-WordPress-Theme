@@ -1,0 +1,101 @@
+/*--------------------------------------------------------------
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img {
+	height: auto !important;
+}
+
+/*--------------------------------------------------------------
+core/image
+--------------------------------------------------------------*/
+.wp-block-image {
+	margin-bottom: $uds-size-spacing-4;
+	img:nth-last-child(3) {
+		border: 1px solid $uds-color-base-gray-3;
+	}
+
+	figcaption {
+		border: 1px solid $uds-color-base-gray-3;
+		border-top: none;
+		opacity: 1;
+		background: #fff 0% 0% no-repeat padding-box;
+		padding: 0.75rem;
+		font-size: 0.75rem;
+
+		// Default WP figcaption adds margin.
+		margin-top: 0;
+		margin-bottom: 0;
+		box-shadow: inherit;
+	}
+	&.is-style-drop-shadow {
+		figure {
+			box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+		}
+	}
+
+	&.is-style-circular {
+		img {
+			border: none;
+			border-radius: 100%;
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
+		}
+
+		figcaption {
+			border: none;
+			text-align: center;
+		}
+	}
+}
+
+figure.wp-block-image {
+	display: inline-table;
+	figcaption {
+		display: table-caption;
+		caption-side: bottom;
+		box-shadow: inherit;
+	}
+	&.is-style-drop-shadow {
+		box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+	}
+}
+
+/*--------------------------------------------------------------
+usd image
+--------------------------------------------------------------*/
+
+.uds-img-with-text-wrap {
+	&.float-left {
+		margin: $uds-size-spacing-1 $uds-size-spacing-2 $uds-size-spacing-1 0;
+	}
+	&.float-right {
+		margin: $uds-size-spacing-1 0 $uds-size-spacing-1 $uds-size-spacing-2;
+	}
+}
+
+/*--------------------------------------------------------------
+UDS image overlap
+--------------------------------------------------------------*/
+$overlap_image_size: (
+	"95": 95%,
+	"90": 90%,
+	"85": 85%,
+	"80": 80%,
+	"75": 75%,
+	"70": 70%,
+	"65": 65%,
+);
+
+.uds-image-overlap {
+	.content-wrapper {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	@media (min-width: 992px) {
+		@for $i from 65 through 99 {
+			img.uds_image_overlap_image_size_#{$i} {
+				width: (1% * $i);
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+/*--------------------------------------------------------------
+2. Header title underline styles
+--------------------------------------------------------------*/
+
+.title .subdomain-name a {
+	color: #191919;
+	text-decoration: none;
+}
+
+.title .subdomain-name a:hover {
+	text-decoration: underline;
+}
+
+/*--------------------------------------------------------------
+Override the desktop media query for header to fix the gap issue
+--------------------------------------------------------------*/
+// Desktop
+@include media-breakpoint-up(xl) {
+	#asu-header + div,
+	#asu-header + main {
+		@include transition;
+		margin-top: 144px;
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	#asu-header + div,
+	#asu-header + main {
+		@include transition;
+		margin-top: 113px;
+	}
+}
+
+#wpadminbar + #asu-header.fixed-top,
+body.logged-in.admin-bar #asu-header.fixed-top {
+	top: 32px !important;
+}
+
+@include media-breakpoint-down(sm) {
+	#wpadminbar + #asu-header.fixed-top,
+	body.logged-in.admin-bar #asu-header.fixed-top {
+		top: 46px !important;
+	}
+}
+#wpadminbar + #asu-header.scrolled,
+body.logged-in.admin-bar #asu-header.scrolled {
+	top: 32px !important;
+	transition: all 0.3s ease-out;
+}
+
+@media (min-width: 1260px) {
+	#skip-to-content {
+		transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		margin-top: 139px;
+	}
+
+	.admin-bar #asuHeader {
+		top: 32px;
+	}
+}
+
+@media (max-width: 1259.98px) {
+	#skip-to-content {
+		transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+		margin-top: 103px;
+	}
+
+	.admin-bar #asuHeader {
+		top: 32px;
+	}
+}

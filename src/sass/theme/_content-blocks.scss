@@ -1,0 +1,141 @@
+/*--------------------------------------------------------------
+show more button
+--------------------------------------------------------------*/
+.uds-show-more-btn {
+	position: relative;
+	z-index: 1;
+
+	& ~ div,
+	& ~ p,
+	& ~ h1,
+	& ~ h1,
+	& ~ h2,
+	& ~ h3,
+	& ~ h4,
+	& ~ h5,
+	& ~ h6,
+	& ~ span,
+	& ~ ul,
+	& ~ figure,
+	& ~ blockquote,
+	& ~ img {
+		display: none !important;
+	}
+	&:after {
+		content: "";
+		background: linear-gradient(180deg, #ffffff08 30%, #fff 100%);
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 20px;
+		z-index: -1;
+		transition: 0.3s;
+		height: 300px;
+		display: block;
+	}
+	a {
+		display: initial;
+	}
+}
+
+.wp-block-acf-uds-show-more {
+	.uds-show-more-btn {
+		z-index: 0;
+		&:after {
+			content: none;
+		}
+	}
+
+	& ~ .wp-block {
+		background: #ff00004d;
+	}
+}
+
+.uds-show-less-container {
+	position: relative;
+	padding-bottom: 80px;
+
+	.uds-show-less-btn {
+		//transition: 0.3s;
+		position: absolute;
+		bottom: 0px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+/*--------------------------------------------------------------
+UDS Grid Links
+--------------------------------------------------------------*/
+.uds-grid-links a {
+	display: flex;
+	justify-content: flex-start;
+	&.grid-link-bg-img {
+		position: relative;
+		height: 150px;
+		padding: 0;
+		&:after {
+			content: "";
+			background: linear-gradient(180deg, #19191900 0, #191919c9 100%);
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+		p {
+			z-index: 2;
+			margin: auto;
+		}
+	}
+	svg {
+		margin-top: $uds-size-spacing-half;
+	}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+/*--------------------------------------------------------------
+usd modal windows
+--------------------------------------------------------------*/
+
+.uds-modal {
+	z-index: 1050;
+	position: fixed;
+}
+
+/*--------------------------------------------------------------
+BUG: Story hero layout breaks with oversized images.
+--------------------------------------------------------------*/
+.uds-story-hero .hero {
+	width: 100%;
+	max-height: 100%;
+}
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+	background: white;
+	transform: translateY(0px);
+	margin-top: -128px;
+}
+
+article.type-news_post {
+	.entry-header {
+		.entry-title {
+			margin-top: 2rem;
+		}
+	}
+}
+
+.uds-story-hero {
+	picture {
+		@extend .hero;
+	}
+}

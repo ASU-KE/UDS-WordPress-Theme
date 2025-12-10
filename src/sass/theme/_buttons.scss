@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+Correct the button color on gray bg
+--------------------------------------------------------------*/
+.bg-gray-1,
+.bg-gray-2,
+.bg-gray-7,
+.bg-white {
+	a.btn.btn-maroon {
+		color: white;
+	}
+
+	a.btn.btn-gold {
+		color: initial;
+	}
+
+	a.btn.btn-gray {
+		color: initial;
+	}
+
+	a.btn.btn-dark {
+		color: white;
+	}
+}
+
+/*--------------------------------------------------------------
+BUG: Upstream changes broke button text on particular backgrounds.
+We override them here with more specific rules so that our buttons
+always have the correct link colors, regardless of background.
+
+Note: The upstream changes only broke the default link color, but
+the :hover colors were not affected, and were correct. We're only
+fixing the standard color here.$uds-color-base-white
+--------------------------------------------------------------*/
+
+a.btn.btn-maroon {
+	color: $uds-color-base-white;
+}
+
+a.btn.btn-gold {
+	color: $uds-color-base-gray-7;
+}
+
+a.btn.btn-dark {
+	color: $uds-color-base-white;
+}
+
+a.btn.btn-gray {
+	color: $uds-color-base-gray-7;
+}
+
+/*--------------------------------------------------------------
+btn+btn
+--------------------------------------------------------------*/
+.btn + .btn {
+	margin-left: 0 !important;
+}
+.btn:not(:last-of-type) {
+	margin-right: $uds-size-spacing-half;
+}

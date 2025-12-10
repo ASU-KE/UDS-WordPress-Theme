@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+UDS Breadcrumb - Yoast
+--------------------------------------------------------------*/
+.breadcrumb.yoast,
+.yoast-breadcrumbs {
+	span span span {
+		&:before {
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			color: #bfbfbf;
+			content: "/";
+		}
+	}
+}
+
+.yoast-breadcrumbs {
+	@extend .breadcrumb;
+}
+
+/*--------------------------------------------------------------
+UDS Pagination - active page
+--------------------------------------------------------------*/
+.pagination {
+	.page-item.active {
+		span.page-link.current {
+			padding: 0.5rem 0.75rem;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+usd Tabbed panels
+--------------------------------------------------------------*/
+.uds-tabbed-panels {
+	a.nav-item {
+		svg {
+			margin-right: $uds-size-spacing-half;
+		}
+	}
+}
+
+.bg-dark {
+	.uds-tabbed-panels {
+		@extend .uds-tabbed-panels-dark;
+	}
+	.tab-content {
+		.tab-pane {
+			@extend .text-white;
+		}
+	}
+}

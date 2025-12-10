@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+X. Misc. styles
+--------------------------------------------------------------*/
+
+/**
+ * The UDS 'quicklinks' class was causing a conflict with the WP
+ * admin bar, which also uses the class 'quicklinks'. The UDS styles
+ * were applying 'display: flex', where the admin bar needs 'display: block'.
+ *
+ * To __temporarily__ fix this, I'm applying the display block to the area.
+ * It turns out that the section that has the class of 'quicklinks' also has an
+ * ID of 'wp-toolbar'. Since ID's are more specific, I'm targeting that.
+ *
+ *
+ */
+#wp-toolbar {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+ ACF Button block
+--------------------------------------------------------------*/
+// Prevent our buttons from behaving as actual links in the editor.
+.acf-block-preview .uds-button a, // Links inside an outer DIV
+.acf-block-preview > a.btn, // Links with no outer DIV
+.acf-block-preview .uds-button button, // buttons with outer div,
+.acf-block-preview > button.btn, // buttons with no outer div
+.acf-block-preview .card-button a {
+	pointer-events: none;
+}
+
+/*--------------------------------------------------------------
+WP admin bar mobile fix
+--------------------------------------------------------------*/
+@media (max-width: 992px) {
+	html {
+		margin-top: 0 !important;
+	}
+	.admin-bar #wpadminbar {
+		position: sticky;
+	}
+}
+
+/*--------------------------------------------------------------
+Add a smooth scroll behavior for the a[href="#"]
+--------------------------------------------------------------*/
+html {
+	scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+mobile heading - 2nd line padding fix
+--------------------------------------------------------------*/
+.highlight-gold,
+.highlight-white,
+.highlight-black,
+h2 mark {
+	box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
