@@ -24,11 +24,5 @@ span.card-icon {
 /*--------------------------------------------------------------
 UDS Card tags and hero buttons
 --------------------------------------------------------------*/
-// Note: This rule is redundant with the global .btn + .btn rule in _buttons.scss
-// but was present in the original file. The global rule uses !important so it takes precedence.
-.v1-uds-hero-container,
-.card-tags {
-	.btn + .btn {
-		margin-left: 0;
-	}
-}
+// Note: Button spacing is handled by the global .btn + .btn rule in _buttons.scss
+
