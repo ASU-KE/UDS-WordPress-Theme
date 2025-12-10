@@ -2,7 +2,7 @@
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
 
-/* The included JS file for the global header accidently applies the .dropdown-pinned
+/* The included JS file for the global header accidentally applies the .dropdown-pinned
 class to body tag when the menu is being displayed at the desktop viewport. This class
 is only meant to be applied to the screen when the mobile menu is being displayed. */
 
