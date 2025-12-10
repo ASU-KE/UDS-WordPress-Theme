@@ -8,8 +8,8 @@
     'use strict';
 
     function onSpaceKeyDown(e) {
-        // Match original selector: .accordion-header h3 a[role="button"]
-        const trigger = e.target.closest('.accordion-header h3 a[role="button"]');
+        // Match original selectors: .accordion-header h3 a[role="button"], .accordion-header h4 a[role="button"]
+        const trigger = e.target.closest('.accordion-header h3 a[role="button"], .accordion-header h4 a[role="button"]');
         if (!trigger) return;
 
         // Space key
