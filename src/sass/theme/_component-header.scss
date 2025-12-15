@@ -4,3 +4,12 @@
 		width: auto;
 	}
 }
+
+/*--------------------------------------------------------------
+Fix home icon highlight offset (Issue #390)
+The Unity component header has a 1px offset in the highlight position.
+Override the top value from 0.6rem to 0.55rem for proper alignment.
+--------------------------------------------------------------*/
+#asu-header .header-main nav li::after {
+	top: 0.55rem;
+}
