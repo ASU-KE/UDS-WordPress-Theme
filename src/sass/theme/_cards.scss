@@ -25,3 +25,32 @@ span.card-icon {
 UDS Card tags and hero buttons
 --------------------------------------------------------------*/
 // Note: Button spacing is handled by the global .btn + .btn rule in _buttons.scss
+
+/*--------------------------------------------------------------
+Fix link colors in white cards within gray background sections (Issue #622)
+When white cards are placed inside gray background sections, links should
+remain maroon for proper contrast, not gold (which is for dark backgrounds).
+--------------------------------------------------------------*/
+.uds-section.bg-color.bg-gray-7,
+.uds-section.bg-color.text-white {
+	.card,
+	.bg-white,
+	[style*="background-color: white"],
+	[style*="background-color: #fff"],
+	[style*="background-color: #ffffff"],
+	[class*="bg-white"] {
+		a:not(.btn) {
+			color: #8c1d40 !important;
+		}
+		a:not(.btn):hover {
+			color: #8c1d40 !important;
+		}
+		
+		.card-link a {
+			color: #8c1d40 !important;
+		}
+		.card-link a:hover {
+			color: #8c1d40 !important;
+		}
+	}
+}
