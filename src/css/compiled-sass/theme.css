@@ -23036,6 +23036,92 @@ span.card-icon {
 UDS Card tags and hero buttons
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+Fix link colors in white cards within gray background sections (Issue #622)
+When white cards are placed inside gray background sections, links should
+remain maroon for proper contrast, not gold (which is for dark backgrounds).
+--------------------------------------------------------------*/
+.uds-section.bg-color.bg-gray-7 .card a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white .card a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn) {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card .card-link a,
+.uds-section.bg-color.bg-gray-7 .bg-white .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] .card-link a,
+.uds-section.bg-color.text-white .card .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card .card-link a,
+.uds-section.bg-color.text-white .bg-white .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: white"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] .card-link a,
+.uds-section.bg-color.text-white [class*=bg-white] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] .card-link a {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 .bg-white .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] .card-link a:hover,
+.uds-section.bg-color.text-white .card .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card .card-link a:hover,
+.uds-section.bg-color.text-white .bg-white .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: white"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] .card-link a:hover,
+.uds-section.bg-color.text-white [class*=bg-white] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] .card-link a:hover {
+  color: #8c1d40 !important;
+}
+
+/*--------------------------------------------------------------
 Always set the image height in core/image to auto
 --------------------------------------------------------------*/
 .wp-block-image img {
