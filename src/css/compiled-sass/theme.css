@@ -22737,6 +22737,20 @@ body.logged-in.admin-bar #asu-header.scrolled {
     top: 32px;
   }
 }
+@media (max-width: 540px) {
+  .header-main .navbar .title {
+    width: auto;
+  }
+}
+/*--------------------------------------------------------------
+Fix home icon highlight offset (Issue #390)
+The Unity component header has a 1px offset in the highlight position.
+Override the top value from 0.6rem to 0.55rem for proper alignment.
+--------------------------------------------------------------*/
+#asuHeader .header-main .nav-list li a.nav-item-selected::after {
+  top: 0.55rem;
+}
+
 /*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
@@ -23437,20 +23451,6 @@ iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
     display: inline-block;
   }
 }
-@media (max-width: 540px) {
-  .header-main .navbar .title {
-    width: auto;
-  }
-}
-/*--------------------------------------------------------------
-Fix home icon highlight offset (Issue #390)
-The Unity component header has a 1px offset in the highlight position.
-Override the top value from 0.6rem to 0.55rem for proper alignment.
---------------------------------------------------------------*/
-#asu-header .header-main nav li::after {
-  top: 0.55rem;
-}
-
 /*--------------------------------------------------------------
 Color picker CSS rules
 
