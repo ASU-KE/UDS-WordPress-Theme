@@ -6,6 +6,9 @@
 3. Desktop xl
 --------------------------------------------------------------*/
 
+// Import only variables and mixins (no compiled CSS rules)
+@import "variables";
+
 .home-overlay-card {
 	position: relative;
 	img {
