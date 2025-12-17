@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+# UDS Image Block
+
+Frontend-only styles for the UDS Image block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+/* WordPress image block fix */
+.wp-block-image img {
+	height: auto !important;
+}
+
+/* Additional image customizations can be added here */

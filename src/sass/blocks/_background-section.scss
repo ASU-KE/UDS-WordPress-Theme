@@ -7,6 +7,9 @@
 4. Background shapes
 --------------------------------------------------------------*/
 
+// Import UDS design system for access to design tokens
+@import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
+
 // Inner padding of the section
 .uds-section {
 	padding-top: $uds-size-spacing-6;

@@ -89,10 +89,26 @@ gulp.task("minify-css", function () {
 });
 
 /**
- * Update CSS styling from latest ASU Unity Stack release
- * This task combines compile-sass and minify-css for the complete CSS update process
+ * Compile individual block SCSS files to CSS for WordPress viewStyle
+ * This compiles block-specific SCSS from src/sass/blocks/*.scss to src/css/blocks/*.css
+ * Allows developers to update styles when the upstream design system is updated
  */
-gulp.task("update-css-styling", gulp.series("compile-sass", "minify-css"));
+gulp.task("compile-block-styles", function () {
+	return gulp.src('./src/sass/blocks/_*.scss', { sourcemaps: true })
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer())
+		.pipe(rename(function(path) {
+			// Remove leading underscore from filename
+			path.basename = path.basename.replace(/^_/, '');
+		}))
+		.pipe(gulp.dest('./src/css/blocks', { sourcemaps: '.' }));
+});
+
+/**
+ * Update CSS styling from latest ASU Unity Stack release
+ * This task combines compile-sass, minify-css, and compile-block-styles
+ */
+gulp.task("update-css-styling", gulp.series("compile-sass", "minify-css", "compile-block-styles"));
 
 /**
  * Front-end Javascript compilation. Scripts enqueued in the front-end of the site.
@@ -164,3 +180,15 @@ gulp.task("admin-core-scripts", function() {
 		.pipe(gulp.dest("./dist/js"));
 
 });
+
+/**
+ * Main compile task
+ * Compiles all CSS and JavaScript for production
+ */
+gulp.task("compile", gulp.series(
+	"update-css-styling",
+	"front-end-scripts",
+	"admin-scripts",
+	"admin-core-scripts"
+));
+

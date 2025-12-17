@@ -1,0 +1,109 @@
+/*--------------------------------------------------------------
+# UDS Overlay Card Block
+
+Frontend-only styles for the UDS Overlay Card block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+// Import UDS design system for access to design tokens
+@import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
+
+.home-overlay-card {
+	position: relative;
+
+	img {
+		width: 100%;
+		transition: 0.3s;
+		object-fit: cover;
+		height: 100%;
+	}
+
+	img,
+	picture {
+		object-fit: cover;
+		object-position: center;
+		height: inherit;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&.with-desc {
+		min-height: 330px;
+	}
+
+	&:not(.with-desc) {
+		min-height: 540px;
+	}
+
+	.card-header,
+	.card-body,
+	.overlay-card-button {
+		z-index: 3;
+		color: #fff;
+	}
+
+	.card-header {
+		background-color: unset;
+		margin-top: auto;
+		padding-bottom: 15px;
+		overflow-wrap: normal;
+		padding-bottom: 24px;
+		flex-grow: initial !important;
+	}
+
+	.card-body {
+		flex-grow: initial;
+		padding-bottom: 10px;
+	}
+
+	.overlay-card-button {
+		margin-top: 0;
+		padding: 32px 32px 16px 32px;
+
+		&:not(.with-desc) {
+			padding-top: 0;
+		}
+	}
+
+	picture:nth-of-type(1),
+	img:nth-of-type(1) {
+		z-index: 1;
+	}
+
+	picture:nth-of-type(2),
+	img:nth-of-type(2) {
+		z-index: 0;
+	}
+
+	&:not(.with-desc) {
+		picture:nth-of-type(2),
+		img:nth-of-type(2) {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	&:after {
+		content: "";
+		background: linear-gradient(180deg, #19191900 12%, #191919c9 100%);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 2;
+	}
+
+	&:hover {
+		img.card-image {
+			opacity: 0;
+		}
+	}
+
+	&.card {
+		padding: 0;
+	}
+}
