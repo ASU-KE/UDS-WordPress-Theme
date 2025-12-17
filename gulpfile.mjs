@@ -94,14 +94,14 @@ gulp.task("minify-css", function () {
  * Allows developers to update styles when the upstream design system is updated
  */
 gulp.task("compile-block-styles", function () {
-	return gulp.src('./src/sass/blocks/_*.scss', { sourcemaps: true })
+	return gulp.src('./src/sass/blocks/_*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(rename(function(path) {
 			// Remove leading underscore from filename
 			path.basename = path.basename.replace(/^_/, '');
 		}))
-		.pipe(gulp.dest('./src/css/blocks', { sourcemaps: '.' }));
+		.pipe(gulp.dest('./src/css/blocks'));
 });
 
 /**
