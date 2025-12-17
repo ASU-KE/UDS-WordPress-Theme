@@ -51,7 +51,6 @@ gulp.task('update-fontawesome-css', function () {
 
 /**
  * get latest fontawesome js
- * update: get file from fontawesome website, pro pack is paid by unit
  */
 gulp.task('update-fontawesome-js', function () {
     return gulp.src([
