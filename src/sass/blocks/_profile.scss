@@ -2,8 +2,8 @@
 // This SCSS is based on the CSS from our iSearch plugin.
 // We've used SCSS nesting here for more specific rules.
 
-// Import UDS design system for access to design tokens
-@import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
+// Import only variables and mixins (no compiled CSS rules)
+@import "variables";
 
 // Our base profile DIV has these two classes
 .uds-person-profile {

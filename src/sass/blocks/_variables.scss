@@ -1,0 +1,87 @@
+/*--------------------------------------------------------------
+# UDS Block Variables and Mixins Only
+
+This file imports only the variables and mixins from the UDS design system,
+without any compiled CSS rules. This prevents code duplication when multiple
+blocks are used on the same page.
+
+The main theme CSS (loaded globally) includes the full UDS Bootstrap bundle.
+Individual block viewStyle CSS files only need access to variables and mixins
+for compilation.
+--------------------------------------------------------------*/
+
+// Note: This assumes the UDS unity-bootstrap-theme package structure.
+// If the package structure changes, this import path may need to be updated.
+// 
+// The goal is to import ONLY:
+// - Variables (colors, spacing, typography, etc.)
+// - Mixins (media queries, utility functions, etc.)
+// - Functions
+//
+// WITHOUT importing any actual CSS rules that would be duplicated.
+
+// For now, we'll use a minimal approach and only import what we absolutely need.
+// If the bundle has a variables-only file, we should use that instead.
+
+// TODO: Check if @asu/unity-bootstrap-theme provides a variables-only import
+// For example: @import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/variables";
+
+// Temporary approach: Define the most commonly used variables locally
+// This prevents the full bundle import while still providing design tokens.
+// These values should be kept in sync with the design system.
+
+// Spacing tokens (from UDS design system)
+$uds-size-spacing-half: 4px !default;
+$uds-size-spacing-1: 8px !default;
+$uds-size-spacing-2: 16px !default;
+$uds-size-spacing-3: 24px !default;
+$uds-size-spacing-4: 32px !default;
+$uds-size-spacing-5: 40px !default;
+$uds-size-spacing-6: 48px !default;
+$uds-size-spacing-7: 56px !default;
+$uds-size-spacing-8: 64px !default;
+$uds-size-spacing-9: 72px !default;
+$uds-size-spacing-10: 80px !default;
+$uds-size-spacing-11: 88px !default;
+$uds-size-spacing-12: 96px !default;
+$uds-size-spacing-16: 128px !default;
+$uds-size-spacing-32: 256px !default;
+
+// Color tokens (from UDS design system)
+$uds-color-base-white: #ffffff !default;
+$uds-color-base-gray-1: #fafafa !default;
+$uds-color-base-gray-2: #e8e8e8 !default;
+$uds-color-base-gray-3: #d0d0d0 !default;
+$uds-color-base-gray-4: #bfbfbf !default;
+$uds-color-base-gray-5: #747474 !default;
+$uds-color-base-gray-6: #484848 !default;
+$uds-color-base-gray-7: #191919 !default;
+$uds-color-base-black: #000000 !default;
+$uds-color-base-gold: #ffc627 !default;
+$uds-color-base-maroon: #8c1d40 !default;
+
+// Typography tokens
+$uds-size-font-small: 0.875rem !default;
+$uds-size-font-medium: 1rem !default;
+$uds-size-font-large: 1.25rem !default;
+
+// Breakpoints (Bootstrap standard)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// Media query mixin (simplified version)
+@mixin media-breakpoint-up($name) {
+  $min: map-get($grid-breakpoints, $name);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

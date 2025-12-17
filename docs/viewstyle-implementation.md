@@ -8,7 +8,7 @@ This implementation refactors all custom blocks to use the WordPress `viewStyle`
 
 ### Compiling Block Styles
 
-Block styles are now built from SCSS source files that import the UDS design system, ensuring they stay in sync with design token updates:
+Block styles are now built from SCSS source files that use UDS design tokens, ensuring they stay in sync with design system updates:
 
 ```bash
 # Compile all block SCSS files to CSS
@@ -29,48 +29,66 @@ Each block has a corresponding SCSS file in `/src/sass/blocks/`:
 - `_blockquote.scss` → `/src/css/blocks/blockquote.css`
 - And so on for all 16 blocks...
 
-### Design System Integration
+### Design System Integration (No Duplication)
 
-All block SCSS files import the UDS design system at the top:
+**Important**: Block SCSS files import only variables and mixins from a shared `_variables.scss` file:
 
 ```scss
-@import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
+@import "variables";
 ```
 
-This gives access to all design tokens:
+This approach ensures:
+- **No code duplication**: Each block CSS contains only block-specific styles
+- **Shared tokens**: All blocks use the same design system values
+- **Global Bootstrap**: The full UDS Bootstrap bundle remains loaded globally via `theme.min.css`
+- **Efficient loading**: WordPress loads block CSS only when blocks are present
+
+The `_variables.scss` file contains design tokens extracted from the UDS design system:
 - `$uds-size-spacing-*` for spacing values
 - `$uds-color-base-*` for color values
 - `@include media-breakpoint-up(*)` for responsive breakpoints
-- And all other UDS tokens and mixins
+- No compiled CSS rules (only variables, mixins, and functions)
 
 ## Updating Styles
 
-When the upstream design system (@asu/asu-unity-stack or @asu/unity-bootstrap-theme) is updated:
+When the upstream design system (@asu/unity-bootstrap-theme) is updated:
 
 1. Update the npm package: `npm update @asu/unity-bootstrap-theme`
-2. Rebuild block styles: `npm run build` or `gulp compile-block-styles`
-3. The compiled CSS files in `/src/css/blocks/` will be regenerated with updated token values
+2. Update `src/sass/blocks/_variables.scss` with any new token values
+3. Rebuild block styles: `npm run build` or `gulp compile-block-styles`
+4. The compiled CSS files in `/src/css/blocks/` will be regenerated with updated values
 
 ## Design Decisions
 
-### SCSS to CSS Build Pipeline
+### Variables-Only Import Pattern
 
-The viewStyle CSS files are now compiled from SCSS source files for the following reasons:
+The block SCSS files use a variables-only import to avoid code duplication:
 
-1. **Design Token Access**: SCSS files can use UDS design tokens directly
-2. **Maintainability**: When design tokens change, running the build updates all values automatically
-3. **Developer Control**: Developers have full control over when to update styles
-4. **Consistency**: All blocks use the same design system values
+**Why not import the full bundle?**
+- Importing the full UDS Bootstrap bundle in each block would duplicate all Bootstrap CSS
+- If a page uses 5 blocks, the Bootstrap CSS would be included 5 times
+- This would massively increase page size and hurt performance
+
+**Our Solution:**
+- Created `/src/sass/blocks/_variables.scss` with design tokens only
+- Blocks import this file to access `$uds-color-base-*`, `$uds-size-spacing-*`, etc.
+- The full Bootstrap CSS remains in the global `theme.min.css` (loaded once per page)
+- Block CSS files contain only block-specific styles
+
+**Trade-off:**
+- Variables must be manually synced when the design system updates
+- This is a one-time update per design system release
+- Ensures no code duplication and optimal performance
 
 ### Value Sources
 
 All values in the CSS files are derived from UDS design tokens:
 
-- `$uds-size-spacing-6` → `32px`
+- `$uds-size-spacing-6` → `48px`
 - `$uds-size-spacing-12` → `96px`
 - `$uds-color-base-gold` → `#ffc627`
 - `$uds-color-base-maroon` → `#8c1d40`
-- `$uds-color-base-gray-7` → `#484848`
+- `$uds-color-base-gray-7` → `#191919`
 - `md` breakpoint → `768px`
 
 ## Block Files
@@ -87,5 +105,6 @@ Each block now includes:
 - ✅ Better separation of concerns
 - ✅ WordPress best practices compliance
 - ✅ Backward compatibility maintained
-- ✅ **Design system integration** with automatic token updates
+- ✅ **No code duplication** - each block CSS contains only its specific styles
+- ✅ **Design system integration** with manual token updates
 - ✅ **Developer control** over style updates

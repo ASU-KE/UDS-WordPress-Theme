@@ -5,8 +5,8 @@ Frontend-only styles for the UDS Overlay Card block.
 These styles are applied using the WordPress viewStyle feature.
 --------------------------------------------------------------*/
 
-// Import UDS design system for access to design tokens
-@import "../../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
+// Import only variables and mixins (no compiled CSS rules)
+@import "variables";
 
 .home-overlay-card {
 	position: relative;
