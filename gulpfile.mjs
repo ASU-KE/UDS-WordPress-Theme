@@ -51,14 +51,13 @@ gulp.task('update-fontawesome-css', function () {
 
 /**
  * get latest fontawesome js
- * update: get file from fontawesome website, pro pack is paid by unit
  */
-// gulp.task('update-fontawesome-js', function () {
-//     return gulp.src([
-// 		'node_modules/@fortawesome/fontawesome-free/js/all.js'
-//     ])
-//     .pipe(gulp.dest('./src/js/fontawesome'));
-// });
+gulp.task('update-fontawesome-js', function () {
+    return gulp.src([
+		'node_modules/@fortawesome/fontawesome-free/js/all.js'
+    ])
+    .pipe(gulp.dest('./src/js/fontawesome'));
+});
 
 /**
  * Compile SCSS to CSS
@@ -99,9 +98,7 @@ gulp.task("update-css-styling", gulp.series("compile-sass", "minify-css"));
  */
 gulp.task("front-end-scripts", function() {
 	const scripts = [
-		"./src/js/fontawesome/fontawesome.js",
-		"./src/js/fontawesome/brands.js",
-		"./src/js/fontawesome/solid.js",
+		"./src/js/fontawesome/all.js",
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/init-uds-header.js",
 		"./src/js/custom/init-uds-footer.js",
