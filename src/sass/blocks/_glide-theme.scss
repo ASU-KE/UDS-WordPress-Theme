@@ -9,7 +9,7 @@ $glide-modifier-separator: "--" !default;
 // Use UDS variables from shared file (not duplicated)
 // $uds-breakpoint-sm: 576px; - now from variables.scss
 // $uds-breakpoint-lg: 1260px; - custom value (not in standard UDS tokens)
-$uds-breakpoint-lg: 1260px;
+$uds-breakpoint-lg: 1260px !default;
 // $uds-color-base-gray-7: #191919; - now from variables.scss
 // $uds-color-brand-gold: #ffc627; - use $uds-color-base-gold from variables.scss
 
