@@ -26,10 +26,30 @@ if ( ! function_exists( 'uds_wp_theme_get_endorsed_unit_logos' ) ) {
 			// Nope!  We gotta make a call.
 		} else {
 			// Get the contents of the JSON file containing the array of endorsed unit logos.
-			$str_json_file_contents = file_get_contents( get_template_directory() . '/dist/img/endorsed-logo/unit-logos.json' );
+			// Use WordPress filesystem API instead of direct file_get_contents for better security.
+			global $wp_filesystem;
+			
+			if ( empty( $wp_filesystem ) ) {
+				require_once ABSPATH . 'wp-admin/includes/file.php';
+				WP_Filesystem();
+			}
+			
+			$file_path = get_template_directory() . '/dist/img/endorsed-logo/unit-logos.json';
+			
+			if ( $wp_filesystem->exists( $file_path ) ) {
+				$str_json_file_contents = $wp_filesystem->get_contents( $file_path );
+			} else {
+				// Return empty array if file doesn't exist
+				return [];
+			}
 
 			// Convert to nested array.
 			$endorsed_logos = json_decode( $str_json_file_contents, true );
+
+			// Ensure we have valid data before caching
+			if ( null === $endorsed_logos ) {
+				return [];
+			}
 
 			// Save the file system response so we don't have to call again for an hour.
 			set_transient( 'uds_wp_endorsed_unit_logos', $endorsed_logos, HOUR_IN_SECONDS );

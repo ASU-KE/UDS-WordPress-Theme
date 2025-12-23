@@ -84,7 +84,7 @@ function uds_wp_render_subdomain_name() {
 	}
 
 	$title_string = '';
-	$title_link = '<a href="' . get_bloginfo( 'url' ) . '" class="subdomain-link">' . $site_name . '</a>';
+	$title_link = '<a href="' . home_url() . '" class="subdomain-link">' . $site_name . '</a>';
 
 	// If a link is indicated, include the markup. Otherwise, just the site name.
 	if ( $sitename_is_linked ) {
