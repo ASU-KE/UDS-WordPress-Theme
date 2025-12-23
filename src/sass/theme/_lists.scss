@@ -1,0 +1,102 @@
+/*--------------------------------------------------------------
+List styles
+--------------------------------------------------------------*/
+
+.uds-list ul,
+.uds-list ol {
+	@extend .uds-list;
+}
+/*
+main {
+	ul:not(.uds-list),
+	ol:not(.uds-list),
+	ul.wp-block-list:not(.uds-list),
+	ol.wp-block-list:not(.uds-list) {
+		@extend .uds-list;
+	}
+	ul,
+	ol {
+		&.has-asu-maroon-color {
+			color: $uds-color-base-gray-7 !important;
+			@extend .maroon;
+		}
+		&.has-asu-gold-color {
+			color: $uds-color-base-white !important;
+			@extend .gold;
+			@extend .darkmode;
+		}
+	}
+}
+*/
+
+.is-style-steplist {
+	@extend .uds-steplist;
+}
+
+.is-style-steplist-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+}
+
+.is-style-steplist-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+}
+
+.is-style-steplist-smokemode {
+	@extend .uds-steplist;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .smokemode;
+}
+
+.is-style-steplist-smokemode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .smokemode;
+}
+
+.is-style-steplist-light-smokemode {
+	@extend .uds-steplist;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-light-smokemode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .light-smokemode;
+}
+
+.is-style-steplist-darkmode {
+	@extend .uds-steplist;
+	@extend .darkmode;
+
+	li {
+		&:before {
+			background-color: #fafafa !important;
+			color: #191919 !important;
+		}
+	}
+}
+
+.is-style-steplist-darkmode-gold {
+	@extend .uds-steplist;
+	@extend .uds-steplist-gold;
+	@extend .darkmode;
+}
+
+.is-style-steplist-darkmode-maroon {
+	@extend .uds-steplist;
+	@extend .uds-steplist-maroon;
+	@extend .darkmode;
+}

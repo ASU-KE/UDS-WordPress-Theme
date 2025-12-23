@@ -1,0 +1,68 @@
+/*--------------------------------------------------------------
+iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
+--------------------------------------------------------------*/
+
+.three-col .isearch-default-list .profile.profile-type-standard {
+	width: 33%;
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+.four-col .isearch-default-list .profile.profile-type-standard {
+	width: 25%;
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row {
+	display: grid;
+	border-bottom: 0;
+}
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column
+	> p,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column
+	> p {
+	display: none;
+}
+
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-photo-column,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-photo-column {
+	padding: 24px 24px 5px 0;
+}
+
+.three-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column,
+.four-col
+	.isearch-default-list
+	.profile.profile-type-standard
+	.profile-row
+	.profile-bio-column {
+	width: 90%;
+}
+
+@media (max-width: 992px) {
+	.three-col .isearch-default-list .profile.profile-type-standard,
+	.four-col .isearch-default-list .profile.profile-type-standard {
+		width: 100%;
+		display: inline-block;
+	}
+}
