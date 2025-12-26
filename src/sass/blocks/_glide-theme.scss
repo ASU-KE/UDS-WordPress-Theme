@@ -1,12 +1,17 @@
-//@import 'variables';
-// Copied variables.scss content here locally.
+// Import only variables and mixins (no compiled CSS rules)
+@import "variables";
+
+// Glide-specific configuration
 $glide-class: "glide" !default;
 $glide-element-separator: "__" !default;
 $glide-modifier-separator: "--" !default;
-$uds-breakpoint-sm: 576px;
-$uds-breakpoint-lg: 1260px;
-$uds-color-base-gray-7: #191919;
-$uds-color-brand-gold: #ffc627; // ASU Gold brand color
+
+// Use UDS variables from shared file (not duplicated)
+// $uds-breakpoint-sm: 576px; - now from variables.scss
+// $uds-breakpoint-lg: 1260px; - custom value (not in standard UDS tokens)
+$uds-breakpoint-lg: 1260px !default;
+// $uds-color-base-gray-7: #191919; - now from variables.scss
+// $uds-color-brand-gold: #ffc627; - use $uds-color-base-gold from variables.scss
 
 @mixin shadow {
   // At start, no "to right" in ::after rule
@@ -332,7 +337,7 @@ $uds-color-brand-gold: #ffc627; // ASU Gold brand color
 
             .#{$glide-class}__bullet--active {
               background-color: transparent;
-              border: 5px solid $uds-color-brand-gold;
+              border: 5px solid $uds-color-base-gold;
             }
           }
         }

@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "id-alt",
     "keywords": ["card", "cards", "content", "hover", "interactive", "overlay", "uds"],
+    "viewStyle": "file:../../src/css/blocks/cards.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "card.php",

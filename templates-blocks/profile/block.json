@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "admin-users",
     "keywords": ["person", "profile", "uds"],
+    "viewStyle": "file:../../src/css/blocks/profile.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "profile.php"

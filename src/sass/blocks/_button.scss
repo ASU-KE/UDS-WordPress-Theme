@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+# UDS Button Block
+
+Frontend-only styles for the UDS Button block.
+These styles are applied using the WordPress viewStyle feature.
+--------------------------------------------------------------*/
+
+/* ACF block preview button styles */
+.acf-block-preview .uds-button a,
+.acf-block-preview .uds-button button {
+	/* Button styles are inherited from UDS Bootstrap theme */
+}
+
+/* Additional button customizations can be added here */
