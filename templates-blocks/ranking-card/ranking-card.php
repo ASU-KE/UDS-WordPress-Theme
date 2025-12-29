@@ -33,19 +33,19 @@ $rank_source = $rank_source ? sanitize_text_field($rank_source) : '';
 $description = $description ? wp_kses_post($description) : '';
 ?>
 
-<div class="uds-ranking-card <?php echo $additional_classes; ?>">
+<div class="uds-ranking-card <?php echo esc_attr($additional_classes); ?>">
 	<?php if ($rank_number) : ?>
 		<div class="ranking-card-number">
-			<?php echo $rank_number; ?>
+			<?php echo esc_html($rank_number); ?>
 		</div>
 	<?php endif; ?>
 
 	<?php if ($title) : ?>
-		<h3 class="ranking-card-title"><?php echo $title; ?></h3>
+		<h3 class="ranking-card-title"><?php echo esc_html($title); ?></h3>
 	<?php endif; ?>
 
 	<?php if ($rank_source) : ?>
-		<p class="ranking-card-source"><?php echo $rank_source; ?></p>
+		<p class="ranking-card-source"><?php echo esc_html($rank_source); ?></p>
 	<?php endif; ?>
 
 	<?php if ($description) : ?>
