@@ -47,10 +47,12 @@
 				min-width: 180px;
 				max-width: 180px;
 				object-fit: cover;
+			}
 		}
 	}
-			// Image style: fixed dimensions and object-fit rule for consistency.
-			// April 2022: Added additional width rules to fix image size CSS from WordPress.
+
+	// Image style: fixed dimensions and object-fit rule for consistency.
+	// April 2022: Added additional width rules to fix image size CSS from WordPress.
 	img.profile-img.feature-profile {
 		height: 270px;
 		min-height: 270px;
@@ -60,7 +62,6 @@
 		max-width: 270px;
 		object-fit: cover;
 	}
-}
 	&.feature-profile {
 		--pic-size: 270px;
 	}

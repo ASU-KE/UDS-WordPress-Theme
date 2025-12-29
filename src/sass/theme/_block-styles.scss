@@ -1,0 +1,24 @@
+/*--------------------------------------------------------------
+Block style variations (background modes)
+--------------------------------------------------------------*/
+
+.is-style-maroon {
+	@extend .maroon;
+}
+
+.is-style-smokemode {
+	@extend .smokemode;
+}
+
+.is-style-light-smokemode {
+	@extend .light-smokemode;
+}
+
+.is-style-darkmode {
+	@extend .darkmode;
+}
+
+.is-style-darkmode-gold {
+	@extend .darkmode;
+	@extend .gold;
+}
