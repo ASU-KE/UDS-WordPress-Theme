@@ -165,15 +165,15 @@ gulp.task("admin-core-scripts", function() {
 
 /**
  * Block-specific scripts - Minify individual block scripts for viewScript and editorScript
- * These are scripts that are loaded per-block in the editor and front-end
+ * These are scripts that are located within the templates-blocks directories
+ * Note: Scripts in src/js/custom/ (like tabbed-panels.js, overlay-card.js) are referenced
+ * by blocks but should not be minified here as they are referenced with relative paths
  */
 gulp.task("block-scripts", function() {
 	const blockScripts = [
 		"./templates-blocks/ranking-card/ranking-card.js",
 		"./templates-blocks/background-section/background-section.js",
 		"./templates-blocks/foldable-card/foldable-card.js",
-		"./src/js/custom/tabbed-panels.js",
-		"./src/js/custom/overlay-card.js",
 	];
 
 	return gulp
