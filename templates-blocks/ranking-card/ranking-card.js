@@ -1,0 +1,41 @@
+/**
+ * File ranking-card.js
+ *
+ * JS for UDS Ranking Card block.
+ * Handles both editor and front-end view.
+ */
+
+/*jshint esversion: 6 */
+(function($) {
+	'use strict';
+
+	/**
+	 * Initialize ranking card
+	 * This function can be extended to add interactivity if needed
+	 */
+	function initRankingCard() {
+		// Add any initialization logic here
+		// For now, this is a simple static card, but can be extended
+		// to add animations, interactions, or dynamic content loading
+		
+		$('.uds-ranking-card').each(function() {
+			// Add initialized class to prevent double initialization
+			if (!$(this).hasClass('initialized')) {
+				$(this).addClass('initialized');
+			}
+		});
+	}
+
+	// Initialize on document ready
+	$(document).ready(function() {
+		initRankingCard();
+	});
+
+	// For Gutenberg editor, also initialize when blocks are loaded
+	if (window.wp && window.wp.domReady) {
+		window.wp.domReady(function() {
+			initRankingCard();
+		});
+	}
+
+})(jQuery);

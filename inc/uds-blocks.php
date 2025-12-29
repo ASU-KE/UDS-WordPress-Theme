@@ -108,6 +108,7 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/modals' );
 	register_block_type( get_template_directory() . '/templates-blocks/overlay-card' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
+	register_block_type( get_template_directory() . '/templates-blocks/ranking-card' );
 	register_block_type( get_template_directory() . '/templates-blocks/show-more' );
 	register_block_type( get_template_directory() . '/templates-blocks/tabbed-panels' );
 }

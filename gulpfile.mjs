@@ -162,3 +162,23 @@ gulp.task("admin-core-scripts", function() {
 		.pipe(gulp.dest("./dist/js"));
 
 });
+
+/**
+ * Block-specific scripts - Minify individual block scripts for viewScript and editorScript
+ * These are scripts that are loaded per-block in the editor and front-end
+ */
+gulp.task("block-scripts", function() {
+	const blockScripts = [
+		"./templates-blocks/ranking-card/ranking-card.js",
+		"./templates-blocks/tabbed-panels/tabbed-panels.js",
+		"./templates-blocks/overlay-card/overlay-card.js",
+		"./templates-blocks/background-section/background-section.js",
+	];
+
+	return gulp
+		.src(blockScripts, { allowEmpty: true, base: "./" })
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(uglify())
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(gulp.dest("./"));
+});

@@ -1,0 +1,30 @@
+{
+    "name": "acf/uds-ranking-card",
+    "title": "UDS Ranking Card",
+    "description": "A block for displaying ASU rankings with title, rank number, source, and description.",
+    "category": "uds",
+    "icon": "awards",
+    "keywords": ["ranking", "rank", "card", "stats", "number", "uds"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "ranking-card.php",
+        "validate": false,
+        "blockVersion": 3
+    },
+    "supports": {
+        "align": false
+    },
+    "editorScript": "file:./ranking-card.js",
+    "viewScript": "file:./ranking-card.js",
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "title": "Top 10 in the nation",
+                "rank_number": "1",
+                "rank_source": "U.S. News & World Report",
+                "description": "ASU is ranked #1 in innovation among national universities."
+            }
+        }
+    }
+}
