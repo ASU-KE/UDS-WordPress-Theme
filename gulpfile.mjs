@@ -170,9 +170,10 @@ gulp.task("admin-core-scripts", function() {
 gulp.task("block-scripts", function() {
 	const blockScripts = [
 		"./templates-blocks/ranking-card/ranking-card.js",
-		"./templates-blocks/tabbed-panels/tabbed-panels.js",
-		"./templates-blocks/overlay-card/overlay-card.js",
 		"./templates-blocks/background-section/background-section.js",
+		"./templates-blocks/foldable-card/foldable-card.js",
+		"./src/js/custom/tabbed-panels.js",
+		"./src/js/custom/overlay-card.js",
 	];
 
 	return gulp
