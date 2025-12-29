@@ -11,13 +11,12 @@
 
 	/**
 	 * Initialize ranking card
-	 * This function can be extended to add interactivity if needed
+	 * Currently a minimal implementation. Can be extended to add:
+	 * - Animations on scroll
+	 * - Dynamic content loading
+	 * - Interaction tracking
 	 */
 	function initRankingCard() {
-		// Add any initialization logic here
-		// For now, this is a simple static card, but can be extended
-		// to add animations, interactions, or dynamic content loading
-		
 		$('.uds-ranking-card').each(function() {
 			// Add initialized class to prevent double initialization
 			if (!$(this).hasClass('initialized')) {

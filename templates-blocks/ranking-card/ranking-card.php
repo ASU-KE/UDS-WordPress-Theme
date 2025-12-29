@@ -30,7 +30,7 @@ if (isset($block['className']) && !empty($block['className'])) {
 $title = $title ? sanitize_text_field($title) : '';
 $rank_number = $rank_number ? sanitize_text_field($rank_number) : '';
 $rank_source = $rank_source ? sanitize_text_field($rank_source) : '';
-$description = $description ? wp_kses_post($description) : '';
+$description = $description ? sanitize_textarea_field($description) : '';
 ?>
 
 <div class="uds-ranking-card <?php echo esc_attr($additional_classes); ?>">
@@ -50,7 +50,7 @@ $description = $description ? wp_kses_post($description) : '';
 
 	<?php if ($description) : ?>
 		<div class="ranking-card-description">
-			<?php echo $description; ?>
+			<?php echo esc_html($description); ?>
 		</div>
 	<?php endif; ?>
 </div>
