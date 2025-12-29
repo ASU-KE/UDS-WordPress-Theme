@@ -1,0 +1,55 @@
+// UDS Ranking Card Block Styles
+// Styles for the ranking card component
+
+.uds-ranking-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 2rem;
+	border: 1px solid #d0d0d0;
+	border-radius: 4px;
+	background-color: #fff;
+	margin-bottom: 1rem;
+
+	.ranking-card-number {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		color: #8c1d40; // ASU Maroon
+		margin-bottom: 1rem;
+	}
+
+	.ranking-card-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: #191919;
+	}
+
+	.ranking-card-source {
+		font-size: 0.875rem;
+		color: #747474;
+		margin-bottom: 1rem;
+		font-style: italic;
+	}
+
+	.ranking-card-description {
+		font-size: 1rem;
+		color: #191919;
+		line-height: 1.5;
+	}
+
+	// Add some responsive adjustments
+	@media (max-width: 768px) {
+		padding: 1.5rem;
+
+		.ranking-card-number {
+			font-size: 3rem;
+		}
+
+		.ranking-card-title {
+			font-size: 1.25rem;
+		}
+	}
+}
