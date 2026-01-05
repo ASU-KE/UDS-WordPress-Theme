@@ -31,5 +31,5 @@ jobs:
           ado_new_state: "To do"
           ado_active_state: "Doing"
           ado_close_state: "Done"
-          ado_bypassrules: true
+          ado_bypassrules: false
           log_level: 100
