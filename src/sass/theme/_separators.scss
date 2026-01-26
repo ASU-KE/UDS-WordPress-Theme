@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+Dividers
+--------------------------------------------------------------*/
+.is-style-copy-divider {
+	@extend .copy-divider;
+}
+
+.block-editor-block-list__layout .wp-block.is-style-copy-divider {
+	margin-right: 0;
+	margin-left: 0;
+	max-width: $uds-size-spacing-32 !important;
+
+	&.wp-block-separator {
+		opacity: 1;
+	}
+}
+
+/*--------------------------------------------------------------
+wp-block-separator
+--------------------------------------------------------------*/
+
+.wp-block-separator {
+	border-top: 0;
+	border-bottom: 0;
+}

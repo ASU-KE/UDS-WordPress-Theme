@@ -442,6 +442,18 @@ The process will look like this.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
+#### 2026 Lando
+- `mkdir local-site/wordpress-test-site`, `cd` into directory
+- `lando init` - "code base from current directory", use wordpress recipe, webroot press enter for default, name your app
+- `lando start` - visit in browser to confirm apache server is running
+- `lando wp core download` - get latest wordpress software
+- `lando wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database` - creates `wp-config.php` file, defaults from lando recipe, do not change
+- `lando wp core install --url="https://url-from-lando-start" --title="Wordpress Site Title" --admin_user=admin --admin_password=password --admin_email=test@asu.edu`
+- default WordPress should be running. To install the theme, git clone into `wp-content/themes`
+
+> [!IMPORTANT]  
+> MacOS Tahoe users must visit `System Settings > Privacy and Security > Full Disk Access` and allow the program running Lando (ex. terminal window in VS Code). The app will only partially load and display 500 or 403 errors.
+
 ### Installing Dependencies
 
 - Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally

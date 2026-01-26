@@ -14885,16 +14885,31 @@ div[class="alert alert-block"] {
   height: 322px;
 }
 
-.gray-7-bg {
+.gray-7-bg, .gray-dark-bg {
   background: #191919;
 }
 
-.gray-2-bg {
+.text-gray-dark-bg {
+  background-color: #191919;
+  color: #fafafa;
+}
+
+.gray-2-bg, .gray-light-bg {
   background: #e8e8e8;
 }
 
-.gray-1-bg {
+.text-gray-light-bg {
+  background-color: #e8e8e8;
+  color: #191919;
+}
+
+.gray-1-bg, .gray-faint-bg {
   background: #fafafa;
+}
+
+.text-gray-faint-bg {
+  background-color: #fafafa;
+  color: #191919;
 }
 
 .white-bg {
@@ -15770,7 +15785,7 @@ Cards - Table of Contents
   max-width: 50%;
   padding: 48px 96px;
 }
-.uds-image-text-block-text-container.gray-7-bg {
+.uds-image-text-block-text-container.gray-7-bg, .uds-image-text-block-text-container.gray-dark-bg {
   color: #ffffff;
 }
 @media screen and (max-width: 992px) {
@@ -17627,13 +17642,13 @@ span.page-link:hover {
   padding: 0.375rem 0.75rem;
   gap: 1rem;
 }
-.pagination.uds-bg-gray1 {
+.pagination.uds-bg-gray1, .pagination.uds-bg-faint {
   background-color: #fafafa;
 }
-.pagination.uds-bg-gray1 :not(.active) .page-link {
+.pagination.uds-bg-gray1 :not(.active) .page-link, .pagination.uds-bg-faint :not(.active) .page-link {
   background-color: #fafafa;
 }
-.pagination.uds-bg-gray1 :not(.active) .page-link:hover {
+.pagination.uds-bg-gray1 :not(.active) .page-link:hover, .pagination.uds-bg-faint :not(.active) .page-link:hover {
   background-color: #bfbfbf;
   color: #191919;
 }
@@ -18345,10 +18360,10 @@ div.uds-hero-lg > a.btn, div.uds-hero-lg > a.uds-modal-close-btn {
 .breadcrumb, .yoast-breadcrumbs {
   padding-left: 0;
 }
-.breadcrumb.bg-gray-7 a, .bg-gray-7.yoast-breadcrumbs a {
+.breadcrumb.bg-gray-7 a, .bg-gray-7.yoast-breadcrumbs a, .breadcrumb.gray-dark-bg a, .gray-dark-bg.yoast-breadcrumbs a {
   color: #ffc627;
 }
-.breadcrumb.bg-gray-7 li.active, .bg-gray-7.yoast-breadcrumbs li.active, .breadcrumb.bg-gray-7 li.active a, .bg-gray-7.yoast-breadcrumbs li.active a {
+.breadcrumb.bg-gray-7 li.active, .bg-gray-7.yoast-breadcrumbs li.active, .breadcrumb.bg-gray-7 li.active a, .bg-gray-7.yoast-breadcrumbs li.active a, .breadcrumb.gray-dark-bg li.active, .gray-dark-bg.yoast-breadcrumbs li.active, .breadcrumb.gray-dark-bg li.active a, .gray-dark-bg.yoast-breadcrumbs li.active a {
   color: #fafafa;
 }
 .breadcrumb .breadcrumb-item, .yoast-breadcrumbs .breadcrumb-item {
@@ -19206,10 +19221,10 @@ form.uds-form .input-group-trailing-icon svg, form.wpcf7-form .input-group-trail
 form.uds-form.uds-form-white, form.uds-form-white.wpcf7-form {
   background-color: white;
 }
-form.uds-form.uds-form-gray1, form.uds-form-gray1.wpcf7-form {
+form.uds-form.uds-form-gray1, form.uds-form-gray1.wpcf7-form, form.uds-form.uds-form-faint-bg, form.uds-form-faint-bg.wpcf7-form {
   background-color: #fafafa;
 }
-form.uds-form.uds-form-gray2, form.uds-form-gray2.wpcf7-form {
+form.uds-form.uds-form-gray2, form.uds-form-gray2.wpcf7-form, form.uds-form.uds-form-light-bg, form.uds-form-light-bg.wpcf7-form {
   background-color: #e8e8e8;
   /* Dark Radios and Checkboxes */
 }
@@ -19218,7 +19233,12 @@ form.uds-form.uds-form-gray2 .form-check input[type=checkbox]:disabled + label::
 form.uds-form.uds-form-gray2 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray2 label input[type=checkbox]:disabled + label::before,
 form.uds-form-gray2.wpcf7-form .form-check input[type=checkbox]:disabled + label::before,
-form.uds-form-gray2.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before {
+form.uds-form-gray2.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before, form.uds-form.uds-form-light-bg .form-check input[type=radio]:disabled + label::before, form.uds-form.uds-form-light-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-light-bg label input[type=radio]:disabled + label::before, form.uds-form-light-bg.wpcf7-form .form-check input[type=radio]:disabled + label::before, form.uds-form-light-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before,
+form.uds-form.uds-form-light-bg .form-check input[type=checkbox]:disabled + label::before,
+form.uds-form.uds-form-light-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-light-bg label input[type=checkbox]:disabled + label::before,
+form.uds-form-light-bg.wpcf7-form .form-check input[type=checkbox]:disabled + label::before,
+form.uds-form-light-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before {
   background: #bfbfbf;
   border-color: #747474;
 }
@@ -19227,10 +19247,15 @@ form.uds-form.uds-form-gray2 .form-check input[type=checkbox]:disabled + label,
 form.uds-form.uds-form-gray2 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray2 label input[type=checkbox]:disabled + label,
 form.uds-form-gray2.wpcf7-form .form-check input[type=checkbox]:disabled + label,
-form.uds-form-gray2.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label {
+form.uds-form-gray2.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label, form.uds-form.uds-form-light-bg .form-check input[type=radio]:disabled + label, form.uds-form.uds-form-light-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-light-bg label input[type=radio]:disabled + label, form.uds-form-light-bg.wpcf7-form .form-check input[type=radio]:disabled + label, form.uds-form-light-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label,
+form.uds-form.uds-form-light-bg .form-check input[type=checkbox]:disabled + label,
+form.uds-form.uds-form-light-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-light-bg label input[type=checkbox]:disabled + label,
+form.uds-form-light-bg.wpcf7-form .form-check input[type=checkbox]:disabled + label,
+form.uds-form-light-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label {
   color: #484848;
 }
-form.uds-form.uds-form-gray7, form.uds-form-gray7.wpcf7-form {
+form.uds-form.uds-form-gray7, form.uds-form-gray7.wpcf7-form, form.uds-form.uds-form-dark-bg, form.uds-form-dark-bg.wpcf7-form {
   background-color: #191919;
   color: #fafafa;
   /* Dark Labels */
@@ -19244,7 +19269,7 @@ form.uds-form.uds-form-gray7, form.uds-form-gray7.wpcf7-form {
   /* Dark error input */
   /* Dark success input */
 }
-form.uds-form.uds-form-gray7 label svg.uds-field-required, form.uds-form-gray7.wpcf7-form label svg.uds-field-required, form.uds-form.uds-form-gray7 label i.uds-field-required, form.uds-form-gray7.wpcf7-form label i.uds-field-required, form.uds-form.uds-form-gray7 label span.uds-field-required, form.uds-form-gray7.wpcf7-form label span.uds-field-required, form.uds-form.uds-form-gray7 legend svg.uds-field-required, form.uds-form-gray7.wpcf7-form legend svg.uds-field-required, form.uds-form.uds-form-gray7 legend i.uds-field-required, form.uds-form-gray7.wpcf7-form legend i.uds-field-required, form.uds-form.uds-form-gray7 legend span.uds-field-required, form.uds-form-gray7.wpcf7-form legend span.uds-field-required {
+form.uds-form.uds-form-gray7 label svg.uds-field-required, form.uds-form-gray7.wpcf7-form label svg.uds-field-required, form.uds-form.uds-form-gray7 label i.uds-field-required, form.uds-form-gray7.wpcf7-form label i.uds-field-required, form.uds-form.uds-form-gray7 label span.uds-field-required, form.uds-form-gray7.wpcf7-form label span.uds-field-required, form.uds-form.uds-form-gray7 legend svg.uds-field-required, form.uds-form-gray7.wpcf7-form legend svg.uds-field-required, form.uds-form.uds-form-gray7 legend i.uds-field-required, form.uds-form-gray7.wpcf7-form legend i.uds-field-required, form.uds-form.uds-form-gray7 legend span.uds-field-required, form.uds-form-gray7.wpcf7-form legend span.uds-field-required, form.uds-form.uds-form-dark-bg label svg.uds-field-required, form.uds-form-dark-bg.wpcf7-form label svg.uds-field-required, form.uds-form.uds-form-dark-bg label i.uds-field-required, form.uds-form-dark-bg.wpcf7-form label i.uds-field-required, form.uds-form.uds-form-dark-bg label span.uds-field-required, form.uds-form-dark-bg.wpcf7-form label span.uds-field-required, form.uds-form.uds-form-dark-bg legend svg.uds-field-required, form.uds-form-dark-bg.wpcf7-form legend svg.uds-field-required, form.uds-form.uds-form-dark-bg legend i.uds-field-required, form.uds-form-dark-bg.wpcf7-form legend i.uds-field-required, form.uds-form.uds-form-dark-bg legend span.uds-field-required, form.uds-form-dark-bg.wpcf7-form legend span.uds-field-required {
   color: #ffc627;
 }
 form.uds-form.uds-form-gray7 .form-control, form.uds-form.uds-form-gray7 .wpcf7-form input:not([type=submit]), .wpcf7-form form.uds-form.uds-form-gray7 input:not([type=submit]),
@@ -19253,10 +19278,16 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea,
 form.uds-form.uds-form-gray7 .wpcf7-form select,
 .wpcf7-form form.uds-form.uds-form-gray7 select, form.uds-form-gray7.wpcf7-form .form-control, form.uds-form-gray7.wpcf7-form input:not([type=submit]),
 form.uds-form-gray7.wpcf7-form textarea,
-form.uds-form-gray7.wpcf7-form select {
+form.uds-form-gray7.wpcf7-form select, form.uds-form.uds-form-dark-bg .form-control, form.uds-form.uds-form-dark-bg .wpcf7-form input:not([type=submit]), .wpcf7-form form.uds-form.uds-form-dark-bg input:not([type=submit]),
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea,
+form.uds-form.uds-form-dark-bg .wpcf7-form select,
+.wpcf7-form form.uds-form.uds-form-dark-bg select, form.uds-form-dark-bg.wpcf7-form .form-control, form.uds-form-dark-bg.wpcf7-form input:not([type=submit]),
+form.uds-form-dark-bg.wpcf7-form textarea,
+form.uds-form-dark-bg.wpcf7-form select {
   /* Disabled input */
 }
-form.uds-form.uds-form-gray7 .form-control::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control::-moz-placeholder, form.uds-form-gray7.wpcf7-form input:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea::-moz-placeholder, form.uds-form-gray7.wpcf7-form select::-moz-placeholder {
+form.uds-form.uds-form-gray7 .form-control::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control::-moz-placeholder, form.uds-form-gray7.wpcf7-form input:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea::-moz-placeholder, form.uds-form-gray7.wpcf7-form select::-moz-placeholder, form.uds-form.uds-form-dark-bg .form-control::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form textarea::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg textarea::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form select::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg select::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form .form-control::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form input:not([type=submit])::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form textarea::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form select::-moz-placeholder {
   color: #bfbfbf;
 }
 form.uds-form.uds-form-gray7 .form-control::placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:not([type=submit])::placeholder,
@@ -19265,10 +19296,16 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea::placeholder,
 form.uds-form.uds-form-gray7 .wpcf7-form select::placeholder,
 .wpcf7-form form.uds-form.uds-form-gray7 select::placeholder, form.uds-form-gray7.wpcf7-form .form-control::placeholder, form.uds-form-gray7.wpcf7-form input:not([type=submit])::placeholder,
 form.uds-form-gray7.wpcf7-form textarea::placeholder,
-form.uds-form-gray7.wpcf7-form select::placeholder {
+form.uds-form-gray7.wpcf7-form select::placeholder, form.uds-form.uds-form-dark-bg .form-control::placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input:not([type=submit])::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form select::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg select::placeholder, form.uds-form-dark-bg.wpcf7-form .form-control::placeholder, form.uds-form-dark-bg.wpcf7-form input:not([type=submit])::placeholder,
+form.uds-form-dark-bg.wpcf7-form textarea::placeholder,
+form.uds-form-dark-bg.wpcf7-form select::placeholder {
   color: #bfbfbf;
 }
-form.uds-form.uds-form-gray7 .form-control.is-invalid::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea.is-invalid::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form select.is-invalid::-moz-placeholder {
+form.uds-form.uds-form-gray7 .form-control.is-invalid::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea.is-invalid::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea.is-invalid::-moz-placeholder, form.uds-form-gray7.wpcf7-form select.is-invalid::-moz-placeholder, form.uds-form.uds-form-dark-bg .form-control.is-invalid::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form textarea.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg textarea.is-invalid::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form select.is-invalid::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg select.is-invalid::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form .form-control.is-invalid::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form input.is-invalid:not([type=submit])::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form textarea.is-invalid::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form select.is-invalid::-moz-placeholder {
   color: #fafafa;
 }
 form.uds-form.uds-form-gray7 .form-control.is-invalid::placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input.is-invalid:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input.is-invalid:not([type=submit])::placeholder,
@@ -19277,7 +19314,13 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea.is-invalid::placeholder,
 form.uds-form.uds-form-gray7 .wpcf7-form select.is-invalid::placeholder,
 .wpcf7-form form.uds-form.uds-form-gray7 select.is-invalid::placeholder, form.uds-form-gray7.wpcf7-form .form-control.is-invalid::placeholder, form.uds-form-gray7.wpcf7-form input.is-invalid:not([type=submit])::placeholder,
 form.uds-form-gray7.wpcf7-form textarea.is-invalid::placeholder,
-form.uds-form-gray7.wpcf7-form select.is-invalid::placeholder {
+form.uds-form-gray7.wpcf7-form select.is-invalid::placeholder, form.uds-form.uds-form-dark-bg .form-control.is-invalid::placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input.is-invalid:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input.is-invalid:not([type=submit])::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea.is-invalid::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea.is-invalid::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form select.is-invalid::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg select.is-invalid::placeholder, form.uds-form-dark-bg.wpcf7-form .form-control.is-invalid::placeholder, form.uds-form-dark-bg.wpcf7-form input.is-invalid:not([type=submit])::placeholder,
+form.uds-form-dark-bg.wpcf7-form textarea.is-invalid::placeholder,
+form.uds-form-dark-bg.wpcf7-form select.is-invalid::placeholder {
   color: #fafafa;
 }
 form.uds-form.uds-form-gray7 .form-control:invalid, form.uds-form.uds-form-gray7 .wpcf7-form input:invalid:not([type=submit]), .wpcf7-form form.uds-form.uds-form-gray7 input:invalid:not([type=submit]),
@@ -19286,7 +19329,13 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea:invalid,
 form.uds-form.uds-form-gray7 .wpcf7-form select:invalid,
 .wpcf7-form form.uds-form.uds-form-gray7 select:invalid, form.uds-form-gray7.wpcf7-form .form-control:invalid, form.uds-form-gray7.wpcf7-form input:invalid:not([type=submit]),
 form.uds-form-gray7.wpcf7-form textarea:invalid,
-form.uds-form-gray7.wpcf7-form select:invalid {
+form.uds-form-gray7.wpcf7-form select:invalid, form.uds-form.uds-form-dark-bg .form-control:invalid, form.uds-form.uds-form-dark-bg .wpcf7-form input:invalid:not([type=submit]), .wpcf7-form form.uds-form.uds-form-dark-bg input:invalid:not([type=submit]),
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea:invalid,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea:invalid,
+form.uds-form.uds-form-dark-bg .wpcf7-form select:invalid,
+.wpcf7-form form.uds-form.uds-form-dark-bg select:invalid, form.uds-form-dark-bg.wpcf7-form .form-control:invalid, form.uds-form-dark-bg.wpcf7-form input:invalid:not([type=submit]),
+form.uds-form-dark-bg.wpcf7-form textarea:invalid,
+form.uds-form-dark-bg.wpcf7-form select:invalid {
   border-style: solid;
   border: 1px solid #FF7B7D;
   border-bottom: 8px solid #FF7B7D;
@@ -19303,12 +19352,24 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea[readonly],
 form.uds-form.uds-form-gray7 .wpcf7-form select[readonly],
 .wpcf7-form form.uds-form.uds-form-gray7 select[readonly], form.uds-form-gray7.wpcf7-form .form-control[readonly], form.uds-form-gray7.wpcf7-form input[readonly]:not([type=submit]),
 form.uds-form-gray7.wpcf7-form textarea[readonly],
-form.uds-form-gray7.wpcf7-form select[readonly] {
+form.uds-form-gray7.wpcf7-form select[readonly], form.uds-form.uds-form-dark-bg .form-control:disabled, form.uds-form.uds-form-dark-bg .wpcf7-form input:disabled:not([type=submit]), .wpcf7-form form.uds-form.uds-form-dark-bg input:disabled:not([type=submit]),
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea:disabled,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea:disabled,
+form.uds-form.uds-form-dark-bg .wpcf7-form select:disabled,
+.wpcf7-form form.uds-form.uds-form-dark-bg select:disabled, form.uds-form-dark-bg.wpcf7-form .form-control:disabled, form.uds-form-dark-bg.wpcf7-form input:disabled:not([type=submit]),
+form.uds-form-dark-bg.wpcf7-form textarea:disabled,
+form.uds-form-dark-bg.wpcf7-form select:disabled, form.uds-form.uds-form-dark-bg .form-control[readonly], form.uds-form.uds-form-dark-bg .wpcf7-form input[readonly]:not([type=submit]), .wpcf7-form form.uds-form.uds-form-dark-bg input[readonly]:not([type=submit]),
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea[readonly],
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea[readonly],
+form.uds-form.uds-form-dark-bg .wpcf7-form select[readonly],
+.wpcf7-form form.uds-form.uds-form-dark-bg select[readonly], form.uds-form-dark-bg.wpcf7-form .form-control[readonly], form.uds-form-dark-bg.wpcf7-form input[readonly]:not([type=submit]),
+form.uds-form-dark-bg.wpcf7-form textarea[readonly],
+form.uds-form-dark-bg.wpcf7-form select[readonly] {
   color: #747474;
   background: #484848;
   border: 1px solid #747474;
 }
-form.uds-form.uds-form-gray7 .form-control:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:disabled:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form select:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .form-control[readonly]::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea[readonly]::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form select[readonly]::-moz-placeholder {
+form.uds-form.uds-form-gray7 .form-control:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:disabled:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea:disabled::-moz-placeholder, form.uds-form-gray7.wpcf7-form select:disabled::-moz-placeholder, form.uds-form.uds-form-gray7 .form-control[readonly]::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form textarea[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 textarea[readonly]::-moz-placeholder, form.uds-form.uds-form-gray7 .wpcf7-form select[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-gray7 select[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form .form-control[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form-gray7.wpcf7-form textarea[readonly]::-moz-placeholder, form.uds-form-gray7.wpcf7-form select[readonly]::-moz-placeholder, form.uds-form.uds-form-dark-bg .form-control:disabled::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input:disabled:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form textarea:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg textarea:disabled::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form select:disabled::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg select:disabled::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form .form-control:disabled::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form input:disabled:not([type=submit])::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form textarea:disabled::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form select:disabled::-moz-placeholder, form.uds-form.uds-form-dark-bg .form-control[readonly]::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form textarea[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg textarea[readonly]::-moz-placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form select[readonly]::-moz-placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg select[readonly]::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form .form-control[readonly]::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form input[readonly]:not([type=submit])::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form textarea[readonly]::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form select[readonly]::-moz-placeholder {
   color: #bfbfbf;
 }
 form.uds-form.uds-form-gray7 .form-control:disabled::placeholder, form.uds-form.uds-form-gray7 .wpcf7-form input:disabled:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-gray7 input:disabled:not([type=submit])::placeholder,
@@ -19323,50 +19384,74 @@ form.uds-form.uds-form-gray7 .wpcf7-form textarea[readonly]::placeholder,
 form.uds-form.uds-form-gray7 .wpcf7-form select[readonly]::placeholder,
 .wpcf7-form form.uds-form.uds-form-gray7 select[readonly]::placeholder, form.uds-form-gray7.wpcf7-form .form-control[readonly]::placeholder, form.uds-form-gray7.wpcf7-form input[readonly]:not([type=submit])::placeholder,
 form.uds-form-gray7.wpcf7-form textarea[readonly]::placeholder,
-form.uds-form-gray7.wpcf7-form select[readonly]::placeholder {
+form.uds-form-gray7.wpcf7-form select[readonly]::placeholder, form.uds-form.uds-form-dark-bg .form-control:disabled::placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input:disabled:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input:disabled:not([type=submit])::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea:disabled::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea:disabled::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form select:disabled::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg select:disabled::placeholder, form.uds-form-dark-bg.wpcf7-form .form-control:disabled::placeholder, form.uds-form-dark-bg.wpcf7-form input:disabled:not([type=submit])::placeholder,
+form.uds-form-dark-bg.wpcf7-form textarea:disabled::placeholder,
+form.uds-form-dark-bg.wpcf7-form select:disabled::placeholder, form.uds-form.uds-form-dark-bg .form-control[readonly]::placeholder, form.uds-form.uds-form-dark-bg .wpcf7-form input[readonly]:not([type=submit])::placeholder, .wpcf7-form form.uds-form.uds-form-dark-bg input[readonly]:not([type=submit])::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form textarea[readonly]::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg textarea[readonly]::placeholder,
+form.uds-form.uds-form-dark-bg .wpcf7-form select[readonly]::placeholder,
+.wpcf7-form form.uds-form.uds-form-dark-bg select[readonly]::placeholder, form.uds-form-dark-bg.wpcf7-form .form-control[readonly]::placeholder, form.uds-form-dark-bg.wpcf7-form input[readonly]:not([type=submit])::placeholder,
+form.uds-form-dark-bg.wpcf7-form textarea[readonly]::placeholder,
+form.uds-form-dark-bg.wpcf7-form select[readonly]::placeholder {
   color: #bfbfbf;
 }
 form.uds-form.uds-form-gray7 label, form.uds-form-gray7.wpcf7-form label,
 form.uds-form.uds-form-gray7 legend,
-form.uds-form-gray7.wpcf7-form legend {
+form.uds-form-gray7.wpcf7-form legend, form.uds-form.uds-form-dark-bg label, form.uds-form-dark-bg.wpcf7-form label,
+form.uds-form.uds-form-dark-bg legend,
+form.uds-form-dark-bg.wpcf7-form legend {
   color: #fafafa;
 }
 form.uds-form.uds-form-gray7 label.uds-form-label-disabled, form.uds-form-gray7.wpcf7-form label.uds-form-label-disabled,
 form.uds-form.uds-form-gray7 legend.uds-form-label-disabled,
-form.uds-form-gray7.wpcf7-form legend.uds-form-label-disabled {
+form.uds-form-gray7.wpcf7-form legend.uds-form-label-disabled, form.uds-form.uds-form-dark-bg label.uds-form-label-disabled, form.uds-form-dark-bg.wpcf7-form label.uds-form-label-disabled,
+form.uds-form.uds-form-dark-bg legend.uds-form-label-disabled,
+form.uds-form-dark-bg.wpcf7-form legend.uds-form-label-disabled {
   color: #bfbfbf;
 }
-form.uds-form.uds-form-gray7.was-validated .form-check-input:valid ~ .form-check-label, form.uds-form.uds-form-gray7.was-validated .wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-gray7.was-validated input:valid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .form-check-input:valid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label {
+form.uds-form.uds-form-gray7.was-validated .form-check-input:valid ~ .form-check-label, form.uds-form.uds-form-gray7.was-validated .wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-gray7.was-validated input:valid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .form-check-input:valid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label, form.uds-form.uds-form-dark-bg.was-validated .form-check-input:valid ~ .form-check-label, form.uds-form.uds-form-dark-bg.was-validated .wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-dark-bg.was-validated input:valid ~ .form-check-label, form.uds-form-dark-bg.was-validated.wpcf7-form .form-check-input:valid ~ .form-check-label, form.uds-form-dark-bg.was-validated.wpcf7-form .wpcf7-list-item label input:valid ~ .form-check-label {
   color: #fafafa;
 }
-form.uds-form.uds-form-gray7.was-validated select ~ small.is-valid, form.uds-form-gray7.was-validated.wpcf7-form select ~ small.is-valid, form.uds-form.uds-form-gray7.was-validated select ~ .is-valid.small, form.uds-form-gray7.was-validated.wpcf7-form select ~ .is-valid.small, form.uds-form.uds-form-gray7.was-validated select ~ div.is-valid, form.uds-form-gray7.was-validated.wpcf7-form select ~ div.is-valid {
+form.uds-form.uds-form-gray7.was-validated select ~ small.is-valid, form.uds-form-gray7.was-validated.wpcf7-form select ~ small.is-valid, form.uds-form.uds-form-gray7.was-validated select ~ .is-valid.small, form.uds-form-gray7.was-validated.wpcf7-form select ~ .is-valid.small, form.uds-form.uds-form-gray7.was-validated select ~ div.is-valid, form.uds-form-gray7.was-validated.wpcf7-form select ~ div.is-valid, form.uds-form.uds-form-dark-bg.was-validated select ~ small.is-valid, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ small.is-valid, form.uds-form.uds-form-dark-bg.was-validated select ~ .is-valid.small, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ .is-valid.small, form.uds-form.uds-form-dark-bg.was-validated select ~ div.is-valid, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ div.is-valid {
   color: #78be20;
 }
-form.uds-form.uds-form-gray7.was-validated .form-check-input:invalid ~ .form-check-label, form.uds-form.uds-form-gray7.was-validated .wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-gray7.was-validated input:invalid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .form-check-input:invalid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label {
+form.uds-form.uds-form-gray7.was-validated .form-check-input:invalid ~ .form-check-label, form.uds-form.uds-form-gray7.was-validated .wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-gray7.was-validated input:invalid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .form-check-input:invalid ~ .form-check-label, form.uds-form-gray7.was-validated.wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label, form.uds-form.uds-form-dark-bg.was-validated .form-check-input:invalid ~ .form-check-label, form.uds-form.uds-form-dark-bg.was-validated .wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label, .wpcf7-form .wpcf7-list-item label form.uds-form.uds-form-dark-bg.was-validated input:invalid ~ .form-check-label, form.uds-form-dark-bg.was-validated.wpcf7-form .form-check-input:invalid ~ .form-check-label, form.uds-form-dark-bg.was-validated.wpcf7-form .wpcf7-list-item label input:invalid ~ .form-check-label {
   color: #fafafa;
 }
-form.uds-form.uds-form-gray7.was-validated select ~ small.is-invalid, form.uds-form-gray7.was-validated.wpcf7-form select ~ small.is-invalid, form.uds-form.uds-form-gray7.was-validated select ~ .is-invalid.small, form.uds-form-gray7.was-validated.wpcf7-form select ~ .is-invalid.small, form.uds-form.uds-form-gray7.was-validated select ~ div.is-invalid, form.uds-form-gray7.was-validated.wpcf7-form select ~ div.is-invalid {
+form.uds-form.uds-form-gray7.was-validated select ~ small.is-invalid, form.uds-form-gray7.was-validated.wpcf7-form select ~ small.is-invalid, form.uds-form.uds-form-gray7.was-validated select ~ .is-invalid.small, form.uds-form-gray7.was-validated.wpcf7-form select ~ .is-invalid.small, form.uds-form.uds-form-gray7.was-validated select ~ div.is-invalid, form.uds-form-gray7.was-validated.wpcf7-form select ~ div.is-invalid, form.uds-form.uds-form-dark-bg.was-validated select ~ small.is-invalid, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ small.is-invalid, form.uds-form.uds-form-dark-bg.was-validated select ~ .is-invalid.small, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ .is-invalid.small, form.uds-form.uds-form-dark-bg.was-validated select ~ div.is-invalid, form.uds-form-dark-bg.was-validated.wpcf7-form select ~ div.is-invalid {
   color: #FF7B7D;
 }
 form.uds-form.uds-form-gray7 input, form.uds-form-gray7.wpcf7-form input,
 form.uds-form.uds-form-gray7 textarea,
 form.uds-form-gray7.wpcf7-form textarea,
 form.uds-form.uds-form-gray7 select,
-form.uds-form-gray7.wpcf7-form select {
+form.uds-form-gray7.wpcf7-form select, form.uds-form.uds-form-dark-bg input, form.uds-form-dark-bg.wpcf7-form input,
+form.uds-form.uds-form-dark-bg textarea,
+form.uds-form-dark-bg.wpcf7-form textarea,
+form.uds-form.uds-form-dark-bg select,
+form.uds-form-dark-bg.wpcf7-form select {
   background-color: #191919;
   color: #fafafa;
 }
-form.uds-form.uds-form-gray7 input::-moz-placeholder, form.uds-form-gray7.wpcf7-form input::-moz-placeholder {
+form.uds-form.uds-form-gray7 input::-moz-placeholder, form.uds-form-gray7.wpcf7-form input::-moz-placeholder, form.uds-form.uds-form-dark-bg input::-moz-placeholder, form.uds-form-dark-bg.wpcf7-form input::-moz-placeholder {
   color: #bfbfbf;
 }
-form.uds-form.uds-form-gray7 input::placeholder, form.uds-form-gray7.wpcf7-form input::placeholder {
+form.uds-form.uds-form-gray7 input::placeholder, form.uds-form-gray7.wpcf7-form input::placeholder, form.uds-form.uds-form-dark-bg input::placeholder, form.uds-form-dark-bg.wpcf7-form input::placeholder {
   color: #bfbfbf;
 }
 form.uds-form.uds-form-gray7 input:focus, form.uds-form-gray7.wpcf7-form input:focus,
 form.uds-form.uds-form-gray7 textarea:focus,
 form.uds-form-gray7.wpcf7-form textarea:focus,
 form.uds-form.uds-form-gray7 select:focus,
-form.uds-form-gray7.wpcf7-form select:focus {
+form.uds-form-gray7.wpcf7-form select:focus, form.uds-form.uds-form-dark-bg input:focus, form.uds-form-dark-bg.wpcf7-form input:focus,
+form.uds-form.uds-form-dark-bg textarea:focus,
+form.uds-form-dark-bg.wpcf7-form textarea:focus,
+form.uds-form.uds-form-dark-bg select:focus,
+form.uds-form-dark-bg.wpcf7-form select:focus {
   background-color: #191919;
   color: #fafafa;
   outline: none !important;
@@ -19379,7 +19464,12 @@ form.uds-form.uds-form-gray7 .form-check input[type=checkbox] + label::before,
 form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox] + label::before,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox] + label::before,
 form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox] + label::before,
-form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox] + label::before {
+form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox] + label::before, form.uds-form.uds-form-dark-bg .form-check input[type=radio] + label::before, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=radio] + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=radio] + label::before, form.uds-form-dark-bg.wpcf7-form .form-check input[type=radio] + label::before, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=radio] + label::before,
+form.uds-form.uds-form-dark-bg .form-check input[type=checkbox] + label::before,
+form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox] + label::before,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox] + label::before,
+form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox] + label::before,
+form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox] + label::before {
   border: 1px solid #707070;
   background: #191919;
 }
@@ -19388,7 +19478,12 @@ form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:checked + label::a
 form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:checked + label::after,
 form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:checked + label::after,
-form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after {
+form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after, form.uds-form.uds-form-dark-bg .form-check input[type=radio]:checked + label::after, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:checked + label::after, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=radio]:checked + label::after, form.uds-form-dark-bg.wpcf7-form .form-check input[type=radio]:checked + label::after, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:checked + label::after,
+form.uds-form.uds-form-dark-bg .form-check input[type=checkbox]:checked + label::after,
+form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox]:checked + label::after,
+form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox]:checked + label::after,
+form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after {
   background: #fafafa;
 }
 form.uds-form.uds-form-gray7 .form-check input[type=radio]:focus + label::before, form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=radio]:focus + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=radio]:focus + label::before, form.uds-form-gray7.wpcf7-form .form-check input[type=radio]:focus + label::before, form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=radio]:focus + label::before,
@@ -19396,7 +19491,12 @@ form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:focus + label::bef
 form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:focus + label::before,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:focus + label::before,
 form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:focus + label::before,
-form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:focus + label::before {
+form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:focus + label::before, form.uds-form.uds-form-dark-bg .form-check input[type=radio]:focus + label::before, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:focus + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=radio]:focus + label::before, form.uds-form-dark-bg.wpcf7-form .form-check input[type=radio]:focus + label::before, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:focus + label::before,
+form.uds-form.uds-form-dark-bg .form-check input[type=checkbox]:focus + label::before,
+form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:focus + label::before,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox]:focus + label::before,
+form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox]:focus + label::before,
+form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:focus + label::before {
   border: 2px solid #fafafa;
 }
 form.uds-form.uds-form-gray7 .form-check input[type=radio]:disabled + label::before, form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=radio]:disabled + label::before, form.uds-form-gray7.wpcf7-form .form-check input[type=radio]:disabled + label::before, form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before,
@@ -19404,7 +19504,12 @@ form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:disabled + label::
 form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:disabled + label::before,
 form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:disabled + label::before,
-form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before {
+form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before, form.uds-form.uds-form-dark-bg .form-check input[type=radio]:disabled + label::before, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=radio]:disabled + label::before, form.uds-form-dark-bg.wpcf7-form .form-check input[type=radio]:disabled + label::before, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label::before,
+form.uds-form.uds-form-dark-bg .form-check input[type=checkbox]:disabled + label::before,
+form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox]:disabled + label::before,
+form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox]:disabled + label::before,
+form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label::before {
   background: #484848;
   border-color: #747474;
 }
@@ -19413,10 +19518,15 @@ form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:disabled + label,
 form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label,
 .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:disabled + label,
 form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:disabled + label,
-form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label {
+form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label, form.uds-form.uds-form-dark-bg .form-check input[type=radio]:disabled + label, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=radio]:disabled + label, form.uds-form-dark-bg.wpcf7-form .form-check input[type=radio]:disabled + label, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=radio]:disabled + label,
+form.uds-form.uds-form-dark-bg .form-check input[type=checkbox]:disabled + label,
+form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label,
+.wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox]:disabled + label,
+form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox]:disabled + label,
+form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:disabled + label {
   color: #bfbfbf;
 }
-form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:checked + label::after, form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:checked + label::after, form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:checked + label::after, form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after {
+form.uds-form.uds-form-gray7 .form-check input[type=checkbox]:checked + label::after, form.uds-form.uds-form-gray7 .wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-gray7 label input[type=checkbox]:checked + label::after, form.uds-form-gray7.wpcf7-form .form-check input[type=checkbox]:checked + label::after, form.uds-form-gray7.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after, form.uds-form.uds-form-dark-bg .form-check input[type=checkbox]:checked + label::after, form.uds-form.uds-form-dark-bg .wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after, .wpcf7-form .wpcf7-list-item form.uds-form.uds-form-dark-bg label input[type=checkbox]:checked + label::after, form.uds-form-dark-bg.wpcf7-form .form-check input[type=checkbox]:checked + label::after, form.uds-form-dark-bg.wpcf7-form .wpcf7-list-item label input[type=checkbox]:checked + label::after {
   background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' class='svg-inline--fa fa-check fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'%3E%3C/path%3E%3C/svg%3E");
   filter: invert(100%) sepia(28%) saturate(2502%) hue-rotate(222deg) brightness(144%) contrast(94%);
 }
@@ -19424,7 +19534,11 @@ form.uds-form.uds-form-gray7 input.is-invalid, form.uds-form-gray7.wpcf7-form in
 form.uds-form.uds-form-gray7 textarea.is-invalid,
 form.uds-form-gray7.wpcf7-form textarea.is-invalid,
 form.uds-form.uds-form-gray7 select.is-invalid,
-form.uds-form-gray7.wpcf7-form select.is-invalid {
+form.uds-form-gray7.wpcf7-form select.is-invalid, form.uds-form.uds-form-dark-bg input.is-invalid, form.uds-form-dark-bg.wpcf7-form input.is-invalid,
+form.uds-form.uds-form-dark-bg textarea.is-invalid,
+form.uds-form-dark-bg.wpcf7-form textarea.is-invalid,
+form.uds-form.uds-form-dark-bg select.is-invalid,
+form.uds-form-dark-bg.wpcf7-form select.is-invalid {
   border-style: solid;
   border: 1px solid #FF7B7D;
   border-bottom: 8px solid #FF7B7D !important;
@@ -19433,14 +19547,18 @@ form.uds-form.uds-form-gray7 input.is-invalid:focus, form.uds-form-gray7.wpcf7-f
 form.uds-form.uds-form-gray7 textarea.is-invalid:focus,
 form.uds-form-gray7.wpcf7-form textarea.is-invalid:focus,
 form.uds-form.uds-form-gray7 select.is-invalid:focus,
-form.uds-form-gray7.wpcf7-form select.is-invalid:focus {
+form.uds-form-gray7.wpcf7-form select.is-invalid:focus, form.uds-form.uds-form-dark-bg input.is-invalid:focus, form.uds-form-dark-bg.wpcf7-form input.is-invalid:focus,
+form.uds-form.uds-form-dark-bg textarea.is-invalid:focus,
+form.uds-form-dark-bg.wpcf7-form textarea.is-invalid:focus,
+form.uds-form.uds-form-dark-bg select.is-invalid:focus,
+form.uds-form-dark-bg.wpcf7-form select.is-invalid:focus {
   border-bottom: 8px solid #FF7B7D !important;
 }
-form.uds-form.uds-form-gray7 .invalid-feedback, form.uds-form-gray7.wpcf7-form .invalid-feedback {
+form.uds-form.uds-form-gray7 .invalid-feedback, form.uds-form-gray7.wpcf7-form .invalid-feedback, form.uds-form.uds-form-dark-bg .invalid-feedback, form.uds-form-dark-bg.wpcf7-form .invalid-feedback {
   font-weight: bold;
   color: #FF7B7D;
 }
-form.uds-form.uds-form-gray7 .invalid-feedback svg, form.uds-form-gray7.wpcf7-form .invalid-feedback svg, form.uds-form.uds-form-gray7 .invalid-feedback i, form.uds-form-gray7.wpcf7-form .invalid-feedback i, form.uds-form.uds-form-gray7 .invalid-feedback span, form.uds-form-gray7.wpcf7-form .invalid-feedback span {
+form.uds-form.uds-form-gray7 .invalid-feedback svg, form.uds-form-gray7.wpcf7-form .invalid-feedback svg, form.uds-form.uds-form-gray7 .invalid-feedback i, form.uds-form-gray7.wpcf7-form .invalid-feedback i, form.uds-form.uds-form-gray7 .invalid-feedback span, form.uds-form-gray7.wpcf7-form .invalid-feedback span, form.uds-form.uds-form-dark-bg .invalid-feedback svg, form.uds-form-dark-bg.wpcf7-form .invalid-feedback svg, form.uds-form.uds-form-dark-bg .invalid-feedback i, form.uds-form-dark-bg.wpcf7-form .invalid-feedback i, form.uds-form.uds-form-dark-bg .invalid-feedback span, form.uds-form-dark-bg.wpcf7-form .invalid-feedback span {
   color: #FF7B7D;
   margin-right: 0.5rem;
 }
@@ -19448,7 +19566,11 @@ form.uds-form.uds-form-gray7 input.is-valid, form.uds-form-gray7.wpcf7-form inpu
 form.uds-form.uds-form-gray7 textarea.is-valid,
 form.uds-form-gray7.wpcf7-form textarea.is-valid,
 form.uds-form.uds-form-gray7 select.is-valid,
-form.uds-form-gray7.wpcf7-form select.is-valid {
+form.uds-form-gray7.wpcf7-form select.is-valid, form.uds-form.uds-form-dark-bg input.is-valid, form.uds-form-dark-bg.wpcf7-form input.is-valid,
+form.uds-form.uds-form-dark-bg textarea.is-valid,
+form.uds-form-dark-bg.wpcf7-form textarea.is-valid,
+form.uds-form.uds-form-dark-bg select.is-valid,
+form.uds-form-dark-bg.wpcf7-form select.is-valid {
   border-style: solid;
   border: 1px solid #78be20;
   border-bottom: 8px solid #78be20;
@@ -19457,18 +19579,22 @@ form.uds-form.uds-form-gray7 input.is-valid:focus, form.uds-form-gray7.wpcf7-for
 form.uds-form.uds-form-gray7 textarea.is-valid:focus,
 form.uds-form-gray7.wpcf7-form textarea.is-valid:focus,
 form.uds-form.uds-form-gray7 select.is-valid:focus,
-form.uds-form-gray7.wpcf7-form select.is-valid:focus {
+form.uds-form-gray7.wpcf7-form select.is-valid:focus, form.uds-form.uds-form-dark-bg input.is-valid:focus, form.uds-form-dark-bg.wpcf7-form input.is-valid:focus,
+form.uds-form.uds-form-dark-bg textarea.is-valid:focus,
+form.uds-form-dark-bg.wpcf7-form textarea.is-valid:focus,
+form.uds-form.uds-form-dark-bg select.is-valid:focus,
+form.uds-form-dark-bg.wpcf7-form select.is-valid:focus {
   border-bottom: 8px solid #78be20 !important;
 }
-form.uds-form.uds-form-gray7 .valid-feedback, form.uds-form-gray7.wpcf7-form .valid-feedback {
+form.uds-form.uds-form-gray7 .valid-feedback, form.uds-form-gray7.wpcf7-form .valid-feedback, form.uds-form.uds-form-dark-bg .valid-feedback, form.uds-form-dark-bg.wpcf7-form .valid-feedback {
   font-weight: bold;
   color: #78be20;
 }
-form.uds-form.uds-form-gray7 .valid-feedback svg, form.uds-form-gray7.wpcf7-form .valid-feedback svg, form.uds-form.uds-form-gray7 .valid-feedback i, form.uds-form-gray7.wpcf7-form .valid-feedback i, form.uds-form.uds-form-gray7 .valid-feedback span, form.uds-form-gray7.wpcf7-form .valid-feedback span {
+form.uds-form.uds-form-gray7 .valid-feedback svg, form.uds-form-gray7.wpcf7-form .valid-feedback svg, form.uds-form.uds-form-gray7 .valid-feedback i, form.uds-form-gray7.wpcf7-form .valid-feedback i, form.uds-form.uds-form-gray7 .valid-feedback span, form.uds-form-gray7.wpcf7-form .valid-feedback span, form.uds-form.uds-form-dark-bg .valid-feedback svg, form.uds-form-dark-bg.wpcf7-form .valid-feedback svg, form.uds-form.uds-form-dark-bg .valid-feedback i, form.uds-form-dark-bg.wpcf7-form .valid-feedback i, form.uds-form.uds-form-dark-bg .valid-feedback span, form.uds-form-dark-bg.wpcf7-form .valid-feedback span {
   color: #78be20;
   margin-right: 0.5rem;
 }
-form.uds-form.uds-form-gray7 .input-group-trailing-icon svg, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon svg, form.uds-form.uds-form-gray7 .input-group-trailing-icon i, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon i, form.uds-form.uds-form-gray7 .input-group-trailing-icon span, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon span {
+form.uds-form.uds-form-gray7 .input-group-trailing-icon svg, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon svg, form.uds-form.uds-form-gray7 .input-group-trailing-icon i, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon i, form.uds-form.uds-form-gray7 .input-group-trailing-icon span, form.uds-form-gray7.wpcf7-form .input-group-trailing-icon span, form.uds-form.uds-form-dark-bg .input-group-trailing-icon svg, form.uds-form-dark-bg.wpcf7-form .input-group-trailing-icon svg, form.uds-form.uds-form-dark-bg .input-group-trailing-icon i, form.uds-form-dark-bg.wpcf7-form .input-group-trailing-icon i, form.uds-form.uds-form-dark-bg .input-group-trailing-icon span, form.uds-form-dark-bg.wpcf7-form .input-group-trailing-icon span {
   color: #fafafa;
 }
 form.uds-form input:disabled ~ .valid-feedback, form.wpcf7-form input:disabled ~ .valid-feedback,
@@ -19571,10 +19697,10 @@ button.uds-tooltip:focus .fa-circle {
   }
 }
 
-button.uds-tooltip-gray-1 .fa-circle {
+button.uds-tooltip-gray-1 .fa-circle, button.uds-tooltip-faint .fa-circle {
   color: #bfbfbf;
 }
-button.uds-tooltip-gray-1 .fa-info {
+button.uds-tooltip-gray-1 .fa-info, button.uds-tooltip-faint .fa-info {
   color: #fafafa;
 }
 
@@ -20280,13 +20406,13 @@ div.uds-card-image-and-content-content-container .card {
 .uds-card-arrangement-vertical {
   flex-direction: row;
 }
-.uds-card-arrangement-vertical > .uds-card-arrangement-content-container {
+.uds-card-arrangement-vertical .uds-card-arrangement-content-container {
   align-items: flex-start;
   justify-content: start;
   flex: 1;
   flex-direction: column;
 }
-.uds-card-arrangement-vertical > .uds-card-arrangement-content-container > button {
+.uds-card-arrangement-vertical .uds-card-arrangement-content-container > button {
   margin: initial;
 }
 .uds-card-arrangement-vertical > .uds-card-arrangement-card-container {
@@ -21096,6 +21222,8 @@ Mobile Styles
 
 .card-ranking {
   height: 543px;
+  width: 282px;
+  max-width: 100%;
   position: relative;
   border: 1px solid #d0d0d0;
   overflow: hidden;
@@ -21407,7 +21535,7 @@ strong {
   color: #747474;
 }
 #header-top input[type=search] {
-  background: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-6.svg") no-repeat 10px 50%;
+  background: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-darker.svg") no-repeat 10px 50%;
   background-size: 12px;
   width: 32px;
   cursor: pointer;
@@ -21424,7 +21552,7 @@ strong {
   display: none;
 }
 #header-top input[type=search]:focus {
-  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-5.svg");
+  background-image: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-dark.svg");
   width: 200px;
   color: #747474;
   background-color: #fff;
@@ -21719,7 +21847,7 @@ strong {
 }
 #header-main .navbar-mobile-footer .navbar-mobile-search input {
   width: 100%;
-  background: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-6.svg") no-repeat 10px 50%;
+  background: url("/wp-content/themes/UDS-WordPress-Theme/dist/img/font-awesome-svg/search-gray-darker.svg") no-repeat 10px 50%;
   background-size: 16px;
   background-color: #ffffff;
   border: 0;
@@ -22624,6 +22752,56 @@ main > * {
 }
 
 /*--------------------------------------------------------------
+Fix content alignment issues between header/content/footer
+--------------------------------------------------------------*/
+#header-main .navbar,
+#footer-columns.container {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media (max-width: 991.98px) {
+  #footer-innovation .footer-innovation-links .nav {
+    order: 2;
+    padding: 0;
+  }
+  #footer-innovation .footer-innovation-links .img-link {
+    order: 1;
+  }
+  #footer-colophon .nav {
+    padding: 0;
+  }
+}
+@media (max-width: 806px) {
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+footer .menu-social-media-container a.nav-link:last-of-type, footer .menu-social-media-container a.secondary-nav-link:last-of-type {
+  padding-right: 0;
+}
+
+footer .menu-social-media-container a.nav-link:first-of-type, footer .menu-social-media-container a.secondary-nav-link:first-of-type {
+  padding-left: 0;
+}
+
+footer #wrapper-footer-innovation .img-link {
+  margin-right: 0;
+}
+
+.uds-hero-container .highlight-gold,
+.uds-hero-container .highlight-white,
+.uds-hero-container .highlight-black,
+.container .highlight-gold,
+.container .highlight-white,
+.container .highlight-black {
+  box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
+  padding-left: 0.15em;
+  padding-right: 0.15em;
+}
+
+/*--------------------------------------------------------------
 2. Header title underline styles
 --------------------------------------------------------------*/
 .title .subdomain-name a {
@@ -22636,9 +22814,75 @@ main > * {
 }
 
 /*--------------------------------------------------------------
+Override the desktop media query for header to fix the gap issue
+--------------------------------------------------------------*/
+@media (min-width: 1260px) {
+  #asu-header + div,
+  #asu-header + main {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 144px;
+  }
+}
+@media (max-width: 991.98px) {
+  #asu-header + div,
+  #asu-header + main {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 113px;
+  }
+}
+#wpadminbar + #asu-header.fixed-top,
+body.logged-in.admin-bar #asu-header.fixed-top {
+  top: 32px !important;
+}
+
+@media (max-width: 575.98px) {
+  #wpadminbar + #asu-header.fixed-top,
+  body.logged-in.admin-bar #asu-header.fixed-top {
+    top: 46px !important;
+  }
+}
+#wpadminbar + #asu-header.scrolled,
+body.logged-in.admin-bar #asu-header.scrolled {
+  top: 32px !important;
+  transition: all 0.3s ease-out;
+}
+
+@media (min-width: 1260px) {
+  #skip-to-content {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 139px;
+  }
+  .admin-bar #asuHeader {
+    top: 32px;
+  }
+}
+@media (max-width: 1259.98px) {
+  #skip-to-content {
+    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
+    margin-top: 103px;
+  }
+  .admin-bar #asuHeader {
+    top: 32px;
+  }
+}
+@media (max-width: 540px) {
+  .header-main .navbar .title {
+    width: auto;
+  }
+}
+/*--------------------------------------------------------------
+Fix home icon highlight offset (Issue #390)
+The Unity component header has a 1px offset in the highlight position.
+Override the top value from 0.6rem to 0.55rem for proper alignment.
+--------------------------------------------------------------*/
+#asuHeader .header-main .nav-list li a.nav-item-selected::after {
+  top: 0.55rem;
+}
+
+/*--------------------------------------------------------------
 3. BUG-FIX: .dropdown-pinned class appears at the wrong breakpoint.
 --------------------------------------------------------------*/
-/* The included JS file for the global header accidently applies the .dropdown-pinned
+/* The included JS file for the global header accidentally applies the .dropdown-pinned
 class to body tag when the menu is being displayed at the desktop viewport. This class
 is only meant to be applied to the screen when the mobile menu is being displayed. */
 /* The temporary fix is to overwrite the default behavior with a media query targeting
@@ -22680,6 +22924,44 @@ X. Misc. styles
   pointer-events: none;
 }
 
+/*--------------------------------------------------------------
+WP admin bar mobile fix
+--------------------------------------------------------------*/
+@media (max-width: 992px) {
+  html {
+    margin-top: 0 !important;
+  }
+  .admin-bar #wpadminbar {
+    position: sticky;
+  }
+}
+/*--------------------------------------------------------------
+Add a smooth scroll behavior for the a[href="#"]
+--------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+mobile heading - 2nd line padding fix
+--------------------------------------------------------------*/
+.highlight-gold,
+.highlight-white,
+.highlight-black,
+h2 mark,
+.h2 mark,
+h2 .mark,
+.h2 .mark {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/*--------------------------------------------------------------
+Block style variations (background modes)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+List styles
+--------------------------------------------------------------*/
 /*
 main {
 	ul:not(.uds-list),
@@ -22758,18 +23040,6 @@ main {
   }
 }
 /*--------------------------------------------------------------
-Dividers
---------------------------------------------------------------*/
-.block-editor-block-list__layout .wp-block.is-style-copy-divider {
-  margin-right: 0;
-  margin-left: 0;
-  max-width: 16rem !important;
-}
-.block-editor-block-list__layout .wp-block.is-style-copy-divider.wp-block-separator {
-  opacity: 1;
-}
-
-/*--------------------------------------------------------------
 Correct the button color on gray bg
 --------------------------------------------------------------*/
 .bg-gray-1 a.btn.btn-maroon, .bg-gray-1 a.btn-maroon.uds-modal-close-btn,
@@ -22810,164 +23080,6 @@ Correct the button color on gray bg
 }
 
 /*--------------------------------------------------------------
-Override the desktop media query for header to fix the gap issue
---------------------------------------------------------------*/
-@media (min-width: 1260px) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 144px;
-  }
-}
-@media (max-width: 991.98px) {
-  #asu-header + div,
-  #asu-header + main {
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 113px;
-  }
-}
-#wpadminbar + #asu-header.fixed-top,
-body.logged-in.admin-bar #asu-header.fixed-top {
-  top: 32px !important;
-}
-
-@media (max-width: 575.98px) {
-  #wpadminbar + #asu-header.fixed-top,
-  body.logged-in.admin-bar #asu-header.fixed-top {
-    top: 46px !important;
-  }
-}
-#wpadminbar + #asu-header.scrolled,
-body.logged-in.admin-bar #asu-header.scrolled {
-  top: 32px !important;
-  transition: all 0.3s ease-out;
-}
-
-/*--------------------------------------------------------------
-Fix content alignment issues between header/content/footer
---------------------------------------------------------------*/
-#header-main .navbar,
-#footer-columns.container {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-@media (max-width: 991.98px) {
-  #footer-innovation .footer-innovation-links .nav {
-    order: 2;
-    padding: 0;
-  }
-  #footer-innovation .footer-innovation-links .img-link {
-    order: 1;
-  }
-  #footer-colophon .nav {
-    padding: 0;
-  }
-}
-@media (max-width: 806px) {
-  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-footer .menu-social-media-container a.nav-link:last-of-type, footer .menu-social-media-container a.secondary-nav-link:last-of-type {
-  padding-right: 0;
-}
-
-footer .menu-social-media-container a.nav-link:first-of-type, footer .menu-social-media-container a.secondary-nav-link:first-of-type {
-  padding-left: 0;
-}
-
-footer #wrapper-footer-innovation .img-link {
-  margin-right: 0;
-}
-
-.uds-hero-container .highlight-gold,
-.uds-hero-container .highlight-white,
-.uds-hero-container .highlight-black,
-.container .highlight-gold,
-.container .highlight-white,
-.container .highlight-black {
-  box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
-  padding-left: 0.15em;
-  padding-right: 0.15em;
-}
-
-/*--------------------------------------------------------------
-Always set the image height in core/image to auto
---------------------------------------------------------------*/
-.wp-block-image img {
-  height: auto !important;
-}
-
-/*--------------------------------------------------------------
-UDS Grid Links
---------------------------------------------------------------*/
-.uds-grid-links a {
-  display: flex;
-  justify-content: flex-start;
-}
-.uds-grid-links a.grid-link-bg-img {
-  position: relative;
-  height: 150px;
-  padding: 0;
-}
-.uds-grid-links a.grid-link-bg-img:after {
-  content: "";
-  background: linear-gradient(180deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.7882352941) 100%);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-.uds-grid-links a.grid-link-bg-img p {
-  z-index: 2;
-  margin: auto;
-}
-.uds-grid-links a svg {
-  margin-top: 0.25rem;
-}
-.uds-grid-links a img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-/*--------------------------------------------------------------
-usd modal windows
---------------------------------------------------------------*/
-.uds-modal {
-  z-index: 1050;
-  position: fixed;
-}
-
-/*--------------------------------------------------------------
-BUG: Story hero layout breaks with oversized images.
---------------------------------------------------------------*/
-.uds-story-hero .hero, .uds-story-hero picture {
-  width: 100%;
-  max-height: 100%;
-}
-
-/*--------------------------------------------------------------
-Correct the single page issues
---------------------------------------------------------------*/
-.container.single-news-post-container {
-  background: white;
-  transform: translateY(0px);
-  margin-top: -128px;
-}
-
-article.type-news_post .entry-header .entry-title {
-  margin-top: 2rem;
-}
-
-/*--------------------------------------------------------------
 BUG: Upstream changes broke button text on particular backgrounds.
 We override them here with more specific rules so that our buttons
 always have the correct link colors, regardless of background.
@@ -22993,6 +23105,29 @@ a.btn.btn-gray, a.btn-gray.uds-modal-close-btn {
 }
 
 /*--------------------------------------------------------------
+btn+btn
+--------------------------------------------------------------*/
+.btn + .btn, .wpcf7-form input[type=submit] + .btn, .wpcf7-form .btn + input[type=submit], .wpcf7-form input[type=submit] + input[type=submit], .uds-modal-close-btn + .btn, .wpcf7-form .uds-modal-close-btn + input[type=submit], .btn + .uds-modal-close-btn, .wpcf7-form input[type=submit] + .uds-modal-close-btn, .uds-modal-close-btn + .uds-modal-close-btn {
+  margin-left: 0 !important;
+}
+
+.btn:not(:last-of-type), .wpcf7-form input[type=submit]:not(:last-of-type), .uds-modal-close-btn:not(:last-of-type) {
+  margin-right: 0.25rem;
+}
+
+/*--------------------------------------------------------------
+Dividers
+--------------------------------------------------------------*/
+.block-editor-block-list__layout .wp-block.is-style-copy-divider {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 16rem !important;
+}
+.block-editor-block-list__layout .wp-block.is-style-copy-divider.wp-block-separator {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
 wp-block-separator
 --------------------------------------------------------------*/
 .wp-block-separator {
@@ -23001,99 +23136,181 @@ wp-block-separator
 }
 
 /*--------------------------------------------------------------
-usd image
+Foldable cards - fix padding on top when there is no heading
+to provide spacing. Also, remove margin from any header that
+is first to avoid extra space
+--------------------------------------------------------------*/
+.card.card-foldable .card-body {
+  padding: 1.25rem;
+}
+.card.card-foldable .card-body h1:first-child, .card.card-foldable .card-body .h1:first-child,
+.card.card-foldable .card-body h2:first-child,
+.card.card-foldable .card-body .h2:first-child,
+.card.card-foldable .card-body h3:first-child,
+.card.card-foldable .card-body .h3:first-child,
+.card.card-foldable .card-body h4:first-child,
+.card.card-foldable .card-body .h4:first-child,
+.card.card-foldable .card-body h5:first-child,
+.card.card-foldable .card-body .h5:first-child {
+  margin-top: 0;
+}
+
+span.card-icon {
+  display: flex;
+  align-items: flex-start;
+}
+
+/*--------------------------------------------------------------
+UDS Card tags and hero buttons
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Fix link colors in white cards within gray background sections (Issue #622)
+When white cards are placed inside gray background sections, links should
+remain maroon for proper contrast, not gold (which is for dark backgrounds).
+--------------------------------------------------------------*/
+.uds-section.bg-color.bg-gray-7 .card a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white .card a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn),
+.uds-section.bg-color.text-white [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn),
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn) {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] a:not(.btn):not(.uds-modal-close-btn):hover,
+.uds-section.bg-color.text-white [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] a:not(.btn):not(.uds-modal-close-btn):hover {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card .card-link a,
+.uds-section.bg-color.bg-gray-7 .bg-white .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] .card-link a,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] .card-link a,
+.uds-section.bg-color.text-white .card .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card .card-link a,
+.uds-section.bg-color.text-white .bg-white .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: white"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] .card-link a,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] .card-link a,
+.uds-section.bg-color.text-white [class*=bg-white] .card-link a,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] .card-link a {
+  color: #8c1d40 !important;
+}
+.uds-section.bg-color.bg-gray-7 .card .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 .bg-white .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: white"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #fff"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [style*="background-color: #ffffff"] .card-link a:hover,
+.uds-section.bg-color.bg-gray-7 [class*=bg-white] .card-link a:hover,
+.uds-section.bg-color.text-white .card .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .card .card-link a:hover,
+.uds-section.bg-color.text-white .bg-white .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane .bg-white .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: white"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: white"] .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: #fff"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #fff"] .card-link a:hover,
+.uds-section.bg-color.text-white [style*="background-color: #ffffff"] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [style*="background-color: #ffffff"] .card-link a:hover,
+.uds-section.bg-color.text-white [class*=bg-white] .card-link a:hover,
+.bg-dark .tab-content .uds-section.bg-color.tab-pane [class*=bg-white] .card-link a:hover {
+  color: #8c1d40 !important;
+}
+
+/*--------------------------------------------------------------
+Always set the image height in core/image to auto
+--------------------------------------------------------------*/
+.wp-block-image img {
+  height: auto !important;
+}
+
+/*--------------------------------------------------------------
+core/image
+--------------------------------------------------------------*/
+.wp-block-image {
+  margin-bottom: 2rem;
+}
+.wp-block-image img:nth-last-child(3) {
+  border: 1px solid #d0d0d0;
+}
+.wp-block-image figcaption {
+  border: 1px solid #d0d0d0;
+  border-top: none;
+  opacity: 1;
+  background: #fff 0% 0% no-repeat padding-box;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: inherit;
+}
+.wp-block-image.is-style-drop-shadow figure {
+  box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+}
+.wp-block-image.is-style-circular img {
+  border: none;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 1/1;
+}
+.wp-block-image.is-style-circular figcaption {
+  border: none;
+  text-align: center;
+}
+
+figure.wp-block-image {
+  display: inline-table;
+}
+figure.wp-block-image figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  box-shadow: inherit;
+}
+figure.wp-block-image.is-style-drop-shadow {
+  box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+}
+
+/*--------------------------------------------------------------
+UDS image
 --------------------------------------------------------------*/
 .uds-img-with-text-wrap.float-left {
   margin: 0.5rem 1rem 0.5rem 0;
 }
 .uds-img-with-text-wrap.float-right {
   margin: 0.5rem 0 0.5rem 1rem;
-}
-
-/*--------------------------------------------------------------
-usd Tabbed panels
---------------------------------------------------------------*/
-.uds-tabbed-panels a.nav-item svg {
-  margin-right: 0.25rem;
-}
-
-/*--------------------------------------------------------------
-show more button
---------------------------------------------------------------*/
-.uds-show-more-btn {
-  position: relative;
-  z-index: 1;
-}
-.uds-show-more-btn ~ div, .uds-show-more-btn ~ p, .uds-show-more-btn ~ h1, .uds-show-more-btn ~ .h1, .uds-show-more-btn ~ h2, .uds-show-more-btn ~ .h2, .uds-show-more-btn ~ h3, .uds-show-more-btn ~ .h3, .uds-show-more-btn ~ h4, .uds-show-more-btn ~ .h4, .uds-show-more-btn ~ h5, .uds-show-more-btn ~ .h5, .uds-show-more-btn ~ h6, .uds-show-more-btn ~ .h6, .uds-show-more-btn ~ span, .uds-show-more-btn ~ ul, .uds-show-more-btn ~ figure, .uds-show-more-btn ~ blockquote, .uds-show-more-btn ~ img {
-  display: none !important;
-}
-.uds-show-more-btn:after {
-  content: "";
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.031372549) 30%, #fff 100%);
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 20px;
-  z-index: -1;
-  transition: 0.3s;
-  height: 300px;
-  display: block;
-}
-.uds-show-more-btn a {
-  display: initial;
-}
-
-.wp-block-acf-uds-show-more .uds-show-more-btn {
-  z-index: 0;
-}
-.wp-block-acf-uds-show-more .uds-show-more-btn:after {
-  content: none;
-}
-.wp-block-acf-uds-show-more ~ .wp-block {
-  background: rgba(255, 0, 0, 0.3019607843);
-}
-
-.uds-show-less-container {
-  position: relative;
-  padding-bottom: 80px;
-}
-.uds-show-less-container .uds-show-less-btn {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/*--------------------------------------------------------------
-UDS Card tags and hero buttons
---------------------------------------------------------------*/
-.v1-uds-hero-container .btn + .btn, .v1-uds-hero-container .wpcf7-form input[type=submit] + .btn, .wpcf7-form .v1-uds-hero-container input[type=submit] + .btn, .v1-uds-hero-container .wpcf7-form .btn + input[type=submit], .wpcf7-form .v1-uds-hero-container .btn + input[type=submit], .v1-uds-hero-container .wpcf7-form input[type=submit] + input[type=submit], .wpcf7-form .v1-uds-hero-container input[type=submit] + input[type=submit], .v1-uds-hero-container .uds-modal-close-btn + .btn, .v1-uds-hero-container .wpcf7-form .uds-modal-close-btn + input[type=submit], .wpcf7-form .v1-uds-hero-container .uds-modal-close-btn + input[type=submit], .v1-uds-hero-container .btn + .uds-modal-close-btn, .v1-uds-hero-container .wpcf7-form input[type=submit] + .uds-modal-close-btn, .wpcf7-form .v1-uds-hero-container input[type=submit] + .uds-modal-close-btn, .v1-uds-hero-container .uds-modal-close-btn + .uds-modal-close-btn,
-.card-tags .btn + .btn,
-.card-tags .wpcf7-form input[type=submit] + .btn,
-.wpcf7-form .card-tags input[type=submit] + .btn,
-.card-tags .wpcf7-form .btn + input[type=submit],
-.wpcf7-form .card-tags .btn + input[type=submit],
-.card-tags .wpcf7-form input[type=submit] + input[type=submit],
-.wpcf7-form .card-tags input[type=submit] + input[type=submit],
-.card-tags .uds-modal-close-btn + .btn,
-.card-tags .wpcf7-form .uds-modal-close-btn + input[type=submit],
-.wpcf7-form .card-tags .uds-modal-close-btn + input[type=submit],
-.card-tags .btn + .uds-modal-close-btn,
-.card-tags .wpcf7-form input[type=submit] + .uds-modal-close-btn,
-.wpcf7-form .card-tags input[type=submit] + .uds-modal-close-btn,
-.card-tags .uds-modal-close-btn + .uds-modal-close-btn {
-  margin-left: 0;
-}
-
-/*--------------------------------------------------------------
-UDS Breadcrumb - Yoast
---------------------------------------------------------------*/
-.breadcrumb.yoast span span span:before,
-.yoast-breadcrumbs span span span:before {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  color: #bfbfbf;
-  content: "/";
 }
 
 /*--------------------------------------------------------------
@@ -23212,81 +23429,6 @@ UDS image overlap
 }
 
 /*--------------------------------------------------------------
-UDS Pagination - active page
---------------------------------------------------------------*/
-.pagination .page-item.active span.page-link.current {
-  padding: 0.5rem 0.75rem;
-}
-
-/*--------------------------------------------------------------
-Foldable cards - fix padding on top when there is no heading
-to provide spacing. Also, remove margin from any header that
-is first to avoid extra space
---------------------------------------------------------------*/
-.card.card-foldable .card-body {
-  padding: 1.25rem;
-}
-.card.card-foldable .card-body h1:first-child, .card.card-foldable .card-body .h1:first-child,
-.card.card-foldable .card-body h2:first-child,
-.card.card-foldable .card-body .h2:first-child,
-.card.card-foldable .card-body h3:first-child,
-.card.card-foldable .card-body .h3:first-child,
-.card.card-foldable .card-body h4:first-child,
-.card.card-foldable .card-body .h4:first-child,
-.card.card-foldable .card-body h5:first-child,
-.card.card-foldable .card-body .h5:first-child {
-  margin-top: 0;
-}
-
-span.card-icon {
-  display: flex;
-  align-items: flex-start;
-}
-
-/*--------------------------------------------------------------
-iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
---------------------------------------------------------------*/
-.three-col .isearch-default-list .profile.profile-type-standard {
-  width: 33%;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.four-col .isearch-default-list .profile.profile-type-standard {
-  width: 25%;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.three-col .isearch-default-list .profile.profile-type-standard .profile-row,
-.four-col .isearch-default-list .profile.profile-type-standard .profile-row {
-  display: grid;
-  border-bottom: 0;
-}
-
-.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p,
-.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p {
-  display: none;
-}
-
-.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column,
-.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column {
-  padding: 24px 24px 5px 0;
-}
-
-.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column,
-.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column {
-  width: 90%;
-}
-
-@media (max-width: 992px) {
-  .three-col .isearch-default-list .profile.profile-type-standard,
-  .four-col .isearch-default-list .profile.profile-type-standard {
-    width: 100%;
-    display: inline-block;
-  }
-}
-/*--------------------------------------------------------------
 UDS Form - contact form 7
 --------------------------------------------------------------*/
 .wpcf7-form input[type=submit] {
@@ -23342,116 +23484,185 @@ UDS Form - contact form 7
 }
 
 /*--------------------------------------------------------------
-core/image
+UDS Breadcrumb - Yoast
 --------------------------------------------------------------*/
-.wp-block-image {
-  margin-bottom: 2rem;
-}
-.wp-block-image img:nth-last-child(3) {
-  border: 1px solid #d0d0d0;
-}
-.wp-block-image figcaption {
-  border: 1px solid #d0d0d0;
-  border-top: none;
-  opacity: 1;
-  background: #fff 0% 0% no-repeat padding-box;
-  padding: 0.75rem;
-  font-size: 0.75rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  box-shadow: inherit;
-}
-.wp-block-image.is-style-drop-shadow figure {
-  box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
-}
-.wp-block-image.is-style-circular img {
-  border: none;
-  border-radius: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  aspect-ratio: 1/1;
-}
-.wp-block-image.is-style-circular figcaption {
-  border: none;
-  text-align: center;
-}
-
-figure.wp-block-image {
-  display: inline-table;
-}
-figure.wp-block-image figcaption {
-  display: table-caption;
-  caption-side: bottom;
-  box-shadow: inherit;
-}
-figure.wp-block-image.is-style-drop-shadow {
-  box-shadow: 0rem 0.5rem 1rem rgba(25, 25, 25, 0.2);
+.breadcrumb.yoast span span span:before,
+.yoast-breadcrumbs span span span:before {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #bfbfbf;
+  content: "/";
 }
 
 /*--------------------------------------------------------------
-Add a smooth scroll behavior for the a[href="#"]
+UDS Pagination - active page
 --------------------------------------------------------------*/
-html {
-  scroll-behavior: smooth;
+.pagination .page-item.active span.page-link.current {
+  padding: 0.5rem 0.75rem;
 }
 
 /*--------------------------------------------------------------
-btn+btn
+UDS Tabbed panels
 --------------------------------------------------------------*/
-.btn + .btn, .uds-modal-close-btn + .btn, .wpcf7-form input[type=submit] + .btn, .btn + .uds-modal-close-btn, .uds-modal-close-btn + .uds-modal-close-btn, .wpcf7-form input[type=submit] + .uds-modal-close-btn, .wpcf7-form .btn + input[type=submit], .wpcf7-form .uds-modal-close-btn + input[type=submit], .wpcf7-form input[type=submit] + input[type=submit] {
-  margin-left: 0 !important;
-}
-
-.btn:not(:last-of-type), .uds-modal-close-btn:not(:last-of-type), .wpcf7-form input[type=submit]:not(:last-of-type) {
+.uds-tabbed-panels a.nav-item svg {
   margin-right: 0.25rem;
 }
 
-@media (min-width: 1260px) {
-  #skip-to-content {
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 139px;
-  }
-  .admin-bar #asuHeader {
-    top: 32px;
-  }
-}
-@media (max-width: 1259.98px) {
-  #skip-to-content {
-    transition: 0.5s cubic-bezier(0.19, 1, 0.19, 1);
-    margin-top: 103px;
-  }
-  .admin-bar #asuHeader {
-    top: 32px;
-  }
-}
 /*--------------------------------------------------------------
-WP admin bar mobile fix
+show more button
 --------------------------------------------------------------*/
-@media (max-width: 992px) {
-  html {
-    margin-top: 0 !important;
-  }
-  .admin-bar #wpadminbar {
-    position: sticky;
-  }
+.uds-show-more-btn {
+  position: relative;
+  z-index: 1;
 }
-/*--------------------------------------------------------------
-mobile heading - 2nd line padding fix
---------------------------------------------------------------*/
-.highlight-gold,
-.highlight-white,
-.highlight-black,
-h2 mark,
-.h2 mark,
-h2 .mark,
-.h2 .mark {
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+.uds-show-more-btn ~ div, .uds-show-more-btn ~ p, .uds-show-more-btn ~ h1, .uds-show-more-btn ~ .h1, .uds-show-more-btn ~ h2, .uds-show-more-btn ~ .h2, .uds-show-more-btn ~ h3, .uds-show-more-btn ~ .h3, .uds-show-more-btn ~ h4, .uds-show-more-btn ~ .h4, .uds-show-more-btn ~ h5, .uds-show-more-btn ~ .h5, .uds-show-more-btn ~ h6, .uds-show-more-btn ~ .h6, .uds-show-more-btn ~ span, .uds-show-more-btn ~ ul, .uds-show-more-btn ~ figure, .uds-show-more-btn ~ blockquote, .uds-show-more-btn ~ img {
+  display: none !important;
+}
+.uds-show-more-btn:after {
+  content: "";
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.031372549) 30%, #fff 100%);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  z-index: -1;
+  transition: 0.3s;
+  height: 300px;
+  display: block;
+}
+.uds-show-more-btn a {
+  display: initial;
 }
 
-@media (max-width: 540px) {
-  .header-main .navbar .title {
-    width: auto;
+.wp-block-acf-uds-show-more .uds-show-more-btn {
+  z-index: 0;
+}
+.wp-block-acf-uds-show-more .uds-show-more-btn:after {
+  content: none;
+}
+.wp-block-acf-uds-show-more ~ .wp-block {
+  background: rgba(255, 0, 0, 0.3019607843);
+}
+
+.uds-show-less-container {
+  position: relative;
+  padding-bottom: 80px;
+}
+.uds-show-less-container .uds-show-less-btn {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*--------------------------------------------------------------
+UDS Grid Links
+--------------------------------------------------------------*/
+.uds-grid-links a {
+  display: flex;
+  justify-content: flex-start;
+}
+.uds-grid-links a.grid-link-bg-img {
+  position: relative;
+  height: 150px;
+  padding: 0;
+}
+.uds-grid-links a.grid-link-bg-img:after {
+  content: "";
+  background: linear-gradient(180deg, rgba(25, 25, 25, 0) 0, rgba(25, 25, 25, 0.7882352941) 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.uds-grid-links a.grid-link-bg-img p {
+  z-index: 2;
+  margin: auto;
+}
+.uds-grid-links a svg {
+  margin-top: 0.25rem;
+}
+.uds-grid-links a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+/*--------------------------------------------------------------
+UDS modal windows
+--------------------------------------------------------------*/
+.uds-modal {
+  z-index: 1050;
+  position: fixed;
+}
+
+/*--------------------------------------------------------------
+BUG: Story hero layout breaks with oversized images.
+--------------------------------------------------------------*/
+.uds-story-hero .hero, .uds-story-hero picture {
+  width: 100%;
+  max-height: 100%;
+}
+
+/*--------------------------------------------------------------
+Correct the single page issues
+--------------------------------------------------------------*/
+.container.single-news-post-container {
+  background: white;
+  transform: translateY(0px);
+  margin-top: -128px;
+}
+
+article.type-news_post .entry-header .entry-title {
+  margin-top: 2rem;
+}
+
+/*--------------------------------------------------------------
+iSearch profiles - TEMPORARY - Please remove once iSearch plugin is updated.
+--------------------------------------------------------------*/
+.three-col .isearch-default-list .profile.profile-type-standard {
+  width: 33%;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.four-col .isearch-default-list .profile.profile-type-standard {
+  width: 25%;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row {
+  display: grid;
+  border-bottom: 0;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column > p {
+  display: none;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-photo-column {
+  padding: 24px 24px 5px 0;
+}
+
+.three-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column,
+.four-col .isearch-default-list .profile.profile-type-standard .profile-row .profile-bio-column {
+  width: 90%;
+}
+
+@media (max-width: 992px) {
+  .three-col .isearch-default-list .profile.profile-type-standard,
+  .four-col .isearch-default-list .profile.profile-type-standard {
+    width: 100%;
+    display: inline-block;
   }
 }
 /*--------------------------------------------------------------
@@ -26980,7 +27191,7 @@ figure.uds-blockquote.accent-gray-5 figcaption:before {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.uds-person-profile.vertical img.profile-img.feature-profile {
+.uds-person-profile img.profile-img.feature-profile {
   height: 270px;
   min-height: 270px;
   max-height: 270px;
