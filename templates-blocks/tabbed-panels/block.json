@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "table-row-after",
     "keywords": ["tabs", "tab", "tabbed", "panel", "panels", "nav"],
+    "viewStyle": "file:../../src/css/blocks/tabbed-panels.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "tabbed-panels.php",

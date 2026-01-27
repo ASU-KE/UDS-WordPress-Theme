@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "format-quote",
     "keywords": ["blockquote", "block", "quote"],
+    "viewStyle": "file:../../src/css/blocks/blockquote.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "blockquote.php",

@@ -9,6 +9,9 @@ mapping back to specific classes within UDS-Boostrap.
 3. Image block
 --------------------------------------------------------------*/
 
+// Import only variables and mixins (no compiled CSS rules)
+@import "variables";
+
 .is-style-copy-divider {
 	@extend .copy-divider;
 }

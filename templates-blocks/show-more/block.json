@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "editor-insertmore",
     "keywords": ["button", "show", "more"],
+    "viewStyle": "file:../../src/css/blocks/show-more.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "show-more.php",

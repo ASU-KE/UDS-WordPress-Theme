@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "warning",
     "keywords": ["alert", "message", "banner"],
+    "viewStyle": "file:../../src/css/blocks/alert.css",
     "acf": {
         "mode": "preview",
         "renderTemplate": "alert.php",

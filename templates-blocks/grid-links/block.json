@@ -5,6 +5,7 @@
     "category": "uds",
     "icon": "grid-view",
     "keywords": ["grid", "links"],
+    "viewStyle": "file:../../src/css/blocks/grid-links.css",
     "acf": {
         "mode": "edit",
         "renderTemplate": "grid-links.php",
