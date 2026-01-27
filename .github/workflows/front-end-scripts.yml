@@ -5,11 +5,13 @@ on:
     branches: [ main, develop ]
     paths:
       - 'src/js/**'
+      - '!src/js/custom/admin/**'
       - '.github/workflows/front-end-scripts.yml'
   pull_request:
     branches: [ main, develop ]
     paths:
       - 'src/js/**'
+      - '!src/js/custom/admin/**'
       - '.github/workflows/front-end-scripts.yml'
   workflow_dispatch:
 
