@@ -9,7 +9,7 @@
 ( function( wp ) {
 
 	// Check if wp and required properties exist (only available in block editor)
-	if (!wp || !wp.data || !wp.compose || !wp.element || !wp.blockEditor || !wp.richText) {
+	if (!wp || !wp.data || !wp.compose || !wp.element || !wp.blockEditor || !wp.richText || !wp.hooks) {
 		return;
 	}
 

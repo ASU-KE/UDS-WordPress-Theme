@@ -137,8 +137,8 @@
 		 */
 		addPropsClassNameFunction();
 		function addPropsClassNameFunction() {
-			// Check if required wp properties exist
-			if (typeof wp.compose === 'undefined' || typeof wp.element === 'undefined' || typeof wp.hooks === 'undefined') {
+			// Check if required wp properties and lodash exist
+			if (typeof wp.compose === 'undefined' || typeof wp.element === 'undefined' || typeof wp.hooks === 'undefined' || typeof lodash === 'undefined') {
 				return;
 			}
 
