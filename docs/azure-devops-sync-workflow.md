@@ -75,6 +75,6 @@ If issues are not syncing to Azure DevOps:
 ## Benefits
 
 - **Automatic synchronization**: No manual data entry needed
-- **Bi-directional context**: Team members can work in their preferred tool
+- **Cross-platform visibility**: GitHub issues are automatically tracked in Azure DevOps
 - **Consistent tracking**: Ensures all issues are tracked in both systems
 - **Real-time updates**: Changes are synced immediately when they occur
