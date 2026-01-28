@@ -43,6 +43,10 @@
 - **[Extending Guide](docs/extending.md)** - Child themes, hooks, and filters
 - **[Speculative Loading](docs/speculative-loading.md)** - WordPress 6.8+ performance features
 
+## GitHub Workflows
+
+- **[Azure DevOps Sync](docs/azure-devops-sync-workflow.md)** - Automatic issue synchronization with Azure DevOps
+
 ## Getting Started
 
 ### Installation
