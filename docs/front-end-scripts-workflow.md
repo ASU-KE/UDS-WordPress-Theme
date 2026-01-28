@@ -64,4 +64,4 @@ The main advantages of the GitHub workflow:
 
 ## Admin Scripts
 
-This workflow handles only front-end scripts. Admin scripts in `src/js/custom/admin/**` are intentionally excluded. If you need to automate the `admin-scripts` or `admin-core-scripts` gulp tasks, create a separate workflow following the same pattern as this one but targeting the admin-specific files.
+This workflow handles only front-end scripts. Admin scripts in `src/js/custom/admin/**` are intentionally excluded.
