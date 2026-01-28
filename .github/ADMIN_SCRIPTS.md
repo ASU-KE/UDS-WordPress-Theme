@@ -159,7 +159,7 @@ Previously, admin JavaScript was split into two separate tasks:
 
 ### Consolidation (Current)
 
-The tasks were consolidated in [PR #XXX] to:
+The tasks were consolidated to:
 - Remove legacy FontAwesome file references that didn't exist
 - Remove misplaced front-end scripts (hero_video.js, modals.js, side-menu-active-child.js)
 - Merge all legitimate admin scripts into a single task
