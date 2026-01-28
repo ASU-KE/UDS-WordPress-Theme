@@ -96,9 +96,9 @@ You are now ready to clone the theme within the projects `wp-content/themes` fol
 - Run: `$ npm install`
 
 ## VS Code Editor Config
-- Install PHP intelephenese
+- Install PHP Intelephense
 - Add default wordpress stub
-- To get intelephese to recognize acf functions, add to VS code `settings.json`:
+- To get Intelephense to recognize acf functions, add to VS code `settings.json`:
   -  `"intelephense.environment.includePaths": ["/local/path/to/acf-pro-stubs"]`,
   - [https://github.com/php-stubs/acf-pro-stubs](https://github.com/php-stubs/acf-pro-stubs)
 
@@ -109,7 +109,7 @@ Add your private key to the `.npmrc` file.
 
 ## Contributing to the Theme
 
-Welcoming paragraph here with general contribution notes
+We welcome contributions to the UDS WordPress Theme! Please follow the guidelines below when contributing.
 
 ### PHP Coding Standards
 The theme is set up with tools to help you write PHP that conforms to the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/). After initially cloning the theme repo, run `composer install` to install these tools in the `/vendor` directory.
@@ -129,7 +129,7 @@ If needed, you can manually run these commands and target a specific file, or fi
 
 
 ### NPM and Gulp Scripts
-We use [Gulp](https://gulp.js) as our task runner. While can run Gulp tasks directly from the command line,  we have created some NPM aliases for common tasks.
+We use [Gulp](https://gulp.js) as our task runner. While you can run Gulp tasks directly from the command line, we have created some NPM aliases for common tasks.
 
 
 - **`npm run build`** will compile theme assets from the files in the `/src` directories and copy them to `/css`, `/js`, and `/img` directories. This includes minifying CSS, uglifying and concating JS files, and running all images through `imageoptim`. If you are not using the `watch` option, this is the command to run after you have made any changes to Javascript or CSS files. This step also cleans out and replaces all files in the `\dist` directory. This is equivalent to directly running `gulp compile`.

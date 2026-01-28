@@ -200,7 +200,7 @@ The UDS-WordPress theme has three assignable menu areas:
 ### Working with the Main Menu
 You build the main menu of your site using the built-in WordPress menu builder. The menu-building code behind the scenes, however, will enforce certain ASU Web Standards when it comes to the main navigation menu:
 
-- menu items can be nested no more than **three** levels deep. Any menu you item to drag to the fourth level (or any level beyond that) **will not appear** in the menu.
+- menu items can be nested no more than **three** levels deep. Any menu item you drag to the fourth level (or any level beyond that) **will not appear** in the menu.
 - First level menu items will appear as entries in the main navigation menu
 - Second level menu items will form dropdown menus beneath their parent item, **unless** there are also third-level items beneath them. In that case:
   - the second level item will become a non-clickable column header, and all third-level items below it will form links in a single column
