@@ -5,33 +5,36 @@
  *
  */
 
-wp.domReady(() => {
-	// Remove default block styles for core/image.
-	// Replace with UDS-specific styles.
-	wp.blocks.unregisterBlockStyle("core/image", "default");
-	wp.blocks.unregisterBlockStyle("core/image", "rounded");
+// Check if wp and required properties exist (only available in block editor)
+if (typeof wp !== 'undefined' && typeof wp.blocks !== 'undefined' && typeof wp.domReady !== 'undefined') {
+	wp.domReady(() => {
+		// Remove default block styles for core/image.
+		// Replace with UDS-specific styles.
+		wp.blocks.unregisterBlockStyle("core/image", "default");
+		wp.blocks.unregisterBlockStyle("core/image", "rounded");
 
-	wp.blocks.registerBlockStyle("core/image", [
-		{
-			name: "uds-image",
-			label: "Default",
-			isDefault: true,
-		},
-	]);
+		wp.blocks.registerBlockStyle("core/image", [
+			{
+				name: "uds-image",
+				label: "Default",
+				isDefault: true,
+			},
+		]);
 
-	wp.blocks.registerBlockStyle("core/image", [
-		{
-			name: "drop-shadow",
-			label: "Drop shadow",
-			isDefault: false,
-		},
-	]);
+		wp.blocks.registerBlockStyle("core/image", [
+			{
+				name: "drop-shadow",
+				label: "Drop shadow",
+				isDefault: false,
+			},
+		]);
 
-	wp.blocks.registerBlockStyle("core/image", [
-		{
-			name: "circular",
-			label: "Circular",
-			isDefault: false,
-		},
-	]);
-});
+		wp.blocks.registerBlockStyle("core/image", [
+			{
+				name: "circular",
+				label: "Circular",
+				isDefault: false,
+			},
+		]);
+	});
+}
