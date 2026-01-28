@@ -1,6 +1,6 @@
 {
   "name": "uds-wordpress-theme-v2",
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "ASU Unity Design System WordPress Theme by KE Web Services",
   "homepage": "https://github.com/ASU-KE/UDS-WordPress-Theme",
   "bugs": {
@@ -20,11 +20,13 @@
     "sync": "gulp watch-bs",
     "scripts": "gulp scripts",
     "frontjs": "gulp front-end-scripts",
-    "editorjs": "gulp editor-scripts"
+    "editorjs": "gulp editor-scripts",
+    "compile-sass": "gulp compile-sass",
+    "minify-css": "gulp minify-css"
   },
   "dependencies": {
     "@asu/component-header-footer": "^1.1.3",
-    "@asu/unity-bootstrap-theme": "^1.31.0",
+    "@asu/unity-bootstrap-theme": "^1.33.0",
     "@fortawesome/fontawesome-free": "^7.1.0"
   },
   "devDependencies": {
