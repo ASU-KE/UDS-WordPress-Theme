@@ -7,14 +7,14 @@ This document explains how to use the new GitHub Workflow that duplicates the fu
 The workflow located at `.github/workflows/front-end-scripts.yml` automatically:
 
 1. **Concatenates** the following JavaScript files in order:
-   - `src/js/fontawesome/fontawesome.js`
-   - `src/js/fontawesome/brands.js`
-   - `src/js/fontawesome/solid.js`
+   - `src/js/fontawesome/all.js`
    - `src/js/custom/skip-link-focus-fix.js` (if exists)
    - `src/js/custom/init-uds-header.js`
+   - `src/js/custom/init-uds-footer.js`
    - `src/js/custom/hero_video.js`
    - `src/js/custom/modals.js`
    - `src/js/custom/side-menu-active-child.js`
+   - `src/js/custom/a11y/accordion.js`
 
 2. **Transpiles** the code using Babel with @babel/preset-env for browser compatibility
 

@@ -63,16 +63,8 @@ jobs:
         SOURCE_FILES=""
         
         # Check and add each file if it exists
-        if [ -f "src/js/fontawesome/fontawesome.js" ]; then
-          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/fontawesome.js"
-        fi
-        
-        if [ -f "src/js/fontawesome/brands.js" ]; then
-          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/brands.js"
-        fi
-        
-        if [ -f "src/js/fontawesome/solid.js" ]; then
-          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/solid.js"
+        if [ -f "src/js/fontawesome/all.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/fontawesome/all.js"
         fi
         
         if [ -f "src/js/custom/skip-link-focus-fix.js" ]; then
@@ -85,6 +77,10 @@ jobs:
           SOURCE_FILES="$SOURCE_FILES src/js/custom/init-uds-header.js"
         fi
         
+        if [ -f "src/js/custom/init-uds-footer.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/init-uds-footer.js"
+        fi
+        
         if [ -f "src/js/custom/hero_video.js" ]; then
           SOURCE_FILES="$SOURCE_FILES src/js/custom/hero_video.js"
         fi
@@ -95,6 +91,10 @@ jobs:
         
         if [ -f "src/js/custom/side-menu-active-child.js" ]; then
           SOURCE_FILES="$SOURCE_FILES src/js/custom/side-menu-active-child.js"
+        fi
+        
+        if [ -f "src/js/custom/a11y/accordion.js" ]; then
+          SOURCE_FILES="$SOURCE_FILES src/js/custom/a11y/accordion.js"
         fi
         
         echo "Source files to process: $SOURCE_FILES"
