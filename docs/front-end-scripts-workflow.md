@@ -25,11 +25,11 @@ The workflow located at `.github/workflows/front-end-scripts.yml` automatically:
 ## When it runs
 
 The workflow triggers:
-- On push to `main` or `develop` branches when non-admin JS files change
-- On pull requests to `main` or `develop` branches when non-admin JS files change
+- On push to `develop` branch when non-admin JS files change
+- On pull requests to `develop` branch when non-admin JS files change
 - Manually via "Run workflow" button in GitHub Actions
 
-**Note**: This workflow explicitly excludes admin JavaScript files in `src/js/custom/admin/**`. Changes to admin scripts will not trigger this workflow. For admin scripts, a separate workflow should be created to duplicate the `admin-scripts` and `admin-core-scripts` gulp tasks.
+**Note**: This workflow only watches the `develop` branch. Built files will be merged from `develop` into `main` as needed. The workflow explicitly excludes admin JavaScript files in `src/js/custom/admin/**`. Changes to admin scripts will not trigger this workflow. For admin scripts, a separate workflow should be created to duplicate the `admin-scripts` and `admin-core-scripts` gulp tasks.
 
 ## Manual execution
 

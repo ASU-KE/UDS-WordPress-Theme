@@ -2,13 +2,13 @@ name: Front-End Scripts Build
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ develop ]
     paths:
       - 'src/js/**'
       - '!src/js/custom/admin/**'
       - '.github/workflows/front-end-scripts.yml'
   pull_request:
-    branches: [ main, develop ]
+    branches: [ develop ]
     paths:
       - 'src/js/**'
       - '!src/js/custom/admin/**'
