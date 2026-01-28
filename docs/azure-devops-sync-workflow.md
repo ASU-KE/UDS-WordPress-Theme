@@ -28,7 +28,8 @@ The workflow triggers automatically when:
 - An issue is assigned to someone
 - Comments are created, edited, or deleted on an issue
 
-**Note**: The workflow only runs for issues, not pull requests. Pull requests are automatically excluded.
+> [!NOTE]
+> The workflow only runs for issues, not pull requests. Pull requests are automatically excluded.
 
 ## Configuration
 
