@@ -1,74 +1,79 @@
-name: Build Admin Scripts
+name: Admin Scripts Build
 
 on:
-  pull_request:
-    paths:
-      - 'src/js/custom/admin/**'
-      - 'gulpfile.mjs'
-      - 'package.json'
-      - 'package-lock.json'
   push:
-    branches:
-      - develop
+    branches: [ develop ]
     paths:
       - 'src/js/custom/admin/**'
       - 'gulpfile.mjs'
       - 'package.json'
       - 'package-lock.json'
+      - '.github/workflows/build-admin-scripts.yml'
+  pull_request:
+    branches: [ develop ]
+    paths:
+      - 'src/js/custom/admin/**'
+      - 'gulpfile.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/build-admin-scripts.yml'
   workflow_dispatch:
 
 jobs:
-  build-and-validate:
+  build-admin-scripts:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: read
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
 
-      - name: Configure npm for GitHub Packages
-        run: |
-          echo "@asu:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+    - name: Configure npm for GitHub Packages
+      run: |
+        echo "@asu:registry=https://npm.pkg.github.com" >> .npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
-      - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+    - name: Install dependencies
+      run: npm ci --legacy-peer-deps
 
-      - name: Build admin scripts
-        run: npx gulp admin-scripts
+    - name: Build admin scripts
+      run: npx gulp admin-scripts
 
-      - name: Validate admin-bundle.js exists
-        run: |
-          if [ ! -f "dist/js/admin-bundle.js" ]; then
-            echo "Error: admin-bundle.js was not generated"
-            exit 1
-          fi
-          echo "✓ admin-bundle.js successfully generated"
-          ls -lh dist/js/admin-bundle.js
+    - name: Validate admin-bundle.js exists
+      run: |
+        if [ ! -f "dist/js/admin-bundle.js" ]; then
+          echo "Error: admin-bundle.js was not generated"
+          exit 1
+        fi
+        echo "✓ admin-bundle.js successfully generated"
+        ls -lh dist/js/admin-bundle.js
 
-      - name: Check for JavaScript syntax errors
-        run: |
-          if ! node -c dist/js/admin-bundle.js; then
-            echo "Error: admin-bundle.js contains JavaScript syntax errors"
-            exit 1
-          fi
-          echo "✓ admin-bundle.js has valid JavaScript syntax"
+    - name: Check for JavaScript syntax errors
+      run: |
+        if ! node -c dist/js/admin-bundle.js; then
+          echo "Error: admin-bundle.js contains JavaScript syntax errors"
+          exit 1
+        fi
+        echo "✓ admin-bundle.js has valid JavaScript syntax"
 
-      - name: Upload admin-bundle.js artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: admin-bundle
-          path: dist/js/admin-bundle.js
-          retention-days: 7
+    - name: Upload admin-bundle.js artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: admin-bundle
+        path: dist/js/admin-bundle.js
+        retention-days: 7
 
-      - name: Report bundle size
-        run: |
-          echo "## Admin Scripts Bundle Size" >> $GITHUB_STEP_SUMMARY
-          echo "| File | Size |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
-          echo "| admin-bundle.js | $(du -h dist/js/admin-bundle.js | cut -f1) |" >> $GITHUB_STEP_SUMMARY
+    - name: Report bundle size
+      run: |
+        echo "## Admin Scripts Bundle Size" >> $GITHUB_STEP_SUMMARY
+        echo "| File | Size |" >> $GITHUB_STEP_SUMMARY
+        echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+        echo "| admin-bundle.js | $(du -h dist/js/admin-bundle.js | cut -f1) |" >> $GITHUB_STEP_SUMMARY
