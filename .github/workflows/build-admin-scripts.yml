@@ -9,8 +9,6 @@ on:
       - 'package-lock.json'
   push:
     branches:
-      - main
-      - master
       - develop
     paths:
       - 'src/js/custom/admin/**'
