@@ -17,6 +17,8 @@ The workflow located at `.github/workflows/azure-devops-sync.yml` automatically:
 
 3. **Syncs to Azure DevOps** by creating and updating corresponding work items in the Azure DevOps project
 
+**Important**: This is a one-way synchronization from GitHub to Azure DevOps. Changes made in GitHub are automatically synced to Azure DevOps, but changes made in Azure DevOps will not sync back to GitHub.
+
 ## When it runs
 
 The workflow triggers automatically when:
@@ -34,9 +36,9 @@ The workflow is configured to sync with:
 - **Project**: Web Services Project Portfolio
 - **Work Item Type**: Backlog Item
 - **State Mapping**:
-  - New issues → "To do"
-  - Active/open issues → "Doing"
-  - Closed issues → "Done"
+  - Newly created issues → "To do" (when issue is first opened)
+  - Open/active issues → "Doing" (when issue is reopened or actively being worked on)
+  - Closed issues → "Done" (when issue is closed)
 
 ## Concurrency control
 
