@@ -37,11 +37,11 @@ We are currently using WP Engine to manage our WordPress sites and to connect yo
 [WP Engine Instructions](https://wpengine.com/support/local/).
 - To connect select the `Connect` icon on the left hand side of your Local dashboard.
 
-![Local By FlyWheel Connect Select Example](../img/admin/local-by-flywheel-connect.png "Local By FlyWheel Connect Select Example")
+![Local By FlyWheel Connect Select Example](../dist/img/admin/local-by-flywheel-connect.png "Local By FlyWheel Connect Select Example")
 
 - After you have connected to WP Engine you will see all of the site available to your account listed within the `Connect` area.
 
-![Local By FlyWheel Connect Area Example](../img/admin/local-by-flywheel-connect-area.png "Local By FlyWheel Connect Area Example")
+![Local By FlyWheel Connect Area Example](../dist/img/admin/local-by-flywheel-connect-area.png "Local By FlyWheel Connect Area Example")
 - In order to connect to WP Engine you must click the `My Hosts` button in the upper right corner of the `Connect` area.
 
 Then you will see a list of hosting providers to choose from.
