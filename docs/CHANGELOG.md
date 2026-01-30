@@ -14,6 +14,101 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - GA Data Layer reference redundant - removed duplicate references
 
+## [v2.2.0] - 2026-01-26
+
+### Features
+- WordPress 6.8 Speculative Loading support
+- UI for Speculative Loading in UDS Advanced Settings
+- Lando setup instructions in README
+
+### Changed
+- @asu/unity-bootstrap-theme updated to v1.31.0
+- @asu/component-header-footer updated to v1.1.3
+- Lodash updated from 4.17.21 to 4.17.23
+- Azure DevOps sync configuration improvements
+- Azure DevOps work item type and parent ID updates
+
+### Fixed
+- Home icon highlight offset in header navigation (Issue #390)
+- Link colors in white cards (Issue #622) moved to _cards.scss
+- Azure DevOps sync workflow conditional syntax
+
+### Dev
+- SASS partial refactor - broke apart _theme.scss into 15 specific files for easier debugging
+- Removed duplicate and redundant CSS rules
+- Fixed spelling and consistency issues in SCSS comments
+- Improved code organization in _profile.scss and other style files
+
+### What's Changed
+* Break apart theme.scss into specific files for easier debugging by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/686
+* Fix Azure DevOps sync configuration by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/684
+* Update @asu/unity-bootstrap-theme to v1.31.0 by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/698
+* Bump lodash from 4.17.21 to 4.17.23 by @dependabot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/701
+* v2.2 January release by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/694
+
+**Full Changelog**: https://github.com/ASU-KE/UDS-WordPress-Theme/compare/v2.1.1...v2.2.0
+
+## [v2.1.1] - 2025-12-17
+
+### Changed
+- Font Awesome Free updated to v7.1.0
+
+### Dev
+- Updated fa js gulp task and front-end bundle
+- Removed Font Awesome Pro files
+
+### What's Changed
+* Update Font Awesome Free to v7.1.0 by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/688
+* v2.1.1 patch by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/689
+
+**Full Changelog**: https://github.com/ASU-KE/UDS-WordPress-Theme/compare/v2.1.0...v2.1.1
+
+## [v2.1.0] - 2025-12-01
+
+### Features
+- WordPress 6.8 Speculative Loading support for improved performance
+- UI for Speculative Loading configuration in UDS Advanced Settings
+- React footer v2 components with improved functionality
+- Moved React footer setting to UDS Advanced Settings
+
+### Changed
+- @asu/unity-bootstrap-theme updated to v1.30.3
+- @asu/component-header-footer updated to v1.1.2
+- Switched to v3 Editor Experience
+
+### Fixed
+- React footer not loading when toggled from legacy footer
+- PHP footer to match React footer HTML structure
+- Title attribute in footer links to match React output
+- Footer localizer conditional - always define udsFooterVars
+- Horizontal card layout issues
+- XSS vulnerabilities with proper escaping
+
+### Documentation
+- Complete README documentation with Page Heroes and Customizer
+- Enhanced Features section and REST API Extensions documentation
+- Added comprehensive Footer v2 documentation
+- Added documentation for ACF blocks, patterns, analytics, and shortcodes
+- Added Speculative Loading feature documentation
+
+### Dev
+- Added error handling and documentation to footer v2
+- Button and link values sanitization
+- Close "title and text" section by default in editor
+
+### What's Changed
+* Add WordPress 6.8 Speculative Loading support by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/667
+* Create CHANGELOG.md with all release notes by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/673
+* Update component-header-footer to v1.1.2 by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/675
+* Fix XSS vulnerabilities by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/621
+* Fix PHP footer sub-issues by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/665
+* Update README documentation by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/681
+* Fix card errors by @wjm in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/680
+* Fix PHP footer variance by @Copilot in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/679
+* v2.1.0 release by @jkcox in https://github.com/ASU-KE/UDS-WordPress-Theme/pull/670
+
+**Full Changelog**: https://github.com/ASU-KE/UDS-WordPress-Theme/compare/v2.0.3...v2.1.0
+
 ## [v2.0.3] - 2025-10-29
 
 ### What's Changed
@@ -710,6 +805,9 @@ There have been many updates and improvements since 0.29. A small sample include
 
 ---
 
+[v2.2.0]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.2.0
+[v2.1.1]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.1.1
+[v2.1.0]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.1.0
 [v2.0.3]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.0.3
 [v2.0.2]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.0.2
 [v2.0.1]: https://github.com/ASU-KE/UDS-WordPress-Theme/releases/tag/v2.0.1
