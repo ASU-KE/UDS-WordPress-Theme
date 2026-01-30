@@ -26,10 +26,9 @@
   - Custom navigation menus with ASU Web Standards enforcement
   - Child theme support with starter template available
 - **Analytics & Performance**
-  - Built-in Google Analytics Data Layer for comprehensive event tracking
+  - ASU Google Analytics Data Layer for comprehensive event tracking
   - Google Tag Manager, Google Analytics, and Hotjar integration
   - WordPress 6.8+ Speculative Loading support for improved performance
-  - Automatic tracking of user interactions (clicks, accordions, modals, etc.)
 
 ## Found a bug? Have a question? Need support?
 
