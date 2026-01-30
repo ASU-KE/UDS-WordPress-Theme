@@ -41,6 +41,7 @@
 - **[Updating Guide](docs/updating.md)** - How to update theme components
 - **[Extending Guide](docs/extending.md)** - Child themes, hooks, and filters
 - **[Speculative Loading](docs/speculative-loading.md)** - WordPress 6.8+ performance features
+- **[Changelog](docs/CHANGELOG.md)** - Complete version history and release notes
 
 ## GitHub Workflows
 
