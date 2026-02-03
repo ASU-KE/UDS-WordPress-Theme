@@ -47,7 +47,7 @@ The theme provides an advanced settings page accessible at **WordPress Admin →
 
 ## ACF Blocks
 
-The theme includes 16 custom ACF blocks that provide UDS-compliant content components:
+The theme includes 17 custom ACF blocks that provide UDS-compliant content components:
 
 - **UDS Alert** - Dismissible alert messages with various styles and colors
 - **UDS Background Section** - Container with background images, patterns, or colors using Inner Blocks
@@ -65,8 +65,37 @@ The theme includes 16 custom ACF blocks that provide UDS-compliant content compo
 - **UDS Person Profile** - Display profiles with photos, contact information, and social links
 - **UDS Show More** - Expandable content sections with show/hide functionality
 - **UDS Tabbed Panels** - Tabbed interface for organizing content into switchable panels
+- **UDS Text Marquee** - Accessible scrolling text with pause controls and animation settings
 
 All blocks are available in the WordPress Block Editor under the "UDS" category and follow ASU Web Standards 2.0 design guidelines.
+
+### UDS Text Marquee Block
+
+The Text Marquee block provides an accessible scrolling text display with user controls.
+
+**Features:**
+- Customizable scrolling text content
+- Adjustable animation duration (1-60 seconds)
+- Reversible scroll direction
+- Built-in Gutenberg text color and typography support
+- Pause/play button for user control
+- Keyboard navigation support (Space and Enter keys)
+- Automatic pause on hover and focus
+- Respects user's reduced motion preferences
+- ARIA labels for screen reader accessibility
+
+**Configuration:**
+1. Add the block to your page via the Block Editor inserter
+2. Enter your scrolling text in the "Marquee Text" field
+3. Set animation duration in seconds (default: 10)
+4. Toggle "Reverse Direction" to scroll left-to-right instead of right-to-left
+5. Use the Style tab to customize text color and typography
+
+**Accessibility:**
+- The pause button allows users to stop the animation for better readability
+- Automatically pauses for users with motion sensitivity preferences
+- Keyboard accessible with proper ARIA labels
+- Semantic HTML structure for screen readers
 
 ## Block Patterns
 
