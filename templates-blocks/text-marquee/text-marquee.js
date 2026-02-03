@@ -15,8 +15,8 @@
 		
 		marquees.forEach(function(marquee) {
 			const content = marquee.querySelector('.uds-marquee-content');
+			const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
-			const srText = pauseBtn.querySelector('.sr-only');
 			const duration = marquee.getAttribute('data-animation-duration') || 10;
 			const direction = marquee.getAttribute('data-direction') || 'normal';
 			
@@ -24,56 +24,59 @@
 			content.style.setProperty('--marquee-duration', duration + 's');
 			content.style.setProperty('--marquee-direction', direction);
 			
-			// Pause/play button functionality
+			// Initially hide play button
+			if (playBtn) {
+				playBtn.style.display = 'none';
+			}
+			
+			// Pause button functionality
 			if (pauseBtn) {
 				pauseBtn.addEventListener('click', function() {
-					toggleMarquee(content, pauseBtn, srText);
+					pauseMarquee(content, playBtn, pauseBtn);
 				});
 				
 				// Keyboard support - Space and Enter
 				pauseBtn.addEventListener('keydown', function(e) {
 					if (e.key === ' ' || e.key === 'Enter') {
 						e.preventDefault();
-						toggleMarquee(content, pauseBtn, srText);
+						pauseMarquee(content, playBtn, pauseBtn);
 					}
 				});
 			}
 			
-			// Pause when button is focused for accessibility
-			pauseBtn.addEventListener('focus', function() {
-				if (!content.classList.contains('paused')) {
-					content.classList.add('paused');
-				}
-			});
-			
-			// Resume when button loses focus (if not manually paused)
-			pauseBtn.addEventListener('blur', function() {
-				if (!pauseBtn.getAttribute('aria-pressed') || pauseBtn.getAttribute('aria-pressed') === 'false') {
-					content.classList.remove('paused');
-				}
-			});
+			// Play button functionality
+			if (playBtn) {
+				playBtn.addEventListener('click', function() {
+					playMarquee(content, playBtn, pauseBtn);
+				});
+				
+				// Keyboard support - Space and Enter
+				playBtn.addEventListener('keydown', function(e) {
+					if (e.key === ' ' || e.key === 'Enter') {
+						e.preventDefault();
+						playMarquee(content, playBtn, pauseBtn);
+					}
+				});
+			}
 		});
 	}
 	
 	/**
-	 * Toggle marquee animation state
+	 * Pause marquee animation
 	 */
-	function toggleMarquee(content, button, srText) {
-		const isPaused = button.getAttribute('aria-pressed') === 'true';
-		
-		if (isPaused) {
-			// Resume animation
-			content.classList.remove('paused');
-			button.setAttribute('aria-pressed', 'false');
-			button.setAttribute('aria-label', 'Pause scrolling text');
-			srText.textContent = 'Pause';
-		} else {
-			// Pause animation
-			content.classList.add('paused');
-			button.setAttribute('aria-pressed', 'true');
-			button.setAttribute('aria-label', 'Play scrolling text');
-			srText.textContent = 'Play';
-		}
+	function pauseMarquee(content, playBtn, pauseBtn) {
+		content.classList.add('paused');
+		pauseBtn.style.display = 'none';
+		playBtn.style.display = 'flex';
+	}
+	
+	/**
+	 * Play marquee animation
+	 */
+	function playMarquee(content, playBtn, pauseBtn) {
+		content.classList.remove('paused');
+		playBtn.style.display = 'none';
+		pauseBtn.style.display = 'flex';
 	}
 	
 	/**
@@ -86,6 +89,7 @@
 			const marquees = document.querySelectorAll('.uds-text-marquee-wrapper');
 			marquees.forEach(function(marquee) {
 				const content = marquee.querySelector('.uds-marquee-content');
+				const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 				const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
 				
 				// Pause the animation
@@ -93,9 +97,11 @@
 					content.classList.add('paused');
 				}
 				
-				// Update button state and keep it accessible but visually hidden
+				// Hide both buttons when motion is disabled
+				if (playBtn) {
+					playBtn.classList.add('visually-hidden');
+				}
 				if (pauseBtn) {
-					pauseBtn.setAttribute('aria-pressed', 'true');
 					pauseBtn.classList.add('visually-hidden');
 				}
 			});

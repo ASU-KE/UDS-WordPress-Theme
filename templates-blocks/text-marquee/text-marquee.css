@@ -32,51 +32,14 @@
 	padding-right: 2rem;
 }
 
-/* Pause button styles */
+/* Position play/pause buttons */
+.uds-marquee-play-btn,
 .uds-marquee-pause-btn {
 	position: absolute;
 	top: 50%;
 	right: 1rem;
 	transform: translateY(-50%);
-	background-color: rgba(255, 255, 255, 0.9);
-	border: 2px solid #191919;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
 	z-index: 10;
-	transition: all 0.2s ease;
-	padding: 0;
-}
-
-.uds-marquee-pause-btn:hover,
-.uds-marquee-pause-btn:focus {
-	background-color: #ffc627;
-	border-color: #191919;
-	outline: none;
-	box-shadow: 0 0 0 3px rgba(255, 198, 39, 0.5);
-}
-
-.uds-marquee-pause-btn[aria-pressed="true"] {
-	background-color: #191919;
-}
-
-.uds-marquee-pause-btn[aria-pressed="true"] .pause-icon {
-	display: none;
-}
-
-.uds-marquee-pause-btn[aria-pressed="true"] .play-icon {
-	display: inline-block !important;
-	color: #fff;
-}
-
-.pause-icon,
-.play-icon {
-	font-size: 16px;
-	line-height: 1;
 }
 
 /* Screen reader only text */
@@ -122,11 +85,5 @@
 @media (max-width: 768px) {
 	.marquee-text {
 		font-size: 1.25rem;
-	}
-	
-	.uds-marquee-pause-btn {
-		width: 36px;
-		height: 36px;
-		right: 0.5rem;
 	}
 }
