@@ -1,0 +1,36 @@
+{
+    "name": "acf/uds-text-marquee",
+    "title": "UDS Text Marquee",
+    "description": "An accessible text marquee block with animation controls and pause functionality.",
+    "category": "uds",
+    "icon": "editor-alignleft",
+    "keywords": ["marquee", "text", "scroll", "animation"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "text-marquee.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false,
+        "typography": {
+            "fontSize": true,
+            "lineHeight": true
+        },
+        "color": {
+            "text": true,
+            "background": true
+        }
+    },
+    "viewStyle": "file:./text-marquee.css",
+    "viewScript": "file:./text-marquee.js",
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "marquee_text": "This is a scrolling text marquee example",
+                "animation_duration": 10,
+                "reverse_direction": false
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "key": "group_text_marquee_block",
+    "title": "UDS Block: Text Marquee",
+    "fields": [
+        {
+            "key": "field_marquee_text",
+            "label": "Marquee Text",
+            "name": "marquee_text",
+            "type": "textarea",
+            "instructions": "Enter the text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Enter your scrolling text here",
+            "placeholder": "Your scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_animation_duration",
+            "label": "Animation Duration (seconds)",
+            "name": "animation_duration",
+            "type": "number",
+            "instructions": "How long should it take for the text to scroll across the screen? (in seconds)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "placeholder": "10",
+            "prepend": "",
+            "append": "seconds",
+            "min": 1,
+            "max": 60,
+            "step": 1
+        },
+        {
+            "key": "field_reverse_direction",
+            "label": "Reverse Direction",
+            "name": "reverse_direction",
+            "type": "true_false",
+            "instructions": "Enable to make the text scroll from left to right instead of right to left",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Scroll from left to right",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/uds-text-marquee"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Field group for the UDS Text Marquee block",
+    "show_in_rest": 0,
+    "modified": 1738597800
+}

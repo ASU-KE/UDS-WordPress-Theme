@@ -1,0 +1,131 @@
+/* UDS Text Marquee Block Styles */
+
+.uds-text-marquee-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding: 1rem 0;
+	background-color: transparent;
+}
+
+.uds-marquee-content {
+	display: flex;
+	white-space: nowrap;
+	will-change: transform;
+	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
+	animation-direction: var(--marquee-direction, normal);
+}
+
+.uds-marquee-content.paused {
+	animation-play-state: paused;
+}
+
+.marquee-text {
+	display: inline-block;
+	padding-right: 2rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+/* Duplicate text for seamless loop */
+.marquee-text:not([aria-hidden="true"]) {
+	padding-right: 2rem;
+}
+
+/* Pause button styles */
+.uds-marquee-pause-btn {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid #191919;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.2s ease;
+	padding: 0;
+}
+
+.uds-marquee-pause-btn:hover,
+.uds-marquee-pause-btn:focus {
+	background-color: #ffc627;
+	border-color: #191919;
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(255, 198, 39, 0.5);
+}
+
+.uds-marquee-pause-btn[aria-pressed="true"] {
+	background-color: #191919;
+}
+
+.uds-marquee-pause-btn[aria-pressed="true"] .pause-icon {
+	display: none;
+}
+
+.uds-marquee-pause-btn[aria-pressed="true"] .play-icon {
+	display: inline-block !important;
+	color: #fff;
+}
+
+.pause-icon,
+.play-icon {
+	font-size: 16px;
+	line-height: 1;
+}
+
+/* Screen reader only text */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Keyframe animation */
+@keyframes marquee-scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.uds-marquee-content {
+		animation: none;
+	}
+	
+	.uds-text-marquee-wrapper {
+		overflow-x: auto;
+	}
+	
+	.marquee-text[aria-hidden="true"] {
+		display: none;
+	}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.marquee-text {
+		font-size: 1.25rem;
+	}
+	
+	.uds-marquee-pause-btn {
+		width: 36px;
+		height: 36px;
+		right: 0.5rem;
+	}
+}
