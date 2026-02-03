@@ -2,6 +2,7 @@
     "name": "acf/uds-text-marquee",
     "title": "UDS Text Marquee",
     "description": "An accessible text marquee block with animation controls and pause functionality.",
+    "version": "1.0.0",
     "category": "uds",
     "icon": "editor-alignleft",
     "keywords": ["marquee", "text", "scroll", "animation"],
@@ -23,6 +24,7 @@
     },
     "viewStyle": "file:./text-marquee.css",
     "viewScript": "file:./text-marquee.js",
+    "editorStyle": "file:./text-marquee.css",
     "example": {
         "attributes": {
             "mode": "preview",
