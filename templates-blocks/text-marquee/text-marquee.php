@@ -52,7 +52,9 @@ if ( isset( $block['style']['color']['text'] ) ) {
      aria-label="Scrolling text">
      
 	<div class="uds-marquee-content <?php echo esc_attr( $text_color ); ?>" <?php echo $inline_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to the color value within the inline style. ?>>
-		<span class="marquee-text" aria-live="off"><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text"><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
 		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
 	</div>
 	

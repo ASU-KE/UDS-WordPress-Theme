@@ -9,11 +9,12 @@
 }
 
 .uds-marquee-content {
-	display: flex;
+	display: inline-flex;
 	white-space: nowrap;
 	will-change: transform;
 	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
 	animation-direction: var(--marquee-direction, normal);
+	min-width: 100%;
 }
 
 .uds-marquee-content.paused {
@@ -62,7 +63,7 @@
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-50%);
+		transform: translateX(-25%);
 	}
 }
 
@@ -78,6 +79,10 @@
 	
 	.marquee-text[aria-hidden="true"] {
 		display: none;
+	}
+	
+	.uds-marquee-content {
+		min-width: auto;
 	}
 }
 
