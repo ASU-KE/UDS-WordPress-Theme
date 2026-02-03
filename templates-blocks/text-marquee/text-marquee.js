@@ -39,20 +39,6 @@
 				});
 			}
 			
-			// Pause on hover for better UX
-			marquee.addEventListener('mouseenter', function() {
-				if (!content.classList.contains('paused')) {
-					content.classList.add('paused');
-				}
-			});
-			
-			marquee.addEventListener('mouseleave', function() {
-				// Only resume if not manually paused
-				if (!pauseBtn.getAttribute('aria-pressed') || pauseBtn.getAttribute('aria-pressed') === 'false') {
-					content.classList.remove('paused');
-				}
-			});
-			
 			// Pause when button is focused for accessibility
 			pauseBtn.addEventListener('focus', function() {
 				if (!content.classList.contains('paused')) {
