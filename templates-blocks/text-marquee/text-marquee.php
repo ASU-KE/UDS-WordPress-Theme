@@ -37,9 +37,9 @@ if ( isset( $block['backgroundColor'] ) ) {
 }
 
 // Get custom text color if set
-$custom_text_color = '';
+$inline_style = '';
 if ( isset( $block['style']['color']['text'] ) ) {
-	$custom_text_color = 'style="color: ' . esc_attr( $block['style']['color']['text'] ) . ';"';
+	$inline_style = 'style="color: ' . esc_attr( $block['style']['color']['text'] ) . ';"';
 }
 
 ?>
@@ -51,7 +51,7 @@ if ( isset( $block['style']['color']['text'] ) ) {
      role="region"
      aria-label="Scrolling text">
      
-	<div class="uds-marquee-content <?php echo esc_attr( $text_color ); ?>" <?php echo $custom_text_color; ?>>
+	<div class="uds-marquee-content <?php echo esc_attr( $text_color ); ?>" <?php echo $inline_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to the color value within the inline style. ?>>
 		<span class="marquee-text" aria-live="off"><?php echo wp_kses_post( $marquee_text ); ?></span>
 		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
 	</div>

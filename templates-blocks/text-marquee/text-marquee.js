@@ -53,10 +53,17 @@
 				}
 			});
 			
-			// Pause when focused for accessibility
+			// Pause when button is focused for accessibility
 			pauseBtn.addEventListener('focus', function() {
 				if (!content.classList.contains('paused')) {
 					content.classList.add('paused');
+				}
+			});
+			
+			// Resume when button loses focus (if not manually paused)
+			pauseBtn.addEventListener('blur', function() {
+				if (!pauseBtn.getAttribute('aria-pressed') || pauseBtn.getAttribute('aria-pressed') === 'false') {
+					content.classList.remove('paused');
 				}
 			});
 		});
@@ -90,15 +97,21 @@
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		
 		if (prefersReducedMotion) {
-			const contents = document.querySelectorAll('.uds-marquee-content');
-			contents.forEach(function(content) {
-				content.classList.add('paused');
-			});
-			
-			// Hide pause buttons if motion is disabled
-			const pauseBtns = document.querySelectorAll('.uds-marquee-pause-btn');
-			pauseBtns.forEach(function(btn) {
-				btn.style.display = 'none';
+			const marquees = document.querySelectorAll('.uds-text-marquee-wrapper');
+			marquees.forEach(function(marquee) {
+				const content = marquee.querySelector('.uds-marquee-content');
+				const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
+				
+				// Pause the animation
+				if (content) {
+					content.classList.add('paused');
+				}
+				
+				// Update button state and keep it accessible but visually hidden
+				if (pauseBtn) {
+					pauseBtn.setAttribute('aria-pressed', 'true');
+					pauseBtn.classList.add('visually-hidden');
+				}
 			});
 		}
 	}
