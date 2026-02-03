@@ -67,7 +67,7 @@
 	function pauseMarquee(content, playBtn, pauseBtn) {
 		content.classList.add('paused');
 		pauseBtn.style.display = 'none';
-		playBtn.style.display = 'flex';
+		playBtn.style.display = 'inline-block';
 	}
 	
 	/**
@@ -76,7 +76,7 @@
 	function playMarquee(content, playBtn, pauseBtn) {
 		content.classList.remove('paused');
 		playBtn.style.display = 'none';
-		pauseBtn.style.display = 'flex';
+		pauseBtn.style.display = 'inline-block';
 	}
 	
 	/**
@@ -118,14 +118,5 @@
 		initMarquee();
 		checkReducedMotion();
 	}
-	
-	// Re-initialize on Gutenberg block updates (for preview mode)
-	if (window.acf) {
-		window.acf.addAction('render_block_preview/type=acf-uds-text-marquee', function() {
-			setTimeout(function() {
-				initMarquee();
-				checkReducedMotion();
-			}, 100);
-		});
-	}
+
 })();
