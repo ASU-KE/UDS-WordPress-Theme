@@ -17,15 +17,10 @@
 .uds-marquee-track {
 	display: inline-block;
 	white-space: nowrap;
-	will-change: transform;
-	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
+	position: relative;
 }
 
-.uds-marquee-track[style*="--marquee-direction: reverse"] {
-	animation-name: marquee-scroll-reverse;
-}
-
-.uds-marquee-track.paused {
+.uds-marquee-track.paused .marquee-text {
 	animation-play-state: paused;
 }
 
@@ -34,6 +29,34 @@
 	padding-right: 2rem;
 	font-size: 1.5rem;
 	font-weight: 700;
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	will-change: transform;
+	animation: marquee-scroll-span var(--marquee-duration, 10s) linear infinite;
+}
+
+/* Stagger animation delays for each span to create continuous flow */
+.marquee-text:nth-child(1) {
+	animation-delay: calc(var(--marquee-duration, 10s) * 0);
+}
+
+.marquee-text:nth-child(2) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.25);
+}
+
+.marquee-text:nth-child(3) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.5);
+}
+
+.marquee-text:nth-child(4) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.75);
+}
+
+/* Reverse direction animation for spans */
+.uds-marquee-track[style*="--marquee-direction: reverse"] .marquee-text {
+	animation-name: marquee-scroll-span-reverse;
 }
 
 /* Font weight options */
@@ -105,31 +128,31 @@
 	border-width: 0;
 }
 
-/* Keyframe animation - Default (normal) direction: starts off-screen right, scrolls left */
-/* Uses calc() to ensure text starts completely off-screen regardless of text size */
-@keyframes marquee-scroll {
+/* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left */
+@keyframes marquee-scroll-span {
 	0% {
-		transform: translateX(max(100%, 100vw));
+		transform: translateX(max(100vw, 100%));
 	}
 	100% {
-		transform: translateX(-25%);
+		transform: translateX(calc(-100% - 100vw));
 	}
 }
 
-/* Keyframe animation - Reverse direction: starts off-screen left, scrolls right */
-@keyframes marquee-scroll-reverse {
+/* Keyframe animation for individual spans - Reverse direction: starts off-screen left, scrolls right */
+@keyframes marquee-scroll-span-reverse {
 	0% {
-		transform: translateX(min(-125%, -100vw));
+		transform: translateX(calc(-100% - 100vw));
 	}
 	100% {
-		transform: translateX(0%);
+		transform: translateX(max(100vw, 100%));
 	}
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-	.uds-marquee-track {
+	.marquee-text {
 		animation: none;
+		position: static;
 	}
 	
 	.uds-text-marquee-wrapper {
