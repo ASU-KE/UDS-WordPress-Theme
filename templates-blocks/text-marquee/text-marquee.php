@@ -21,7 +21,7 @@ $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here'
 $animation_duration = $animation_duration ? intval( $animation_duration ) : 10;
 $reverse_direction = $reverse_direction ? 'reverse' : 'normal';
 $text_color = $text_color && 'default' !== $text_color ? $text_color : '';
-$font_size = $font_size && 'default' !== $font_size ? $font_size : '';
+$font_size = $font_size ? floatval( $font_size ) : 1.5;
 $font_weight = $font_weight && 'default' !== $font_weight ? $font_weight : '';
 
 // Generate unique ID for this block instance
@@ -38,15 +38,19 @@ $text_classes = array();
 if ( ! empty( $text_color ) ) {
 	$text_classes[] = $text_color;
 }
-if ( ! empty( $font_size ) ) {
-	$text_classes[] = 'font-size-' . $font_size;
-}
 if ( ! empty( $font_weight ) ) {
 	$text_classes[] = 'font-weight-' . $font_weight;
 }
 if ( $text_stroke ) {
 	$text_classes[] = 'text-stroke';
 }
+
+// Build inline styles for marquee text spans
+$text_inline_styles = array();
+if ( $font_size ) {
+	$text_inline_styles[] = 'font-size: ' . esc_attr( $font_size ) . 'rem';
+}
+$text_style_attr = ! empty( $text_inline_styles ) ? 'style="' . implode( '; ', $text_inline_styles ) . ';"' : '';
 
 // Get background color from block supports
 $bg_color = '';
@@ -64,10 +68,10 @@ if ( isset( $block['backgroundColor'] ) ) {
      aria-label="Scrolling text">
      
 	<div class="uds-marquee-content <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>">
-		<span class="marquee-text"><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
 	</div>
 	<div class="uds-marquee-controls buttons">
 	<button id="playMarquee" type="button" class="btn btn-circle btn-circle-large uds-marquee-play-btn" data-ga="play text marquee" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="animation play" data-ga-region="text marquee" data-ga-section="text marquee">

@@ -28,19 +28,6 @@
 	font-weight: 700;
 }
 
-/* Font size options */
-.uds-marquee-content.font-size-small .marquee-text {
-	font-size: 1.25rem;
-}
-
-.uds-marquee-content.font-size-large .marquee-text {
-	font-size: 2rem;
-}
-
-.uds-marquee-content.font-size-xlarge .marquee-text {
-	font-size: 2.5rem;
-}
-
 /* Font weight options */
 .uds-marquee-content.font-weight-normal .marquee-text {
 	font-weight: 400;

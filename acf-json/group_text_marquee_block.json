@@ -49,8 +49,8 @@
             "key": "field_marquee_font_size",
             "label": "Font Size",
             "name": "font_size",
-            "type": "button_group",
-            "instructions": "Choose the size of the marquee text",
+            "type": "range",
+            "instructions": "Choose the size of the marquee text (in rem units)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,16 +58,12 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "default": "Default (1.5rem)",
-                "small": "Small (1.25rem)",
-                "large": "Large (2rem)",
-                "xlarge": "Extra Large (2.5rem)"
-            },
-            "default_value": "default",
-            "allow_null": 0,
-            "layout": "horizontal",
-            "return_format": "value"
+            "default_value": 1.5,
+            "min": 0.5,
+            "max": 5,
+            "step": 0.25,
+            "prepend": "",
+            "append": "rem"
         },
         {
             "key": "field_marquee_font_weight",
