@@ -9,15 +9,18 @@
 }
 
 .uds-marquee-content {
-	display: inline-flex;
-	white-space: nowrap;
-	will-change: transform;
-	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
-	animation-direction: var(--marquee-direction, normal);
-	min-width: 100%;
+	position: relative;
+	overflow: visible;
 }
 
-.uds-marquee-content.paused {
+.uds-marquee-track {
+	display: inline-block;
+	white-space: nowrap;
+	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
+	animation-direction: var(--marquee-direction, normal);
+}
+
+.uds-marquee-track.paused {
 	animation-play-state: paused;
 }
 
@@ -99,17 +102,17 @@
 
 /* Keyframe animation */
 @keyframes marquee-scroll {
-	0% {
+	from {
 		transform: translateX(0);
 	}
-	100% {
-		transform: translateX(-25%);
+	to {
+		transform: translateX(-50%);
 	}
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-	.uds-marquee-content {
+	.uds-marquee-track {
 		animation: none;
 	}
 	
@@ -119,10 +122,6 @@
 	
 	.marquee-text[aria-hidden="true"] {
 		display: none;
-	}
-	
-	.uds-marquee-content {
-		min-width: auto;
 	}
 }
 

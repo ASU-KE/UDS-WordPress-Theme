@@ -67,11 +67,11 @@ if ( isset( $block['backgroundColor'] ) ) {
      role="region"
      aria-label="Scrolling text">
      
-	<div class="uds-marquee-content <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>">
-		<span class="marquee-text" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-		<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+	<div class="uds-marquee-content">
+		<div class="uds-marquee-track <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>">
+			<span class="marquee-text" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+		</div>
 	</div>
 	<div class="uds-marquee-controls buttons">
 	<button id="playMarquee" type="button" class="btn btn-circle btn-circle-large uds-marquee-play-btn" data-ga="play text marquee" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="animation play" data-ga-region="text marquee" data-ga-section="text marquee">
