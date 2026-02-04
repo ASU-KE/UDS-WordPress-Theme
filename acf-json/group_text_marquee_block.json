@@ -22,30 +22,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_marquee_text_color",
-            "label": "Text Color",
-            "name": "text_color",
-            "type": "button_group",
-            "instructions": "Choose the color for the marquee text",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Default",
-                "text-white": "White",
-                "text-dark": "Dark Gray",
-                "text-gold": "Gold"
-            },
-            "default_value": "default",
-            "allow_null": 0,
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
             "key": "field_marquee_font_size",
             "label": "Font Size",
             "name": "font_size",

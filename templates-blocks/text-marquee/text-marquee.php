@@ -11,7 +11,6 @@
 $marquee_text = get_field( 'marquee_text' );
 $animation_duration = get_field( 'animation_duration' );
 $reverse_direction = get_field( 'reverse_direction' );
-$text_color = get_field( 'text_color' );
 $font_size = get_field( 'font_size' );
 $font_weight = get_field( 'font_weight' );
 $text_stroke = get_field( 'text_stroke' );
@@ -20,7 +19,6 @@ $text_stroke = get_field( 'text_stroke' );
 $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here';
 $animation_duration = $animation_duration ? intval( $animation_duration ) : 10;
 $reverse_direction = $reverse_direction ? 'reverse' : 'normal';
-$text_color = $text_color && 'default' !== $text_color ? $text_color : '';
 $font_size = $font_size ? floatval( $font_size ) : 1.5;
 $font_weight = $font_weight && 'default' !== $font_weight ? $font_weight : '';
 
@@ -35,9 +33,6 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 
 // Build text classes
 $text_classes = array();
-if ( ! empty( $text_color ) ) {
-	$text_classes[] = $text_color;
-}
 if ( ! empty( $font_weight ) ) {
 	$text_classes[] = 'font-weight-' . $font_weight;
 }

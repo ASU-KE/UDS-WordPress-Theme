@@ -68,19 +68,6 @@
 	font-weight: 300;
 }
 
-/* Text color options */
-.uds-marquee-content.text-white .marquee-text {
-	color: #fff;
-}
-
-.uds-marquee-content.text-dark .marquee-text {
-	color: #191919;
-}
-
-.uds-marquee-content.text-gold .marquee-text {
-	color: #ffc627;
-}
-
 /* Text stroke effect */
 .uds-marquee-content.text-stroke .marquee-text {
 	-webkit-text-stroke: 2px #191919;

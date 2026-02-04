@@ -13,10 +13,6 @@
     },
     "supports": {
         "align": false,
-        "typography": {
-            "fontSize": true,
-            "lineHeight": true
-        },
         "color": {
             "text": true,
             "background": true
