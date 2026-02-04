@@ -17,7 +17,10 @@
 	display: inline-block;
 	white-space: nowrap;
 	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
-	animation-direction: var(--marquee-direction, normal);
+}
+
+.uds-marquee-track[style*="--marquee-direction: reverse"] {
+	animation-name: marquee-scroll-reverse;
 }
 
 .uds-marquee-track.paused {
@@ -100,13 +103,23 @@
 	border-width: 0;
 }
 
-/* Keyframe animation */
+/* Keyframe animation - Default (normal) direction: starts off-screen right, ends off-screen left */
 @keyframes marquee-scroll {
 	from {
-		transform: translateX(0);
+		transform: translateX(100%);
 	}
 	to {
 		transform: translateX(-50%);
+	}
+}
+
+/* Keyframe animation - Reverse direction: starts off-screen left, ends off-screen right */
+@keyframes marquee-scroll-reverse {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0%);
 	}
 }
 
