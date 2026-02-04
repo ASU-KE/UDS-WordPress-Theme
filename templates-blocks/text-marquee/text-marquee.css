@@ -28,6 +28,48 @@
 	font-weight: 700;
 }
 
+/* Font size options */
+.uds-marquee-content.font-size-small .marquee-text {
+	font-size: 1.25rem;
+}
+
+.uds-marquee-content.font-size-large .marquee-text {
+	font-size: 2rem;
+}
+
+.uds-marquee-content.font-size-xlarge .marquee-text {
+	font-size: 2.5rem;
+}
+
+/* Font weight options */
+.uds-marquee-content.font-weight-normal .marquee-text {
+	font-weight: 400;
+}
+
+.uds-marquee-content.font-weight-light .marquee-text {
+	font-weight: 300;
+}
+
+/* Text color options */
+.uds-marquee-content.text-white .marquee-text {
+	color: #fff;
+}
+
+.uds-marquee-content.text-dark .marquee-text {
+	color: #191919;
+}
+
+.uds-marquee-content.text-gold .marquee-text {
+	color: #ffc627;
+}
+
+/* Text stroke effect */
+.uds-marquee-content.text-stroke .marquee-text {
+	-webkit-text-stroke: 2px #191919;
+	text-stroke: 2px #191919;
+	paint-order: stroke fill;
+}
+
 /* Duplicate text for seamless loop */
 .marquee-text:not([aria-hidden="true"]) {
 	padding-right: 2rem;

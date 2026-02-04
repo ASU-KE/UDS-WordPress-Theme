@@ -22,6 +22,96 @@
             "new_lines": ""
         },
         {
+            "key": "field_marquee_text_color",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "button_group",
+            "instructions": "Choose the color for the marquee text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "text-white": "White",
+                "text-dark": "Dark Gray",
+                "text-gold": "Gold"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_marquee_font_size",
+            "label": "Font Size",
+            "name": "font_size",
+            "type": "button_group",
+            "instructions": "Choose the size of the marquee text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default (1.5rem)",
+                "small": "Small (1.25rem)",
+                "large": "Large (2rem)",
+                "xlarge": "Extra Large (2.5rem)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_marquee_font_weight",
+            "label": "Font Weight",
+            "name": "font_weight",
+            "type": "button_group",
+            "instructions": "Choose the weight of the marquee text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Bold (700)",
+                "normal": "Normal (400)",
+                "light": "Light (300)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_marquee_text_stroke",
+            "label": "Text Stroke Effect",
+            "name": "text_stroke",
+            "type": "true_false",
+            "instructions": "Enable text stroke outline effect for better visibility on backgrounds",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable text stroke",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
             "key": "field_animation_duration",
             "label": "Animation Duration (seconds)",
             "name": "animation_duration",
@@ -80,5 +170,5 @@
     "active": true,
     "description": "Field group for the UDS Text Marquee block",
     "show_in_rest": 0,
-    "modified": 1738597800
+    "modified": 1738697839
 }

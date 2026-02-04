@@ -11,11 +11,18 @@
 $marquee_text = get_field( 'marquee_text' );
 $animation_duration = get_field( 'animation_duration' );
 $reverse_direction = get_field( 'reverse_direction' );
+$text_color = get_field( 'text_color' );
+$font_size = get_field( 'font_size' );
+$font_weight = get_field( 'font_weight' );
+$text_stroke = get_field( 'text_stroke' );
 
 // Set default values if fields are empty
 $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here';
 $animation_duration = $animation_duration ? intval( $animation_duration ) : 10;
 $reverse_direction = $reverse_direction ? 'reverse' : 'normal';
+$text_color = $text_color && 'default' !== $text_color ? $text_color : '';
+$font_size = $font_size && 'default' !== $font_size ? $font_size : '';
+$font_weight = $font_weight && 'default' !== $font_weight ? $font_weight : '';
 
 // Generate unique ID for this block instance
 $block_id = 'marquee-' . $block['id'];
@@ -26,20 +33,25 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 	$additional_classes = trim( sanitize_text_field( $block['className'] ) );
 }
 
-// Get text color and background color from block supports
-$text_color = '';
-$bg_color = '';
-if ( isset( $block['textColor'] ) ) {
-	$text_color = 'has-' . $block['textColor'] . '-color';
+// Build text classes
+$text_classes = array();
+if ( ! empty( $text_color ) ) {
+	$text_classes[] = $text_color;
 }
-if ( isset( $block['backgroundColor'] ) ) {
-	$bg_color = 'has-' . $block['backgroundColor'] . '-background-color';
+if ( ! empty( $font_size ) ) {
+	$text_classes[] = 'font-size-' . $font_size;
+}
+if ( ! empty( $font_weight ) ) {
+	$text_classes[] = 'font-weight-' . $font_weight;
+}
+if ( $text_stroke ) {
+	$text_classes[] = 'text-stroke';
 }
 
-// Get custom text color if set
-$inline_style = '';
-if ( isset( $block['style']['color']['text'] ) ) {
-	$inline_style = 'style="color: ' . esc_attr( $block['style']['color']['text'] ) . ';"';
+// Get background color from block supports
+$bg_color = '';
+if ( isset( $block['backgroundColor'] ) ) {
+	$bg_color = 'has-' . $block['backgroundColor'] . '-background-color';
 }
 
 ?>
@@ -51,7 +63,7 @@ if ( isset( $block['style']['color']['text'] ) ) {
      role="region"
      aria-label="Scrolling text">
      
-	<div class="uds-marquee-content <?php echo esc_attr( $text_color ); ?>" <?php echo $inline_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to the color value within the inline style. ?>>
+	<div class="uds-marquee-content <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>">
 		<span class="marquee-text"><?php echo wp_kses_post( $marquee_text ); ?></span>
 		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
 		<span class="marquee-text" aria-hidden="true"><?php echo wp_kses_post( $marquee_text ); ?></span>
