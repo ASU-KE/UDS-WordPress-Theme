@@ -79,10 +79,8 @@
 .marquee-text:not([aria-hidden="true"]) {
 	padding-right: 2rem;
 }
-.block-editor .uds-marquee-content, .block-editor .uds-marquee-track {
-	position: unset;
-}
-.block-editor .uds-marquee-controls {
+
+.uds-marquee-controls {
 	display: flex;
   	flex-direction: row-reverse;
 }
@@ -102,7 +100,9 @@
 .block-editor .uds-marquee-pause-btn {
 	display: none;
 }
-
+.block-editor .uds-marquee-content, .block-editor .uds-marquee-track {
+	position: initial;
+}
 /* Screen reader only text */
 .sr-only,
 .visually-hidden {
@@ -120,7 +120,7 @@
 /* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left */
 @keyframes marquee-scroll-span {
 	0% {
-		transform: translateX(calc(100vw + 100%));
+		transform: translateX(max(100vw, 100%));
 	}
 	100% {
 		transform: translateX(calc(-100% - 100vw));
@@ -133,7 +133,7 @@
 		transform: translateX(calc(-100% - 100vw));
 	}
 	100% {
-		transform: translateX(calc(100vw + 100%));
+		transform: translateX(max(100vw, 100%));
 	}
 }
 
