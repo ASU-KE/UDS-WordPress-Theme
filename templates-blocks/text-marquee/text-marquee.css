@@ -79,8 +79,10 @@
 .marquee-text:not([aria-hidden="true"]) {
 	padding-right: 2rem;
 }
-
-.uds-marquee-controls {
+.block-editor .uds-marquee-content, .block-editor .uds-marquee-track {
+	position: unset;
+}
+.block-editor .uds-marquee-controls {
 	display: flex;
   	flex-direction: row-reverse;
 }
