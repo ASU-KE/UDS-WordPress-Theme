@@ -10,12 +10,14 @@
 
 .uds-marquee-content {
 	position: relative;
+	width: 100%;
 	overflow: visible;
 }
 
 .uds-marquee-track {
 	display: inline-block;
 	white-space: nowrap;
+	will-change: transform;
 	animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
 }
 
@@ -103,22 +105,23 @@
 	border-width: 0;
 }
 
-/* Keyframe animation - Default (normal) direction: starts off-screen right, ends off-screen left */
+/* Keyframe animation - Default (normal) direction: starts off-screen right, scrolls left */
+/* Uses calc() to ensure text starts completely off-screen regardless of text size */
 @keyframes marquee-scroll {
-	from {
-		transform: translateX(100%);
+	0% {
+		transform: translateX(max(100%, 100vw));
 	}
-	to {
-		transform: translateX(-50%);
+	100% {
+		transform: translateX(-25%);
 	}
 }
 
-/* Keyframe animation - Reverse direction: starts off-screen left, ends off-screen right */
+/* Keyframe animation - Reverse direction: starts off-screen left, scrolls right */
 @keyframes marquee-scroll-reverse {
-	from {
-		transform: translateX(-150%);
+	0% {
+		transform: translateX(min(-125%, -100vw));
 	}
-	to {
+	100% {
 		transform: translateX(0%);
 	}
 }
