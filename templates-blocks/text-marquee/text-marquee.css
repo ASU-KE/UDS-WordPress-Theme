@@ -118,7 +118,7 @@
 /* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left */
 @keyframes marquee-scroll-span {
 	0% {
-		transform: translateX(max(100vw, 100%));
+		transform: translateX(calc(100vw + 100%));
 	}
 	100% {
 		transform: translateX(calc(-100% - 100vw));
@@ -131,7 +131,7 @@
 		transform: translateX(calc(-100% - 100vw));
 	}
 	100% {
-		transform: translateX(max(100vw, 100%));
+		transform: translateX(calc(100vw + 100%));
 	}
 }
 
