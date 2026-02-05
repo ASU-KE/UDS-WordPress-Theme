@@ -8,18 +8,50 @@
  */
 
 // Get ACF field values
+$content_areas_count = get_field( 'content_areas_count' );
 $marquee_text = get_field( 'marquee_text' );
+$marquee_text_2 = get_field( 'marquee_text_2' );
+$marquee_text_3 = get_field( 'marquee_text_3' );
+$marquee_text_4 = get_field( 'marquee_text_4' );
 $animation_duration = get_field( 'animation_duration' );
 $reverse_direction = get_field( 'reverse_direction' );
 $font_size = get_field( 'font_size' );
 $font_weight = get_field( 'font_weight' );
 
 // Set default values if fields are empty
+$content_areas_count = $content_areas_count ? intval( $content_areas_count ) : 1;
 $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here';
 $animation_duration = $animation_duration ? intval( $animation_duration ) : 10;
 $reverse_direction = $reverse_direction ? 'reverse' : 'normal';
 $font_size = $font_size ? floatval( $font_size ) : 1.5;
 $font_weight = $font_weight && 'default' !== $font_weight ? $font_weight : '';
+
+// Build array of text content based on number of content areas
+$text_contents = array();
+switch ( $content_areas_count ) {
+	case 2:
+		// Alternate between two texts
+		$text_contents = array(
+			$marquee_text,
+			$marquee_text_2 ? $marquee_text_2 : $marquee_text,
+			$marquee_text,
+			$marquee_text_2 ? $marquee_text_2 : $marquee_text,
+		);
+		break;
+	case 4:
+		// Unique text in each position
+		$text_contents = array(
+			$marquee_text,
+			$marquee_text_2 ? $marquee_text_2 : $marquee_text,
+			$marquee_text_3 ? $marquee_text_3 : $marquee_text,
+			$marquee_text_4 ? $marquee_text_4 : $marquee_text,
+		);
+		break;
+	default:
+		// Repeat same text in all positions
+		$text_contents = array( $marquee_text, $marquee_text, $marquee_text, $marquee_text );
+		break;
+}
 
 // Generate unique ID for this block instance
 $block_id = 'marquee-' . $block['id'];
@@ -77,10 +109,9 @@ if ( isset( $block['backgroundColor'] ) ) {
      
 	<div class="uds-marquee-content">
 		<div class="uds-marquee-track <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>" <?php echo $track_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>>
-			<span class="marquee-text" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
-			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
+			<?php foreach ( $text_contents as $index => $text_content ) : ?>
+				<span class="marquee-text" <?php echo 0 !== $index ? 'aria-hidden="true" ' : ''; ?><?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $text_content ); ?></span>
+			<?php endforeach; ?>
 		</div>
 	</div>
 	<div class="uds-marquee-controls buttons">

@@ -3,8 +3,31 @@
     "title": "UDS Block: Text Marquee",
     "fields": [
         {
+            "key": "field_content_areas_count",
+            "label": "Number of Content Areas",
+            "name": "content_areas_count",
+            "type": "button_group",
+            "instructions": "Choose how many different text content areas to display. 1 = same text repeats, 2 = alternates between two texts, 4 = unique text in each position",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 (Repeat)",
+                "2": "2 (Alternate)",
+                "4": "4 (Unique)"
+            },
+            "default_value": "1",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_marquee_text",
-            "label": "Marquee Text",
+            "label": "Marquee Text 1",
             "name": "marquee_text",
             "type": "textarea",
             "instructions": "Enter the text to display in the scrolling marquee",
@@ -17,6 +40,94 @@
             },
             "default_value": "Enter your scrolling text here",
             "placeholder": "Your scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_2",
+            "label": "Marquee Text 2",
+            "name": "marquee_text_2",
+            "type": "textarea",
+            "instructions": "Enter the second text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "2"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your second scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_3",
+            "label": "Marquee Text 3",
+            "name": "marquee_text_3",
+            "type": "textarea",
+            "instructions": "Enter the third text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your third scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_4",
+            "label": "Marquee Text 4",
+            "name": "marquee_text_4",
+            "type": "textarea",
+            "instructions": "Enter the fourth text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your fourth scrolling text...",
             "maxlength": "",
             "rows": 3,
             "new_lines": ""
