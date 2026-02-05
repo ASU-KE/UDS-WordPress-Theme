@@ -68,13 +68,6 @@
 	font-weight: 300;
 }
 
-/* Text stroke effect */
-.uds-marquee-content.text-stroke .marquee-text {
-	-webkit-text-stroke: 2px #191919;
-	text-stroke: 2px #191919;
-	paint-order: stroke fill;
-}
-
 /* Duplicate text for seamless loop */
 .marquee-text:not([aria-hidden="true"]) {
 	padding-right: 2rem;

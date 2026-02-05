@@ -13,7 +13,6 @@ $animation_duration = get_field( 'animation_duration' );
 $reverse_direction = get_field( 'reverse_direction' );
 $font_size = get_field( 'font_size' );
 $font_weight = get_field( 'font_weight' );
-$text_stroke = get_field( 'text_stroke' );
 
 // Set default values if fields are empty
 $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here';
@@ -36,15 +35,23 @@ $text_classes = array();
 if ( ! empty( $font_weight ) ) {
 	$text_classes[] = 'font-weight-' . $font_weight;
 }
-if ( $text_stroke ) {
-	$text_classes[] = 'text-stroke';
-}
 
 // Build inline styles for marquee text spans
 $text_inline_styles = array();
 if ( $font_size ) {
 	$text_inline_styles[] = 'font-size: ' . esc_attr( $font_size ) . 'rem';
 }
+
+// Get text color from Gutenberg block attributes
+$text_color = '';
+if ( isset( $block['textColor'] ) ) {
+	// Preset color (e.g., 'primary', 'secondary')
+	$text_color = 'has-' . $block['textColor'] . '-color';
+} elseif ( isset( $block['style']['color']['text'] ) ) {
+	// Custom color
+	$text_inline_styles[] = 'color: ' . esc_attr( $block['style']['color']['text'] );
+}
+
 $text_style_attr = ! empty( $text_inline_styles ) ? 'style="' . implode( '; ', $text_inline_styles ) . ';"' : '';
 
 // Get background color from block supports
@@ -55,7 +62,7 @@ if ( isset( $block['backgroundColor'] ) ) {
 
 ?>
 
-<div class="uds-text-marquee-wrapper <?php echo esc_attr( $additional_classes ); ?> <?php echo esc_attr( $bg_color ); ?>" 
+<div class="uds-text-marquee-wrapper <?php echo esc_attr( $additional_classes ); ?> <?php echo esc_attr( $bg_color ); ?> <?php echo esc_attr( $text_color ); ?>" 
      id="<?php echo esc_attr( $block_id ); ?>"
      data-animation-duration="<?php echo esc_attr( $animation_duration ); ?>"
      data-direction="<?php echo esc_attr( $reverse_direction ); ?>"
