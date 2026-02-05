@@ -60,11 +60,11 @@
 }
 
 /* Font weight options */
-.uds-marquee-content.font-weight-normal .marquee-text {
+.uds-marquee-track.font-weight-normal .marquee-text {
 	font-weight: 400;
 }
 
-.uds-marquee-content.font-weight-light .marquee-text {
+.uds-marquee-track.font-weight-light .marquee-text {
 	font-weight: 300;
 }
 
