@@ -88,6 +88,7 @@
 	opacity: 1 !important;
     cursor: pointer;
     transform: none;
+	color: #191919;
 }
 .block-editor .uds-marquee-play-btn,
 .block-editor .uds-marquee-pause-btn {
