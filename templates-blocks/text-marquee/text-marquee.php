@@ -36,6 +36,12 @@ if ( ! empty( $font_weight ) ) {
 	$text_classes[] = 'font-weight-' . $font_weight;
 }
 
+// Build inline styles for marquee track (animation properties)
+$track_inline_styles = array();
+$track_inline_styles[] = '--marquee-duration: ' . esc_attr( $animation_duration ) . 's';
+$track_inline_styles[] = '--marquee-direction: ' . esc_attr( $reverse_direction );
+$track_style_attr = 'style="' . implode( '; ', $track_inline_styles ) . ';"';
+
 // Build inline styles for marquee text spans
 $text_inline_styles = array();
 if ( $font_size ) {
@@ -70,7 +76,7 @@ if ( isset( $block['backgroundColor'] ) ) {
      aria-label="Scrolling text">
      
 	<div class="uds-marquee-content">
-		<div class="uds-marquee-track <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>">
+		<div class="uds-marquee-track <?php echo esc_attr( implode( ' ', $text_classes ) ); ?>" <?php echo $track_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>>
 			<span class="marquee-text" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
 			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>
 			<span class="marquee-text" aria-hidden="true" <?php echo $text_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_attr() applied to each style value. ?>><?php echo wp_kses_post( $marquee_text ); ?></span>

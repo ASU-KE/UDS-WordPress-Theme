@@ -17,14 +17,6 @@
 			const track = marquee.querySelector('.uds-marquee-track');
 			const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
-			const duration = marquee.getAttribute('data-animation-duration') || 10;
-			const direction = marquee.getAttribute('data-direction') || 'normal';
-			
-			// Set CSS custom properties for animation
-			if (track) {
-				track.style.setProperty('--marquee-duration', duration + 's');
-				track.style.setProperty('--marquee-direction', direction);
-			}
 			
 			// Initially hide play button
 			if (playBtn) {
