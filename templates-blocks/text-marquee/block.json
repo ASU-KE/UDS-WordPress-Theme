@@ -21,6 +21,7 @@
     "viewStyle": "file:./text-marquee.css",
     "viewScript": "file:./text-marquee.js",
     "editorStyle": "file:./text-marquee.css",
+    "editorScript": "file:./text-marquee.js",
     "example": {
         "attributes": {
             "mode": "preview",
