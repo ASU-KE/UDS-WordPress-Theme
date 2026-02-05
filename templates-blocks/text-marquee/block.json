@@ -20,7 +20,7 @@
     },
     "viewStyle": "file:./text-marquee.css",
     "viewScript": "file:./text-marquee.js",
-    "editorStyle": "file:./text-marquee.css",
+    "editorStyle": ["file:./text-marquee.css", "file:./text-marquee-editor.css"],
     "editorScript": "file:./text-marquee.js",
     "example": {
         "attributes": {
