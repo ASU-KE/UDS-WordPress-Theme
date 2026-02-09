@@ -169,16 +169,8 @@ function initDataLayer() {
 	// Alerts and banners. Events emitted by the .alert element which uses BS5 collapse.
 	document.querySelectorAll('.alert').forEach((element) => {
 
-		// While we are here, let's move the focus appropriately. We'll need the index later.
-		// Recommendation from BS 5: https://getbootstrap.com/docs/5.2/components/alerts/#dismissing
-		var allFocusableElements = document.querySelectorAll(
-			'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
-		);
-		var alertButton = element.querySelector('button');
-		var dismissedIndex = Array.from(allFocusableElements).indexOf(alertButton);
-
 		element.addEventListener('close.bs.alert', function () {
-			const name = element.getAttribute('id') || 'unknown-dismiss';
+			const name = element.getAttribute('class') || 'unknown-dismiss';
 			const event = 'dismiss';
 			const action = 'close';
 			const type = 'click';
@@ -197,12 +189,6 @@ function initDataLayer() {
 				region: region.toLowerCase(),
 				text: text.toLowerCase(),
 			});
-
-			if (dismissedIndex !== -1 && dismissedIndex < allFocusableElements.length - 1) {
-				// Focus on the next element
-				var nextElement = allFocusableElements[dismissedIndex + 1];
-				nextElement.focus();
-			}
 
 		});
 
