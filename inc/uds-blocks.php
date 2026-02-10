@@ -105,6 +105,7 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/grid-links' );
 	register_block_type( get_template_directory() . '/templates-blocks/headings' );
 	register_block_type( get_template_directory() . '/templates-blocks/image' );
+	register_block_type( get_template_directory() . '/templates-blocks/image-parallax-slider' );
 	register_block_type( get_template_directory() . '/templates-blocks/modals' );
 	register_block_type( get_template_directory() . '/templates-blocks/overlay-card' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );

@@ -1,0 +1,97 @@
+{
+    "key": "group_parallax_slider_001",
+    "title": "UDS Block: Image Parallax Slider",
+    "fields": [
+        {
+            "key": "field_parallax_bg_image_001",
+            "label": "Background Image",
+            "name": "uds_parallax_background_image",
+            "type": "image",
+            "instructions": "Select the background image for the parallax effect. This image will scroll slower than the foreground. Recommended: Horizontal orientation, landscape aspect ratio (16:9 or wider), minimum 1920px width.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_parallax_fg_image_001",
+            "label": "Foreground Image",
+            "name": "uds_parallax_foreground_image",
+            "type": "image",
+            "instructions": "Select the foreground image for the parallax effect. This image will scroll faster than the background, creating depth. Recommended: PNG with transparency for best effect, portrait or square aspect ratio.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_parallax_alignment_001",
+            "label": "Foreground Image Alignment",
+            "name": "uds_parallax_foreground_alignment",
+            "type": "radio",
+            "instructions": "Choose whether the foreground image appears on the left or right side of the block.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/image-parallax-slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for creating an image parallax slider block with background and foreground images that move independently on scroll. WCAG 2.1 compliant with reduced motion support.",
+    "show_in_rest": 0,
+    "modified": 1739217600
+}

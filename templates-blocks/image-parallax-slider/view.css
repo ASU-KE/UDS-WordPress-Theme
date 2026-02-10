@@ -1,0 +1,213 @@
+/**
+ * Image Parallax Slider - Styles
+ * 
+ * Responsive styles for the parallax slider block
+ * Includes mobile, tablet, and desktop breakpoints
+ * 
+ * @package UDS WordPress Theme
+ */
+/* ------------------------------------------------------------------
+1. Base styles
+------------------------------------------------------------------- */
+.uds-image-parallax-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 400px;
+  background-color: #191919;
+}
+@media (min-width: 768px) {
+  .uds-image-parallax-slider {
+    min-height: 500px;
+  }
+}
+@media (min-width: 992px) {
+  .uds-image-parallax-slider {
+    min-height: 600px;
+  }
+}
+
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-background {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-foreground {
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.parallax-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.parallax-fg-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------------------------------------------------------
+2. Alignment variations
+------------------------------------------------------------------- */
+/* Left alignment - default */
+.uds-image-parallax-slider.align-left .parallax-foreground {
+  left: 0;
+  right: auto;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .uds-image-parallax-slider.align-left .parallax-foreground {
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .uds-image-parallax-slider.align-left .parallax-foreground {
+    padding-left: 3rem;
+  }
+}
+
+.uds-image-parallax-slider.align-left .parallax-fg-image {
+  margin-right: auto;
+}
+
+/* Right alignment */
+.uds-image-parallax-slider.align-right .parallax-foreground {
+  right: 0;
+  left: auto;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .uds-image-parallax-slider.align-right .parallax-foreground {
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .uds-image-parallax-slider.align-right .parallax-foreground {
+    padding-right: 3rem;
+  }
+}
+
+.uds-image-parallax-slider.align-right .parallax-fg-image {
+  margin-left: auto;
+}
+
+/* ------------------------------------------------------------------
+3. Responsive adjustments
+------------------------------------------------------------------- */
+/* Mobile - smaller foreground images */
+@media (max-width: 767px) {
+  .parallax-fg-image {
+    max-width: 80%;
+  }
+}
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .parallax-fg-image {
+    max-width: 60%;
+  }
+}
+/* Desktop */
+@media (min-width: 992px) {
+  .parallax-fg-image {
+    max-width: 50%;
+  }
+}
+/* ------------------------------------------------------------------
+4. Pause button styles
+------------------------------------------------------------------- */
+.parallax-pause-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  background-color: rgba(25, 25, 25, 0.7);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  padding: 0;
+}
+.parallax-pause-btn:hover, .parallax-pause-btn:focus {
+  background-color: rgba(25, 25, 25, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+.parallax-pause-btn:focus {
+  outline: 2px solid #FFC627;
+  outline-offset: 2px;
+}
+.parallax-pause-btn:active {
+  transform: scale(0.95);
+}
+
+/* ------------------------------------------------------------------
+5. Reduced motion support
+------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+.uds-image-parallax-slider.reduced-motion .parallax-layer {
+  transform: none !important;
+  transition: none !important;
+}
+.uds-image-parallax-slider.reduced-motion .parallax-foreground {
+  top: 50%;
+  transform: translateY(-50%) !important;
+}
+
+/* ------------------------------------------------------------------
+6. Paused state
+------------------------------------------------------------------- */
+.uds-image-parallax-slider.parallax-paused .parallax-layer {
+  transition: none;
+}
+
+/* ------------------------------------------------------------------
+7. Loading states
+------------------------------------------------------------------- */
+.parallax-bg-image,
+.parallax-fg-image {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.parallax-bg-image[loading],
+.parallax-fg-image[loading] {
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=view.css.map */

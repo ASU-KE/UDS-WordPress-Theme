@@ -1,0 +1,25 @@
+{
+    "name": "acf/image-parallax-slider",
+    "title": "Image parallax slider",
+    "description": "Create visually attractive blocks with images that move independently on scroll with WCAG 2.1 compliance",
+    "category": "uds",
+    "icon": "format-gallery",
+    "keywords": ["parallax", "image", "slider", "scroll"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "image-parallax-slider.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false,
+        "jsx": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {}
+        }
+    },
+    "viewScript": "file:./view.js",
+    "style": "file:./view.css"
+}
