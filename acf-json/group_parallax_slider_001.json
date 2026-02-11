@@ -128,6 +128,44 @@
             "mime_types": ""
         },
         {
+            "key": "field_parallax_fg_width_001",
+            "label": "Foreground Image Width",
+            "name": "uds_parallax_foreground_width",
+            "type": "number",
+            "instructions": "Set the width of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "400",
+            "min": 100,
+            "max": 2000,
+            "step": 10
+        },
+        {
+            "key": "field_parallax_fg_height_001",
+            "label": "Foreground Image Height",
+            "name": "uds_parallax_foreground_height",
+            "type": "number",
+            "instructions": "Set the height of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "300",
+            "min": 100,
+            "max": 2000,
+            "step": 10
+        },
+        {
             "key": "field_parallax_alignment_001",
             "label": "Foreground Image Alignment",
             "name": "uds_parallax_foreground_alignment",

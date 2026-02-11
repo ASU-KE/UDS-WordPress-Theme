@@ -15,6 +15,8 @@ $foreground_alignment = get_field( 'uds_parallax_foreground_alignment' );
 $container_height = get_field( 'uds_parallax_container_height' );
 $bg_position = get_field( 'uds_parallax_bg_position' );
 $bg_size = get_field( 'uds_parallax_bg_size' );
+$fg_width = get_field( 'uds_parallax_foreground_width' );
+$fg_height = get_field( 'uds_parallax_foreground_height' );
 
 // Set placeholders if images are not provided
 if ( ! $background_image ) {
@@ -54,6 +56,15 @@ $classes = 'uds-image-parallax-slider ';
 $classes .= 'align-' . esc_attr( $foreground_alignment ) . ' ';
 $classes .= $additional_classes;
 
+// Build inline styles for foreground image if width/height are set
+$fg_style = '';
+if ( $fg_width && is_numeric( $fg_width ) ) {
+	$fg_style .= 'width: ' . intval( $fg_width ) . 'px; ';
+}
+if ( $fg_height && is_numeric( $fg_height ) ) {
+	$fg_style .= 'height: ' . intval( $fg_height ) . 'px; ';
+}
+
 ?>
 
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
@@ -68,7 +79,7 @@ $classes .= $additional_classes;
 		<div class="parallax-container-content">
 			<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
 			     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-			     class="foreground-image" />
+			     class="foreground-image"<?php if ( ! empty( $fg_style ) ) { echo ' style="' . esc_attr( trim( $fg_style ) ) . '"'; } ?> />
 		</div>
 	</div>
 	
