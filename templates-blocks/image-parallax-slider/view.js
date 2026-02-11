@@ -86,16 +86,18 @@
         });
     }
 
-    // Initialize on window load (after all images are loaded)
-    // This matches when UDS Bootstrap's initImageParallax runs
-    window.addEventListener('load', function() {
-        // The UDS Bootstrap initImageParallax is automatically called on window load
-        // We delay our accessibility features initialization by 100ms to ensure
-        // the parallax has been fully set up and image dimensions calculated first.
-        // This prevents conflicts with UDS Bootstrap's image sizing operations.
-        setTimeout(function() {
-            initAccessibilityFeatures();
-        }, 100);
+    // Initialize when DOM is ready
+    window.addEventListener('DOMContentLoaded', function(event) {
+        // Initialize the UDS Bootstrap parallax
+        if (typeof window.unityBootstrap !== 'undefined' && 
+            typeof window.unityBootstrap.initImageParallax === 'function') {
+            window.unityBootstrap.initImageParallax();
+        } else {
+            console.warn('UDS Bootstrap initImageParallax function not available. Parallax effect will not work.');
+        }
+        
+        // Initialize our accessibility features
+        initAccessibilityFeatures();
     });
 
 })();
