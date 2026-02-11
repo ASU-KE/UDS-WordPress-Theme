@@ -12,6 +12,9 @@
 $background_image = get_field( 'uds_parallax_background_image' );
 $foreground_image = get_field( 'uds_parallax_foreground_image' );
 $foreground_alignment = get_field( 'uds_parallax_foreground_alignment' );
+$container_height = get_field( 'uds_parallax_container_height' );
+$bg_position = get_field( 'uds_parallax_bg_position' );
+$bg_size = get_field( 'uds_parallax_bg_size' );
 
 // Set placeholders if images are not provided
 if ( ! $background_image ) {
@@ -28,6 +31,15 @@ if ( ! $foreground_image ) {
 	);
 }
 
+// Set defaults for new fields
+if ( ! $bg_position ) {
+	$bg_position = 'center';
+}
+
+if ( ! $bg_size ) {
+	$bg_size = 'cover';
+}
+
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
 if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
@@ -42,23 +54,32 @@ $classes = 'uds-image-parallax-slider ';
 $classes .= 'align-' . esc_attr( $foreground_alignment ) . ' ';
 $classes .= $additional_classes;
 
+// Build inline styles for container height if set
+$container_style = '';
+if ( $container_height && is_numeric( $container_height ) ) {
+	$container_style = ' style="min-height: ' . intval( $container_height ) . 'px;"';
+}
+
+// Build data attributes for background customization
+$bg_data_attrs = '';
+$bg_data_attrs .= ' data-bg-position="' . esc_attr( $bg_position ) . '"';
+$bg_data_attrs .= ' data-bg-size="' . esc_attr( $bg_size ) . '"';
+
 ?>
 
-<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true">
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php echo $container_style; ?>>
 	<!-- Background Image Container -->
-	<div class="parallax-container parallax-bg">
+	<div class="parallax-container parallax-bg"<?php echo $bg_data_attrs; ?>>
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
 		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
-		     data-parallax-factor="1.2"
-		     loading="lazy" />
+		     data-parallax-factor="1.2" />
 	</div>
 	
 	<!-- Foreground Image Container -->
 	<div class="parallax-container parallax-fg">
 		<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
 		     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-		     data-parallax-factor="1.5"
-		     loading="lazy" />
+		     data-parallax-factor="1.5" />
 	</div>
 	
 	<!-- Pause Button for Accessibility -->

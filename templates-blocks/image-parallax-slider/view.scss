@@ -37,6 +37,7 @@
     img {
         position: absolute;
         top: 0;
+        display: block;
         will-change: top, left, height;
         transition: top 0.1s ease-out;
     }
@@ -52,8 +53,56 @@
     
     img {
         width: 100%;
-        object-fit: cover;
+    }
+    
+    /* Background position variants */
+    &[data-bg-position="center"] img {
         object-position: center;
+    }
+    
+    &[data-bg-position="top"] img {
+        object-position: top;
+    }
+    
+    &[data-bg-position="bottom"] img {
+        object-position: bottom;
+    }
+    
+    &[data-bg-position="left"] img {
+        object-position: left;
+    }
+    
+    &[data-bg-position="right"] img {
+        object-position: right;
+    }
+    
+    &[data-bg-position="top-left"] img {
+        object-position: top left;
+    }
+    
+    &[data-bg-position="top-right"] img {
+        object-position: top right;
+    }
+    
+    &[data-bg-position="bottom-left"] img {
+        object-position: bottom left;
+    }
+    
+    &[data-bg-position="bottom-right"] img {
+        object-position: bottom right;
+    }
+    
+    /* Background size variants */
+    &[data-bg-size="cover"] img {
+        object-fit: cover;
+    }
+    
+    &[data-bg-size="contain"] img {
+        object-fit: contain;
+    }
+    
+    &[data-bg-size="auto"] img {
+        object-fit: none;
     }
 }
 

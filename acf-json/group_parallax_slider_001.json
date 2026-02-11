@@ -27,6 +27,83 @@
             "mime_types": ""
         },
         {
+            "key": "field_parallax_container_height_001",
+            "label": "Container Height",
+            "name": "uds_parallax_container_height",
+            "type": "number",
+            "instructions": "Set the height of the parallax container in pixels (e.g., 600 for 600px). Leave empty for auto height based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "600",
+            "min": 300,
+            "max": 1200,
+            "step": 50
+        },
+        {
+            "key": "field_parallax_bg_position_001",
+            "label": "Background Position",
+            "name": "uds_parallax_bg_position",
+            "type": "select",
+            "instructions": "Control the position of the background image within the container.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "top": "Top",
+                "bottom": "Bottom",
+                "left": "Left",
+                "right": "Right",
+                "top-left": "Top Left",
+                "top-right": "Top Right",
+                "bottom-left": "Bottom Left",
+                "bottom-right": "Bottom Right"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_parallax_bg_size_001",
+            "label": "Background Size",
+            "name": "uds_parallax_bg_size",
+            "type": "select",
+            "instructions": "Control how the background image fills the container.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cover": "Cover (fill container)",
+                "contain": "Contain (fit within container)",
+                "auto": "Auto (original size)"
+            },
+            "default_value": "cover",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_parallax_fg_image_001",
             "label": "Foreground Image",
             "name": "uds_parallax_foreground_image",
