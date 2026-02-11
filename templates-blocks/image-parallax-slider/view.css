@@ -37,7 +37,7 @@
 .parallax-container img {
   position: absolute;
   top: 0;
-  will-change: top;
+  will-change: top, left, height;
   transition: top 0.1s ease-out;
 }
 
@@ -50,9 +50,7 @@
   bottom: 0;
 }
 .parallax-bg img {
-  left: 0;
   width: 100%;
-  height: 120%;
   object-fit: cover;
   object-position: center;
 }

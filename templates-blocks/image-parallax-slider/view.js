@@ -28,6 +28,11 @@
         
         blocks.forEach(function(block) {
             const pauseBtn = block.querySelector('.parallax-pause-btn');
+            
+            if (!pauseBtn) {
+                return;
+            }
+            
             const pauseIcon = pauseBtn.querySelector('.pause-icon');
             const playIcon = pauseBtn.querySelector('.play-icon');
             const containers = block.querySelectorAll('.parallax-container');
@@ -81,18 +86,15 @@
         });
     }
 
-    // Initialize when DOM is ready
-    window.addEventListener('DOMContentLoaded', function(event) {
-        // First, initialize the UDS Bootstrap parallax
-        if (typeof window.unityBootstrap !== 'undefined' && 
-            typeof window.unityBootstrap.initImageParallax === 'function') {
-            window.unityBootstrap.initImageParallax();
-        } else {
-            console.warn('UDS Bootstrap initImageParallax function not available. Parallax effect will not work.');
-        }
-        
-        // Then initialize our accessibility features
-        initAccessibilityFeatures();
+    // Initialize on window load (after all images are loaded)
+    // This matches when UDS Bootstrap's initImageParallax runs
+    window.addEventListener('load', function() {
+        // The UDS Bootstrap initImageParallax is automatically called on window load
+        // We just need to initialize our accessibility features after a short delay
+        // to ensure the parallax has been set up first
+        setTimeout(function() {
+            initAccessibilityFeatures();
+        }, 100);
     });
 
 })();
