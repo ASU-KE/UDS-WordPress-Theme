@@ -26,6 +26,9 @@
     ],
     "editorScript":
     [ 
+        "file:../../src/js/uds/unity-bootstrap.umd.js",
         "file:./view.js"
-    ]
+    ],
+    "editorStyle": "file:./view.css",
+    "style": "file:./view.css"
 }
