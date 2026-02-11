@@ -45,22 +45,20 @@ $classes .= $additional_classes;
 ?>
 
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true">
-	<div class="parallax-container">
-		<!-- Background Image Layer -->
-		<div class="parallax-layer parallax-background" data-parallax-speed="0.5">
-			<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
-			     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
-			     class="parallax-bg-image" 
-			     loading="lazy" />
-		</div>
-		
-		<!-- Foreground Image Layer -->
-		<div class="parallax-layer parallax-foreground" data-parallax-speed="1.5">
-			<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
-			     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-			     class="parallax-fg-image" 
-			     loading="lazy" />
-		</div>
+	<!-- Background Image Container -->
+	<div class="parallax-container parallax-bg">
+		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
+		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
+		     data-parallax-factor="1.2"
+		     loading="lazy" />
+	</div>
+	
+	<!-- Foreground Image Container -->
+	<div class="parallax-container parallax-fg">
+		<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
+		     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
+		     data-parallax-factor="1.5"
+		     loading="lazy" />
 	</div>
 	
 	<!-- Pause Button for Accessibility -->
