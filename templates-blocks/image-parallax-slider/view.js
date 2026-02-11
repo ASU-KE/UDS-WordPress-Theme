@@ -90,8 +90,9 @@
     // This matches when UDS Bootstrap's initImageParallax runs
     window.addEventListener('load', function() {
         // The UDS Bootstrap initImageParallax is automatically called on window load
-        // We just need to initialize our accessibility features after a short delay
-        // to ensure the parallax has been set up first
+        // We delay our accessibility features initialization by 100ms to ensure
+        // the parallax has been fully set up and image dimensions calculated first.
+        // This prevents conflicts with UDS Bootstrap's image sizing operations.
         setTimeout(function() {
             initAccessibilityFeatures();
         }, 100);

@@ -54,22 +54,11 @@ $classes = 'uds-image-parallax-slider ';
 $classes .= 'align-' . esc_attr( $foreground_alignment ) . ' ';
 $classes .= $additional_classes;
 
-// Build inline styles for container height if set
-$container_style = '';
-if ( $container_height && is_numeric( $container_height ) ) {
-	$container_style = ' style="min-height: ' . intval( $container_height ) . 'px;"';
-}
-
-// Build data attributes for background customization
-$bg_data_attrs = '';
-$bg_data_attrs .= ' data-bg-position="' . esc_attr( $bg_position ) . '"';
-$bg_data_attrs .= ' data-bg-size="' . esc_attr( $bg_size ) . '"';
-
 ?>
 
-<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php echo $container_style; ?>>
+<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
 	<!-- Background Image Container -->
-	<div class="parallax-container parallax-bg"<?php echo $bg_data_attrs; ?>>
+	<div class="parallax-container parallax-bg" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>">
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
 		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
 		     data-parallax-factor="1.2" />
