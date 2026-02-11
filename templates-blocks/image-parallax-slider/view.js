@@ -87,7 +87,7 @@
     }
 
     // Initialize when DOM is ready
-    window.addEventListener('DOMContentLoaded', function(event) {
+    window.addEventListener('DOMContentLoaded', function() {
         // Initialize the UDS Bootstrap parallax
         if (typeof window.unityBootstrap !== 'undefined' && 
             typeof window.unityBootstrap.initImageParallax === 'function') {
