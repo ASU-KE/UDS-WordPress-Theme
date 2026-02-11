@@ -58,7 +58,7 @@ $classes .= $additional_classes;
 
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
 	<!-- Parallax Container with Background Image -->
-	<div class="parallax-container" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>">
+	<div class="parallax-container" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>" <?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
 		<!-- Background Image -->
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
 		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
