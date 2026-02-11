@@ -57,18 +57,19 @@ $classes .= $additional_classes;
 ?>
 
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
-	<!-- Background Image Container -->
-	<div class="parallax-container parallax-bg" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>">
+	<!-- Parallax Container with Background Image -->
+	<div class="parallax-container" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>">
+		<!-- Background Image -->
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
 		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
 		     data-parallax-factor="1.2" />
-	</div>
-	
-	<!-- Foreground Image Container -->
-	<div class="parallax-container parallax-fg">
-		<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
-		     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-		     data-parallax-factor="1.5" />
+		
+		<!-- Parallax Container Content with Foreground Image -->
+		<div class="parallax-container-content">
+			<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
+			     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
+			     class="foreground-image" />
+		</div>
 	</div>
 	
 	<!-- Pause Button for Accessibility -->

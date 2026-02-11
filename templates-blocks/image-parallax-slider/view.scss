@@ -2,8 +2,8 @@
  * Image Parallax Slider - Styles
  * 
  * Responsive styles for the parallax slider block
+ * Uses UDS Bootstrap standard parallax-container structure
  * Includes mobile, tablet, and desktop breakpoints
- * Works with UDS Bootstrap initImageParallax function
  * 
  * @package UDS WordPress Theme
  */
@@ -28,106 +28,112 @@
     }
 }
 
-.parallax-container {
-    position: absolute;
+/* Parallax container - matches UDS Bootstrap structure */
+.uds-image-parallax-slider .parallax-container {
+    position: relative;
     width: 100%;
     height: 100%;
+    min-height: inherit;
     overflow: hidden;
     
-    img {
+    /* Background image - animated by UDS Bootstrap */
+    > img {
         position: absolute;
         top: 0;
-        display: block;
-        will-change: top, left, height;
-        transition: top 0.1s ease-out;
-    }
-}
-
-/* Background container - full screen behind */
-.parallax-bg {
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
-    img {
+        left: 0;
         width: 100%;
-    }
-    
-    /* Background position variants */
-    &[data-bg-position="center"] img {
-        object-position: center;
-    }
-    
-    &[data-bg-position="top"] img {
-        object-position: top;
-    }
-    
-    &[data-bg-position="bottom"] img {
-        object-position: bottom;
-    }
-    
-    &[data-bg-position="left"] img {
-        object-position: left;
-    }
-    
-    &[data-bg-position="right"] img {
-        object-position: right;
-    }
-    
-    &[data-bg-position="top-left"] img {
-        object-position: top left;
-    }
-    
-    &[data-bg-position="top-right"] img {
-        object-position: top right;
-    }
-    
-    &[data-bg-position="bottom-left"] img {
-        object-position: bottom left;
-    }
-    
-    &[data-bg-position="bottom-right"] img {
-        object-position: bottom right;
-    }
-    
-    /* Background size variants */
-    &[data-bg-size="cover"] img {
+        height: 100%;
+        display: block;
         object-fit: cover;
-    }
-    
-    &[data-bg-size="contain"] img {
-        object-fit: contain;
-    }
-    
-    &[data-bg-size="auto"] img {
-        object-fit: none;
+        object-position: center;
+        will-change: top;
     }
 }
 
-/* Foreground container - positioned overlay */
-.parallax-fg {
-    z-index: 2;
-    top: 0;
+/* Background position variants */
+.uds-image-parallax-slider .parallax-container[data-bg-position="center"] > img {
+    object-position: center;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="top"] > img {
+    object-position: top;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="bottom"] > img {
+    object-position: bottom;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="left"] > img {
+    object-position: left;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="right"] > img {
+    object-position: right;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="top-left"] > img {
+    object-position: top left;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="top-right"] > img {
+    object-position: top right;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="bottom-left"] > img {
+    object-position: bottom left;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-position="bottom-right"] > img {
+    object-position: bottom right;
+}
+
+/* Background size variants */
+.uds-image-parallax-slider .parallax-container[data-bg-size="cover"] > img {
+    object-fit: cover;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-size="contain"] > img {
+    object-fit: contain;
+}
+
+.uds-image-parallax-slider .parallax-container[data-bg-size="auto"] > img {
+    object-fit: none;
+}
+
+/* ------------------------------------------------------------------
+2. Parallax container content (foreground image)
+------------------------------------------------------------------- */
+
+.uds-image-parallax-slider .parallax-container-content {
+    position: relative;
+    width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 2;
     
-    img {
-        width: auto;
+    /* Override UDS default background for image-only variant */
+    background-color: transparent !important;
+    
+    .foreground-image {
         max-width: 100%;
+        max-height: 100%;
+        width: auto;
         height: auto;
+        display: block;
         object-fit: contain;
     }
 }
 
 /* ------------------------------------------------------------------
-2. Alignment variations
+3. Alignment variations
 ------------------------------------------------------------------- */
 
 /* Left alignment - default */
-.uds-image-parallax-slider.align-left .parallax-fg {
-    left: 0;
-    right: auto;
+.uds-image-parallax-slider.align-left .parallax-container-content {
+    justify-content: flex-start;
     padding-left: 1rem;
 
     @media (min-width: 768px) {
@@ -137,16 +143,11 @@
     @media (min-width: 992px) {
         padding-left: 3rem;
     }
-    
-    img {
-        left: 0;
-    }
 }
 
 /* Right alignment */
-.uds-image-parallax-slider.align-right .parallax-fg {
-    right: 0;
-    left: auto;
+.uds-image-parallax-slider.align-right .parallax-container-content {
+    justify-content: flex-end;
     padding-right: 1rem;
 
     @media (min-width: 768px) {
@@ -156,20 +157,15 @@
     @media (min-width: 992px) {
         padding-right: 3rem;
     }
-    
-    img {
-        right: 0;
-        left: auto;
-    }
 }
 
 /* ------------------------------------------------------------------
-3. Responsive adjustments
+4. Responsive adjustments
 ------------------------------------------------------------------- */
 
 /* Mobile - smaller foreground images */
 @media (max-width: 767px) {
-    .parallax-fg img {
+    .uds-image-parallax-slider .parallax-container-content .foreground-image {
         max-width: 80%;
         max-height: 70%;
     }
@@ -177,7 +173,7 @@
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 991px) {
-    .parallax-fg img {
+    .uds-image-parallax-slider .parallax-container-content .foreground-image {
         max-width: 60%;
         max-height: 80%;
     }
@@ -185,14 +181,14 @@
 
 /* Desktop */
 @media (min-width: 992px) {
-    .parallax-fg img {
+    .uds-image-parallax-slider .parallax-container-content .foreground-image {
         max-width: 50%;
         max-height: 90%;
     }
 }
 
 /* ------------------------------------------------------------------
-4. Pause button styles
+5. Pause button styles
 ------------------------------------------------------------------- */
 
 .parallax-pause-btn {
@@ -232,11 +228,11 @@
 }
 
 /* ------------------------------------------------------------------
-5. Reduced motion support
+6. Reduced motion support
 ------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-    .parallax-container img {
+    .uds-image-parallax-slider .parallax-container > img {
         top: 0 !important;
         transition: none !important;
         will-change: auto !important;
@@ -244,37 +240,18 @@
 }
 
 .uds-image-parallax-slider.reduced-motion {
-    .parallax-container img {
+    .parallax-container > img {
         top: 0 !important;
         transition: none !important;
     }
-    
-    .parallax-fg img {
-        position: relative;
-        top: 50% !important;
-        transform: translateY(-50%);
-    }
 }
 
 /* ------------------------------------------------------------------
-6. Paused state
+7. Paused state
 ------------------------------------------------------------------- */
 
 .uds-image-parallax-slider.parallax-paused {
-    .parallax-container img {
+    .parallax-container > img {
         transition: none;
     }
-}
-
-/* ------------------------------------------------------------------
-7. Loading states
-------------------------------------------------------------------- */
-
-.parallax-container img {
-    opacity: 1;
-    transition: opacity 0.3s ease, top 0.1s ease-out;
-}
-
-.parallax-container img[loading] {
-    opacity: 0.5;
 }

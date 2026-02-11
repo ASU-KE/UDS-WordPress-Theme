@@ -35,7 +35,8 @@
             
             const pauseIcon = pauseBtn.querySelector('.pause-icon');
             const playIcon = pauseBtn.querySelector('.play-icon');
-            const containers = block.querySelectorAll('.parallax-container');
+            const container = block.querySelector('.parallax-container');
+            const bgImage = container ? container.querySelector('> img') : null;
             
             let isPaused = false;
 
@@ -59,12 +60,9 @@
                     pauseBtn.setAttribute('aria-label', 'Play parallax animation');
                     
                     // Disable transitions when paused
-                    containers.forEach(function(container) {
-                        const img = container.querySelector('img');
-                        if (img) {
-                            img.style.transition = 'none';
-                        }
-                    });
+                    if (bgImage) {
+                        bgImage.style.transition = 'none';
+                    }
                 } else {
                     block.classList.remove('parallax-paused');
                     pauseIcon.style.display = 'inline';
@@ -72,12 +70,9 @@
                     pauseBtn.setAttribute('aria-label', 'Pause parallax animation');
                     
                     // Re-enable transitions
-                    containers.forEach(function(container) {
-                        const img = container.querySelector('img');
-                        if (img) {
-                            img.style.transition = '';
-                        }
-                    });
+                    if (bgImage) {
+                        bgImage.style.transition = '';
+                    }
                 }
             }
 
