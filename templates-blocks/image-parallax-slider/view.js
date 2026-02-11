@@ -38,10 +38,6 @@
             if (prefersReducedMotion()) {
                 block.classList.add('reduced-motion');
                 pauseBtn.style.display = 'none';
-                // Disable parallax by removing scroll listeners
-                containers.forEach(function(container) {
-                    container.style.pointerEvents = 'auto';
-                });
                 return;
             }
 
@@ -57,11 +53,10 @@
                     playIcon.style.display = 'inline';
                     pauseBtn.setAttribute('aria-label', 'Play parallax animation');
                     
-                    // Store current positions and prevent updates
+                    // Disable transitions when paused
                     containers.forEach(function(container) {
                         const img = container.querySelector('img');
                         if (img) {
-                            img.dataset.pausedTop = img.style.top || '0';
                             img.style.transition = 'none';
                         }
                     });
@@ -92,6 +87,8 @@
         if (typeof window.unityBootstrap !== 'undefined' && 
             typeof window.unityBootstrap.initImageParallax === 'function') {
             window.unityBootstrap.initImageParallax();
+        } else {
+            console.warn('UDS Bootstrap initImageParallax function not available. Parallax effect will not work.');
         }
         
         // Then initialize our accessibility features
