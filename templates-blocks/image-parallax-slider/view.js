@@ -16,9 +16,9 @@
      * Check if user prefers reduced motion
      * @returns {boolean} True if reduced motion is preferred
      */
-    function prefersReducedMotion() {
-        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
+    // function prefersReducedMotion() {
+    //     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // }
 
     /**
      * Initialize accessibility features for parallax blocks
@@ -83,14 +83,18 @@
 
     // Initialize when DOM is ready
     window.addEventListener('DOMContentLoaded', function() {
-        // Initialize the UDS Bootstrap parallax
-        if (typeof window.unityBootstrap !== 'undefined' && 
-            typeof window.unityBootstrap.initImageParallax === 'function') {
-            window.unityBootstrap.initImageParallax();
-        } else {
-            console.warn('UDS Bootstrap initImageParallax function not available. Parallax effect will not work.');
-        }
-        
+        // if (prefersReducedMotion()) {
+        //     console.log('User prefers reduced motion. Parallax effect is disabled.');
+        //     return;
+        // } else {
+            // Initialize the UDS Bootstrap parallax
+            if (typeof window.unityBootstrap !== 'undefined' && 
+                typeof window.unityBootstrap.initImageParallax === 'function') {
+                window.unityBootstrap.initImageParallax();
+            } else {
+                console.warn('UDS Bootstrap initImageParallax function not available. Parallax effect will not work.');
+            }
+        //}
         // Initialize our accessibility features
         //initAccessibilityFeatures();
     });
