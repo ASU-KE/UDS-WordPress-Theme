@@ -12,6 +12,7 @@
 $background_image = get_field( 'uds_parallax_background_image' );
 $foreground_image = get_field( 'uds_parallax_foreground_image' );
 $foreground_alignment = get_field( 'uds_parallax_foreground_alignment' );
+$foreground_offset_percent = get_field( 'uds_parallax_foreground_offset_percent' );
 $container_height = get_field( 'uds_parallax_container_height' );
 $bg_position = get_field( 'uds_parallax_bg_position' );
 $bg_size = get_field( 'uds_parallax_bg_size' );
@@ -53,7 +54,15 @@ $block_id = 'parallax-' . $block['id'];
 
 // Combine classes
 $classes = 'uds-image-parallax-slider ';
-$classes .= 'align-' . esc_attr( $foreground_alignment ) . ' ';
+if ( $foreground_alignment === 'left' || $foreground_alignment === 'right' ) {
+	$classes .= 'align-' . esc_attr( $foreground_alignment ) . ' ';
+}
+if ( $foreground_alignment === 'offset-left' ) {
+	$classes .= 'offset-left ';
+}
+if ( $foreground_alignment === 'offset-right' ) {
+	$classes .= 'offset-right ';
+}
 $classes .= $additional_classes;
 
 // Build inline styles for foreground image if width/height are set
@@ -68,24 +77,32 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 ?>
 
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $classes ); ?>" data-parallax-block="true"<?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
-	<!-- Parallax Container with Background Image -->
-	<div class="parallax-container" data-bg-position="<?php echo esc_attr( $bg_position ); ?>" data-bg-size="<?php echo esc_attr( $bg_size ); ?>" <?php if ( $container_height && is_numeric( $container_height ) ) { echo ' style="' . esc_attr( 'min-height: ' . intval( $container_height ) . 'px' ) . '"'; } ?>>
+	<?php
+		// Build style attribute for parallax-container
+		$parallax_container_style = '';
+		if ( $container_height && is_numeric( $container_height ) ) {
+			$parallax_container_style .= 'min-height: ' . intval( $container_height ) . 'px; ';
+		}
+		// if ( $foreground_alignment === 'offset-left' || $foreground_alignment === 'offset-right' ) {
+		// 	$parallax_container_style .= 'overflow: visible; ';
+		// }
+		$parallax_container_style = trim( $parallax_container_style );
+	?>
+		<div class="parallax-container" data-bg-size="<?php echo esc_attr( $bg_size ); ?>"<?php if ( ! empty( $parallax_container_style ) ) { echo ' style="' . esc_attr( $parallax_container_style ) . '"'; } ?>>
 		<!-- Background Image -->
-		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
-		     alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
-		     data-parallax-factor="1.2" />
-		
-		<!-- Parallax Container Content with Foreground Image -->
-		<div class="parallax-container-content">
-			<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
-			     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-			     class="foreground-image"<?php if ( ! empty( $fg_style ) ) { echo ' style="' . esc_attr( trim( $fg_style ) ) . '" data-no-scale="' . esc_attr( 'true' ) . '"'; } ?> />
-		</div>
+		  <img src="<?php echo esc_url( $background_image['url'] ); ?>" 
+			  alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
+			  data-parallax-factor="1.2"
+			  style="object-fit: <?php echo esc_attr( $bg_size ); ?>; width: 100%; height: 100%;" />
+			<div class="parallax-container-content"
+				  style="background-image: url('<?php echo esc_url( $foreground_image['url'] ); ?>');<?php if ( ! empty( $fg_style ) ) { echo ' ' . esc_attr( trim( $fg_style ) ); } ?><?php
+					  if ( $foreground_alignment === 'offset-left' && $foreground_offset_percent !== '' ) {
+						  echo ' position: absolute; left: ' . floatval( $foreground_offset_percent ) . '%;';
+					  }
+					  if ( $foreground_alignment === 'offset-right' && $foreground_offset_percent !== '' ) {
+						  echo ' position: absolute; right: ' . floatval( $foreground_offset_percent ) . '%;';
+					  }
+				  ?>">
+		   </div>
 	</div>
-	
-	<!-- Pause Button for Accessibility -->
-	<button class="parallax-pause-btn" aria-label="Pause parallax animation" data-parallax-control="pause">
-		<span class="pause-icon" aria-hidden="true">⏸</span>
-		<span class="play-icon" aria-hidden="true" style="display: none;">▶</span>
-	</button>
 </div>
