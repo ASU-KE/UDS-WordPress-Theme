@@ -1,3 +1,7 @@
 .uds-image-parallax-slider .parallax-container .parallax-container-content {
   background-color: transparent;
 }
+.parallax-container img.foreground-image {
+  position: unset;
+  object-fit: unset;
+}
