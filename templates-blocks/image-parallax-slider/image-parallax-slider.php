@@ -79,7 +79,7 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 		<div class="parallax-container-content">
 			<img src="<?php echo esc_url( $foreground_image['url'] ); ?>" 
 			     alt="<?php echo esc_attr( $foreground_image['alt'] ); ?>" 
-			     class="foreground-image"<?php if ( ! empty( $fg_style ) ) { echo ' style="' . esc_attr( trim( $fg_style ) ) . '"'; } ?> />
+			     class="foreground-image"<?php if ( ! empty( $fg_style ) ) { echo ' style="' . esc_attr( trim( $fg_style ) ) . '"'; echo ' data-no-scale="true"'; } ?> />
 		</div>
 	</div>
 	
