@@ -30,7 +30,7 @@
             "key": "field_parallax_container_height_001",
             "label": "Container Height",
             "name": "uds_parallax_container_height",
-            "type": "number",
+            "type": "range",
             "instructions": "Set the height of the parallax container in pixels (e.g., 600 for 600px). Leave empty for auto height based on screen size.",
             "required": 0,
             "conditional_logic": 0,
@@ -44,38 +44,6 @@
             "min": 300,
             "max": 1200,
             "step": 50
-        },
-        {
-            "key": "field_parallax_bg_position_001",
-            "label": "Background Position",
-            "name": "uds_parallax_bg_position",
-            "type": "select",
-            "instructions": "Control the position of the background image within the container.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "center": "Center",
-                "top": "Top",
-                "bottom": "Bottom",
-                "left": "Left",
-                "right": "Right",
-                "top-left": "Top Left",
-                "top-right": "Top Right",
-                "bottom-left": "Bottom Left",
-                "bottom-right": "Bottom Right"
-            },
-            "default_value": "center",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
         },
         {
             "key": "field_parallax_bg_size_001",
@@ -93,6 +61,9 @@
             "choices": {
                 "cover": "Cover (fill container)",
                 "contain": "Contain (fit within container)",
+                "fill": "Fill (stretch to container)",
+                "none": "None (no resizing)",
+                "scale-down": "Scale Down (smaller of none or contain)",
                 "auto": "Auto (original size)"
             },
             "default_value": "cover",
@@ -131,7 +102,7 @@
             "key": "field_parallax_fg_width_001",
             "label": "Foreground Image Width",
             "name": "uds_parallax_foreground_width",
-            "type": "number",
+            "type": "range",
             "instructions": "Set the width of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
             "required": 0,
             "conditional_logic": 0,
@@ -150,7 +121,7 @@
             "key": "field_parallax_fg_height_001",
             "label": "Foreground Image Height",
             "name": "uds_parallax_foreground_height",
-            "type": "number",
+            "type": "range",
             "instructions": "Set the height of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
             "required": 0,
             "conditional_logic": 0,
@@ -170,7 +141,7 @@
             "label": "Foreground Image Alignment",
             "name": "uds_parallax_foreground_alignment",
             "type": "radio",
-            "instructions": "Choose whether the foreground image appears on the left or right side of the block.",
+            "instructions": "Choose whether the foreground image appears on the left, right, center, offset left, or offset right side of the block.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -179,15 +150,52 @@
                 "id": ""
             },
             "choices": {
+                "center": "Center",
                 "left": "Left",
-                "right": "Right"
+                "right": "Right",
+                "offset-left": "Offset Left",
+                "offset-right": "Offset Right"
             },
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "left",
+            "default_value": "center",
             "layout": "horizontal",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_parallax_offset_percent_001",
+            "label": "Foreground Offset Percentage",
+            "name": "uds_parallax_foreground_offset_percent",
+            "type": "range",
+            "instructions": "If Offset Left or Offset Right is selected, set the left or right offset as a percentage (e.g., 10 for 10%).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_parallax_alignment_001",
+                        "operator": "==",
+                        "value": "offset-left"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_parallax_alignment_001",
+                        "operator": "==",
+                        "value": "offset-right"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "10",
+            "min": -100,
+            "max": 100,
+            "step": 1
         }
     ],
     "location": [
