@@ -99,6 +99,25 @@
             "mime_types": ""
         },
         {
+            "key": "field_parallax_fg_aria_label_001",
+            "label": "Foreground Image Aria Label",
+            "name": "uds_parallax_foreground_aria_label",
+            "type": "text",
+            "instructions": "Provide a descriptive label for screen readers. This describes the foreground image content for accessibility.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Decorative image",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_parallax_fg_width_001",
             "label": "Foreground Image Width",
             "name": "uds_parallax_foreground_width",
