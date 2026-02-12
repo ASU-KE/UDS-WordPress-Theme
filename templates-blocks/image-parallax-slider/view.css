@@ -1,4 +1,5 @@
-.uds-image-parallax-slider .parallax-container {
+.uds-image-parallax-slider.offset-left .parallax-container, 
+.uds-image-parallax-slider.offset-right .parallax-container {
   overflow-y: clip;
   overflow-x: visible;
 }
