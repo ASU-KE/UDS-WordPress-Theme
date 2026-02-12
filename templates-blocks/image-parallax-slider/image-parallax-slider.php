@@ -1,10 +1,7 @@
 <?php
 /**
  * Image Parallax Slider Block
- *
- * Creates visually attractive blocks with images that move independently on scroll.
- * WCAG 2.1 compliant with reduced motion support.
- *
+ * This template is used to display the Image Parallax Slider block on the frontend.
  * @package UDS WordPress Theme
  */
 
@@ -114,10 +111,4 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 			?>">
 		</div>
 	</div>
-	
-	<!-- Pause Button for Accessibility -->
-	<button class="parallax-pause-btn" aria-label="Pause parallax animation" data-parallax-control="pause">
-		<span class="pause-icon" aria-hidden="true">⏸</span>
-		<span class="play-icon" aria-hidden="true" style="display: none;">▶</span>
-	</button>
 </div>
