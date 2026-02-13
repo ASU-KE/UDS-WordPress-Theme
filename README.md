@@ -4,7 +4,7 @@
 
 <h1 align="center">ASU Web Standards WordPress Theme</h1>
 
-<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Unity Design System (@asu/unity-bootstrap-theme), to deliver standards-compliant and accessible WordPress websites across ASU.</p>
+<p align="center">A WordPress theme that builds on top of ASU's canonical design tokens, and the official ASU Unity Design System (@asu/unity-bootstrap-theme), to deliver ASU standards-compliant and accessible WordPress websites.</p>
 
 ## Features
 
