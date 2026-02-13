@@ -95,12 +95,22 @@
 					track.classList.add('paused');
 				}
 				
-				// Hide both buttons when motion is disabled
+				// Hide both buttons when motion is disabled and remove from accessibility tree
 				if (playBtn) {
-					playBtn.classList.add('visually-hidden');
+					playBtn.hidden = true;
+					playBtn.setAttribute('aria-hidden', 'true');
+					playBtn.tabIndex = -1;
+					if ('disabled' in playBtn) {
+						playBtn.disabled = true;
+					}
 				}
 				if (pauseBtn) {
-					pauseBtn.classList.add('visually-hidden');
+					pauseBtn.hidden = true;
+					pauseBtn.setAttribute('aria-hidden', 'true');
+					pauseBtn.tabIndex = -1;
+					if ('disabled' in pauseBtn) {
+						pauseBtn.disabled = true;
+					}
 				}
 			});
 		}
