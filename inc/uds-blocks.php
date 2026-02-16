@@ -55,7 +55,6 @@ function my_acf_blocks_init() {
 			'/banner',             // UDS banner block.
 			'/blockquote',         // Combination of UDS block quote and testimonial.
 			'/content-sections',   // Miscellaneous content sections.
-			'/foldable-card',      // UDS Foldable card block.
 			'/grid-links',         // UDS Grid Links.
 			'/headings',           // A UDS Headings block.
 			'/image',              // UDS Image block with caption and shadow options.
@@ -134,6 +133,7 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/alert' );
 	register_block_type( get_template_directory() . '/templates-blocks/button' );
 	register_block_type( get_template_directory() . '/templates-blocks/cards' );
+	register_block_type( get_template_directory() . '/templates-blocks/foldable-card' );
 	register_block_type( get_template_directory() . '/templates-blocks/modals' );
 	register_block_type( get_template_directory() . '/templates-blocks/profile' );
 
