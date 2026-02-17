@@ -72,6 +72,7 @@ if ( ! empty( $font_weight ) ) {
 $track_inline_styles = array();
 $track_inline_styles[] = '--marquee-duration: ' . esc_attr( $animation_duration ) . 's';
 $track_inline_styles[] = '--marquee-direction: ' . esc_attr( $reverse_direction );
+$track_inline_styles[] = '--marquee-font-size: ' . esc_attr( $font_size ) . 'rem';
 $track_style_attr = 'style="' . implode( '; ', $track_inline_styles ) . ';"';
 
 // Build inline styles for marquee text spans
