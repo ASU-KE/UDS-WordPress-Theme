@@ -58,55 +58,48 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 
 // we'll build a 'button block' based on those conditions.
 $button_block = '';
-$button_block_open = '<div class="banner-buttons">';
-$button_block_close = '</div>';
-
-// if our button count is more than zero, we have buttons to build.
 if ( $button_count > 0 ) {
-
-	// add the opening markup to our button block.
-	$button_block .= $button_block_open;
-
-	// set a button class to make sure we don't make black buttons on a black BG.
-	// all banner colors, besides black, use the dark buttons.
-	$button_class = 'dark';
-	if ( 'black' == $color ) {
-		$button_class = 'gold';
-	}
-
-	// if we got here we have more than zero buttons, so we will render button #1.
-	$button_block .= '<a href="' . $button_one_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_one_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_one_url, 'asu.edu') !== false || strpos($button_one_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_one_text . '</a>';
-
-	// if we have two buttons (the maximum), we also render button #2.
-	if ( 2 == $button_count ) {
-		$button_block .= '<a href="' . $button_two_url . '" class="btn btn-sm btn-' . $button_class . '" data-ga="' . esc_attr($button_two_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="' . (strpos($button_two_url, 'asu.edu') !== false || strpos($button_two_url, '/') === 0 ? 'internal link' : 'external link') . '" data-ga-region="main content" data-ga-section="banner">' . $button_two_text . '</a>';
-	}
-
-	// add the closing markup to the button block.
-	$button_block .= $button_block_close;
+    $button_block .= '<div class="banner-buttons" data-testid="banner-buttons">';
+    $button_class = 'dark';
+    if ( 'black' == $color ) {
+        $button_class = 'gold';
+    }
+    $button_block .= '<a class="btn btn-sm btn-' . $button_class . '" href="' . $button_one_url . '" target="_self" data-ga="' . esc_attr($button_one_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="NotificationBanner">' . $button_one_text . '</a>';
+    if ( 2 == $button_count ) {
+        $button_block .= '<a class="btn btn-sm btn-' . $button_class . '" href="' . $button_two_url . '" target="_self" data-ga=" ' . esc_attr($button_two_text) . '" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="internal link" data-ga-region="main content" data-ga-section="NotificationBanner">' . $button_two_text . '</a>';
+    }
+    $button_block .= '</div>';
 }
 ?>
 
-<div class="container-fluid banner-<?php echo $color; ?> <?php echo $additional_classes; ?>">
-	<div class="container px-0">
-		<div class="row">
-			<div class="col">
-				<div class="banner" role="banner">
-					<div class="banner-icon">
-						<span title="Banner" class="fas fa-<?php echo $icon; ?>"></span>
-					</div>
-					<div class="banner-content">
-						<h3><?php echo $banner_title; ?></h3>
-						<?php echo $body; ?>
-					</div>
-					<?php echo $button_block; ?>
-					<?php if ( $show_close_button ) : ?>
-						<div class="banner-close">
-							<button type="button" class="btn btn-circle btn-circle-alt-white close" aria-label="Close" data-ga="banner close" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="close" data-ga-region="main content" data-ga-section="banner" onclick="event.target.parentNode.parentNode.style.display='none';">x</button>
-						</div>
-					<?php endif; ?>
-				</div>
+<div class="uds-full-width">
+	<div role="alert" class="banner-<?php echo $color; ?> alert alert-dismissable <?php echo $additional_classes; ?>">
+		<div class="banner uds-content-align">
+			<div class="banner-icon"><span class="fa-solid fa-<?php echo $icon; ?>" aria-hidden="true" focusable="false"></span></div>
+			<div class="banner-content">
+				<h1 tabindex="0"><?php echo $banner_title; ?></h1>
+				<?php echo $body; ?>
 			</div>
+			<?php echo $button_block; ?>
+			<?php if ( $show_close_button ) : ?>
+				<div class="banner-close">
+					<button
+						type="button"
+						class="btn btn-circle btn-circle-alt-gray false undefined"
+						aria-label="Close"
+						data-ga="times icon"
+						data-ga-name="onclick"
+						data-ga-event="link"
+						data-ga-action="click"
+						data-ga-type="internal link"
+						data-ga-region="main content"
+						data-ga-section="NotificationBanner"
+						data-bs-dismiss="alert"
+					>
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
