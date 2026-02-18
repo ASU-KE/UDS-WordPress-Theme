@@ -1,0 +1,38 @@
+{
+    "name": "acf/uds-program-card",
+    "title": "UDS Overlay Card",
+    "description": "A block for building program cards with gif image when hover over",
+    "category": "uds",
+    "icon": "admin-page",
+    "keywords": ["card", "cards", "content", "program", "gif", "overlay", "uds"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "overlay-card.php",
+        "validate": false
+    },
+    "supports": {
+        "align": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "title": "Program title",
+                "image": {
+                    "url": "https://via.placeholder.com/240x120?text=Placeholder+Image",
+                    "alt": "image placeholder"
+                },
+                "hover_image": {
+                    "url": "https://via.placeholder.com/240x120?text=Placeholder+Image",
+                    "alt": "image placeholder"
+                },
+                "button": {
+                    "button_color": "gold",
+                    "button_size": "normal",
+                    "icon": "fas fa-arrow-right"
+                }
+            }
+        }
+    },
+    "editorScript": "file:../../src/js/custom/overlay-card.js"
+}

@@ -4,8 +4,22 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 @import "../../node_modules/@asu/unity-bootstrap-theme/src/scss/unity-bootstrap-theme.bundle";
 
 // Any additional imported files //
-@import "theme/theme"; // Small rulesets for our theme. Bigger customizations go in separate files.
-@import "theme/component-header";
+// Theme-specific rulesets organized by functionality for easier debugging
+@import "theme/layout"; // Max width, alignment, and spacing rules
+@import "theme/header"; // Header-specific styles and bug fixes
+@import "theme/bugfixes"; // Temporary bug fixes and workarounds
+@import "theme/wordpress"; // WordPress-specific fixes (admin bar, editor)
+@import "theme/block-styles"; // Block style variations (maroon, smokemode, darkmode, etc.)
+@import "theme/lists"; // List and steplist styles
+@import "theme/alerts"; // Alert component styles
+@import "theme/buttons"; // Button styles and color corrections
+@import "theme/separators"; // Divider and separator styles
+@import "theme/cards"; // Card component styles (foldable, tags)
+@import "theme/images"; // Image block styles and image-related components
+@import "theme/forms"; // Contact Form 7 integration styles
+@import "theme/navigation"; // Breadcrumb, pagination, and tabbed panels
+@import "theme/content-blocks"; // Show more/less, grid links, modal, hero
+@import "theme/isearch"; // iSearch profile styles (temporary)
 @import "theme/color-picker"; // Default rules for defined ASU color palette options. Works with default blocks.
 @import "theme/customizer"; // Tweaks to the customizer (mostly buttons).
 @import "theme/gradient-bg"; //Add breakpoints and colors to gr[side]-[breakpoint]-[color]

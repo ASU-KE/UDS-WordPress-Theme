@@ -45,6 +45,13 @@ if ( ! empty( $block['className'] ) ) {
                 href="#' . $tab_id . '"
                 id="' . $tab_id . '-nav"
                 role="tab"
+                data-ga="' . esc_attr($tab_title) . '"
+                data-ga-name="onclick"
+                data-ga-event="tab"
+                data-ga-action="click"
+                data-ga-type="tab navigation"
+                data-ga-region="main content"
+                data-ga-section="tabbed panels"
               >
               ' . $tab_icon . $tab_title . '
               </a>

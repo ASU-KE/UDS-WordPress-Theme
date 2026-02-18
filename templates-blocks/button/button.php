@@ -125,9 +125,9 @@ endif;
 
 	<?php if ('button' !== $button_tag_type) : // default to links unless specified
 	?>
-		<a href="<?php echo esc_url($button_url); ?>" class="btn <?php echo "{$button_size} btn-{$button_color} {$additional_classes}"; ?>" <?php echo "{$attribute_string} {$target_text} {$rel} {$aria_label}"; ?>><?php echo $icon_span; ?><?php echo $button_label; ?> </a>
+		<a href="<?php echo esc_url($button_url); ?>" class="btn <?php echo "{$button_size} btn-{$button_color} {$additional_classes}"; ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="link" data-ga-action="click" data-ga-type="<?php echo (strpos($button_url, 'asu.edu') !== false || strpos($button_url, '/') === 0) ? 'internal link' : 'external link'; ?>" data-ga-region="main content" data-ga-section="button" <?php echo "{$attribute_string} {$target_text} {$rel} {$aria_label}"; ?>><?php echo $icon_span; ?><?php echo $button_label; ?> </a>
 	<?php else : ?>
-		<button type="button" class="btn <?php echo "{$button_size} btn-{$button_color} {$additional_classes}"; ?>" <?php echo $attribute_string; ?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
+		<button type="button" class="btn <?php echo "{$button_size} btn-{$button_color} {$additional_classes}"; ?>" data-ga="<?php echo esc_attr($button_text); ?>" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="button" data-ga-region="main content" data-ga-section="button" <?php echo $attribute_string; ?>><?php echo $icon_span; ?> <?php echo $button_text; ?></button>
 	<?php endif; ?>
 
 	<?php if (!$remove_outer_div) : ?>

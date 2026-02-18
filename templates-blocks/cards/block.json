@@ -8,7 +8,8 @@
     "acf": {
         "mode": "preview",
         "renderTemplate": "card.php",
-		"validate": false
+		"validate": false,
+		"blockVersion": 3
     },
     "supports": {
         "align": false

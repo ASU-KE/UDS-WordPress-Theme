@@ -12,10 +12,13 @@ import uglify from 'gulp-uglify';
 const sass = gulpSass(dartSass);
 
 /**
- * get latest asu unity stack js
+ * get latest bootstrap js
  */
-gulp.task('update-asu-unity-stack-js', function () {
-    return gulp.src(['node_modules/@asu/unity-bootstrap-theme/dist/js/bootstrap.bundle.min.js',])
+gulp.task('update-bootstrap-js', function () {
+    return gulp.src([
+		'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+		'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
+	])
     .pipe(gulp.dest('./dist/js/'));
 });
 
@@ -25,7 +28,7 @@ gulp.task('update-asu-unity-stack-js', function () {
 gulp.task('update-asu-header-js', function () {
     return gulp.src(['node_modules/@asu/component-header-footer/dist/**/*'],{encoding: false})
 	.pipe(filter(['**', '!*.cjs.js*', '!*.es.js*']))
-    .pipe(gulp.dest('./src/js/uds-asu-header'));
+    .pipe(gulp.dest('./src/js/uds'));
 });
 
 /**
@@ -48,14 +51,13 @@ gulp.task('update-fontawesome-css', function () {
 
 /**
  * get latest fontawesome js
- * update: get file from fontawesome website, pro pack is paid by unit
  */
-// gulp.task('update-fontawesome-js', function () {
-//     return gulp.src([
-// 		'node_modules/@fortawesome/fontawesome-free/js/all.js'
-//     ])
-//     .pipe(gulp.dest('./src/js/fontawesome'));
-// });
+gulp.task('update-fontawesome-js', function () {
+    return gulp.src([
+		'node_modules/@fortawesome/fontawesome-free/js/all.js'
+    ])
+    .pipe(gulp.dest('./src/js/fontawesome'));
+});
 
 /**
  * Compile SCSS to CSS
@@ -85,20 +87,25 @@ gulp.task("minify-css", function () {
 		.pipe(gulp.dest('./dist/css', { sourcemaps: '.' }))
 });
 
+/**
+ * Update CSS styling from latest ASU Unity Stack release
+ * This task combines compile-sass and minify-css for the complete CSS update process
+ */
+gulp.task("update-css-styling", gulp.series("compile-sass", "minify-css"));
 
 /**
  * Front-end Javascript compilation. Scripts enqueued in the front-end of the site.
  */
 gulp.task("front-end-scripts", function() {
 	const scripts = [
-		"./src/js/fontawesome/fontawesome.js",
-		"./src/js/fontawesome/brands.js",
-		"./src/js/fontawesome/solid.js",
+		"./src/js/fontawesome/all.js",
 		"./src/js/custom/skip-link-focus-fix.js",
 		"./src/js/custom/init-uds-header.js",
+		"./src/js/custom/init-uds-footer.js",
 		"./src/js/custom/hero_video.js",
 		"./src/js/custom/modals.js",
 		"./src/js/custom/side-menu-active-child.js",
+		"./src/js/custom/a11y/accordion.js",
 	]
 
 	// Create uglifified min.js

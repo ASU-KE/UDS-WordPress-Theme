@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_60621cb77aa3b",
@@ -25,7 +26,7 @@
             "name": "image",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Be mindful of the images and content used to comply with accessibility requirements. Depending on the context, this block may cause reading difficulties for some users since the changing color\/image behind the text may not contrast with the text or interferes with the readability of the text. Dynamically changing color\/image may cause physical discomfort for some users, such as nausea or dizziness. It’s recommended to disable and prevent any dynamically changing color\/image from occurring, maintaining only a single static color\/image in the component.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,7 +35,6 @@
                 "id": ""
             },
             "return_format": "array",
-            "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -42,7 +42,9 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_606223da7aa3e",
@@ -91,7 +93,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_60621c957aa3a",
@@ -148,7 +151,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_60621d4b7aa3d",
@@ -191,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679336834
+    "modified": 1761169334
 }

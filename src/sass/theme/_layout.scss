@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+1. Max width 1920px, align center
+--------------------------------------------------------------*/
+
+main > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1920px;
+}
+
+/*--------------------------------------------------------------
+Fix content alignment issues between header/content/footer
+--------------------------------------------------------------*/
+
+#header-main .navbar,
+#footer-columns.container {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+@media (max-width: 991.98px) {
+	#footer-innovation .footer-innovation-links .nav {
+		order: 2;
+		padding: 0;
+	}
+
+	#footer-innovation .footer-innovation-links .img-link {
+		order: 1;
+	}
+
+	#footer-colophon .nav {
+		padding: 0;
+	}
+}
+
+@media (max-width: 806px) {
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+footer .menu-social-media-container a.nav-link:last-of-type {
+	padding-right: 0;
+}
+
+footer .menu-social-media-container a.nav-link:first-of-type {
+	padding-left: 0;
+}
+
+footer #wrapper-footer-innovation .img-link {
+	margin-right: 0;
+}
+
+.uds-hero-container,
+.container {
+	.highlight-gold,
+	.highlight-white,
+	.highlight-black {
+		box-shadow: 0 0 0 #ffc627, 0 0 0 #ffc627;
+		padding-left: 0.15em;
+		padding-right: 0.15em;
+	}
+}

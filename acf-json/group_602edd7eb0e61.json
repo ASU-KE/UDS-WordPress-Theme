@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
+            "open": 0,
             "multi_expand": 1,
             "endpoint": 0
         },
@@ -137,7 +137,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_602f0bafbc593",
@@ -233,7 +235,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_602f0c2622823",
@@ -310,7 +314,8 @@
             },
             "display_format": "F j, Y",
             "return_format": "F j, Y",
-            "first_day": 1
+            "first_day": 1,
+            "default_to_current_date": 0
         },
         {
             "key": "field_602f0c78e6848",
@@ -768,5 +773,6 @@
     "active": true,
     "description": "Fields for creating static, but customizable, versions of all UDS card types: standard, story, degree, and event.",
     "show_in_rest": 0,
-    "modified": 1744665723
+    "display_title": "",
+    "modified": 1762990693
 }

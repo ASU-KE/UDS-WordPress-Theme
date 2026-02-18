@@ -57,5 +57,5 @@ if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 ?>
 
 <div class="uds-button <?php echo $additional_classes; ?> <?php echo $show_more_button_classes; ?>" btn-title="<?php echo $button_label; ?>">
-	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>"> <?php echo $icon_span; ?><?php echo $button_label . $show_more_button_icon; ?> </a>
+	<a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo $button_size; ?> btn-<?php echo $button_color; ?>" data-ga="<?php echo esc_attr($button_label); ?>" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="show more" data-ga-region="main content" data-ga-section="show more"> <?php echo $icon_span; ?><?php echo $button_label . $show_more_button_icon; ?> </a>
 </div>
