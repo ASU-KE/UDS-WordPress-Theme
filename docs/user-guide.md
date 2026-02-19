@@ -65,6 +65,7 @@ The theme includes 16 custom ACF blocks that provide UDS-compliant content compo
 - **UDS Person Profile** - Display profiles with photos, contact information, and social links
 - **UDS Show More** - Expandable content sections with show/hide functionality
 - **UDS Tabbed Panels** - Tabbed interface for organizing content into switchable panels
+- **UDS Image Parallax Slider** - Create visually attractive blocks with images that move independently on scroll with WCAG 2.1 compliance
 
 All blocks are available in the WordPress Block Editor under the "UDS" category and follow ASU Web Standards 2.0 design guidelines.
 

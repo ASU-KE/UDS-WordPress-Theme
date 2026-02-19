@@ -1,0 +1,24 @@
+.uds-image-parallax-slider.offset-left .parallax-container, 
+.uds-image-parallax-slider.offset-right .parallax-container {
+  overflow-y: clip;
+  overflow-x: visible;
+}
+.uds-image-parallax-slider .parallax-container .parallax-container-content {
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.parallax-container img.foreground-image {
+  position: unset;
+  object-fit: unset;
+}
+.uds-image-parallax-slider.align-left .parallax-container-content {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.uds-image-parallax-slider.align-right .parallax-container-content {
+  margin-left: auto;
+  margin-right: 0;
+}
