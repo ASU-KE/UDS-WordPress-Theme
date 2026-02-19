@@ -5,8 +5,10 @@ This guide covers development setup, contributing guidelines, and technical deta
 ## Table of Contents
 
 - [Requirements](#requirements)
-- [Local WordPress Environment](#local-wordpress-environment)
-- [Setting Up Local or Lando](#setting-up-local-or-lando)
+- [Local WordPress Environments](#local-wordpress-environments)
+	- [Local By Flywheel](#setup-local-by-flywheel)
+  - [Lando](#setup-lando)
+  - [DDEV](#setup-ddev) 
 - [Installing Dependencies](#installing-dependencies)
 - [VS Code Editor Config](#vs-code-editor-config)
 - [Installing Dependencies from the ASU Unity Design System](#installing-dependencies-from-the-asu-unity-design-system)
@@ -19,14 +21,13 @@ This guide covers development setup, contributing guidelines, and technical deta
 - Lando + Docker or Local by Flywheel is used to run a local dev server.
 
 
-## Local WordPress Environment
+## Local WordPress Environments
 
 - [Local by Flywheel](https://localwp.com/)
 - [Lando](https://docs.lando.dev/)
+- [DDEV](https://ddev.com/)
 
-## Setting Up Local or Lando
-
-### Local By Flywheel
+### Setup Local By Flywheel
 
 - Visit [https://localwp.com/](https://localwp.com/) and click the `Download` button.
 - Choose your platform and enter some information (only the email field is mandatory), the download should start and you'll be taken to a start-up screen, where you will select the `Let's Go!` button. After installation, you'll be taken to the dashboard.
@@ -56,7 +57,7 @@ For new project's select: `ASU UDS Quickstart`
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
-### Lando
+### Setup Lando
 
 - Review [Lando Requirements](https://docs.lando.dev/basics/installation.html#hardware-requirements) to check your system against the hardware requirements.
 - Install [Lando](https://docs.lando.dev/basics/installation.html#macos)
@@ -76,7 +77,7 @@ The process will look like this.
 
 You are now ready to clone the theme within the projects `wp-content/themes` folder.
 
-### 2026 Lando
+#### 2026 Lando
 - `mkdir local-site/wordpress-test-site`, `cd` into directory
 - `lando init` - "code base from current directory", use wordpress recipe, webroot press enter for default, name your app
 - `lando start` - visit in browser to confirm apache server is running
@@ -87,6 +88,17 @@ You are now ready to clone the theme within the projects `wp-content/themes` fol
 
 > [!IMPORTANT]  
 > MacOS Tahoe users must visit `System Settings > Privacy and Security > Full Disk Access` and allow the program running Lando (ex. terminal window in VS Code). The app will only partially load and display 500 or 403 errors.
+
+### Setup DDEV
+> [!NOTE]  
+> Docker required
+
+- `curl install.sh` script from [DDEV](https://docs.ddev.com/en/stable/users/install/ddev-installation/#install-script)
+- `mkdir my-wp-site && cd my-wp-site`
+- `ddev config --project-type=wordpress`
+- follow prompts, see DDEV CMS Quickstart [docs](https://docs.ddev.com/en/stable/users/quickstart/#wordpress) for additional info
+
+
 
 ## Installing Dependencies
 

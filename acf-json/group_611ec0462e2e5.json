@@ -60,8 +60,8 @@
                 "id": ""
             },
             "choices": {
-                "exclamation-triangle": "Triangle Alert",
-                "exclamation-circle": "Circle Alert",
+                "triangle-exclamation": "Triangle Alert",
+                "circle-exclamation": "Circle Alert",
                 "bell": "Bell",
                 "info-circle": "Information Circle"
             },
