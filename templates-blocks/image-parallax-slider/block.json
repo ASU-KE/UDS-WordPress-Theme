@@ -1,6 +1,8 @@
 {
     "name": "acf/image-parallax-slider",
     "title": "Image parallax slider",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "Create visually attractive blocks with images that move independently on scroll.",
     "category": "uds",
     "icon": "format-gallery",
@@ -21,12 +23,10 @@
         }
     },
     "viewScript": [ 
-        "file:../../src/js/uds/unity-bootstrap.umd.js",
         "file:./view.js"
     ],
     "editorScript":
     [ 
-        "file:../../src/js/uds/unity-bootstrap.umd.js",
         "file:./view.js"
     ],
     "editorStyle": "file:./view.css",
