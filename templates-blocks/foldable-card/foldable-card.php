@@ -11,6 +11,7 @@ $accordion_title = get_field( 'uds_single_accordion_title' );
 $accordion_icon = get_field( 'uds_single_accordion_title_icon' );
 $collapsed = get_field( 'uds_single_accordion_collapsed' );
 $accordion_color = get_field( 'uds_single_accordion_color' );
+$accordion_behavior = get_field( 'uds_accordion_behavior' );
 
 // Set collapsed classes based on checkbox setting.
 if ( $collapsed ) {
@@ -49,7 +50,7 @@ if( empty ( $accordion_icon ) ) {
 		),
 	);
 
-	echo '<div class="accordion-item mt-3 ' . $accordion_color . ' ' . $additional_classes . '">
+	echo '<div class="accordion-item mt-3 ' . $accordion_color . ' ' . $additional_classes . '" data-accordion-behavior="' . esc_attr( $accordion_behavior ?: 'default' ) . '">
 			<div class="accordion-header">
 				<h3>
 					<a

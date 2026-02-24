@@ -126,6 +126,30 @@
             "selected": 0
         },
         {
+            "key": "field_613fc4001ae29",
+            "label": "Accordion Behavior",
+            "name": "uds_accordion_behavior",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose how this foldable card should behave when grouped with other cards in an accordion.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default (close siblings)",
+                "always_open": "Always open"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_6154aeef6b8f6",
             "label": "Creating an Accordion",
             "name": "",
@@ -139,7 +163,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "An accordion is a collection of foldable cards that have been grouped together, allowing only one card to be open at a time. To create an accordion:\r\n\r\n1. <b>Create your foldable cards<\/b>. You can make an accordion before or after you place content in the cards.\r\n\r\n2. <b>Select the foldable cards<\/b> that you want to include in the accordion, <b>and place them inside a group block<\/b>: with the cards selected, use the Options button on the right side of the toolbar (the one with 3 vertical dots) to select \"Group\".\r\n\r\n3. You should now have a Group block with your cards inside. <b>With the group block selected<\/b>, use the controls on the side panel to add \"<b>accordion<\/b>\" as class to the additional CSS classes field, and then add a <b>unique id<\/b> to the HTML anchor field for the group.\r\n\r\nYour foldable cards should now function as an accordion.",
+            "message": "An accordion is a collection of foldable cards that have been grouped together. To create an accordion:\r\n\r\n1. <b>Create your foldable cards<\/b>. You can make an accordion before or after you place content in the cards.\r\n\r\n2. <b>Select the foldable cards<\/b> that you want to include in the accordion, <b>and place them inside a group block<\/b>: with the cards selected, use the Options button on the right side of the toolbar (the one with 3 vertical dots) to select \"Group\".\r\n\r\n3. You should now have a Group block with your cards inside. <b>With the group block selected<\/b>, use the controls on the side panel to add \"<b>accordion<\/b>\" as class to the additional CSS classes field, and then add a <b>unique id<\/b> to the HTML anchor field for the group.\r\n\r\n<b>Accordion Behavior:<\/b>\r\n• <b>Default:<\/b> Only one card can be open at a time (standard Bootstrap accordion)\r\n• <b>Always open:<\/b> Multiple cards can remain open simultaneously",
             "new_lines": "wpautop",
             "esc_html": 0
         }
@@ -162,5 +186,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733422527
+    "modified": 1734372977
 }

@@ -1,0 +1,11 @@
+.block-editor .uds-marquee-play-btn,
+.block-editor .uds-marquee-pause-btn {
+	display: none;
+}
+.block-editor .uds-marquee-content, 
+.block-editor .uds-marquee-track {
+	position: initial;
+}
+.block-editor .acf-button-group label {
+	white-space: unset;
+}

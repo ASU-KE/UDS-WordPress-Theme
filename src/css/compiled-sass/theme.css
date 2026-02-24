@@ -14678,6 +14678,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a:visited:not(.btn):not(.uds-modal-close-btn):not(.nav-link):not(.secondary-nav-link):not(.page-link):not(.card-link) {
+  color: #440e22;
+}
+
 .secondary-nav-link {
   color: #ffffff;
   padding: 0 0 1rem;

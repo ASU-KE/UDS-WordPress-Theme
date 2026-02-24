@@ -1,6 +1,8 @@
 {
     "name": "acf/uds-banner",
     "title": "UDS Banner",
+    "apiVersion": 3,
+    "version": "2.0.0",
     "description": "A UDS compliant banner, with customizable text and styles.",
     "category": "uds",
     "icon": "info-outline",

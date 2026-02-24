@@ -1,0 +1,239 @@
+{
+    "key": "group_parallax_slider_001",
+    "title": "UDS Block: Image Parallax Slider",
+    "fields": [
+        {
+            "key": "field_parallax_bg_image_001",
+            "label": "Background Image",
+            "name": "uds_parallax_background_image",
+            "type": "image",
+            "instructions": "Select the background image for the parallax effect. This image will scroll slower than the foreground. Recommended: Horizontal orientation, landscape aspect ratio (16:9 or wider), minimum 1920px width.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_parallax_container_height_001",
+            "label": "Container Height",
+            "name": "uds_parallax_container_height",
+            "type": "range",
+            "instructions": "Set the height of the parallax container in pixels (e.g., 600 for 600px). Leave empty for auto height based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "600",
+            "min": 300,
+            "max": 1200,
+            "step": 50
+        },
+        {
+            "key": "field_parallax_bg_size_001",
+            "label": "Background Size",
+            "name": "uds_parallax_bg_size",
+            "type": "select",
+            "instructions": "Control how the background image fills the container.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cover": "Cover (fill container)",
+                "contain": "Contain (fit within container)",
+                "fill": "Fill (stretch to container)",
+                "none": "None (no resizing)",
+                "scale-down": "Scale Down (smaller of none or contain)",
+                "auto": "Auto (original size)"
+            },
+            "default_value": "cover",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_parallax_fg_image_001",
+            "label": "Foreground Image",
+            "name": "uds_parallax_foreground_image",
+            "type": "image",
+            "instructions": "Select the foreground image for the parallax effect. This image will scroll faster than the background, creating depth. Recommended: PNG with transparency for best effect, portrait or square aspect ratio.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_parallax_fg_aria_label_001",
+            "label": "Foreground Image Aria Label",
+            "name": "uds_parallax_foreground_aria_label",
+            "type": "text",
+            "instructions": "Provide a descriptive label for screen readers. This describes the foreground image content for accessibility.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Decorative image",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_parallax_fg_width_001",
+            "label": "Foreground Image Width",
+            "name": "uds_parallax_foreground_width",
+            "type": "range",
+            "instructions": "Set the width of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "400",
+            "min": 100,
+            "max": 2000,
+            "step": 10
+        },
+        {
+            "key": "field_parallax_fg_height_001",
+            "label": "Foreground Image Height",
+            "name": "uds_parallax_foreground_height",
+            "type": "range",
+            "instructions": "Set the height of the foreground image in pixels. Leave empty to use automatic sizing based on screen size.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "300",
+            "min": 100,
+            "max": 2000,
+            "step": 10
+        },
+        {
+            "key": "field_parallax_alignment_001",
+            "label": "Foreground Image Alignment",
+            "name": "uds_parallax_foreground_alignment",
+            "type": "radio",
+            "instructions": "Choose whether the foreground image appears on the left, right, center, offset left, or offset right side of the block.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "left": "Left",
+                "right": "Right",
+                "offset-left": "Offset Left",
+                "offset-right": "Offset Right"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_parallax_offset_percent_001",
+            "label": "Foreground Offset Percentage",
+            "name": "uds_parallax_foreground_offset_percent",
+            "type": "range",
+            "instructions": "If Offset Left or Offset Right is selected, set the left or right offset as a percentage (e.g., 10 for 10%).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_parallax_alignment_001",
+                        "operator": "==",
+                        "value": "offset-left"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_parallax_alignment_001",
+                        "operator": "==",
+                        "value": "offset-right"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "10",
+            "min": -100,
+            "max": 100,
+            "step": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/image-parallax-slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for creating an image parallax slider block with background and foreground images that move independently on scroll. WCAG 2.1 compliant with reduced motion support.",
+    "show_in_rest": 0,
+    "modified": 1739217600
+}
