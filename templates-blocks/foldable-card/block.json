@@ -14,13 +14,15 @@
         "align": false,
         "jsx": true
     },
+    "viewScript": "file:./foldable-card.js",
     "example": {
         "attributes": {
             "mode": "preview",
             "data": {
                 "uds_single_accordion_title": "Foldable card title",
                 "uds_single_accordion_title_icon": "fas fa-calendar-alt",
-                "uds_single_accordion_collapsed": true
+                "uds_single_accordion_collapsed": true,
+                "uds_accordion_behavior": "default"
             }
         }
     }
