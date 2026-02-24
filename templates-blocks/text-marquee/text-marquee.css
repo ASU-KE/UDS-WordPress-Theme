@@ -1,0 +1,150 @@
+/* UDS Text Marquee Block Styles */
+
+.uds-text-marquee-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding: 1rem 0;
+	background-color: transparent;
+}
+
+.uds-marquee-content {
+	position: relative;
+	width: 100%;
+	overflow: visible;
+}
+
+.uds-marquee-track {
+	display: inline-block;
+	white-space: nowrap;
+	position: relative;
+	height: var(--marquee-font-size, 1.5rem);
+}
+
+.uds-marquee-track.paused .marquee-text {
+	animation-play-state: paused;
+}
+
+.marquee-text {
+	display: inline-block;
+	padding-right: 2rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	will-change: transform;
+	animation: marquee-scroll-span var(--marquee-duration, 10s) linear infinite;
+}
+
+/* Stagger animation delays for each span to create continuous flow */
+.marquee-text:nth-child(1) {
+	animation-delay: calc(var(--marquee-duration, 10s) * 0);
+}
+
+.marquee-text:nth-child(2) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.25);
+}
+
+.marquee-text:nth-child(3) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.5);
+}
+
+.marquee-text:nth-child(4) {
+	animation-delay: calc(var(--marquee-duration, 10s) * -0.75);
+}
+
+/* Reverse direction animation for spans */
+.uds-marquee-track[style*="--marquee-direction: reverse"] .marquee-text {
+	animation-name: marquee-scroll-span-reverse;
+}
+
+/* Font weight options */
+.uds-marquee-track.font-weight-normal .marquee-text {
+	font-weight: 400;
+}
+
+.uds-marquee-track.font-weight-light .marquee-text {
+	font-weight: 300;
+}
+
+/* Duplicate text for seamless loop */
+.marquee-text:not([aria-hidden="true"]) {
+	padding-right: 2rem;
+}
+
+.uds-marquee-controls {
+	display: flex;
+  	flex-direction: row-reverse;
+}
+/* Position play/pause buttons */
+.uds-marquee-play-btn,
+.uds-marquee-pause-btn {
+    opacity: .3;
+	background-color: #fff !important;
+}
+.uds-marquee-play-btn:hover,
+.uds-marquee-pause-btn:hover {
+	opacity: 1 !important;
+    cursor: pointer;
+    transform: none;
+	color: #191919;
+}
+
+/* Screen reader only text */
+.sr-only,
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left */
+@keyframes marquee-scroll-span {
+	0% {
+		transform: translateX(max(100vw, 100%));
+	}
+	100% {
+		transform: translateX(calc(-100% - 100vw));
+	}
+}
+
+/* Keyframe animation for individual spans - Reverse direction: starts off-screen left, scrolls right */
+@keyframes marquee-scroll-span-reverse {
+	0% {
+		transform: translateX(calc(-100% - 100vw));
+	}
+	100% {
+		transform: translateX(max(100vw, 100%));
+	}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.marquee-text {
+		animation: none;
+		position: static;
+	}
+	
+	.uds-text-marquee-wrapper {
+		overflow-x: auto;
+	}
+	
+	.marquee-text[aria-hidden="true"] {
+		display: none;
+	}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.marquee-text {
+		font-size: 1.25rem;
+	}
+}

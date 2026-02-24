@@ -1,0 +1,238 @@
+{
+    "key": "group_text_marquee_block",
+    "title": "UDS Block: Text Marquee",
+    "fields": [
+        {
+            "key": "field_content_areas_count",
+            "label": "Number of Content Areas",
+            "name": "content_areas_count",
+            "type": "button_group",
+            "instructions": "Choose how many different text content areas to display. 1 = same text repeats, 2 = alternates between two texts, 4 = unique text in each position",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 (Repeat)",
+                "2": "2 (Alternate)",
+                "4": "4 (Unique)"
+            },
+            "default_value": "1",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_marquee_text",
+            "label": "Marquee Text 1",
+            "name": "marquee_text",
+            "type": "textarea",
+            "instructions": "Enter the text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Enter your scrolling text here",
+            "placeholder": "Your scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_2",
+            "label": "Marquee Text 2",
+            "name": "marquee_text_2",
+            "type": "textarea",
+            "instructions": "Enter the second text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "2"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your second scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_3",
+            "label": "Marquee Text 3",
+            "name": "marquee_text_3",
+            "type": "textarea",
+            "instructions": "Enter the third text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your third scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_text_4",
+            "label": "Marquee Text 4",
+            "name": "marquee_text_4",
+            "type": "textarea",
+            "instructions": "Enter the fourth text to display in the scrolling marquee",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_content_areas_count",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Your fourth scrolling text...",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_marquee_font_size",
+            "label": "Font Size",
+            "name": "font_size",
+            "type": "range",
+            "instructions": "Choose the size of the marquee text (in rem units)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1.5,
+            "min": 0.5,
+            "max": 5,
+            "step": 0.25,
+            "prepend": "",
+            "append": "rem"
+        },
+        {
+            "key": "field_marquee_font_weight",
+            "label": "Font Weight",
+            "name": "font_weight",
+            "type": "button_group",
+            "instructions": "Choose the weight of the marquee text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Bold (700)",
+                "normal": "Normal (400)",
+                "light": "Light (300)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_animation_duration",
+            "label": "Animation Duration (seconds)",
+            "name": "animation_duration",
+            "type": "number",
+            "instructions": "How long should it take for the text to scroll across the screen? (in seconds)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "placeholder": "10",
+            "prepend": "",
+            "append": "seconds",
+            "min": 1,
+            "max": 60,
+            "step": 1
+        },
+        {
+            "key": "field_reverse_direction",
+            "label": "Reverse Direction",
+            "name": "reverse_direction",
+            "type": "true_false",
+            "instructions": "Enable to make the text scroll from left to right instead of right to left",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Scroll from left to right",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/uds-text-marquee"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Field group for the UDS Text Marquee block",
+    "show_in_rest": 0,
+    "modified": 1738697839
+}
