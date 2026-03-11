@@ -1,11 +1,9 @@
 /**
  * Data Layer Analytics Script
  *
- * This script handles analytics tracking for various elements and pushes event data
- * to the Google Analytics data layer.
+ * This script handles analytics tracking for various elements 
+ * and pushes event data to the Google Analytics data layer.
  *
- * Combined Bootstrap 5 specific analytics (from pitchfork-blocks) with ASU Unity Stack
- * general analytics to provide comprehensive event tracking.
  *
  * @package UDS WordPress Theme
  */
@@ -16,10 +14,10 @@ function initDataLayer() {
 	 * Used by Header and General events.
 	 */
 	const pushGAEvent = event => {
-		window.dataLayer = window.dataLayer || [];
-		const { dataLayer } = window;
-		if (dataLayer) dataLayer.push(event);
-	};
+		window.dataLayer = window.dataLayer || []
+		const { dataLayer } = window
+		if (dataLayer) dataLayer.push(event)
+	}
 
 	// Accordions. Events emitted by the body which uses BS5 collapse.
 	document.querySelectorAll('.accordion-body').forEach((element) => {
