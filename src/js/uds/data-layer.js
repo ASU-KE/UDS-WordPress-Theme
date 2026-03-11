@@ -227,7 +227,7 @@ function initDataLayer() {
 	});
 
 	//is gravity forms present on the page? 
-	if (document.querySelectorAll('.gform_wrapper > form')) {
+	if (document.querySelector('.gform_wrapper > form')) {
 		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
 		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
 			element.addEventListener('focusin', function () {
