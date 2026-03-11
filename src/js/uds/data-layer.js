@@ -231,48 +231,34 @@ function initDataLayer() {
 		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
 		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
 			element.addEventListener('focusin', function () {
-				const name = element.getAttribute('id') || 'unknown-form';
-				const event = 'form_start';
-				const action = 'focus';
-				const type = 'form';
-				const section = 'main-content';
-				const region = 'main-content';
+				const name = element.getAttribute('id') || 'unknown-form'
+				const event = 'form_start'
+				const action = 'focus'
+				const type = 'form'
+				const section = 'main-content'
+				const region = 'main-content'
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-				});
-			});
-		});
+				pushGAEvent({ name, event, action, type, section, region })
+			})
+		})
 		//Track form submissions.
 		document.addEventListener('gform/theme/scripts_loaded', () => {
 			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
 				// Perform your custom asynchronous action here (e.g., an API call)
-				const name = data.form.dataset.formid || 'unknown-form';
-				const event = 'form_submission';
-				const action = 'submit';
-				const type = 'form';
-				const section = 'main-content';
-				const region = 'main-content';
+				const name = data.form.dataset.formid || 'unknown-form'
+				const event = 'form_submission'
+				const action = 'submit'
+				const type = 'form'
+				const section = 'main-content'
+				const region = 'main-content'
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-				});
+				pushGAEvent({ name, event, action, type, section, region })
 
 				// You can also modify the form data in the 'data' object if necessary
 
-				return data;
-			});
-		});
+				return data
+			})
+		})
 	}
 }
 // Initialize the data layer analytics
