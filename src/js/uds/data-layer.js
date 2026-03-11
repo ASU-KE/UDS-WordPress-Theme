@@ -23,24 +23,16 @@ function initDataLayer() {
 	document.querySelectorAll('.accordion-body').forEach((element) => {
 
 		element.addEventListener('hide.bs.collapse', function () {
-			const name = element.getAttribute('id') || 'unknown-accordion';
-			const event = 'collapse';
-			const action = 'hide';
-			const type = 'click';
-			const section = 'default';
-			const region = 'main-content';
-			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
+			const name = element.getAttribute('id') || 'unknown-accordion'
+			const event = 'collapse'
+			const action = 'hide'
+			const type = 'click'
+			const section = 'default'
+			const region = 'main-content'
+			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40)
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
-		});
+			pushGAEvent({ name, event, action, type, section, region, text })
+		})
 
 		element.addEventListener('show.bs.collapse', function () {
 			const name = element.getAttribute('id') || 'unknown-accordion';
