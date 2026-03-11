@@ -226,52 +226,54 @@ function initDataLayer() {
 		});
 	});
 
-	//gravity forms. Track form submissions.
-	document.addEventListener('gform/theme/scripts_loaded', () => {
-		gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
-			// Perform your custom asynchronous action here (e.g., an API call)
-			const name = element.getAttribute('id') || 'unknown-form';
-			const event = 'form_submission';
-			const action = 'submit';
-			const type = 'form';
-			const section = 'main-content';
-			const region = 'main-content';
+	//is gravity forms present on the page? 
+	if (document.querySelectorAll('.gform_wrapper > form')) {
+		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
+		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
+			element.addEventListener('focusin', function () {
+				const name = element.getAttribute('id') || 'unknown-form';
+				const event = 'form_start';
+				const action = 'focus';
+				const type = 'form';
+				const section = 'main-content';
+				const region = 'main-content';
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-			});
-
-			// You can also modify the form data in the 'data' object if necessary
-
-			return data;
-		});
-	});
-
-	//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
-	document.querySelectorAll('form').forEach((element) => {
-		element.addEventListener('focusin', function () {
-			const name = element.getAttribute('id') || 'unknown-form';
-			const event = 'form_start';
-			const action = 'focus';
-			const type = 'form';
-			const section = 'main-content';
-			const region = 'main-content';
-
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
+				pushGAEvent({
+					name: name.toLowerCase(),
+					event: event.toLowerCase(),
+					action: action.toLowerCase(),
+					type: type.toLowerCase(),
+					section: section.toLowerCase(),
+					region: region.toLowerCase(),
+				});
 			});
 		});
-	});
+		//Track form submissions.
+		document.addEventListener('gform/theme/scripts_loaded', () => {
+			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
+				// Perform your custom asynchronous action here (e.g., an API call)
+				const name = element.getAttribute('id') || 'unknown-form';
+				const event = 'form_submission';
+				const action = 'submit';
+				const type = 'form';
+				const section = 'main-content';
+				const region = 'main-content';
+
+				pushGAEvent({
+					name: name.toLowerCase(),
+					event: event.toLowerCase(),
+					action: action.toLowerCase(),
+					type: type.toLowerCase(),
+					section: section.toLowerCase(),
+					region: region.toLowerCase(),
+				});
+
+				// You can also modify the form data in the 'data' object if necessary
+
+				return data;
+			});
+		});
+	}
 }
 // Initialize the data layer analytics
 window.addEventListener("DOMContentLoaded", (event) => { initDataLayer(); });
