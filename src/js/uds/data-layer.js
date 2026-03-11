@@ -227,8 +227,9 @@ function initDataLayer() {
 	});
 
 	//gravity forms. Track form submissions.
-	document.querySelectorAll('form').forEach((element) => {
-		element.addEventListener('submit', function () {
+	document.addEventListener('gform/theme/scripts_loaded', () => {
+		gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
+			// Perform your custom asynchronous action here (e.g., an API call)
 			const name = element.getAttribute('id') || 'unknown-form';
 			const event = 'form_submission';
 			const action = 'submit';
@@ -244,17 +245,6 @@ function initDataLayer() {
 				section: section.toLowerCase(),
 				region: region.toLowerCase(),
 			});
-		});
-	});
-
-	document.addEventListener('gform/theme/scripts_loaded', () => {
-		gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
-			// Perform your custom asynchronous action here (e.g., an API call)
-
-			// Example: Check a condition and abort the submission if needed
-			if (someConditionIsMet) {
-				data.abort = true; 
-			}
 
 			// You can also modify the form data in the 'data' object if necessary
 
