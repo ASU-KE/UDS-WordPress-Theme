@@ -252,7 +252,7 @@ function initDataLayer() {
 		document.addEventListener('gform/theme/scripts_loaded', () => {
 			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
 				// Perform your custom asynchronous action here (e.g., an API call)
-				const name = element.getAttribute('id') || 'unknown-form';
+				const name = data.form.dataset.formid || 'unknown-form';
 				const event = 'form_submission';
 				const action = 'submit';
 				const type = 'form';
