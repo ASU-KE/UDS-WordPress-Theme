@@ -93,15 +93,7 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 
 		element.addEventListener('show.bs.collapse', function () {
@@ -113,17 +105,8 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
-
 	});
 
 	// Alerts and banners. Events emitted by the .alert element which uses BS5 collapse.
@@ -136,22 +119,10 @@ function initDataLayer() {
 			const type = 'click';
 			const section = 'default';
 			const region = 'main-content';
-
-			// Fancy selector will find .alert-content and .banner-content
 			const text = element.querySelector('[class*=content]').textContent.slice(0, 40);
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
-
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
-
 	});
 
 	// General click events for elements with data-ga attributes
@@ -169,20 +140,8 @@ function initDataLayer() {
 			const section = element.getAttribute('data-ga-section') || 'default';
 			const region = element.getAttribute('data-ga-region') || 'main-content';
 			const text = element.getAttribute('data-ga') || element.textContent.trim().slice(0, 40);
-			const component = element.getAttribute('data-ga-component') || '';
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-				...(component && {
-					component: component.toLowerCase(),
-				}),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 	});
 
@@ -198,7 +157,7 @@ function initDataLayer() {
 				const section = 'main-content';
 				const region = 'main-content';
 
-				pushGAEvent({ name, event, action, type, section, region })
+				pushGAEvent({ name, event, action, type, section, region });
 			})
 		})
 		//Track form submissions.
@@ -212,13 +171,13 @@ function initDataLayer() {
 				const section = 'main-content';
 				const region = 'main-content';
 
-				pushGAEvent({ name, event, action, type, section, region })
+				pushGAEvent({ name, event, action, type, section, region });
 
 				// You can also modify the form data in the 'data' object if necessary
 
 				return data;
-			})
-		})
+			});
+		});
 	}
 }
 // Initialize the data layer analytics
