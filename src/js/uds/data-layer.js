@@ -14,38 +14,38 @@ function initDataLayer() {
 	 * Used by Header and General events.
 	 */
 	const pushGAEvent = event => {
-		window.dataLayer = window.dataLayer || []
-		const { dataLayer } = window
-		if (dataLayer) dataLayer.push(event)
+		window.dataLayer = window.dataLayer || [];
+		const { dataLayer } = window;
+		if (dataLayer) dataLayer.push(event);
 	}
 
 	// Accordions. Events emitted by the body which uses BS5 collapse.
 	document.querySelectorAll('.accordion-body').forEach((element) => {
 
 		element.addEventListener('hide.bs.collapse', function () {
-			const name = element.getAttribute('id') || 'unknown-accordion'
-			const event = 'collapse'
-			const action = 'hide'
-			const type = 'click'
-			const section = 'default'
-			const region = 'main-content'
-			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40)
+			const name = element.getAttribute('id') || 'unknown-accordion';
+			const event = 'collapse';
+			const action = 'hide';
+			const type = 'click';
+			const section = 'default';
+			const region = 'main-content';
+			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-			pushGAEvent({ name, event, action, type, section, region, text })
-		})
+			pushGAEvent({ name, event, action, type, section, region, text });
+		});
 
 		element.addEventListener('show.bs.collapse', function () {
-			const name = element.getAttribute('id') || 'unknown-accordion'
-			const event = 'collapse'
-			const action = 'show'
-			const type = 'click'
-			const section = 'default'
-			const region = 'main-content'
-			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40)
+			const name = element.getAttribute('id') || 'unknown-accordion';
+			const event = 'collapse';
+			const action = 'show';
+			const type = 'click';
+			const section = 'default';
+			const region = 'main-content';
+			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-			pushGAEvent({ name, event, action, type, section, region, text })
-		})
-	})
+			pushGAEvent({ name, event, action, type, section, region, text });
+		});
+	});
 
 	// Sidebar menu items. Track open close events.
 	document.querySelectorAll('.sidebar .card-body').forEach((element) => {
@@ -64,15 +64,7 @@ function initDataLayer() {
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-					text: text.toLowerCase(),
-				});
+				pushGAEvent({ name, event, action, type, section, region, text });
 			});
 
 			element.addEventListener('show.bs.collapse', function () {
@@ -84,23 +76,9 @@ function initDataLayer() {
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-					text: text.toLowerCase(),
-				});
+				pushGAEvent({ name, event, action, type, section, region, text });
 			});
-		} else {
-
-			// This was an event specifically for the mobile menu expand of the sidebar.
-			// Ignore it for now.
-
-		}
-
+		} 
 	});
 
 	// Sidebar mobile menu. Track open close events.
@@ -213,12 +191,12 @@ function initDataLayer() {
 		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
 		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
 			element.addEventListener('focusin', function () {
-				const name = element.getAttribute('id') || 'unknown-form'
-				const event = 'form_start'
-				const action = 'focus'
-				const type = 'form'
-				const section = 'main-content'
-				const region = 'main-content'
+				const name = element.getAttribute('id') || 'unknown-form';
+				const event = 'form_start';
+				const action = 'focus';
+				const type = 'form';
+				const section = 'main-content';
+				const region = 'main-content';
 
 				pushGAEvent({ name, event, action, type, section, region })
 			})
@@ -227,18 +205,18 @@ function initDataLayer() {
 		document.addEventListener('gform/theme/scripts_loaded', () => {
 			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
 				// Perform your custom asynchronous action here (e.g., an API call)
-				const name = data.form.dataset.formid || 'unknown-form'
-				const event = 'form_submission'
-				const action = 'submit'
-				const type = 'form'
-				const section = 'main-content'
-				const region = 'main-content'
+				const name = data.form.dataset.formid || 'unknown-form';
+				const event = 'form_submission';
+				const action = 'submit';
+				const type = 'form';
+				const section = 'main-content';
+				const region = 'main-content';
 
 				pushGAEvent({ name, event, action, type, section, region })
 
 				// You can also modify the form data in the 'data' object if necessary
 
-				return data
+				return data;
 			})
 		})
 	}
