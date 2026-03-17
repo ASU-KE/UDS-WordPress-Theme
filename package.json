@@ -22,11 +22,12 @@
     "frontjs": "gulp front-end-scripts",
     "editorjs": "gulp editor-scripts",
     "compile-sass": "gulp compile-sass",
-    "minify-css": "gulp minify-css"
+    "minify-css": "gulp minify-css",
+    "update-header": "gulp update-asu-header-js"
   },
   "dependencies": {
-    "@asu/component-header-footer": "^1.1.3",
     "@asu/unity-bootstrap-theme": "^1.36.4",
+    "@asu/component-header-footer": "^1.3.2",
     "@fortawesome/fontawesome-free": "^7.1.0"
   },
   "devDependencies": {
