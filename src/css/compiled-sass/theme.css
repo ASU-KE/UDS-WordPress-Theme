@@ -14678,7 +14678,14 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-a:visited:not(.btn):not(.uds-modal-close-btn):not(.nav-link):not(.secondary-nav-link):not(.page-link):not(.card-link) {
+a:visited:not(.btn, .wpcf7-form input[type=submit], .uds-modal-close-btn,
+.nav-link,
+.secondary-nav-link,
+.page-link,
+.card-link,
+header *,
+footer *,
+.uds-grid-links *) {
   color: #440e22;
 }
 
