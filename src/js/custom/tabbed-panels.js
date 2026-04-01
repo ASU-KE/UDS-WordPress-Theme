@@ -115,6 +115,14 @@ $( '.uds-tabbed-panels' ).on( 'click', function( e ) {
       }
     });
 
+    // Override scrollIntoView on each tab nav item to prevent unity-bootstrap's
+    // focus listener from forcing page scroll when a tab title receives focus.
+    // (removeEventListener is not viable since unity-bootstrap uses an anonymous
+    // function; this instance-level override is resolved at call time.)
+    $( '.uds-tabbed-panels .nav-item' ).each( function() {
+        this.scrollIntoView = function() {};
+    } );
+
     $( '.uds-tabbed-panels .scroll-control-prev' ).hide();
 
 	if ( $('.nav.nav-tabs').length > 0 ) {
