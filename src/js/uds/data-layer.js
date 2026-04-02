@@ -150,10 +150,10 @@ function initDataLayer() {
 		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
 		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
 			element.addEventListener('focusin', function () {
-				const name = element.getAttribute('id') || 'unknown-form';
+				const name = 'onstart';
 				const event = 'form_start';
-				const action = 'focus';
-				const type = 'form';
+				const action = 'start';
+				const type = element.getAttribute('id') || 'unknown-form';
 				const section = 'main-content';
 				const region = 'main-content';
 
@@ -164,10 +164,10 @@ function initDataLayer() {
 		document.addEventListener('gform/theme/scripts_loaded', () => {
 			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
 				// Perform your custom asynchronous action here (e.g., an API call)
-				const name = data.form.dataset.formid || 'unknown-form';
-				const event = 'form_submission';
+				const name = 'onsubmit';
+				const event = 'form_submit';
 				const action = 'submit';
-				const type = 'form';
+				const type = data.form.dataset.formid || 'unknown-form';
 				const section = 'main-content';
 				const region = 'main-content';
 
