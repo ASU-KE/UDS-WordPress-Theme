@@ -258,6 +258,16 @@ When working on this theme, these files are the most impactful:
 2. Run `npm run frontjs` (frontend) or `npm run scripts` (all)
 3. Commit both source and `dist/js/` changes
 
+## Vendor Files (Read-Only)
+
+The following files are **vendor/third-party assets** copied from `node_modules` by Gulp tasks. They may be read for context but **must not be modified directly** — they are overwritten on every `npm run assets` or `npm run update-header` run:
+
+- `src/css/fontawesome/all.css`
+- `src/js/fontawesome/all.js`
+- `src/js/uds/asuHeaderFooter.umd.js`
+- `src/js/uds/unity-bootstrap.umd.js`
+- `src/js/uds/unity-bootstrap.umd.js.map`
+
 ## Gotchas and Troubleshooting
 
 - **`dist/` is committed:** Always rebuild and commit compiled assets after source changes.
