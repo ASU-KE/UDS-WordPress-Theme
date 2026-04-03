@@ -150,4 +150,9 @@
 	.marquee-text {
 		font-size: var(--marquee-mobile-font-size, 1.25rem);
 	}
+	#pauseMarquee, #playMarquee {
+		width: 2rem !important;
+		height: 2rem !important;
+		font-size: 1rem;
+	}
 }
