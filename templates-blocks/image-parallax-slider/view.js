@@ -32,7 +32,17 @@ window.addEventListener('load', function() {
     };
 
     correctParallaxPosition();
-    window.addEventListener('scroll', correctParallaxPosition);
+
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                correctParallaxPosition();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
     window.addEventListener('resize', function() {
         requestAnimationFrame(correctParallaxPosition);
     });
