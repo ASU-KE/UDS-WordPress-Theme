@@ -93,6 +93,16 @@ $( '.uds-tabbed-panels' ).on( 'click', function( e ) {
       setButtonsCompatibility( e );
     });
 
+    // Use Bootstrap's Tab JS API to initialize tabs and prevent anchor scroll conflict
+    // when global Bootstrap JS is loaded. Calling e.preventDefault() stops the page
+    // from jumping to the anchor target on tab click.
+    $( '.uds-tabbed-panels .nav-item[data-bs-toggle="tab"]' ).on( 'click', function( e ) {
+        if ( window.bootstrap && window.bootstrap.Tab ) {
+            e.preventDefault();
+            window.bootstrap.Tab.getOrCreateInstance( this ).show();
+        }
+    } );
+
     $( '.scroll-control-next' ).on( 'click', function( e ) {
       if ( window.innerWidth > 992 ) {
         slideNav( this, e, -1 );
@@ -104,6 +114,14 @@ $( '.uds-tabbed-panels' ).on( 'click', function( e ) {
         slideNav( this, e, 1 );
       }
     });
+
+    // Override scrollIntoView on each tab nav item to prevent unity-bootstrap's
+    // focus listener from forcing page scroll when a tab title receives focus.
+    // (removeEventListener is not viable since unity-bootstrap uses an anonymous
+    // function; this instance-level override is resolved at call time.)
+    $( '.uds-tabbed-panels .nav-item' ).each( function() {
+        this.scrollIntoView = function() {};
+    } );
 
     $( '.uds-tabbed-panels .scroll-control-prev' ).hide();
 
