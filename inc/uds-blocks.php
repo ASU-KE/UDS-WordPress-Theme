@@ -112,4 +112,5 @@ function register_acf_blocks() {
 	register_block_type( get_template_directory() . '/templates-blocks/show-more' );
 	register_block_type( get_template_directory() . '/templates-blocks/tabbed-panels' );
 	register_block_type( get_template_directory() . '/templates-blocks/text-marquee' );
+	register_block_type( get_template_directory() . '/templates-blocks/process-stages');
 }
