@@ -15,8 +15,26 @@
 		
 		marquees.forEach(function(marquee) {
 			const track = marquee.querySelector('.uds-marquee-track');
+			const spans = marquee.querySelectorAll('.marquee-text');
 			const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
+
+			// Equalize span widths so all items move at the same speed.
+			// The CSS animation distance depends on the element's own width (100%),
+			// so spans with different widths travel different distances in the same
+			// duration, appearing to move at different speeds.
+			if (spans.length > 1) {
+				let maxWidth = 0;
+				spans.forEach(function(span) {
+					const width = span.offsetWidth;
+					if (width > maxWidth) {
+						maxWidth = width;
+					}
+				});
+				spans.forEach(function(span) {
+					span.style.width = maxWidth + 'px';
+				});
+			}
 			
 			// Initially hide play button
 			if (playBtn) {
