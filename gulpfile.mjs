@@ -127,28 +127,11 @@ gulp.task("front-end-scripts", function() {
 
 /**
  * Admin JS compilation. This creates a minified 'admin-bundle.js' that is enqueued in the WordPress admin area.
+ * Includes both general admin scripts and Gutenberg block customizations.
  */
 gulp.task("admin-scripts", function() {
 	const adminScripts = [
 		"./src/js/custom/admin/admin.js",
-		"./src/js/fontawesome/fontawesome.js",
-		"./src/js/fontawesome/brands.js",
-		"./src/js/fontawesome/solid.js",
-		"./src/js/custom/hero_video.js",
-		"./src/js/custom/modals.js",
-		"./src/js/custom/side-menu-active-child.js",
-	]
-
-	return gulp
-		.src(adminScripts, { allowEmpty: true })
-		.pipe(babel({ presets: ["@babel/preset-env"] }))
-		.pipe(concat("admin-bundle.js"))
-		.pipe(gulp.dest("./dist/js"));
-
-});
-
-gulp.task("admin-core-scripts", function() {
-	const adminScripts = [
 		"./src/js/custom/admin/core-list-block.js",
 		"./src/js/custom/admin/core-divider.js",
 		"./src/js/custom/admin/core-image-block.js",
@@ -158,7 +141,7 @@ gulp.task("admin-core-scripts", function() {
 	return gulp
 		.src(adminScripts, { allowEmpty: true })
 		.pipe(babel({ presets: ["@babel/preset-env"] }))
-		.pipe(concat("admin-core-bundle.js"))
+		.pipe(concat("admin-bundle.js"))
 		.pipe(gulp.dest("./dist/js"));
 
 });

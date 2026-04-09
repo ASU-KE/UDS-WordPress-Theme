@@ -8,6 +8,11 @@
 //jshint esversion: 6
 (function ($) {
 	$(document).ready(function () {
+		// Check if wp and required properties exist (only available in block editor)
+		if (typeof wp === 'undefined' || typeof wp.blocks === 'undefined' || typeof wp.domReady === 'undefined') {
+			return;
+		}
+
 		//Register block style for core/list block
 		wp.domReady(function () {
 			wp.blocks.registerBlockStyle("core/list", {
@@ -115,11 +120,14 @@
 			return props;
 		}
 
-		wp.hooks.addFilter(
-			"blocks.getSaveContent.extraProps",
-			"gdt-guten-plugin/add-block-class-name",
-			addBlockClassName
-		);
+		// Check if wp.hooks exists before adding filter
+		if (typeof wp.hooks !== 'undefined') {
+			wp.hooks.addFilter(
+				"blocks.getSaveContent.extraProps",
+				"gdt-guten-plugin/add-block-class-name",
+				addBlockClassName
+			);
+		}
 
 		/**
 		 * Add class uds-list to core/list to show in Gutenburg editor and style previewer
@@ -129,6 +137,11 @@
 		 */
 		addPropsClassNameFunction();
 		function addPropsClassNameFunction() {
+			// Check if required wp properties and lodash exist
+			if (typeof wp.compose === 'undefined' || typeof wp.element === 'undefined' || typeof wp.hooks === 'undefined' || typeof lodash === 'undefined') {
+				return;
+			}
+
 			var addPropsClassName = wp.compose.createHigherOrderComponent(function (
 				BlockListBlock
 			) {

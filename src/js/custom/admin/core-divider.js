@@ -9,6 +9,11 @@
 ( function( $ ) {
 $( document ).ready(function() {
 
+// Check if wp and required properties exist (only available in block editor)
+if (typeof wp === 'undefined' || typeof wp.blocks === 'undefined' || typeof wp.domReady === 'undefined') {
+	return;
+}
+
 //Register block style for core/separator block
 wp.domReady( function() {
 
