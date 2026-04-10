@@ -40,6 +40,7 @@
 
 .process-step:nth-child(even) {
 	top: 8rem;
+	margin-bottom: 4rem;
 }
 
 .image-wrapper {
@@ -132,6 +133,7 @@
 .layout-vertical .process-step:nth-child(even) {
 	top: 0;
 	flex-direction: row-reverse;
+	margin-bottom: 0rem;
 }
 
 .layout-vertical .content-wrapper {
