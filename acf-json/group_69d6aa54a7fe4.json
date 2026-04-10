@@ -138,6 +138,36 @@
                     "parent_repeater": "field_69d6b1d2715ab"
                 }
             ]
+        },
+        {
+            "key": "field_69d94b9ef9a34",
+            "label": "Animation",
+            "name": "uds_animation",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "none",
+                "bounce": "bounce",
+                "pulse": "pulse"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -161,5 +191,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775682873
+    "modified": 1775849529
 }

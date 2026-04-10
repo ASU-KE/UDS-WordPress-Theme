@@ -9,9 +9,17 @@
 $process_title = get_field('uds_title');
 $layout_horizontal = get_field('uds_layout_horizontal');
 $stages = get_field('uds_stages');
+// Options: none, bounce, pulse
+$animation = get_field('uds_animation');
+$animation_class = ($animation && $animation !== 'none') ? 'animate-' . $animation : '';
 
 if ($stages && count($stages) != 0): ?>
-    <section class="uds-process-flow <?php echo $layout_horizontal !== true ? 'layout-vertical' : ''; ?>" data-layout="<?php echo $layout_horizontal ? 'horizontal' : 'vertical'; ?>">
+    <section 
+        class="uds-process-flow 
+            <?php echo $layout_horizontal !== true ? 'layout-vertical' : ''; ?> 
+            <?php echo esc_attr($animation_class); ?>"
+        data-layout="<?php echo $layout_horizontal ? 'horizontal' : 'vertical'; ?>"
+        >
         <svg class="process-svg"></svg>
 
         <?php if ($process_title): ?>

@@ -106,7 +106,10 @@
 	}
 }
 
-/* Vertical layout */
+/* ==========================================================================
+   VERTICAL LAYOUT
+   ========================================================================== */
+
 .layout-vertical .process-container {
 	display: flex;
 	flex-direction: column;
@@ -142,4 +145,56 @@
 
 .layout-vertical .step-desc {
 	text-align: left;
+}
+
+/* ANIMATIONS – add .animate-{name} to section to enable
+   ACF Select: none | bounce | pulse
+   Stagger delays shared across all animations */
+.uds-process-flow .process-step:nth-child(1) .image-wrapper {
+	animation-delay: 0s;
+}
+.uds-process-flow .process-step:nth-child(2) .image-wrapper {
+	animation-delay: 0.3s;
+}
+.uds-process-flow .process-step:nth-child(3) .image-wrapper {
+	animation-delay: 0.6s;
+}
+.uds-process-flow .process-step:nth-child(4) .image-wrapper {
+	animation-delay: 0.9s;
+}
+.uds-process-flow .process-step:nth-child(5) .image-wrapper {
+	animation-delay: 1.2s;
+}
+.uds-process-flow .process-step:nth-child(6) .image-wrapper {
+	animation-delay: 1.5s;
+}
+
+/* Bounce */
+@keyframes uds-bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+.animate-bounce .image-wrapper {
+	animation: uds-bounce 2s ease-in-out infinite;
+}
+
+/* Pulse */
+@keyframes uds-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.08);
+	}
+}
+
+.animate-pulse .image-wrapper {
+	animation: uds-pulse 2s ease-in-out infinite;
 }

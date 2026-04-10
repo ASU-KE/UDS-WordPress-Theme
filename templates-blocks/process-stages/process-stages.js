@@ -59,8 +59,9 @@
 			// Shortening the line so that it stops at the edge of the circle.
 			// dx/dist gives the horizontal component of a direction and
 			// multiplying it with radius gives the pixels to move to reach the edge of the circle.
-			var offsetX = (dx / dist) * radius;
-			var offsetY = (dy / dist) * radius;
+			var inset = radius * 0.8; // Adjust this factor to control how much the line overlaps with the circle
+			var offsetX = (dx / dist) * inset;
+			var offsetY = (dy / dist) * inset;
 
 			// Create a line and append it to SVG
 			var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
