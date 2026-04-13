@@ -15,14 +15,14 @@
 		
 		marquees.forEach(function(marquee) {
 			const track = marquee.querySelector('.uds-marquee-track');
-			const spans = marquee.querySelectorAll('.marquee-text');
+			const spans = track.querySelectorAll('.marquee-text');
 			const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
+			const duration = parseFloat(marquee.getAttribute('data-animation-duration')) || 10;
 
-			// Equalize span widths so all items move at the same speed.
-			// The CSS animation distance depends on the element's own width (100%),
-			// so spans with different widths travel different distances in the same
-			// duration, appearing to move at different speeds.
+			// Equalize span widths so all items scroll at the same speed,
+			// and space items so the next one enters the viewport only after
+			// the previous has traveled 50% across the page.
 			if (spans.length > 1) {
 				let maxWidth = 0;
 				spans.forEach(function(span) {
@@ -33,6 +33,32 @@
 				});
 				spans.forEach(function(span) {
 					span.style.width = maxWidth + 'px';
+				});
+
+				// The CSS keyframe travels a total distance of
+				// max(100vw, itemWidth) + itemWidth + 100vw.
+				// A delay fraction of (50vw / totalDistance) spaces
+				// consecutive items 50% of the viewport apart.
+				const vw = document.documentElement.clientWidth;
+				const totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
+				const delayFraction = Math.max((vw / 2) / totalDistance, 0.05);
+
+				// Ensure enough items exist to fill the entire animation
+				// cycle so there are no empty gaps.
+				const itemsNeeded = Math.min(Math.ceil(1 / delayFraction), 20);
+				const originalSpans = Array.from(spans);
+				for (let i = originalSpans.length; i < itemsNeeded; i++) {
+					const source = originalSpans[i % originalSpans.length];
+					const clone = source.cloneNode(true);
+					clone.setAttribute('aria-hidden', 'true');
+					clone.style.width = maxWidth + 'px';
+					track.appendChild(clone);
+				}
+
+				// Apply calculated animation delays to every span.
+				const allSpans = track.querySelectorAll('.marquee-text');
+				allSpans.forEach(function(span, index) {
+					span.style.animationDelay = -(index * delayFraction * duration) + 's';
 				});
 			}
 			
