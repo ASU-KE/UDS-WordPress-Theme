@@ -84,11 +84,11 @@
                 "id": ""
             },
             "default_value": 2000,
-            "min": "",
+            "min": 1,
             "max": "",
             "allow_in_bindings": 0,
             "placeholder": "",
-            "step": "",
+            "step": 1,
             "prepend": "",
             "append": ""
         },
@@ -107,11 +107,11 @@
                 "id": ""
             },
             "default_value": 10,
-            "min": "",
+            "min": 1,
             "max": "",
             "allow_in_bindings": 0,
             "placeholder": "",
-            "step": "",
+            "step": 1,
             "prepend": "",
             "append": ""
         }
