@@ -27,9 +27,9 @@
 				// 1. Measure the widest item (natural width incl. padding).
 				let maxWidth = 0;
 				spans.forEach(function(span) {
-					var w = span.offsetWidth;
-					if (w > maxWidth) {
-						maxWidth = w;
+					var width = span.offsetWidth;
+					if (width > maxWidth) {
+						maxWidth = width;
 					}
 				});
 
@@ -43,7 +43,8 @@
 				// 3. Spacing between consecutive leading edges: at least 50 vw,
 				//    but never less than the widest item so boxes never overlap.
 				var vw = document.documentElement.clientWidth;
-				var spacing = Math.max(vw / 2, maxWidth + 32);
+				var gap = parseFloat(getComputedStyle(spans[0]).paddingRight) || 32;
+				var spacing = Math.max(vw / 2, maxWidth + gap);
 				var totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
 				var delayFraction = Math.max(spacing / totalDistance, 0.05);
 
