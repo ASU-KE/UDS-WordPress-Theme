@@ -21,69 +21,70 @@
 			const duration = parseFloat(marquee.getAttribute('data-animation-duration')) || 10;
 
 			// Make all items scroll at the same speed and space them so
-			// consecutive items never overlap.
+			// consecutive items never overlap — even when a long item is
+			// followed by a short one.
 			if (spans.length > 1) {
-				// 1. Measure the widest item (natural width incl. padding).
+				// 1. Measure natural widths (incl. padding) before changing
+				//    anything.  Keep track of the widest item.
+				var widths = [];
 				var maxWidth = 0;
 				spans.forEach(function(span) {
-					var width = span.offsetWidth;
-					if (width > maxWidth) {
-						maxWidth = width;
+					var w = span.offsetWidth;
+					widths.push(w);
+					if (w > maxWidth) {
+						maxWidth = w;
 					}
 				});
 
-				// 2. Set every span to the same width so translateX(100%) in
-				//    the CSS keyframe resolves to the same pixel value for all
-				//    items, giving them uniform scroll speed.
+				// 2. Set a CSS custom property so the keyframe animation uses
+				//    the same travel distance for every span (uniform speed)
+				//    WITHOUT altering their visible text widths.
 				spans.forEach(function(span) {
-					span.style.width = maxWidth + 'px';
+					span.style.setProperty('--marquee-travel-width', maxWidth + 'px');
 				});
 
-				// 3. Calculate layout.
-				//    Total animation distance (px):
+				// 3. Per-item adaptive delays.
+				//    Total animation distance (px) with the custom property:
 				//      start = max(vw, maxWidth), end = -(maxWidth + vw)
-				//      distance = max(vw, maxWidth) + maxWidth + vw
 				var vw = document.documentElement.clientWidth;
 				var totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
+				var halfVw = vw / 2;
 
-				//    Minimum spacing between leading edges of consecutive
-				//    items: at least 50 vw and at least maxWidth + a small
-				//    buffer so bounding boxes never overlap.
-				var minSpacing = Math.max(vw / 2, maxWidth + 50);
-
-				//    Determine how many items to use. At minimum, keep all
-				//    original items. On wider viewports, add clones so that
-				//    the spacing stays close to the desired minimum.
-				var itemCount = Math.max(
-					spans.length,
-					Math.floor(totalDistance / minSpacing)
-				);
-
-				//    Use even distribution (1/N) so every gap — including the
-				//    wrap-around — is identical.
-				var delayFraction = 1 / itemCount;
-
-				// 4. Clone extra spans when needed to fill the animation
-				//    cycle without visible gaps.
-				var originalSpans = Array.from(spans);
-				for (var i = originalSpans.length; i < itemCount; i++) {
-					var source = originalSpans[i % originalSpans.length];
-					var clone = source.cloneNode(true);
-					clone.setAttribute('aria-hidden', 'true');
-					clone.style.width = maxWidth + 'px';
-					track.appendChild(clone);
+				//    Build cumulative positions along the animation path.
+				//    The spacing after each item is the larger of 50 vw and
+				//    that item's own width, so visible text never overlaps.
+				var positions = [0];
+				for (var i = 0; i < spans.length - 1; i++) {
+					var spacing = Math.max(halfVw, widths[i]);
+					positions.push(positions[positions.length - 1] + spacing);
 				}
 
-				// 5. Apply computed animation delays and force a restart so
-				//    they take effect immediately.
+				// 4. Determine the animation name (normal vs. reverse) so we
+				//    can set the full inline animation and bypass any CSS
+				//    cascade / specificity differences between browsers.
+				var direction = marquee.getAttribute('data-direction');
+				var animName = (direction === 'reverse')
+					? 'marquee-scroll-span-reverse'
+					: 'marquee-scroll-span';
+
+				// 5. Apply computed animation and force a restart so the new
+				//    timing takes effect immediately.
+				//    Set individual properties (not the shorthand) so the CSS
+				//    .paused rule can still toggle animation-play-state.
 				var allSpans = track.querySelectorAll('.marquee-text');
 				allSpans.forEach(function(span) {
-					span.style.animation = 'none';
+					span.style.animationName = 'none';
 				});
 				void track.offsetWidth;
+
 				allSpans.forEach(function(span, index) {
-					span.style.animation = '';
-					span.style.animationDelay = -(index * delayFraction * duration) + 's';
+					span.style.setProperty('--marquee-travel-width', maxWidth + 'px');
+					var delay = -(positions[index] / totalDistance) * duration;
+					span.style.animationName = animName;
+					span.style.animationDuration = duration + 's';
+					span.style.animationTimingFunction = 'linear';
+					span.style.animationIterationCount = 'infinite';
+					span.style.animationDelay = delay + 's';
 				});
 			}
 			
