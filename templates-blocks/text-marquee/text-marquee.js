@@ -7,6 +7,8 @@
 (function() {
 	'use strict';
 
+	var marqueeCounter = 0;
+
 	/**
 	 * Initialize marquee functionality
 	 */
@@ -47,7 +49,7 @@
 				var endPos = -(maxWidth + vw);
 				var totalDistance = startPos - endPos;
 
-				var uid = 'mq-' + Math.random().toString(36).substr(2, 9);
+				var uid = 'mq-' + (++marqueeCounter);
 				var fwdName = uid;
 				var revName = uid + '-rev';
 
