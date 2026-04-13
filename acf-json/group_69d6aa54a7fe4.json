@@ -3,27 +3,6 @@
     "title": "Block: Process Stages",
     "fields": [
         {
-            "key": "field_69d6aa542a687",
-            "label": "Process title",
-            "name": "process_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Our Working Process",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_69d6b181715aa",
             "label": "Horizontal Layout",
             "name": "uds_layout_horizontal",
@@ -191,5 +170,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775849529
+    "modified": 1776098064
 }

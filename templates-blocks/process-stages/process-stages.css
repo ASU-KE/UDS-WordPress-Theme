@@ -200,3 +200,11 @@
 .animate-pulse .image-wrapper {
 	animation: uds-pulse 2s ease-in-out infinite;
 }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.animate-bounce .image-wrapper,
+	.animate-pulse .image-wrapper {
+		animation: none;
+	}
+}

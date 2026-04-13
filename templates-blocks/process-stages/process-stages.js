@@ -90,29 +90,23 @@
 		updateLayout(section);
 		drawConnectors(section);
 
-		var timer;
-		function redraw() {
-			clearTimeout(timer);
-			timer = setTimeout(function () {
-				drawConnectors(section);
-			}, 50);
-		}
-
-		window.addEventListener("resize", function () {
-			redraw();
-			updateLayout(section);
-		});
-		window.addEventListener("orientationchange", redraw);
-
 		// Watch this section's class for layout toggle
 		new MutationObserver(function (mutations) {
 			for (var i = 0; i < mutations.length; i++) {
 				if (mutations[i].attributeName === "class") {
-					redraw();
+					drawConnectors(section);
 					return;
 				}
 			}
-		}).observe(section, { attributes: true });
+		}).observe(section, { attributes: true, attributeFilter: ["class"] });
+	}
+
+	function redrawAll() {
+		var sections = document.querySelectorAll(".uds-process-flow");
+		for (var i = 0; i < sections.length; i++) {
+			updateLayout(sections[i]);
+			drawConnectors(sections[i]);
+		}
 	}
 
 	function initAll() {
@@ -121,5 +115,20 @@
 			initBlock(sections[i]);
 		}
 	}
-	window.addEventListener("load", initAll);
+
+	var timer;
+	window.addEventListener("resize", function () {
+		clearTimeout(timer);
+		timer = setTimeout(redrawAll, 150);
+	});
+	window.addEventListener("orientationchange", function () {
+		clearTimeout(timer);
+		timer = setTimeout(redrawAll, 150);
+	});
+
+	if (document.readyState === "complete") {
+		initAll();
+	} else {
+		window.addEventListener("load", initAll);
+	}
 })();
