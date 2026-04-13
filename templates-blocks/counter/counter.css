@@ -1,15 +1,13 @@
-.uds-counter_container {
+.uds-counter-container {
 	padding: 0 0.5rem;
-	flex-direction: column;
 }
 
-.uds-counter_content {
+.uds-counter-content {
 	width: max-content;
-	align-items: center;
 	margin: 0 auto;
 }
 
-.uds-counter_divider {
+.uds-counter-divider {
 	height: 0.5rem;
 	background: var(--bs-gold);
 	width: 100%;
