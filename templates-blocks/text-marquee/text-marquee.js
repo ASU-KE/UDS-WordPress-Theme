@@ -36,36 +36,51 @@
 					}
 				});
 
-				// 2. Set a CSS custom property so the keyframe animation uses
-				//    the same travel distance for every span (uniform speed)
-				//    WITHOUT altering their visible text widths.
-				spans.forEach(function(span) {
-					span.style.setProperty('--marquee-travel-width', maxWidth + 'px');
-				});
+				// 2. Generate unique pixel-based @keyframes so every span
+				//    travels the same distance (uniform speed) regardless of
+				//    its own width.  This avoids relying on CSS custom
+				//    properties inside @keyframes, which Firefox may not
+				//    resolve, falling back to 100% (each item's own width)
+				//    and producing different speeds / overlaps.
+				var vw = document.documentElement.clientWidth;
+				var startPos = Math.max(vw, maxWidth);
+				var endPos = -(maxWidth + vw);
+				var totalDistance = startPos - endPos;
+
+				var uid = 'mq-' + Math.random().toString(36).substr(2, 9);
+				var fwdName = uid;
+				var revName = uid + '-rev';
+
+				var styleEl = document.createElement('style');
+				styleEl.textContent =
+					'@keyframes ' + fwdName + '{' +
+						'0%{transform:translateX(' + startPos + 'px)}' +
+						'100%{transform:translateX(' + endPos + 'px)}' +
+					'}' +
+					'@keyframes ' + revName + '{' +
+						'0%{transform:translateX(' + endPos + 'px)}' +
+						'100%{transform:translateX(' + startPos + 'px)}' +
+					'}';
+				document.head.appendChild(styleEl);
 
 				// 3. Per-item adaptive delays.
-				//    Total animation distance (px) with the custom property:
-				//      start = max(vw, maxWidth), end = -(maxWidth + vw)
-				var vw = document.documentElement.clientWidth;
-				var totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
+				//    In the animation cycle, item i+1 is to the LEFT of
+				//    item i and its bounding box extends rightward by
+				//    widths[i+1].  The gap between positions[i] and
+				//    positions[i+1] must therefore be ≥ widths[i+1] so
+				//    the next item's right edge doesn't overlap the
+				//    current item's left edge.  We also enforce a 50 vw
+				//    minimum so items feel well-spaced on screen.
 				var halfVw = vw / 2;
-
-				//    Build cumulative positions along the animation path.
-				//    The spacing after each item is the larger of 50 vw and
-				//    that item's own width, so visible text never overlaps.
 				var positions = [0];
 				for (var i = 0; i < spans.length - 1; i++) {
-					var spacing = Math.max(halfVw, widths[i]);
+					var spacing = Math.max(halfVw, widths[i + 1]);
 					positions.push(positions[positions.length - 1] + spacing);
 				}
 
-				// 4. Determine the animation name (normal vs. reverse) so we
-				//    can set the full inline animation and bypass any CSS
-				//    cascade / specificity differences between browsers.
+				// 4. Determine the animation name (normal vs. reverse).
 				var direction = marquee.getAttribute('data-direction');
-				var animName = (direction === 'reverse')
-					? 'marquee-scroll-span-reverse'
-					: 'marquee-scroll-span';
+				var animName = (direction === 'reverse') ? revName : fwdName;
 
 				// 5. Apply computed animation and force a restart so the new
 				//    timing takes effect immediately.
@@ -78,7 +93,6 @@
 				void track.offsetWidth;
 
 				allSpans.forEach(function(span, index) {
-					span.style.setProperty('--marquee-travel-width', maxWidth + 'px');
 					var delay = -(positions[index] / totalDistance) * duration;
 					span.style.animationName = animName;
 					span.style.animationDuration = duration + 's';

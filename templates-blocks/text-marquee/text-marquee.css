@@ -106,26 +106,23 @@
 	border-width: 0;
 }
 
-/* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left.
-   JS sets --marquee-travel-width to the widest item so every span travels the
-   same distance (uniform speed) without altering visible text widths.
-   The 100% fallback preserves per-element behaviour when JS has not run. */
+/* Keyframe animation for individual spans - Default (normal) direction: starts off-screen right, scrolls left */
 @keyframes marquee-scroll-span {
 	0% {
-		transform: translateX(max(100vw, var(--marquee-travel-width, 100%)));
+		transform: translateX(max(100vw, 100%));
 	}
 	100% {
-		transform: translateX(calc(var(--marquee-travel-width, 100%) * -1 - 100vw));
+		transform: translateX(calc(-100% - 100vw));
 	}
 }
 
 /* Keyframe animation for individual spans - Reverse direction: starts off-screen left, scrolls right */
 @keyframes marquee-scroll-span-reverse {
 	0% {
-		transform: translateX(calc(var(--marquee-travel-width, 100%) * -1 - 100vw));
+		transform: translateX(calc(-100% - 100vw));
 	}
 	100% {
-		transform: translateX(max(100vw, var(--marquee-travel-width, 100%)));
+		transform: translateX(max(100vw, 100%));
 	}
 }
 
