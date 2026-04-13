@@ -27,31 +27,34 @@ if ($stages && count($stages) != 0): ?>
             <?php echo esc_attr($animation_class); ?> 
             <?php echo esc_attr($additional_classes); ?>"
         data-layout="<?php echo esc_attr($layout_horizontal) ? 'horizontal' : 'vertical'; ?>"
+        aria-label="<?php esc_attr_e( 'Process stages', 'uds-wordpress-theme' ); ?>"
         >
-        <svg class="process-svg"></svg>
+        <?php /* Purely decorative connector lines – hidden from assistive technology */ ?>
+        <svg class="process-svg" aria-hidden="true" focusable="false"></svg>
 
-        <div class="process-container">
+        <ol class="process-container">
             <?php foreach ($stages as $index => $stage):
                 $title = $stage['stage_title'];
                 $img   = $stage['stage_image'];
                 $desc  = $stage['stage_content'];
             ?>
-                <div class="process-step">
+                <li class="process-step">
                     <div class="image-wrapper">
                         <?php if ($img): ?>
                             <?php echo wp_get_attachment_image($img, 'thumbnail', false, ['class' => 'round-img']); ?>    
                         <?php else: ?>    
-                            <div class="placeholder-circle"></div>
+                            <div class="placeholder-circle" role="img" aria-label="<?php echo esc_attr( sprintf( __( 'Step %d', 'uds-wordpress-theme' ), $index + 1 ) ); ?>"></div>
                         <?php endif; ?>
-                        <div class="image-number fs-1"><?php echo $index + 1; ?>.</div>
+                        <?php /* Step number is a visual aid only; step order is conveyed by the <ol> */ ?>
+                        <div class="image-number fs-1" aria-hidden="true"><?php echo $index + 1; ?>.</div>
                     </div>
 
                     <div class="content-wrapper">
                         <h5 class="step-title"><?php echo esc_html($title); ?></h5>
                         <p class="step-desc"><?php echo esc_html($desc); ?></p>
                     </div>
-                </div>
+                </li>
             <?php endforeach; ?>
-        </div>
+        </ol>
     </section>
 <?php endif; ?>
