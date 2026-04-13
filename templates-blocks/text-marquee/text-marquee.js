@@ -20,45 +20,60 @@
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
 			const duration = parseFloat(marquee.getAttribute('data-animation-duration')) || 10;
 
-			// Equalize span widths so all items scroll at the same speed,
-			// and space items so the next one enters the viewport only after
-			// the previous has traveled 50% across the page.
+			// Make all items scroll at the same speed and space them so the
+			// next item does not appear until the previous one has crossed at
+			// least 50 % of the viewport.
 			if (spans.length > 1) {
+				// 1. Measure the widest item (natural width incl. padding).
 				let maxWidth = 0;
 				spans.forEach(function(span) {
-					const width = span.offsetWidth;
-					if (width > maxWidth) {
-						maxWidth = width;
+					var w = span.offsetWidth;
+					if (w > maxWidth) {
+						maxWidth = w;
 					}
 				});
+
+				// 2. Set a CSS custom property so the keyframe animation uses
+				//    the same travel distance for every span, giving uniform
+				//    speed without altering visible text widths.
 				spans.forEach(function(span) {
-					span.style.width = maxWidth + 'px';
+					span.style.setProperty('--marquee-travel-width', maxWidth + 'px');
 				});
 
-				// The CSS keyframe travels a total distance of
-				// max(100vw, itemWidth) + itemWidth + 100vw.
-				// A delay fraction of (50vw / totalDistance) spaces
-				// consecutive items 50% of the viewport apart.
-				const vw = document.documentElement.clientWidth;
-				const totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
-				const delayFraction = Math.max((vw / 2) / totalDistance, 0.05);
+				// 3. Spacing between consecutive leading edges: at least 50 vw,
+				//    but never less than the widest item so boxes never overlap.
+				var vw = document.documentElement.clientWidth;
+				var spacing = Math.max(vw / 2, maxWidth + 32);
+				var totalDistance = Math.max(vw, maxWidth) + maxWidth + vw;
+				var delayFraction = Math.max(spacing / totalDistance, 0.05);
 
-				// Ensure enough items exist to fill the entire animation
-				// cycle so there are no empty gaps.
-				const itemsNeeded = Math.min(Math.ceil(1 / delayFraction), 20);
-				const originalSpans = Array.from(spans);
-				for (let i = originalSpans.length; i < itemsNeeded; i++) {
-					const source = originalSpans[i % originalSpans.length];
-					const clone = source.cloneNode(true);
+				// 4. Clone extra spans to fill the animation cycle without gaps.
+				var itemsNeeded = Math.min(Math.ceil(1 / delayFraction), 20);
+				var originalSpans = Array.from(spans);
+				for (var i = originalSpans.length; i < itemsNeeded; i++) {
+					var source = originalSpans[i % originalSpans.length];
+					var clone = source.cloneNode(true);
 					clone.setAttribute('aria-hidden', 'true');
-					clone.style.width = maxWidth + 'px';
+					clone.style.setProperty('--marquee-travel-width', maxWidth + 'px');
 					track.appendChild(clone);
 				}
 
-				// Apply calculated animation delays to every span.
-				const allSpans = track.querySelectorAll('.marquee-text');
+				// 5. Apply computed delays and restart the animation so they
+				//    take effect immediately (CSS delays set before JS runs
+				//    are already baked into the running animation).
+				var allSpans = track.querySelectorAll('.marquee-text');
 				allSpans.forEach(function(span, index) {
 					span.style.animationDelay = -(index * delayFraction * duration) + 's';
+				});
+
+				// Force a restart: briefly remove the animation name, trigger
+				// a synchronous reflow, then let the CSS rule reassert itself.
+				allSpans.forEach(function(span) {
+					span.style.animationName = 'none';
+				});
+				void track.offsetWidth;
+				allSpans.forEach(function(span) {
+					span.style.removeProperty('animation-name');
 				});
 			}
 			
