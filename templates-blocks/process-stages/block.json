@@ -1,11 +1,14 @@
 {
 	"name": "acf/process-stages",
 	"title": "UDS Process Stages",
+	"apiVersion": 3,
+	"version": "1.0.0",
 	"description": "A custom block which displays stages of process.",
 	"category": "uds",
 	"icon": "editor-ol",
 	"keywords": ["process", "steps", "stages", "workflow"],
 	"acf": {
+		"blockVersion": 3,
 		"mode": "preview",
 		"renderTemplate": "process-stages.php",
 		"validate": false
