@@ -38,13 +38,20 @@
 					}
 				});
 
-				// 2. Compute uniform spacing and the total animation distance
-				//    needed to fit all items with identical gaps (including
-				//    the wrap-around gap from item N back to item 1).
+				// 2. Compute consistent visible gaps between items.
+				//    The visible gap (end of one item's text to start of
+				//    the next) is the same for every pair, including the
+				//    wrap-around from the last item back to the first.
 				var vw = document.documentElement.clientWidth;
 				var halfVw = vw / 2;
-				var uniformSpacing = Math.max(halfVw, maxWidth);
-				var totalDistance = spans.length * uniformSpacing;
+				var visibleGap = halfVw;
+
+				// Total animation distance = sum of all widths + N gaps.
+				var totalWidth = 0;
+				for (var j = 0; j < widths.length; j++) {
+					totalWidth += widths[j];
+				}
+				var totalDistance = totalWidth + spans.length * visibleGap;
 
 				// Start/end positions derive from totalDistance.
 				// endPos is always -(maxWidth + vw) so the widest item
@@ -68,13 +75,12 @@
 					'}';
 				document.head.appendChild(styleEl);
 
-				// 3. Even spacing between all items.
-				//    Every gap is the same size: max(50vw, maxWidth).
-				//    Because totalDistance = N * uniformSpacing, the
-				//    wrap-around gap is also exactly uniformSpacing.
+				// 3. Position each item so every visible gap is identical.
+				//    Item i+1 starts at: position[i] + widths[i] + visibleGap
+				//    The wrap-around gap is also exactly visibleGap.
 				var positions = [0];
 				for (var i = 0; i < spans.length - 1; i++) {
-					positions.push(positions[positions.length - 1] + uniformSpacing);
+					positions.push(positions[positions.length - 1] + widths[i] + visibleGap);
 				}
 
 				// 4. Determine the animation name (normal vs. reverse).
