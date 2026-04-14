@@ -1,6 +1,8 @@
 {
     "name": "acf/uds-card",
     "title": "UDS Card",
+	"apiVersion": 3,
+	"version": "1.0.0",
     "description": "A block for building static versions of basic, degree, story, event, and interactive cards.",
     "category": "uds",
     "icon": "id-alt",
