@@ -38,16 +38,19 @@
 					}
 				});
 
-				// 2. Generate unique pixel-based @keyframes so every span
-				//    travels the same distance (uniform speed) regardless of
-				//    its own width.  This avoids relying on CSS custom
-				//    properties inside @keyframes, which Firefox may not
-				//    resolve, falling back to 100% (each item's own width)
-				//    and producing different speeds / overlaps.
+				// 2. Compute uniform spacing and the total animation distance
+				//    needed to fit all items with identical gaps (including
+				//    the wrap-around gap from item N back to item 1).
 				var vw = document.documentElement.clientWidth;
-				var startPos = Math.max(vw, maxWidth);
+				var halfVw = vw / 2;
+				var uniformSpacing = Math.max(halfVw, maxWidth);
+				var totalDistance = spans.length * uniformSpacing;
+
+				// Start/end positions derive from totalDistance.
+				// endPos is always -(maxWidth + vw) so the widest item
+				// fully exits the left edge before recycling.
 				var endPos = -(maxWidth + vw);
-				var totalDistance = startPos - endPos;
+				var startPos = totalDistance + endPos;
 
 				var uid = 'mq-' + (++marqueeCounter);
 				var fwdName = uid;
@@ -65,19 +68,13 @@
 					'}';
 				document.head.appendChild(styleEl);
 
-				// 3. Per-item adaptive delays.
-				//    In the animation cycle, item i+1 is to the LEFT of
-				//    item i and its bounding box extends rightward by
-				//    widths[i+1].  The gap between positions[i] and
-				//    positions[i+1] must therefore be ≥ widths[i+1] so
-				//    the next item's right edge doesn't overlap the
-				//    current item's left edge.  We also enforce a 50 vw
-				//    minimum so items feel well-spaced on screen.
-				var halfVw = vw / 2;
+				// 3. Even spacing between all items.
+				//    Every gap is the same size: max(50vw, maxWidth).
+				//    Because totalDistance = N * uniformSpacing, the
+				//    wrap-around gap is also exactly uniformSpacing.
 				var positions = [0];
 				for (var i = 0; i < spans.length - 1; i++) {
-					var spacing = Math.max(halfVw, widths[i + 1]);
-					positions.push(positions[positions.length - 1] + spacing);
+					positions.push(positions[positions.length - 1] + uniformSpacing);
 				}
 
 				// 4. Determine the animation name (normal vs. reverse).
