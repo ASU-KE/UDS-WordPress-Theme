@@ -28,7 +28,7 @@
 .marquee-text {
 	display: inline-block;
 	padding-right: 2rem;
-	font-size: 1.5rem;
+	font-size: var(--marquee-font-size, 1.5rem);
 	font-weight: 700;
 	position: absolute;
 	left: 0;
@@ -144,7 +144,15 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+	.uds-marquee-track {
+		height: var(--marquee-mobile-font-size, 1.25rem);
+	}
 	.marquee-text {
-		font-size: 1.25rem;
+		font-size: var(--marquee-mobile-font-size, 1.25rem);
+	}
+	#pauseMarquee, #playMarquee {
+		width: 2rem !important;
+		height: 2rem !important;
+		font-size: 1rem;
 	}
 }

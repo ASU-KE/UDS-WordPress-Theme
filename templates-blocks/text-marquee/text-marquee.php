@@ -16,6 +16,7 @@ $marquee_text_4 = get_field( 'marquee_text_4' );
 $animation_duration = get_field( 'animation_duration' );
 $reverse_direction = get_field( 'reverse_direction' );
 $font_size = get_field( 'font_size' );
+$mobile_font_size = get_field( 'mobile_font_size' );
 $font_weight = get_field( 'font_weight' );
 
 // Set default values if fields are empty
@@ -24,6 +25,7 @@ $marquee_text = $marquee_text ? $marquee_text : 'Enter your scrolling text here'
 $animation_duration = $animation_duration ? intval( $animation_duration ) : 10;
 $reverse_direction = $reverse_direction ? 'reverse' : 'normal';
 $font_size = $font_size ? floatval( $font_size ) : 1.5;
+$mobile_font_size = $mobile_font_size ? floatval( $mobile_font_size ) : 1.25;
 $font_weight = $font_weight && 'default' !== $font_weight ? $font_weight : '';
 
 // Build array of text content based on number of content areas
@@ -73,13 +75,11 @@ $track_inline_styles = array();
 $track_inline_styles[] = '--marquee-duration: ' . esc_attr( $animation_duration ) . 's';
 $track_inline_styles[] = '--marquee-direction: ' . esc_attr( $reverse_direction );
 $track_inline_styles[] = '--marquee-font-size: ' . esc_attr( $font_size ) . 'rem';
+$track_inline_styles[] = '--marquee-mobile-font-size: ' . esc_attr( $mobile_font_size ) . 'rem';
 $track_style_attr = 'style="' . implode( '; ', $track_inline_styles ) . ';"';
 
 // Build inline styles for marquee text spans
 $text_inline_styles = array();
-if ( $font_size ) {
-	$text_inline_styles[] = 'font-size: ' . esc_attr( $font_size ) . 'rem';
-}
 
 // Get text color from Gutenberg block attributes
 $text_color = '';
