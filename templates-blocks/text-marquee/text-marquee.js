@@ -76,11 +76,14 @@
 				document.head.appendChild(styleEl);
 
 				// 3. Position each item so every visible gap is identical.
-				//    Item i+1 starts at: position[i] + widths[i] + visibleGap
-				//    The wrap-around gap is also exactly visibleGap.
+				//    In the scrolling direction (right→left), item i+1
+				//    appears to the LEFT of item i.  The visible gap is
+				//    the space between item i+1's RIGHT edge and item i's
+				//    LEFT edge, so the cycle spacing must include the
+				//    LEFT item's width (widths[i+1]), not the RIGHT item's.
 				var positions = [0];
 				for (var i = 0; i < spans.length - 1; i++) {
-					positions.push(positions[positions.length - 1] + widths[i] + visibleGap);
+					positions.push(positions[positions.length - 1] + widths[i + 1] + visibleGap);
 				}
 
 				// 4. Determine the animation name (normal vs. reverse).
