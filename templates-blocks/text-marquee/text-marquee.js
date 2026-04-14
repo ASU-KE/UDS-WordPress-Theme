@@ -7,6 +7,8 @@
 (function() {
 	'use strict';
 
+	var marqueeCounter = 0;
+
 	/**
 	 * Initialize marquee functionality
 	 */
@@ -15,8 +17,98 @@
 		
 		marquees.forEach(function(marquee) {
 			const track = marquee.querySelector('.uds-marquee-track');
+			const spans = track.querySelectorAll('.marquee-text');
 			const playBtn = marquee.querySelector('.uds-marquee-play-btn');
 			const pauseBtn = marquee.querySelector('.uds-marquee-pause-btn');
+			const duration = parseFloat(marquee.getAttribute('data-animation-duration')) || 10;
+
+			// Make all items scroll at the same speed and space them so
+			// consecutive items never overlap — even when a long item is
+			// followed by a short one.
+			if (spans.length > 1) {
+				// 1. Measure natural widths (incl. padding) before changing
+				//    anything.  Keep track of the widest item.
+				var widths = [];
+				var maxWidth = 0;
+				spans.forEach(function(span) {
+					var w = span.offsetWidth;
+					widths.push(w);
+					if (w > maxWidth) {
+						maxWidth = w;
+					}
+				});
+
+				// 2. Compute consistent visible gaps between items.
+				//    The visible gap (end of one item's text to start of
+				//    the next) is the same for every pair, including the
+				//    wrap-around from the last item back to the first.
+				var vw = document.documentElement.clientWidth;
+				var halfVw = vw / 2;
+				var visibleGap = halfVw;
+
+				// Total animation distance = sum of all widths + N gaps.
+				var totalWidth = 0;
+				for (var j = 0; j < widths.length; j++) {
+					totalWidth += widths[j];
+				}
+				var totalDistance = totalWidth + spans.length * visibleGap;
+
+				// Start/end positions derive from totalDistance.
+				// endPos is always -(maxWidth + vw) so the widest item
+				// fully exits the left edge before recycling.
+				var endPos = -(maxWidth + vw);
+				var startPos = totalDistance + endPos;
+
+				var uid = 'mq-' + (++marqueeCounter);
+				var fwdName = uid;
+				var revName = uid + '-rev';
+
+				var styleEl = document.createElement('style');
+				styleEl.textContent =
+					'@keyframes ' + fwdName + '{' +
+						'0%{transform:translateX(' + startPos + 'px)}' +
+						'100%{transform:translateX(' + endPos + 'px)}' +
+					'}' +
+					'@keyframes ' + revName + '{' +
+						'0%{transform:translateX(' + endPos + 'px)}' +
+						'100%{transform:translateX(' + startPos + 'px)}' +
+					'}';
+				document.head.appendChild(styleEl);
+
+				// 3. Position each item so every visible gap is identical.
+				//    In the scrolling direction (right→left), item i+1
+				//    appears to the LEFT of item i.  The visible gap is
+				//    the space between item i+1's RIGHT edge and item i's
+				//    LEFT edge, so the cycle spacing must include the
+				//    LEFT item's width (widths[i+1]), not the RIGHT item's.
+				var positions = [0];
+				for (var i = 0; i < spans.length - 1; i++) {
+					positions.push(positions[positions.length - 1] + widths[i + 1] + visibleGap);
+				}
+
+				// 4. Determine the animation name (normal vs. reverse).
+				var direction = marquee.getAttribute('data-direction');
+				var animName = (direction === 'reverse') ? revName : fwdName;
+
+				// 5. Apply computed animation and force a restart so the new
+				//    timing takes effect immediately.
+				//    Set individual properties (not the shorthand) so the CSS
+				//    .paused rule can still toggle animation-play-state.
+				var allSpans = track.querySelectorAll('.marquee-text');
+				allSpans.forEach(function(span) {
+					span.style.animationName = 'none';
+				});
+				void track.offsetWidth;
+
+				allSpans.forEach(function(span, index) {
+					var delay = -(positions[index] / totalDistance) * duration;
+					span.style.animationName = animName;
+					span.style.animationDuration = duration + 's';
+					span.style.animationTimingFunction = 'linear';
+					span.style.animationIterationCount = 'infinite';
+					span.style.animationDelay = delay + 's';
+				});
+			}
 			
 			// Initially hide play button
 			if (playBtn) {

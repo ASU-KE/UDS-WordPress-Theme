@@ -1,11 +1,9 @@
 /**
  * Data Layer Analytics Script
  *
- * This script handles analytics tracking for various elements and pushes event data
- * to the Google Analytics data layer.
+ * This script handles analytics tracking for various elements 
+ * and pushes event data to the Google Analytics data layer.
  *
- * Combined Bootstrap 5 specific analytics (from pitchfork-blocks) with ASU Unity Stack
- * general analytics to provide comprehensive event tracking.
  *
  * @package UDS WordPress Theme
  */
@@ -19,7 +17,7 @@ function initDataLayer() {
 		window.dataLayer = window.dataLayer || [];
 		const { dataLayer } = window;
 		if (dataLayer) dataLayer.push(event);
-	};
+	}
 
 	// Accordions. Events emitted by the body which uses BS5 collapse.
 	document.querySelectorAll('.accordion-body').forEach((element) => {
@@ -33,15 +31,7 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 
 		element.addEventListener('show.bs.collapse', function () {
@@ -53,15 +43,7 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 	});
 
@@ -82,15 +64,7 @@ function initDataLayer() {
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-					text: text.toLowerCase(),
-				});
+				pushGAEvent({ name, event, action, type, section, region, text });
 			});
 
 			element.addEventListener('show.bs.collapse', function () {
@@ -102,23 +76,9 @@ function initDataLayer() {
 				const region = 'sidebar';
 				const text = document.querySelector(`a[data-bs-target="#${element.id}"]`).textContent.slice(0, 40);
 
-				pushGAEvent({
-					name: name.toLowerCase(),
-					event: event.toLowerCase(),
-					action: action.toLowerCase(),
-					type: type.toLowerCase(),
-					section: section.toLowerCase(),
-					region: region.toLowerCase(),
-					text: text.toLowerCase(),
-				});
+				pushGAEvent({ name, event, action, type, section, region, text });
 			});
-		} else {
-
-			// This was an event specifically for the mobile menu expand of the sidebar.
-			// Ignore it for now.
-
-		}
-
+		} 
 	});
 
 	// Sidebar mobile menu. Track open close events.
@@ -133,15 +93,7 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 
 		element.addEventListener('show.bs.collapse', function () {
@@ -153,17 +105,8 @@ function initDataLayer() {
 			const region = 'main-content';
 			const text = document.querySelector(`.sidebar-toggler[data-bs-target="#${element.id}"]`).textContent;
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
-
 	});
 
 	// Alerts and banners. Events emitted by the .alert element which uses BS5 collapse.
@@ -176,22 +119,10 @@ function initDataLayer() {
 			const type = 'click';
 			const section = 'default';
 			const region = 'main-content';
-
-			// Fancy selector will find .alert-content and .banner-content
 			const text = element.querySelector('[class*=content]').textContent.slice(0, 40);
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-			});
-
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
-
 	});
 
 	// General click events for elements with data-ga attributes
@@ -209,23 +140,45 @@ function initDataLayer() {
 			const section = element.getAttribute('data-ga-section') || 'default';
 			const region = element.getAttribute('data-ga-region') || 'main-content';
 			const text = element.getAttribute('data-ga') || element.textContent.trim().slice(0, 40);
-			const component = element.getAttribute('data-ga-component') || '';
 
-			pushGAEvent({
-				name: name.toLowerCase(),
-				event: event.toLowerCase(),
-				action: action.toLowerCase(),
-				type: type.toLowerCase(),
-				section: section.toLowerCase(),
-				region: region.toLowerCase(),
-				text: text.toLowerCase(),
-				...(component && {
-					component: component.toLowerCase(),
-				}),
-			});
+			pushGAEvent({ name, event, action, type, section, region, text });
 		});
 	});
 
+	//is gravity forms present on the page? 
+	if (document.querySelector('.gform_wrapper > form')) {
+		//gravity forms. form start. Track when a user starts filling out a form (focus on any input).
+		document.querySelectorAll('.gform_wrapper > form').forEach((element) => {
+			element.addEventListener('focusin', function () {
+				const name = 'onstart';
+				const event = 'form_start';
+				const action = 'start';
+				const type = element.getAttribute('id') || 'unknown-form';
+				const section = 'main-content';
+				const region = 'main-content';
+
+				pushGAEvent({ name, event, action, type, section, region });
+			})
+		})
+		//Track form submissions.
+		document.addEventListener('gform/theme/scripts_loaded', () => {
+			gform.utils.addAsyncFilter('gform/submission/pre_submission', async (data) => {
+				// Perform your custom asynchronous action here (e.g., an API call)
+				const name = 'onsubmit';
+				const event = 'form_submit';
+				const action = 'submit';
+				const type = data.form.dataset.formid || 'unknown-form';
+				const section = 'main-content';
+				const region = 'main-content';
+
+				pushGAEvent({ name, event, action, type, section, region });
+
+				// You can also modify the form data in the 'data' object if necessary
+
+				return data;
+			});
+		});
+	}
 }
 // Initialize the data layer analytics
 window.addEventListener("DOMContentLoaded", (event) => { initDataLayer(); });

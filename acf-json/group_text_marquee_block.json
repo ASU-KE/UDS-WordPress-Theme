@@ -134,10 +134,10 @@
         },
         {
             "key": "field_marquee_font_size",
-            "label": "Font Size",
+            "label": "Desktop Font Size",
             "name": "font_size",
             "type": "range",
-            "instructions": "Choose the size of the marquee text (in rem units)",
+            "instructions": "Choose the size of the marquee text on desktop screens (in rem units)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -146,6 +146,26 @@
                 "id": ""
             },
             "default_value": 1.5,
+            "min": 0.5,
+            "max": 5,
+            "step": 0.25,
+            "prepend": "",
+            "append": "rem"
+        },
+        {
+            "key": "field_marquee_mobile_font_size",
+            "label": "Mobile Font Size",
+            "name": "mobile_font_size",
+            "type": "range",
+            "instructions": "Choose the size of the marquee text on mobile screens (in rem units, applied at 768px and below)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1.25,
             "min": 0.5,
             "max": 5,
             "step": 0.25,
@@ -234,5 +254,5 @@
     "active": true,
     "description": "Field group for the UDS Text Marquee block",
     "show_in_rest": 0,
-    "modified": 1738697839
+    "modified": 1775326904
 }
