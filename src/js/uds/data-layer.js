@@ -158,7 +158,7 @@ function initDataLayer() {
 				const region = 'main-content';
 
 				pushGAEvent({ name, event, action, type, section, region });
-			})
+			}, { once: true })
 		})
 		//Track form submissions.
 		document.addEventListener('gform/theme/scripts_loaded', () => {
