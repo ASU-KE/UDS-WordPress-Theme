@@ -2,9 +2,14 @@
 	padding: 0 0.5rem;
 }
 
+.uds-counter {
+	display: flex;
+}
+
 .uds-counter-content {
 	width: max-content;
 	margin: 0 auto;
+	min-width: 7rem;
 }
 
 .uds-counter-divider {

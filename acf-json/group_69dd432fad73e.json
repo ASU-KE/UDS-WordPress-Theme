@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_69dd432f601a9",
-            "label": "Text",
-            "name": "uds_text",
+            "label": "Description",
+            "name": "uds_description",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -17,7 +17,7 @@
                 "id": ""
             },
             "default_value": "Counter Text",
-            "maxlength": "",
+            "maxlength": 80,
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
@@ -114,6 +114,27 @@
             "step": 1,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_69dfc4592d891",
+            "label": "Suffix Text",
+            "name": "uds_suffix_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "+",
+            "maxlength": 20,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -137,5 +158,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776108875
+    "modified": 1776274045
 }
