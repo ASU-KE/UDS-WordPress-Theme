@@ -104,6 +104,7 @@
         </div>
         <?php endif; ?>
 
+        <?php if ( $before_url && $after_url ) : ?>
         <div
             class="uds-image-compare-handle"
             role="slider"
@@ -124,6 +125,7 @@
             </div>
             <?php endif; ?>
         </div>
+        <?php endif; ?>
     </div>
    
     <?php if ( $description ) : ?>
