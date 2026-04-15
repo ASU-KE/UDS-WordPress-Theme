@@ -3,6 +3,9 @@
   overflow-y: clip;
   overflow-x: visible;
 }
+.uds-image-parallax-slider .parallax-container img {
+  bottom: 0;
+}
 .uds-image-parallax-slider .parallax-container .parallax-container-content {
   background-color: transparent;
   background-position: center;
