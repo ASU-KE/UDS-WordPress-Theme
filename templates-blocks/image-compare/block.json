@@ -16,6 +16,9 @@
 	"supports": {
 		"align": true
 	},
+	"viewStyle": "file:./image-compare.css",
+	"viewScript": "file:./image-compare.js",
+	"editorStyle": "file:./image-compare.css",
 	"example": {
 		"attributes": {
 			"mode": "preview",
@@ -32,7 +35,9 @@
 				"after_image": {
 					"url": "https://example.com/after.jpg",
 					"alt": "After image"
-				}
+				},
+				"width": 800,
+				"height": 500
 			}
 		}
 	}
