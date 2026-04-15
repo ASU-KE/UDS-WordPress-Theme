@@ -91,15 +91,18 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 		}
 		// Background-image fallback fills the container while the <img> is
 		// being positioned by JS, preventing a visible gap on initial load.
-		$parallax_container_style .= 'background-image: url(' . esc_url( $background_image['url'] ) . '); background-size: cover; background-position: center bottom;';
+		$bg_url = esc_url( $background_image['url'] );
+		$parallax_container_style .= "background-image: url({$bg_url}); ";
+		$parallax_container_style .= 'background-size: cover; ';
+		$parallax_container_style .= 'background-position: center bottom;';
 		$parallax_container_style = trim( $parallax_container_style );
 	?>
 	<div class="parallax-container" data-bg-size="<?php echo esc_attr( $bg_size ); ?>"<?php if ( ! empty( $parallax_container_style ) ) { echo ' style="' . esc_attr( $parallax_container_style ) . '"'; } ?>>
 		<!-- Background Image -->
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
 			alt="<?php echo esc_attr( $background_image['alt'] ); ?>"
-			<?php if ( ! empty( $background_image['width'] ) ) { echo 'width="' . intval( $background_image['width'] ) . '" '; } ?>
-			<?php if ( ! empty( $background_image['height'] ) ) { echo 'height="' . intval( $background_image['height'] ) . '" '; } ?>
+			<?php if ( ! empty( $background_image['width'] ) ) { echo 'width="' . esc_attr( intval( $background_image['width'] ) ) . '" '; } ?>
+			<?php if ( ! empty( $background_image['height'] ) ) { echo 'height="' . esc_attr( intval( $background_image['height'] ) ) . '" '; } ?>
 			loading="lazy" decoding="async" />
 		
 		<!-- Parallax Container Content with Foreground Image -->
