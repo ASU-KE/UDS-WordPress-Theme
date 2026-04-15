@@ -60,9 +60,15 @@
 
     // --uds-ic-pos sets the initial handle position before JS runs.
     $inline_style  = '--uds-ic-pos: ' . $position . '%';
-    $inline_style .= $custom_width  ? '; width: '  . intval( $custom_width )  . 'px' : '';
+    $inline_style .= $custom_width ? '; max-width: ' . intval( $custom_width ) . 'px; width: 100%' : '';
 
-    $wrapper_style = $custom_height ? 'height: ' . intval( $custom_height ) . 'px' : '';
+    if ( $custom_width && $custom_height ) {
+        $wrapper_style = 'aspect-ratio: ' . intval( $custom_width ) . ' / ' . intval( $custom_height );
+    } elseif ( $custom_height ) {
+        $wrapper_style = 'max-height: ' . intval( $custom_height ) . 'px';
+    } else {
+        $wrapper_style = '';
+    }
 ?>
 
 <section

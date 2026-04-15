@@ -8,6 +8,15 @@
 	color: var(--bs-body-color);
 }
 
+@media (max-width: 575px) {
+	.uds-image-compare-description {
+		font-size: 0.875rem;
+		font-weight: 400;
+		color: var(--bs-secondary-color, #6c757d);
+		margin-top: 8px;
+	}
+}
+
 .uds-image-compare-wrapper {
 	position: relative;
 	overflow: hidden;
@@ -15,7 +24,8 @@
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: none;
-	border-radius: 4px;
+	width: 100%;
+	aspect-ratio: 16 / 9; /* default fallback; */
 }
 
 .uds-image-compare-before {
@@ -59,7 +69,6 @@
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	padding: 4px 10px;
-	border-radius: 3px;
 	line-height: 1.4;
 	pointer-events: none;
 	z-index: 5;
