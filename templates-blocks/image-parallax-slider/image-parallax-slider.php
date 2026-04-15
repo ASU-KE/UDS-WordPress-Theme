@@ -89,12 +89,6 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 		if ( $container_height && is_numeric( $container_height ) ) {
 			$parallax_container_style .= 'height: ' . intval( $container_height ) . 'px; ';
 		}
-		// Background-image fallback fills the container while the <img> is
-		// being positioned by JS, preventing a visible gap on initial load.
-		$bg_url = esc_url( $background_image['url'] );
-		$parallax_container_style .= "background-image: url({$bg_url}); ";
-		$parallax_container_style .= 'background-size: cover; ';
-		$parallax_container_style .= 'background-position: center bottom;';
 		$parallax_container_style = trim( $parallax_container_style );
 	?>
 	<div class="parallax-container" data-bg-size="<?php echo esc_attr( $bg_size ); ?>"<?php if ( ! empty( $parallax_container_style ) ) { echo ' style="' . esc_attr( $parallax_container_style ) . '"'; } ?>>
