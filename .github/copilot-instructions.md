@@ -56,7 +56,7 @@ This is the **ASU Unity Design System (UDS) WordPress Theme** — a production W
 ├── gulpfile.mjs              # Gulp 5 build configuration (ES modules)
 ├── package.json              # npm dependencies + Volta-pinned Node 14.21.3
 ├── composer.json             # PHP dependencies + PHPCS scripts
-└── .editorconfig             # WordPress coding standards (tabs, UTF-8, LF)
+└── .vscode/settings.json     # WordPress coding standards (tabs, UTF-8, LF)
 ```
 
 ## Build System
@@ -105,7 +105,7 @@ There are no ESLint or Stylelint configurations. JavaScript follows ES6+ convent
 ### PHP
 
 - Follow [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
-- **Indentation:** Tabs (per `.editorconfig`)
+- **Indentation:** Tabs (per `.vscode/settings.json`)
 - **Text domain:** Always use `'uds-wordpress-theme'` for translatable strings
 - All user-facing strings must use `__()`, `_e()`, or similar i18n functions
 - New functionality files go in `inc/` and must be added to the `$uds_wp_includes` array in `functions.php`
@@ -128,7 +128,7 @@ There are no ESLint or Stylelint configurations. JavaScript follows ES6+ convent
 
 ### JSON/YAML
 
-- 2-space indentation (per `.editorconfig`)
+- 2-space indentation (per `.vscode/settings.json`)
 
 ## Architecture Patterns
 
