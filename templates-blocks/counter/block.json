@@ -1,11 +1,14 @@
 {
 	"name": "acf/uds-counter",
 	"title": "UDS Counter",
+	"apiVersion": 3,
+	"version": "1.0.0",
 	"description": "A counter block which has increment animation.",
 	"category": "uds",
 	"icon": "performance",
 	"keywords": ["counter", "number"],
 	"acf": {
+		"blockVersion": 3,
 		"mode": "preview",
 		"renderTemplate": "counter.php",
 		"validate": false
