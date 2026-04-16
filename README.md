@@ -17,7 +17,7 @@
   - Utilizes standard WordPress features, such as page templates, widgets, and shortcodes, for easy and rapid development of standards-compliant WordPress sites
   - PHP 8 required (v1.6+) / PHP 7.4 compatible (v1.5 and earlier)
 - **Content Components**
-  - 17 custom ACF blocks for UDS-compliant content (cards, banners, alerts, modals, text marquee, etc.)
+  - 19 custom ACF blocks for UDS-compliant content (cards, banners, alerts, modals, text marquee, etc.)
   - 42+ pre-designed block patterns for rapid page building
   - Custom widgets for global banners and footer content
   - Shortcode for sidebar menus

@@ -1,0 +1,19 @@
+.uds-counter-container {
+	padding: 0 0.5rem;
+}
+
+.uds-counter {
+	display: flex;
+}
+
+.uds-counter-content {
+	width: max-content;
+	margin: 0 auto;
+	min-width: 7rem;
+}
+
+.uds-counter-divider {
+	height: 0.5rem;
+	background: var(--bs-gold);
+	width: 100%;
+}
