@@ -20,8 +20,10 @@ $fg_height = get_field( 'uds_parallax_foreground_height' );
 // Set placeholders if images are not provided
 if ( ! $background_image ) {
 	$background_image = array(
-		'url' => 'https://via.placeholder.com/1920x1080/8C1D40/FFFFFF?text=Background+Image',
-		'alt' => 'Background placeholder image',
+		'url'    => 'https://via.placeholder.com/1920x1080/8C1D40/FFFFFF?text=Background+Image',
+		'alt'    => 'Background placeholder image',
+		'width'  => 1920,
+		'height' => 1080,
 	);
 }
 
@@ -85,16 +87,17 @@ if ( $fg_height && is_numeric( $fg_height ) ) {
 		// Build style attribute for parallax-container
 		$parallax_container_style = '';
 		if ( $container_height && is_numeric( $container_height ) ) {
-			$parallax_container_style .= 'min-height: ' . intval( $container_height ) . 'px; ';
+			$parallax_container_style .= 'height: ' . intval( $container_height ) . 'px; ';
 		}
 		$parallax_container_style = trim( $parallax_container_style );
 	?>
 	<div class="parallax-container" data-bg-size="<?php echo esc_attr( $bg_size ); ?>"<?php if ( ! empty( $parallax_container_style ) ) { echo ' style="' . esc_attr( $parallax_container_style ) . '"'; } ?>>
 		<!-- Background Image -->
 		<img src="<?php echo esc_url( $background_image['url'] ); ?>" 
-			alt="<?php echo esc_attr( $background_image['alt'] ); ?>" 
-			data-parallax-factor="1.2"
-			style="object-fit: <?php echo esc_attr( $bg_size ); ?>; width: 100%; height: 100%;" />
+			alt="<?php echo esc_attr( $background_image['alt'] ); ?>"
+			<?php if ( ! empty( $background_image['width'] ) ) { echo 'width="' . esc_attr( intval( $background_image['width'] ) ) . '" '; } ?>
+			<?php if ( ! empty( $background_image['height'] ) ) { echo 'height="' . esc_attr( intval( $background_image['height'] ) ) . '" '; } ?>
+			loading="lazy" decoding="async" />
 		
 		<!-- Parallax Container Content with Foreground Image -->
 		<div class="parallax-container-content"
