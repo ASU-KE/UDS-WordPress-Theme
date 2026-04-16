@@ -28,3 +28,4 @@
 - [ ] I have updated the documentation accordingly.
 - [ ] I have added tests to cover my changes.
 - [ ] All new and existing tests passed.
+- [ ] (if appropriate) Run Copilot check for WCAG 2.1 Level AA compliance
