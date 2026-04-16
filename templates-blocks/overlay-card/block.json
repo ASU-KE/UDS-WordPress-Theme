@@ -37,7 +37,8 @@
             }
         }
     },
-    "editorScript": "file:../../src/js/custom/overlay-card.js",
+    "editorScript": "file:./overlay-card.js",
+    "viewScript": "file:./overlay-card.js",
     "viewStyle": "file:./style.css",
     "editorStyle": "file:./style.css"
 }
