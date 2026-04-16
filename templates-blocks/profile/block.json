@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-person-profile",
     "title": "UDS Person Profile",
+	"apiVersion": 3,
+	"version": "1.0.0",
     "description": "A block for building a single UDS profile.",
     "category": "uds",
     "icon": "admin-users",
     "keywords": ["person", "profile", "uds"],
     "acf": {
+		"blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "profile.php"
     },
@@ -29,5 +32,7 @@
 				"url": "https://asu.edu"
 			}
 		}
-	}
+	},
+ 	"viewStyle": "file:./style.css",
+	"editorStyle": "file:./style.css"
 }
