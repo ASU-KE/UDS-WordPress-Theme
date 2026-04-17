@@ -1,11 +1,14 @@
 {
     "name": "acf/background-section",
     "title": "UDS Background Section",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "Creates a container that can have a background image, pattern, or color, and uses Inner Blocks for content.",
     "category": "uds",
     "icon": "star-filled",
     "keywords": ["background", "section", "image"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "background-section.php",
         "validate": false
