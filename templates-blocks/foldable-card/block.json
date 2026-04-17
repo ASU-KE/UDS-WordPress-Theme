@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-foldable-card",
     "title": "UDS Foldable Card",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A Foldable card block that can be used as accordions when multiple cards are added into one group.",
     "category": "uds",
     "icon": "archive",
     "keywords": ["accordions", "accordion", "foldable", "card"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "foldable-card.php",
         "validate": false
