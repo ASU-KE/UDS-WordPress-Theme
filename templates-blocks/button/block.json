@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-button",
     "title": "UDS Button",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "UDS compliant button with configurable size, color, and icon",
     "category": "uds",
     "icon": "button",
     "keywords": ["button", "link"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "button.php",
 		"validate": false
