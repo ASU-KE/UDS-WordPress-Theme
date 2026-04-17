@@ -1,0 +1,37 @@
+{
+	"name": "acf/process-stages",
+	"title": "UDS Process Stages",
+	"apiVersion": 3,
+	"version": "1.0.0",
+	"description": "A custom block which displays stages of process.",
+	"category": "uds",
+	"icon": "editor-ol",
+	"keywords": ["process", "steps", "stages", "workflow"],
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "process-stages.php",
+		"validate": false
+	},
+	"viewStyle": ["file:./process-stages.css"],
+	"editorStyle": ["file:./process-stages.css"],
+	"viewScript": "file:./process-stages.js",
+	"editorScript": "file:./process-stages.js",
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"uds_layout_horizontal": true,
+				"uds_stages": [
+					{
+						"stage_title": "Discovery",
+						"stage_content": "We research and gather requirements.",
+						"stage_image": ""
+					}
+				],
+				"uds_animation": "none",
+				"uds_image_text_color": "#ffffff"
+			}
+		}
+	}
+}
