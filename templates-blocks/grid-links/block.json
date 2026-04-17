@@ -1,11 +1,14 @@
 {
     "name": "acf/grid-links",
     "title": "UDS Grid Links",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A series of formatted links arranged in a grid.",
     "category": "uds",
     "icon": "grid-view",
     "keywords": ["grid", "links"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "grid-links.php",
         "validate": false
