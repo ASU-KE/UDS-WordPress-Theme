@@ -1,0 +1,45 @@
+{
+	"name": "acf/uds-image-compare",
+	"title": "UDS Image Compare",
+	"apiVersion": 3,
+	"version": "1.0.0",
+	"description": "A block that allows you to compare two images with a slider.",
+	"category": "uds",
+	"icon": "format-image",
+	"keywords": ["image", "compare", "slider", "before", "after", "difference"],
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "image-compare.php",
+		"validate": false
+	},
+	"supports": {
+		"align": true
+	},
+	"viewStyle": "file:./image-compare.css",
+	"viewScript": "file:./image-compare.js",
+	"editorStyle": "file:./image-compare.css",
+	"editorScript": "file:./image-compare.js",
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"description": "UDS Image Compare",
+				"orientation": "vertical",
+				"slide_mode": "drag",
+				"initial_position": 50,
+				"show_handle_icon": true,
+				"before_image": {
+					"url": "https://example.com/before.jpg",
+					"alt": "Before image"
+				},
+				"after_image": {
+					"url": "https://example.com/after.jpg",
+					"alt": "After image"
+				},
+				"width": 800,
+				"height": 500
+			}
+		}
+	}
+}
