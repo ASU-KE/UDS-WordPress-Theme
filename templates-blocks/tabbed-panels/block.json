@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-tabbed-panels",
     "title": "UDS Tabbed panels",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A Tabbed panels block",
     "category": "uds",
     "icon": "table-row-after",
     "keywords": ["tabs", "tab", "tabbed", "panel", "panels", "nav"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "tabbed-panels.php",
         "validate": false
