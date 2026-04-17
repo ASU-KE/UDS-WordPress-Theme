@@ -186,8 +186,22 @@
 	}
 }
 
+@keyframes uds-bounce-reverse {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}
+
 .animate-bounce .image-wrapper {
-	animation: uds-bounce 2s ease-in-out infinite;
+	animation: uds-bounce 5s ease-in-out infinite;
+}
+
+.animate-bounce .process-step:nth-child(even) .image-wrapper {
+	animation-name: uds-bounce-reverse;
 }
 
 /* Pulse */
@@ -201,8 +215,22 @@
 	}
 }
 
+@keyframes uds-pulse-reverse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.92);
+	}
+}
+
 .animate-pulse .image-wrapper {
-	animation: uds-pulse 2s ease-in-out infinite;
+	animation: uds-pulse 5s ease-in-out infinite;
+}
+
+.animate-pulse .process-step:nth-child(even) .image-wrapper {
+	animation-name: uds-pulse-reverse;
 }
 
 /* PAUSE / PLAY CONTROLS */
