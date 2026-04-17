@@ -1,11 +1,14 @@
 {
     "name": "acf/content-image-overlap",
     "title": "UDS Content Image Overlap",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A stylized layout element with a prominent image, and a configurable content area.",
     "category": "uds",
     "icon": "welcome-widgets-menus",
     "keywords": ["overlap", "content", "section"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "image-overlap.php",
         "validate": false
