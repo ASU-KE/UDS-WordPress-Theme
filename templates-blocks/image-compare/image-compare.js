@@ -11,6 +11,10 @@
 		var handle = container.querySelector(".uds-image-compare-handle");
 		var after = container.querySelector(".uds-image-compare-after");
 
+		if (!wrapper || !handle || !after) {
+			return;
+		}
+
 		var isVertical = wrapper.classList.contains("uds-image-compare--vertical");
 		var slideMode = container.dataset.slideMode || "drag";
 		var initialPos = parseFloat(container.dataset.initialPosition);
@@ -51,15 +55,21 @@
 
 		setPosition(initialPos);
 
-		//Mouse specific event
+		function onMouseUp() {
+			isDragging = false;
+			document.removeEventListener("mouseup", onMouseUp);
+		}
+
+		function onTouchEnd() {
+			isDragging = false;
+			document.removeEventListener("touchend", onTouchEnd);
+		}
+
 		// Drag mode: update position on mouse/touch move while dragging
 		if (slideMode === "drag") {
 			handle.addEventListener("mousedown", function () {
 				isDragging = true;
-			});
-
-			document.addEventListener("mouseup", function () {
-				isDragging = false;
+				document.addEventListener("mouseup", onMouseUp);
 			});
 
 			wrapper.addEventListener("mousemove", function (e) {
@@ -75,18 +85,15 @@
 			});
 		}
 
-		// Touch specific event
+		// Touch events
 		handle.addEventListener(
 			"touchstart",
 			function () {
 				isDragging = true;
+				document.addEventListener("touchend", onTouchEnd);
 			},
 			{ passive: true },
 		);
-
-		document.addEventListener("touchend", function () {
-			isDragging = false;
-		});
 
 		wrapper.addEventListener(
 			"touchmove",

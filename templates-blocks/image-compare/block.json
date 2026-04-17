@@ -19,6 +19,7 @@
 	"viewStyle": "file:./image-compare.css",
 	"viewScript": "file:./image-compare.js",
 	"editorStyle": "file:./image-compare.css",
+	"editorScript": "file:./image-compare.js",
 	"example": {
 		"attributes": {
 			"mode": "preview",

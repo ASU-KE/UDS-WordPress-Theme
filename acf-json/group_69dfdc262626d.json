@@ -90,7 +90,7 @@
                 "id": ""
             },
             "default_value": 50,
-            "min": 1,
+            "min": 0,
             "max": 100,
             "allow_in_bindings": 0,
             "step": "",
@@ -238,5 +238,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776290972
+    "modified": 1776454786
 }
