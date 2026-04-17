@@ -116,24 +116,6 @@
 		updateLayout(section);
 		drawConnectors(section);
 		initAnimationControls(section);
-
-		// Watch this section's class for layout toggle
-		new MutationObserver(function (mutations) {
-			for (var i = 0; i < mutations.length; i++) {
-				if (mutations[i].attributeName === "class") {
-					drawConnectors(section);
-					return;
-				}
-			}
-		}).observe(section, { attributes: true, attributeFilter: ["class"] });
-	}
-
-	function redrawAll() {
-		var sections = document.querySelectorAll(".uds-process-flow");
-		for (var i = 0; i < sections.length; i++) {
-			updateLayout(sections[i]);
-			drawConnectors(sections[i]);
-		}
 	}
 
 	function initAll() {
@@ -144,18 +126,23 @@
 	}
 
 	var timer;
-	window.addEventListener("resize", function () {
+	function debouncedInitAll() {
 		clearTimeout(timer);
-		timer = setTimeout(redrawAll, 150);
-	});
-	window.addEventListener("orientationchange", function () {
-		clearTimeout(timer);
-		timer = setTimeout(redrawAll, 150);
-	});
+		timer = setTimeout(initAll, 150);
+	}
+
+	window.addEventListener("resize", debouncedInitAll);
+	window.addEventListener("orientationchange", debouncedInitAll);
 
 	if (document.readyState === "complete") {
 		initAll();
 	} else {
 		window.addEventListener("load", initAll);
 	}
+
+	// Re-initialize when the block editor re-renders the preview
+	new MutationObserver(debouncedInitAll).observe(document.body, {
+		childList: true,
+		subtree: true,
+	});
 })();
