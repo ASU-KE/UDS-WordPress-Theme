@@ -29,7 +29,8 @@
 						"stage_image": ""
 					}
 				],
-				"uds_animation": "none"
+				"uds_animation": "none",
+				"uds_image_text_color": "#ffffff"
 			}
 		}
 	}

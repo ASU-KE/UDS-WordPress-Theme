@@ -12,6 +12,7 @@ $stages = get_field('uds_stages');
 // Options: none, bounce, pulse
 $animation = get_field('uds_animation');
 $animation_class = ($animation && $animation !== 'none') ? 'animate-' . $animation : '';
+$image_text_color = get_field('uds_image_text_color') ?: '#ffffff';
 
 // If additional classes were requested, clean up the input and add them.
 $additional_classes = '';
@@ -46,7 +47,9 @@ if ($stages && count($stages) != 0): ?>
                         <?php else: ?>
                             <div class="placeholder-circle" role="img" aria-label="<?php echo esc_attr( sprintf( __( 'Step %d', 'uds-wordpress-theme' ), $index + 1 ) ); ?>"></div>
                         <?php endif; ?>
-                        <div class="image-number fs-1" aria-hidden="true"><?php echo esc_html($image_text); ?></div>
+                        <div class="image-number fs-1" aria-hidden="true" style="color: <?php echo esc_attr($image_text_color); ?>;">
+                            <?php echo esc_html($image_text); ?>
+                        </div>
                     </div>
 
                     <div class="content-wrapper">
