@@ -35,18 +35,18 @@ if ($stages && count($stages) != 0): ?>
         <ol class="process-container">
             <?php foreach ($stages as $index => $stage):
                 $title = $stage['stage_title'];
-                $img   = $stage['stage_image'];
-                $desc  = $stage['stage_content'];
+                $img = $stage['stage_image'];
+                $desc = $stage['stage_content'];
+                $image_text = !empty($stage['stage_image_text']) ? $stage['stage_image_text'] : $index + 1;
             ?>
                 <li class="process-step">
                     <div class="image-wrapper">
                         <?php if ($img): ?>
-                            <?php echo wp_get_attachment_image($img, 'thumbnail', false, ['class' => 'round-img']); ?>    
-                        <?php else: ?>    
+                            <?php echo wp_get_attachment_image($img, 'thumbnail', false, ['class' => 'round-img']); ?>
+                        <?php else: ?>
                             <div class="placeholder-circle" role="img" aria-label="<?php echo esc_attr( sprintf( __( 'Step %d', 'uds-wordpress-theme' ), $index + 1 ) ); ?>"></div>
                         <?php endif; ?>
-                        <?php /* Step number is a visual aid only; step order is conveyed by the <ol> */ ?>
-                        <div class="image-number fs-1" aria-hidden="true"><?php echo $index + 1; ?>.</div>
+                        <div class="image-number fs-1" aria-hidden="true"><?php echo esc_html($image_text); ?></div>
                     </div>
 
                     <div class="content-wrapper">

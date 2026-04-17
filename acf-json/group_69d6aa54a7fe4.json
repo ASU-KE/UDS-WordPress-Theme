@@ -115,6 +115,28 @@
                     "allow_in_bindings": 0,
                     "preview_size": "medium",
                     "parent_repeater": "field_69d6b1d2715ab"
+                },
+                {
+                    "key": "field_69e265d5262c1",
+                    "label": "Stage Image Text",
+                    "name": "stage_image_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_69d6b1d2715ab"
                 }
             ]
         },
@@ -170,5 +192,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776277350
+    "modified": 1776445570
 }
