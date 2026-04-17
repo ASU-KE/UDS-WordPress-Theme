@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-show-more",
     "title": "UDS Show more",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "Button to show/hide content. Configurable size, color, and icon.",
     "category": "uds",
     "icon": "editor-insertmore",
     "keywords": ["button", "show", "more"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "show-more.php",
         "validate": false
