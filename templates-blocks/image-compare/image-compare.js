@@ -105,6 +105,34 @@
 			},
 			{ passive: false },
 		);
+
+		// Keyboard support
+		handle.addEventListener("keydown", function (e) {
+			var cur = parseFloat(handle.getAttribute("aria-valuenow"));
+			var next;
+
+			switch (e.key) {
+				case "ArrowRight":
+				case "ArrowUp":
+					next = cur + 2;
+					break;
+				case "ArrowLeft":
+				case "ArrowDown":
+					next = cur - 2;
+					break;
+				case "Home":
+					next = 0;
+					break;
+				case "End":
+					next = 100;
+					break;
+				default:
+					return;
+			}
+
+			e.preventDefault();
+			setPosition(Math.max(0, Math.min(100, next)));
+		});
 	}
 
 	function init() {

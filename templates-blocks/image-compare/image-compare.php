@@ -112,6 +112,7 @@ if ( $custom_width && $custom_height ) {
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="<?php echo esc_attr( $position ); ?>"
+            tabindex="0"
         >
             <div class="uds-image-compare-divider"></div>
             <?php if ( $show_handle_icon ) : ?>
