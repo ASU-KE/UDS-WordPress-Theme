@@ -32,6 +32,20 @@ if ($stages && count($stages) != 0): ?>
         >
         <?php /* Purely decorative connector lines – hidden from assistive technology */ ?>
         <svg class="process-svg" aria-hidden="true" focusable="false"></svg>
+        <?php if ($animation && $animation !== 'none'): ?>
+        <div class="uds-process-controls buttons">
+            <button type="button" class="btn btn-circle btn-circle-large uds-process-play-btn" style="display:none;"
+                data-ga="play process animation" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="animation play" data-ga-region="process stages" data-ga-section="process stages">
+                <i class="fa fa-play" aria-hidden="true"></i>
+                <span class="visually-hidden">Play animation</span>
+            </button>
+            <button type="button" class="btn btn-circle btn-circle-large uds-process-pause-btn"
+                data-ga="pause process animation" data-ga-name="onclick" data-ga-event="button" data-ga-action="click" data-ga-type="animation pause" data-ga-region="process stages" data-ga-section="process stages">
+                <i class="fa fa-pause" aria-hidden="true"></i>
+                <span class="visually-hidden">Pause animation</span>
+            </button>
+        </div>
+        <?php endif; ?>
 
         <ol class="process-container">
             <?php foreach ($stages as $index => $stage):

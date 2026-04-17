@@ -205,10 +205,40 @@
 	animation: uds-pulse 2s ease-in-out infinite;
 }
 
+/* PAUSE / PLAY CONTROLS */
+.uds-process-controls {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.uds-process-play-btn,
+.uds-process-pause-btn {
+	opacity: 0.3;
+	background-color: #fff !important;
+}
+
+.uds-process-play-btn:hover,
+.uds-process-pause-btn:hover {
+	opacity: 1 !important;
+	cursor: pointer;
+	transform: none;
+	color: #191919;
+}
+
+/* Paused state – stop all animations inside the section */
+.uds-process-flow.animation-paused .image-wrapper {
+	animation-play-state: paused !important;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	.animate-bounce .image-wrapper,
 	.animate-pulse .image-wrapper {
 		animation: none;
+	}
+
+	.uds-process-play-btn,
+	.uds-process-pause-btn {
+		display: none !important;
 	}
 }

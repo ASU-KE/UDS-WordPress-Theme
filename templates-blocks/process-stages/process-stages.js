@@ -86,9 +86,36 @@
 		}
 	}
 
+	// Pause / Play controls for animations
+	function initAnimationControls(section) {
+		var playBtn = section.querySelector(".uds-process-play-btn");
+		var pauseBtn = section.querySelector(".uds-process-pause-btn");
+		if (!playBtn || !pauseBtn) return;
+
+		pauseBtn.addEventListener("click", function () {
+			section.classList.add("animation-paused");
+			pauseBtn.style.display = "none";
+			playBtn.style.display = "inline-block";
+		});
+
+		playBtn.addEventListener("click", function () {
+			section.classList.remove("animation-paused");
+			playBtn.style.display = "none";
+			pauseBtn.style.display = "inline-block";
+		});
+
+		// Respect reduced-motion: hide buttons and pause
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			section.classList.add("animation-paused");
+			playBtn.hidden = true;
+			pauseBtn.hidden = true;
+		}
+	}
+
 	function initBlock(section) {
 		updateLayout(section);
 		drawConnectors(section);
+		initAnimationControls(section);
 
 		// Watch this section's class for layout toggle
 		new MutationObserver(function (mutations) {
