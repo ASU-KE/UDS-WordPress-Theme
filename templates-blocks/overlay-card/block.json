@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-program-card",
     "title": "UDS Overlay Card",
+    "apiVersion": 3,
+    "version": "2.0.0",
     "description": "A block for building program cards with gif image when hover over",
     "category": "uds",
     "icon": "admin-page",
     "keywords": ["card", "cards", "content", "program", "gif", "overlay", "uds"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "overlay-card.php",
         "validate": false
@@ -34,5 +37,8 @@
             }
         }
     },
-    "editorScript": "file:../../src/js/custom/overlay-card.js"
+    "editorScript": "file:./overlay-card.js",
+    "viewScript": "file:./overlay-card.js",
+    "viewStyle": "file:./style.css",
+    "editorStyle": "file:./style.css"
 }

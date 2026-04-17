@@ -8,6 +8,7 @@
     "icon": "info-outline",
     "keywords": ["banner", "message", "text"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "banner.php",
         "validate": false

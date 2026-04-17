@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-image",
     "title": "UDS image",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A block for UDS images with caption and shadow options",
     "category": "uds",
     "icon": "cover-image",
     "keywords": ["image", "images", "caption", "uds"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "image.php",
         "validate": false

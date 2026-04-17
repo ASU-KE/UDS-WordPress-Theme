@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-modals",
     "title": "UDS Modals",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "UDS Modal window with its button",
     "category": "uds",
     "icon": "welcome-comments",
     "keywords": ["modals", "window", "button"],
     "acf": {
+        "blockVersion": 3,
         "mode": "edit",
         "renderTemplate": "modals.php",
         "validate": false

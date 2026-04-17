@@ -8,6 +8,7 @@
     "icon": "format-gallery",
     "keywords": ["parallax", "image", "slider", "scroll"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "image-parallax-slider.php",
         "validate": false

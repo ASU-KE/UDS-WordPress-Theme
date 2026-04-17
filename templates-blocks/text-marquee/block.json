@@ -2,11 +2,13 @@
     "name": "acf/uds-text-marquee",
     "title": "UDS Text Marquee",
     "description": "An accessible text marquee block with animation controls and pause functionality.",
+    "apiVersion": 3,
     "version": "1.0.0",
     "category": "uds",
     "icon": "editor-alignleft",
     "keywords": ["marquee", "text", "scroll", "animation"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "text-marquee.php",
         "validate": false

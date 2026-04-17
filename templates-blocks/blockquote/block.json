@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-blockquote",
     "title": "UDS Blockquote",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "Stylized quotation, with optional image and configurable accent colors.",
     "category": "uds",
     "icon": "format-quote",
     "keywords": ["blockquote", "block", "quote"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "blockquote.php",
         "validate": false

@@ -16,7 +16,6 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 @import "theme/separators"; // Divider and separator styles
 @import "theme/cards"; // Card component styles (foldable, tags)
 @import "theme/images"; // Image block styles and image-related components
-@import "theme/forms"; // Contact Form 7 integration styles
 @import "theme/navigation"; // Breadcrumb, pagination, and tabbed panels
 @import "theme/content-blocks"; // Show more/less, grid links, modal, hero
 @import "theme/isearch"; // iSearch profile styles (temporary)
@@ -35,8 +34,5 @@ $image-assets-path: "/wp-content/themes/UDS-WordPress-Theme/dist/img" !default;
 
 // Temporary files. Expected to be incorporated into UDS-Bootstrap eventually.
 @import "blocks/blockquote-v2";
-@import "blocks/program-card";
-@import "blocks/profile";
-@import "blocks/anchor-menu";
 @import "blocks/glide-theme";
 @import "blocks/carousels";

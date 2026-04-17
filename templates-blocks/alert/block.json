@@ -1,11 +1,14 @@
 {
     "name": "acf/uds-alert",
     "title": "UDS Alert",
+    "apiVersion": 3,
+    "version": "1.0.0",
     "description": "A UDS compliant alert banner, with customizable text and styles.",
     "category": "uds",
     "icon": "warning",
     "keywords": ["alert", "message", "banner"],
     "acf": {
+        "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "alert.php",
         "validate": false
